@@ -8,6 +8,10 @@ export function Contact() {
     name: '',
     email: '',
     organization: '',
+    consultationType: '',
+    taxSystemDetails: '',
+    benefitReviewDetails: '',
+    policyStrategyDetails: '',
     message: ''
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -21,6 +25,18 @@ export function Contact() {
       newErrors.email = 'Please enter a valid email address';
     }
     if (!formData.organization.trim()) newErrors.organization = 'Organization is required';
+    if (!formData.consultationType) newErrors.consultationType = 'Please select a consultation type';
+    
+    if (formData.consultationType === 'Tax System Modernization' && !formData.taxSystemDetails.trim()) {
+      newErrors.taxSystemDetails = 'Please specify your current system or challenge';
+    }
+    if (formData.consultationType === 'Benefit Eligibility Review' && !formData.benefitReviewDetails.trim()) {
+      newErrors.benefitReviewDetails = 'Please specify the benefit program';
+    }
+    if (formData.consultationType === 'Policy Implementation Strategy' && !formData.policyStrategyDetails.trim()) {
+      newErrors.policyStrategyDetails = 'Please specify the policy domain';
+    }
+
     if (!formData.message.trim()) {
       newErrors.message = 'Message is required';
     } else if (formData.message.length < 10) {
@@ -50,7 +66,16 @@ export function Contact() {
     // Simulate API call
     setTimeout(() => {
       setFormStatus('success');
-      setFormData({ name: '', email: '', organization: '', message: '' });
+      setFormData({ 
+        name: '', 
+        email: '', 
+        organization: '', 
+        consultationType: '',
+        taxSystemDetails: '',
+        benefitReviewDetails: '',
+        policyStrategyDetails: '',
+        message: '' 
+      });
     }, 1500);
   };
 
@@ -237,6 +262,140 @@ export function Contact() {
                           </motion.p>
                         )}
                       </div>
+
+                      <div className="space-y-3">
+                        <label htmlFor="consultationType" className="text-xs font-bold uppercase tracking-widest text-slate-400 ml-1">Consultation Type</label>
+                        <select 
+                          id="consultationType"
+                          name="consultationType"
+                          value={formData.consultationType}
+                          onChange={(e) => {
+                            const { name, value } = e.target;
+                            setFormData(prev => ({ 
+                              ...prev, 
+                              [name]: value,
+                              // Reset sub-fields when type changes
+                              taxSystemDetails: '',
+                              benefitReviewDetails: '',
+                              policyStrategyDetails: ''
+                            }));
+                            if (errors[name]) {
+                              setErrors(prev => {
+                                const next = { ...prev };
+                                delete next[name];
+                                return next;
+                              });
+                            }
+                          }}
+                          className={`w-full px-6 py-5 bg-slate-50/50 border rounded-2xl focus:outline-none focus:ring-2 transition-all duration-300 appearance-none cursor-pointer ${
+                            errors.consultationType 
+                              ? 'border-red-200 focus:ring-red-500/10 focus:border-red-400' 
+                              : 'border-slate-200 focus:ring-brand-jade/10 focus:border-brand-jade focus:bg-white'
+                          }`}
+                        >
+                          <option value="" disabled>Select a consultation type</option>
+                          <option value="Tax System Modernization">Tax System Modernization</option>
+                          <option value="Benefit Eligibility Review">Benefit Eligibility Review</option>
+                          <option value="Policy Implementation Strategy">Policy Implementation Strategy</option>
+                        </select>
+                        {errors.consultationType && (
+                          <motion.p id="consultationType-error" role="alert" initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} className="text-xs font-bold text-red-500 flex items-center gap-1.5 ml-1">
+                            <AlertCircle size={12} /> {errors.consultationType}
+                          </motion.p>
+                        )}
+                      </div>
+
+                      <AnimatePresence mode="popLayout">
+                        {formData.consultationType === 'Tax System Modernization' && (
+                          <motion.div 
+                            key="tax-fields"
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: 'auto' }}
+                            exit={{ opacity: 0, height: 0 }}
+                            className="space-y-3 overflow-hidden"
+                          >
+                            <label htmlFor="taxSystemDetails" className="text-xs font-bold uppercase tracking-widest text-slate-400 ml-1">Current System or Challenge</label>
+                            <input 
+                              id="taxSystemDetails"
+                              name="taxSystemDetails"
+                              value={formData.taxSystemDetails}
+                              onChange={handleChange}
+                              type="text" 
+                              placeholder="e.g., Legacy COBOL system, Compliance gaps"
+                              className={`w-full px-6 py-5 bg-slate-50/50 border rounded-2xl focus:outline-none focus:ring-2 transition-all duration-300 placeholder:text-slate-400 ${
+                                errors.taxSystemDetails 
+                                  ? 'border-red-200 focus:ring-red-500/10 focus:border-red-400' 
+                                  : 'border-slate-200 focus:ring-brand-jade/10 focus:border-brand-jade focus:bg-white'
+                              }`}
+                            />
+                            {errors.taxSystemDetails && (
+                              <motion.p role="alert" initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} className="text-xs font-bold text-red-500 flex items-center gap-1.5 ml-1">
+                                <AlertCircle size={12} /> {errors.taxSystemDetails}
+                              </motion.p>
+                            )}
+                          </motion.div>
+                        )}
+
+                        {formData.consultationType === 'Benefit Eligibility Review' && (
+                          <motion.div 
+                            key="benefit-fields"
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: 'auto' }}
+                            exit={{ opacity: 0, height: 0 }}
+                            className="space-y-3 overflow-hidden"
+                          >
+                            <label htmlFor="benefitReviewDetails" className="text-xs font-bold uppercase tracking-widest text-slate-400 ml-1">Benefit Program Name</label>
+                            <input 
+                              id="benefitReviewDetails"
+                              name="benefitReviewDetails"
+                              value={formData.benefitReviewDetails}
+                              onChange={handleChange}
+                              type="text" 
+                              placeholder="e.g., SNAP, Medicaid, Unemployment Insurance"
+                              className={`w-full px-6 py-5 bg-slate-50/50 border rounded-2xl focus:outline-none focus:ring-2 transition-all duration-300 placeholder:text-slate-400 ${
+                                errors.benefitReviewDetails 
+                                  ? 'border-red-200 focus:ring-red-500/10 focus:border-red-400' 
+                                  : 'border-slate-200 focus:ring-brand-jade/10 focus:border-brand-jade focus:bg-white'
+                              }`}
+                            />
+                            {errors.benefitReviewDetails && (
+                              <motion.p role="alert" initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} className="text-xs font-bold text-red-500 flex items-center gap-1.5 ml-1">
+                                <AlertCircle size={12} /> {errors.benefitReviewDetails}
+                              </motion.p>
+                            )}
+                          </motion.div>
+                        )}
+
+                        {formData.consultationType === 'Policy Implementation Strategy' && (
+                          <motion.div 
+                            key="policy-fields"
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: 'auto' }}
+                            exit={{ opacity: 0, height: 0 }}
+                            className="space-y-3 overflow-hidden"
+                          >
+                            <label htmlFor="policyStrategyDetails" className="text-xs font-bold uppercase tracking-widest text-slate-400 ml-1">Policy Domain</label>
+                            <input 
+                              id="policyStrategyDetails"
+                              name="policyStrategyDetails"
+                              value={formData.policyStrategyDetails}
+                              onChange={handleChange}
+                              type="text" 
+                              placeholder="e.g., Environmental Regulation, Healthcare Reform"
+                              className={`w-full px-6 py-5 bg-slate-50/50 border rounded-2xl focus:outline-none focus:ring-2 transition-all duration-300 placeholder:text-slate-400 ${
+                                errors.policyStrategyDetails 
+                                  ? 'border-red-200 focus:ring-red-500/10 focus:border-red-400' 
+                                  : 'border-slate-200 focus:ring-brand-jade/10 focus:border-brand-jade focus:bg-white'
+                              }`}
+                            />
+                            {errors.policyStrategyDetails && (
+                              <motion.p role="alert" initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} className="text-xs font-bold text-red-500 flex items-center gap-1.5 ml-1">
+                                <AlertCircle size={12} /> {errors.policyStrategyDetails}
+                              </motion.p>
+                            )}
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
                       <div className="space-y-3">
                         <label htmlFor="message" className="text-xs font-bold uppercase tracking-widest text-slate-400 ml-1">Message</label>
                         <textarea 
