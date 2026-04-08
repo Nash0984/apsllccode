@@ -1,0 +1,6 @@
+name = "applied-policy-systems"
+pages_build_output_dir = "dist"
+
+[vars]
+# Environment variables for Cloudflare Pages
+# GEMINI_API_KEY will be set in the Cloudflare Dashboard

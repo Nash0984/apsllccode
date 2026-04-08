@@ -52,14 +52,18 @@ export function Research() {
                       tabIndex={0}
                       initial={{ opacity: 0, x: -20 }}
                       whileInView={{ opacity: 1, x: 0 }}
+                      whileHover={{ y: -8 }}
                       viewport={{ once: true }}
-                      transition={{ delay: i * 0.1 }}
+                      transition={{ 
+                        x: { delay: i * 0.1 },
+                        y: { type: 'spring', stiffness: 300, damping: 20 }
+                      }}
                       aria-label={`Read document: ${doc.title}`}
                       className={`group p-8 rounded-[2.5rem] border transition-all duration-500 cursor-pointer relative overflow-hidden ${
                         i % 2 === 1 
                           ? 'bg-slate-50/50 dark:bg-slate-900/30 border-slate-100 dark:border-slate-800/50' 
                           : 'bg-white dark:bg-slate-900 border-slate-100 dark:border-slate-800 shadow-sm'
-                      } hover:shadow-2xl hover:border-brand-jade/20`}
+                      } hover:shadow-2xl hover:shadow-brand-jade/10 hover:border-brand-jade/30`}
                     >
                       <div className="absolute top-0 right-0 w-32 h-32 bg-brand-jade/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-2xl group-hover:bg-brand-jade/10 transition-colors" />
                       

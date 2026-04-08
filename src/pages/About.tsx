@@ -165,11 +165,14 @@ export function About() {
                           id={`panel-${experience[activeTab].id}`}
                           role="tabpanel"
                           aria-labelledby={`tab-${experience[activeTab].id}`}
-                          initial={{ opacity: 0, y: 10, filter: "blur(4px)" }}
-                          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                          exit={{ opacity: 0, y: -10, filter: "blur(4px)" }}
-                          transition={{ duration: 0.3, ease: "easeInOut" }}
-                          className="bg-slate-50 dark:bg-slate-800 p-10 rounded-[2.5rem] border border-slate-100 dark:border-slate-700"
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -20 }}
+                          transition={{ 
+                            duration: 0.5, 
+                            ease: [0.22, 1, 0.36, 1] 
+                          }}
+                          className="bg-slate-50 dark:bg-slate-800 p-10 rounded-[2.5rem] border border-slate-100 dark:border-slate-700 shadow-sm"
                         >
                           <h4 className="text-2xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-3">
                             <ChevronRight className="text-brand-jade" size={24} />
@@ -302,9 +305,9 @@ export function About() {
                 icon: "💰"
               },
               {
-                value: "$2M+",
+                value: "$2M",
                 label: "Funding Secured (2025)",
-                desc: "Secured from Federal & National Philanthropic Partners to systematically reduce the SNAP Payment Error Rate.",
+                desc: "Secured from Federal & National Philanthropic Partners for SNAP Payment Error Rate Reduction.",
                 icon: "📉"
               },
               {

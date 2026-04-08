@@ -109,7 +109,12 @@ export function Layout() {
                         : isScrolled ? 'rgb(100, 116, 139)' : 'rgb(71, 85, 105)',
                       y: isScrolled ? 0 : -2
                     }}
-                    className="text-sm font-bold transition-colors duration-300 block"
+                    transition={{ 
+                      type: 'spring', 
+                      stiffness: 260, 
+                      damping: 20 
+                    }}
+                    className="text-sm font-bold block"
                   >
                     {item.name}
                   </motion.span>
@@ -126,6 +131,11 @@ export function Layout() {
               ))}
               <motion.div 
                 animate={{ y: isScrolled ? 0 : -2 }}
+                transition={{ 
+                  type: 'spring', 
+                  stiffness: 260, 
+                  damping: 20 
+                }}
                 className="pl-4 border-l border-slate-200 dark:border-slate-800 flex items-center gap-2"
               >
                 <LanguageSwitcher />
