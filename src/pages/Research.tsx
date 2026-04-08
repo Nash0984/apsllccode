@@ -45,46 +45,60 @@ export function Research() {
                   {/* Vertical Connector Line */}
                   <div className="absolute left-7 top-10 bottom-10 w-px border-l border-dashed border-slate-200 dark:border-slate-800 hidden md:block" />
 
-                  {researchDocs.map((doc, i) => (
-                    <motion.div 
-                      key={i} 
-                      role="listitem"
-                      tabIndex={0}
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      whileHover={{ y: -8 }}
-                      viewport={{ once: true }}
-                      transition={{ 
-                        x: { delay: i * 0.1 },
-                        y: { type: 'spring', stiffness: 300, damping: 20 }
-                      }}
-                      aria-label={`Read document: ${doc.title}`}
-                      className={`group p-8 rounded-[2.5rem] border transition-all duration-500 cursor-pointer relative overflow-hidden ${
-                        i % 2 === 1 
-                          ? 'bg-slate-50/50 dark:bg-slate-900/30 border-slate-100 dark:border-slate-800/50' 
-                          : 'bg-white dark:bg-slate-900 border-slate-100 dark:border-slate-800 shadow-sm'
-                      } hover:shadow-2xl hover:shadow-brand-jade/10 hover:border-brand-jade/30`}
-                    >
-                      <div className="absolute top-0 right-0 w-32 h-32 bg-brand-jade/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-2xl group-hover:bg-brand-jade/10 transition-colors" />
-                      
-                      <div className="flex flex-col md:flex-row items-start gap-8 relative">
-                        <div className="w-14 h-14 rounded-2xl bg-white dark:bg-slate-800 flex items-center justify-center text-brand-jade border border-slate-100 dark:border-slate-700 group-hover:bg-brand-jade group-hover:text-white transition-all duration-300 shrink-0 shadow-sm z-10">
-                          {doc.icon}
-                        </div>
-                        <div className="flex-1">
-                          <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-3 tracking-tight group-hover:text-brand-jade transition-colors">
-                            {doc.title}
-                          </h4>
-                          <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
-                            {doc.desc}
-                          </p>
-                          <div className="flex items-center gap-2 text-brand-jade font-bold text-sm uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all translate-x-[-10px] group-hover:translate-x-0">
-                            Read Document <ArrowRight size={16} />
+                  {researchDocs.map((doc, i) => {
+                    const titleId = `doc-title-${i}`;
+                    const descId = `doc-desc-${i}`;
+                    
+                    return (
+                      <motion.div 
+                        key={i} 
+                        role="button"
+                        tabIndex={0}
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        whileHover={{ y: -8 }}
+                        whileFocus={{ y: -8 }}
+                        viewport={{ once: true }}
+                        transition={{ 
+                          x: { delay: i * 0.1 },
+                          y: { type: 'spring', stiffness: 300, damping: 20 }
+                        }}
+                        aria-labelledby={titleId}
+                        aria-describedby={descId}
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            // Handle click logic here if needed
+                            console.log(`Opening document: ${doc.title}`);
+                          }
+                        }}
+                        className={`group p-8 rounded-[2.5rem] border transition-all duration-500 cursor-pointer relative overflow-hidden outline-none focus-visible:ring-2 focus-visible:ring-brand-jade focus-visible:ring-offset-4 dark:focus-visible:ring-offset-slate-950 ${
+                          i % 2 === 1 
+                            ? 'bg-slate-50/50 dark:bg-slate-900/30 border-slate-100 dark:border-slate-800/50' 
+                            : 'bg-white dark:bg-slate-900 border-slate-100 dark:border-slate-800 shadow-sm'
+                        } hover:shadow-2xl hover:shadow-brand-jade/10 hover:border-brand-jade/30`}
+                      >
+                        <div className="absolute top-0 right-0 w-32 h-32 bg-brand-jade/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-2xl group-hover:bg-brand-jade/10 group-focus:bg-brand-jade/10 transition-colors" />
+                        
+                        <div className="flex flex-col md:flex-row items-start gap-8 relative">
+                          <div className="w-14 h-14 rounded-2xl bg-white dark:bg-slate-800 flex items-center justify-center text-brand-jade border border-slate-100 dark:border-slate-700 group-hover:bg-brand-jade group-hover:text-white group-focus:bg-brand-jade group-focus:text-white transition-all duration-300 shrink-0 shadow-sm z-10">
+                            {doc.icon}
+                          </div>
+                          <div className="flex-1">
+                            <h4 id={titleId} className="text-xl font-bold text-slate-900 dark:text-white mb-3 tracking-tight group-hover:text-brand-jade group-focus:text-brand-jade transition-colors">
+                              {doc.title}
+                            </h4>
+                            <p id={descId} className="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
+                              {doc.desc}
+                            </p>
+                            <div className="flex items-center gap-2 text-brand-jade font-bold text-sm uppercase tracking-widest opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-all translate-x-[-10px] group-hover:translate-x-0 group-focus:translate-x-0">
+                              Read Document <ArrowRight size={16} />
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    </motion.div>
-                  ))}
+                      </motion.div>
+                    );
+                  })}
                 </div>
             </div>
             <div className="relative">
