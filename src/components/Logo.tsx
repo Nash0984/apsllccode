@@ -4,7 +4,7 @@ import { motion } from 'motion/react';
 export const Logo: React.FC<{ className?: string }> = ({ className }) => {
   return (
     <svg
-      viewBox="0 0 650 280"
+      viewBox="0 0 590 280"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
@@ -25,7 +25,7 @@ export const Logo: React.FC<{ className?: string }> = ({ className }) => {
       </defs>
 
       {/* Geometric Cube Icon - Vertically Centered with Text Block */}
-      <g transform="translate(60, 82.5)">
+      <g transform="translate(0, 82.5)">
         <motion.g 
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1.4 }}
@@ -144,7 +144,7 @@ export const Logo: React.FC<{ className?: string }> = ({ className }) => {
 
       {/* Typography with staggered entrance - Two rows perfectly centered with icon */}
       <motion.text
-        x="200"
+        x="140"
         y="115.5"
         fill="#004554"
         style={{
@@ -160,7 +160,7 @@ export const Logo: React.FC<{ className?: string }> = ({ className }) => {
         Applied Policy
       </motion.text>
       <motion.text
-        x="200"
+        x="140"
         y="185.5"
         fill="#004554"
         style={{

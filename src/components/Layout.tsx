@@ -1,10 +1,14 @@
 import { Logo } from '../components/Logo';
+import { LanguageSwitcher } from '../components/LanguageSwitcher';
+import { ThemeToggle } from '../components/ThemeToggle';
 import { motion, useScroll, AnimatePresence } from 'motion/react';
 import { Menu, X, Linkedin, ArrowUp } from 'lucide-react';
 import { useState, useEffect, Suspense } from 'react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 export function Layout() {
+  const { t } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [showBackToTop, setShowBackToTop] = useState(false);
@@ -40,22 +44,22 @@ export function Layout() {
   }, [isMenuOpen]);
 
   const navItems = [
-    { name: 'Home', path: '/' },
-    { name: 'Capabilities', path: '/capabilities' },
-    { name: 'Audiences', path: '/audiences' },
-    { name: 'Research', path: '/research' },
-    { name: 'About Us', path: '/about' },
-    { name: 'Contact', path: '/contact' }
+    { name: t('nav.home'), path: '/' },
+    { name: t('nav.capabilities'), path: '/capabilities' },
+    { name: t('nav.audiences'), path: '/audiences' },
+    { name: t('nav.research'), path: '/research' },
+    { name: t('nav.about'), path: '/about' },
+    { name: t('nav.contact'), path: '/contact' }
   ];
 
   return (
-    <div className="min-h-screen bg-slate-50 font-sans text-brand-charcoal selection:bg-brand-cyan selection:text-brand-charcoal">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 font-sans text-brand-charcoal dark:text-slate-200 selection:bg-brand-cyan selection:text-brand-charcoal transition-colors duration-300">
       {/* Navigation */}
       <header 
         role="banner"
         className={`sticky top-0 z-50 transition-all duration-500 ${
           isScrolled 
-            ? 'bg-white/98 backdrop-blur-md border-b border-slate-200 py-1 shadow-sm' 
+            ? 'bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border-b border-slate-200/60 dark:border-slate-800/60 py-0 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.1)] dark:shadow-[0_10px_30px_-10px_rgba(0,0,0,0.4)]' 
             : 'bg-transparent border-b border-transparent py-4'
         }`}
       >
@@ -87,13 +91,13 @@ export function Layout() {
             <nav className="hidden md:flex items-center gap-8" role="navigation" aria-label="Main navigation">
               {navItems.map((item) => (
                 <Link 
-                  key={item.name} 
+                  key={item.path} 
                   to={item.path}
                   aria-current={location.pathname === item.path ? 'page' : undefined}
                   className={`text-sm font-bold transition-all duration-300 relative group py-2 ${
                     location.pathname === item.path 
                       ? 'text-brand-jade' 
-                      : 'text-slate-600 hover:text-brand-jade'
+                      : 'text-slate-600 dark:text-slate-400 hover:text-brand-jade'
                   }`}
                 >
                   {item.name}
@@ -105,13 +109,17 @@ export function Layout() {
                   />
                 </Link>
               ))}
+              <div className="pl-4 border-l border-slate-200 dark:border-slate-800 flex items-center gap-2">
+                <LanguageSwitcher />
+                <ThemeToggle />
+              </div>
             </nav>
 
             {/* Mobile Menu Button */}
             <div className="md:hidden">
               <button 
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="p-2 text-slate-600 hover:text-brand-jade transition-colors relative z-50"
+                className="p-2 text-slate-600 dark:text-slate-400 hover:text-brand-jade transition-colors relative z-50"
                 aria-label={isMenuOpen ? "Close menu" : "Open menu"}
                 aria-expanded={isMenuOpen}
                 aria-controls="mobile-menu"
@@ -125,69 +133,73 @@ export function Layout() {
         {/* Mobile Nav Overlay & Menu */}
         <AnimatePresence>
           {isMenuOpen && (
-            <>
-              {/* Overlay */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                onClick={() => setIsMenuOpen(false)}
-                className="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-40 md:hidden"
-              />
+            <motion.div
+              key="mobile-nav-overlay"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0, transition: { delay: 0.2 } }}
+              onClick={() => setIsMenuOpen(false)}
+              className="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-40 md:hidden"
+            />
+          )}
+          
+          {isMenuOpen && (
+            <motion.div 
+              key="mobile-nav-menu"
+              id="mobile-menu"
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'spring', damping: 30, stiffness: 300 }}
+              className="fixed top-0 right-0 bottom-0 w-[80%] max-w-sm bg-white dark:bg-slate-900 shadow-2xl z-50 md:hidden p-8 flex flex-col"
+              role="dialog"
+              aria-modal="true"
+              aria-label="Mobile navigation menu"
+            >
+              <div className="flex justify-between items-center mb-12">
+                <Logo className="h-12 w-auto" />
+              </div>
               
-              {/* Menu Content */}
-              <motion.div 
-                id="mobile-menu"
-                initial={{ x: '100%' }}
-                animate={{ x: 0 }}
-                exit={{ x: '100%' }}
-                transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-                className="fixed top-0 right-0 bottom-0 w-[80%] max-w-sm bg-white shadow-2xl z-50 md:hidden p-8 flex flex-col"
-                role="dialog"
-                aria-modal="true"
-                aria-label="Mobile navigation menu"
-              >
-                <div className="flex justify-between items-center mb-12">
-                  <Logo className="h-12 w-auto" />
-                </div>
-                
-                <nav className="flex flex-col gap-6" aria-label="Mobile navigation">
-                  {navItems.map((item, i) => (
-                    <motion.div
-                      key={item.name}
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: i * 0.1 }}
-                    >
-                      <Link 
-                        to={item.path}
-                        onClick={() => setIsMenuOpen(false)}
-                        aria-current={location.pathname === item.path ? 'page' : undefined}
-                        className={`text-2xl font-bold tracking-tight transition-colors ${
-                          location.pathname === item.path 
-                            ? 'text-brand-jade' 
-                            : 'text-slate-900 hover:text-brand-jade'
-                        }`}
-                      >
-                        {item.name}
-                      </Link>
-                    </motion.div>
-                  ))}
-                </nav>
-
-                <div className="mt-auto pt-12 border-t border-slate-100">
-                  <p className="text-sm text-slate-400 font-medium mb-4 uppercase tracking-widest">Connect</p>
-                  <Link 
-                    to="/contact" 
-                    onClick={() => setIsMenuOpen(false)}
-                    aria-label="Get in touch with us"
-                    className="inline-block px-8 py-4 bg-brand-jade text-white font-bold rounded-xl shadow-lg shadow-brand-jade/20"
+              <nav className="flex flex-col gap-6" aria-label="Mobile navigation">
+                {navItems.map((item, i) => (
+                  <motion.div
+                    key={item.path}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.1 }}
                   >
-                    Get in Touch
-                  </Link>
+                    <Link 
+                      to={item.path}
+                      onClick={() => setIsMenuOpen(false)}
+                      aria-current={location.pathname === item.path ? 'page' : undefined}
+                      className={`text-2xl font-bold tracking-tight transition-colors ${
+                        location.pathname === item.path 
+                          ? 'text-brand-jade' 
+                          : 'text-slate-900 dark:text-white hover:text-brand-jade'
+                      }`}
+                    >
+                      {item.name}
+                    </Link>
+                  </motion.div>
+                ))}
+                <div className="pt-6 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+                  <LanguageSwitcher />
+                  <ThemeToggle />
                 </div>
-              </motion.div>
-            </>
+              </nav>
+
+              <div className="mt-auto pt-12 border-t border-slate-100 dark:border-slate-800">
+                <p className="text-sm text-slate-400 dark:text-slate-500 font-medium mb-4 uppercase tracking-widest">Connect</p>
+                <Link 
+                  to="/contact" 
+                  onClick={() => setIsMenuOpen(false)}
+                  aria-label="Get in touch with us"
+                  className="inline-block px-8 py-4 bg-brand-jade text-white font-bold rounded-xl shadow-lg shadow-brand-jade/20"
+                >
+                  Get in Touch
+                </Link>
+              </div>
+            </motion.div>
           )}
         </AnimatePresence>
       </header>
@@ -203,24 +215,24 @@ export function Layout() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-white border-t border-slate-200 py-12" role="contentinfo">
+      <footer className="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-12" role="contentinfo">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-8">
             <div className="relative group">
               <Link to="/" aria-label="Applied Policy Systems Home">
                 <Logo className="h-14 w-auto" />
               </Link>
-              <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 px-3 py-1.5 bg-slate-900 text-white text-[10px] font-bold uppercase tracking-widest rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap shadow-xl z-50">
+              <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 px-3 py-1.5 bg-slate-900 dark:bg-slate-800 text-white text-[10px] font-bold uppercase tracking-widest rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap shadow-xl z-50">
                 Back to Home
-                <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-900" />
+                <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-900 dark:border-t-slate-800" />
               </div>
             </div>
             
-            <div className="flex gap-8 text-sm text-slate-500 font-medium items-center">
+            <div className="flex gap-8 text-sm text-slate-500 dark:text-slate-400 font-medium items-center">
               {[
-                { name: 'Privacy Policy', path: '/privacy', tip: 'Data Protection', label: 'View our Privacy Policy' },
-                { name: 'Terms of Service', path: '/terms', tip: 'Legal Framework', label: 'View our Terms of Service' },
-                { name: 'Contact', path: '/contact', tip: 'Start Consultation', label: 'Contact us for a consultation' }
+                { name: t('footer.privacy'), path: '/privacy', tip: 'Data Protection', label: 'View our Privacy Policy' },
+                { name: t('footer.terms'), path: '/terms', tip: 'Legal Framework', label: 'View our Terms of Service' },
+                { name: t('footer.contact'), path: '/contact', tip: 'Start Consultation', label: 'Contact us for a consultation' }
               ].map((link) => (
                 <div key={link.name} className="relative group">
                   <Link 
@@ -230,9 +242,9 @@ export function Layout() {
                   >
                     {link.name}
                   </Link>
-                  <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 px-3 py-1.5 bg-slate-900 text-white text-[10px] font-bold uppercase tracking-widest rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap shadow-xl z-50">
+                  <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 px-3 py-1.5 bg-slate-900 dark:bg-slate-800 text-white text-[10px] font-bold uppercase tracking-widest rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap shadow-xl z-50">
                     {link.tip}
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-900" />
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-900 dark:border-t-slate-800" />
                   </div>
                 </div>
               ))}
@@ -242,18 +254,18 @@ export function Layout() {
                   target="_blank" 
                   rel="noopener noreferrer"
                   aria-label="Follow Applied Policy Systems on LinkedIn"
-                  className="text-slate-400 hover:text-brand-jade transition-colors"
+                  className="text-slate-400 dark:text-slate-500 hover:text-brand-jade transition-colors"
                 >
                   <Linkedin size={20} strokeWidth={1.5} />
                 </a>
-                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 px-3 py-1.5 bg-slate-900 text-white text-[10px] font-bold uppercase tracking-widest rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap shadow-xl z-50">
+                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 px-3 py-1.5 bg-slate-900 dark:bg-slate-800 text-white text-[10px] font-bold uppercase tracking-widest rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap shadow-xl z-50">
                   Follow on LinkedIn
-                  <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-900" />
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-900 dark:border-t-slate-800" />
                 </div>
               </div>
             </div>
-            <p className="text-xs text-slate-400 font-mono">
-              © 2026 Applied Policy Systems LLC. All Rights Reserved.
+            <p className="text-xs text-slate-400 dark:text-slate-500 font-mono">
+              {t('footer.rights')}
             </p>
           </div>
         </div>

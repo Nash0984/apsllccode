@@ -33,18 +33,55 @@ export function About() {
     }
   ];
 
+  const timelineMilestones = [
+    {
+      year: '2011',
+      title: 'Municipal Leadership',
+      organization: 'City of Philadelphia',
+      role: 'Administrator of Taxpayer Assistance',
+      description: 'Directed the $1.3 million "You Earned It Philly" EITC initiative, returning over $44 million to 26,000 residents and establishing a model for municipal tax credit outreach.',
+      icon: '🏛️'
+    },
+    {
+      year: '2016',
+      title: 'National Policy Strategy',
+      organization: 'Prosperity Now',
+      role: 'Taxpayer Assistance & Policy Strategist',
+      description: 'Acted as a national liaison for tax administration programs, integrating federal financial regulations into community-based infrastructure across the U.S.',
+      icon: '🌐'
+    },
+    {
+      year: '2019',
+      title: 'State Operations',
+      organization: 'Maryland Dept. of Human Services',
+      role: 'Director of Operations',
+      description: 'Evaluated and guided modernization strategies for benefits access, focusing on human-centered design and translating legislative mandates into operational eligibility systems.',
+      icon: '🛡️'
+    },
+    {
+      year: '2023',
+      title: 'Federal Advisory & APS',
+      organization: 'Applied Policy Systems LLC',
+      role: 'Founder & Federal Advisor',
+      description: 'Founded APS to bridge the policy-implementation gap. Appointed to a federal advisory committee advising Congress and the IRS on electronic tax administration.',
+      icon: '💎'
+    }
+  ];
+
+  const [activeMilestone, setActiveMilestone] = useState(timelineMilestones.length - 1);
+
   return (
-    <div className="bg-white">
+    <div className="bg-white dark:bg-slate-950 transition-colors duration-300">
       <Helmet>
         <title>About Graham O'Neill | Applied Policy Systems LLC</title>
         <meta name="description" content="Learn about Graham O'Neill, founder of Applied Policy Systems. A public sector innovator with 15+ years of experience in government system optimization, tax administration, and legislative mandate translation." />
         <meta name="keywords" content="Graham O'Neill, Applied Policy Systems, public sector innovation, government technology, tax administration, policy implementation" />
       </Helmet>
       {/* Header */}
-      <section className="py-24 bg-slate-50 border-b border-slate-100">
+      <section className="py-24 bg-slate-50 dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-sm font-bold uppercase tracking-[0.4em] text-slate-400 mb-6">About Us</h1>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight max-w-3xl">
+          <h1 className="text-sm font-bold uppercase tracking-[0.4em] text-slate-400 dark:text-slate-500 mb-6">About Us</h1>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight max-w-3xl">
             Bridging the Disconnect in Public Administration.
           </h2>
         </div>
@@ -53,12 +90,12 @@ export function About() {
       {/* Founder Section */}
       <section className="py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-[4rem] p-12 md:p-24 border border-slate-200 shadow-2xl relative overflow-hidden">
+          <div className="bg-white dark:bg-slate-900 rounded-[4rem] p-12 md:p-24 border border-slate-200 dark:border-slate-800 shadow-2xl relative overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 bg-brand-jade/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl" />
             
             <div className="relative grid lg:grid-cols-12 gap-20 items-start">
               <div className="lg:col-span-2 sticky top-32 flex flex-col items-center text-center">
-                <div className="w-full aspect-square bg-slate-50 rounded-full border border-slate-100 overflow-hidden relative group shadow-xl shadow-slate-200/50 mb-6">
+                <div className="w-full aspect-square bg-slate-50 dark:bg-slate-800 rounded-full border border-slate-100 dark:border-slate-700 overflow-hidden relative group shadow-xl shadow-slate-200/50 mb-6">
                   <img 
                     src="/graham-oneill.jpg" 
                     alt="Graham F. O'Neill" 
@@ -70,15 +107,15 @@ export function About() {
                   />
                 </div>
                 <div className="relative">
-                  <p className="text-slate-900 font-bold text-lg tracking-tight">Graham F. O'Neill</p>
+                  <p className="text-slate-900 dark:text-white font-bold text-lg tracking-tight">Graham F. O'Neill</p>
                   <p className="text-brand-jade text-[10px] font-bold uppercase tracking-[0.2em] mt-1">Principal</p>
                 </div>
               </div>
               
               <div className="lg:col-span-10">
-                <h3 className="text-4xl font-extrabold text-slate-900 mb-12 tracking-tight">Graham O'Neill, Founder & Principal Consultant</h3>
-                <div className="prose prose-slate prose-xl max-w-none text-slate-600 leading-relaxed space-y-8">
-                  <p className="text-xl text-slate-900 font-medium border-l-4 border-brand-jade pl-8">
+                <h3 className="text-4xl font-extrabold text-slate-900 dark:text-white mb-12 tracking-tight">Graham O'Neill, Founder & Principal Consultant</h3>
+                <div className="prose prose-slate prose-xl max-w-none text-slate-600 dark:text-slate-400 leading-relaxed space-y-8">
+                  <p className="text-xl text-slate-900 dark:text-slate-100 font-medium border-l-4 border-brand-jade pl-8">
                     Graham O’Neill is a public sector innovator and technology strategist with over 15 years of experience optimizing complex government systems.
                   </p>
                   <p>
@@ -89,7 +126,7 @@ export function About() {
                   </p>
 
                   {/* Experience Tabs */}
-                  <div className="mt-16 pt-12 border-t border-slate-100">
+                  <div className="mt-16 pt-12 border-t border-slate-100 dark:border-slate-800">
                     <div className="flex flex-wrap gap-3 mb-12 relative" role="tablist" aria-label="Graham O'Neill's Experience">
                       {experience.map((item, i) => (
                         <button
@@ -102,7 +139,7 @@ export function About() {
                           className={`px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 relative z-10 ${
                             activeTab === i 
                               ? 'text-white' 
-                              : 'text-slate-500 hover:text-slate-700'
+                              : 'text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200'
                           }`}
                         >
                           {activeTab === i && (
@@ -132,13 +169,13 @@ export function About() {
                           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                           exit={{ opacity: 0, y: -10, filter: "blur(4px)" }}
                           transition={{ duration: 0.3, ease: "easeInOut" }}
-                          className="bg-slate-50 p-10 rounded-[2.5rem] border border-slate-100"
+                          className="bg-slate-50 dark:bg-slate-800 p-10 rounded-[2.5rem] border border-slate-100 dark:border-slate-700"
                         >
-                          <h4 className="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3">
+                          <h4 className="text-2xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-3">
                             <ChevronRight className="text-brand-jade" size={24} />
                             {experience[activeTab].title}
                           </h4>
-                          <p className="text-slate-600 leading-relaxed text-lg">
+                          <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-lg">
                             {experience[activeTab].content}
                           </p>
                         </motion.div>
@@ -152,12 +189,108 @@ export function About() {
         </div>
       </section>
 
+      {/* Career Journey Timeline */}
+      <section className="py-32 bg-slate-900 text-white relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10 pointer-events-none" 
+          style={{ 
+            backgroundImage: 'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)', 
+            backgroundSize: '100px 100px' 
+          }} 
+        />
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div className="text-center mb-24">
+            <h2 className="text-sm font-bold uppercase tracking-[0.4em] text-brand-jade mb-6">Career Journey</h2>
+            <h3 className="text-4xl md:text-5xl font-bold tracking-tight">A Legacy of Systems Optimization.</h3>
+          </div>
+
+          <div className="grid lg:grid-cols-12 gap-16 items-center">
+            {/* Timeline Visualization */}
+            <div className="lg:col-span-5 relative">
+              <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-slate-800" />
+              
+              <div className="space-y-12 relative">
+                {timelineMilestones.map((milestone, i) => (
+                  <motion.button
+                    key={i}
+                    onClick={() => setActiveMilestone(i)}
+                    className="flex items-center gap-8 w-full text-left group"
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.1 }}
+                  >
+                    <div className={`relative z-10 w-16 h-16 rounded-2xl flex items-center justify-center transition-all duration-500 border-2 ${
+                      activeMilestone === i 
+                        ? 'bg-brand-jade border-brand-jade shadow-[0_0_30px_rgba(0,163,174,0.3)]' 
+                        : 'bg-slate-900 border-slate-800 group-hover:border-slate-700'
+                    }`}>
+                      <span className="text-2xl">{milestone.icon}</span>
+                    </div>
+                    
+                    <div>
+                      <div className={`text-sm font-bold tracking-widest uppercase mb-1 transition-colors ${
+                        activeMilestone === i ? 'text-brand-jade' : 'text-slate-500'
+                      }`}>
+                        {milestone.year}
+                      </div>
+                      <div className={`text-xl font-bold transition-colors ${
+                        activeMilestone === i ? 'text-white' : 'text-slate-400 group-hover:text-slate-300'
+                      }`}>
+                        {milestone.title}
+                      </div>
+                    </div>
+                  </motion.button>
+                ))}
+              </div>
+            </div>
+
+            {/* Detail Card */}
+            <div className="lg:col-span-7">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeMilestone}
+                  initial={{ opacity: 0, y: 20, filter: 'blur(10px)' }}
+                  animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                  exit={{ opacity: 0, y: -20, filter: 'blur(10px)' }}
+                  transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                  className="bg-slate-800/50 backdrop-blur-xl border border-white/10 p-12 md:p-16 rounded-[3rem] shadow-2xl relative overflow-hidden"
+                >
+                  <div className="absolute top-0 right-0 p-12 text-8xl opacity-5 pointer-events-none font-bold italic">
+                    {timelineMilestones[activeMilestone].year}
+                  </div>
+                  
+                  <div className="relative">
+                    <div className="inline-block px-4 py-1.5 bg-brand-jade/10 text-brand-jade text-xs font-bold uppercase tracking-widest rounded-full border border-brand-jade/20 mb-8">
+                      {timelineMilestones[activeMilestone].organization}
+                    </div>
+                    
+                    <h4 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">
+                      {timelineMilestones[activeMilestone].role}
+                    </h4>
+                    
+                    <p className="text-xl text-slate-300 leading-relaxed mb-8">
+                      {timelineMilestones[activeMilestone].description}
+                    </p>
+                    
+                    <div className="flex items-center gap-4 text-brand-jade font-bold group cursor-pointer">
+                      <span className="text-sm uppercase tracking-widest">Explore Impact</span>
+                      <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Proven Impact Section */}
-      <section className="py-32 bg-white border-y border-slate-100">
+      <section className="py-32 bg-white dark:bg-slate-950 border-y border-slate-100 dark:border-slate-800 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
-            <h2 className="text-sm font-bold uppercase tracking-[0.4em] text-slate-400 mb-6">Principal's Track Record</h2>
-            <h3 className="text-4xl font-bold text-slate-900 tracking-tight">Measurable Results in Public Administration.</h3>
+            <h2 className="text-sm font-bold uppercase tracking-[0.4em] text-slate-400 dark:text-slate-500 mb-6">Principal's Track Record</h2>
+            <h3 className="text-4xl font-bold text-slate-900 dark:text-white tracking-tight">Measurable Results in Public Administration.</h3>
           </div>
           
           <div className="grid md:grid-cols-3 gap-12">
@@ -169,9 +302,9 @@ export function About() {
                 icon: "💰"
               },
               {
-                value: "$564K",
-                label: "FNS Grant Secured",
-                desc: "Secured federal funding to systematically lower the SNAP Payment Error Rate during his tenure in Maryland.",
+                value: "$2M+",
+                label: "Funding Secured (2025)",
+                desc: "Secured from Federal & National Philanthropic Partners to systematically reduce the SNAP Payment Error Rate.",
                 icon: "📉"
               },
               {
@@ -187,12 +320,12 @@ export function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="text-center p-10 rounded-[2.5rem] bg-slate-50 border border-slate-100"
+                className="text-center p-10 rounded-[2.5rem] bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800"
               >
                 <div className="text-4xl mb-6">{stat.icon}</div>
                 <div className="text-5xl font-extrabold text-brand-jade mb-4 tracking-tighter">{stat.value}</div>
-                <div className="text-xl font-bold text-slate-900 mb-4">{stat.label}</div>
-                <p className="text-slate-500 leading-relaxed">{stat.desc}</p>
+                <div className="text-xl font-bold text-slate-900 dark:text-white mb-4">{stat.label}</div>
+                <p className="text-slate-500 dark:text-slate-400 leading-relaxed">{stat.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -200,12 +333,12 @@ export function About() {
       </section>
 
       {/* Ecosystem & Strategic Engagements Section */}
-      <section className="py-32 bg-slate-50 border-t border-slate-100">
+      <section className="py-32 bg-slate-50 dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
-            <h2 className="text-sm font-bold uppercase tracking-[0.4em] text-slate-400 mb-6">Ecosystem & Strategic Engagements</h2>
-            <h3 className="text-4xl font-bold text-slate-900 tracking-tight">Graham's History of Collaboration with National Leaders.</h3>
-            <p className="mt-6 text-lg text-slate-500 max-w-2xl mx-auto">
+            <h2 className="text-sm font-bold uppercase tracking-[0.4em] text-slate-400 dark:text-slate-500 mb-6">Ecosystem & Strategic Engagements</h2>
+            <h3 className="text-4xl font-bold text-slate-900 dark:text-white tracking-tight">Graham's History of Collaboration with National Leaders.</h3>
+            <p className="mt-6 text-lg text-slate-500 dark:text-slate-400 max-w-2xl mx-auto">
               The following descriptions outline the operational expertise and network collaborations of the firm's Principal Consultant.
             </p>
           </div>
@@ -253,23 +386,23 @@ export function About() {
                 context: "Actively engaged through the Digital Benefits Network and civic technology communities of practice. Applied Policy Systems LLC utilizes service design research regarding digital identity design patterns and human-centered public benefit forms to inform its system architecture evaluations."
               }
             ].map((partner, i) => (
-              <div key={i} className="p-10 bg-white border border-slate-200 rounded-[2.5rem] flex flex-col group hover:shadow-2xl hover:border-brand-jade/20 transition-all duration-500">
+              <div key={i} className="p-10 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-[2.5rem] flex flex-col group hover:shadow-2xl hover:border-brand-jade/20 transition-all duration-500">
                 <div className="flex justify-between items-start mb-6">
-                  <div className="text-2xl font-bold text-slate-900 group-hover:text-brand-jade transition-colors">{partner.name}</div>
-                  <div className="px-4 py-1.5 bg-slate-50 text-slate-400 text-[10px] font-bold uppercase tracking-widest rounded-full border border-slate-100">
+                  <div className="text-2xl font-bold text-slate-900 dark:text-white group-hover:text-brand-jade transition-colors">{partner.name}</div>
+                  <div className="px-4 py-1.5 bg-slate-50 dark:bg-slate-900 text-slate-400 dark:text-slate-500 text-[10px] font-bold uppercase tracking-widest rounded-full border border-slate-100 dark:border-slate-800">
                     {partner.focus}
                   </div>
                 </div>
-                <p className="text-slate-500 leading-relaxed text-sm">
+                <p className="text-slate-500 dark:text-slate-400 leading-relaxed text-sm">
                   {partner.context}
                 </p>
               </div>
             ))}
           </div>
 
-          <div className="mt-24 p-12 bg-white border border-slate-200 rounded-[3rem] shadow-sm">
+          <div className="mt-24 p-12 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-[3rem] shadow-sm">
             <div className="max-w-3xl mx-auto text-center">
-              <p className="text-xl text-slate-600 leading-relaxed italic">
+              <p className="text-xl text-slate-600 dark:text-slate-300 leading-relaxed italic">
                 "Applied Policy Systems LLC is built on a foundation of deep professional history. Throughout his career, Graham has collaborated with national experts in implementation, evaluation, and design, ensuring that our methodology is informed by the collective intelligence of the civic tech ecosystem."
               </p>
             </div>

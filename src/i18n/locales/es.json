@@ -1,0 +1,30 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "capabilities": "Capacidades",
+    "audiences": "Audiencias",
+    "research": "Investigación",
+    "about": "Sobre Nosotros",
+    "contact": "Contacto",
+    "getInTouch": "Ponerse en Contacto"
+  },
+  "home": {
+    "hero": {
+      "title": "Asesoría Estratégica para la Modernización del Sector Público.",
+      "subtitle": "Applied Policy Systems LLC cierra la brecha entre las regulaciones escritas y las realidades operativas que rigen la maquinaria del gobierno. Brindamos evaluación estructural y orientación estratégica para garantizar que los sistemas administrativos complejos logren fidelidad política, eficiencia operativa y acceso equitativo.",
+      "cta": "Cómo podemos ayudar"
+    },
+    "challenge": {
+      "label": "El Desafío",
+      "title": "La Desconexión en la Implementación.",
+      "text": "La administración pública a menudo falla en la capa de traducción. Los legisladores redactan estatutos subjetivos, mientras que los proveedores de tecnología crean software opaco de caja negra. Esto crea una brecha entre las regulaciones escritas y las realidades operativas del gobierno.",
+      "solution": "Applied Policy Systems LLC cierra esta desconexión. Nos especializamos en optimizar sistemas gubernamentales complejos traduciendo una profunda experiencia en políticas en soluciones accionables y deterministas."
+    }
+  },
+  "footer": {
+    "privacy": "Política de Privacidad",
+    "terms": "Términos de Servicio",
+    "contact": "Contacto",
+    "rights": "© 2026 Applied Policy Systems LLC. Todos los derechos reservados."
+  }
+}

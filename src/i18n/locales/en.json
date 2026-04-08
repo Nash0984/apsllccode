@@ -1,0 +1,30 @@
+{
+  "nav": {
+    "home": "Home",
+    "capabilities": "Capabilities",
+    "audiences": "Audiences",
+    "research": "Research",
+    "about": "About Us",
+    "contact": "Contact",
+    "getInTouch": "Get in Touch"
+  },
+  "home": {
+    "hero": {
+      "title": "Strategic Advisory for Public Sector Modernization.",
+      "subtitle": "Applied Policy Systems LLC bridges the gap between written regulations and the operational realities that govern the machinery of government. We provide structural evaluation and strategic guidance to ensure that complex administrative systems achieve policy fidelity, operational efficiency, and equitable access.",
+      "cta": "How we can help"
+    },
+    "challenge": {
+      "label": "The Challenge",
+      "title": "The Implementation Disconnect.",
+      "text": "Public administration often fails at the translation layer. Lawmakers draft subjective statutes, while technology vendors build opaque, black-box software. This creates a gap between written regulations and the operational realities of government.",
+      "solution": "Applied Policy Systems LLC bridges this disconnect. We specialize in optimizing complex government systems by translating deep policy expertise into actionable, deterministic solutions."
+    }
+  },
+  "footer": {
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "contact": "Contact",
+    "rights": "© 2026 Applied Policy Systems LLC. All Rights Reserved."
+  }
+}

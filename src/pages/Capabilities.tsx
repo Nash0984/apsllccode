@@ -3,12 +3,12 @@ import { ArrowRight, BookOpen, LayoutGrid, CheckCircle2 } from 'lucide-react';
 
 export function Capabilities() {
   return (
-    <div className="bg-white">
+    <div className="bg-white dark:bg-slate-950 transition-colors duration-300">
       {/* Header */}
-      <section className="py-24 bg-slate-50 border-b border-slate-100">
+      <section className="py-24 bg-slate-50 dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-sm font-bold uppercase tracking-[0.4em] text-slate-400 mb-6">Core Capabilities</h1>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight max-w-3xl">
+          <h1 className="text-sm font-bold uppercase tracking-[0.4em] text-slate-400 dark:text-slate-500 mb-6">Core Capabilities</h1>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight max-w-3xl">
             How we help bridge the gap between policy and implementation.
           </h2>
         </div>
@@ -50,19 +50,19 @@ export function Capabilities() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="bg-slate-50 p-12 rounded-[2.5rem] border border-slate-100 hover:bg-white hover:shadow-2xl hover:border-brand-jade/10 transition-all duration-500 group"
+                className="bg-slate-50 dark:bg-slate-900 p-12 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 hover:bg-white dark:hover:bg-slate-800 hover:shadow-2xl hover:border-brand-jade/10 transition-all duration-500 group"
               >
                 <div className="relative inline-block mb-8">
-                  <div className="p-4 bg-white rounded-2xl shadow-sm group-hover:bg-brand-jade group-hover:text-white transition-all duration-500">
+                  <div className="p-4 bg-white dark:bg-slate-800 rounded-2xl shadow-sm group-hover:bg-brand-jade group-hover:text-white transition-all duration-500">
                     {item.icon}
                   </div>
-                  <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 px-3 py-1.5 bg-slate-900 text-white text-[10px] font-bold uppercase tracking-widest rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap shadow-xl z-10">
+                  <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 px-3 py-1.5 bg-slate-900 dark:bg-slate-800 text-white text-[10px] font-bold uppercase tracking-widest rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap shadow-xl z-10">
                     {item.tip}
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-900" />
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-900 dark:border-t-slate-800" />
                   </div>
                 </div>
-                <h4 className="text-2xl font-bold text-slate-900 mb-6 tracking-tight">{item.title}</h4>
-                <p className="text-slate-600 leading-relaxed text-lg">{item.desc}</p>
+                <h4 className="text-2xl font-bold text-slate-900 dark:text-white mb-6 tracking-tight">{item.title}</h4>
+                <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-lg">{item.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -70,11 +70,11 @@ export function Capabilities() {
       </section>
 
       {/* Case Studies Section */}
-      <section className="py-32 bg-slate-50 border-y border-slate-100">
+      <section className="py-32 bg-slate-50 dark:bg-slate-900 border-y border-slate-100 dark:border-slate-800 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
-            <h2 className="text-sm font-bold uppercase tracking-[0.4em] text-slate-400 mb-6">Direct Execution</h2>
-            <h3 className="text-4xl font-bold text-slate-900 tracking-tight">Past Performance & Case Studies.</h3>
+            <h2 className="text-sm font-bold uppercase tracking-[0.4em] text-slate-400 dark:text-slate-500 mb-6">Direct Execution</h2>
+            <h3 className="text-4xl font-bold text-slate-900 dark:text-white tracking-tight">Past Performance & Case Studies.</h3>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12">
@@ -94,23 +94,23 @@ export function Capabilities() {
                 impact: "Preserved frontline tax services for vulnerable populations while raising over $2.2 million in grant infrastructure."
               }
             ].map((study, i) => (
-              <div key={i} className="bg-white p-12 rounded-[3rem] border border-slate-200 shadow-sm relative overflow-hidden group hover:shadow-xl transition-all duration-500">
+              <div key={i} className="bg-white dark:bg-slate-800 p-12 rounded-[3rem] border border-slate-200 dark:border-slate-700 shadow-sm relative overflow-hidden group hover:shadow-xl transition-all duration-500">
                 <div className="absolute top-0 left-0 w-1.5 h-full bg-brand-jade" />
-                <h4 className="text-2xl font-bold text-slate-900 mb-2 tracking-tight">{study.title}</h4>
+                <h4 className="text-2xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight">{study.title}</h4>
                 <p className="text-brand-jade font-bold text-sm uppercase tracking-wider mb-8">{study.framework}</p>
                 
                 <div className="space-y-6">
                   <div>
-                    <p className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">The Challenge</p>
-                    <p className="text-slate-600 leading-relaxed">{study.challenge}</p>
+                    <p className="text-xs font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-2">The Challenge</p>
+                    <p className="text-slate-600 dark:text-slate-400 leading-relaxed">{study.challenge}</p>
                   </div>
                   <div>
-                    <p className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">The Execution</p>
-                    <p className="text-slate-600 leading-relaxed">{study.execution}</p>
+                    <p className="text-xs font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-2">The Execution</p>
+                    <p className="text-slate-600 dark:text-slate-400 leading-relaxed">{study.execution}</p>
                   </div>
-                  <div className="pt-6 border-t border-slate-100">
-                    <p className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">The Impact</p>
-                    <p className="text-slate-900 font-bold text-lg leading-relaxed">{study.impact}</p>
+                  <div className="pt-6 border-t border-slate-100 dark:border-slate-700">
+                    <p className="text-xs font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-2">The Impact</p>
+                    <p className="text-slate-900 dark:text-slate-100 font-bold text-lg leading-relaxed">{study.impact}</p>
                   </div>
                 </div>
               </div>
