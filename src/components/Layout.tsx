@@ -74,14 +74,20 @@ export function Layout() {
             <Link to="/" className="flex items-center gap-2 group" aria-label="Applied Policy Systems Home">
               <motion.div
                 animate={{ 
-                  scale: isScrolled ? 0.85 : 1,
+                  scale: isScrolled ? 0.8 : 1,
+                  y: isScrolled ? 0 : -4,
                   filter: isScrolled ? 'brightness(1)' : 'brightness(1.05)'
                 }}
                 whileHover={{ 
-                  scale: isScrolled ? 0.9 : 1.05,
+                  scale: isScrolled ? 0.85 : 1.05,
+                  y: isScrolled ? -2 : -6,
                   filter: 'brightness(1.1)'
                 }}
-                transition={{ duration: 0.3, ease: 'easeOut' }}
+                transition={{ 
+                  type: 'spring', 
+                  stiffness: 260, 
+                  damping: 20 
+                }}
               >
                 <Logo className="h-16 md:h-20 w-auto transition-colors" />
               </motion.div>
@@ -94,25 +100,37 @@ export function Layout() {
                   key={item.path} 
                   to={item.path}
                   aria-current={location.pathname === item.path ? 'page' : undefined}
-                  className={`text-sm font-bold transition-all duration-300 relative group py-2 ${
-                    location.pathname === item.path 
-                      ? 'text-brand-jade' 
-                      : 'text-slate-600 dark:text-slate-400 hover:text-brand-jade'
-                  }`}
+                  className="relative group py-2"
                 >
-                  {item.name}
+                  <motion.span
+                    animate={{ 
+                      color: location.pathname === item.path 
+                        ? 'var(--color-brand-jade)' 
+                        : isScrolled ? 'rgb(100, 116, 139)' : 'rgb(71, 85, 105)',
+                      y: isScrolled ? 0 : -2
+                    }}
+                    className="text-sm font-bold transition-colors duration-300 block"
+                  >
+                    {item.name}
+                  </motion.span>
                   <motion.div 
                     className="absolute -bottom-1 left-0 h-0.5 bg-brand-jade"
                     initial={{ width: 0 }}
-                    animate={{ width: location.pathname === item.path ? '100%' : 0 }}
-                    whileHover={{ width: '100%' }}
+                    animate={{ 
+                      width: location.pathname === item.path ? '100%' : 0,
+                      opacity: isScrolled ? 1 : 0.6
+                    }}
+                    whileHover={{ width: '100%', opacity: 1 }}
                   />
                 </Link>
               ))}
-              <div className="pl-4 border-l border-slate-200 dark:border-slate-800 flex items-center gap-2">
+              <motion.div 
+                animate={{ y: isScrolled ? 0 : -2 }}
+                className="pl-4 border-l border-slate-200 dark:border-slate-800 flex items-center gap-2"
+              >
                 <LanguageSwitcher />
                 <ThemeToggle />
-              </div>
+              </motion.div>
             </nav>
 
             {/* Mobile Menu Button */}
