@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  
+  --color-brand-jade: #006D77;
+  --color-brand-cyan: #22D3EE; /* More professional, less "green" cyan */
+  --color-brand-charcoal: #0f172a; /* slate-900 equivalent */
+}
+
+@layer base {
+  body {
+    @apply font-sans text-brand-charcoal bg-slate-50 antialiased;
+  }
+}
