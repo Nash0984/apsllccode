@@ -1,21 +1,31 @@
-import { BookOpen, FileText, BarChart3, Network, ArrowRight } from 'lucide-react';
-import { motion } from 'motion/react';
+import React, { useState } from 'react';
+import { BookOpen, FileText, BarChart3, Network, ArrowRight, ChevronDown, ChevronUp } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
 
 export function Research() {
+  const [expandedDocs, setExpandedDocs] = useState<number[]>([]);
+
+  const toggleExpand = (index: number, e: React.MouseEvent | React.KeyboardEvent) => {
+    e.stopPropagation();
+    setExpandedDocs(prev => 
+      prev.includes(index) ? prev.filter(i => i !== index) : [...prev, index]
+    );
+  };
+
   const researchDocs = [
     {
       title: "Rules as Code (RaC) Implementation Frameworks",
-      desc: "A technical guide on translating subjective policy into deterministic logic for automated benefit systems.",
+      desc: "A technical guide on translating subjective policy into deterministic logic for automated benefit systems. This framework covers the entire lifecycle from legislative analysis to technical specification and automated testing, ensuring that policy intent is preserved throughout the digital transformation process.",
       icon: <FileText size={24} strokeWidth={1.5} />
     },
     {
       title: "SNAP Payment Error Rate Mitigation Strategies",
-      desc: "Analysis of root causes for payment errors and operational frameworks to improve accuracy and audit compliance.",
+      desc: "Analysis of root causes for payment errors and operational frameworks to improve accuracy and audit compliance. Our research identifies key friction points in the eligibility determination process and provides evidence-based recommendations for reducing administrative churn and improving payment integrity.",
       icon: <BarChart3 size={24} strokeWidth={1.5} />
     },
     {
       title: "VITA Infrastructure Integration Models",
-      desc: "Designing seamless data flows between tax preparation services and state benefit eligibility systems.",
+      desc: "Designing seamless data flows between tax preparation services and state benefit eligibility systems. This study explores the technical and policy requirements for real-time data sharing, focusing on privacy-preserving protocols and user-centric design to maximize the uptake of refundable tax credits.",
       icon: <Network size={24} strokeWidth={1.5} />
     }
   ];
@@ -48,6 +58,7 @@ export function Research() {
                   {researchDocs.map((doc, i) => {
                     const titleId = `doc-title-${i}`;
                     const descId = `doc-desc-${i}`;
+                    const isExpanded = expandedDocs.includes(i);
                     
                     return (
                       <motion.div 
@@ -56,8 +67,8 @@ export function Research() {
                         tabIndex={0}
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
-                        whileHover={{ y: -8 }}
-                        whileFocus={{ y: -8 }}
+                        whileHover={{ y: -4 }}
+                        whileFocus={{ y: -4 }}
                         viewport={{ once: true }}
                         transition={{ 
                           x: { delay: i * 0.1 },
@@ -65,10 +76,10 @@ export function Research() {
                         }}
                         aria-labelledby={titleId}
                         aria-describedby={descId}
+                        aria-expanded={isExpanded}
                         onKeyDown={(e) => {
                           if (e.key === 'Enter' || e.key === ' ') {
                             e.preventDefault();
-                            // Handle click logic here if needed
                             console.log(`Opening document: ${doc.title}`);
                           }
                         }}
@@ -88,10 +99,41 @@ export function Research() {
                             <h4 id={titleId} className="text-xl font-bold text-slate-900 dark:text-white mb-3 tracking-tight group-hover:text-brand-jade group-focus:text-brand-jade transition-colors">
                               {doc.title}
                             </h4>
-                            <p id={descId} className="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
-                              {doc.desc}
-                            </p>
-                            <div className="flex items-center gap-2 text-brand-jade font-bold text-sm uppercase tracking-widest opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-all translate-x-[-10px] group-hover:translate-x-0 group-focus:translate-x-0">
+                            
+                            <div className="relative">
+                              <motion.div
+                                initial={false}
+                                animate={{ height: isExpanded ? 'auto' : '3.5rem' }}
+                                transition={{ duration: 0.4, ease: [0.04, 0.62, 0.23, 0.98] }}
+                                className="overflow-hidden"
+                              >
+                                <p 
+                                  id={descId} 
+                                  className={`text-slate-600 dark:text-slate-400 leading-relaxed ${!isExpanded ? 'line-clamp-2' : ''}`}
+                                >
+                                  {doc.desc}
+                                </p>
+                              </motion.div>
+                              
+                              <button
+                                onClick={(e) => toggleExpand(i, e)}
+                                onKeyDown={(e) => {
+                                  if (e.key === 'Enter' || e.key === ' ') {
+                                    toggleExpand(i, e);
+                                  }
+                                }}
+                                className="mt-2 text-brand-jade font-semibold text-sm flex items-center gap-1 hover:underline focus:outline-none focus:ring-2 focus:ring-brand-jade focus:ring-offset-2 rounded px-1 transition-all"
+                                aria-label={isExpanded ? "Read less" : "Read more about " + doc.title}
+                              >
+                                {isExpanded ? (
+                                  <>Read Less <ChevronUp size={14} /></>
+                                ) : (
+                                  <>Read More <ChevronDown size={14} /></>
+                                )}
+                              </button>
+                            </div>
+
+                            <div className="flex items-center gap-2 mt-6 text-brand-jade font-bold text-sm uppercase tracking-widest opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-all translate-x-[-10px] group-hover:translate-x-0 group-focus:translate-x-0">
                               Read Document <ArrowRight size={16} />
                             </div>
                           </div>
