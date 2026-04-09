@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, lazy, Suspense } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
   Shield, Lock, BarChart3, Cpu, CheckCircle2, ArrowRight, Zap, 
@@ -8,8 +8,9 @@ import {
   Sparkles, ZapOff, Fingerprint, Network
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { ModuleGraphic } from '../components/ModuleGraphics';
-import { ArchitectureVisualization } from '../components/ArchitectureVisualization';
+
+const ModuleGraphic = lazy(() => import('../components/ModuleGraphics').then(m => ({ default: m.ModuleGraphic })));
+const ArchitectureVisualization = lazy(() => import('../components/ArchitectureVisualization').then(m => ({ default: m.ArchitectureVisualization })));
 
 export function Platform() {
   const [activePillar, setActivePillar] = useState(0);
@@ -17,9 +18,9 @@ export function Platform() {
 
   const pillars = [
     {
-      title: "Governance & Security Infrastructure",
+      title: "Statutory Governance & Fidelity",
       icon: <Shield size={20} />,
-      desc: "Foundational frameworks ensuring system-wide trust, absolute data privacy, and strict regulatory alignment.",
+      desc: "Architectural frameworks that ensure every line of code remains strictly aligned with the written law.",
       modules: [
         {
           id: "01",
@@ -33,14 +34,14 @@ export function Platform() {
           ]
         },
         {
-          id: "02",
-          title: "Precision Access Control (RBAC)",
-          icon: <Lock className="text-brand-jade" size={32} strokeWidth={1.5} />,
-          desc: "A granular access matrix coordinating work across applicants, caseworkers, and adjudicators with zero data leakage.",
+          id: "10",
+          title: "Mathematical Policy Verification",
+          icon: <Binary className="text-brand-jade" size={32} strokeWidth={1.5} />,
+          desc: "Formal logic environment allowing policymakers to mathematically prove that system rules match the written law.",
           features: [
-            { name: "Persona-Based Workflows", detail: "Isolates capabilities across distinct roles, from intake staff to administrative law judges." },
-            { name: "Dynamic UI Generation", detail: "Interfaces are generated server-side based on security clearance, preventing unauthorized data exposure." },
-            { name: "Secure Handoffs", detail: "Routes cases between departments without exposing PII to unauthorized internal personnel." }
+            { name: "Formal Logic Proofs", detail: "Translates statutes into axioms to prove logic contains no dead-ends or loopholes." },
+            { name: "Scenario Simulation", detail: "Simulates policy changes against historical data to project caseload and financial impacts." },
+            { name: "Regression Prevention", detail: "Ensures localized waivers do not break the federal compliance baseline for the state." }
           ]
         },
         {
@@ -67,9 +68,9 @@ export function Platform() {
       ]
     },
     {
-      title: "Financial Compliance & Risk Mitigation",
+      title: "Financial Integrity & Risk Mitigation",
       icon: <Scale size={20} />,
-      desc: "Precision-engineered modules built to manage strict tolerances and protect agencies from multi-million dollar sanctions.",
+      desc: "Precision-engineered modules built to manage strict tolerances and protect agencies from federal sanctions.",
       modules: [
         {
           id: "05",
@@ -95,7 +96,7 @@ export function Platform() {
         },
         {
           id: "07",
-          title: "ABAWD Automation & Compliance",
+          title: "ABAWD Compliance Management",
           icon: <Clock className="text-brand-jade" size={32} strokeWidth={1.5} />,
           desc: "Automates the complex 3-in-36 month time-limit tracking, reducing procedural friction for caseworkers and citizens.",
           features: [
@@ -105,34 +106,23 @@ export function Platform() {
           ]
         },
         {
-          id: "13",
-          title: "Financial Data & Tax Gateway",
-          icon: <Globe className="text-brand-jade" size={32} strokeWidth={1.5} />,
-          desc: "Secure integration hub managing complex financial parameters and tax routing to support income verification.",
+          id: "02",
+          title: "Precision Access Control (RBAC)",
+          icon: <Lock className="text-brand-jade" size={32} strokeWidth={1.5} />,
+          desc: "A granular access matrix coordinating work across applicants, caseworkers, and adjudicators with zero data leakage.",
           features: [
-            { name: "E-Filing Infrastructure", detail: "Monitored pipeline for secure data transmission adhering to federal tax standards." },
-            { name: "Dynamic Parameters", detail: "Allows updates to localized tax rates and deduction thresholds without code changes." },
-            { name: "Instant Verification", detail: "Interfaces with workforce databases to validate income, reducing manual paystub reliance." }
+            { name: "Persona-Based Workflows", detail: "Isolates capabilities across distinct roles, from intake staff to administrative law judges." },
+            { name: "Dynamic UI Generation", detail: "Interfaces are generated server-side based on security clearance, preventing unauthorized data exposure." },
+            { name: "Secure Handoffs", detail: "Routes cases between departments without exposing PII to unauthorized internal personnel." }
           ]
         }
       ]
     },
     {
-      title: "Operational Intelligence & Policy Execution",
+      title: "Operational Intelligence & Automation",
       icon: <Activity size={20} />,
       desc: "Deterministic engines and analytics that translate complex statutes into mathematically provable outcomes.",
       modules: [
-        {
-          id: "03",
-          title: "Administrative Burden Analytics",
-          icon: <BarChart3 className="text-brand-jade" size={32} strokeWidth={1.5} />,
-          desc: "Quantifies the friction placed on citizens and staff, replacing self-reported metrics with provable data.",
-          features: [
-            { name: "Burden Calculation", detail: "Computes exact processing time reductions and drop-off rates following new initiatives." },
-            { name: "Churn Diagnostics", detail: "Isolates applications denied due to paperwork friction rather than statutory ineligibility." },
-            { name: "Compliance Reporting", detail: "Aggregates data to satisfy federal mandates regarding administrative hurdle reduction." }
-          ]
-        },
         {
           id: "04",
           title: "Deterministic Policy Engine",
@@ -145,14 +135,25 @@ export function Platform() {
           ]
         },
         {
-          id: "10",
-          title: "Mathematical Policy Verification",
-          icon: <Binary className="text-brand-jade" size={32} strokeWidth={1.5} />,
-          desc: "Formal logic environment allowing policymakers to mathematically prove that system rules match the written law.",
+          id: "03",
+          title: "Administrative Burden Analytics",
+          icon: <BarChart3 className="text-brand-jade" size={32} strokeWidth={1.5} />,
+          desc: "Quantifies the friction placed on citizens and staff, replacing self-reported metrics with provable data.",
           features: [
-            { name: "Formal Logic Proofs", detail: "Translates statutes into axioms to prove logic contains no dead-ends or loopholes." },
-            { name: "Scenario Simulation", detail: "Simulates policy changes against historical data to project caseload and financial impacts." },
-            { name: "Regression Prevention", detail: "Ensures localized waivers do not break the federal compliance baseline for the state." }
+            { name: "Burden Calculation", detail: "Computes exact processing time reductions and drop-off rates following new initiatives." },
+            { name: "Churn Diagnostics", detail: "Isolates applications denied due to paperwork friction rather than statutory ineligibility." },
+            { name: "Compliance Reporting", detail: "Aggregates data to satisfy federal mandates regarding administrative hurdle reduction." }
+          ]
+        },
+        {
+          id: "13",
+          title: "Financial Data & Tax Gateway",
+          icon: <Globe className="text-brand-jade" size={32} strokeWidth={1.5} />,
+          desc: "Secure integration hub managing complex financial parameters and tax routing to support income verification.",
+          features: [
+            { name: "E-Filing Infrastructure", detail: "Monitored pipeline for secure data transmission adhering to federal tax standards." },
+            { name: "Dynamic Parameters", detail: "Allows updates to localized tax rates and deduction thresholds without code changes." },
+            { name: "Instant Verification", detail: "Interfaces with workforce databases to validate income, reducing manual paystub reliance." }
           ]
         },
         {
@@ -169,7 +170,7 @@ export function Platform() {
       ]
     },
     {
-      title: "Service Delivery & Workforce Readiness",
+      title: "Service Delivery & Human Capital",
       icon: <Heart size={20} />,
       desc: "Infrastructure designed to eliminate administrative burden and embed training directly into production.",
       modules: [
@@ -274,7 +275,9 @@ export function Platform() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="relative"
             >
-              <ArchitectureVisualization />
+              <Suspense fallback={<div className="w-full aspect-video bg-slate-100 dark:bg-slate-800 animate-pulse rounded-[2.5rem]" />}>
+                <ArchitectureVisualization />
+              </Suspense>
               <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-brand-jade/10 rounded-full blur-2xl -z-10" />
               <div className="absolute -top-6 -left-6 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl -z-10" />
             </motion.div>
@@ -382,7 +385,13 @@ export function Platform() {
                 <div className="flex-1 min-h-[400px] bg-slate-50/50 dark:bg-slate-950/50 rounded-[3rem] border border-slate-100 dark:border-slate-800 p-8 relative group/graphic">
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="w-full h-full max-w-4xl">
-                      <ModuleGraphic id={pillars[activePillar].modules[activeModule].id} />
+                      <Suspense fallback={
+                        <div className="w-full h-full flex items-center justify-center">
+                          <div className="w-12 h-12 border-4 border-brand-jade/20 border-t-brand-jade rounded-full animate-spin" />
+                        </div>
+                      }>
+                        <ModuleGraphic id={pillars[activePillar].modules[activeModule].id} />
+                      </Suspense>
                     </div>
                   </div>
                   <div className="absolute bottom-8 left-8 flex items-center gap-3">

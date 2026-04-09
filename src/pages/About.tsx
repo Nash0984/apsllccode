@@ -101,6 +101,7 @@ export function About() {
                     alt="Graham F. O'Neill" 
                     className="w-full h-full object-cover object-center transition-all duration-700 scale-105 group-hover:scale-100"
                     referrerPolicy="no-referrer"
+                    loading="lazy"
                     onError={(e) => {
                       e.currentTarget.src = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?fit=crop&w=800&q=80";
                     }}
