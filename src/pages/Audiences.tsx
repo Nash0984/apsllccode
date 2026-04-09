@@ -4,11 +4,11 @@ export function Audiences() {
   return (
     <div className="bg-white dark:bg-slate-950 transition-colors duration-300">
       {/* Header - Compact */}
-      <section className="py-20 bg-slate-50 dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="hero-section">
+        <div className="container-wide">
           <div className="max-w-3xl">
-            <h1 className="text-sm font-bold uppercase tracking-[0.4em] text-brand-jade mb-6">Target Audiences</h1>
-            <h2 className="text-4xl md:text-6xl font-black text-slate-900 dark:text-white tracking-tight leading-tight">
+            <h1 className="label-uppercase">Target Audiences</h1>
+            <h2>
               Creating systemic impact across sectors.
             </h2>
           </div>
@@ -16,8 +16,8 @@ export function Audiences() {
       </section>
 
       {/* Audiences Grid - Compact */}
-      <section className="py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="section-padding">
+        <div className="container-wide">
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
@@ -36,12 +36,12 @@ export function Audiences() {
                 icon: <Users size={24} strokeWidth={1.5} />
               }
             ].map((item, i) => (
-              <div key={i} className="p-12 border border-slate-200 dark:border-slate-800 rounded-[2.5rem] bg-white dark:bg-slate-900 hover:shadow-2xl hover:border-brand-jade/20 transition-all duration-500">
+              <div key={i} className="card-base card-hover">
                 <div className="w-14 h-14 rounded-2xl bg-slate-50 dark:bg-slate-800 flex items-center justify-center text-brand-jade mb-8 border border-slate-100 dark:border-slate-700">
                   {item.icon}
                 </div>
-                <h4 className="text-xl font-bold mb-6 text-slate-900 dark:text-white tracking-tight">{item.title}</h4>
-                <p className="text-slate-600 dark:text-slate-400 leading-relaxed">{item.desc}</p>
+                <h4 className="text-xl font-bold mb-6 tracking-tight">{item.title}</h4>
+                <p className="leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -49,16 +49,16 @@ export function Audiences() {
       </section>
 
       {/* Trusted Advisory Section */}
-      <section className="py-32 bg-slate-50 dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 transition-colors duration-300">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="section-padding bg-slate-50 dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800">
+        <div className="container-wide">
           <div className="bg-white dark:bg-slate-800 p-12 md:p-20 rounded-[4rem] border border-slate-200 dark:border-slate-700 shadow-xl relative overflow-hidden">
             <div className="absolute top-0 right-0 w-96 h-96 bg-brand-jade/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl" />
             
             <div className="relative grid lg:grid-cols-2 gap-16 items-center">
               <div>
-                <h2 className="text-sm font-bold uppercase tracking-[0.4em] text-slate-400 dark:text-slate-500 mb-6">Trusted Advisory</h2>
-                <h3 className="text-4xl font-bold text-slate-900 dark:text-white mb-8 tracking-tight leading-tight">Advising the Architects of Digital Infrastructure.</h3>
-                <p className="text-xl text-slate-600 dark:text-slate-400 leading-relaxed mb-10">
+                <h2 className="label-muted">Trusted Advisory</h2>
+                <h3 className="mb-8 tracking-tight leading-tight">Advising the Architects of Digital Infrastructure.</h3>
+                <p className="text-xl leading-relaxed mb-10">
                   Our expertise is sought at the highest levels of federal oversight, ensuring that the next generation of civic technology is built on a foundation of accuracy and equity.
                 </p>
                 <div className="flex items-center gap-6 p-6 bg-slate-50 dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800">

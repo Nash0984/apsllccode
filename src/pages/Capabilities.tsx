@@ -5,11 +5,11 @@ export function Capabilities() {
   return (
     <div className="bg-white dark:bg-slate-950 transition-colors duration-300">
       {/* Header - Compact */}
-      <section className="py-20 bg-slate-50 dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="hero-section">
+        <div className="container-wide">
           <div className="max-w-3xl">
-            <h1 className="text-sm font-bold uppercase tracking-[0.4em] text-brand-jade mb-6">Core Capabilities</h1>
-            <h2 className="text-4xl md:text-6xl font-black text-slate-900 dark:text-white tracking-tight leading-tight">
+            <h1 className="label-uppercase">Consulting Expertise</h1>
+            <h2>
               Bridging the gap between policy and implementation.
             </h2>
           </div>
@@ -17,8 +17,8 @@ export function Capabilities() {
       </section>
 
       {/* Capabilities Grid - Compact */}
-      <section className="py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="section-padding">
+        <div className="container-wide">
           <div className="grid md:grid-cols-2 gap-8">
             {[
               {
@@ -52,7 +52,7 @@ export function Capabilities() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="bg-slate-50 dark:bg-slate-900 p-12 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 hover:bg-white dark:hover:bg-slate-800 hover:shadow-2xl hover:border-brand-jade/10 transition-all duration-500 group"
+                className="card-base card-hover group"
               >
                 <div className="relative inline-block mb-8">
                   <div className="p-4 bg-white dark:bg-slate-800 rounded-2xl shadow-sm group-hover:bg-brand-jade group-hover:text-white transition-all duration-500">
@@ -64,7 +64,7 @@ export function Capabilities() {
                   </div>
                 </div>
                 <h4 className="text-2xl font-bold text-slate-900 dark:text-white mb-6 tracking-tight">{item.title}</h4>
-                <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-lg">{item.desc}</p>
+                <p className="text-lg">{item.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -72,11 +72,11 @@ export function Capabilities() {
       </section>
 
       {/* Case Studies Section */}
-      <section className="py-32 bg-slate-50 dark:bg-slate-900 border-y border-slate-100 dark:border-slate-800 transition-colors duration-300">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="section-padding bg-slate-50 dark:bg-slate-900 border-y border-slate-100 dark:border-slate-800">
+        <div className="container-wide">
           <div className="text-center mb-20">
-            <h2 className="text-sm font-bold uppercase tracking-[0.4em] text-slate-400 dark:text-slate-500 mb-6">Direct Execution</h2>
-            <h3 className="text-4xl font-bold text-slate-900 dark:text-white tracking-tight">Past Performance & Case Studies.</h3>
+            <h2 className="label-muted">Direct Execution</h2>
+            <h3 className="tracking-tight">Past Performance & Case Studies.</h3>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12">
@@ -121,46 +121,6 @@ export function Capabilities() {
         </div>
       </section>
 
-      {/* Methodology Section */}
-      <section className="py-32 bg-slate-900 text-white overflow-hidden relative">
-        <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(#fff 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="max-w-3xl mb-20">
-            <h2 className="text-sm font-bold uppercase tracking-[0.4em] text-brand-jade mb-6">Our Methodology</h2>
-            <h3 className="text-4xl md:text-5xl font-bold tracking-tight mb-8">The Glass-Box Framework.</h3>
-            <p className="text-xl text-slate-400 leading-relaxed">
-              We replace opaque "black-box" vendor solutions with transparent, auditable, and mathematically deterministic systems.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                step: "01",
-                title: "Statutory Translation",
-                desc: "We translate subjective legislative text into strict logical requirements, removing ambiguity before a single line of code is written."
-              },
-              {
-                step: "02",
-                title: "Deterministic Design",
-                desc: "We provide the exact mathematical blueprints (Rules as Code) required for technology vendors to build compliant and unbiased systems."
-              },
-              {
-                step: "03",
-                title: "Empirical Validation",
-                desc: "We use randomized control trials and predictive analytics to verify that the system achieves the intended policy fidelity."
-              }
-            ].map((item, i) => (
-              <div key={i} className="p-10 border border-white/10 rounded-[2.5rem] bg-white/5 backdrop-blur-sm relative group hover:bg-white/10 transition-all duration-500">
-                <div className="text-6xl font-black text-white/5 absolute top-6 right-10 group-hover:text-brand-jade/20 transition-colors">{item.step}</div>
-                <h4 className="text-2xl font-bold mb-6 text-white">{item.title}</h4>
-                <p className="text-slate-400 leading-relaxed">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

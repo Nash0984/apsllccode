@@ -58,10 +58,9 @@ export function Layout() {
   const navItems = [
     { name: t('nav.home'), path: '/' },
     { name: t('nav.capabilities'), path: '/capabilities' },
-    { name: t('nav.audiences'), path: '/audiences' },
     { name: t('nav.platform'), path: '/platform' },
     { name: t('nav.research'), path: '/research' },
-    { name: t('nav.about'), path: '/about' },
+    { name: t('nav.audiences'), path: '/audiences' },
     { name: t('nav.contact'), path: '/contact' }
   ];
 
@@ -98,7 +97,7 @@ export function Layout() {
           style={{ scaleX }}
         />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container-wide">
           <div className="flex justify-between items-center h-20">
             <Link to="/" className="flex items-center gap-2 group" aria-label="Applied Policy Systems Home">
               <motion.div
@@ -297,58 +296,60 @@ export function Layout() {
       <ChatWidget />
 
       {/* Footer */}
-      <footer className="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-12" role="contentinfo">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-            <div className="relative group">
-              <Link to="/" aria-label="Applied Policy Systems Home">
+      <footer className="bg-white dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800 py-20" role="contentinfo">
+        <div className="container-wide">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-12">
+            <div className="flex flex-col items-center md:items-start gap-6">
+              <Link to="/" aria-label="Applied Policy Systems Home" className="relative group">
                 <Logo className="h-14 w-auto" />
+                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 px-3 py-1.5 bg-slate-900 dark:bg-slate-800 text-white text-[10px] font-bold uppercase tracking-widest rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap shadow-xl z-50">
+                  Back to Home
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-900 dark:border-t-slate-800" />
+                </div>
               </Link>
-              <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 px-3 py-1.5 bg-slate-900 dark:bg-slate-800 text-white text-[10px] font-bold uppercase tracking-widest rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap shadow-xl z-50">
-                Back to Home
-                <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-900 dark:border-t-slate-800" />
-              </div>
+              <p className="text-sm text-slate-500 dark:text-slate-400 max-w-xs text-center md:text-left leading-relaxed">
+                Bridging the gap between legislative intent and administrative reality through precision-engineered infrastructure.
+              </p>
             </div>
             
-            <div className="flex gap-8 text-sm text-slate-500 dark:text-slate-400 font-medium items-center">
-              {[
-                { name: t('footer.privacy'), path: '/privacy', tip: 'Data Protection', label: 'View our Privacy Policy' },
-                { name: t('footer.terms'), path: '/terms', tip: 'Legal Framework', label: 'View our Terms of Service' },
-                { name: t('footer.contact'), path: '/contact', tip: 'Start Consultation', label: 'Contact us for a consultation' }
-              ].map((link) => (
-                <div key={link.name} className="relative group">
-                  <Link 
-                    to={link.path} 
-                    aria-label={link.label}
-                    className="hover:text-brand-jade transition-colors"
-                  >
-                    {link.name}
-                  </Link>
-                  <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 px-3 py-1.5 bg-slate-900 dark:bg-slate-800 text-white text-[10px] font-bold uppercase tracking-widest rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap shadow-xl z-50">
-                    {link.tip}
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-900 dark:border-t-slate-800" />
+            <div className="flex flex-col items-center md:items-end gap-8">
+              <nav className="flex flex-wrap justify-center gap-x-10 gap-y-4 text-sm font-bold uppercase tracking-widest" aria-label="Footer navigation">
+                {[
+                  { name: t('footer.privacy'), path: '/privacy', tip: 'Data Protection', label: 'View our Privacy Policy' },
+                  { name: t('footer.terms'), path: '/terms', tip: 'Legal Framework', label: 'View our Terms of Service' },
+                  { name: t('footer.contact'), path: '/contact', tip: 'Start Consultation', label: 'Contact us for a consultation' }
+                ].map((link) => (
+                  <div key={link.name} className="relative group">
+                    <Link 
+                      to={link.path} 
+                      aria-label={link.label}
+                      className="text-slate-600 dark:text-slate-400 hover:text-brand-jade transition-colors"
+                    >
+                      {link.name}
+                    </Link>
+                    <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 px-3 py-1.5 bg-slate-900 dark:bg-slate-800 text-white text-[10px] font-bold uppercase tracking-widest rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap shadow-xl z-50">
+                      {link.tip}
+                      <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-900 dark:border-t-slate-800" />
+                    </div>
                   </div>
-                </div>
-              ))}
-              <div className="relative group">
+                ))}
+              </nav>
+
+              <div className="flex items-center gap-6">
                 <a 
                   href="https://www.linkedin.com/company/applied-policy-systems" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   aria-label="Follow Applied Policy Systems on LinkedIn"
-                  className="text-slate-400 dark:text-slate-500 hover:text-brand-jade transition-colors"
+                  className="w-10 h-10 rounded-xl bg-slate-50 dark:bg-slate-800 flex items-center justify-center text-slate-400 dark:text-slate-500 hover:text-brand-jade hover:border-brand-jade/30 border border-slate-100 dark:border-slate-700 transition-all group"
                 >
                   <Linkedin size={20} strokeWidth={1.5} />
                 </a>
-                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 px-3 py-1.5 bg-slate-900 dark:bg-slate-800 text-white text-[10px] font-bold uppercase tracking-widest rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap shadow-xl z-50">
-                  Follow on LinkedIn
-                  <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-900 dark:border-t-slate-800" />
-                </div>
+                <p className="text-[10px] text-slate-400 dark:text-slate-500 font-mono uppercase tracking-widest">
+                  {t('footer.rights')}
+                </p>
               </div>
             </div>
-            <p className="text-xs text-slate-400 dark:text-slate-500 font-mono">
-              {t('footer.rights')}
-            </p>
           </div>
         </div>
       </footer>

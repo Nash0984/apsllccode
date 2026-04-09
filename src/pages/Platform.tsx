@@ -4,9 +4,12 @@ import {
   Shield, Lock, BarChart3, Cpu, CheckCircle2, ArrowRight, Zap, 
   Database, Users, Scale, FileSearch, AlertTriangle, Clock, 
   Gavel, Smartphone, Binary, History, GraduationCap, Globe, 
-  RefreshCw, Code2, Eye, LayoutDashboard, Settings, Activity, Heart
+  RefreshCw, Code2, Eye, LayoutDashboard, Settings, Activity, Heart,
+  Sparkles, ZapOff, Fingerprint, Network
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { ModuleGraphic } from '../components/ModuleGraphics';
+import { ArchitectureVisualization } from '../components/ArchitectureVisualization';
 
 export function Platform() {
   const [activePillar, setActivePillar] = useState(0);
@@ -56,7 +59,10 @@ export function Platform() {
           icon: <Eye className="text-brand-jade" size={32} strokeWidth={1.5} />,
           desc: "As government systems increasingly rely on algorithms to process data, this module provides the mandatory oversight required to ensure automated decisions remain equitable, transparent, and legally defensible.",
           features: [
-            { name: "Algorithmic Bias Tracking", detail: "Continuously monitors the outcomes of automated routing and pre-authorization scoring to ensure specific demographic groups or jurisdictions are not experiencing disproportionate procedural friction." },
+            { 
+              name: "Algorithmic Bias Tracking", 
+              detail: "Continuously monitors outcomes for systemic disparities. For example, identifying if income-verification algorithms disproportionately flag applicants in specific zip codes (location bias) or if automated pre-authorization logic creates higher friction for households with non-traditional income sources (demographic/economic bias). The mechanism flags these anomalies for immediate human review to prevent disparate impact." 
+            },
             { name: "Automated Decision Auditability", detail: "Logs the exact parameters, data inputs, and logic trees utilized by the rules engine for every automated determination, ensuring every machine-driven action can be explained and defended." },
             { name: "Performance Degradation Alerts", detail: "Tracks the accuracy and confidence thresholds of automated verification integrations, immediately alerting administrators if an external data source begins returning anomalous results." }
           ]
@@ -220,35 +226,72 @@ export function Platform() {
 
   return (
     <div className="bg-white dark:bg-slate-950 transition-colors duration-300 min-h-screen flex flex-col">
-      {/* Hero Section - Compact */}
-      <section className="relative py-20 overflow-hidden border-b border-slate-100 dark:border-slate-800">
-        <div className="absolute inset-0 bg-slate-50 dark:bg-slate-900/50 -z-10" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl">
+      {/* Hero Section - Enhanced */}
+      <section className="hero-section">
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-jade/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/4 pointer-events-none" />
+        
+        <div className="container-wide">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <h1 className="text-sm font-bold uppercase tracking-[0.4em] text-brand-jade mb-6">Strategic Infrastructure</h1>
-              <h2 className="text-4xl md:text-6xl font-black text-slate-900 dark:text-white tracking-tight leading-tight mb-6">
-                Integrated Benefits Administration Platform.
+              <h1 className="label-uppercase">Systems Infrastructure</h1>
+              <h2 className="mb-8">
+                Architecting <br />
+                <span className="text-brand-jade">Statutory Fidelity.</span>
               </h2>
-              <p className="text-xl text-slate-600 dark:text-slate-400 leading-relaxed max-w-3xl">
-                Our proprietary eligibility and case management platform provides government agencies with a secure, modernized infrastructure to deliver health and human services.
+              <p className="text-xl mb-10 max-w-xl">
+                We replace opaque "black-box" systems with transparent, auditable, and mathematically deterministic infrastructure. Our consulting framework bridges the gap between legislative intent and digital execution.
               </p>
+              
+              <div className="grid sm:grid-cols-2 gap-6 mb-12">
+                {[
+                  { icon: <Fingerprint className="text-brand-jade" />, title: "Zero-Gap Logic", desc: "Law-to-code translation with 100% fidelity." },
+                  { icon: <Network className="text-brand-jade" />, title: "Modular Core", desc: "16 interoperable modules for total flexibility." }
+                ].map((item, i) => (
+                  <div key={i} className="flex gap-4">
+                    <div className="shrink-0 w-10 h-10 rounded-lg bg-white dark:bg-slate-800 shadow-sm flex items-center justify-center">
+                      {item.icon}
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-slate-900 dark:text-white text-sm">{item.title}</h4>
+                      <p className="text-xs text-slate-500 dark:text-slate-400">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="flex flex-wrap gap-4">
+                <Link to="/contact" className="px-8 py-4 bg-brand-jade text-white font-bold rounded-xl hover:bg-[#005a62] transition-all shadow-xl shadow-brand-jade/20 flex items-center gap-2">
+                  Request Technical Deep-Dive
+                  <ArrowRight size={20} />
+                </Link>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="relative"
+            >
+              <ArchitectureVisualization />
+              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-brand-jade/10 rounded-full blur-2xl -z-10" />
+              <div className="absolute -top-6 -left-6 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl -z-10" />
             </motion.div>
           </div>
         </div>
       </section>
 
       {/* Interactive Command Center */}
-      <section className="flex-1 flex flex-col lg:flex-row max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-12 gap-12">
+      <section className="flex-1 flex flex-col lg:flex-row container-wide py-24 gap-16">
         {/* Sidebar Navigation */}
-        <div className="lg:w-80 shrink-0 space-y-8">
-          <div>
-            <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500 mb-6">Strategic Pillars</h3>
-            <div className="space-y-2">
+        <div className="lg:w-96 shrink-0 space-y-12">
+          <div className="p-8 rounded-card bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800">
+            <h3 className="label-muted mb-8">Infrastructure Domains</h3>
+            <div className="space-y-3">
               {pillars.map((pillar, index) => (
                 <button
                   key={index}
@@ -256,13 +299,13 @@ export function Platform() {
                     setActivePillar(index);
                     setActiveModule(0);
                   }}
-                  className={`w-full text-left p-4 rounded-2xl transition-all flex items-center gap-4 group ${
+                  className={`w-full text-left p-5 rounded-2xl transition-all flex items-center gap-5 group ${
                     activePillar === index 
-                      ? 'bg-brand-jade text-white shadow-lg shadow-brand-jade/20' 
-                      : 'hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400'
+                      ? 'bg-brand-jade text-white shadow-2xl shadow-brand-jade/30 scale-[1.02]' 
+                      : 'hover:bg-white dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 border border-transparent hover:border-slate-200 dark:hover:border-slate-700'
                   }`}
                 >
-                  <div className={`shrink-0 ${activePillar === index ? 'text-white' : 'text-brand-jade group-hover:scale-110 transition-transform'}`}>
+                  <div className={`shrink-0 w-10 h-10 rounded-xl flex items-center justify-center ${activePillar === index ? 'bg-white/20 text-white' : 'bg-brand-jade/10 text-brand-jade group-hover:scale-110 transition-transform'}`}>
                     {pillar.icon}
                   </div>
                   <span className="text-sm font-bold leading-tight">{pillar.title}</span>
@@ -271,20 +314,23 @@ export function Platform() {
             </div>
           </div>
 
-          <div>
-            <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500 mb-6">Modules in Pillar</h3>
-            <div className="space-y-2">
+          <div className="p-8 rounded-card border border-slate-100 dark:border-slate-800">
+            <h3 className="label-muted mb-8">Infrastructure Modules</h3>
+            <div className="grid grid-cols-1 gap-2">
               {pillars[activePillar].modules.map((module, index) => (
                 <button
                   key={index}
                   onClick={() => setActiveModule(index)}
                   className={`w-full text-left p-4 rounded-xl transition-all flex items-center justify-between group ${
                     activeModule === index 
-                      ? 'bg-slate-900 dark:bg-white text-white dark:text-slate-900' 
+                      ? 'bg-slate-900 dark:bg-white text-white dark:text-slate-900 shadow-xl' 
                       : 'hover:bg-slate-50 dark:hover:bg-slate-900 text-slate-500 dark:text-slate-500'
                   }`}
                 >
-                  <span className="text-xs font-bold">{module.title}</span>
+                  <div className="flex items-center gap-3">
+                    <span className="text-[10px] font-mono opacity-50">{module.id}</span>
+                    <span className="text-xs font-bold">{module.title}</span>
+                  </div>
                   <div className={`text-brand-jade ${activeModule === index ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'} transition-opacity`}>
                     <ArrowRight size={14} />
                   </div>
@@ -299,52 +345,68 @@ export function Platform() {
           <AnimatePresence mode="wait">
             <motion.div
               key={`${activePillar}-${activeModule}`}
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -20 }}
-              transition={{ duration: 0.4 }}
-              className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-[3rem] p-8 md:p-12 shadow-sm h-full flex flex-col"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-[4rem] p-10 md:p-16 shadow-2xl h-full flex flex-col relative overflow-hidden"
             >
-              <div className="flex flex-col md:flex-row justify-between items-start gap-8 mb-12">
-                <div className="flex-1">
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className="w-12 h-12 rounded-xl bg-brand-jade/10 flex items-center justify-center">
-                      {pillars[activePillar].modules[activeModule].icon}
+              <div className="flex flex-col gap-12 relative z-10 h-full">
+                <div className="flex flex-col lg:flex-row justify-between items-start gap-12">
+                  <div className="flex-1">
+                    <div className="flex items-center gap-6 mb-8">
+                      <div className="w-16 h-16 rounded-2xl bg-brand-jade/10 flex items-center justify-center text-brand-jade">
+                        {pillars[activePillar].modules[activeModule].icon}
+                      </div>
+                      <div>
+                        <div className="label-uppercase mb-1">Module {pillars[activePillar].modules[activeModule].id}</div>
+                        <h3 className="text-4xl md:text-5xl font-black tracking-tight">
+                          {pillars[activePillar].modules[activeModule].title}
+                        </h3>
+                      </div>
                     </div>
-                    <span className="text-3xl font-mono font-black text-slate-200 dark:text-slate-800">
-                      {pillars[activePillar].modules[activeModule].id}
-                    </span>
-                  </div>
-                  <h3 className="text-3xl md:text-4xl font-black text-slate-900 dark:text-white tracking-tight mb-6">
-                    {pillars[activePillar].modules[activeModule].title}
-                  </h3>
-                  <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
-                    {pillars[activePillar].modules[activeModule].desc}
-                  </p>
-                </div>
-                <div className="shrink-0 pt-2">
-                  <Link 
-                    to="/contact" 
-                    className="px-6 py-3 bg-brand-jade/10 text-brand-jade font-bold rounded-xl hover:bg-brand-jade hover:text-white transition-all flex items-center gap-2 text-sm"
-                  >
-                    Consult on this Module
-                    <ArrowRight size={16} />
-                  </Link>
-                </div>
-              </div>
-
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-auto">
-                {pillars[activePillar].modules[activeModule].features.map((feature, fIndex) => (
-                  <div key={fIndex} className="p-6 bg-slate-50 dark:bg-slate-800/50 rounded-2xl border border-slate-100 dark:border-slate-800 group hover:border-brand-jade/30 transition-colors">
-                    <h4 className="text-sm font-bold text-slate-900 dark:text-white mb-3 flex items-center gap-2">
-                      <div className="w-1.5 h-1.5 bg-brand-jade rounded-full" />
-                      {feature.name}
-                    </h4>
-                    <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-                      {feature.detail}
+                    <p className="text-xl leading-relaxed max-w-2xl">
+                      {pillars[activePillar].modules[activeModule].desc}
                     </p>
                   </div>
-                ))}
+                  
+                  <div className="shrink-0 w-full lg:w-auto">
+                    <Link 
+                      to="/contact" 
+                      className="w-full lg:w-auto px-10 py-5 bg-brand-jade text-white font-bold rounded-2xl hover:bg-[#005a62] transition-all shadow-xl shadow-brand-jade/20 flex items-center justify-center gap-3"
+                    >
+                      Architectural Consultation
+                      <ArrowRight size={20} />
+                    </Link>
+                  </div>
+                </div>
+
+                {/* Enlarged Module Graphic */}
+                <div className="flex-1 min-h-[400px] bg-slate-50/50 dark:bg-slate-950/50 rounded-[3rem] border border-slate-100 dark:border-slate-800 p-8 relative group/graphic">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-full h-full max-w-4xl">
+                      <ModuleGraphic id={pillars[activePillar].modules[activeModule].id} />
+                    </div>
+                  </div>
+                  <div className="absolute bottom-8 left-8 flex items-center gap-3">
+                    <div className="w-2 h-2 rounded-full bg-brand-jade animate-pulse" />
+                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Live Architectural Simulation</span>
+                  </div>
+                </div>
+
+                <div className="grid md:grid-cols-3 gap-8">
+                  {pillars[activePillar].modules[activeModule].features.map((feature, fIndex) => (
+                    <div key={fIndex} className="p-8 bg-white dark:bg-slate-800/50 rounded-[2rem] border border-slate-100 dark:border-slate-800 group hover:border-brand-jade/30 transition-all hover:shadow-xl hover:shadow-brand-jade/5">
+                      <h4 className="text-sm font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-3">
+                        <div className="w-2 h-2 bg-brand-jade rounded-full" />
+                        {feature.name}
+                      </h4>
+                      <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                        {feature.detail}
+                      </p>
+                    </div>
+                  ))}
+                </div>
               </div>
             </motion.div>
           </AnimatePresence>
@@ -352,29 +414,39 @@ export function Platform() {
       </section>
 
       {/* Quick Stats / Footer CTA */}
-      <section className="py-12 border-t border-slate-100 dark:border-slate-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-8">
-          <div className="flex gap-12">
+      <section className="section-padding border-t border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50">
+        <div className="container-wide">
+          <div className="grid md:grid-cols-2 gap-16 items-center">
             <div>
-              <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">Modules</p>
-              <p className="text-2xl font-black text-slate-900 dark:text-white">16</p>
+              <h3 className="text-3xl font-black mb-6">Ready to Modernize?</h3>
+              <p className="text-lg mb-8">
+                Our modular infrastructure is designed to be deployed incrementally, ensuring zero downtime and immediate statutory compliance.
+              </p>
+              <div className="flex gap-12">
+                <div>
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">Modules</p>
+                  <p className="text-3xl font-black text-brand-jade">16</p>
+                </div>
+                <div>
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">Strategic Pillars</p>
+                  <p className="text-3xl font-black text-brand-jade">04</p>
+                </div>
+                <div>
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">Compliance</p>
+                  <p className="text-3xl font-black text-brand-jade">Federal</p>
+                </div>
+              </div>
             </div>
-            <div>
-              <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">Strategic Pillars</p>
-              <p className="text-2xl font-black text-slate-900 dark:text-white">04</p>
-            </div>
-            <div>
-              <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">Compliance</p>
-              <p className="text-2xl font-black text-slate-900 dark:text-white">Federal</p>
+            <div className="flex justify-end">
+              <Link 
+                to="/contact" 
+                className="px-12 py-6 bg-slate-900 text-white dark:bg-white dark:text-slate-900 font-bold rounded-[2rem] hover:scale-105 transition-transform flex items-center gap-4 shadow-2xl"
+              >
+                Start Architectural Consultation
+                <ArrowRight size={24} />
+              </Link>
             </div>
           </div>
-          <Link 
-            to="/contact" 
-            className="px-8 py-4 bg-slate-900 text-white dark:bg-white dark:text-slate-900 font-bold rounded-2xl hover:scale-105 transition-transform flex items-center gap-3"
-          >
-            Start Architectural Consultation
-            <ArrowRight size={20} />
-          </Link>
         </div>
       </section>
     </div>

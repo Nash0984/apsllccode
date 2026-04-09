@@ -12,20 +12,19 @@ export function Contact() {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 overflow-hidden">
-        <div className="absolute inset-0 bg-slate-50 dark:bg-slate-900/50 -z-10" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="hero-section">
+        <div className="container-wide">
           <div className="max-w-3xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <h1 className="text-sm font-bold uppercase tracking-[0.4em] text-brand-jade mb-8">Consultation</h1>
-              <h2 className="text-5xl md:text-7xl font-black text-slate-900 dark:text-white tracking-tight leading-[1.1] mb-10">
+              <h1 className="label-uppercase">Consultation</h1>
+              <h2 className="mb-10">
                 Start the conversation.
               </h2>
-              <p className="text-2xl text-slate-600 dark:text-slate-400 leading-relaxed">
+              <p className="text-2xl leading-relaxed">
                 Whether you're a government agency looking to modernize or a technology vendor seeking policy alignment, our architectural experts are ready to consult.
               </p>
             </motion.div>
@@ -63,11 +62,11 @@ export function Contact() {
               className="space-y-12"
             >
               <div>
-                <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500 mb-8">Direct Channels</h3>
+                <h3 className="label-muted mb-8">Direct Channels</h3>
                 <div className="grid gap-6">
                   <a 
                     href="mailto:graham.oneill@gmail.com" 
-                    className="group p-8 bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-[2rem] hover:border-brand-jade/30 transition-all flex items-center gap-6"
+                    className="group card-base card-hover flex items-center gap-6"
                   >
                     <div className="w-14 h-14 rounded-2xl bg-brand-jade/10 flex items-center justify-center text-brand-jade group-hover:bg-brand-jade group-hover:text-white transition-all">
                       <Mail size={24} />
@@ -82,7 +81,7 @@ export function Contact() {
                     href="https://www.linkedin.com/company/applied-policy-systems" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="group p-8 bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-[2rem] hover:border-brand-jade/30 transition-all flex items-center gap-6"
+                    className="group card-base card-hover flex items-center gap-6"
                   >
                     <div className="w-14 h-14 rounded-2xl bg-brand-jade/10 flex items-center justify-center text-brand-jade group-hover:bg-brand-jade group-hover:text-white transition-all">
                       <Linkedin size={24} />
@@ -93,7 +92,7 @@ export function Contact() {
                     </div>
                   </a>
 
-                  <div className="p-8 bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-[2rem] flex items-center gap-6">
+                  <div className="card-base flex items-center gap-6">
                     <div className="w-14 h-14 rounded-2xl bg-brand-jade/10 flex items-center justify-center text-brand-jade">
                       <MapPin size={24} />
                     </div>
@@ -105,7 +104,7 @@ export function Contact() {
                 </div>
               </div>
 
-              <div className="p-10 bg-brand-jade rounded-[2.5rem] text-white shadow-2xl shadow-brand-jade/20">
+              <div className="p-10 bg-brand-jade rounded-card text-white shadow-2xl shadow-brand-jade/20">
                 <h4 className="text-2xl font-bold mb-4">Ready for a deep dive?</h4>
                 <p className="opacity-90 mb-8 leading-relaxed">
                   Our team is available for formal architectural reviews, statutory mapping workshops, and modernization strategy sessions.

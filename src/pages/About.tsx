@@ -78,18 +78,18 @@ export function About() {
         <meta name="keywords" content="Graham O'Neill, Applied Policy Systems, public sector innovation, government technology, tax administration, policy implementation" />
       </Helmet>
       {/* Header */}
-      <section className="py-24 bg-slate-50 dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-sm font-bold uppercase tracking-[0.4em] text-slate-400 dark:text-slate-500 mb-6">About Us</h1>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight max-w-3xl">
+      <section className="hero-section">
+        <div className="container-wide">
+          <h1 className="label-muted">About Us</h1>
+          <h2>
             Bridging the Disconnect in Public Administration.
           </h2>
         </div>
       </section>
 
       {/* Founder Section */}
-      <section className="py-32">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="section-padding">
+        <div className="container-wide">
           <div className="bg-white dark:bg-slate-900 rounded-[4rem] p-12 md:p-24 border border-slate-200 dark:border-slate-800 shadow-2xl relative overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 bg-brand-jade/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl" />
             
@@ -193,7 +193,7 @@ export function About() {
       </section>
 
       {/* Career Journey Timeline */}
-      <section className="py-32 bg-slate-900 text-white relative overflow-hidden">
+      <section className="section-padding bg-slate-900 text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-10 pointer-events-none" 
           style={{ 
             backgroundImage: 'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)', 
@@ -201,10 +201,10 @@ export function About() {
           }} 
         />
         
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div className="container-wide relative">
           <div className="text-center mb-24">
-            <h2 className="text-sm font-bold uppercase tracking-[0.4em] text-brand-jade mb-6">Career Journey</h2>
-            <h3 className="text-4xl md:text-5xl font-bold tracking-tight">A Legacy of Systems Optimization.</h3>
+            <h2 className="label-uppercase">Career Journey</h2>
+            <h3 className="tracking-tight text-white">A Legacy of Systems Optimization.</h3>
           </div>
 
           <div className="grid lg:grid-cols-12 gap-16 items-center">
@@ -289,11 +289,11 @@ export function About() {
       </section>
 
       {/* Proven Impact Section */}
-      <section className="py-32 bg-white dark:bg-slate-950 border-y border-slate-100 dark:border-slate-800 transition-colors duration-300">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="section-padding bg-white dark:bg-slate-950 border-y border-slate-100 dark:border-slate-800">
+        <div className="container-wide">
           <div className="text-center mb-20">
-            <h2 className="text-sm font-bold uppercase tracking-[0.4em] text-slate-400 dark:text-slate-500 mb-6">Principal's Track Record</h2>
-            <h3 className="text-4xl font-bold text-slate-900 dark:text-white tracking-tight">Measurable Results in Public Administration.</h3>
+            <h2 className="label-muted">Principal's Track Record</h2>
+            <h3 className="tracking-tight">Measurable Results in Public Administration.</h3>
           </div>
           
           <div className="grid md:grid-cols-3 gap-12">
@@ -323,12 +323,12 @@ export function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="text-center p-10 rounded-[2.5rem] bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800"
+                className="text-center card-base"
               >
                 <div className="text-4xl mb-6">{stat.icon}</div>
                 <div className="text-5xl font-extrabold text-brand-jade mb-4 tracking-tighter">{stat.value}</div>
                 <div className="text-xl font-bold text-slate-900 dark:text-white mb-4">{stat.label}</div>
-                <p className="text-slate-500 dark:text-slate-400 leading-relaxed">{stat.desc}</p>
+                <p className="leading-relaxed">{stat.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -336,12 +336,12 @@ export function About() {
       </section>
 
       {/* Ecosystem & Strategic Engagements Section */}
-      <section className="py-32 bg-slate-50 dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800 transition-colors duration-300">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="section-padding bg-slate-50 dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800">
+        <div className="container-wide">
           <div className="text-center mb-20">
-            <h2 className="text-sm font-bold uppercase tracking-[0.4em] text-slate-400 dark:text-slate-500 mb-6">Ecosystem & Strategic Engagements</h2>
-            <h3 className="text-4xl font-bold text-slate-900 dark:text-white tracking-tight">Graham's History of Collaboration with National Leaders.</h3>
-            <p className="mt-6 text-lg text-slate-500 dark:text-slate-400 max-w-2xl mx-auto">
+            <h2 className="label-muted">Ecosystem & Strategic Engagements</h2>
+            <h3 className="tracking-tight">Graham's History of Collaboration with National Leaders.</h3>
+            <p className="mt-6 text-lg max-w-2xl mx-auto">
               The following descriptions outline the operational expertise and network collaborations of the firm's Principal Consultant.
             </p>
           </div>
@@ -389,14 +389,14 @@ export function About() {
                 context: "Actively engaged through the Digital Benefits Network and civic technology communities of practice. Applied Policy Systems LLC utilizes service design research regarding digital identity design patterns and human-centered public benefit forms to inform its system architecture evaluations."
               }
             ].map((partner, i) => (
-              <div key={i} className="p-10 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-[2.5rem] flex flex-col group hover:shadow-2xl hover:border-brand-jade/20 transition-all duration-500">
+              <div key={i} className="card-base card-hover flex flex-col group">
                 <div className="flex justify-between items-start mb-6">
-                  <div className="text-2xl font-bold text-slate-900 dark:text-white group-hover:text-brand-jade transition-colors">{partner.name}</div>
+                  <div className="text-2xl font-bold group-hover:text-brand-jade transition-colors">{partner.name}</div>
                   <div className="px-4 py-1.5 bg-slate-50 dark:bg-slate-900 text-slate-400 dark:text-slate-500 text-[10px] font-bold uppercase tracking-widest rounded-full border border-slate-100 dark:border-slate-800">
                     {partner.focus}
                   </div>
                 </div>
-                <p className="text-slate-500 dark:text-slate-400 leading-relaxed text-sm">
+                <p className="text-sm">
                   {partner.context}
                 </p>
               </div>

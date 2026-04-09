@@ -33,21 +33,21 @@ export function Research() {
   return (
     <div className="bg-white dark:bg-slate-950 transition-colors duration-300">
       {/* Header */}
-      <section className="py-24 bg-slate-50 dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-sm font-bold uppercase tracking-[0.4em] text-slate-400 dark:text-slate-500 mb-6">Research & Insights</h1>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight max-w-3xl">
+      <section className="hero-section">
+        <div className="container-wide">
+          <h1 className="label-muted">Research & Insights</h1>
+          <h2>
             Insights to improve service delivery and policy fidelity.
           </h2>
         </div>
       </section>
 
       {/* Research Content */}
-      <section className="py-32">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="section-padding">
+        <div className="container-wide">
           <div className="grid lg:grid-cols-2 gap-20 items-start">
             <div>
-              <p className="text-xl text-slate-600 dark:text-slate-400 leading-relaxed mb-12">
+              <p className="text-xl leading-relaxed mb-12">
                 Our methodology is rooted in rigorous data analysis and historical context. We publish frameworks that bridge the gap between legislative intent and administrative reality.
               </p>
                 {/* Research Documents List */}
@@ -83,11 +83,11 @@ export function Research() {
                             console.log(`Opening document: ${doc.title}`);
                           }
                         }}
-                        className={`group p-8 rounded-[2.5rem] border transition-all duration-500 cursor-pointer relative overflow-hidden outline-none focus-visible:ring-2 focus-visible:ring-brand-jade focus-visible:ring-offset-4 dark:focus-visible:ring-offset-slate-950 ${
+                        className={`group card-base card-hover relative overflow-hidden outline-none focus-visible:ring-2 focus-visible:ring-brand-jade focus-visible:ring-offset-4 dark:focus-visible:ring-offset-slate-950 ${
                           i % 2 === 1 
                             ? 'bg-slate-50/50 dark:bg-slate-900/30 border-slate-100 dark:border-slate-800/50' 
-                            : 'bg-white dark:bg-slate-900 border-slate-100 dark:border-slate-800 shadow-sm'
-                        } hover:shadow-2xl hover:shadow-brand-jade/10 hover:border-brand-jade/30`}
+                            : 'shadow-sm'
+                        }`}
                       >
                         <div className="absolute top-0 right-0 w-32 h-32 bg-brand-jade/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-2xl group-hover:bg-brand-jade/10 group-focus:bg-brand-jade/10 transition-colors" />
                         
