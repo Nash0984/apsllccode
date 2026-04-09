@@ -1,42 +1,14 @@
-import { useState } from 'react';
 import { motion, useScroll, useTransform } from 'motion/react';
-import { ArrowRight, BookOpen, Cpu, Sparkles, Send, Loader2 } from 'lucide-react';
+import { ArrowRight, BookOpen } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
-import { getChatResponse } from '../services/gemini';
+import { Sandbox } from '../components/Sandbox';
 
 export function Home() {
   const { t } = useTranslation();
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 500], [0, 100]);
-
-  // Sandbox State Management
-  const [sandboxInput, setSandboxInput] = useState('');
-  const [sandboxOutput, setSandboxOutput] = useState('');
-  const [isAnalyzing, setIsAnalyzing] = useState(false);
-
-  const examplePrompts = [
-    "Simulate a Rules-as-Code (RaC) validation for SNAP Standard Utility Allowance against 7 CFR 273.",
-    "Define a neuro-symbolic architecture to mitigate Payment Error Rate (PER) risk in legacy mainframe migrations.",
-    "Generate a Human-in-the-Loop (HITL) compliance protocol for automated income verification adhering to IRS Pub 1075."
-  ];
-
-  const handleAnalyze = async (text: string) => {
-    if (!text.trim() || isAnalyzing) return;
-    setSandboxInput(text);
-    setIsAnalyzing(true);
-    setSandboxOutput('');
-    
-    try {
-      const result = await getChatResponse(`Analyze this policy/technical prompt from a GovTech architecture perspective: ${text}`);
-      setSandboxOutput(result);
-    } catch (error) {
-      setSandboxOutput("Analysis failed. Please try again.");
-    } finally {
-      setIsAnalyzing(false);
-    }
-  };
 
   return (
     <>
@@ -112,82 +84,15 @@ export function Home() {
         </div>
         
         <div className="container-wide relative z-10">
-          <div className="grid lg:grid-cols-2 gap-16 items-start">
-            <div>
-              <div className="flex items-center gap-3 mb-6">
-                <Cpu className="text-brand-jade" size={24} />
-                <h2 className="text-sm font-bold uppercase tracking-[0.4em] text-brand-jade">Technical Demonstration</h2>
-              </div>
-              <h3 className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-6">Interactive Policy Analysis Sandbox</h3>
-              <p className="text-slate-400 text-lg leading-relaxed mb-10">
-                Evaluate our integration of deterministic logic and generative AI. Select a technical prompt below or input a custom parameter to test the model's capacity for Rules-as-Code translation, compliance auditing, and structural comprehension. Note: This environment is sanitized; do not input live PII or restricted agency data.
-              </p>
-              
-              <div className="space-y-4">
-                {examplePrompts.map((prompt, i) => (
-                  <button
-                    key={i}
-                    onClick={() => handleAnalyze(prompt)}
-                    className="w-full text-left p-4 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 hover:border-brand-jade/50 transition-all text-sm text-slate-300 group flex justify-between items-center"
-                  >
-                    {prompt}
-                    <ArrowRight size={16} className="opacity-0 group-hover:opacity-100 transition-opacity text-brand-jade" />
-                  </button>
-                ))}
-              </div>
-            </div>
-            
-            <div className="bg-slate-900 border border-slate-800 rounded-[2.5rem] p-8 shadow-2xl relative">
-              <div className="absolute top-4 right-8 flex gap-2">
-                <div className="w-2 h-2 rounded-full bg-red-500/50" />
-                <div className="w-2 h-2 rounded-full bg-yellow-500/50" />
-                <div className="w-2 h-2 rounded-full bg-green-500/50" />
-              </div>
-              
-              <div className="mb-8">
-                <label className="block text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-4">Input Parameter</label>
-                <div className="relative">
-                  <textarea
-                    value={sandboxInput}
-                    onChange={(e) => setSandboxInput(e.target.value)}
-                    placeholder="Enter policy text or technical requirement..."
-                    className="w-full bg-slate-950 border border-slate-800 rounded-2xl p-4 text-white text-sm min-h-[120px] focus:ring-2 focus:ring-brand-jade outline-none transition-all"
-                  />
-                  <button
-                    onClick={() => handleAnalyze(sandboxInput)}
-                    disabled={isAnalyzing || !sandboxInput.trim()}
-                    className="absolute bottom-4 right-4 p-3 bg-brand-jade text-white rounded-xl hover:bg-[#005a62] transition-all disabled:opacity-50"
-                  >
-                    {isAnalyzing ? <Loader2 size={20} className="animate-spin" /> : <Send size={20} />}
-                  </button>
-                </div>
-              </div>
-              
-              <div>
-                <label className="block text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-4">Architectural Analysis</label>
-                <div className="bg-slate-950 border border-slate-800 rounded-2xl p-6 min-h-[200px] relative overflow-hidden">
-                  {isAnalyzing && (
-                    <div className="absolute inset-0 bg-slate-950/50 backdrop-blur-sm flex items-center justify-center z-10">
-                      <div className="flex flex-col items-center gap-4">
-                        <Sparkles className="text-brand-jade animate-pulse" size={32} />
-                        <span className="text-xs font-bold text-brand-jade animate-pulse">Processing Logic...</span>
-                      </div>
-                    </div>
-                  )}
-                  
-                  {sandboxOutput ? (
-                    <div className="text-sm text-slate-300 leading-relaxed whitespace-pre-wrap">
-                      {sandboxOutput}
-                    </div>
-                  ) : (
-                    <div className="h-full flex items-center justify-center text-slate-600 italic text-sm">
-                      Output will appear here after analysis...
-                    </div>
-                  )}
-                </div>
-              </div>
-            </div>
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-sm font-bold uppercase tracking-[0.4em] text-brand-jade mb-6">Technical Demonstration</h2>
+            <h3 className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-6">Administrative Burden Reduction Engine</h3>
+            <p className="text-slate-400 text-lg leading-relaxed">
+              Evaluate our integration of deterministic logic and multimodal generative AI. Upload a verification document or load a preconfigured protocol to test the model's capacity for extraction, confidence routing, and compliance auditing.
+            </p>
           </div>
+          
+          <Sandbox />
         </div>
       </section>
 
