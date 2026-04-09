@@ -5,6 +5,28 @@ import { GoogleGenAI } from "@google/genai";
 
 const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_GEMINI_API_KEY });
 
+const TypingIndicator = ({ size = 16 }: { size?: number }) => (
+  <div className="flex gap-1 items-center h-4 px-1">
+    {[0, 1, 2].map((i) => (
+      <motion.div
+        key={i}
+        className="bg-brand-jade rounded-full"
+        style={{ width: size / 4, height: size / 4 }}
+        animate={{
+          y: [0, -size / 4, 0],
+          opacity: [0.4, 1, 0.4]
+        }}
+        transition={{
+          duration: 0.6,
+          repeat: Infinity,
+          delay: i * 0.15,
+          ease: "easeInOut"
+        }}
+      />
+    ))}
+  </div>
+);
+
 interface Message {
   role: 'user' | 'assistant';
   content: string;
@@ -99,7 +121,7 @@ export function ChatWidget({ embedded = false }: { embedded?: boolean }) {
           {isLoading && (
             <div className="flex justify-start">
               <div className="bg-slate-100 dark:bg-slate-800 p-4 rounded-2xl rounded-tl-none">
-                <Loader2 className="animate-spin text-brand-jade" size={20} />
+                <TypingIndicator size={20} />
               </div>
             </div>
           )}
@@ -167,7 +189,7 @@ export function ChatWidget({ embedded = false }: { embedded?: boolean }) {
               {isLoading && (
                 <div className="flex justify-start">
                   <div className="bg-slate-100 dark:bg-slate-800 p-3 rounded-xl rounded-tl-none">
-                    <Loader2 className="animate-spin text-brand-jade" size={16} />
+                    <TypingIndicator size={16} />
                   </div>
                 </div>
               )}
