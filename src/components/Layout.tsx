@@ -89,11 +89,11 @@ export function Layout() {
           damping: 24,
           mass: 1
         }}
-        className="sticky top-0 z-50 backdrop-blur-xl"
+        className="sticky top-0 z-[100] backdrop-blur-xl"
       >
         {/* Scroll Progress Bar */}
         <motion.div 
-          className="absolute bottom-0 left-0 h-[3px] bg-brand-jade origin-left z-[60]"
+          className="absolute bottom-0 left-0 h-[3px] bg-brand-jade origin-left z-[110]"
           style={{ scaleX }}
         />
 
@@ -176,7 +176,7 @@ export function Layout() {
             <div className="md:hidden">
               <button 
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="p-2 text-slate-600 dark:text-slate-300 hover:text-brand-jade transition-colors relative z-[60]"
+                className="p-2 text-slate-600 dark:text-slate-300 hover:text-brand-jade transition-colors relative z-[120]"
                 aria-label={isMenuOpen ? "Close menu" : "Open menu"}
                 aria-expanded={isMenuOpen}
                 aria-controls="mobile-menu"
@@ -186,85 +186,6 @@ export function Layout() {
             </div>
           </div>
         </div>
-
-        {/* Mobile Nav Overlay & Menu */}
-        <AnimatePresence>
-          {isMenuOpen && (
-            <motion.div
-              key="mobile-nav-overlay"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0, transition: { delay: 0.2 } }}
-              onClick={() => setIsMenuOpen(false)}
-              className="fixed inset-0 bg-slate-900/60 backdrop-blur-md z-[55] md:hidden"
-            />
-          )}
-          
-          {isMenuOpen && (
-            <motion.div 
-              key="mobile-nav-menu"
-              id="mobile-menu"
-              initial={{ x: '100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '100%' }}
-              transition={{ type: 'spring', damping: 30, stiffness: 300 }}
-              className="fixed top-0 right-0 bottom-0 w-[85%] max-w-sm bg-white dark:bg-slate-900 shadow-2xl z-[60] md:hidden p-8 flex flex-col"
-              role="dialog"
-              aria-modal="true"
-              aria-label="Mobile navigation menu"
-            >
-              <div className="flex justify-between items-center mb-12">
-                <Logo className="h-12 w-auto text-brand-charcoal dark:text-white" />
-                <button 
-                  onClick={() => setIsMenuOpen(false)}
-                  className="p-2 text-slate-400 hover:text-brand-jade transition-colors"
-                >
-                  <X size={24} />
-                </button>
-              </div>
-              
-              <nav className="flex flex-col gap-6" aria-label="Mobile navigation">
-                {navItems.map((item, i) => (
-                  <motion.div
-                    key={item.path}
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.1 }}
-                  >
-                    <Link 
-                      to={item.path}
-                      onClick={() => setIsMenuOpen(false)}
-                      aria-current={location.pathname === item.path ? 'page' : undefined}
-                      className={`text-2xl font-bold tracking-tight transition-colors block py-2 ${
-                        location.pathname === item.path 
-                          ? 'text-brand-jade' 
-                          : 'text-slate-900 dark:text-white hover:text-brand-jade'
-                      }`}
-                    >
-                      {item.name}
-                    </Link>
-                  </motion.div>
-                ))}
-                <div className="pt-6 mt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
-                  <LanguageSwitcher />
-                  <ThemeToggle />
-                </div>
-              </nav>
-
-              <div className="mt-auto pt-12 border-t border-slate-100 dark:border-slate-800">
-                <p className="text-sm text-slate-400 dark:text-slate-500 font-medium mb-4 uppercase tracking-widest">Connect</p>
-                <Link 
-                  to="/contact" 
-                  onClick={() => setIsMenuOpen(false)}
-                  aria-label="Get in touch with us"
-                  className="inline-block w-full text-center px-8 py-4 bg-brand-jade text-white font-bold rounded-xl shadow-lg shadow-brand-jade/20"
-                >
-                  Get in Touch
-                </Link>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
       </motion.header>
 
       <main className="relative">
@@ -311,6 +232,78 @@ export function Layout() {
       </AnimatePresence>
 
       <ChatWidget />
+
+      {/* Mobile Nav Overlay & Menu - Full Screen Solid Overlay */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div 
+            key="mobile-nav-menu"
+            id="mobile-menu"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            className="fixed inset-0 bg-slate-950 z-[2000] md:hidden flex flex-col"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Mobile navigation menu"
+            style={{ backgroundColor: '#020617' }} // Force solid slate-950
+          >
+            {/* Menu Header */}
+            <div className="flex justify-between items-center h-20 px-6 border-b border-slate-800">
+              <Logo className="h-10 w-auto text-white" />
+              <button 
+                onClick={() => setIsMenuOpen(false)}
+                className="p-2 text-white hover:text-brand-jade transition-colors"
+                aria-label="Close menu"
+              >
+                <X size={32} strokeWidth={1.5} />
+              </button>
+            </div>
+            
+            {/* Menu Links */}
+            <nav className="flex-1 flex flex-col items-center justify-center gap-8 p-8" aria-label="Mobile navigation">
+              {navItems.map((item, i) => (
+                <motion.div
+                  key={item.path}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.05 + 0.1 }}
+                  className="w-full text-center"
+                >
+                  <Link 
+                    to={item.path}
+                    onClick={() => setIsMenuOpen(false)}
+                    aria-current={location.pathname === item.path ? 'page' : undefined}
+                    className={`text-4xl font-black tracking-tighter transition-all hover:scale-105 inline-block ${
+                      location.pathname === item.path 
+                        ? 'text-brand-jade' 
+                        : 'text-white hover:text-brand-jade'
+                    }`}
+                  >
+                    {item.name}
+                  </Link>
+                </motion.div>
+              ))}
+            </nav>
+
+            {/* Menu Footer */}
+            <div className="p-8 border-t border-slate-800 flex flex-col gap-8">
+              <div className="flex items-center justify-between">
+                <LanguageSwitcher />
+                <ThemeToggle />
+              </div>
+              <Link 
+                to="/contact" 
+                onClick={() => setIsMenuOpen(false)}
+                className="w-full text-center py-5 bg-brand-jade text-white text-xl font-bold rounded-2xl shadow-2xl shadow-brand-jade/20"
+              >
+                Get in Touch
+              </Link>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Footer */}
       <footer className="bg-white dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800 py-20" role="contentinfo">
