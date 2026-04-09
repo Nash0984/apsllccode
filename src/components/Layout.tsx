@@ -99,17 +99,15 @@ export function Layout() {
 
         <div className="container-wide">
           <div className="flex justify-between items-center h-20">
-            <Link to="/" className="flex items-center gap-2 group" aria-label="Applied Policy Systems Home">
+            <Link to="/" className="flex items-center gap-2 group text-brand-charcoal dark:text-white" aria-label="Applied Policy Systems Home">
               <motion.div
                 animate={{ 
                   scale: isScrolled ? 0.8 : 1,
                   y: isScrolled ? 0 : -6,
-                  filter: isScrolled ? 'brightness(1)' : 'brightness(1.05)'
                 }}
                 whileHover={{ 
                   scale: isScrolled ? 0.85 : 1.05,
                   y: isScrolled ? -2 : -8,
-                  filter: 'brightness(1.1)'
                 }}
                 transition={{ 
                   type: 'spring', 
@@ -135,7 +133,7 @@ export function Layout() {
                     animate={{ 
                       color: location.pathname === item.path 
                         ? 'var(--color-brand-jade)' 
-                        : isScrolled ? 'rgb(100, 116, 139)' : 'rgb(71, 85, 105)',
+                        : isScrolled ? (theme === 'light' ? 'rgb(100, 116, 139)' : 'rgb(148, 163, 184)') : (theme === 'light' ? 'rgb(71, 85, 105)' : 'rgb(203, 213, 225)'),
                       y: isScrolled ? 0 : -2
                     }}
                     transition={{ 
@@ -178,7 +176,7 @@ export function Layout() {
             <div className="md:hidden">
               <button 
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="p-2 text-slate-600 dark:text-slate-400 hover:text-brand-jade transition-colors relative z-50"
+                className="p-2 text-slate-600 dark:text-slate-300 hover:text-brand-jade transition-colors relative z-[60]"
                 aria-label={isMenuOpen ? "Close menu" : "Open menu"}
                 aria-expanded={isMenuOpen}
                 aria-controls="mobile-menu"
@@ -198,7 +196,7 @@ export function Layout() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0, transition: { delay: 0.2 } }}
               onClick={() => setIsMenuOpen(false)}
-              className="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-40 md:hidden"
+              className="fixed inset-0 bg-slate-900/60 backdrop-blur-md z-[55] md:hidden"
             />
           )}
           
@@ -210,13 +208,19 @@ export function Layout() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 30, stiffness: 300 }}
-              className="fixed top-0 right-0 bottom-0 w-[80%] max-w-sm bg-white dark:bg-slate-900 shadow-2xl z-50 md:hidden p-8 flex flex-col"
+              className="fixed top-0 right-0 bottom-0 w-[85%] max-w-sm bg-white dark:bg-slate-900 shadow-2xl z-[60] md:hidden p-8 flex flex-col"
               role="dialog"
               aria-modal="true"
               aria-label="Mobile navigation menu"
             >
               <div className="flex justify-between items-center mb-12">
-                <Logo className="h-12 w-auto" />
+                <Logo className="h-12 w-auto text-brand-charcoal dark:text-white" />
+                <button 
+                  onClick={() => setIsMenuOpen(false)}
+                  className="p-2 text-slate-400 hover:text-brand-jade transition-colors"
+                >
+                  <X size={24} />
+                </button>
               </div>
               
               <nav className="flex flex-col gap-6" aria-label="Mobile navigation">
@@ -231,7 +235,7 @@ export function Layout() {
                       to={item.path}
                       onClick={() => setIsMenuOpen(false)}
                       aria-current={location.pathname === item.path ? 'page' : undefined}
-                      className={`text-2xl font-bold tracking-tight transition-colors ${
+                      className={`text-2xl font-bold tracking-tight transition-colors block py-2 ${
                         location.pathname === item.path 
                           ? 'text-brand-jade' 
                           : 'text-slate-900 dark:text-white hover:text-brand-jade'
@@ -241,7 +245,7 @@ export function Layout() {
                     </Link>
                   </motion.div>
                 ))}
-                <div className="pt-6 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+                <div className="pt-6 mt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
                   <LanguageSwitcher />
                   <ThemeToggle />
                 </div>
@@ -253,7 +257,7 @@ export function Layout() {
                   to="/contact" 
                   onClick={() => setIsMenuOpen(false)}
                   aria-label="Get in touch with us"
-                  className="inline-block px-8 py-4 bg-brand-jade text-white font-bold rounded-xl shadow-lg shadow-brand-jade/20"
+                  className="inline-block w-full text-center px-8 py-4 bg-brand-jade text-white font-bold rounded-xl shadow-lg shadow-brand-jade/20"
                 >
                   Get in Touch
                 </Link>
@@ -264,13 +268,26 @@ export function Layout() {
       </motion.header>
 
       <main className="relative">
-        <Suspense fallback={
-          <div className="min-h-[60vh] flex items-center justify-center">
-            <div className="w-8 h-8 border-2 border-brand-jade/20 border-t-brand-jade rounded-full animate-spin" />
-          </div>
-        }>
-          <Outlet />
-        </Suspense>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={location.pathname}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ 
+              duration: 0.4, 
+              ease: [0.22, 1, 0.36, 1]
+            }}
+          >
+            <Suspense fallback={
+              <div className="min-h-[60vh] flex items-center justify-center">
+                <div className="w-8 h-8 border-2 border-brand-jade/20 border-t-brand-jade rounded-full animate-spin" />
+              </div>
+            }>
+              <Outlet />
+            </Suspense>
+          </motion.div>
+        </AnimatePresence>
       </main>
 
       {/* Scroll Hint */}

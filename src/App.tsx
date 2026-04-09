@@ -52,34 +52,21 @@ function AnimatedRoutes() {
   }, []);
 
   return (
-    <AnimatePresence mode="wait">
-      <motion.div
-        key={location.pathname}
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -10 }}
-        transition={{ 
-          duration: 0.4, 
-          ease: [0.22, 1, 0.36, 1] // Custom "premium" ease-out
-        }}
-      >
-        <Suspense fallback={null}>
-          <Routes location={location}>
-            <Route path="/" element={<Layout />}>
-              <Route index element={<Home />} />
-              <Route path="capabilities" element={<Capabilities />} />
-              <Route path="audiences" element={<Audiences />} />
-              <Route path="research" element={<Research />} />
-              <Route path="about" element={<About />} />
-              <Route path="platform" element={<Platform />} />
-              <Route path="contact" element={<Contact />} />
-              <Route path="privacy" element={<Privacy />} />
-              <Route path="terms" element={<Terms />} />
-            </Route>
-          </Routes>
-        </Suspense>
-      </motion.div>
-    </AnimatePresence>
+    <Suspense fallback={null}>
+      <Routes location={location}>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="capabilities" element={<Capabilities />} />
+          <Route path="audiences" element={<Audiences />} />
+          <Route path="research" element={<Research />} />
+          <Route path="about" element={<About />} />
+          <Route path="platform" element={<Platform />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="privacy" element={<Privacy />} />
+          <Route path="terms" element={<Terms />} />
+        </Route>
+      </Routes>
+    </Suspense>
   );
 }
 

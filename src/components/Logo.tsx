@@ -11,12 +11,12 @@ export const Logo: React.FC<{ className?: string }> = ({ className }) => {
     >
       <defs>
         <linearGradient id="cubeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#004554" />
-          <stop offset="100%" stopColor="#006D82" />
+          <stop offset="0%" stopColor="var(--color-brand-jade)" />
+          <stop offset="100%" stopColor="var(--color-brand-jade)" stopOpacity="0.8" />
         </linearGradient>
         <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor="#004554" stopOpacity="0.8" />
-          <stop offset="100%" stopColor="#004554" stopOpacity="0.4" />
+          <stop offset="0%" stopColor="var(--color-brand-jade)" stopOpacity="0.8" />
+          <stop offset="100%" stopColor="var(--color-brand-jade)" stopOpacity="0.4" />
         </linearGradient>
         <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
           <feGaussianBlur stdDeviation="2" result="blur" />
@@ -47,7 +47,7 @@ export const Logo: React.FC<{ className?: string }> = ({ className }) => {
           {/* Bottom-left face */}
           <motion.path
             d="M5.35898 60L40 80L74.641 60L40 40L5.35898 60Z"
-            fill="#004554"
+            fill="currentColor"
             fillOpacity="0.15"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -59,7 +59,7 @@ export const Logo: React.FC<{ className?: string }> = ({ className }) => {
             d="M40 0L74.641 20L40 40L5.35898 20L40 0Z"
             fill="url(#cubeGradient)"
             fillOpacity="0.05"
-            stroke="#004554"
+            stroke="currentColor"
             strokeWidth="0.5"
             strokeOpacity="0.3"
             initial={{ pathLength: 0 }}
@@ -70,7 +70,7 @@ export const Logo: React.FC<{ className?: string }> = ({ className }) => {
           {/* Right Face Structure */}
           <motion.path
             d="M40 40L74.641 20V60L40 80V40Z"
-            stroke="#004554"
+            stroke="currentColor"
             strokeWidth="0.75"
             strokeOpacity="0.4"
             initial={{ pathLength: 0 }}
@@ -81,7 +81,7 @@ export const Logo: React.FC<{ className?: string }> = ({ className }) => {
           {/* Dynamic "System" Lines */}
           <motion.path
             d="M40 0V40M5.35898 20L40 40M74.641 20L40 40M40 40V80"
-            stroke="#004554"
+            stroke="currentColor"
             strokeWidth="0.5"
             strokeOpacity="0.3"
             initial={{ pathLength: 0 }}
@@ -92,7 +92,7 @@ export const Logo: React.FC<{ className?: string }> = ({ className }) => {
           {/* Outer Boundary */}
           <motion.path
             d="M40 0L74.641 20V60L40 80L5.35898 60V20L40 0Z"
-            stroke="#004554"
+            stroke="currentColor"
             strokeWidth="1.2"
             strokeOpacity="0.6"
             initial={{ pathLength: 0 }}
@@ -115,7 +115,7 @@ export const Logo: React.FC<{ className?: string }> = ({ className }) => {
               cx={node.cx}
               cy={node.cy}
               r="2"
-              fill="#004554"
+              fill="currentColor"
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ delay: 1 + i * 0.1, duration: 0.5 }}
@@ -124,7 +124,7 @@ export const Logo: React.FC<{ className?: string }> = ({ className }) => {
           
           {/* Floating "Data" points */}
           <motion.circle
-            cx="90" cy="28.8" r="1.5" fill="#006D82"
+            cx="90" cy="28.8" r="1.5" fill="var(--color-brand-jade)"
             animate={{ 
               y: [0, -5, 0],
               opacity: [0.3, 0.6, 0.3]
@@ -132,7 +132,7 @@ export const Logo: React.FC<{ className?: string }> = ({ className }) => {
             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
           />
           <motion.circle
-            cx="-10" cy="51.2" r="1.5" fill="#006D82"
+            cx="-10" cy="51.2" r="1.5" fill="var(--color-brand-jade)"
             animate={{ 
               y: [0, 5, 0],
               opacity: [0.3, 0.6, 0.3]
@@ -146,7 +146,7 @@ export const Logo: React.FC<{ className?: string }> = ({ className }) => {
       <motion.text
         x="140"
         y="115.5"
-        fill="#004554"
+        fill="currentColor"
         style={{
           fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif',
           fontWeight: 700,
@@ -162,7 +162,7 @@ export const Logo: React.FC<{ className?: string }> = ({ className }) => {
       <motion.text
         x="140"
         y="185.5"
-        fill="#004554"
+        fill="currentColor"
         style={{
           fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif',
           fontWeight: 700,
