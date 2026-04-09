@@ -7,27 +7,27 @@ export function ArchitectureVisualization() {
 
   const steps = [
     {
-      title: "Statutory Analysis",
+      title: "Statutory Discovery",
       icon: <FileText size={24} />,
-      desc: "We translate ambiguous legislative text into strict logical axioms.",
+      desc: "Our experts deconstruct complex legislative mandates into a library of atomic logical axioms.",
       color: "bg-blue-500"
     },
     {
-      title: "Logical Mapping",
+      title: "Logic Engineering",
       icon: <Binary size={24} />,
-      desc: "Rules-as-Code translation ensures zero-gap between law and logic.",
+      desc: "We engineer a 'Rules-as-Code' layer that mirrors the law with mathematical precision.",
       color: "bg-indigo-500"
     },
     {
-      title: "Deterministic Execution",
+      title: "System Deployment",
       icon: <Cpu size={24} />,
-      desc: "The core engine executes determinations with mathematical certainty.",
+      desc: "The deterministic engine is integrated into your agency's operational workflow.",
       color: "bg-brand-jade"
     },
     {
-      title: "Equitable Outcomes",
+      title: "Continuous Compliance",
       icon: <CheckCircle2 size={24} />,
-      desc: "Continuous monitoring ensures bias-free, compliant service delivery.",
+      desc: "Automated monitoring ensures every decision remains auditable and statutorily compliant.",
       color: "bg-emerald-500"
     }
   ];

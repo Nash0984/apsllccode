@@ -243,7 +243,7 @@ export function Platform() {
                 <span className="text-brand-jade">Statutory Fidelity.</span>
               </h2>
               <p className="text-xl mb-10 max-w-xl">
-                We replace opaque "black-box" systems with transparent, auditable, and mathematically deterministic infrastructure. Our consulting framework bridges the gap between legislative intent and digital execution.
+                We replace opaque "black-box" systems with transparent, auditable, and mathematically deterministic infrastructure. Our <strong>Glass-Box Methodology</strong> (right) is the process we use to build your <strong>Infrastructure Domains</strong> (below).
               </p>
               
               <div className="grid sm:grid-cols-2 gap-6 mb-12">
@@ -428,7 +428,7 @@ export function Platform() {
                   <p className="text-3xl font-black text-brand-jade">16</p>
                 </div>
                 <div>
-                  <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">Strategic Pillars</p>
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">Infrastructure Domains</p>
                   <p className="text-3xl font-black text-brand-jade">04</p>
                 </div>
                 <div>
