@@ -4,20 +4,22 @@ import { ArrowRight, BookOpen, LayoutGrid, CheckCircle2 } from 'lucide-react';
 export function Capabilities() {
   return (
     <div className="bg-white dark:bg-slate-950 transition-colors duration-300">
-      {/* Header */}
-      <section className="py-24 bg-slate-50 dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800">
+      {/* Header - Compact */}
+      <section className="py-20 bg-slate-50 dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-sm font-bold uppercase tracking-[0.4em] text-slate-400 dark:text-slate-500 mb-6">Core Capabilities</h1>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight max-w-3xl">
-            How we help bridge the gap between policy and implementation.
-          </h2>
+          <div className="max-w-3xl">
+            <h1 className="text-sm font-bold uppercase tracking-[0.4em] text-brand-jade mb-6">Core Capabilities</h1>
+            <h2 className="text-4xl md:text-6xl font-black text-slate-900 dark:text-white tracking-tight leading-tight">
+              Bridging the gap between policy and implementation.
+            </h2>
+          </div>
         </div>
       </section>
 
-      {/* Capabilities Grid */}
-      <section className="py-32">
+      {/* Capabilities Grid - Compact */}
+      <section className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12">
+          <div className="grid md:grid-cols-2 gap-8">
             {[
               {
                 title: "Implementation Science & Systems Optimization",

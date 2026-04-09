@@ -3,18 +3,20 @@ import { Building2, LayoutGrid, Users } from 'lucide-react';
 export function Audiences() {
   return (
     <div className="bg-white dark:bg-slate-950 transition-colors duration-300">
-      {/* Header */}
-      <section className="py-24 bg-slate-50 dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800">
+      {/* Header - Compact */}
+      <section className="py-20 bg-slate-50 dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-sm font-bold uppercase tracking-[0.4em] text-slate-400 dark:text-slate-500 mb-6">Target Audiences</h1>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight max-w-3xl">
-            Who we work with to create systemic impact.
-          </h2>
+          <div className="max-w-3xl">
+            <h1 className="text-sm font-bold uppercase tracking-[0.4em] text-brand-jade mb-6">Target Audiences</h1>
+            <h2 className="text-4xl md:text-6xl font-black text-slate-900 dark:text-white tracking-tight leading-tight">
+              Creating systemic impact across sectors.
+            </h2>
+          </div>
         </div>
       </section>
 
-      {/* Audiences Grid */}
-      <section className="py-32">
+      {/* Audiences Grid - Compact */}
+      <section className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-8">
             {[

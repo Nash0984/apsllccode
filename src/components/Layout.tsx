@@ -1,25 +1,37 @@
 import { Logo } from '../components/Logo';
 import { LanguageSwitcher } from '../components/LanguageSwitcher';
 import { ThemeToggle } from '../components/ThemeToggle';
-import { motion, useScroll, AnimatePresence } from 'motion/react';
-import { Menu, X, Linkedin, ArrowUp } from 'lucide-react';
+import { useTheme } from '../context/ThemeContext';
+import { motion, useScroll, AnimatePresence, useSpring } from 'motion/react';
+import { Menu, X, Linkedin, ArrowUp, ChevronDown } from 'lucide-react';
 import { useState, useEffect, Suspense } from 'react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { ChatWidget } from './ChatWidget';
 
 export function Layout() {
   const { t } = useTranslation();
+  const { theme } = useTheme();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [showBackToTop, setShowBackToTop] = useState(false);
+  const [showScrollHint, setShowScrollHint] = useState(true);
   const location = useLocation();
   const { scrollY, scrollYProgress } = useScroll();
+
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
 
   // Track scroll position for header styling and back-to-top button
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
       setShowBackToTop(window.scrollY > 300);
+      if (window.scrollY > 100) setShowScrollHint(false);
+      else setShowScrollHint(true);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -47,6 +59,7 @@ export function Layout() {
     { name: t('nav.home'), path: '/' },
     { name: t('nav.capabilities'), path: '/capabilities' },
     { name: t('nav.audiences'), path: '/audiences' },
+    { name: t('nav.platform'), path: '/platform' },
     { name: t('nav.research'), path: '/research' },
     { name: t('nav.about'), path: '/about' },
     { name: t('nav.contact'), path: '/contact' }
@@ -55,18 +68,34 @@ export function Layout() {
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950 font-sans text-brand-charcoal dark:text-slate-200 selection:bg-brand-cyan selection:text-brand-charcoal transition-colors duration-300">
       {/* Navigation */}
-      <header 
+      <motion.header 
         role="banner"
-        className={`sticky top-0 z-50 transition-all duration-500 ${
-          isScrolled 
-            ? 'bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border-b border-slate-200/60 dark:border-slate-800/60 py-0 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.1)] dark:shadow-[0_10px_30px_-10px_rgba(0,0,0,0.4)]' 
-            : 'bg-transparent border-b border-transparent py-4'
-        }`}
+        initial={false}
+        animate={{
+          backgroundColor: isScrolled 
+            ? (theme === 'light' ? 'rgba(255, 255, 255, 0.9)' : 'rgba(15, 23, 42, 0.9)') 
+            : (theme === 'light' ? 'rgba(255, 255, 255, 0)' : 'rgba(15, 23, 42, 0)'),
+          borderBottomColor: isScrolled
+            ? (theme === 'light' ? 'rgba(226, 232, 240, 0.6)' : 'rgba(30, 41, 59, 0.6)')
+            : 'rgba(0, 0, 0, 0)',
+          paddingTop: isScrolled ? 0 : 16,
+          paddingBottom: isScrolled ? 0 : 16,
+          boxShadow: isScrolled 
+            ? (theme === 'light' ? '0 10px 30px -10px rgba(0,0,0,0.1)' : '0 10px 30px -10px rgba(0,0,0,0.4)')
+            : '0 0px 0px 0px rgba(0,0,0,0)'
+        }}
+        transition={{
+          type: 'spring',
+          stiffness: 120,
+          damping: 24,
+          mass: 1
+        }}
+        className="sticky top-0 z-50 backdrop-blur-xl"
       >
         {/* Scroll Progress Bar */}
         <motion.div 
-          className="absolute bottom-0 left-0 h-[2px] bg-brand-jade/30 origin-left z-[60]"
-          style={{ scaleX: scrollYProgress }}
+          className="absolute bottom-0 left-0 h-[3px] bg-brand-jade origin-left z-[60]"
+          style={{ scaleX }}
         />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -75,18 +104,19 @@ export function Layout() {
               <motion.div
                 animate={{ 
                   scale: isScrolled ? 0.8 : 1,
-                  y: isScrolled ? 0 : -4,
+                  y: isScrolled ? 0 : -6,
                   filter: isScrolled ? 'brightness(1)' : 'brightness(1.05)'
                 }}
                 whileHover={{ 
                   scale: isScrolled ? 0.85 : 1.05,
-                  y: isScrolled ? -2 : -6,
+                  y: isScrolled ? -2 : -8,
                   filter: 'brightness(1.1)'
                 }}
                 transition={{ 
                   type: 'spring', 
-                  stiffness: 260, 
-                  damping: 20 
+                  stiffness: 150, 
+                  damping: 25,
+                  mass: 0.8
                 }}
               >
                 <Logo className="h-16 md:h-20 w-auto transition-colors" />
@@ -111,8 +141,9 @@ export function Layout() {
                     }}
                     transition={{ 
                       type: 'spring', 
-                      stiffness: 260, 
-                      damping: 20 
+                      stiffness: 150, 
+                      damping: 25,
+                      mass: 0.8
                     }}
                     className="text-sm font-bold block"
                   >
@@ -133,8 +164,9 @@ export function Layout() {
                 animate={{ y: isScrolled ? 0 : -2 }}
                 transition={{ 
                   type: 'spring', 
-                  stiffness: 260, 
-                  damping: 20 
+                  stiffness: 150, 
+                  damping: 25,
+                  mass: 0.8
                 }}
                 className="pl-4 border-l border-slate-200 dark:border-slate-800 flex items-center gap-2"
               >
@@ -230,7 +262,7 @@ export function Layout() {
             </motion.div>
           )}
         </AnimatePresence>
-      </header>
+      </motion.header>
 
       <main className="relative">
         <Suspense fallback={
@@ -241,6 +273,28 @@ export function Layout() {
           <Outlet />
         </Suspense>
       </main>
+
+      {/* Scroll Hint */}
+      <AnimatePresence>
+        {showScrollHint && location.pathname !== '/contact' && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+            className="fixed bottom-12 left-1/2 -translate-x-1/2 z-40 flex flex-col items-center gap-2 pointer-events-none"
+          >
+            <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-400 dark:text-slate-500">Scroll to explore</span>
+            <motion.div
+              animate={{ y: [0, 5, 0] }}
+              transition={{ duration: 2, repeat: Infinity }}
+            >
+              <ChevronDown size={20} className="text-brand-jade" />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <ChatWidget />
 
       {/* Footer */}
       <footer className="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-12" role="contentinfo">
