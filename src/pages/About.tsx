@@ -11,25 +11,25 @@ export function About() {
       id: 'federal',
       label: 'Federal Advisory',
       title: 'Federal Advisory Leadership',
-      content: 'Serves as an appointed member of a federal advisory committee focused on electronic tax administration, advising Congress and the IRS on the future of tax administration, code simplification, and the digital taxpayer experience.'
+      content: 'Appointed member of a federal advisory committee focused on electronic tax administration. Advises Congress and the IRS on the future of code simplification, digital taxpayer experience, and statutory modernization.'
     },
     {
       id: 'state',
       label: 'State Operations',
       title: 'State Operations Leadership',
-      content: 'Formerly served as a Director for a mid-Atlantic state human services agency. In this role, he evaluated and guided modernization strategies for benefits access, focusing on human-centered design principles and the translation of complex legislative mandates into operational eligibility systems.'
+      content: 'Former Director for a mid-Atlantic state human services agency. Evaluated and guided modernization strategies for benefits access, translating complex legislative mandates into operational eligibility systems.'
     },
     {
       id: 'national',
       label: 'National Strategy',
       title: 'National Policy Strategy',
-      content: 'Served as the Taxpayer Assistance & Tax Administration Policy Strategist at Prosperity Now, acting as a national liaison for tax administration programs to integrate them into community-based infrastructure alongside federal financial regulators.'
+      content: 'Served as Tax Administration Policy Strategist at Prosperity Now. Acted as a national liaison for integrating federal tax administration programs into community-based infrastructure.'
     },
     {
       id: 'municipal',
       label: 'Municipal Impact',
       title: 'Municipal Impact & Operations',
-      content: 'As the Administrator of Taxpayer Assistance and Credit Programs for the City of Philadelphia Department of Revenue, he directed the $1.3 million "You Earned It Philly" EITC initiative, returning over $44 million to 26,000 residents.'
+      content: 'Administrator of Taxpayer Assistance for the City of Philadelphia. Directed the "You Earned It Philly" initiative, returning over $44 million in tax credits to 26,000 residents.'
     }
   ];
 
@@ -350,43 +350,43 @@ export function About() {
             {[
               { 
                 name: "Nava PBC", 
-                focus: "Implementation & Technical Architecture",
-                context: "Coordinated the technical and operational planning for AI-powered software tools and real-time monitoring dashboards within state benefit systems. This included structuring project requirements for synthetic data environments and OCR data extraction capabilities for public benefit verification."
+                focus: "Technical Architecture",
+                context: "Coordinated technical planning for AI-powered software and real-time dashboards within state benefit systems, focusing on synthetic data environments and statutory verification."
               },
               { 
                 name: "U.S. Digital Response (USDR)", 
-                focus: "Crisis Response & Root Cause Analysis",
-                context: "Managed multi-week discovery sprints focusing on qualitative caseworker interviews and root cause data analysis. This operational partnership targeted the reduction of SNAP Payment Error Rates (PER) and the mitigation of recertification churn in public benefit systems."
+                focus: "Root Cause Analysis",
+                context: "Managed discovery sprints and root cause analysis to reduce SNAP Payment Error Rates (PER) and mitigate recertification churn in public benefit systems."
               },
               { 
                 name: "Code for America", 
-                focus: "Civic Technology Integration & Human-Centered Design",
-                context: "Secured formal operational partnerships to rapidly deploy virtual tax preparation software during nationwide closures. Collaborated on human-centered design initiatives to redesign public benefit notices and executed data-sharing frameworks to support caseworker analytics."
+                focus: "Civic Tech Integration",
+                context: "Secured operational partnerships to deploy virtual tax software and collaborated on human-centered design for public benefit notices and caseworker analytics."
               },
               { 
                 name: "Arnold Ventures", 
-                focus: "Philanthropic Project Architecture",
-                context: "Authored foundational proposals and structured the operational frameworks for multi-stakeholder data science initiatives. This work established funding and execution pathways for academic and technical partners to address SNAP payment accuracy through predictive modeling and peer learning collaboratives."
+                focus: "Project Architecture",
+                context: "Authored foundational proposals for multi-stakeholder data science initiatives, establishing pathways to address SNAP accuracy through predictive modeling."
               },
               { 
                 name: "Results for America", 
                 focus: "Evidence-Based Evaluation",
-                context: "Collaborated to oversee randomized controlled trial evaluations for municipal program performance improvement, directly aligning local government initiatives with evidence-based policy standards."
+                context: "Oversaw randomized controlled trial evaluations for municipal program performance, aligning local initiatives with evidence-based policy standards."
               },
               { 
                 name: "Prosperity Now", 
                 focus: "National Policy Strategy",
-                context: "Served as a national policy liaison to the IRS, FDIC, and CFPB. Evaluated and guided the integration of federal tax administration programs into local, community-based financial infrastructure."
+                context: "Served as a national policy liaison to the IRS, FDIC, and CFPB, integrating federal tax programs into local financial infrastructure."
               },
               { 
                 name: "Campaign for Working Families", 
-                focus: "Strategic Development & Funding",
-                context: "Directed operational partnerships and managed strategic development. Secured over $2.2 million in grant funding to scale community-based financial services and civic technology deployments."
+                focus: "Strategic Development",
+                context: "Directed operational partnerships and secured over $2.2 million in grant funding to scale community-based financial services and civic technology."
               },
               { 
                 name: "Civilla", 
-                focus: "Methodological Alignment & Service Design",
-                context: "Actively engaged through the Digital Benefits Network and civic technology communities of practice. Applied Policy Systems LLC utilizes service design research regarding digital identity design patterns and human-centered public benefit forms to inform its system architecture evaluations."
+                focus: "Service Design",
+                context: "Applied service design research and digital identity patterns to inform system architecture evaluations and human-centered public benefit forms."
               }
             ].map((partner, i) => (
               <div key={i} className="card-base card-hover flex flex-col group">

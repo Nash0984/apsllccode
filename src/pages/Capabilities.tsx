@@ -22,28 +22,28 @@ export function Capabilities() {
           <div className="grid md:grid-cols-2 gap-8">
             {[
               {
-                title: "Implementation Science & Systems Optimization",
-                desc: "Strategic guidance on optimizing complex government systems. We bridge the gap between written regulations and operational realities, ensuring that administrative systems achieve intended policy outcomes.",
+                title: "Strategic Implementation Science",
+                desc: "We bridge the gap between legislative intent and operational reality. Our experts optimize complex government workflows to ensure that administrative systems achieve their intended policy outcomes with maximum efficiency.",
                 icon: <BookOpen className="text-brand-jade" size={28} strokeWidth={1.5} />,
-                tip: "Systems Optimization"
+                tip: "Strategy & Optimization"
               },
               {
-                title: "Compliance Diagnostics & Error Mitigation",
-                desc: "Designing strategies to address state-level payment error rates (SNAP). We utilize historical data to conceptualize real-time flagging mechanisms that allow for intervention prior to finalization.",
+                title: "Compliance & Risk Diagnostics",
+                desc: "Deep-dive audits of state-level payment error rates (SNAP/Medicaid). We identify systemic vulnerabilities and conceptualize real-time intervention mechanisms to mitigate risks before they trigger federal sanctions.",
                 icon: <LayoutGrid className="text-brand-jade" size={28} strokeWidth={1.5} />,
-                tip: "Error Mitigation"
+                tip: "Audit & Mitigation"
               },
               {
-                title: "Interagency Data Sharing Architectures",
-                desc: "Structural expertise in conceptualizing data-sharing models between tax and human services, securely cross-referencing non-filer data to maximize benefit uptake without compromising PII.",
+                title: "Interagency Data Strategy",
+                desc: "Architecting secure data-sharing frameworks between tax and human services. We specialize in cross-referencing non-filer data to maximize benefit uptake without compromising PII or system integrity.",
                 icon: <CheckCircle2 className="text-brand-jade" size={28} strokeWidth={1.5} />,
                 tip: "Data Architecture"
               },
               {
-                title: "System Architecture & Eligibility Evaluation",
-                desc: "Evaluating the structural design of automated eligibility platforms. We focus on 'Rules-as-Code' architectures that enforce compliance and ensure maximum accessibility for frontline navigators.",
+                title: "System Fidelity Evaluation",
+                desc: "Independent third-party verification of automated eligibility platforms. We audit 'Rules-as-Code' architectures to ensure absolute statutory compliance and maximum accessibility for frontline navigators.",
                 icon: <ArrowRight className="text-brand-jade" size={28} strokeWidth={1.5} />,
-                tip: "System Evaluation"
+                tip: "Fidelity Audit"
               }
             ].map((item, i) => (
               <motion.div 

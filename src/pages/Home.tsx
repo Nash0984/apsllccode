@@ -83,18 +83,18 @@ export function Home() {
             <div className="absolute inset-0 bg-brand-jade/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
             <div className="relative z-10 grid lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="label-uppercase">Infrastructure Expertise</h2>
+                <h2 className="label-uppercase">{t('home.infrastructure.label')}</h2>
                 <h3 className="text-3xl md:text-5xl font-black text-white tracking-tight leading-tight mb-8">
-                  Modernization Infrastructure.
+                  {t('home.infrastructure.title')}
                 </h3>
                 <p className="text-lg text-slate-400 leading-relaxed mb-10">
-                  We conceptualize secure, modernized infrastructure for government agencies to deliver health and human services with mathematical precision.
+                  {t('home.infrastructure.text')}
                 </p>
                 <Link 
                   to="/platform" 
                   className="inline-flex items-center gap-4 px-8 py-4 bg-brand-jade text-white font-bold rounded-xl shadow-2xl shadow-brand-jade/20 hover:bg-[#005a62] transition-all group"
                 >
-                  Explore the Architecture
+                  {t('home.infrastructure.cta')}
                   <ArrowRight size={20} className="group-hover:translate-x-2 transition-transform" />
                 </Link>
               </div>
@@ -124,9 +124,9 @@ export function Home() {
         <div className="container-wide">
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { name: 'Expertise', path: '/capabilities', desc: 'Precision-engineered frameworks for complex administrative systems.', action: 'Our consulting expertise' },
-              { name: 'Infrastructure', path: '/platform', desc: 'Structural blueprints for modernization and statutory fidelity.', action: 'Explore the architecture' },
-              { name: 'Research', path: '/research', desc: 'Empirical policy evaluation and historical pattern analysis.', action: 'Explore our insights' }
+              { name: t('home.quickLinks.advisory.title'), path: '/capabilities', desc: t('home.quickLinks.advisory.desc'), action: t('home.quickLinks.advisory.action') },
+              { name: t('home.quickLinks.architecture.title'), path: '/platform', desc: t('home.quickLinks.architecture.desc'), action: t('home.quickLinks.architecture.action') },
+              { name: t('home.quickLinks.insights.title'), path: '/research', desc: t('home.quickLinks.insights.desc'), action: t('home.quickLinks.insights.action') }
             ].map((item) => (
               <Link 
                 key={item.name} 

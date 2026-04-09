@@ -22,12 +22,12 @@ export function Audiences() {
             {[
               {
                 title: "State & Municipal Agencies",
-                desc: "Protecting agency budgets from federal audit penalties and providing executive policy formulation.",
+                desc: "Protecting agency budgets from federal audit penalties through executive policy formulation and rigorous modernization strategy.",
                 icon: <Building2 size={24} strokeWidth={1.5} />
               },
               {
                 title: "GovTech Vendors",
-                desc: "Supplying the exact logical parameters to build compliant and auditable software.",
+                desc: "Supplying the exact logical parameters and 'Rules-as-Code' blueprints required to build compliant, auditable public sector software.",
                 icon: <LayoutGrid size={24} strokeWidth={1.5} />
               },
               {

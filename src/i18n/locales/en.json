@@ -12,14 +12,37 @@
   "home": {
     "hero": {
       "title": "Strategic Advisory for Public Sector Modernization.",
-      "subtitle": "Applied Policy Systems LLC bridges the gap between written regulations and the operational realities that govern the machinery of government. We provide structural evaluation and strategic guidance to ensure that complex administrative systems achieve policy fidelity, operational efficiency, and equitable access.",
-      "cta": "How we can help"
+      "subtitle": "Applied Policy Systems LLC bridges the gap between written regulations and the operational realities of government. We provide the structural evaluation and strategic guidance necessary to ensure that complex administrative systems achieve statutory fidelity, operational efficiency, and equitable access.",
+      "cta": "Explore Our Expertise"
     },
     "challenge": {
       "label": "The Challenge",
       "title": "The Implementation Disconnect.",
-      "text": "Public administration often fails at the translation layer. Lawmakers draft subjective statutes, while technology vendors build opaque, black-box software. This creates a gap between written regulations and the operational realities of government.",
-      "solution": "Applied Policy Systems LLC bridges this disconnect. We specialize in optimizing complex government systems by translating deep policy expertise into actionable, deterministic solutions."
+      "text": "Public administration often fails at the translation layer. Lawmakers draft subjective statutes, while technology vendors build opaque systems. This creates a gap between policy intent and the operational reality of service delivery.",
+      "solution": "Applied Policy Systems LLC bridges this disconnect. We specialize in optimizing complex government systems by translating deep policy expertise into actionable, transparent, and auditable infrastructure."
+    },
+    "infrastructure": {
+      "label": "Infrastructure Expertise",
+      "title": "Structural Modernization.",
+      "text": "We architect secure, high-fidelity infrastructure for government agencies to deliver complex services with absolute precision.",
+      "cta": "Explore the Architecture"
+    },
+    "quickLinks": {
+      "advisory": {
+        "title": "Strategic Advisory",
+        "desc": "Bridging the gap between policy and implementation through rigorous process optimization.",
+        "action": "Consulting Expertise"
+      },
+      "architecture": {
+        "title": "Technical Architecture",
+        "desc": "Structural blueprints for modernization, ensuring 100% statutory fidelity and precision.",
+        "action": "Explore Infrastructure"
+      },
+      "insights": {
+        "title": "Policy Insights",
+        "desc": "Empirical evaluation and historical analysis of complex administrative outcomes.",
+        "action": "View Research"
+      }
     }
   },
   "footer": {

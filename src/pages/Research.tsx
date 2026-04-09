@@ -14,18 +14,18 @@ export function Research() {
 
   const researchDocs = [
     {
-      title: "Rules as Code (RaC) Implementation Frameworks",
-      desc: "A technical guide on translating subjective policy into deterministic logic for automated benefit systems. This framework covers the entire lifecycle from legislative analysis to technical specification and automated testing, ensuring that policy intent is preserved throughout the digital transformation process.",
+      title: "Rules as Code (RaC) Implementation",
+      desc: "A technical guide on translating subjective policy into deterministic logic. This framework covers the entire lifecycle from legislative analysis to automated testing, ensuring legislative intent is preserved through digital transformation.",
       icon: <FileText size={24} strokeWidth={1.5} />
     },
     {
-      title: "SNAP Payment Error Rate Mitigation Strategies",
-      desc: "Analysis of root causes for payment errors and operational frameworks to improve accuracy and audit compliance. Our research identifies key friction points in the eligibility determination process and provides evidence-based recommendations for reducing administrative churn and improving payment integrity.",
+      title: "SNAP Payment Error Rate Mitigation",
+      desc: "Root cause analysis and operational frameworks to improve payment accuracy and audit compliance. Our research identifies key friction points in eligibility determinations and provides evidence-based recommendations for reducing churn.",
       icon: <BarChart3 size={24} strokeWidth={1.5} />
     },
     {
-      title: "VITA Infrastructure Integration Models",
-      desc: "Designing seamless data flows between tax preparation services and state benefit eligibility systems. This study explores the technical and policy requirements for real-time data sharing, focusing on privacy-preserving protocols and user-centric design to maximize the uptake of refundable tax credits.",
+      title: "VITA Infrastructure Integration",
+      desc: "Designing seamless data flows between tax services and state benefit systems. This study explores technical and policy requirements for real-time data sharing, focusing on privacy-preserving protocols to maximize benefit uptake.",
       icon: <Network size={24} strokeWidth={1.5} />
     }
   ];

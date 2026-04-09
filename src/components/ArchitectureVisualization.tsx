@@ -38,8 +38,8 @@ export function ArchitectureVisualization() {
       
       <div className="relative z-10">
         <div className="mb-8">
-          <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-brand-jade mb-2">The Glass-Box Methodology</h3>
-          <p className="text-sm text-slate-500 dark:text-slate-400">Our four-phase approach to statutory fidelity.</p>
+          <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-brand-jade mb-2">The Modernization Lifecycle</h3>
+          <p className="text-sm text-slate-500 dark:text-slate-400">Our four-phase approach to achieving statutory fidelity.</p>
         </div>
         <div className="flex justify-between items-center mb-12">
           {steps.map((step, index) => (
