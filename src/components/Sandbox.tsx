@@ -6,9 +6,20 @@ export function Sandbox() {
   const [input, setInput] = useState('');
   const [file, setFile] = useState<File | null>(null);
   const [fileData, setFileData] = useState<FileData | null>(null);
-  const [output, setOutput] = useState('');
+  const [history, setHistory] = useState<{ role: 'user' | 'model', parts: any[] }[]>([]);
   const [isProcessing, setIsProcessing] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const scrollToBottom = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+    }
+  };
+
+  React.useEffect(() => {
+    scrollToBottom();
+  }, [history, isProcessing]);
 
   const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = e.target.files?.[0];
@@ -42,14 +53,29 @@ export function Sandbox() {
   const handleSubmit = async () => {
     if (!input && !fileData) return;
     
+    const currentInput = input;
+    const currentFileData = fileData;
+    
     setIsProcessing(true);
-    setOutput('');
 
     try {
-      const response = await getChatResponse(input, [], fileData);
-      setOutput(response);
+      const response = await getChatResponse(currentInput, history, currentFileData);
+      
+      const newUserPart = { 
+        role: 'user' as const, 
+        parts: [{ text: currentInput || (currentFileData ? "[Verification Document Attached]" : "") }] 
+      };
+      const newModelPart = { 
+        role: 'model' as const, 
+        parts: [{ text: response }] 
+      };
+      
+      setHistory(prev => [...prev, newUserPart, newModelPart]);
     } catch (error) {
-      setOutput("System alert: Processing failure. Verify API connection.");
+      setHistory(prev => [...prev, { 
+        role: 'model', 
+        parts: [{ text: "System alert: Processing failure. Verify API connection." }] 
+      }]);
     } finally {
       setIsProcessing(false);
       setInput('');
@@ -57,9 +83,7 @@ export function Sandbox() {
     }
   };
 
-  const renderVisualOutput = (text: string) => {
-    if (!text) return <div className="text-slate-600">Awaiting input stream...</div>;
-
+  const renderFormattedText = (text: string) => {
     return (
       <div className="whitespace-pre-wrap font-mono text-sm">
         {text.split('\n').map((line, i) => {
@@ -110,12 +134,45 @@ export function Sandbox() {
         </div>
       </div>
 
-      <div className="p-6 h-96 overflow-y-auto bg-slate-950 text-slate-300">
-        {renderVisualOutput(output)}
+      <div 
+        ref={scrollRef}
+        className="p-6 h-96 overflow-y-auto bg-slate-950 text-slate-300 space-y-8 scroll-smooth"
+      >
+        {history.length === 0 && !isProcessing && (
+          <div className="text-slate-600 italic">Awaiting input stream...</div>
+        )}
+        
+        {history.map((msg, idx) => (
+          <div key={idx} className="animate-in fade-in slide-in-from-bottom-2 duration-300">
+            <div className="flex items-center gap-2 mb-3">
+              <div className={`w-1 h-4 rounded-full ${msg.role === 'user' ? 'bg-slate-700' : 'bg-brand-jade'}`} />
+              <span className={`text-[10px] font-bold uppercase tracking-[0.2em] ${msg.role === 'user' ? 'text-slate-500' : 'text-brand-jade'}`}>
+                {msg.role === 'user' ? 'Input Stream' : 'Engine Analysis'}
+              </span>
+            </div>
+            
+            <div className={msg.role === 'user' ? 'text-slate-300 pl-3' : 'pl-3'}>
+              {msg.role === 'user' ? (
+                <p className="leading-relaxed">{msg.parts[0].text}</p>
+              ) : (
+                renderFormattedText(msg.parts[0].text)
+              )}
+            </div>
+          </div>
+        ))}
+
         {isProcessing && (
-          <div className="mt-4 flex items-center gap-2 text-brand-jade">
-            <Activity size={16} className="animate-spin" />
-            <span className="animate-pulse">Executing Document Intelligence protocol...</span>
+          <div className="flex flex-col gap-3 pl-3">
+            <div className="flex items-center gap-2">
+              <div className="w-1 h-4 rounded-full bg-brand-jade animate-pulse" />
+              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-jade animate-pulse">
+                Processing Logic...
+              </span>
+            </div>
+            <div className="flex items-center gap-2 text-slate-500 text-xs italic">
+              <Activity size={14} className="animate-spin" />
+              <span>Executing Document Intelligence protocol...</span>
+            </div>
           </div>
         )}
       </div>
