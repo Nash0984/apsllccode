@@ -105,49 +105,6 @@ export function Home() {
         </div>
       </section>
 
-      {/* Platform Highlight Section - Compact */}
-      <section className="section-padding bg-white dark:bg-slate-950">
-        <div className="container-wide">
-          <div className="bg-slate-900 rounded-[3rem] p-10 md:p-16 relative overflow-hidden group">
-            <div className="absolute inset-0 bg-brand-jade/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-            <div className="relative z-10 grid lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <h2 className="label-uppercase">{t('home.infrastructure.label')}</h2>
-                <h3 className="text-3xl md:text-5xl font-black text-white tracking-tight leading-tight mb-8">
-                  {t('home.infrastructure.title')}
-                </h3>
-                <p className="text-lg text-slate-400 leading-relaxed mb-10">
-                  {t('home.infrastructure.text')}
-                </p>
-                <Link 
-                  to="/platform" 
-                  className="inline-flex items-center gap-4 px-8 py-4 bg-brand-jade text-white font-bold rounded-xl shadow-2xl shadow-brand-jade/20 hover:bg-[#005a62] transition-all group"
-                >
-                  {t('home.infrastructure.cta')}
-                  <ArrowRight size={20} className="group-hover:translate-x-2 transition-transform" />
-                </Link>
-              </div>
-              <div className="relative aspect-video bg-white/5 rounded-[2rem] border border-white/10 p-8 flex items-center justify-center overflow-hidden">
-                <div className="grid grid-cols-2 gap-6 w-full h-full opacity-20">
-                  {[...Array(4)].map((_, i) => (
-                    <div key={i} className="border border-brand-jade rounded-2xl flex items-center justify-center">
-                      <div className="w-12 h-12 bg-brand-jade/20 rounded-full animate-pulse" />
-                    </div>
-                  ))}
-                </div>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-64 h-64 border-2 border-brand-jade/30 rounded-full animate-[spin_30s_linear_infinite]" />
-                  <div className="absolute w-48 h-48 border-2 border-brand-jade/50 rounded-full animate-[spin_20s_linear_infinite_reverse]" />
-                  <div className="absolute p-8 bg-slate-900 border border-brand-jade rounded-3xl shadow-2xl">
-                    <BookOpen size={48} className="text-brand-jade" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Policy Sandbox Section */}
       <section className="section-padding bg-slate-950 overflow-hidden relative">
         <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
@@ -227,6 +184,49 @@ export function Home() {
                       Output will appear here after analysis...
                     </div>
                   )}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Platform Highlight Section - Compact */}
+      <section className="section-padding bg-white dark:bg-slate-950">
+        <div className="container-wide">
+          <div className="bg-slate-900 rounded-[3rem] p-10 md:p-16 relative overflow-hidden group">
+            <div className="absolute inset-0 bg-brand-jade/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+            <div className="relative z-10 grid lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <h2 className="label-uppercase">{t('home.infrastructure.label')}</h2>
+                <h3 className="text-3xl md:text-5xl font-black text-white tracking-tight leading-tight mb-8">
+                  {t('home.infrastructure.title')}
+                </h3>
+                <p className="text-lg text-slate-400 leading-relaxed mb-10">
+                  {t('home.infrastructure.text')}
+                </p>
+                <Link 
+                  to="/platform" 
+                  className="inline-flex items-center gap-4 px-8 py-4 bg-brand-jade text-white font-bold rounded-xl shadow-2xl shadow-brand-jade/20 hover:bg-[#005a62] transition-all group"
+                >
+                  {t('home.infrastructure.cta')}
+                  <ArrowRight size={20} className="group-hover:translate-x-2 transition-transform" />
+                </Link>
+              </div>
+              <div className="relative aspect-video bg-white/5 rounded-[2rem] border border-white/10 p-8 flex items-center justify-center overflow-hidden">
+                <div className="grid grid-cols-2 gap-6 w-full h-full opacity-20">
+                  {[...Array(4)].map((_, i) => (
+                    <div key={i} className="border border-brand-jade rounded-2xl flex items-center justify-center">
+                      <div className="w-12 h-12 bg-brand-jade/20 rounded-full animate-pulse" />
+                    </div>
+                  ))}
+                </div>
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-64 h-64 border-2 border-brand-jade/30 rounded-full animate-[spin_30s_linear_infinite]" />
+                  <div className="absolute w-48 h-48 border-2 border-brand-jade/50 rounded-full animate-[spin_20s_linear_infinite_reverse]" />
+                  <div className="absolute p-8 bg-slate-900 border border-brand-jade rounded-3xl shadow-2xl">
+                    <BookOpen size={48} className="text-brand-jade" />
+                  </div>
                 </div>
               </div>
             </div>
