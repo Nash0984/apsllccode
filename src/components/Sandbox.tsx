@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { 
-  Upload, X, FileText, Send, Activity, ShieldAlert, CheckCircle, RefreshCw, MessageSquare, ChevronDown, Check
+  Upload, X, FileText, Send, Activity, ShieldAlert, CheckCircle, RefreshCw, MessageSquare, ChevronDown, Check, User
 } from 'lucide-react';
 import { getChatResponse, FileData } from '../services/gemini';
 
@@ -342,7 +342,7 @@ export function Sandbox() {
   const renderChatInterface = () => (
     <div className="flex flex-col h-full bg-[#050a0f] rounded-lg border border-slate-800 overflow-hidden">
       <div className={`px-4 py-3 border-b border-slate-800 text-xs font-bold uppercase tracking-wider ${persona === 'client' ? 'text-blue-400 bg-blue-950/20' : 'text-brand-jade bg-[#002a2e]/30'}`}>
-        {persona === 'worker' ? 'Policy Operations Copilot' : 'Resident Navigation Assistant'}
+        {persona === 'worker' ? 'Policy Operations Copilot' : 'Resident Benefits Assistant'}
       </div>
       <div ref={chatScrollRef} className="flex-1 p-6 overflow-y-auto space-y-6">
         {chatHistory.length === 0 && (
@@ -350,12 +350,12 @@ export function Sandbox() {
             <MessageSquare size={40} className="opacity-50" />
             <div className="bg-slate-950 border border-slate-800 p-6 rounded-xl w-full shadow-inner text-left">
               <span className={`font-bold block mb-2 text-sm ${persona === 'client' ? 'text-blue-400' : 'text-brand-jade'}`}>
-                Demonstrating: {persona === 'worker' ? 'Intelligent Policy Navigation' : 'Eligibility Triage & Guidance'}
+                Demonstrating: {persona === 'worker' ? 'Intelligent Policy Navigation' : 'Plain Language Translation'}
               </span>
               <span className="text-slate-400 block mb-3 text-xs leading-relaxed">
                 {persona === 'worker' 
                   ? 'Showcases how the engine can parse complex scenarios and locate specific eligibility statutes instantly.' 
-                  : 'Showcases how the engine translates dense agency rules into plain language to help residents understand their options.'}
+                  : 'Showcases how the neurosymbolic engine grounds its answers in statute, but translates the rules into plain language to help residents understand their options.'}
               </span>
               <ul className="text-slate-500 list-disc pl-4 space-y-1 text-xs">
                 <li>{persona === 'worker' ? 'Ask a question about a specific program limit (e.g., "What is the SNAP limit for a family of 4?")' : 'Ask a general question (e.g., "How do I know if I qualify for child care?")'}</li>
@@ -387,59 +387,70 @@ export function Sandbox() {
     <div className="w-full max-w-6xl mx-auto flex flex-col gap-6 font-sans">
       
       {/* Main Application Frame */}
-      <div className={`border rounded-xl overflow-hidden shadow-2xl flex flex-col h-[700px] transition-colors duration-300 ${persona === 'client' ? 'bg-slate-900 border-slate-700' : 'bg-[#0a0f14] border-slate-800'}`}>
+      <div className={`border rounded-xl overflow-hidden shadow-2xl flex flex-col h-[750px] transition-colors duration-300 ${persona === 'client' ? 'bg-slate-900 border-slate-700' : 'bg-[#0a0f14] border-slate-800'}`}>
         
-        {/* Application Context Header */}
-        <div className={`px-6 py-4 border-b flex justify-between items-center flex-shrink-0 ${persona === 'client' ? 'bg-slate-800 border-slate-700' : 'bg-[#050a0f] border-slate-800'}`}>
-          <div className="flex items-center gap-6">
-            <div className="flex items-center gap-3">
-              {persona === 'client' ? (
-                <>
-                  <div className="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400"><FileText size={16} /></div>
-                  <span className="font-bold text-white tracking-wide">State Benefits Portal</span>
-                </>
-              ) : (
-                <>
-                  <div className="w-8 h-8 rounded bg-brand-jade/20 flex items-center justify-center text-brand-jade"><Activity size={16} /></div>
-                  <span className="font-bold text-white tracking-wide font-mono uppercase text-sm">Agency Adjudication System</span>
-                </>
-              )}
-            </div>
-
-            <div className="h-4 w-px bg-slate-700 hidden sm:block" />
-
-            {/* Persona Switcher embedded in header */}
-            <div className="flex bg-slate-950 rounded border border-slate-800 p-0.5">
+        {/* The Fourth Wall: Global Simulator Controls */}
+        <div className="bg-[#020617] border-b border-slate-800 px-6 py-3 flex flex-wrap justify-between items-center gap-4 shrink-0">
+          <div className="flex items-center gap-4">
+            <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest flex items-center gap-2">
+              <User size={14} /> Simulated Persona:
+            </span>
+            <div className="flex bg-slate-900/50 rounded-lg p-1 border border-slate-800">
               <button
                 onClick={() => togglePersona('client')}
-                className={`px-4 py-1.5 rounded text-xs font-bold transition-all flex items-center gap-2 ${persona === 'client' ? 'bg-blue-600/20 text-blue-400' : 'text-slate-500 hover:text-slate-300'}`}
+                className={`px-4 py-1.5 rounded-md text-xs font-bold transition-all ${persona === 'client' ? 'bg-blue-600 text-white shadow-md' : 'text-slate-500 hover:text-slate-300'}`}
               >
-                Resident
+                Resident (Applicant)
               </button>
               <button
                 onClick={() => togglePersona('worker')}
-                className={`px-4 py-1.5 rounded text-xs font-bold transition-all flex items-center gap-2 ${persona === 'worker' ? 'bg-brand-jade/20 text-brand-jade' : 'text-slate-500 hover:text-slate-300'}`}
+                className={`px-4 py-1.5 rounded-md text-xs font-bold transition-all ${persona === 'worker' ? 'bg-brand-jade text-slate-950 shadow-md' : 'text-slate-500 hover:text-slate-300'}`}
               >
-                Caseworker
+                Caseworker (Agency)
               </button>
             </div>
           </div>
 
-          {/* Module Sub-Navigation */}
-          <div className="flex bg-slate-950 rounded border border-slate-800 p-0.5">
-            <button 
-              onClick={() => { setActiveMode('upload'); resetState(); }}
-              className={`px-4 py-1.5 rounded text-xs font-bold transition-colors ${activeMode === 'upload' ? 'bg-slate-800 text-white' : 'text-slate-500 hover:text-slate-300'}`}
-            >
-              {persona === 'client' ? 'Submit Forms' : 'Intake Queue'}
-            </button>
-            <button 
-              onClick={() => setActiveMode('chat')}
-              className={`px-4 py-1.5 rounded text-xs font-bold transition-colors ${activeMode === 'chat' ? 'bg-slate-800 text-white' : 'text-slate-500 hover:text-slate-300'}`}
-            >
-              {persona === 'client' ? 'Get Help' : 'Policy Copilot'}
-            </button>
+          <div className="flex items-center gap-4">
+            <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">
+              Active Module:
+            </span>
+            <div className="flex bg-slate-900/50 rounded-lg p-1 border border-slate-800">
+              <button 
+                onClick={() => { setActiveMode('upload'); resetState(); }}
+                className={`px-4 py-1.5 rounded-md text-xs font-bold transition-colors ${activeMode === 'upload' ? 'bg-slate-700 text-white shadow-md' : 'text-slate-500 hover:text-slate-300'}`}
+              >
+                {persona === 'client' ? 'Document Upload' : 'Intake Pipeline'}
+              </button>
+              <button 
+                onClick={() => setActiveMode('chat')}
+                className={`px-4 py-1.5 rounded-md text-xs font-bold transition-colors ${activeMode === 'chat' ? 'bg-slate-700 text-white shadow-md' : 'text-slate-500 hover:text-slate-300'}`}
+              >
+                {persona === 'client' ? 'Benefits Assistant' : 'Policy Copilot'}
+              </button>
+            </div>
           </div>
+        </div>
+
+        {/* Application Context Header (Inside the Simulation) */}
+        <div className={`px-6 py-4 border-b flex items-center gap-4 shrink-0 ${persona === 'client' ? 'bg-slate-800/80 border-slate-700' : 'bg-[#050a0f] border-slate-800'}`}>
+          {persona === 'client' ? (
+            <>
+              <div className="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400"><FileText size={20} /></div>
+              <div>
+                <div className="font-bold text-white tracking-wide text-lg leading-none">State Benefits Portal</div>
+                <div className="text-[10px] text-blue-400 font-bold uppercase tracking-wider mt-1.5">Public Resident Interface</div>
+              </div>
+            </>
+          ) : (
+            <>
+              <div className="w-10 h-10 rounded bg-brand-jade/20 flex items-center justify-center text-brand-jade"><Activity size={20} /></div>
+              <div>
+                <div className="font-bold text-white tracking-wide font-mono uppercase text-lg leading-none">Agency Adjudication System</div>
+                <div className="text-[10px] text-brand-jade font-bold font-mono uppercase tracking-wider mt-1.5">Secure Internal Operations</div>
+              </div>
+            </>
+          )}
         </div>
 
         {/* Dynamic Workspace */}
