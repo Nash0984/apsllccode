@@ -2,13 +2,22 @@ import { GoogleGenAI } from "@google/genai";
 
 const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_GEMINI_API_KEY || "" });
 
-const BASE_SYSTEM_INSTRUCTION = `You are the backend logic core for a state benefits eligibility system. 
+const BASE_SYSTEM_INSTRUCTION = `You are the backend logic core for a state benefits policy and verification demonstrator. 
 
 Execution Rules:
-1. Tone and Style: Use a direct, factual, and strictly objective tone. Do not use marketing jargon, consultant terminology, or conversational filler. 
-2. Standard Terminology: Use standard and factual government terminology.
-3. Security Boundary: NEVER use the terms "neuro-symbolic", "Rules as Code", "probabilistic", or "deterministic" in your output. Present yourself simply as the state agency's policy and verification system.
-4. Refusal Parameter: If a query is unrelated to benefits eligibility or system operation, output exactly: "System alert: Query outside established parameters."`;
+1. Tone and Style: Use a direct, factual, and strictly objective tone.
+2. Standard Terminology: Use standard government terminology.
+3. Security Boundary: Present yourself simply as the automated evaluation engine.
+4. Output Format: You MUST output valid, raw JSON only. Do not include markdown formatting (e.g., \`\`\`json). Do not include any introductory or concluding text. 
+
+JSON Schema Requirement:
+{
+  "status": "PROCEED TO RULES ENGINE" | "REQUIRES HITL REVIEW" | "PENDING AGENCY REVIEW" | "POLICY GUIDANCE" | "ERROR",
+  "message": "Public facing receipt or policy explanation.",
+  "extractedData": [
+    { "field": "Name of extracted data point", "value": "Extracted value", "confidence": 0.99 }
+  ]
+}`;
 
 const VERIFICATION_RULES: Record<string, string> = {
   'id-citizenship': 'Target Verification: Identity Verification (6 CFR Part 37).',
@@ -26,15 +35,13 @@ const VERIFICATION_RULES: Record<string, string> = {
 const PERSONA_INSTRUCTIONS: Record<'client' | 'worker', string> = {
   'client': `
 [PERSONA DIRECTIVE: CLIENT PORTAL]
-You are interacting directly with a resident. Communicate plainly and directly at a 5th-grade reading level. Do not explain backend system logic.
-- TEXT QUERY (No Document): Answer the question factually and simply based on the active document category.
-- DOCUMENT UPLOADED: Provide a simple receipt. State the recognized document type and conclude exactly with: "Status: Document received. Pending caseworker review."`,
+- TEXT QUERY: Act as a benefits navigator. Set status to "POLICY GUIDANCE". Provide a 5th-grade reading level explanation regarding general eligibility, application steps, or program rules in the "message" field. Leave "extractedData" empty.
+- DOCUMENT UPLOADED: Set status to "PENDING AGENCY REVIEW". Set "message" to: "Document received. Pending caseworker review." Leave "extractedData" empty.`,
   
   'worker': `
 [PERSONA DIRECTIVE: ELIGIBILITY WORKER]
-You are an automated policy assistant for a state caseworker. Provide strict, factual policy guidance and document extraction diagnostics.
-- TEXT QUERY (No Document): Act as a policy reference. Answer the question directly, citing the specific CFRs or state statutes relevant to the active verification type.
-- DOCUMENT UPLOADED: Execute extraction. List extracted fields and confidence scores. If all scores appear high, output "PROCEED TO RULES ENGINE". Otherwise, output "REQUIRES HITL REVIEW".`
+- TEXT QUERY: Act as a comprehensive policy reference. Set status to "POLICY GUIDANCE". Answer complex case scenario or eligibility rule questions in the "message" field, citing specific state or federal statutes (e.g., CFRs). Leave "extractedData" empty.
+- DOCUMENT UPLOADED: Execute extraction based on the active verification type. Populate "extractedData" with fields and confidence scores. Set "message" to empty. If all confidence scores are >= 0.85, set status to "PROCEED TO RULES ENGINE". Otherwise, set status to "REQUIRES HITL REVIEW".`
 };
 
 export interface FileData {
@@ -54,7 +61,7 @@ export async function getChatResponse(
 
   try {
     let systemInstructionOverride = BASE_SYSTEM_INSTRUCTION;
-    if (policyId && VERIFICATION_RULES[policyId]) {
+    if (fileData && policyId && VERIFICATION_RULES[policyId]) {
       systemInstructionOverride += `\n\n[SYSTEM DIRECTIVE: ENFORCE STATUTORY RULE]\n${VERIFICATION_RULES[policyId]}`;
     }
     
@@ -73,7 +80,7 @@ export async function getChatResponse(
         }
       });
     } else {
-      userParts.push({ text: `[SYSTEM: No document attached. Text query only.]\nUser Input: ${safeMessage || "Provide a summary of the active verification type."}` });
+      userParts.push({ text: `[SYSTEM: No document attached. Text query only.]\nUser Input: ${safeMessage || "Provide policy guidance."}` });
     }
 
     const response = await ai.models.generateContent({
@@ -84,17 +91,22 @@ export async function getChatResponse(
       ],
       config: {
         systemInstruction: systemInstructionOverride,
-        temperature: 0.1,
+        temperature: 0.0,
       },
     });
 
-    const output = response.text || "System alert: Unable to connect to the analysis engine.";
+    const rawText = response.text || "{}";
+    const cleanJsonString = rawText.replace(/```json/g, '').replace(/```/g, '').trim();
     
     console.log(`[APS-SANDBOX-LOG] ID: ${requestId} | Time: ${timestamp} | Persona: ${persona.toUpperCase()}`);
-    console.log(`[POLICY ID]: ${policyId || 'None'} | Attached: ${fileData ? 'Yes' : 'No'}`);
-    return output;
+    return JSON.parse(cleanJsonString);
+
   } catch (error) {
     console.error(`[APS-SANDBOX-ERROR] ID: ${requestId} | Time: ${timestamp}`, error);
-    return "System alert: Connection timeout. Verify API configuration.";
+    return {
+      status: "ERROR",
+      message: "System alert: Connection timeout or JSON parse failure.",
+      extractedData: []
+    };
   }
 }
