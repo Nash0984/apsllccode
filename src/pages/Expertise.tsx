@@ -6,23 +6,23 @@ import {
   Database, Users, Scale, FileSearch, AlertTriangle, Clock, 
   Gavel, Smartphone, Binary, History, GraduationCap, Globe, 
   RefreshCw, Code2, Eye, LayoutDashboard, Settings, Activity, Heart,
-  Sparkles, ZapOff, Fingerprint, Network
+  Sparkles, ZapOff, Fingerprint, Network, Building2, LayoutGrid
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const ModuleGraphic = lazy(() => import('../components/ModuleGraphics').then(m => ({ default: m.ModuleGraphic })));
 const ArchitectureVisualization = lazy(() => import('../components/ArchitectureVisualization').then(m => ({ default: m.ArchitectureVisualization })));
 
-export function Platform() {
+export function Expertise() {
   const { t } = useTranslation();
   const [activePillar, setActivePillar] = useState(0);
   const [activeModule, setActiveModule] = useState(0);
 
   const pillars = [
     {
-      title: "Statutory Governance & Fidelity",
+      title: "Statutory Verification & Fidelity",
       icon: <Shield size={20} />,
-      desc: "Architectural frameworks that ensure every line of code remains strictly aligned with the written law.",
+      desc: "Independent verification frameworks that ensure complex administrative systems remain strictly aligned with the written law.",
       modules: [
         {
           id: "01",
@@ -237,19 +237,19 @@ export function Platform() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <h1 className="label-uppercase">{t('nav.platform')}</h1>
+              <h1 className="label-uppercase">{t('expertisePage.hero.label')}</h1>
               <h2 className="mb-8">
-                Architecting <br />
-                <span className="text-brand-jade">Statutory Fidelity.</span>
+                {t('expertisePage.hero.title').split(' ').slice(0, -1).join(' ')} <br />
+                <span className="text-brand-jade">{t('expertisePage.hero.title').split(' ').slice(-1)}</span>
               </h2>
               <p className="text-xl mb-10 max-w-xl">
-                {t('home.infrastructure.text')}
+                We provide Independent Verification & Validation (IV&V) and Subject Matter Expert (SME) advisory to bridge the gap between legislative intent and operational reality.
               </p>
               
               <div className="grid sm:grid-cols-2 gap-6 mb-12">
                 {[
-                  { icon: <Fingerprint className="text-brand-jade" />, title: "Zero-Gap Logic", desc: "Law-to-code translation with 100% fidelity." },
-                  { icon: <Network className="text-brand-jade" />, title: "Modular Core", desc: "16 interoperable modules for total flexibility." }
+                  { icon: <Fingerprint className="text-brand-jade" />, title: "IV&V Services", desc: "Independent third-party verification of system logic and compliance." },
+                  { icon: <Network className="text-brand-jade" />, title: "SME Advisory", desc: "Deep domain expertise in SNAP, Medicaid, and Tax policy." }
                 ].map((item, i) => (
                   <div key={i} className="flex gap-4">
                     <div className="shrink-0 w-10 h-10 rounded-lg bg-white dark:bg-slate-800 shadow-sm flex items-center justify-center">
@@ -275,7 +275,7 @@ export function Platform() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative"
+              className="relative hidden lg:block"
             >
               <Suspense fallback={<div className="w-full aspect-video bg-slate-100 dark:bg-slate-800 animate-pulse rounded-[2.5rem]" />}>
                 <ArchitectureVisualization />
@@ -287,12 +287,72 @@ export function Platform() {
         </div>
       </section>
 
+      {/* Strategic Capabilities Section (Redistributed from Capabilities) */}
+      <section className="section-padding bg-slate-50 dark:bg-slate-900 border-y border-slate-100 dark:border-slate-800">
+        <div className="container-wide">
+          <div className="max-w-3xl mb-16">
+            <h2 className="label-muted">{t('expertisePage.expertise.label')}</h2>
+            <h3 className="tracking-tight">{t('expertisePage.expertise.title')}</h3>
+          </div>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                title: t('expertisePage.expertise.science.title'),
+                desc: t('expertisePage.expertise.science.desc'),
+                icon: <GraduationCap className="text-brand-jade" size={24} strokeWidth={1.5} />,
+                tip: t('expertisePage.expertise.science.tip')
+              },
+              {
+                title: t('expertisePage.expertise.compliance.title'),
+                desc: t('expertisePage.expertise.compliance.desc'),
+                icon: <Shield className="text-brand-jade" size={24} strokeWidth={1.5} />,
+                tip: t('expertisePage.expertise.compliance.tip')
+              },
+              {
+                title: t('expertisePage.expertise.data.title'),
+                desc: t('expertisePage.expertise.data.desc'),
+                icon: <Database className="text-brand-jade" size={24} strokeWidth={1.5} />,
+                tip: t('expertisePage.expertise.data.tip')
+              },
+              {
+                title: t('expertisePage.expertise.fidelity.title'),
+                desc: t('expertisePage.expertise.fidelity.desc'),
+                icon: <CheckCircle2 className="text-brand-jade" size={24} strokeWidth={1.5} />,
+                tip: t('expertisePage.expertise.fidelity.tip')
+              }
+            ].map((item, i) => (
+              <motion.div 
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="card-base card-hover group p-8"
+              >
+                <div className="relative inline-block mb-6">
+                  <div className="p-3 bg-white dark:bg-slate-800 rounded-xl shadow-sm group-hover:bg-brand-jade group-hover:text-white transition-all duration-500">
+                    {item.icon}
+                  </div>
+                  <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 px-3 py-1.5 bg-slate-900 dark:bg-slate-800 text-white text-[10px] font-bold uppercase tracking-widest rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap shadow-xl z-10">
+                    {item.tip}
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-900 dark:border-t-slate-800" />
+                  </div>
+                </div>
+                <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-4 tracking-tight">{item.title}</h4>
+                <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-400">{item.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Interactive Command Center */}
       <section className="flex-1 flex flex-col lg:flex-row container-wide py-24 gap-16">
         {/* Sidebar Navigation */}
         <div className="lg:w-96 shrink-0 space-y-12">
           <div className="p-8 rounded-card bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800">
-            <h3 className="label-muted mb-8">Infrastructure Domains</h3>
+            <h3 className="label-muted mb-8">Strategic Pillars</h3>
             <div className="space-y-3">
               {pillars.map((pillar, index) => (
                 <button
@@ -317,7 +377,7 @@ export function Platform() {
           </div>
 
           <div className="p-8 rounded-card border border-slate-100 dark:border-slate-800">
-            <h3 className="label-muted mb-8">Infrastructure Modules</h3>
+            <h3 className="label-muted mb-8">Core Capabilities</h3>
             <div className="grid grid-cols-1 gap-2">
               {pillars[activePillar].modules.map((module, index) => (
                 <button
@@ -361,7 +421,7 @@ export function Platform() {
                         {pillars[activePillar].modules[activeModule].icon}
                       </div>
                       <div>
-                        <div className="label-uppercase mb-1">Module {pillars[activePillar].modules[activeModule].id}</div>
+                        <div className="label-uppercase mb-1">Capability {pillars[activePillar].modules[activeModule].id}</div>
                         <h3 className="text-4xl md:text-5xl font-black tracking-tight">
                           {pillars[activePillar].modules[activeModule].title}
                         </h3>
@@ -400,7 +460,7 @@ export function Platform() {
                   </div>
                   <div className="absolute bottom-8 left-8 flex items-center gap-3">
                     <div className="w-2 h-2 rounded-full bg-brand-jade animate-pulse" />
-                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Live Architectural Simulation</span>
+                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Verification Simulation</span>
                   </div>
                 </div>
 
@@ -426,7 +486,57 @@ export function Platform() {
       {/* Quick Stats / Footer CTA */}
       <section className="section-padding border-t border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50">
         <div className="container-wide">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-24 items-center mb-24">
+            <div>
+              <h2 className="label-muted">{t('expertisePage.audiences.label')}</h2>
+              <h3 className="tracking-tight mb-8">{t('expertisePage.audiences.title')}</h3>
+              <div className="space-y-8">
+                {[
+                  {
+                    title: t('expertisePage.audiences.agencies.title'),
+                    desc: t('expertisePage.audiences.agencies.desc'),
+                    icon: <Building2 className="text-brand-jade" size={24} strokeWidth={1.5} />
+                  },
+                  {
+                    title: t('expertisePage.audiences.vendors.title'),
+                    desc: t('expertisePage.audiences.vendors.desc'),
+                    icon: <LayoutGrid className="text-brand-jade" size={24} strokeWidth={1.5} />
+                  },
+                  {
+                    title: t('expertisePage.audiences.coalitions.title'),
+                    desc: t('expertisePage.audiences.coalitions.desc'),
+                    icon: <Users className="text-brand-jade" size={24} strokeWidth={1.5} />
+                  }
+                ].map((item, i) => (
+                  <div key={i} className="flex gap-6">
+                    <div className="shrink-0 w-12 h-12 rounded-xl bg-white dark:bg-slate-800 shadow-sm flex items-center justify-center">
+                      {item.icon}
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-slate-900 dark:text-white mb-2">{item.title}</h4>
+                      <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="bg-white dark:bg-slate-800 p-12 rounded-[3rem] border border-slate-200 dark:border-slate-700 shadow-xl relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-brand-jade/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl" />
+              <h4 className="text-brand-jade font-bold text-sm uppercase tracking-widest mb-6">Trusted Advisory</h4>
+              <p className="text-xl font-bold text-slate-900 dark:text-white mb-8 leading-tight">
+                Official Recommendations to the IRS Commissioner on Digital Infrastructure Standards.
+              </p>
+              <div className="grid grid-cols-2 gap-4">
+                {['IRS', 'FNS', 'DHS', 'VITA'].map((org) => (
+                  <div key={org} className="p-4 bg-slate-50 dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 text-center">
+                    <span className="text-lg font-black text-brand-jade">{org}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-16 items-center pt-24 border-t border-slate-200 dark:border-slate-800">
             <div>
               <h3 className="text-3xl font-black mb-6">Ready to Modernize?</h3>
               <p className="text-lg mb-8">
@@ -434,11 +544,11 @@ export function Platform() {
               </p>
               <div className="flex gap-12">
                 <div>
-                  <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">Modules</p>
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">Core Capabilities</p>
                   <p className="text-3xl font-black text-brand-jade">16</p>
                 </div>
                 <div>
-                  <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">Infrastructure Domains</p>
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">Strategic Pillars</p>
                   <p className="text-3xl font-black text-brand-jade">04</p>
                 </div>
                 <div>

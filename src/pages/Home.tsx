@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import { Sandbox } from '../components/Sandbox';
+import { PolicyManual } from '../components/PolicyManual';
 
 export function Home() {
   const { t } = useTranslation();
@@ -43,8 +44,8 @@ export function Home() {
               </p>
               <div className="flex flex-wrap gap-6">
                 <Link 
-                  to="/capabilities" 
-                  aria-label="Learn more about our capabilities"
+                  to="/expertise" 
+                  aria-label="Learn more about our expertise"
                   className="px-12 py-6 bg-brand-jade text-white text-xl font-bold rounded-2xl hover:bg-[#005a62] hover:scale-[1.02] transition-all shadow-2xl shadow-brand-jade/30 flex items-center gap-4 group"
                 >
                   {t('home.hero.cta')}
@@ -77,8 +78,8 @@ export function Home() {
         </div>
       </section>
 
-      {/* Capability Demonstrator Section */}
-      <section className="section-padding bg-slate-950 overflow-hidden relative">
+      {/* Document Intelligence Section */}
+      <section className="section-padding bg-slate-950 overflow-hidden relative border-b border-slate-900">
         <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
           <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(#006D77_1px,transparent_1px)] [background-size:40px_40px]" />
         </div>
@@ -96,14 +97,29 @@ export function Home() {
         </div>
       </section>
 
+      {/* Living Policy Manual Section */}
+      <section className="section-padding bg-white dark:bg-slate-950 overflow-hidden relative">
+        <div className="container-wide relative z-10">
+          <div className="text-center max-w-4xl mx-auto mb-16">
+            <h2 className="text-sm font-bold uppercase tracking-[0.4em] text-brand-jade mb-6">{t('home.manual.label')}</h2>
+            <h3 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white tracking-tight mb-6">{t('home.manual.title')}</h3>
+            <p className="text-slate-500 dark:text-slate-400 text-lg leading-relaxed max-w-3xl mx-auto">
+              {t('home.manual.text')}
+            </p>
+          </div>
+          
+          <PolicyManual />
+        </div>
+      </section>
+
       {/* Quick Links Section */}
       <section className="section-padding bg-white dark:bg-slate-950">
         <div className="container-wide">
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { name: t('home.quickLinks.advisory.title'), path: '/capabilities', desc: t('home.quickLinks.advisory.desc'), action: t('home.quickLinks.advisory.action') },
-              { name: t('home.quickLinks.architecture.title'), path: '/platform', desc: t('home.quickLinks.architecture.desc'), action: t('home.quickLinks.architecture.action') },
-              { name: t('home.quickLinks.insights.title'), path: '/research', desc: t('home.quickLinks.insights.desc'), action: t('home.quickLinks.insights.action') }
+              { name: t('home.quickLinks.platform.title'), path: '/expertise', desc: t('home.quickLinks.platform.desc'), action: t('home.quickLinks.platform.action') },
+              { name: t('home.quickLinks.company.title'), path: '/about', desc: t('home.quickLinks.company.desc'), action: t('home.quickLinks.company.action') },
+              { name: t('home.quickLinks.contact.title'), path: '/contact', desc: t('home.quickLinks.contact.desc'), action: t('home.quickLinks.contact.action') }
             ].map((item) => (
               <Link 
                 key={item.name} 

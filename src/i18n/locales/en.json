@@ -1,119 +1,142 @@
 {
   "nav": {
     "home": "Home",
-    "capabilities": "Expertise",
-    "audiences": "Audiences",
-    "research": "Research",
+    "platform": "Expertise",
     "about": "About",
-    "platform": "Infrastructure",
     "contact": "Contact",
     "getInTouch": "Get in Touch"
   },
   "home": {
     "hero": {
       "title": "Strategic Advisory for Public Sector Modernization.",
-      "subtitle": "Applied Policy Systems LLC bridges the gap between written regulations and the operational realities of government. We provide the structural evaluation and strategic guidance necessary to ensure that complex administrative systems achieve statutory fidelity, operational efficiency, and equitable access.",
-      "cta": "Explore Our Expertise"
+      "subtitle": "Applied Policy Systems LLC ensures that complex government administrative systems achieve absolute statutory fidelity through Independent Verification & Validation (IV&V) and Subject Matter Expert (SME) guidance.",
+      "cta": "Explore our Expertise"
     },
     "challenge": {
-      "label": "The Implementation Disconnect",
+      "label": "The Implementation Gap",
       "title": "Policy is written in statutes. Systems are built in code. We translate between the two.",
-      "text": "Public administration technology fails when there is a gap between legislative mandates and software engineering. Off-the-shelf software often lacks the structural nuance required by federal regulations, while custom builds become paralyzed by complex policy requirements.",
-      "solution": "Applied Policy Systems bridges this gap by translating statutory rules into deterministic logic and actionable digital infrastructure."
+      "text": "Public technology often fails when legislative mandates are lost in translation during software engineering. We bridge this gap by converting complex regulations into deterministic logic and actionable digital infrastructure.",
+      "solution": "We ensure that the 'Rules of the System' are a perfect reflection of the 'Rules of the Law'."
     },
     "infrastructure": {
-      "label": "Infrastructure Expertise",
-      "title": "Structural Modernization.",
-      "text": "We architect secure, high-fidelity infrastructure for government agencies to deliver complex services with absolute precision.",
-      "cta": "Explore the Architecture"
+      "label": "System Integrity",
+      "title": "High-Fidelity Architecture.",
+      "text": "We architect secure frameworks for government agencies to deliver complex services with precision, protecting both the agency budget and the citizen experience.",
+      "cta": "Explore our Services"
     },
     "sandbox": {
-      "label": "Proof of Concept",
-      "title": "The Translation in Practice",
-      "text": "The interactive system below shows this in action. Use the toggles to switch perspectives. The Resident view demonstrates secure document submission and a plain-language benefits assistant. The Caseworker view demonstrates automated data extraction and a statutory policy copilot."
+      "label": "Document Intelligence",
+      "title": "Designing for Administrative Clarity",
+      "text": "Modernization is only successful if it works for both the agency and the citizen. Our Document Intelligence demonstrator illustrates this balance—providing residents with immediate feedback on their requirements while ensuring the administration receives data that is 100% compliant with statutory mandates."
     },
-    "about": {
-      "hero": {
-        "label": "About Us",
-        "title": "Bridging the Disconnect in Public Administration."
-      },
-      "founder": {
-        "title": "Graham O'Neill, Founder & Principal Consultant",
-        "intro": "Graham O’Neill is a public sector innovator and technology strategist with over 15 years of experience optimizing complex government systems.",
-        "p1": "His career is defined by successfully translating legislative mandates into actionable, compliant digital infrastructure. From municipal revenue operations to federal advisory roles, Graham has consistently focused on making policy work for the people it is intended to serve by bridging the gap between written regulations and operational realities.",
-        "p2": "Before founding Applied Policy Systems LLC, Graham held senior leadership and advisory positions across all levels of government, where he specialized in the structural evaluation of benefits access and the modernization of tax administration programs."
-      }
-    },
-    "contactPage": {
-      "hero": {
-        "label": "Consultation",
-        "title": "Start the conversation.",
-        "subtitle": "Whether you're a government agency looking to modernize or a technology vendor seeking policy alignment, our architectural experts are ready to consult."
-      },
-      "ai": {
-        "title": "Consult with our AI Assistant",
-        "desc": "Our specialized consulting assistant can help triage your needs and provide immediate architectural insights."
-      },
-      "direct": {
-        "label": "Direct Channels",
-        "email": "Email",
-        "linkedin": "LinkedIn",
-        "location": "Location"
-      },
-      "cta": {
-        "title": "Ready for a deep dive?",
-        "desc": "Our team is available for formal architectural reviews, statutory mapping workshops, and modernization strategy sessions.",
-        "action": "Schedule a Session"
-      }
-    },
-    "capabilitiesPage": {
-      "hero": {
-        "label": "Consulting Expertise",
-        "title": "Bridging the gap between policy and implementation."
-      },
-      "cards": {
-        "science": {
-          "title": "Strategic Implementation Science",
-          "desc": "We bridge the gap between legislative intent and operational reality. Our experts optimize complex government workflows to ensure that administrative systems achieve their intended policy outcomes with maximum efficiency.",
-          "tip": "Strategy & Optimization"
-        },
-        "compliance": {
-          "title": "Compliance & Risk Diagnostics",
-          "desc": "Deep-dive audits of state-level payment error rates (SNAP/Medicaid). We identify systemic vulnerabilities and conceptualize real-time intervention mechanisms to mitigate risks before they trigger federal sanctions.",
-          "tip": "Audit & Mitigation"
-        },
-        "data": {
-          "title": "Interagency Data Strategy",
-          "desc": "Architecting secure data-sharing frameworks between tax and human services. We specialize in cross-referencing non-filer data to maximize benefit uptake without compromising PII or system integrity.",
-          "tip": "Data Architecture"
-        },
-        "fidelity": {
-          "title": "System Fidelity Evaluation",
-          "desc": "Independent third-party verification of Rules-as-Code architectures. We audit system logic to ensure absolute statutory compliance and maximum accessibility for frontline navigators.",
-          "tip": "Fidelity Audit"
-        }
-      },
-      "cta": {
-        "title": "Ready to optimize your agency's operations?",
-        "desc": "Our strategic consultants are ready to help you bridge the gap between policy mandates and technical implementation.",
-        "action": "Schedule a Consultation"
-      }
+    "manual": {
+      "label": "Methodology",
+      "title": "Human-Centered Policy Access",
+      "text": "Policy is only as effective as its accessibility. Our Living Policy Manual demonstrator showcases the 'Rules as Code' methodology—transforming dense legislative text into an intuitive, conversational guide that empowers citizens while providing administrators with a mathematically provable source of truth."
     },
     "quickLinks": {
-      "advisory": {
-        "title": "Strategic Advisory",
-        "desc": "Bridging the gap between policy and implementation through rigorous process optimization.",
-        "action": "Consulting Expertise"
+      "platform": {
+        "title": "Our Services",
+        "desc": "Deep-dive IV&V and SME advisory for health and human services modernization.",
+        "action": "View Core Services"
       },
-      "architecture": {
-        "title": "Technical Architecture",
-        "desc": "Structural blueprints for modernization, ensuring 100% statutory fidelity and precision.",
-        "action": "Explore Infrastructure"
+      "company": {
+        "title": "The Company",
+        "desc": "Our mission, leadership, and empirical research into administrative outcomes.",
+        "action": "About APS"
       },
-      "insights": {
-        "title": "Policy Insights",
-        "desc": "Empirical evaluation and historical analysis of complex administrative outcomes.",
-        "action": "View Research"
+      "contact": {
+        "title": "Consultation",
+        "desc": "Schedule a formal architectural review or statutory mapping workshop.",
+        "action": "Get in Touch"
+      }
+    }
+  },
+  "contactPage": {
+    "hero": {
+      "label": "Consultation",
+      "title": "Start the conversation.",
+      "subtitle": "Whether you're a government agency looking to modernize or a technology vendor seeking policy alignment, our architectural experts are ready to consult."
+    },
+    "ai": {
+      "title": "Consult with our AI Assistant",
+      "desc": "Our specialized consulting assistant can help triage your needs and provide immediate architectural insights."
+    },
+    "direct": {
+      "label": "Direct Channels",
+      "email": "Email",
+      "linkedin": "LinkedIn",
+      "location": "Location"
+    },
+    "cta": {
+      "title": "Ready for a deep dive?",
+      "desc": "Our team is available for formal architectural reviews, statutory mapping workshops, and modernization strategy sessions.",
+      "action": "Schedule a Session"
+    }
+  },
+  "about": {
+    "hero": {
+      "label": "The Firm",
+      "title": "Bridging the Disconnect."
+    },
+    "founder": {
+      "title": "Graham O'Neill, Founder & Principal Consultant",
+      "intro": "Graham O’Neill is a public sector innovator with over 15 years of experience optimizing complex government systems.",
+      "p1": "His career is defined by successfully translating legislative mandates into compliant digital infrastructure. From municipal revenue operations to federal advisory roles, Graham has consistently focused on making policy work for the people it is intended to serve by aligning written regulations with operational realities.",
+      "p2": "Before founding Applied Policy Systems LLC, Graham held senior leadership positions across all levels of government, specializing in the structural evaluation of benefits access and the modernization of tax administration programs."
+    },
+    "performance": {
+      "label": "Past Performance",
+      "title": "Direct Execution & Case Studies."
+    },
+    "research": {
+      "label": "Research & Insights",
+      "title": "Insights to improve service delivery and policy fidelity."
+    }
+  },
+  "expertisePage": {
+    "hero": {
+      "label": "Core Services",
+      "title": "Independent Verification & Validation."
+    },
+    "expertise": {
+      "label": "Strategic Advisory",
+      "title": "Bridging the gap between policy and code.",
+      "science": {
+        "title": "Subject Matter Expert (SME) Advisory",
+        "desc": "Our policy experts bridge the gap between legislative intent and operational reality. We provide the deep domain knowledge required to optimize complex government workflows and ensure intended policy outcomes.",
+        "tip": "Strategy & Optimization"
+      },
+      "compliance": {
+        "title": "Compliance & Risk Diagnostics",
+        "desc": "Deep-dive audits of state-level payment error rates (SNAP/Medicaid). We identify systemic vulnerabilities and conceptualize real-time intervention mechanisms to mitigate risks before they trigger federal sanctions.",
+        "tip": "Audit & Mitigation"
+      },
+      "data": {
+        "title": "Interagency Data Strategy",
+        "desc": "Architecting secure data-sharing frameworks between tax and human services. We specialize in cross-referencing non-filer data to maximize benefit uptake without compromising PII or system integrity.",
+        "tip": "Data Architecture"
+      },
+      "fidelity": {
+        "title": "Independent Verification & Validation (IV&V)",
+        "desc": "We provide independent third-party verification of system logic. Using a 'Rules-as-Code' methodology, we audit architectures to ensure absolute statutory compliance and operational fidelity.",
+        "tip": "Fidelity Audit"
+      }
+    },
+    "audiences": {
+      "label": "Target Audiences",
+      "title": "Creating systemic impact across sectors.",
+      "agencies": {
+        "title": "State & Municipal Agencies",
+        "desc": "Protecting agency budgets from federal audit penalties through executive policy formulation and rigorous modernization strategy."
+      },
+      "vendors": {
+        "title": "GovTech Vendors",
+        "desc": "Supplying the exact logical parameters and 'Rules-as-Code' blueprints required to build compliant, auditable public sector software."
+      },
+      "coalitions": {
+        "title": "Community Coalitions",
+        "desc": "Designing service delivery models that eliminate documentation barriers and renewal churn for vulnerable populations."
       }
     }
   },

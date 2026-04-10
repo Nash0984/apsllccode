@@ -36,7 +36,7 @@ export function ChatWidget({ embedded = false }: { embedded?: boolean }) {
   const [isOpen, setIsOpen] = useState(embedded);
   const [isMinimized, setIsMinimized] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
-    { role: 'assistant', content: 'Hello! I am the Applied Policy Systems Consulting Assistant. How can I help you explore our modular platform architecture, public benefits modernization, or legislative mandate translation strategies today?' }
+    { role: 'assistant', content: 'Hello! I am the Applied Policy Systems Consulting Assistant. How can I help you explore our IV&V services, SME advisory for public benefits, or legislative mandate translation strategies today?' }
   ]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -67,13 +67,13 @@ export function ChatWidget({ embedded = false }: { embedded?: boolean }) {
         ],
         config: {
           systemInstruction: `You are the Applied Policy Systems (APS) Consulting Assistant. 
-          Your goal is to consult with the audience on the concepts and architecture behind modular benefits administration platforms and public sector modernization.
+          Your goal is to consult with the audience on the concepts and architecture behind Independent Verification & Validation (IV&V) and Subject Matter Expert (SME) advisory for public sector modernization.
           
           Key Priorities & Context:
-          - APS specializes in "Modular Platform Architecture" for health and human services.
+          - APS specializes in "Independent Verification & Validation (IV&V)" and "SME Advisory" for health and human services.
           - We bridge the gap between "Legislative Mandate Translation" and digital infrastructure.
           - Focus areas include Public Benefits (SNAP, Medicaid, TANF), Low Income Tax Credit (LITC), and Volunteer Income Tax Assistance (VITA).
-          - We have 16 core modules covering Governance, Compliance, Operations, and Engagement.
+          - We use a "Rules-as-Code" methodology to audit system logic and ensure statutory fidelity.
           - Be pragmatic, practical, and cutting-edge in your explanations.
           - If a user asks about "Contacting" the company, provide graham@appliedpolicysystems.com as the primary contact and suggest scheduling a formal consultation via our booking page: https://calendar.app.google/WiXHqdGmWaG5kxJQ7.
           - Keep responses professional, architectural, and strategic.`,

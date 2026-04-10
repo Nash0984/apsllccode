@@ -6,24 +6,18 @@ import { AnimatePresence, motion } from 'motion/react';
 
 // Lazy load pages for code splitting
 const Home = lazy(() => import('./pages/Home').then(m => ({ default: m.Home })));
-const Capabilities = lazy(() => import('./pages/Capabilities').then(m => ({ default: m.Capabilities })));
-const Audiences = lazy(() => import('./pages/Audiences').then(m => ({ default: m.Audiences })));
-const Research = lazy(() => import('./pages/Research').then(m => ({ default: m.Research })));
 const About = lazy(() => import('./pages/About').then(m => ({ default: m.About })));
 const Contact = lazy(() => import('./pages/Contact').then(m => ({ default: m.Contact })));
-const Platform = lazy(() => import('./pages/Platform').then(m => ({ default: m.Platform })));
+const Expertise = lazy(() => import('./pages/Expertise').then(m => ({ default: m.Expertise })));
 const Privacy = lazy(() => import('./pages/Privacy').then(m => ({ default: m.Privacy })));
 const Terms = lazy(() => import('./pages/Terms').then(m => ({ default: m.Terms })));
 
 // Prefetch mapping
 const prefetchMap: Record<string, () => Promise<any>> = {
   '/': () => import('./pages/Home'),
-  '/capabilities': () => import('./pages/Capabilities'),
-  '/audiences': () => import('./pages/Audiences'),
-  '/research': () => import('./pages/Research'),
   '/about': () => import('./pages/About'),
   '/contact': () => import('./pages/Contact'),
-  '/platform': () => import('./pages/Platform'),
+  '/expertise': () => import('./pages/Expertise'),
   '/privacy': () => import('./pages/Privacy'),
   '/terms': () => import('./pages/Terms'),
 };
@@ -56,11 +50,8 @@ function AnimatedRoutes() {
       <Routes location={location}>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="capabilities" element={<Capabilities />} />
-          <Route path="audiences" element={<Audiences />} />
-          <Route path="research" element={<Research />} />
           <Route path="about" element={<About />} />
-          <Route path="platform" element={<Platform />} />
+          <Route path="expertise" element={<Expertise />} />
           <Route path="contact" element={<Contact />} />
           <Route path="privacy" element={<Privacy />} />
           <Route path="terms" element={<Terms />} />

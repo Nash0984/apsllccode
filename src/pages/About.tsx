@@ -1,12 +1,38 @@
-import { UserCircle, ChevronRight } from 'lucide-react';
+import React, { useState } from 'react';
+import { UserCircle, ChevronRight, BookOpen, FileText, BarChart3, Network, ArrowRight, ChevronDown, ChevronUp, GraduationCap, Shield, Database, CheckCircle2 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'motion/react';
-import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 
 export function About() {
   const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState(0);
+  const [expandedDocs, setExpandedDocs] = useState<number[]>([]);
+
+  const toggleExpand = (index: number, e: React.MouseEvent | React.KeyboardEvent) => {
+    e.stopPropagation();
+    setExpandedDocs(prev => 
+      prev.includes(index) ? prev.filter(i => i !== index) : [...prev, index]
+    );
+  };
+
+  const researchDocs = [
+    {
+      title: "Rules as Code (RaC) Implementation",
+      desc: "A technical guide on translating subjective policy into deterministic logic. This framework covers the entire lifecycle from legislative analysis to rigorous logic testing, ensuring legislative intent is preserved through digital transformation.",
+      icon: <FileText size={24} strokeWidth={1.5} />
+    },
+    {
+      title: "SNAP Payment Error Rate Mitigation",
+      desc: "Root cause analysis and operational frameworks to improve payment accuracy and audit compliance. Our research identifies key friction points in eligibility reviews and provides evidence-based recommendations for reducing churn.",
+      icon: <BarChart3 size={24} strokeWidth={1.5} />
+    },
+    {
+      title: "VITA Infrastructure Integration",
+      desc: "Designing seamless data flows between tax services and state benefit systems. This study explores technical and policy requirements for real-time data sharing, focusing on privacy-preserving protocols to maximize benefit uptake.",
+      icon: <Network size={24} strokeWidth={1.5} />
+    }
+  ];
 
   const experience = [
     {
@@ -26,44 +52,38 @@ export function About() {
       label: 'National Strategy',
       title: 'National Policy Strategy',
       content: 'Served as Tax Administration Policy Strategist at Prosperity Now. Acted as a national liaison for integrating federal tax administration programs into community-based infrastructure.'
-    },
-    {
-      id: 'municipal',
-      label: 'Municipal Impact',
-      title: 'Municipal Impact & Operations',
-      content: 'Administrator of Taxpayer Assistance for the City of Philadelphia. Directed the "You Earned It Philly" initiative, returning over $44 million in tax credits to 26,000 residents.'
     }
   ];
 
   const timelineMilestones = [
     {
       year: '2011',
-      title: 'Municipal Leadership',
+      title: 'Municipal Impact',
       organization: 'City of Philadelphia',
       role: 'Administrator of Taxpayer Assistance',
-      description: 'Directed the $1.3 million "You Earned It Philly" EITC initiative, returning over $44 million to 26,000 residents and establishing a model for municipal tax credit outreach.',
+      description: 'Directed the "You Earned It Philly" EITC initiative, returning over $44 million to 26,000 residents and establishing a model for municipal tax credit outreach.',
       icon: '🏛️'
     },
     {
       year: '2016',
-      title: 'National Policy Strategy',
+      title: 'National Strategy',
       organization: 'Prosperity Now',
-      role: 'Taxpayer Assistance & Policy Strategist',
+      role: 'Policy Strategist',
       description: 'Acted as a national liaison for tax administration programs, integrating federal financial regulations into community-based infrastructure across the U.S.',
       icon: '🌐'
     },
     {
       year: '2019',
       title: 'State Operations',
-      organization: 'Maryland Dept. of Human Services',
+      organization: 'Maryland DHS',
       role: 'Director of Operations',
-      description: 'Evaluated and guided modernization strategies for benefits access, focusing on human-centered design and translating legislative mandates into operational eligibility systems.',
+      description: 'Evaluated and guided modernization strategies for benefits access, focusing on human-centered design and translating legislative mandates into operational systems.',
       icon: '🛡️'
     },
     {
       year: '2023',
-      title: 'Federal Advisory & APS',
-      organization: 'Applied Policy Systems LLC',
+      title: 'Federal Advisory',
+      organization: 'Applied Policy Systems',
       role: 'Founder & Federal Advisor',
       description: 'Founded APS to bridge the policy-implementation gap. Appointed to a federal advisory committee advising Congress and the IRS on electronic tax administration.',
       icon: '💎'
@@ -81,10 +101,12 @@ export function About() {
       </Helmet>
       {/* Header */}
       <section className="hero-section">
-        <div className="container-wide">
-          <h1 className="label-muted">{t('about.hero.label')}</h1>
-          <h2>
-            {t('about.hero.title')}
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-jade/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/4 pointer-events-none" />
+        <div className="container-wide relative">
+          <h1 className="label-uppercase">{t('about.hero.label')}</h1>
+          <h2 className="max-w-4xl">
+            {t('about.hero.title').split(' ').slice(0, -1).join(' ')} <br />
+            <span className="text-brand-jade">{t('about.hero.title').split(' ').slice(-1)}</span>
           </h2>
         </div>
       </section>
@@ -295,28 +317,28 @@ export function About() {
       <section className="section-padding bg-white dark:bg-slate-950 border-y border-slate-100 dark:border-slate-800">
         <div className="container-wide">
           <div className="text-center mb-20">
-            <h2 className="label-muted">Principal's Track Record</h2>
-            <h3 className="tracking-tight">Measurable Results in Public Administration.</h3>
+            <h2 className="label-muted">Measurable Impact</h2>
+            <h3 className="tracking-tight">Proven Results in Public Administration.</h3>
           </div>
           
           <div className="grid md:grid-cols-3 gap-12">
             {[
               {
                 value: "$44M+",
-                label: "EITC Refunds Returned",
-                desc: "Directly returned to Philadelphia residents through the 'You Earned It Philly' initiative directed by Graham.",
+                label: "Direct Citizen Benefit",
+                desc: "Tax credits returned to Philadelphia residents through the 'You Earned It Philly' initiative.",
                 icon: "💰"
               },
               {
                 value: "$2M",
-                label: "Funding Secured (2025)",
-                desc: "Secured from Federal & National Philanthropic Partners for SNAP Payment Error Rate Reduction.",
+                label: "Modernization Funding",
+                desc: "Federal & Philanthropic funding secured for SNAP Payment Error Rate reduction initiatives.",
                 icon: "📉"
               },
               {
                 value: "15+",
                 label: "Years of Execution",
-                desc: "A career dedicated to public administration at municipal, state, and federal tiers.",
+                desc: "A career dedicated to optimizing public systems at municipal, state, and federal levels.",
                 icon: "🏛️"
               }
             ].map((stat, i) => (
@@ -334,6 +356,123 @@ export function About() {
                 <p className="leading-relaxed">{stat.desc}</p>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Past Performance Section */}
+      <section className="section-padding bg-slate-50 dark:bg-slate-900 border-y border-slate-100 dark:border-slate-800">
+        <div className="container-wide">
+          <div className="text-center mb-20">
+            <h2 className="label-muted">{t('about.performance.label')}</h2>
+            <h3 className="tracking-tight">{t('about.performance.title')}</h3>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-12">
+            {[
+              {
+                title: "SNAP Payment Error Rate Reduction",
+                framework: "State-Level Human Services",
+                challenge: "High error rates in SNAP eligibility determinations leading to federal sanctions.",
+                execution: "Implemented real-time data cross-referencing and automated income verification workflows.",
+                impact: "Identified systemic root causes and secured $2M in funding for corrective action infrastructure."
+              },
+              {
+                title: "Civic Technology Integration",
+                framework: "Campaign for Working Families",
+                challenge: "Sustaining high-volume tax preparation operations during pandemic-induced closures.",
+                execution: "Architected a rapid digital transformation strategy and secured a formal operational partnership with Code for America.",
+                impact: "Preserved frontline tax services for vulnerable populations while raising over $2.2 million in grant infrastructure."
+              }
+            ].map((study, i) => (
+              <div key={i} className="bg-white dark:bg-slate-800 p-12 rounded-[3rem] border border-slate-200 dark:border-slate-700 shadow-sm relative overflow-hidden group hover:shadow-xl transition-all duration-500">
+                <div className="absolute top-0 left-0 w-1.5 h-full bg-brand-jade" />
+                <h4 className="text-2xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight">{study.title}</h4>
+                <p className="text-brand-jade font-bold text-sm uppercase tracking-wider mb-8">{study.framework}</p>
+                
+                <div className="space-y-6">
+                  <div>
+                    <p className="text-xs font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-2">The Challenge</p>
+                    <p className="text-slate-600 dark:text-slate-400 leading-relaxed">{study.challenge}</p>
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-2">The Execution</p>
+                    <p className="text-slate-600 dark:text-slate-400 leading-relaxed">{study.execution}</p>
+                  </div>
+                  <div className="pt-6 border-t border-slate-100 dark:border-slate-700">
+                    <p className="text-xs font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-2">The Impact</p>
+                    <p className="text-slate-900 dark:text-slate-100 font-bold text-lg leading-relaxed">{study.impact}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Research & Insights Section */}
+      <section className="section-padding bg-white dark:bg-slate-950">
+        <div className="container-wide">
+          <div className="grid lg:grid-cols-2 gap-20 items-start">
+            <div>
+              <h2 className="label-muted">{t('about.research.label')}</h2>
+              <h3 className="tracking-tight mb-8">{t('about.research.title')}</h3>
+              <p className="text-xl leading-relaxed mb-12">
+                Our methodology is rooted in rigorous data analysis and historical context. We publish frameworks that bridge the gap between legislative intent and administrative reality.
+              </p>
+              
+              <div className="space-y-6">
+                {researchDocs.map((doc, i) => {
+                  const isExpanded = expandedDocs.includes(i);
+                  return (
+                    <div key={i} className="card-base p-8 relative overflow-hidden group">
+                      <div className="flex gap-6">
+                        <div className="shrink-0 w-12 h-12 rounded-xl bg-slate-50 dark:bg-slate-900 flex items-center justify-center text-brand-jade border border-slate-100 dark:border-slate-800">
+                          {doc.icon}
+                        </div>
+                        <div className="flex-1">
+                          <h4 className="text-lg font-bold mb-2">{doc.title}</h4>
+                          <motion.div
+                            animate={{ height: isExpanded ? 'auto' : '3rem' }}
+                            className="overflow-hidden"
+                          >
+                            <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+                              {doc.desc}
+                            </p>
+                          </motion.div>
+                          <button
+                            onClick={(e) => toggleExpand(i, e)}
+                            className="mt-4 text-brand-jade font-bold text-xs uppercase tracking-widest flex items-center gap-2"
+                          >
+                            {isExpanded ? 'Read Less' : 'Read More'}
+                            {isExpanded ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+            
+            <div className="relative hidden lg:block">
+              <div className="aspect-square bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-[3rem] p-12 flex flex-col justify-between">
+                <div className="space-y-4">
+                  <div className="h-2 w-24 bg-brand-jade/20 rounded-full" />
+                  <div className="h-2 w-48 bg-slate-200 dark:bg-slate-700 rounded-full" />
+                  <div className="h-2 w-32 bg-slate-200 dark:bg-slate-700 rounded-full" />
+                </div>
+                <div className="flex justify-end">
+                  <div className="w-32 h-32 border-2 border-brand-jade/10 rounded-full flex items-center justify-center">
+                    <div className="w-16 h-16 border border-brand-jade/20 rounded-full animate-ping" />
+                  </div>
+                </div>
+                <div className="space-y-4">
+                  <div className="h-2 w-full bg-slate-100 dark:bg-slate-800 rounded-full" />
+                  <div className="h-2 w-2/3 bg-slate-100 dark:bg-slate-800 rounded-full" />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

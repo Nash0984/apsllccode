@@ -57,10 +57,8 @@ export function Layout() {
 
   const navItems = [
     { name: t('nav.home'), path: '/' },
-    { name: t('nav.capabilities'), path: '/capabilities' },
-    { name: t('nav.platform'), path: '/platform' },
-    { name: t('nav.research'), path: '/research' },
-    { name: t('nav.audiences'), path: '/audiences' },
+    { name: t('nav.platform'), path: '/expertise' },
+    { name: t('nav.about'), path: '/about' },
     { name: t('nav.contact'), path: '/contact' }
   ];
 

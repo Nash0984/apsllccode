@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
-  Upload, X, FileText, Send, Activity, ShieldAlert, CheckCircle, RefreshCw, MessageSquare, ChevronDown, Check, User, Scale
+  Upload, X, FileText, Send, Activity, ShieldAlert, CheckCircle, RefreshCw, ChevronDown, Check, User, Scale
 } from 'lucide-react';
 import { getChatResponse, FileData } from '../services/gemini';
 
@@ -153,21 +153,11 @@ export function Sandbox() {
   
   // Master state controls
   const [persona, setPersona] = useState<Persona>('client');
-  const [activeMode, setActiveMode] = useState<'upload' | 'chat'>('upload');
   
   const [engineResponse, setEngineResponse] = useState<EngineResponse | null>(null);
-  const [chatHistory, setChatHistory] = useState<any[]>([]);
   
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const chatScrollRef = useRef<HTMLDivElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
-
-  // Auto-scroll chat
-  useEffect(() => {
-    if (chatScrollRef.current) {
-      chatScrollRef.current.scrollTo({ top: chatScrollRef.current.scrollHeight, behavior: 'smooth' });
-    }
-  }, [chatHistory, appState]);
 
   // Handle click outside custom dropdown
   useEffect(() => {
@@ -184,11 +174,9 @@ export function Sandbox() {
   useEffect(() => {
     let interval: NodeJS.Timeout;
     if (appState === 'processing') {
-      const phases = activeMode === 'upload' 
-        ? (persona === 'worker' 
-            ? ['Ingesting payload...', 'Executing deterministic extraction...', 'Evaluating statutory sufficiency (SNAP/Medicaid)...', 'Calculating compliance thresholds...', 'Rendering diagnostic results...']
-            : ['Encrypting transmission...', 'Verifying document format...', 'Submitting to state agency...'])
-        : ['Querying policy repository...', 'Synthesizing statutory guidance...', 'Formatting response...'];
+      const phases = persona === 'worker' 
+        ? ['Ingesting payload...', 'Executing deterministic extraction...', 'Evaluating statutory sufficiency (SNAP/Medicaid)...', 'Calculating compliance thresholds...', 'Rendering diagnostic results...']
+        : ['Encrypting transmission...', 'Verifying document format...', 'Submitting to state agency...'];
       
       let step = 0;
       setLoadingPhase(phases[0]);
@@ -201,15 +189,18 @@ export function Sandbox() {
       setLoadingPhase('');
     }
     return () => clearInterval(interval);
-  }, [appState, persona, activeMode]);
+  }, [appState, persona]);
 
   const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = e.target.files?.[0];
     if (!selectedFile) return;
 
     // File type validation
-    const supportedTypes = ['image/jpeg', 'image/png', 'image/jpg', 'application/pdf'];
-    if (!supportedTypes.includes(selectedFile.type)) {
+    const supportedMimeTypes = ['image/jpeg', 'image/png', 'image/jpg', 'application/pdf'];
+    const fileExtension = selectedFile.name.split('.').pop()?.toLowerCase();
+    const supportedExtensions = ['jpg', 'jpeg', 'png', 'pdf'];
+
+    if (!supportedMimeTypes.includes(selectedFile.type) && !supportedExtensions.includes(fileExtension || '')) {
       setFileError(persona === 'client' 
         ? "We can only accept PDF, JPG, or PNG files. Please try uploading your document in one of these formats."
         : "ERROR: Unsupported file type. System requires PDF, JPG, or PNG for statutory analysis."
@@ -252,38 +243,21 @@ export function Sandbox() {
 
   const togglePersona = (newPersona: Persona) => {
     setPersona(newPersona);
-    setChatHistory([]);
-    setActiveMode('upload');
     setShowStatutoryDetail(false);
     resetState();
   };
 
   const handleSubmit = async () => {
-    if (!input.trim() && !fileData) return;
+    if (!fileData) return;
     
     setAppState('processing');
 
-    const safeHistory = chatHistory.map(h => ({ role: h.role, parts: h.parts }));
-    const activePolicyId = activeMode === 'upload' ? dropdownValue : undefined;
+    const activePolicyId = dropdownValue;
     
-    const responseData = await getChatResponse(input.trim(), safeHistory, fileData, activePolicyId, persona);
+    const responseData = await getChatResponse(input.trim(), [], fileData, activePolicyId, persona);
     
-    if (activeMode === 'chat') {
-      const newUserPart = { 
-        role: 'user', 
-        parts: [{ text: input.trim() }]
-      };
-      const newModelPart = { 
-        role: 'model', 
-        parts: [{ text: responseData.message || "System evaluation complete." }] 
-      };
-      setChatHistory(prev => [...prev, newUserPart, newModelPart]);
-      setAppState('idle');
-      setInput('');
-    } else {
-      setEngineResponse(responseData);
-      setAppState('results');
-    }
+    setEngineResponse(responseData);
+    setAppState('results');
   };
 
   const getSelectedDropdownLabel = () => {
@@ -336,8 +310,8 @@ export function Sandbox() {
     }
 
     return (
-      <div className="flex h-full gap-4">
-        <div className="flex-1 bg-slate-950 border border-slate-800 rounded-lg flex flex-col overflow-hidden">
+      <div className="flex flex-col lg:flex-row h-full gap-4 overflow-y-auto lg:overflow-hidden">
+        <div className="flex-1 min-h-[300px] lg:min-h-0 bg-slate-950 border border-slate-800 rounded-lg flex flex-col overflow-hidden">
           <div className="bg-[#050a0f] px-4 py-3 border-b border-slate-800 text-xs font-bold text-slate-400 uppercase tracking-wider flex justify-between items-center">
             <span>Payload Viewer</span>
             <span className="truncate max-w-[200px] text-slate-600 font-mono">{file?.name}</span>
@@ -481,8 +455,8 @@ export function Sandbox() {
           </button>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 flex-1 overflow-hidden">
-          <div className="bg-white border border-blue-50 rounded-2xl flex flex-col overflow-hidden shadow-sm">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 flex-1 overflow-y-auto lg:overflow-hidden">
+          <div className="bg-white border border-blue-50 rounded-2xl flex flex-col overflow-hidden shadow-sm min-h-[300px] lg:min-h-0">
             <div className="bg-slate-50 px-5 py-4 border-b border-blue-50 text-[11px] font-bold text-slate-400 uppercase tracking-[0.15em] flex justify-between items-center">
               <span>Your Document</span>
               <span className="truncate max-w-[150px] text-blue-400 font-medium">{file?.name}</span>
@@ -539,57 +513,11 @@ export function Sandbox() {
     );
   };
 
-  const renderChatInterface = () => (
-    <div className={`flex flex-col h-full rounded-2xl border overflow-hidden transition-colors duration-500 ${persona === 'client' ? 'bg-white border-blue-50 shadow-sm' : 'bg-[#050a0f] border-slate-800'}`}>
-      <div className={`px-6 py-4 border-b text-xs font-bold uppercase tracking-[0.2em] ${persona === 'client' ? 'text-blue-600 bg-blue-50/30 border-blue-50' : 'text-brand-jade bg-[#002a2e]/30 border-slate-800'}`}>
-        {persona === 'worker' ? 'Policy Operations Copilot' : 'Resident Benefits Assistant'}
-      </div>
-      <div ref={chatScrollRef} className="flex-1 p-8 overflow-y-auto space-y-8">
-        {chatHistory.length === 0 && (
-          <div className="flex flex-col items-center justify-center h-full text-center max-w-md mx-auto gap-8">
-            <div className={`w-20 h-20 rounded-full flex items-center justify-center ${persona === 'client' ? 'bg-blue-50 text-blue-500' : 'bg-slate-900 text-slate-700'}`}>
-              <MessageSquare size={40} className="opacity-80" />
-            </div>
-            <div className={`p-8 rounded-2xl w-full shadow-sm text-left relative overflow-hidden border ${persona === 'client' ? 'bg-white border-blue-100' : 'bg-slate-950 border-slate-800'}`}>
-              <span className={`font-black block mb-3 text-sm uppercase tracking-wider ${persona === 'client' ? 'text-blue-600' : 'text-brand-jade'}`}>
-                {persona === 'worker' ? 'Intelligent Policy Navigation' : 'Plain Language Translation'}
-              </span>
-              <span className={`block mb-4 text-sm leading-relaxed ${persona === 'client' ? 'text-slate-600' : 'text-slate-400'}`}>
-                {persona === 'worker' 
-                  ? 'Showcases how the engine can parse complex scenarios and locate specific eligibility statutes instantly.' 
-                  : 'We translate complex rules into simple steps to help you understand your benefits and how to qualify.'}
-              </span>
-              <ul className={`list-disc pl-5 space-y-2 text-xs font-medium ${persona === 'client' ? 'text-slate-500' : 'text-slate-500'}`}>
-                <li>{persona === 'worker' ? 'Ask a question about a specific program limit (e.g., "What is the SNAP limit for a family of 4?")' : 'Ask a general question (e.g., "How do I know if I qualify for child care?")'}</li>
-              </ul>
-            </div>
-          </div>
-        )}
-        {chatHistory.map((msg, idx) => (
-          <div key={idx} className={`flex flex-col gap-3 ${msg.role === 'user' ? 'items-end' : 'items-start'}`}>
-            <span className={`text-[10px] uppercase tracking-widest font-black ${msg.role === 'user' ? 'text-slate-400' : (persona === 'client' ? 'text-blue-600' : 'text-brand-jade')}`}>
-              {msg.role === 'user' ? 'You' : 'System'}
-            </span>
-            <div className={`p-5 rounded-2xl text-sm max-w-[85%] leading-relaxed shadow-sm ${msg.role === 'user' ? (persona === 'client' ? 'bg-blue-600 text-white rounded-tr-sm' : 'bg-slate-800 text-slate-200 rounded-tr-sm') : (persona === 'client' ? 'bg-slate-50 text-slate-800 border border-blue-50 rounded-tl-sm' : 'bg-slate-900 border border-slate-800 text-slate-300 rounded-tl-sm whitespace-pre-wrap')}`}>
-              {msg.parts[0].text}
-            </div>
-          </div>
-        ))}
-        {appState === 'processing' && (
-          <div className={`flex items-center gap-4 text-xs font-black uppercase tracking-widest ${persona === 'client' ? 'text-blue-600' : 'text-brand-jade'}`}>
-            <div className={`w-5 h-5 border-2 border-t-transparent rounded-full animate-spin ${persona === 'client' ? 'border-blue-600' : 'border-brand-jade'}`} />
-            Synthesizing guidance...
-          </div>
-        )}
-      </div>
-    </div>
-  );
-
   return (
     <div className="w-full max-w-6xl mx-auto flex flex-col gap-6 font-sans">
       
       {/* Main Application Frame */}
-      <div className={`border rounded-2xl overflow-hidden shadow-2xl flex flex-col h-[800px] transition-all duration-500 ${persona === 'client' ? 'bg-slate-50 border-blue-100' : 'bg-[#0a0f14] border-slate-800'}`}>
+      <div className={`border rounded-2xl overflow-hidden shadow-2xl flex flex-col min-h-[700px] lg:h-[800px] transition-all duration-500 ${persona === 'client' ? 'bg-slate-50 border-blue-100' : 'bg-[#0a0f14] border-slate-800'}`}>
         
         {/* The Fourth Wall: Global Simulator Controls */}
         <div className={`px-6 py-3 flex flex-wrap justify-between items-center gap-4 shrink-0 border-b transition-colors duration-500 ${persona === 'client' ? 'bg-white border-blue-50' : 'bg-[#020617] border-slate-800'}`}>
@@ -609,26 +537,6 @@ export function Sandbox() {
                 className={`px-4 py-1.5 rounded-lg text-xs font-bold transition-all ${persona === 'worker' ? 'bg-brand-jade text-slate-950 shadow-md' : 'text-slate-400 hover:text-slate-200'}`}
               >
                 Caseworker (Agency)
-              </button>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-4">
-            <span className={`text-[10px] font-bold uppercase tracking-widest ${persona === 'client' ? 'text-blue-400' : 'text-slate-500'}`}>
-              Active Module:
-            </span>
-            <div className={`flex rounded-xl p-1 border transition-colors duration-500 ${persona === 'client' ? 'bg-blue-50/50 border-blue-100' : 'bg-slate-900/50 border-slate-800'}`}>
-              <button 
-                onClick={() => { setActiveMode('upload'); resetState(); }}
-                className={`px-4 py-1.5 rounded-lg text-xs font-bold transition-all ${activeMode === 'upload' ? (persona === 'client' ? 'bg-white text-blue-600 shadow-sm' : 'bg-slate-700 text-white shadow-md') : 'text-slate-500 hover:text-slate-300'}`}
-              >
-                {persona === 'client' ? 'Document Upload' : 'Intake Pipeline'}
-              </button>
-              <button 
-                onClick={() => setActiveMode('chat')}
-                className={`px-4 py-1.5 rounded-lg text-xs font-bold transition-all ${activeMode === 'chat' ? (persona === 'client' ? 'bg-white text-blue-600 shadow-sm' : 'bg-slate-700 text-white shadow-md') : 'text-slate-500 hover:text-slate-300'}`}
-              >
-                {persona === 'client' ? 'Benefits Assistant' : 'Policy Copilot'}
               </button>
             </div>
           </div>
@@ -657,9 +565,7 @@ export function Sandbox() {
 
         {/* Dynamic Workspace */}
         <div className="flex-1 p-6 overflow-hidden">
-          {activeMode === 'chat' 
-            ? renderChatInterface() 
-            : (persona === 'worker' ? renderWorkerDashboard() : renderClientDashboard())}
+          {persona === 'worker' ? renderWorkerDashboard() : renderClientDashboard()}
         </div>
 
         {/* Unified Input Footer */}
@@ -673,89 +579,87 @@ export function Sandbox() {
           )}
 
           <div className="flex flex-col gap-3">
-            {activeMode === 'upload' && (
-              <div className="flex flex-col gap-2">
-                <div className="flex gap-2 items-center">
-                  <div className="relative flex-1" ref={dropdownRef}>
-                    <button
-                      type="button"
-                      disabled={appState === 'processing'}
-                      onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                      className={`w-full text-left border rounded-xl px-4 py-3 text-xs flex justify-between items-center transition-all disabled:opacity-50 shadow-sm ${persona === 'client' ? 'bg-slate-50 border-blue-100 text-slate-700 focus:ring-2 focus:ring-blue-500/20 hover:bg-white' : 'bg-slate-950 border-slate-800 text-slate-300 focus:ring-1 focus:ring-brand-jade hover:border-slate-700 font-mono'}`}
-                    >
-                      <span className={!dropdownValue ? 'text-slate-400' : 'font-bold'}>{getSelectedDropdownLabel()}</span>
-                      <ChevronDown size={16} className={`transition-transform duration-300 text-slate-400 ${isDropdownOpen ? 'rotate-180' : ''}`} />
-                    </button>
+            <div className="flex flex-col gap-2">
+              <div className="flex gap-2 items-center">
+                <div className="relative flex-1" ref={dropdownRef}>
+                  <button
+                    type="button"
+                    disabled={appState === 'processing'}
+                    onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                    className={`w-full text-left border rounded-xl px-4 py-3 text-xs flex justify-between items-center transition-all disabled:opacity-50 shadow-sm ${persona === 'client' ? 'bg-slate-50 border-blue-100 text-slate-700 focus:ring-2 focus:ring-blue-500/20 hover:bg-white' : 'bg-slate-950 border-slate-800 text-slate-300 focus:ring-1 focus:ring-brand-jade hover:border-slate-700 font-mono'}`}
+                  >
+                    <span className={!dropdownValue ? 'text-slate-400' : 'font-bold'}>{getSelectedDropdownLabel()}</span>
+                    <ChevronDown size={16} className={`transition-transform duration-300 text-slate-400 ${isDropdownOpen ? 'rotate-180' : ''}`} />
+                  </button>
 
-                    {/* Custom Dropdown Menu */}
-                    {isDropdownOpen && (
-                      <div className={`absolute z-50 w-full mb-2 bottom-[100%] border rounded-2xl shadow-2xl overflow-hidden max-h-[300px] overflow-y-auto transition-all ${persona === 'client' ? 'bg-white border-blue-100' : 'bg-slate-900 border-slate-700'}`}>
-                        {UNIFIED_VERIFICATION_ONTOLOGY.map((domain, idx) => (
-                          <div key={idx} className="pb-1">
-                            <div className={`px-4 py-2 sticky top-0 backdrop-blur z-10 text-[9px] font-black uppercase tracking-[0.2em] border-b ${persona === 'client' ? 'bg-slate-50/95 text-blue-600 border-blue-50' : 'bg-slate-950/95 text-slate-500 border-slate-800/50'}`}>
-                              {persona === 'client' ? domain.clientCategory : domain.workerCategory}
-                            </div>
-                            <div className="py-1">
-                              {domain.protocols.map((protocol) => (
-                                <button
-                                  key={protocol.id}
-                                  type="button"
-                                  className={`w-full text-left px-4 py-2 text-xs transition-all flex items-center gap-3 ${dropdownValue === protocol.id ? (persona === 'client' ? 'bg-blue-50 text-blue-600 font-bold' : 'bg-[#002a2e] text-brand-jade font-bold') : (persona === 'client' ? 'text-slate-600 hover:bg-slate-50' : 'text-slate-300 hover:bg-slate-800')}`}
-                                  onClick={() => {
-                                    setDropdownValue(protocol.id);
-                                    setIsDropdownOpen(false);
-                                  }}
-                                >
-                                  <div className="w-4 flex justify-center shrink-0">
-                                    {dropdownValue === protocol.id && <Check size={14} />}
-                                  </div>
-                                  <span className="truncate">
-                                    {persona === 'client' ? protocol.clientLabel : protocol.workerLabel}
-                                  </span>
-                                </button>
-                              ))}
-                            </div>
+                  {/* Custom Dropdown Menu */}
+                  {isDropdownOpen && (
+                    <div className={`absolute z-50 w-full mb-2 bottom-[100%] border rounded-2xl shadow-2xl overflow-hidden max-h-[300px] overflow-y-auto transition-all ${persona === 'client' ? 'bg-white border-blue-100' : 'bg-slate-900 border-slate-700'}`}>
+                      {UNIFIED_VERIFICATION_ONTOLOGY.map((domain, idx) => (
+                        <div key={idx} className="pb-1">
+                          <div className={`px-4 py-2 sticky top-0 backdrop-blur z-10 text-[9px] font-black uppercase tracking-[0.2em] border-b ${persona === 'client' ? 'bg-slate-50/95 text-blue-600 border-blue-50' : 'bg-slate-950/95 text-slate-500 border-slate-800/50'}`}>
+                            {persona === 'client' ? domain.clientCategory : domain.workerCategory}
                           </div>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-
-                  {dropdownValue && (
-                    <button 
-                      onClick={() => setShowStatutoryDetail(!showStatutoryDetail)}
-                      className={`p-3 rounded-xl border transition-all flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest ${showStatutoryDetail ? (persona === 'client' ? 'bg-blue-600 text-white border-blue-600' : 'bg-brand-jade text-slate-950 border-brand-jade') : (persona === 'client' ? 'bg-white border-blue-100 text-blue-600 hover:bg-blue-50' : 'bg-slate-900 border-slate-700 text-slate-400 hover:text-slate-200')}`}
-                      title="Toggle Statutory Context"
-                    >
-                      <Scale size={16} />
-                      <span className="hidden sm:inline">{showStatutoryDetail ? 'Hide Context' : 'Show Context'}</span>
-                    </button>
+                          <div className="py-1">
+                            {domain.protocols.map((protocol) => (
+                              <button
+                                key={protocol.id}
+                                type="button"
+                                className={`w-full text-left px-4 py-2 text-xs transition-all flex items-center gap-3 ${dropdownValue === protocol.id ? (persona === 'client' ? 'bg-blue-50 text-blue-600 font-bold' : 'bg-[#002a2e] text-brand-jade font-bold') : (persona === 'client' ? 'text-slate-600 hover:bg-slate-50' : 'text-slate-300 hover:bg-slate-800')}`}
+                                onClick={() => {
+                                  setDropdownValue(protocol.id);
+                                  setIsDropdownOpen(false);
+                                }}
+                              >
+                                <div className="w-4 flex justify-center shrink-0">
+                                  {dropdownValue === protocol.id && <Check size={14} />}
+                                </div>
+                                <span className="truncate">
+                                  {persona === 'client' ? protocol.clientLabel : protocol.workerLabel}
+                                </span>
+                              </button>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
                   )}
                 </div>
-                
-                <AnimatePresence>
-                  {(dropdownValue && showStatutoryDetail) && (
-                    <motion.div 
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: 'auto' }}
-                      exit={{ opacity: 0, height: 0 }}
-                      className="overflow-hidden"
-                    >
-                      <div className={`p-4 rounded-xl border text-[11px] leading-relaxed transition-colors duration-500 mb-2 ${persona === 'client' ? 'bg-blue-50/30 border-blue-100 text-slate-600' : 'bg-[#002a2e]/20 border-brand-jade/30 text-slate-400 font-mono'}`}>
-                        <div className={`font-black uppercase tracking-widest mb-1.5 flex items-center gap-2 ${persona === 'client' ? 'text-blue-600' : 'text-brand-jade'}`}>
-                          <Scale size={12} /> Statutory Context:
-                        </div>
-                        {getSelectedStatutoryDetail()}
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+
+                {dropdownValue && (
+                  <button 
+                    onClick={() => setShowStatutoryDetail(!showStatutoryDetail)}
+                    className={`p-3 rounded-xl border transition-all flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest ${showStatutoryDetail ? (persona === 'client' ? 'bg-blue-600 text-white border-blue-600' : 'bg-brand-jade text-slate-950 border-brand-jade') : (persona === 'client' ? 'bg-white border-blue-100 text-blue-600 hover:bg-blue-50' : 'bg-slate-900 border-slate-700 text-slate-400 hover:text-slate-200')}`}
+                    title="Toggle Statutory Context"
+                  >
+                    <Scale size={16} />
+                    <span className="hidden sm:inline">{showStatutoryDetail ? 'Hide Context' : 'Show Context'}</span>
+                  </button>
+                )}
               </div>
-            )}
+              
+              <AnimatePresence>
+                {(dropdownValue && showStatutoryDetail) && (
+                  <motion.div 
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: 'auto' }}
+                    exit={{ opacity: 0, height: 0 }}
+                    className="overflow-hidden"
+                  >
+                    <div className={`p-4 rounded-xl border text-[11px] leading-relaxed transition-colors duration-500 mb-2 ${persona === 'client' ? 'bg-blue-50/30 border-blue-100 text-slate-600' : 'bg-[#002a2e]/20 border-brand-jade/30 text-slate-400 font-mono'}`}>
+                      <div className={`font-black uppercase tracking-widest mb-1.5 flex items-center gap-2 ${persona === 'client' ? 'text-blue-600' : 'text-brand-jade'}`}>
+                        <Scale size={12} /> Statutory Context:
+                      </div>
+                      {getSelectedStatutoryDetail()}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
 
             <div className="flex gap-3 items-end">
               <div className="flex-1 flex flex-col gap-2">
-                {(file && activeMode === 'upload') && (
+                {file && (
                   <div className={`flex items-center gap-2 px-3 py-2 rounded-lg border self-start shadow-sm animate-in fade-in slide-in-from-left-2 ${persona === 'client' ? 'bg-blue-50 border-blue-100' : 'bg-slate-950 border-slate-800'}`}>
                     <FileText size={14} className={persona === 'client' ? 'text-blue-600' : 'text-brand-jade'} />
                     <span className={`text-[10px] font-bold truncate max-w-[200px] ${persona === 'client' ? 'text-slate-700' : 'text-slate-300 font-mono'}`}>{file.name}</span>
@@ -765,28 +669,20 @@ export function Sandbox() {
                 <textarea
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
-                  placeholder={
-                    activeMode === 'chat'
-                      ? (persona === 'client' ? 'Type your message here...' : 'Query policy framework...')
-                      : (persona === 'client' ? 'Add a note (optional)...' : 'Append optional instructions to payload...')
-                  }
+                  placeholder={persona === 'client' ? 'Add a note (optional)...' : 'Append optional instructions to payload...'}
                   className={`w-full border rounded-xl p-3 text-slate-800 focus:outline-none resize-none min-h-[50px] text-xs shadow-sm transition-all ${persona === 'client' ? 'bg-slate-50 border-blue-100 focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10' : 'bg-slate-950 border-slate-800 text-slate-200 focus:border-brand-jade font-mono'}`}
                   rows={1}
                 />
               </div>
               
               <div className="flex gap-2">
-                {activeMode === 'upload' && (
-                  <>
-                    <input type="file" ref={fileInputRef} onChange={handleFileChange} className="hidden" accept="image/*,application/pdf" />
-                    <button onClick={() => fileInputRef.current?.click()} disabled={appState === 'processing'} className={`w-12 h-12 rounded-xl border transition-all disabled:opacity-50 flex items-center justify-center shadow-sm ${persona === 'client' ? 'bg-white border-blue-100 text-blue-600 hover:bg-blue-50' : 'bg-slate-900 border-slate-700 text-slate-300 hover:bg-slate-800'}`} title="Select Document">
-                      <Upload size={20} />
-                    </button>
-                  </>
-                )}
+                <input type="file" ref={fileInputRef} onChange={handleFileChange} className="hidden" accept=".jpg,.jpeg,.png,.pdf,image/jpeg,image/png,application/pdf" />
+                <button onClick={() => fileInputRef.current?.click()} disabled={appState === 'processing'} className={`w-12 h-12 rounded-xl border transition-all disabled:opacity-50 flex items-center justify-center shadow-sm ${persona === 'client' ? 'bg-white border-blue-100 text-blue-600 hover:bg-blue-50' : 'bg-slate-900 border-slate-700 text-slate-300 hover:bg-slate-800'}`} title="Select Document">
+                  <Upload size={20} />
+                </button>
                 <button 
                   onClick={handleSubmit} 
-                  disabled={appState === 'processing' || (activeMode === 'upload' && !fileData && !input.trim()) || (activeMode === 'chat' && !input.trim())} 
+                  disabled={appState === 'processing' || !fileData} 
                   className={`w-12 h-12 rounded-xl font-black transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center shadow-lg active:scale-95 ${persona === 'client' ? 'bg-blue-600 hover:bg-blue-700 text-white shadow-blue-200' : 'bg-brand-jade hover:bg-[#005a62] text-slate-950 shadow-brand-jade/20'}`}
                 >
                   <Send size={20} />
