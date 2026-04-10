@@ -36,7 +36,7 @@ export function ChatWidget({ embedded = false }: { embedded?: boolean }) {
   const [isOpen, setIsOpen] = useState(embedded);
   const [isMinimized, setIsMinimized] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
-    { role: 'assistant', content: 'Hello! I am the Applied Policy Systems Consulting Assistant. How can I help you explore our platform architecture or modernization strategies today?' }
+    { role: 'assistant', content: 'Hello! I am the Applied Policy Systems Consulting Assistant. How can I help you explore our modular platform architecture, public benefits modernization, or legislative mandate translation strategies today?' }
   ]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -67,14 +67,15 @@ export function ChatWidget({ embedded = false }: { embedded?: boolean }) {
         ],
         config: {
           systemInstruction: `You are the Applied Policy Systems (APS) Consulting Assistant. 
-          Your goal is to consult with the audience on the concepts and architecture behind modular benefits administration platforms.
+          Your goal is to consult with the audience on the concepts and architecture behind modular benefits administration platforms and public sector modernization.
           
-          Key Context:
-          - APS bridges the gap between legislative mandates and digital infrastructure.
-          - We focus on "Modular Platform Architecture" for health and human services.
+          Key Priorities & Context:
+          - APS specializes in "Modular Platform Architecture" for health and human services.
+          - We bridge the gap between "Legislative Mandate Translation" and digital infrastructure.
+          - Focus areas include Public Benefits (SNAP, Medicaid, TANF), Low Income Tax Credit (LITC), and Volunteer Income Tax Assistance (VITA).
           - We have 16 core modules covering Governance, Compliance, Operations, and Engagement.
           - Be pragmatic, practical, and cutting-edge in your explanations.
-          - If someone wants to "Contact" us, collect their interest and suggest they reach out via graham.oneill@gmail.com or schedule a formal consultation.
+          - If a user asks about "Contacting" the company, provide graham@appliedpolicysystems.com as the primary contact and suggest scheduling a formal consultation via our booking page: https://calendar.app.google/WiXHqdGmWaG5kxJQ7.
           - Keep responses professional, architectural, and strategic.`,
         }
       });

@@ -1,5 +1,6 @@
 import { useState, lazy, Suspense } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import { useTranslation } from 'react-i18next';
 import { 
   Shield, Lock, BarChart3, Cpu, CheckCircle2, ArrowRight, Zap, 
   Database, Users, Scale, FileSearch, AlertTriangle, Clock, 
@@ -13,6 +14,7 @@ const ModuleGraphic = lazy(() => import('../components/ModuleGraphics').then(m =
 const ArchitectureVisualization = lazy(() => import('../components/ArchitectureVisualization').then(m => ({ default: m.ArchitectureVisualization })));
 
 export function Platform() {
+  const { t } = useTranslation();
   const [activePillar, setActivePillar] = useState(0);
   const [activeModule, setActiveModule] = useState(0);
 
@@ -235,13 +237,13 @@ export function Platform() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <h1 className="label-uppercase">Modernization Strategy</h1>
+              <h1 className="label-uppercase">{t('nav.platform')}</h1>
               <h2 className="mb-8">
                 Architecting <br />
                 <span className="text-brand-jade">Statutory Fidelity.</span>
               </h2>
               <p className="text-xl mb-10 max-w-xl">
-                We replace opaque administrative systems with transparent, auditable, and high-fidelity infrastructure. Our approach ensures that every line of code remains strictly aligned with the written law.
+                {t('home.infrastructure.text')}
               </p>
               
               <div className="grid sm:grid-cols-2 gap-6 mb-12">
@@ -371,13 +373,15 @@ export function Platform() {
                   </div>
                   
                   <div className="shrink-0 w-full lg:w-auto">
-                    <Link 
-                      to="/contact" 
+                    <a 
+                      href="https://calendar.app.google/WiXHqdGmWaG5kxJQ7" 
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="w-full lg:w-auto px-10 py-5 bg-brand-jade text-white font-bold rounded-2xl hover:bg-[#005a62] transition-all shadow-xl shadow-brand-jade/20 flex items-center justify-center gap-3"
                     >
                       Architectural Consultation
                       <ArrowRight size={20} />
-                    </Link>
+                    </a>
                   </div>
                 </div>
 
@@ -444,13 +448,15 @@ export function Platform() {
               </div>
             </div>
             <div className="flex justify-end">
-              <Link 
-                to="/contact" 
+              <a 
+                href="https://calendar.app.google/WiXHqdGmWaG5kxJQ7" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="px-12 py-6 bg-slate-900 text-white dark:bg-white dark:text-slate-900 font-bold rounded-[2rem] hover:scale-105 transition-transform flex items-center gap-4 shadow-2xl"
               >
                 Start Architectural Consultation
                 <ArrowRight size={24} />
-              </Link>
+              </a>
             </div>
           </div>
         </div>

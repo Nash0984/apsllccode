@@ -61,16 +61,16 @@ export function Home() {
         <div className="container-wide">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="label-muted">The Implementation Disconnect</h2>
-              <h3 className="text-4xl md:text-5xl font-bold mb-8 tracking-tight leading-tight">Policy is written in statutes. Systems are built in code. We translate between the two.</h3>
+              <h2 className="label-muted">{t('home.challenge.label')}</h2>
+              <h3 className="text-4xl md:text-5xl font-bold mb-8 tracking-tight leading-tight">{t('home.challenge.title')}</h3>
               <p className="text-lg leading-relaxed mb-8">
-                Public administration technology fails when there is a gap between legislative mandates and software engineering. Off-the-shelf software often lacks the structural nuance required by federal regulations, while custom builds become paralyzed by complex policy requirements.
+                {t('home.challenge.text')}
               </p>
             </div>
             <div className="relative p-10 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-card shadow-xl">
               <div className="absolute top-0 left-0 w-1.5 h-full bg-brand-jade rounded-l-card" />
               <p className="font-medium text-slate-900 dark:text-slate-100 italic leading-relaxed text-xl">
-                Applied Policy Systems bridges this gap by translating statutory rules into deterministic logic and actionable digital infrastructure.
+                {t('home.challenge.solution')}
               </p>
             </div>
           </div>
@@ -85,10 +85,10 @@ export function Home() {
         
         <div className="container-wide relative z-10">
           <div className="text-center max-w-4xl mx-auto mb-16">
-            <h2 className="text-sm font-bold uppercase tracking-[0.4em] text-brand-jade mb-6">Proof of Concept</h2>
-            <h3 className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-6">The Translation in Practice</h3>
+            <h2 className="text-sm font-bold uppercase tracking-[0.4em] text-brand-jade mb-6">{t('home.sandbox.label')}</h2>
+            <h3 className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-6">{t('home.sandbox.title')}</h3>
             <p className="text-slate-400 text-lg leading-relaxed max-w-3xl mx-auto">
-              The interactive system below shows this in action. Use the toggles to switch perspectives. The Resident view demonstrates secure document submission and a plain-language benefits assistant. The Caseworker view demonstrates automated data extraction and a statutory policy copilot.
+              {t('home.sandbox.text')}
             </p>
           </div>
           

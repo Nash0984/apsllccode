@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 import { 
-  Upload, X, FileText, Send, Activity, ShieldAlert, CheckCircle, RefreshCw, MessageSquare, ChevronDown, Check, User
+  Upload, X, FileText, Send, Activity, ShieldAlert, CheckCircle, RefreshCw, MessageSquare, ChevronDown, Check, User, Scale
 } from 'lucide-react';
 import { getChatResponse, FileData } from '../services/gemini';
 
@@ -9,40 +10,114 @@ const UNIFIED_VERIFICATION_ONTOLOGY = [
     workerCategory: "1.0 Demographics & Identity",
     clientCategory: "Personal Information",
     protocols: [
-      { id: 'id-citizenship', workerLabel: '1.1 Identity & Citizenship (6 CFR Part 37)', clientLabel: 'ID or Citizenship Documents' },
-      { id: 'residency', workerLabel: '1.2 Residency Verification (42 CFR 435.403)', clientLabel: 'Proof of Address' }
+      { 
+        id: 'id-citizenship', 
+        workerLabel: '1.1 Identity & Citizenship (6 CFR Part 37)', 
+        clientLabel: 'ID or Citizenship Documents',
+        statutoryDetail: 'Governed by the REAL ID Act (6 CFR Part 37), requiring state-issued IDs to meet specific security standards for federal recognition. SNAP/Medicaid rules (7 CFR 273.2) further mandate verification of identity for all applicants.'
+      },
+      { 
+        id: 'residency', 
+        workerLabel: '1.2 Residency Verification (42 CFR 435.403)', 
+        clientLabel: 'Proof of Address',
+        statutoryDetail: '42 CFR 435.403 defines state residence for Medicaid. For SNAP, 7 CFR 273.2(f)(1)(vi) requires verification of residency, typically through documents showing the intent to remain in the state.'
+      }
     ]
   },
   {
     workerCategory: "2.0 Financial Means Testing",
     clientCategory: "Income & Assets",
     protocols: [
-      { id: 'earned-income', workerLabel: '2.1 Earned Income (7 CFR 273.9 / 42 CFR 435.603)', clientLabel: 'Pay Stubs or Proof of Income' },
-      { id: 'unearned-income', workerLabel: '2.2 Unearned Income (7 CFR 273.9(c))', clientLabel: 'Unemployment or SSI Letters' },
-      { id: 'asset-verification', workerLabel: '2.3 Resource & Asset Test (7 CFR 273.8)', clientLabel: 'Bank Statements' }
+      { 
+        id: 'earned-income', 
+        workerLabel: '2.1 Earned Income (7 CFR 273.9 / 42 CFR 435.603)', 
+        clientLabel: 'Pay Stubs or Proof of Income',
+        statutoryDetail: '7 CFR 273.9 defines countable earned income for SNAP. 42 CFR 435.603 establishes the Modified Adjusted Gross Income (MAGI) methodology for Medicaid eligibility.'
+      },
+      { 
+        id: 'unearned-income', 
+        workerLabel: '2.2 Unearned Income (7 CFR 273.9(c))', 
+        clientLabel: 'Unemployment or SSI Letters',
+        statutoryDetail: 'Covers income not derived from employment, such as Social Security, Unemployment Insurance, and Child Support. 7 CFR 273.9(c) lists specific exclusions and inclusions.'
+      },
+      { 
+        id: 'asset-verification', 
+        workerLabel: '2.3 Resource & Asset Test (7 CFR 273.8)', 
+        clientLabel: 'Bank Statements',
+        statutoryDetail: '7 CFR 273.8 sets the resource limits for SNAP households. While many states have implemented Broad-Based Categorical Eligibility (BBCE) to waive asset tests, it remains a federal requirement for certain populations.'
+      }
     ]
   },
   {
     workerCategory: "3.0 Statutory Compliance",
     clientCategory: "Work & Medical Info",
     protocols: [
-      { id: 'abawd-work', workerLabel: '3.1 Work Compliance Logs (7 CFR 273.24)', clientLabel: 'Work Hours Log' },
-      { id: 'medical-exemption', workerLabel: '3.2 Medical Exemption (42 CFR 435.541)', clientLabel: 'Medical Exemption Form' }
+      { 
+        id: 'abawd-work', 
+        workerLabel: '3.1 Work Compliance Logs (7 CFR 273.24)', 
+        clientLabel: 'Work Hours Log',
+        statutoryDetail: '7 CFR 273.24 outlines the time limit and work requirements for Able-Bodied Adults Without Dependents (ABAWDs), requiring 80 hours of work or qualifying activity per month.'
+      },
+      { 
+        id: 'medical-exemption', 
+        workerLabel: '3.2 Medical Exemption (42 CFR 435.541)', 
+        clientLabel: 'Medical Exemption Form',
+        statutoryDetail: '42 CFR 435.541 provides the framework for state agencies to determine disability status for Medicaid eligibility when not already established by the Social Security Administration.'
+      }
     ]
   },
   {
     workerCategory: "4.0 Deductions & Expenses",
     clientCategory: "Household Expenses",
     protocols: [
-      { id: 'shelter-utility', workerLabel: '4.1 Shelter/Utility Costs (7 CFR 273.9(d))', clientLabel: 'Utility Bills or Rent Receipts' },
-      { id: 'dependent-care', workerLabel: '4.2 Dependent Care (7 CFR 273.9(d))', clientLabel: 'Child Care Expenses' }
+      { 
+        id: 'shelter-utility', 
+        workerLabel: '4.1 Shelter/Utility Costs (7 CFR 273.9(d))', 
+        clientLabel: 'Utility Bills or Rent Receipts',
+        statutoryDetail: '7 CFR 273.9(d)(6) allows for deductions of excess shelter costs and standard utility allowances (SUA) to determine net income for SNAP eligibility.'
+      },
+      { 
+        id: 'dependent-care', 
+        workerLabel: '4.2 Dependent Care (7 CFR 273.9(d))', 
+        clientLabel: 'Child Care Expenses',
+        statutoryDetail: '7 CFR 273.9(d)(4) allows a deduction for payments for the actual costs for the care of children or other dependents when necessary for a household member to accept or continue employment.'
+      }
     ]
   },
   {
     workerCategory: "5.0 Tax Integration",
     clientCategory: "Tax Documents",
     protocols: [
-      { id: 'vita-intake', workerLabel: '5.1 VITA Tax Intake (IRS Form 13614-C)', clientLabel: 'Tax Intake Form' }
+      { 
+        id: 'vita-intake', 
+        workerLabel: '5.1 VITA Tax Intake (IRS Form 13614-C)', 
+        clientLabel: 'Tax Intake Form',
+        statutoryDetail: 'IRS Publication 4012 and Form 13614-C govern the intake and interview process for the Volunteer Income Tax Assistance (VITA) program, ensuring tax returns are prepared within the scope of the program.'
+      }
+    ]
+  },
+  {
+    workerCategory: "6.0 Program-Specific Requirements",
+    clientCategory: "Specialized Programs",
+    protocols: [
+      { 
+        id: 'wic-nutritional', 
+        workerLabel: '6.1 WIC Nutritional Risk (7 CFR 246.7)', 
+        clientLabel: 'WIC Medical/Nutritional Form',
+        statutoryDetail: '7 CFR 246.7 requires WIC applicants to be at nutritional risk, as determined by a competent professional authority through medical or nutritional assessment.'
+      },
+      { 
+        id: 'liheap-priority', 
+        workerLabel: '6.2 LIHEAP Priority Status (42 USC 8624)', 
+        clientLabel: 'Energy Assistance Priority Proof',
+        statutoryDetail: '42 USC 8624(b)(5) requires states to provide the highest level of assistance to households which have the lowest incomes and the highest energy costs or needs in relation to income.'
+      },
+      { 
+        id: 'ccdf-eligibility', 
+        workerLabel: '6.3 Childcare Work/Study Status (45 CFR 98.20)', 
+        clientLabel: 'Childcare Eligibility Proof',
+        statutoryDetail: '45 CFR 98.20 establishes that children are eligible for CCDF subsidies if their parents are working or attending a job training or educational program and their income does not exceed 85% of the State Median Income.'
+      }
     ]
   }
 ];
@@ -67,6 +142,7 @@ export function Sandbox() {
   const [input, setInput] = useState('');
   const [dropdownValue, setDropdownValue] = useState('');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [showStatutoryDetail, setShowStatutoryDetail] = useState(false);
   const [file, setFile] = useState<File | null>(null);
   const [fileUrl, setFileUrl] = useState<string | null>(null);
   const [fileData, setFileData] = useState<FileData | null>(null);
@@ -178,6 +254,7 @@ export function Sandbox() {
     setPersona(newPersona);
     setChatHistory([]);
     setActiveMode('upload');
+    setShowStatutoryDetail(false);
     resetState();
   };
 
@@ -216,6 +293,15 @@ export function Sandbox() {
       if (found) return persona === 'client' ? found.clientLabel : found.workerLabel;
     }
     return '';
+  };
+
+  const getSelectedStatutoryDetail = () => {
+    if (!dropdownValue) return null;
+    for (const domain of UNIFIED_VERIFICATION_ONTOLOGY) {
+      const found = domain.protocols.find(p => p.id === dropdownValue);
+      if (found) return found.statutoryDetail;
+    }
+    return null;
   };
 
   const renderWorkerDashboard = () => {
@@ -266,18 +352,32 @@ export function Sandbox() {
         </div>
 
         <div className="flex-1 bg-slate-950 border border-slate-800 rounded-lg flex flex-col overflow-hidden">
-          <div className="bg-[#050a0f] px-4 py-3 border-b border-slate-800 text-xs font-bold text-brand-jade uppercase tracking-wider">
-            Diagnostic Extraction
+          <div className="bg-[#050a0f] px-4 py-3 border-b border-slate-800 text-xs font-bold text-brand-jade uppercase tracking-wider flex justify-between items-center">
+            <span>Diagnostic Extraction</span>
+            {engineResponse?.extractedData && engineResponse.extractedData.length > 0 && (
+              <div className="flex items-center gap-2">
+                <span className="text-[10px] text-slate-500">OVERALL SUFFICIENCY:</span>
+                <span className={`font-mono text-sm ${
+                  (engineResponse.extractedData.reduce((acc, curr) => acc + curr.statutorySufficiency, 0) / engineResponse.extractedData.length) >= 0.85 
+                    ? 'text-brand-jade' 
+                    : 'text-red-400'
+                }`}>
+                  {(engineResponse.extractedData.reduce((acc, curr) => acc + curr.statutorySufficiency, 0) / engineResponse.extractedData.length).toFixed(2)}
+                </span>
+              </div>
+            )}
           </div>
           <div className="flex-1 p-4 overflow-y-auto">
             {engineResponse?.status === 'PROCEED TO RULES ENGINE' && (
               <div className="mb-6 p-4 bg-[#002a2e] border border-brand-jade rounded-lg text-brand-jade font-bold flex items-center gap-3 text-sm">
                 <CheckCircle size={20} /> {engineResponse.status}
+                <span className="ml-auto text-[10px] opacity-70">STATUTORY THRESHOLD MET</span>
               </div>
             )}
             {engineResponse?.status === 'REQUIRES HITL REVIEW' && (
               <div className="mb-6 p-4 bg-red-950 border border-red-500 rounded-lg text-red-500 font-bold flex items-center gap-3 text-sm">
                 <ShieldAlert size={20} /> {engineResponse.status}
+                <span className="ml-auto text-[10px] opacity-70">BELOW COMPLIANCE FLOOR</span>
               </div>
             )}
             {engineResponse?.status === 'ERROR' && (
@@ -294,8 +394,13 @@ export function Sandbox() {
                       <div className="text-[10px] text-slate-500 uppercase tracking-wider font-bold mb-1">{data.field}</div>
                       <div className="text-sm font-mono text-slate-200">{data.value}</div>
                     </div>
-                    <div className={`text-[10px] font-mono px-2 py-1 rounded bg-slate-900 border ${data.statutorySufficiency >= 0.85 ? 'text-brand-jade border-brand-jade/30' : 'text-red-400 border-red-500/30'}`}>
-                      STATUTORY SUFFICIENCY: {data.statutorySufficiency.toFixed(2)}
+                    <div className="flex flex-col items-end gap-1">
+                      <div className={`text-[10px] font-mono px-2 py-1 rounded bg-slate-900 border ${data.statutorySufficiency >= 0.85 ? 'text-brand-jade border-brand-jade/30' : 'text-red-400 border-red-500/30'}`}>
+                        SUFFICIENCY: {data.statutorySufficiency.toFixed(2)}
+                      </div>
+                      <div className="text-[8px] font-mono text-slate-600 uppercase">
+                        {data.statutorySufficiency >= 0.85 ? 'Statutory Pass' : 'Statutory Fail'}
+                      </div>
                     </div>
                   </div>
                   <div className="text-[10px] text-slate-500 italic border-t border-slate-800/50 pt-2 mt-2">
@@ -558,98 +663,135 @@ export function Sandbox() {
         </div>
 
         {/* Unified Input Footer */}
-        <div className={`p-8 border-t flex-shrink-0 relative transition-colors duration-500 ${persona === 'client' ? 'bg-white border-blue-50' : 'bg-[#050a0f] border-slate-800'}`}>
+        <div className={`p-6 border-t flex-shrink-0 relative transition-colors duration-500 ${persona === 'client' ? 'bg-white border-blue-50' : 'bg-[#050a0f] border-slate-800'}`}>
           {fileError && (
-            <div className={`flex items-center gap-3 mb-5 p-4 rounded-xl border animate-in fade-in slide-in-from-bottom-2 ${persona === 'client' ? 'bg-red-50 border-red-100 text-red-600' : 'bg-red-950/30 border-red-500/50 text-red-400'}`}>
-              <ShieldAlert size={18} className="shrink-0" />
-              <span className="text-sm font-bold">{fileError}</span>
-              <button onClick={() => setFileError(null)} className="ml-auto hover:opacity-70"><X size={16} /></button>
+            <div className={`flex items-center gap-3 mb-4 p-3 rounded-xl border animate-in fade-in slide-in-from-bottom-2 ${persona === 'client' ? 'bg-red-50 border-red-100 text-red-600' : 'bg-red-950/30 border-red-500/50 text-red-400'}`}>
+              <ShieldAlert size={16} className="shrink-0" />
+              <span className="text-xs font-bold">{fileError}</span>
+              <button onClick={() => setFileError(null)} className="ml-auto hover:opacity-70"><X size={14} /></button>
             </div>
           )}
 
-          {(file && activeMode === 'upload') && (
-            <div className={`flex items-center gap-3 mb-5 p-3 rounded-xl border inline-flex shadow-sm ${persona === 'client' ? 'bg-blue-50 border-blue-100' : 'bg-slate-950 border-slate-800'}`}>
-              <FileText size={18} className={persona === 'client' ? 'text-blue-600' : 'text-brand-jade'} />
-              <span className={`text-sm font-bold truncate max-w-[300px] ${persona === 'client' ? 'text-slate-700' : 'text-slate-300 font-mono'}`}>{file.name}</span>
-              <button onClick={removeFile} className="text-slate-400 hover:text-red-500 transition-colors"><X size={18} /></button>
-            </div>
-          )}
-
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-3">
             {activeMode === 'upload' && (
-              <div className="relative w-full" ref={dropdownRef}>
-                <button
-                  type="button"
-                  disabled={appState === 'processing'}
-                  onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                  className={`w-full text-left border rounded-xl p-4 text-sm flex justify-between items-center transition-all disabled:opacity-50 shadow-sm ${persona === 'client' ? 'bg-slate-50 border-blue-100 text-slate-700 focus:ring-2 focus:ring-blue-500/20 hover:bg-white' : 'bg-slate-950 border-slate-800 text-slate-300 focus:ring-1 focus:ring-brand-jade hover:border-slate-700 font-mono'}`}
-                >
-                  <span className={!dropdownValue ? 'text-slate-400' : 'font-bold'}>{getSelectedDropdownLabel()}</span>
-                  <ChevronDown size={18} className={`transition-transform duration-300 text-slate-400 ${isDropdownOpen ? 'rotate-180' : ''}`} />
-                </button>
+              <div className="flex flex-col gap-2">
+                <div className="flex gap-2 items-center">
+                  <div className="relative flex-1" ref={dropdownRef}>
+                    <button
+                      type="button"
+                      disabled={appState === 'processing'}
+                      onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                      className={`w-full text-left border rounded-xl px-4 py-3 text-xs flex justify-between items-center transition-all disabled:opacity-50 shadow-sm ${persona === 'client' ? 'bg-slate-50 border-blue-100 text-slate-700 focus:ring-2 focus:ring-blue-500/20 hover:bg-white' : 'bg-slate-950 border-slate-800 text-slate-300 focus:ring-1 focus:ring-brand-jade hover:border-slate-700 font-mono'}`}
+                    >
+                      <span className={!dropdownValue ? 'text-slate-400' : 'font-bold'}>{getSelectedDropdownLabel()}</span>
+                      <ChevronDown size={16} className={`transition-transform duration-300 text-slate-400 ${isDropdownOpen ? 'rotate-180' : ''}`} />
+                    </button>
 
-                {/* Custom Dropdown Menu */}
-                {isDropdownOpen && (
-                  <div className={`absolute z-50 w-full mb-3 bottom-[100%] border rounded-2xl shadow-2xl overflow-hidden max-h-[400px] overflow-y-auto transition-all ${persona === 'client' ? 'bg-white border-blue-100' : 'bg-slate-900 border-slate-700'}`}>
-                    {UNIFIED_VERIFICATION_ONTOLOGY.map((domain, idx) => (
-                      <div key={idx} className="pb-2">
-                        <div className={`px-5 py-3 sticky top-0 backdrop-blur z-10 text-[10px] font-black uppercase tracking-[0.2em] border-b ${persona === 'client' ? 'bg-slate-50/95 text-blue-600 border-blue-50' : 'bg-slate-950/95 text-slate-500 border-slate-800/50'}`}>
-                          {persona === 'client' ? domain.clientCategory : domain.workerCategory}
-                        </div>
-                        <div className="py-2">
-                          {domain.protocols.map((protocol) => (
-                            <button
-                              key={protocol.id}
-                              type="button"
-                              className={`w-full text-left px-5 py-2.5 text-sm transition-all flex items-center gap-4 ${dropdownValue === protocol.id ? (persona === 'client' ? 'bg-blue-50 text-blue-600 font-bold' : 'bg-[#002a2e] text-brand-jade font-bold') : (persona === 'client' ? 'text-slate-600 hover:bg-slate-50' : 'text-slate-300 hover:bg-slate-800')}`}
-                              onClick={() => {
-                                setDropdownValue(protocol.id);
-                                setIsDropdownOpen(false);
-                              }}
-                            >
-                              <div className="w-5 flex justify-center shrink-0">
-                                {dropdownValue === protocol.id && <Check size={16} />}
-                              </div>
-                              <span className="truncate">
-                                {persona === 'client' ? protocol.clientLabel : protocol.workerLabel}
-                              </span>
-                            </button>
-                          ))}
-                        </div>
+                    {/* Custom Dropdown Menu */}
+                    {isDropdownOpen && (
+                      <div className={`absolute z-50 w-full mb-2 bottom-[100%] border rounded-2xl shadow-2xl overflow-hidden max-h-[300px] overflow-y-auto transition-all ${persona === 'client' ? 'bg-white border-blue-100' : 'bg-slate-900 border-slate-700'}`}>
+                        {UNIFIED_VERIFICATION_ONTOLOGY.map((domain, idx) => (
+                          <div key={idx} className="pb-1">
+                            <div className={`px-4 py-2 sticky top-0 backdrop-blur z-10 text-[9px] font-black uppercase tracking-[0.2em] border-b ${persona === 'client' ? 'bg-slate-50/95 text-blue-600 border-blue-50' : 'bg-slate-950/95 text-slate-500 border-slate-800/50'}`}>
+                              {persona === 'client' ? domain.clientCategory : domain.workerCategory}
+                            </div>
+                            <div className="py-1">
+                              {domain.protocols.map((protocol) => (
+                                <button
+                                  key={protocol.id}
+                                  type="button"
+                                  className={`w-full text-left px-4 py-2 text-xs transition-all flex items-center gap-3 ${dropdownValue === protocol.id ? (persona === 'client' ? 'bg-blue-50 text-blue-600 font-bold' : 'bg-[#002a2e] text-brand-jade font-bold') : (persona === 'client' ? 'text-slate-600 hover:bg-slate-50' : 'text-slate-300 hover:bg-slate-800')}`}
+                                  onClick={() => {
+                                    setDropdownValue(protocol.id);
+                                    setIsDropdownOpen(false);
+                                  }}
+                                >
+                                  <div className="w-4 flex justify-center shrink-0">
+                                    {dropdownValue === protocol.id && <Check size={14} />}
+                                  </div>
+                                  <span className="truncate">
+                                    {persona === 'client' ? protocol.clientLabel : protocol.workerLabel}
+                                  </span>
+                                </button>
+                              ))}
+                            </div>
+                          </div>
+                        ))}
                       </div>
-                    ))}
+                    )}
                   </div>
-                )}
+
+                  {dropdownValue && (
+                    <button 
+                      onClick={() => setShowStatutoryDetail(!showStatutoryDetail)}
+                      className={`p-3 rounded-xl border transition-all flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest ${showStatutoryDetail ? (persona === 'client' ? 'bg-blue-600 text-white border-blue-600' : 'bg-brand-jade text-slate-950 border-brand-jade') : (persona === 'client' ? 'bg-white border-blue-100 text-blue-600 hover:bg-blue-50' : 'bg-slate-900 border-slate-700 text-slate-400 hover:text-slate-200')}`}
+                      title="Toggle Statutory Context"
+                    >
+                      <Scale size={16} />
+                      <span className="hidden sm:inline">{showStatutoryDetail ? 'Hide Context' : 'Show Context'}</span>
+                    </button>
+                  )}
+                </div>
+                
+                <AnimatePresence>
+                  {(dropdownValue && showStatutoryDetail) && (
+                    <motion.div 
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: 'auto' }}
+                      exit={{ opacity: 0, height: 0 }}
+                      className="overflow-hidden"
+                    >
+                      <div className={`p-4 rounded-xl border text-[11px] leading-relaxed transition-colors duration-500 mb-2 ${persona === 'client' ? 'bg-blue-50/30 border-blue-100 text-slate-600' : 'bg-[#002a2e]/20 border-brand-jade/30 text-slate-400 font-mono'}`}>
+                        <div className={`font-black uppercase tracking-widest mb-1.5 flex items-center gap-2 ${persona === 'client' ? 'text-blue-600' : 'text-brand-jade'}`}>
+                          <Scale size={12} /> Statutory Context:
+                        </div>
+                        {getSelectedStatutoryDetail()}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
             )}
 
-            <div className="flex gap-4">
-              <textarea
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                placeholder={
-                  activeMode === 'chat'
-                    ? (persona === 'client' ? 'Type your message here...' : 'Query policy framework...')
-                    : (persona === 'client' ? 'Add a note (optional)...' : 'Append optional instructions to payload...')
-                }
-                className={`flex-1 border rounded-xl p-4 text-slate-800 focus:outline-none resize-none min-h-[60px] text-sm shadow-sm transition-all ${persona === 'client' ? 'bg-slate-50 border-blue-100 focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10' : 'bg-slate-950 border-slate-800 text-slate-200 focus:border-brand-jade font-mono'}`}
-                rows={1}
-              />
-              {activeMode === 'upload' && (
-                <>
-                  <input type="file" ref={fileInputRef} onChange={handleFileChange} className="hidden" accept="image/*,application/pdf" />
-                  <button onClick={() => fileInputRef.current?.click()} disabled={appState === 'processing'} className={`px-6 rounded-xl border transition-all disabled:opacity-50 flex items-center justify-center shadow-sm ${persona === 'client' ? 'bg-white border-blue-100 text-blue-600 hover:bg-blue-50' : 'bg-slate-900 border-slate-700 text-slate-300 hover:bg-slate-800'}`} title="Select Document">
-                    <Upload size={22} />
-                  </button>
-                </>
-              )}
-              <button 
-                onClick={handleSubmit} 
-                disabled={appState === 'processing' || (activeMode === 'upload' && !fileData && !input.trim()) || (activeMode === 'chat' && !input.trim())} 
-                className={`px-10 rounded-xl font-black transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center shadow-lg active:scale-95 ${persona === 'client' ? 'bg-blue-600 hover:bg-blue-700 text-white shadow-blue-200' : 'bg-brand-jade hover:bg-[#005a62] text-slate-950 shadow-brand-jade/20'}`}
-              >
-                <Send size={22} />
-              </button>
+            <div className="flex gap-3 items-end">
+              <div className="flex-1 flex flex-col gap-2">
+                {(file && activeMode === 'upload') && (
+                  <div className={`flex items-center gap-2 px-3 py-2 rounded-lg border self-start shadow-sm animate-in fade-in slide-in-from-left-2 ${persona === 'client' ? 'bg-blue-50 border-blue-100' : 'bg-slate-950 border-slate-800'}`}>
+                    <FileText size={14} className={persona === 'client' ? 'text-blue-600' : 'text-brand-jade'} />
+                    <span className={`text-[10px] font-bold truncate max-w-[200px] ${persona === 'client' ? 'text-slate-700' : 'text-slate-300 font-mono'}`}>{file.name}</span>
+                    <button onClick={removeFile} className="text-slate-400 hover:text-red-500 transition-colors"><X size={14} /></button>
+                  </div>
+                )}
+                <textarea
+                  value={input}
+                  onChange={(e) => setInput(e.target.value)}
+                  placeholder={
+                    activeMode === 'chat'
+                      ? (persona === 'client' ? 'Type your message here...' : 'Query policy framework...')
+                      : (persona === 'client' ? 'Add a note (optional)...' : 'Append optional instructions to payload...')
+                  }
+                  className={`w-full border rounded-xl p-3 text-slate-800 focus:outline-none resize-none min-h-[50px] text-xs shadow-sm transition-all ${persona === 'client' ? 'bg-slate-50 border-blue-100 focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10' : 'bg-slate-950 border-slate-800 text-slate-200 focus:border-brand-jade font-mono'}`}
+                  rows={1}
+                />
+              </div>
+              
+              <div className="flex gap-2">
+                {activeMode === 'upload' && (
+                  <>
+                    <input type="file" ref={fileInputRef} onChange={handleFileChange} className="hidden" accept="image/*,application/pdf" />
+                    <button onClick={() => fileInputRef.current?.click()} disabled={appState === 'processing'} className={`w-12 h-12 rounded-xl border transition-all disabled:opacity-50 flex items-center justify-center shadow-sm ${persona === 'client' ? 'bg-white border-blue-100 text-blue-600 hover:bg-blue-50' : 'bg-slate-900 border-slate-700 text-slate-300 hover:bg-slate-800'}`} title="Select Document">
+                      <Upload size={20} />
+                    </button>
+                  </>
+                )}
+                <button 
+                  onClick={handleSubmit} 
+                  disabled={appState === 'processing' || (activeMode === 'upload' && !fileData && !input.trim()) || (activeMode === 'chat' && !input.trim())} 
+                  className={`w-12 h-12 rounded-xl font-black transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center shadow-lg active:scale-95 ${persona === 'client' ? 'bg-blue-600 hover:bg-blue-700 text-white shadow-blue-200' : 'bg-brand-jade hover:bg-[#005a62] text-slate-950 shadow-brand-jade/20'}`}
+                >
+                  <Send size={20} />
+                </button>
+              </div>
             </div>
           </div>
         </div>

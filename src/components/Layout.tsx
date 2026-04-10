@@ -293,13 +293,15 @@ export function Layout() {
                 <LanguageSwitcher />
                 <ThemeToggle />
               </div>
-              <Link 
-                to="/contact" 
+              <a 
+                href="https://calendar.app.google/WiXHqdGmWaG5kxJQ7" 
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setIsMenuOpen(false)}
                 className="w-full text-center py-5 bg-brand-jade text-white text-xl font-bold rounded-2xl shadow-2xl shadow-brand-jade/20"
               >
-                Get in Touch
-              </Link>
+                Schedule a Session
+              </a>
             </div>
           </motion.div>
         )}

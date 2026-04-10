@@ -1,9 +1,11 @@
 import { UserCircle, ChevronRight } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'motion/react';
 import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 
 export function About() {
+  const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState(0);
 
   const experience = [
@@ -80,9 +82,9 @@ export function About() {
       {/* Header */}
       <section className="hero-section">
         <div className="container-wide">
-          <h1 className="label-muted">About Us</h1>
+          <h1 className="label-muted">{t('about.hero.label')}</h1>
           <h2>
-            Bridging the Disconnect in Public Administration.
+            {t('about.hero.title')}
           </h2>
         </div>
       </section>
@@ -114,16 +116,16 @@ export function About() {
               </div>
               
               <div className="lg:col-span-10">
-                <h3 className="text-4xl font-extrabold text-slate-900 dark:text-white mb-12 tracking-tight">Graham O'Neill, Founder & Principal Consultant</h3>
+                <h3 className="text-4xl font-extrabold text-slate-900 dark:text-white mb-12 tracking-tight">{t('about.founder.title')}</h3>
                 <div className="prose prose-slate prose-xl max-w-none text-slate-600 dark:text-slate-400 leading-relaxed space-y-8">
                   <p className="text-xl text-slate-900 dark:text-slate-100 font-medium border-l-4 border-brand-jade pl-8">
-                    Graham O’Neill is a public sector innovator and technology strategist with over 15 years of experience optimizing complex government systems.
+                    {t('about.founder.intro')}
                   </p>
                   <p>
-                    His career is defined by successfully translating legislative mandates into actionable, compliant digital infrastructure. From municipal revenue operations to federal advisory roles, Graham has consistently focused on making policy work for the people it is intended to serve by bridging the gap between written regulations and operational realities.
+                    {t('about.founder.p1')}
                   </p>
                   <p>
-                    Before founding Applied Policy Systems LLC, Graham held senior leadership and advisory positions across all levels of government, where he specialized in the structural evaluation of benefits access and the modernization of tax administration programs.
+                    {t('about.founder.p2')}
                   </p>
 
                   {/* Experience Tabs */}

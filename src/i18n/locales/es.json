@@ -13,13 +13,108 @@
     "hero": {
       "title": "Asesoría Estratégica para la Modernización del Sector Público.",
       "subtitle": "Applied Policy Systems LLC cierra la brecha entre las regulaciones escritas y las realidades operativas que rigen la maquinaria del gobierno. Brindamos evaluación estructural y orientación estratégica para garantizar que los sistemas administrativos complejos logren fidelidad política, eficiencia operativa y acceso equitativo.",
-      "cta": "Cómo podemos ayudar"
+      "cta": "Explorar Nuestra Experiencia"
     },
     "challenge": {
-      "label": "El Desafío",
-      "title": "La Desconexión en la Implementación.",
-      "text": "La administración pública a menudo falla en la capa de traducción. Los legisladores redactan estatutos subjetivos, mientras que los proveedores de tecnología crean software opaco de caja negra. Esto crea una brecha entre las regulaciones escritas y las realidades operativas del gobierno.",
-      "solution": "Applied Policy Systems LLC cierra esta desconexión. Nos especializamos en optimizar sistemas gubernamentales complejos traduciendo una profunda experiencia en políticas en soluciones accionables y deterministas."
+      "label": "La Desconexión en la Implementación",
+      "title": "La política se escribe en estatutos. Los sistemas se construyen en código. Nosotros traducimos entre ambos.",
+      "text": "La tecnología de la administración pública falla cuando hay una brecha entre los mandatos legislativos y la ingeniería de software. El software comercial a menudo carece del matiz estructural requerido por las regulaciones federales, mientras que las construcciones personalizadas se paralizan por requisitos de políticas complejos.",
+      "solution": "Applied Policy Systems cierra esta brecha traduciendo las reglas estatutarias en lógica determinista e infraestructura digital accionable."
+    },
+    "infrastructure": {
+      "label": "Experiencia en Infraestructura",
+      "title": "Modernización Estructural.",
+      "text": "Diseñamos infraestructura segura y de alta fidelidad para que las agencias gubernamentales entreguen servicios complejos con absoluta precisión.",
+      "cta": "Explorar la Arquitectura"
+    },
+    "sandbox": {
+      "label": "Prueba de Concepto",
+      "title": "La Traducción en la Práctica",
+      "text": "El sistema interactivo a continuación muestra esto en acción. Use los interruptores para cambiar de perspectiva. La vista del Residente demuestra el envío seguro de documentos y un asistente de beneficios en lenguaje sencillo. La vista del Trabajador Social demuestra la extracción automatizada de datos y un copiloto de políticas estatutarias."
+    },
+    "about": {
+      "hero": {
+        "label": "Sobre Nosotros",
+        "title": "Cerrando la Desconexión en la Administración Pública."
+      },
+      "founder": {
+        "title": "Graham O'Neill, Fundador y Consultor Principal",
+        "intro": "Graham O’Neill es un innovador del sector público y estratega tecnológico con más de 15 años de experiencia optimizando sistemas gubernamentales complejos.",
+        "p1": "Su carrera se define por traducir con éxito los mandatos legislativos en infraestructura digital accionable y compatible. Desde operaciones de ingresos municipales hasta roles de asesoría federal, Graham se ha centrado constantemente en hacer que la política funcione para las personas a las que debe servir, cerrando la brecha entre las regulaciones escritas y las realidades operativas.",
+        "p2": "Antes de fundar Applied Policy Systems LLC, Graham ocupó puestos de liderazgo y asesoría de alto nivel en todos los niveles del gobierno, donde se especializó en la evaluación estructural del acceso a beneficios y la modernización de los programas de administración tributaria."
+      }
+    },
+    "contactPage": {
+      "hero": {
+        "label": "Consulta",
+        "title": "Inicie la conversación.",
+        "subtitle": "Ya sea que sea una agencia gubernamental que busca modernizarse o un proveedor de tecnología que busca alineación de políticas, nuestros expertos arquitectónicos están listos para consultar."
+      },
+      "ai": {
+        "title": "Consulte con nuestro Asistente de IA",
+        "desc": "Nuestro asistente de consultoría especializado puede ayudar a clasificar sus necesidades y proporcionar perspectivas arquitectónicas inmediatas."
+      },
+      "direct": {
+        "label": "Canales Directos",
+        "email": "Correo electrónico",
+        "linkedin": "LinkedIn",
+        "location": "Ubicación"
+      },
+      "cta": {
+        "title": "¿Listo para profundizar?",
+        "desc": "Nuestro equipo está disponible para revisiones arquitectónicas formales, talleres de mapeo estatutario y sesiones de estrategia de modernización.",
+        "action": "Programar una Sesión"
+      }
+    },
+    "capabilitiesPage": {
+      "hero": {
+        "label": "Experiencia en Consultoría",
+        "title": "Cerrando la brecha entre la política y la implementación."
+      },
+      "cards": {
+        "science": {
+          "title": "Ciencia de Implementación Estratégica",
+          "desc": "Cerramos la brecha entre la intención legislativa y la realidad operativa. Nuestros expertos optimizan los flujos de trabajo gubernamentales complejos para garantizar que los sistemas administrativos logren los resultados de política previstos con la máxima eficiencia.",
+          "tip": "Estrategia y Optimización"
+        },
+        "compliance": {
+          "title": "Diagnóstico de Cumplimiento y Riesgo",
+          "desc": "Auditorías profundas de las tasas de error de pago a nivel estatal (SNAP/Medicaid). Identificamos vulnerabilidades sistémicas y conceptualizamos mecanismos de intervención en tiempo real para mitigar los riesgos antes de que activen sanciones federales.",
+          "tip": "Auditoría y Mitigación"
+        },
+        "data": {
+          "title": "Estrategia de Datos Interagenciales",
+          "desc": "Arquitectura de marcos de intercambio de datos seguros entre los servicios tributarios y humanos. Nos especializamos en el cruce de datos de no declarantes para maximizar la adopción de beneficios sin comprometer la PII o la integridad del sistema.",
+          "tip": "Arquitectura de Datos"
+        },
+        "fidelity": {
+          "title": "Evaluación de Fidelidad del Sistema",
+          "desc": "Verificación independiente de terceros de las arquitecturas de Reglas como Código (Rules-as-Code). Auditamos la lógica del sistema para garantizar el cumplimiento estatutario absoluto y la máxima accesibilidad para los navegadores de primera línea.",
+          "tip": "Auditoría de Fidelidad"
+        }
+      },
+      "cta": {
+        "title": "¿Listo para optimizar las operaciones de su agencia?",
+        "desc": "Nuestros consultores estratégicos están listos para ayudarlo a cerrar la brecha entre los mandatos de políticas y la implementación técnica.",
+        "action": "Programar una Consulta"
+      }
+    },
+    "quickLinks": {
+      "advisory": {
+        "title": "Asesoría Estratégica",
+        "desc": "Cerrando la brecha entre la política y la implementación a través de una rigurosa optimización de procesos.",
+        "action": "Experiencia en Consultoría"
+      },
+      "architecture": {
+        "title": "Arquitectura Técnica",
+        "desc": "Planos estructurales para la modernización, garantizando un 100% de fidelidad estatutaria y precisión.",
+        "action": "Explorar Infraestructura"
+      },
+      "insights": {
+        "title": "Perspectivas de Políticas",
+        "desc": "Evaluación empírica y análisis histórico de resultados administrativos complejos.",
+        "action": "Ver Investigación"
+      }
     }
   },
   "footer": {

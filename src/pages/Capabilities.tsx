@@ -1,16 +1,18 @@
 import { motion } from 'motion/react';
+import { useTranslation } from 'react-i18next';
 import { ArrowRight, BookOpen, LayoutGrid, CheckCircle2 } from 'lucide-react';
 
 export function Capabilities() {
+  const { t } = useTranslation();
   return (
     <div className="bg-white dark:bg-slate-950 transition-colors duration-300">
       {/* Header - Compact */}
       <section className="hero-section">
         <div className="container-wide">
           <div className="max-w-3xl">
-            <h1 className="label-uppercase">Consulting Expertise</h1>
+            <h1 className="label-uppercase">{t('capabilitiesPage.hero.label')}</h1>
             <h2>
-              Bridging the gap between policy and implementation.
+              {t('capabilitiesPage.hero.title')}
             </h2>
           </div>
         </div>
@@ -22,28 +24,28 @@ export function Capabilities() {
           <div className="grid md:grid-cols-2 gap-8">
             {[
               {
-                title: "Strategic Implementation Science",
-                desc: "We bridge the gap between legislative intent and operational reality. Our experts optimize complex government workflows to ensure that administrative systems achieve their intended policy outcomes with maximum efficiency.",
+                title: t('capabilitiesPage.cards.science.title'),
+                desc: t('capabilitiesPage.cards.science.desc'),
                 icon: <BookOpen className="text-brand-jade" size={28} strokeWidth={1.5} />,
-                tip: "Strategy & Optimization"
+                tip: t('capabilitiesPage.cards.science.tip')
               },
               {
-                title: "Compliance & Risk Diagnostics",
-                desc: "Deep-dive audits of state-level payment error rates (SNAP/Medicaid). We identify systemic vulnerabilities and conceptualize real-time intervention mechanisms to mitigate risks before they trigger federal sanctions.",
+                title: t('capabilitiesPage.cards.compliance.title'),
+                desc: t('capabilitiesPage.cards.compliance.desc'),
                 icon: <LayoutGrid className="text-brand-jade" size={28} strokeWidth={1.5} />,
-                tip: "Audit & Mitigation"
+                tip: t('capabilitiesPage.cards.compliance.tip')
               },
               {
-                title: "Interagency Data Strategy",
-                desc: "Architecting secure data-sharing frameworks between tax and human services. We specialize in cross-referencing non-filer data to maximize benefit uptake without compromising PII or system integrity.",
+                title: t('capabilitiesPage.cards.data.title'),
+                desc: t('capabilitiesPage.cards.data.desc'),
                 icon: <CheckCircle2 className="text-brand-jade" size={28} strokeWidth={1.5} />,
-                tip: "Data Architecture"
+                tip: t('capabilitiesPage.cards.data.tip')
               },
               {
-                title: "System Fidelity Evaluation",
-                desc: "Independent third-party verification of Rules-as-Code architectures. We audit system logic to ensure absolute statutory compliance and maximum accessibility for frontline navigators.",
+                title: t('capabilitiesPage.cards.fidelity.title'),
+                desc: t('capabilitiesPage.cards.fidelity.desc'),
                 icon: <ArrowRight className="text-brand-jade" size={28} strokeWidth={1.5} />,
-                tip: "Fidelity Audit"
+                tip: t('capabilitiesPage.cards.fidelity.tip')
               }
             ].map((item, i) => (
               <motion.div 
@@ -121,6 +123,24 @@ export function Capabilities() {
         </div>
       </section>
 
+      {/* CTA Section */}
+      <section className="section-padding bg-brand-jade text-white">
+        <div className="container-wide text-center">
+          <h3 className="text-3xl md:text-5xl font-black mb-8 tracking-tight">{t('capabilitiesPage.cta.title')}</h3>
+          <p className="text-xl opacity-90 mb-12 max-w-2xl mx-auto">
+            {t('capabilitiesPage.cta.desc')}
+          </p>
+          <a 
+            href="https://calendar.app.google/WiXHqdGmWaG5kxJQ7"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 px-12 py-6 bg-white text-brand-jade font-bold rounded-2xl hover:bg-slate-100 transition-all shadow-2xl shadow-brand-jade/20"
+          >
+            {t('capabilitiesPage.cta.action')}
+            <ArrowRight size={24} />
+          </a>
+        </div>
+      </section>
     </div>
   );
 }

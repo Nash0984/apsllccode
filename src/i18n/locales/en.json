@@ -16,16 +16,88 @@
       "cta": "Explore Our Expertise"
     },
     "challenge": {
-      "label": "The Challenge",
-      "title": "The Implementation Disconnect.",
-      "text": "Public administration often fails at the translation layer. Lawmakers draft subjective statutes, while technology vendors build opaque systems. This creates a gap between policy intent and the operational reality of service delivery.",
-      "solution": "Applied Policy Systems LLC bridges this disconnect. We specialize in optimizing complex government systems by translating deep policy expertise into actionable, transparent, and auditable infrastructure."
+      "label": "The Implementation Disconnect",
+      "title": "Policy is written in statutes. Systems are built in code. We translate between the two.",
+      "text": "Public administration technology fails when there is a gap between legislative mandates and software engineering. Off-the-shelf software often lacks the structural nuance required by federal regulations, while custom builds become paralyzed by complex policy requirements.",
+      "solution": "Applied Policy Systems bridges this gap by translating statutory rules into deterministic logic and actionable digital infrastructure."
     },
     "infrastructure": {
       "label": "Infrastructure Expertise",
       "title": "Structural Modernization.",
       "text": "We architect secure, high-fidelity infrastructure for government agencies to deliver complex services with absolute precision.",
       "cta": "Explore the Architecture"
+    },
+    "sandbox": {
+      "label": "Proof of Concept",
+      "title": "The Translation in Practice",
+      "text": "The interactive system below shows this in action. Use the toggles to switch perspectives. The Resident view demonstrates secure document submission and a plain-language benefits assistant. The Caseworker view demonstrates automated data extraction and a statutory policy copilot."
+    },
+    "about": {
+      "hero": {
+        "label": "About Us",
+        "title": "Bridging the Disconnect in Public Administration."
+      },
+      "founder": {
+        "title": "Graham O'Neill, Founder & Principal Consultant",
+        "intro": "Graham O’Neill is a public sector innovator and technology strategist with over 15 years of experience optimizing complex government systems.",
+        "p1": "His career is defined by successfully translating legislative mandates into actionable, compliant digital infrastructure. From municipal revenue operations to federal advisory roles, Graham has consistently focused on making policy work for the people it is intended to serve by bridging the gap between written regulations and operational realities.",
+        "p2": "Before founding Applied Policy Systems LLC, Graham held senior leadership and advisory positions across all levels of government, where he specialized in the structural evaluation of benefits access and the modernization of tax administration programs."
+      }
+    },
+    "contactPage": {
+      "hero": {
+        "label": "Consultation",
+        "title": "Start the conversation.",
+        "subtitle": "Whether you're a government agency looking to modernize or a technology vendor seeking policy alignment, our architectural experts are ready to consult."
+      },
+      "ai": {
+        "title": "Consult with our AI Assistant",
+        "desc": "Our specialized consulting assistant can help triage your needs and provide immediate architectural insights."
+      },
+      "direct": {
+        "label": "Direct Channels",
+        "email": "Email",
+        "linkedin": "LinkedIn",
+        "location": "Location"
+      },
+      "cta": {
+        "title": "Ready for a deep dive?",
+        "desc": "Our team is available for formal architectural reviews, statutory mapping workshops, and modernization strategy sessions.",
+        "action": "Schedule a Session"
+      }
+    },
+    "capabilitiesPage": {
+      "hero": {
+        "label": "Consulting Expertise",
+        "title": "Bridging the gap between policy and implementation."
+      },
+      "cards": {
+        "science": {
+          "title": "Strategic Implementation Science",
+          "desc": "We bridge the gap between legislative intent and operational reality. Our experts optimize complex government workflows to ensure that administrative systems achieve their intended policy outcomes with maximum efficiency.",
+          "tip": "Strategy & Optimization"
+        },
+        "compliance": {
+          "title": "Compliance & Risk Diagnostics",
+          "desc": "Deep-dive audits of state-level payment error rates (SNAP/Medicaid). We identify systemic vulnerabilities and conceptualize real-time intervention mechanisms to mitigate risks before they trigger federal sanctions.",
+          "tip": "Audit & Mitigation"
+        },
+        "data": {
+          "title": "Interagency Data Strategy",
+          "desc": "Architecting secure data-sharing frameworks between tax and human services. We specialize in cross-referencing non-filer data to maximize benefit uptake without compromising PII or system integrity.",
+          "tip": "Data Architecture"
+        },
+        "fidelity": {
+          "title": "System Fidelity Evaluation",
+          "desc": "Independent third-party verification of Rules-as-Code architectures. We audit system logic to ensure absolute statutory compliance and maximum accessibility for frontline navigators.",
+          "tip": "Fidelity Audit"
+        }
+      },
+      "cta": {
+        "title": "Ready to optimize your agency's operations?",
+        "desc": "Our strategic consultants are ready to help you bridge the gap between policy mandates and technical implementation.",
+        "action": "Schedule a Consultation"
+      }
     },
     "quickLinks": {
       "advisory": {
