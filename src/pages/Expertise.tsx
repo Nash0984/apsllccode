@@ -20,206 +20,43 @@ export function Expertise() {
 
   const pillars = [
     {
-      title: "Statutory Verification & Fidelity",
+      key: 'fidelity',
       icon: <Shield size={20} />,
-      desc: "Independent verification frameworks that ensure complex administrative systems remain strictly aligned with the written law.",
       modules: [
-        {
-          id: "01",
-          title: "Jurisdictional Isolation Architecture",
-          icon: <Shield className="text-brand-jade" size={32} strokeWidth={1.5} />,
-          desc: "Absolute data sovereignty for complex federal/state hierarchies, ensuring localized operations never compromise the global security baseline.",
-          features: [
-            { name: "Fail-Closed Security", detail: "Defaults to strict federal privacy baselines, ensuring compliance prior to localized configuration." },
-            { name: "Isolated Environments", detail: "Geographic boundaries act as secure, isolated vaults for administrative rule application." },
-            { name: "Immutable Audit Trails", detail: "Every system action is logged with strict jurisdictional context for transparent federal oversight." }
-          ]
-        },
-        {
-          id: "10",
-          title: "Mathematical Policy Verification",
-          icon: <Binary className="text-brand-jade" size={32} strokeWidth={1.5} />,
-          desc: "Formal logic environment allowing policymakers to mathematically prove that system rules match the written law.",
-          features: [
-            { name: "Formal Logic Proofs", detail: "Translates statutes into axioms to prove logic contains no dead-ends or loopholes." },
-            { name: "Scenario Simulation", detail: "Simulates policy changes against historical data to project caseload and financial impacts." },
-            { name: "Regression Prevention", detail: "Ensures localized waivers do not break the federal compliance baseline for the state." }
-          ]
-        },
-        {
-          id: "11",
-          title: "Statutory Certification Hub",
-          icon: <History className="text-brand-jade" size={32} strokeWidth={1.5} />,
-          desc: "Centralized tracking of legislative changes and federal certification requirements (MES/CMS/FNS).",
-          features: [
-            { name: "Legislative Mapping", detail: "Maps pending bills directly to the software rules they impact, ensuring synchronous evolution." },
-            { name: "Certification Readiness", detail: "Automatically structures system artifacts into the precise formats required for federal funding." }
-          ]
-        },
-        {
-          id: "16",
-          title: "Algorithmic Bias Monitoring",
-          icon: <Eye className="text-brand-jade" size={32} strokeWidth={1.5} />,
-          desc: "Mandatory oversight ensuring system-generated outcomes remain equitable, transparent, and legally defensible.",
-          features: [
-            { name: "Bias Detection", detail: "Continuously monitors outcomes for systemic disparities in location or demographic data." },
-            { name: "Logic Tree Auditing", detail: "Logs the exact parameters and logic utilized for every machine-driven determination." },
-            { name: "Source Integrity Alerts", detail: "Alerts administrators if external data integrations return anomalous or low-confidence results." }
-          ]
-        }
+        { id: "01", key: 'isolation', icon: <Shield className="text-brand-jade" size={32} strokeWidth={1.5} /> },
+        { id: "10", key: 'math', icon: <Binary className="text-brand-jade" size={32} strokeWidth={1.5} /> },
+        { id: "11", key: 'certification', icon: <History className="text-brand-jade" size={32} strokeWidth={1.5} /> },
+        { id: "16", key: 'bias', icon: <Eye className="text-brand-jade" size={32} strokeWidth={1.5} /> }
       ]
     },
     {
-      title: "Financial Integrity & Risk Mitigation",
+      key: 'risk',
       icon: <Scale size={20} />,
-      desc: "Precision-engineered modules built to manage strict tolerances and protect agencies from federal sanctions.",
       modules: [
-        {
-          id: "05",
-          title: "Enterprise Quality Control (QC)",
-          icon: <FileSearch className="text-brand-jade" size={32} strokeWidth={1.5} />,
-          desc: "A unified auditing engine ensuring cross-program eligibility reviews (SNAP/Medicaid) remain strictly compliant.",
-          features: [
-            { name: "Intelligent Sampling", detail: "Automatically routes high-risk cases to QC reviewers based on federal guidelines." },
-            { name: "Root Cause Diagnostics", detail: "Determines if errors originated from client omission, caseworker entry, or policy misconfiguration." },
-            { name: "Remediation Feedback", detail: "Creates a loop between audit findings and operations to address systemic trends proactively." }
-          ]
-        },
-        {
-          id: "06",
-          title: "SNAP PER Mitigation Engine",
-          icon: <AlertTriangle className="text-brand-jade" size={32} strokeWidth={1.5} />,
-          desc: "Specialized financial compliance for SNAP, managing strict tolerances to prevent federal overpayment sanctions.",
-          features: [
-            { name: "Pre-Auth Risk Scoring", detail: "Flags high-variance cases (fluctuating income) for secondary review prior to benefit issuance." },
-            { name: "Tolerance Dashboards", detail: "Visualizes over/underpayment rates against FNS national thresholds in real-time." },
-            { name: "Liability Tracking", detail: "Distinguishes between agency and client errors to generate required Corrective Action Plans." }
-          ]
-        },
-        {
-          id: "07",
-          title: "ABAWD Compliance Management",
-          icon: <Clock className="text-brand-jade" size={32} strokeWidth={1.5} />,
-          desc: "Automates the complex 3-in-36 month time-limit tracking, reducing procedural friction for caseworkers and citizens.",
-          features: [
-            { name: "Proactive Exemptions", detail: "Scans integrated databases to identify statutory exemptions without redundant paperwork." },
-            { name: "Clock Management", detail: "Precisely tracks countable months and geographic waivers across labor market areas." },
-            { name: "Activity Reporting", detail: "Simplified mobile interfaces for logging work hours, minimizing procedural drop-offs." }
-          ]
-        },
-        {
-          id: "02",
-          title: "Precision Access Control (RBAC)",
-          icon: <Lock className="text-brand-jade" size={32} strokeWidth={1.5} />,
-          desc: "A granular access matrix coordinating work across applicants, caseworkers, and adjudicators with zero data leakage.",
-          features: [
-            { name: "Persona-Based Workflows", detail: "Isolates capabilities across distinct roles, from intake staff to administrative law judges." },
-            { name: "Dynamic UI Generation", detail: "Interfaces are generated server-side based on security clearance, preventing unauthorized data exposure." },
-            { name: "Secure Handoffs", detail: "Routes cases between departments without exposing PII to unauthorized internal personnel." }
-          ]
-        }
+        { id: "05", key: 'qc', icon: <FileSearch className="text-brand-jade" size={32} strokeWidth={1.5} /> },
+        { id: "06", key: 'per', icon: <AlertTriangle className="text-brand-jade" size={32} strokeWidth={1.5} /> },
+        { id: "07", key: 'abawd', icon: <Clock className="text-brand-jade" size={32} strokeWidth={1.5} /> },
+        { id: "02", key: 'rbac', icon: <Lock className="text-brand-jade" size={32} strokeWidth={1.5} /> }
       ]
     },
     {
-      title: "Operational Intelligence & Automation",
+      key: 'intelligence',
       icon: <Activity size={20} />,
-      desc: "Deterministic engines and analytics that translate complex statutes into mathematically provable outcomes.",
       modules: [
-        {
-          id: "04",
-          title: "Rules Engine (RaC)",
-          icon: <Cpu className="text-brand-jade" size={32} strokeWidth={1.5} />,
-          desc: "A legally grounded Rules Engine translating legislative text into machine-executable logic using a Rules-as-Code methodology.",
-          features: [
-            { name: "Data-Driven Renewals", detail: "Facilitates eligibility reviews via external data integration, removing manual calculation burden while maintaining strict policy adherence." },
-            { name: "Statutory Communications", detail: "Generates required notices (NOMI) based on real-time case status changes, ensuring procedural compliance." },
-            { name: "Policy Workspace", detail: "Structured environment for updating program parameters without hardcoded software changes." }
-          ]
-        },
-        {
-          id: "03",
-          title: "Administrative Burden Analytics",
-          icon: <BarChart3 className="text-brand-jade" size={32} strokeWidth={1.5} />,
-          desc: "Quantifies the friction placed on citizens and staff, replacing self-reported metrics with provable data.",
-          features: [
-            { name: "Burden Calculation", detail: "Computes exact processing time reductions and drop-off rates following new initiatives." },
-            { name: "Churn Diagnostics", detail: "Isolates applications denied due to paperwork friction rather than statutory ineligibility." },
-            { name: "Compliance Reporting", detail: "Aggregates data to satisfy federal mandates regarding administrative hurdle reduction." }
-          ]
-        },
-        {
-          id: "13",
-          title: "Financial Data & Tax Gateway",
-          icon: <Globe className="text-brand-jade" size={32} strokeWidth={1.5} />,
-          desc: "Secure integration hub managing complex financial parameters and tax routing to support income verification.",
-          features: [
-            { name: "E-Filing Infrastructure", detail: "Monitored pipeline for secure data transmission adhering to federal tax standards." },
-            { name: "Dynamic Parameters", detail: "Allows updates to localized tax rates and deduction thresholds without code changes." },
-            { name: "Instant Verification", detail: "Interfaces with workforce databases to validate income, reducing manual paystub reliance." }
-          ]
-        },
-        {
-          id: "15",
-          title: "Interoperability API Gateway",
-          icon: <Code2 className="text-brand-jade" size={32} strokeWidth={1.5} />,
-          desc: "Comprehensive integration layer designed to prevent vendor lock-in and connect disparate state/federal systems.",
-          features: [
-            { name: "Developer Sandbox", detail: "Secure access to API documentation and testing environments for internal IT teams." },
-            { name: "Webhook Infrastructure", detail: "Modern architecture for real-time data synchronization across disparate databases." },
-            { name: "Payload Cryptography", detail: "Enforces strict security standards on all inbound and outbound API requests." }
-          ]
-        }
+        { id: "04", key: 'rac', icon: <Cpu className="text-brand-jade" size={32} strokeWidth={1.5} /> },
+        { id: "03", key: 'burden', icon: <BarChart3 className="text-brand-jade" size={32} strokeWidth={1.5} /> },
+        { id: "13", key: 'gateway', icon: <Globe className="text-brand-jade" size={32} strokeWidth={1.5} /> },
+        { id: "15", key: 'api', icon: <Code2 className="text-brand-jade" size={32} strokeWidth={1.5} /> }
       ]
     },
     {
-      title: "Service Delivery & Human Capital",
+      key: 'delivery',
       icon: <Heart size={20} />,
-      desc: "Infrastructure designed to eliminate administrative burden and embed training directly into production.",
       modules: [
-        {
-          id: "08",
-          title: "Administrative Adjudication",
-          icon: <Gavel className="text-brand-jade" size={32} strokeWidth={1.5} />,
-          desc: "Legally robust framework for managing fair hearings and appeals with full historical context for judges.",
-          features: [
-            { name: "Immutable Snapshots", detail: "Captures the exact household data and rules active at the time of the original denial." },
-            { name: "Docket Automation", detail: "Manages scheduling and noticing to prevent statutory deadlines from being missed." },
-            { name: "Pre-Hearing Resolution", detail: "Routes contested cases to senior staff to overturn clear errors before judicial review." }
-          ]
-        },
-        {
-          id: "09",
-          title: "Omnichannel Citizen Portal",
-          icon: <Smartphone className="text-brand-jade" size={32} strokeWidth={1.5} />,
-          desc: "Mobile-responsive self-service hub diverting traffic from call centers by empowering citizens to manage cases.",
-          features: [
-            { name: "Unified Case Hub", detail: "Secure portal for checking status, reporting changes, and digital document uploads." },
-            { name: "Communications Engine", detail: "Logs all correspondence across mail, email, and SMS for an indisputable audit trail." },
-            { name: "Navigator Interfaces", detail: "Specialized displays for community assisters to triage inquiries and troubleshoot cases." }
-          ]
-        },
-        {
-          id: "12",
-          title: "Workforce Training Academy",
-          icon: <GraduationCap className="text-brand-jade" size={32} strokeWidth={1.5} />,
-          desc: "Embeds training directly into the production environment to address staff turnover and policy complexity.",
-          features: [
-            { name: "Contextual Lessons", detail: "Delivers role-specific training modules directly within the user's daily workflows." },
-            { name: "Sandboxed Simulations", detail: "Allows staff to practice on synthetic cases that mimic the live production system." },
-            { name: "Proficiency Tracking", detail: "Dashboards tracking training completion to identify knowledge gaps before errors occur." }
-          ]
-        },
-        {
-          id: "14",
-          title: "Cross-Enrollment Engine",
-          icon: <RefreshCw className="text-brand-jade" size={32} strokeWidth={1.5} />,
-          desc: "Automatically identifies eligibility overlaps across programs to maximize citizen access to benefits.",
-          features: [
-            { name: "Program Matching", detail: "Scans client index to flag households receiving one benefit that likely qualify for others." },
-            { name: "Application Bridging", detail: "Pre-populates secondary applications with verified data to eliminate redundant entry." },
-            { name: "Holistic Analytics", detail: "Cross-program dashboards to measure the success of horizontal integration initiatives." }
-          ]
-        }
+        { id: "08", key: 'adjudication', icon: <Gavel className="text-brand-jade" size={32} strokeWidth={1.5} /> },
+        { id: "09", key: 'portal', icon: <Smartphone className="text-brand-jade" size={32} strokeWidth={1.5} /> },
+        { id: "12", key: 'academy', icon: <GraduationCap className="text-brand-jade" size={32} strokeWidth={1.5} /> },
+        { id: "14", key: 'enrollment', icon: <RefreshCw className="text-brand-jade" size={32} strokeWidth={1.5} /> }
       ]
     }
   ];
@@ -246,23 +83,6 @@ export function Expertise() {
                 We provide Independent Verification & Validation (IV&V) and Subject Matter Expert (SME) advisory to bridge the gap between legislative intent and operational reality.
               </p>
               
-              <div className="grid sm:grid-cols-2 gap-6 mb-12">
-                {[
-                  { icon: <Fingerprint className="text-brand-jade" />, title: "IV&V Services", desc: "Independent third-party verification of system logic and compliance." },
-                  { icon: <Network className="text-brand-jade" />, title: "SME Advisory", desc: "Deep domain expertise in SNAP, Medicaid, and Tax policy." }
-                ].map((item, i) => (
-                  <div key={i} className="flex gap-4">
-                    <div className="shrink-0 w-10 h-10 rounded-lg bg-white dark:bg-slate-800 shadow-sm flex items-center justify-center">
-                      {item.icon}
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-slate-900 dark:text-white text-sm">{item.title}</h4>
-                      <p className="text-xs text-slate-500 dark:text-slate-400">{item.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
               <div className="flex flex-wrap gap-4">
                 <Link to="/contact" className="px-8 py-4 bg-brand-jade text-white font-bold rounded-xl hover:bg-[#005a62] transition-all shadow-xl shadow-brand-jade/20 flex items-center gap-2">
                   Request Technical Deep-Dive
@@ -287,8 +107,65 @@ export function Expertise() {
         </div>
       </section>
 
-      {/* Strategic Capabilities Section (Redistributed from Capabilities) */}
+      {/* Modernization Lifecycle Section */}
       <section className="section-padding bg-slate-50 dark:bg-slate-900 border-y border-slate-100 dark:border-slate-800">
+        <div className="container-wide">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <h2 className="label-muted">{t('expertisePage.lifecycle.label')}</h2>
+              <h3 className="tracking-tight mb-6">{t('expertisePage.lifecycle.title')}</h3>
+              <p className="text-xl text-slate-600 dark:text-slate-400 mb-8">
+                {t('expertisePage.lifecycle.subtitle')}
+              </p>
+              <div className="space-y-6">
+                {[
+                  { key: 'discovery', icon: <FileSearch size={20} /> },
+                  { key: 'mapping', icon: <Network size={20} /> },
+                  { key: 'verification', icon: <Cpu size={20} /> },
+                  { key: 'certification', icon: <CheckCircle2 size={20} /> }
+                ].map((phase, i) => (
+                  <div key={phase.key} className="flex gap-4 items-start">
+                    <div className="shrink-0 w-10 h-10 rounded-xl bg-white dark:bg-slate-800 shadow-sm flex items-center justify-center text-brand-jade">
+                      {phase.icon}
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-sm mb-1">{t(`expertisePage.lifecycle.phases.${phase.key}.title`)}</h4>
+                      <p className="text-xs text-slate-500 dark:text-slate-400">{t(`expertisePage.lifecycle.phases.${phase.key}.desc`)}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="relative lg:h-full flex items-center justify-center">
+              <div className="absolute inset-0 bg-brand-jade/5 rounded-[3rem] blur-3xl -z-10" />
+              <div className="grid grid-cols-2 gap-4 w-full">
+                {[
+                  { key: 'discovery', color: 'bg-blue-500' },
+                  { key: 'mapping', color: 'bg-brand-jade' },
+                  { key: 'verification', color: 'bg-purple-500' },
+                  { key: 'certification', color: 'bg-emerald-500' }
+                ].map((phase, i) => (
+                  <motion.div
+                    key={phase.key}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: i * 0.1 }}
+                    className="p-6 rounded-3xl bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 shadow-lg flex flex-col items-center text-center gap-4"
+                  >
+                    <div className={`w-12 h-12 rounded-2xl ${phase.color} text-white flex items-center justify-center font-black text-xl shadow-lg`}>
+                      {i + 1}
+                    </div>
+                    <div className="text-[10px] font-bold uppercase tracking-widest text-slate-400">Phase 0{i + 1}</div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Strategic Pillars Section */}
+      <section className="section-padding">
         <div className="container-wide">
           <div className="max-w-3xl mb-16">
             <h2 className="label-muted">{t('expertisePage.expertise.label')}</h2>
@@ -297,50 +174,28 @@ export function Expertise() {
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              {
-                title: t('expertisePage.expertise.science.title'),
-                desc: t('expertisePage.expertise.science.desc'),
-                icon: <GraduationCap className="text-brand-jade" size={24} strokeWidth={1.5} />,
-                tip: t('expertisePage.expertise.science.tip')
-              },
-              {
-                title: t('expertisePage.expertise.compliance.title'),
-                desc: t('expertisePage.expertise.compliance.desc'),
-                icon: <Shield className="text-brand-jade" size={24} strokeWidth={1.5} />,
-                tip: t('expertisePage.expertise.compliance.tip')
-              },
-              {
-                title: t('expertisePage.expertise.data.title'),
-                desc: t('expertisePage.expertise.data.desc'),
-                icon: <Database className="text-brand-jade" size={24} strokeWidth={1.5} />,
-                tip: t('expertisePage.expertise.data.tip')
-              },
-              {
-                title: t('expertisePage.expertise.fidelity.title'),
-                desc: t('expertisePage.expertise.fidelity.desc'),
-                icon: <CheckCircle2 className="text-brand-jade" size={24} strokeWidth={1.5} />,
-                tip: t('expertisePage.expertise.fidelity.tip')
-              }
-            ].map((item, i) => (
+              { key: 'fidelity', icon: <Shield size={24} /> },
+              { key: 'risk', icon: <Scale size={24} /> },
+              { key: 'intelligence', icon: <Activity size={24} /> },
+              { key: 'delivery', icon: <Heart size={24} /> }
+            ].map((pillar, i) => (
               <motion.div 
-                key={i}
+                key={pillar.key}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
                 className="card-base card-hover group p-8"
               >
-                <div className="relative inline-block mb-6">
-                  <div className="p-3 bg-white dark:bg-slate-800 rounded-xl shadow-sm group-hover:bg-brand-jade group-hover:text-white transition-all duration-500">
-                    {item.icon}
-                  </div>
-                  <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 px-3 py-1.5 bg-slate-900 dark:bg-slate-800 text-white text-[10px] font-bold uppercase tracking-widest rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap shadow-xl z-10">
-                    {item.tip}
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-900 dark:border-t-slate-800" />
-                  </div>
+                <div className="p-3 bg-slate-50 dark:bg-slate-800 rounded-xl shadow-sm group-hover:bg-brand-jade group-hover:text-white transition-all duration-500 inline-block mb-6">
+                  {pillar.icon}
                 </div>
-                <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-4 tracking-tight">{item.title}</h4>
-                <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-400">{item.desc}</p>
+                <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-4 tracking-tight">
+                  {t(`expertisePage.expertise.pillars.${pillar.key}.title`)}
+                </h4>
+                <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+                  {t(`expertisePage.expertise.pillars.${pillar.key}.desc`)}
+                </p>
               </motion.div>
             ))}
           </div>
@@ -348,11 +203,16 @@ export function Expertise() {
       </section>
 
       {/* Interactive Command Center */}
-      <section className="flex-1 flex flex-col lg:flex-row container-wide py-24 gap-16">
+      <section className="bg-slate-50 dark:bg-slate-950 py-24 border-t border-slate-100 dark:border-slate-800">
+        <div className="container-wide mb-16">
+          <h2 className="label-muted">{t('expertisePage.commandCenter.label')}</h2>
+          <h3 className="tracking-tight">{t('expertisePage.commandCenter.title')}</h3>
+        </div>
+        <div className="container-wide flex flex-col lg:flex-row gap-16">
         {/* Sidebar Navigation */}
         <div className="lg:w-96 shrink-0 space-y-12">
           <div className="p-8 rounded-card bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800">
-            <h3 className="label-muted mb-8">Strategic Pillars</h3>
+            <h3 className="label-muted mb-8">{t('expertisePage.commandCenter.pillars')}</h3>
             <div className="space-y-3">
               {pillars.map((pillar, index) => (
                 <button
@@ -370,36 +230,51 @@ export function Expertise() {
                   <div className={`shrink-0 w-10 h-10 rounded-xl flex items-center justify-center ${activePillar === index ? 'bg-white/20 text-white' : 'bg-brand-jade/10 text-brand-jade group-hover:scale-110 transition-transform'}`}>
                     {pillar.icon}
                   </div>
-                  <span className="text-sm font-bold leading-tight">{pillar.title}</span>
+                  <span className="text-sm font-bold leading-tight">
+                    {t(`expertisePage.expertise.pillars.${pillar.key}.title`)}
+                  </span>
                 </button>
               ))}
             </div>
           </div>
 
-          <div className="p-8 rounded-card border border-slate-100 dark:border-slate-800">
-            <h3 className="label-muted mb-8">Core Capabilities</h3>
-            <div className="grid grid-cols-1 gap-2">
-              {pillars[activePillar].modules.map((module, index) => (
-                <button
-                  key={index}
-                  onClick={() => setActiveModule(index)}
-                  className={`w-full text-left p-4 rounded-xl transition-all flex items-center justify-between group ${
-                    activeModule === index 
-                      ? 'bg-slate-900 dark:bg-white text-white dark:text-slate-900 shadow-xl' 
-                      : 'hover:bg-slate-50 dark:hover:bg-slate-900 text-slate-500 dark:text-slate-500'
-                  }`}
-                >
-                  <div className="flex items-center gap-3">
-                    <span className="text-[10px] font-mono opacity-50">{module.id}</span>
-                    <span className="text-xs font-bold">{module.title}</span>
-                  </div>
-                  <div className={`text-brand-jade ${activeModule === index ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'} transition-opacity`}>
-                    <ArrowRight size={14} />
-                  </div>
-                </button>
-              ))}
+            <div className="p-8 rounded-card border border-slate-100 dark:border-slate-800">
+              <h3 className="label-muted mb-8">{t('expertisePage.commandCenter.capabilities')}</h3>
+              <div className="grid grid-cols-1 gap-2">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={activePillar}
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: 10 }}
+                    transition={{ duration: 0.3 }}
+                    className="space-y-2"
+                  >
+                    {pillars[activePillar].modules.map((module, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setActiveModule(index)}
+                        className={`w-full text-left p-4 rounded-xl transition-all flex items-center justify-between group ${
+                          activeModule === index 
+                            ? 'bg-slate-900 dark:bg-white text-white dark:text-slate-900 shadow-xl' 
+                            : 'hover:bg-slate-50 dark:hover:bg-slate-900 text-slate-500 dark:text-slate-500'
+                        }`}
+                      >
+                        <div className="flex items-center gap-3">
+                          <span className="text-[10px] font-mono opacity-50">{module.id}</span>
+                          <span className="text-xs font-bold">
+                            {t(`expertisePage.expertise.pillars.${pillars[activePillar].key}.modules.${module.key}.title`)}
+                          </span>
+                        </div>
+                        <div className={`text-brand-jade ${activeModule === index ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'} transition-opacity`}>
+                          <ArrowRight size={14} />
+                        </div>
+                      </button>
+                    ))}
+                  </motion.div>
+                </AnimatePresence>
+              </div>
             </div>
-          </div>
         </div>
 
         {/* Main Display Area */}
@@ -421,14 +296,14 @@ export function Expertise() {
                         {pillars[activePillar].modules[activeModule].icon}
                       </div>
                       <div>
-                        <div className="label-uppercase mb-1">Capability {pillars[activePillar].modules[activeModule].id}</div>
+                        <div className="label-uppercase mb-1">{t('expertisePage.commandCenter.capabilities')} {pillars[activePillar].modules[activeModule].id}</div>
                         <h3 className="text-4xl md:text-5xl font-black tracking-tight">
-                          {pillars[activePillar].modules[activeModule].title}
+                          {t(`expertisePage.expertise.pillars.${pillars[activePillar].key}.modules.${pillars[activePillar].modules[activeModule].key}.title`)}
                         </h3>
                       </div>
                     </div>
                     <p className="text-xl leading-relaxed max-w-2xl">
-                      {pillars[activePillar].modules[activeModule].desc}
+                      {t(`expertisePage.expertise.pillars.${pillars[activePillar].key}.modules.${pillars[activePillar].modules[activeModule].key}.desc`)}
                     </p>
                   </div>
                   
@@ -439,7 +314,7 @@ export function Expertise() {
                       rel="noopener noreferrer"
                       className="w-full lg:w-auto px-10 py-5 bg-brand-jade text-white font-bold rounded-2xl hover:bg-[#005a62] transition-all shadow-xl shadow-brand-jade/20 flex items-center justify-center gap-3"
                     >
-                      Architectural Consultation
+                      {t('expertisePage.commandCenter.consultation')}
                       <ArrowRight size={20} />
                     </a>
                   </div>
@@ -454,19 +329,23 @@ export function Expertise() {
                           <div className="w-12 h-12 border-4 border-brand-jade/20 border-t-brand-jade rounded-full animate-spin" />
                         </div>
                       }>
-                        <ModuleGraphic id={pillars[activePillar].modules[activeModule].id} />
+                        <ModuleGraphic 
+                          id={pillars[activePillar].modules[activeModule].id} 
+                          title={`gov.systems/${pillars[activePillar].key}/${pillars[activePillar].modules[activeModule].key}`}
+                          subtitle={t(`expertisePage.expertise.pillars.${pillars[activePillar].key}.modules.${pillars[activePillar].modules[activeModule].key}.title`)}
+                        />
                       </Suspense>
                     </div>
                   </div>
                   <div className="absolute bottom-8 left-8 flex items-center gap-3">
                     <div className="w-2 h-2 rounded-full bg-brand-jade animate-pulse" />
-                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Verification Simulation</span>
+                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">{t('expertisePage.commandCenter.simulation')}</span>
                   </div>
                 </div>
 
                 <div className="grid md:grid-cols-3 gap-8">
-                  {pillars[activePillar].modules[activeModule].features.map((feature, fIndex) => (
-                    <div key={fIndex} className="p-8 bg-white dark:bg-slate-800/50 rounded-[2rem] border border-slate-100 dark:border-slate-800 group hover:border-brand-jade/30 transition-all hover:shadow-xl hover:shadow-brand-jade/5">
+                  {Object.entries(t(`expertisePage.expertise.pillars.${pillars[activePillar].key}.modules.${pillars[activePillar].modules[activeModule].key}.features`, { returnObjects: true }) as Record<string, { name: string, detail: string }>).map(([fKey, feature], fIndex) => (
+                    <div key={fKey} className="p-8 bg-white dark:bg-slate-800/50 rounded-[2rem] border border-slate-100 dark:border-slate-800 group hover:border-brand-jade/30 transition-all hover:shadow-xl hover:shadow-brand-jade/5">
                       <h4 className="text-sm font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-3">
                         <div className="w-2 h-2 bg-brand-jade rounded-full" />
                         {feature.name}
@@ -480,6 +359,7 @@ export function Expertise() {
               </div>
             </motion.div>
           </AnimatePresence>
+        </div>
         </div>
       </section>
 
@@ -522,9 +402,9 @@ export function Expertise() {
             </div>
             <div className="bg-white dark:bg-slate-800 p-12 rounded-[3rem] border border-slate-200 dark:border-slate-700 shadow-xl relative overflow-hidden">
               <div className="absolute top-0 right-0 w-64 h-64 bg-brand-jade/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl" />
-              <h4 className="text-brand-jade font-bold text-sm uppercase tracking-widest mb-6">Trusted Advisory</h4>
+              <h4 className="text-brand-jade font-bold text-sm uppercase tracking-widest mb-6">{t('expertisePage.audiences.trusted.label')}</h4>
               <p className="text-xl font-bold text-slate-900 dark:text-white mb-8 leading-tight">
-                Official Recommendations to the IRS Commissioner on Digital Infrastructure Standards.
+                {t('expertisePage.audiences.trusted.title')}
               </p>
               <div className="grid grid-cols-2 gap-4">
                 {['IRS', 'FNS', 'DHS', 'VITA'].map((org) => (
@@ -538,22 +418,22 @@ export function Expertise() {
 
           <div className="grid md:grid-cols-2 gap-16 items-center pt-24 border-t border-slate-200 dark:border-slate-800">
             <div>
-              <h3 className="text-3xl font-black mb-6">Ready to Modernize?</h3>
+              <h3 className="text-3xl font-black mb-6">{t('expertisePage.cta.title')}</h3>
               <p className="text-lg mb-8">
-                Our modular infrastructure is designed to be deployed incrementally, ensuring zero downtime and immediate statutory compliance.
+                {t('expertisePage.cta.desc')}
               </p>
               <div className="flex gap-12">
                 <div>
-                  <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">Core Capabilities</p>
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">{t('expertisePage.cta.stats.capabilities')}</p>
                   <p className="text-3xl font-black text-brand-jade">16</p>
                 </div>
                 <div>
-                  <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">Strategic Pillars</p>
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">{t('expertisePage.cta.stats.pillars')}</p>
                   <p className="text-3xl font-black text-brand-jade">04</p>
                 </div>
                 <div>
-                  <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">Compliance</p>
-                  <p className="text-3xl font-black text-brand-jade">Federal</p>
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">{t('expertisePage.cta.stats.compliance')}</p>
+                  <p className="text-3xl font-black text-brand-jade">{t('expertisePage.cta.stats.federal')}</p>
                 </div>
               </div>
             </div>
@@ -564,7 +444,7 @@ export function Expertise() {
                 rel="noopener noreferrer"
                 className="px-12 py-6 bg-slate-900 text-white dark:bg-white dark:text-slate-900 font-bold rounded-[2rem] hover:scale-105 transition-transform flex items-center gap-4 shadow-2xl"
               >
-                Start Architectural Consultation
+                {t('expertisePage.cta.action')}
                 <ArrowRight size={24} />
               </a>
             </div>

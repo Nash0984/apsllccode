@@ -100,32 +100,217 @@
       "title": "Independent Verification & Validation."
     },
     "expertise": {
-      "label": "Strategic Advisory",
-      "title": "Bridging the gap between policy and code.",
-      "science": {
-        "title": "Subject Matter Expert (SME) Advisory",
-        "desc": "Our policy experts bridge the gap between legislative intent and operational reality. We provide the deep domain knowledge required to optimize complex government workflows and ensure intended policy outcomes.",
-        "tip": "Strategy & Optimization"
-      },
-      "compliance": {
-        "title": "Compliance & Risk Diagnostics",
-        "desc": "Deep-dive audits of state-level payment error rates (SNAP/Medicaid). We identify systemic vulnerabilities and conceptualize real-time intervention mechanisms to mitigate risks before they trigger federal sanctions.",
-        "tip": "Audit & Mitigation"
-      },
-      "data": {
-        "title": "Interagency Data Strategy",
-        "desc": "Architecting secure data-sharing frameworks between tax and human services. We specialize in cross-referencing non-filer data to maximize benefit uptake without compromising PII or system integrity.",
-        "tip": "Data Architecture"
-      },
-      "fidelity": {
-        "title": "Independent Verification & Validation (IV&V)",
-        "desc": "We provide independent third-party verification of system logic. Using a 'Rules-as-Code' methodology, we audit architectures to ensure absolute statutory compliance and operational fidelity.",
-        "tip": "Fidelity Audit"
+      "label": "Strategic Pillars",
+      "title": "A multi-dimensional framework for system integrity.",
+      "pillars": {
+        "fidelity": {
+          "title": "Statutory Verification & Fidelity",
+          "desc": "Independent verification frameworks that ensure complex administrative systems remain strictly aligned with the written law.",
+          "modules": {
+            "isolation": {
+              "title": "Jurisdictional Isolation Architecture",
+              "desc": "Absolute data sovereignty for complex federal/state hierarchies, ensuring localized operations never compromise the global security baseline.",
+              "features": {
+                "security": { "name": "Fail-Closed Security", "detail": "Defaults to strict federal privacy baselines, ensuring compliance prior to localized configuration." },
+                "environments": { "name": "Isolated Environments", "detail": "Geographic boundaries act as secure, isolated vaults for administrative rule application." },
+                "audit": { "name": "Immutable Audit Trails", "detail": "Every system action is logged with strict jurisdictional context for transparent federal oversight." }
+              }
+            },
+            "math": {
+              "title": "Mathematical Policy Verification",
+              "desc": "Formal logic environment allowing policymakers to mathematically prove that system rules match the written law.",
+              "features": {
+                "proofs": { "name": "Formal Logic Proofs", "detail": "Translates statutes into axioms to prove logic contains no dead-ends or loopholes." },
+                "simulation": { "name": "Scenario Simulation", "detail": "Simulates policy changes against historical data to project caseload and financial impacts." },
+                "prevention": { "name": "Regression Prevention", "detail": "Ensures localized waivers do not break the federal compliance baseline for the state." }
+              }
+            },
+            "certification": {
+              "title": "Statutory Certification Hub",
+              "desc": "Centralized tracking of legislative changes and federal certification requirements (MES/CMS/FNS).",
+              "features": {
+                "mapping": { "name": "Legislative Mapping", "detail": "Maps pending bills directly to the software rules they impact, ensuring synchronous evolution." },
+                "readiness": { "name": "Certification Readiness", "detail": "Automatically structures system artifacts into the precise formats required for federal funding." }
+              }
+            },
+            "bias": {
+              "title": "Algorithmic Bias Monitoring",
+              "desc": "Mandatory oversight ensuring system-generated outcomes remain equitable, transparent, and legally defensible.",
+              "features": {
+                "detection": { "name": "Bias Detection", "detail": "Continuously monitors outcomes for systemic disparities in location or demographic data." },
+                "auditing": { "name": "Logic Tree Auditing", "detail": "Logs the exact parameters and logic utilized for every machine-driven determination." },
+                "integrity": { "name": "Source Integrity Alerts", "detail": "Alerts administrators if external data integrations return anomalous or low-confidence results." }
+              }
+            }
+          }
+        },
+        "risk": {
+          "title": "Financial Integrity & Risk Mitigation",
+          "desc": "Precision-engineered modules built to manage strict tolerances and protect agencies from federal sanctions.",
+          "modules": {
+            "qc": {
+              "title": "Enterprise Quality Control (QC)",
+              "desc": "A unified auditing engine ensuring cross-program eligibility reviews (SNAP/Medicaid) remain strictly compliant.",
+              "features": {
+                "sampling": { "name": "Intelligent Sampling", "detail": "Automatically routes high-risk cases to QC reviewers based on federal guidelines." },
+                "diagnostics": { "name": "Root Cause Diagnostics", "detail": "Determines if errors originated from client omission, caseworker entry, or policy misconfiguration." },
+                "feedback": { "name": "Remediation Feedback", "detail": "Creates a loop between audit findings and operations to address systemic trends proactively." }
+              }
+            },
+            "per": {
+              "title": "SNAP PER Mitigation Engine",
+              "desc": "Specialized financial compliance for SNAP, managing strict tolerances to prevent federal overpayment sanctions.",
+              "features": {
+                "scoring": { "name": "Pre-Auth Risk Scoring", "detail": "Flags high-variance cases (fluctuating income) for secondary review prior to benefit issuance." },
+                "dashboards": { "name": "Tolerance Dashboards", "detail": "Visualizes over/underpayment rates against FNS national thresholds in real-time." },
+                "tracking": { "name": "Liability Tracking", "detail": "Distinguishes between agency and client errors to generate required Corrective Action Plans." }
+              }
+            },
+            "abawd": {
+              "title": "ABAWD Compliance Management",
+              "desc": "Automates the complex 3-in-36 month time-limit tracking, reducing procedural friction for caseworkers and citizens.",
+              "features": {
+                "exemptions": { "name": "Proactive Exemptions", "detail": "Scans integrated databases to identify statutory exemptions without redundant paperwork." },
+                "clock": { "name": "Clock Management", "detail": "Precisely tracks countable months and geographic waivers across labor market areas." },
+                "reporting": { "name": "Activity Reporting", "detail": "Simplified mobile interfaces for logging work hours, minimizing procedural drop-offs." }
+              }
+            },
+            "rbac": {
+              "title": "Precision Access Control (RBAC)",
+              "desc": "A granular access matrix coordinating work across applicants, caseworkers, and adjudicators with zero data leakage.",
+              "features": {
+                "workflows": { "name": "Persona-Based Workflows", "detail": "Isolates capabilities across distinct roles, from intake staff to administrative law judges." },
+                "generation": { "name": "Dynamic UI Generation", "detail": "Interfaces are generated server-side based on security clearance, preventing unauthorized data exposure." },
+                "handoffs": { "name": "Secure Handoffs", "detail": "Routes cases between departments without exposing PII to unauthorized internal personnel." }
+              }
+            }
+          }
+        },
+        "intelligence": {
+          "title": "Operational Intelligence & Automation",
+          "desc": "Deterministic engines and analytics that translate complex statutes into mathematically provable outcomes.",
+          "modules": {
+            "rac": {
+              "title": "Rules Engine (RaC)",
+              "desc": "A legally grounded Rules Engine translating legislative text into machine-executable logic using a Rules-as-Code methodology.",
+              "features": {
+                "renewals": { "name": "Data-Driven Renewals", "detail": "Facilitates eligibility reviews via external data integration, removing manual calculation burden while maintaining strict policy adherence." },
+                "communications": { "name": "Statutory Communications", "detail": "Generates required notices (NOMI) based on real-time case status changes, ensuring procedural compliance." },
+                "workspace": { "name": "Policy Workspace", "detail": "Structured environment for updating program parameters without hardcoded software changes." }
+              }
+            },
+            "burden": {
+              "title": "Administrative Burden Analytics",
+              "desc": "Quantifies the friction placed on citizens and staff, replacing self-reported metrics with provable data.",
+              "features": {
+                "calculation": { "name": "Burden Calculation", "detail": "Computes exact processing time reductions and drop-off rates following new initiatives." },
+                "diagnostics": { "name": "Churn Diagnostics", "detail": "Isolates applications denied due to paperwork friction rather than statutory ineligibility." },
+                "reporting": { "name": "Compliance Reporting", "detail": "Aggregates data to satisfy federal mandates regarding administrative hurdle reduction." }
+              }
+            },
+            "gateway": {
+              "title": "Financial Data & Tax Gateway",
+              "desc": "Secure integration hub managing complex financial parameters and tax routing to support income verification.",
+              "features": {
+                "infrastructure": { "name": "E-Filing Infrastructure", "detail": "Monitored pipeline for secure data transmission adhering to federal tax standards." },
+                "parameters": { "name": "Dynamic Parameters", "detail": "Allows updates to localized tax rates and deduction thresholds without code changes." },
+                "verification": { "name": "Instant Verification", "detail": "Interfaces with workforce databases to validate income, reducing manual paystub reliance." }
+              }
+            },
+            "api": {
+              "title": "Interoperability API Gateway",
+              "desc": "Comprehensive integration layer designed to prevent vendor lock-in and connect disparate state/federal systems.",
+              "features": {
+                "sandbox": { "name": "Developer Sandbox", "detail": "Secure access to API documentation and testing environments for internal IT teams." },
+                "webhooks": { "name": "Webhook Infrastructure", "detail": "Modern architecture for real-time data synchronization across disparate databases." },
+                "cryptography": { "name": "Payload Cryptography", "detail": "Enforces strict security standards on all inbound and outbound API requests." }
+              }
+            }
+          }
+        },
+        "delivery": {
+          "title": "Service Delivery & Human Capital",
+          "desc": "Infrastructure designed to eliminate administrative burden and embed training directly into production.",
+          "modules": {
+            "adjudication": {
+              "title": "Administrative Adjudication",
+              "desc": "Legally robust framework for managing fair hearings and appeals with full historical context for judges.",
+              "features": {
+                "snapshots": { "name": "Immutable Snapshots", "detail": "Captures the exact household data and rules active at the time of the original denial." },
+                "automation": { "name": "Docket Automation", "detail": "Manages scheduling and noticing to prevent statutory deadlines from being missed." },
+                "resolution": { "name": "Pre-Hearing Resolution", "detail": "Routes contested cases to senior staff to overturn clear errors before judicial review." }
+              }
+            },
+            "portal": {
+              "title": "Omnichannel Citizen Portal",
+              "desc": "Mobile-responsive self-service hub diverting traffic from call centers by empowering citizens to manage cases.",
+              "features": {
+                "hub": { "name": "Unified Case Hub", "detail": "Secure portal for checking status, reporting changes, and digital document uploads." },
+                "communications": { "name": "Communications Engine", "detail": "Logs all correspondence across mail, email, and SMS for an indisputable audit trail." },
+                "navigator": { "name": "Navigator Interfaces", "detail": "Specialized displays for community assisters to triage inquiries and troubleshoot cases." }
+              }
+            },
+            "academy": {
+              "title": "Workforce Training Academy",
+              "desc": "Embeds training directly into the production environment to address staff turnover and policy complexity.",
+              "features": {
+                "lessons": { "name": "Contextual Lessons", "detail": "Delivers role-specific training modules directly within the user's daily workflows." },
+                "simulations": { "name": "Sandboxed Simulations", "detail": "Allows staff to practice on synthetic cases that mimic the live production system." },
+                "tracking": { "name": "Proficiency Tracking", "detail": "Dashboards tracking training completion to identify knowledge gaps before errors occur." }
+              }
+            },
+            "enrollment": {
+              "title": "Cross-Enrollment Engine",
+              "desc": "Automatically identifies eligibility overlaps across programs to maximize citizen access to benefits.",
+              "features": {
+                "matching": { "name": "Program Matching", "detail": "Scans client index to flag households receiving one benefit that likely qualify for others." },
+                "bridging": { "name": "Application Bridging", "detail": "Pre-populates secondary applications with verified data to eliminate redundant entry." },
+                "analytics": { "name": "Holistic Analytics", "detail": "Cross-program dashboards to measure the success of horizontal integration initiatives." }
+              }
+            }
+          }
+        }
       }
+    },
+    "lifecycle": {
+      "label": "The Methodology",
+      "title": "The Modernization Lifecycle",
+      "subtitle": "Our four-phase approach to achieving absolute statutory fidelity.",
+      "phases": {
+        "discovery": {
+          "title": "Statutory Discovery",
+          "desc": "We deconstruct complex legislative mandates into a library of atomic logical axioms."
+        },
+        "mapping": {
+          "title": "Architectural Mapping",
+          "desc": "Mapping logical axioms to system requirements to ensure every line of code has a statutory parent."
+        },
+        "verification": {
+          "title": "Logic Verification",
+          "desc": "Rigorous testing of system rules against edge cases and historical data to prove compliance."
+        },
+        "certification": {
+          "title": "Continuous Certification",
+          "desc": "Real-time monitoring and auditing to ensure system integrity as policy and technology evolve."
+        }
+      }
+    },
+    "commandCenter": {
+      "label": "Technical Deep-Dive",
+      "title": "Interactive Command Center.",
+      "pillars": "Strategic Pillars",
+      "capabilities": "Core Capabilities",
+      "consultation": "Architectural Consultation",
+      "simulation": "Verification Simulation",
+      "nextPhase": "Next Phase"
     },
     "audiences": {
       "label": "Target Audiences",
       "title": "Creating systemic impact across sectors.",
+      "trusted": {
+        "label": "Trusted Advisory",
+        "title": "Official Recommendations to the IRS Commissioner on Digital Infrastructure Standards."
+      },
       "agencies": {
         "title": "State & Municipal Agencies",
         "desc": "Protecting agency budgets from federal audit penalties through executive policy formulation and rigorous modernization strategy."
@@ -137,6 +322,17 @@
       "coalitions": {
         "title": "Community Coalitions",
         "desc": "Designing service delivery models that eliminate documentation barriers and renewal churn for vulnerable populations."
+      }
+    },
+    "cta": {
+      "title": "Ready to Modernize?",
+      "desc": "Our modular infrastructure is designed to be deployed incrementally, ensuring zero downtime and immediate statutory compliance.",
+      "action": "Start Architectural Consultation",
+      "stats": {
+        "capabilities": "Core Capabilities",
+        "pillars": "Strategic Pillars",
+        "compliance": "Compliance",
+        "federal": "Federal"
       }
     }
   },

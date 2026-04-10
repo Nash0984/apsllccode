@@ -7,6 +7,8 @@ const JurisdictionalIsolation = lazy(() => import('./graphics/JurisdictionalIsol
 
 interface GraphicProps {
   id: string;
+  title?: string;
+  subtitle?: string;
 }
 
 function UXFrame({ children, title, subtitle }: { children: React.ReactNode, title: string, subtitle?: string }) {
@@ -48,7 +50,7 @@ function UXFrame({ children, title, subtitle }: { children: React.ReactNode, tit
   );
 }
 
-export function ModuleGraphic({ id }: GraphicProps) {
+export function ModuleGraphic({ id, title, subtitle }: GraphicProps) {
   const containerVariants = {
     initial: { opacity: 0, scale: 0.95 },
     animate: { opacity: 1, scale: 1, transition: { duration: 0.5, ease: "easeOut" } }
@@ -58,7 +60,7 @@ export function ModuleGraphic({ id }: GraphicProps) {
     switch (id) {
       case "01": // Jurisdictional Isolation
         return (
-          <UXFrame title="gov.systems/admin/jurisdiction" subtitle="Data Sovereignty Matrix">
+          <UXFrame title={title || "gov.systems/admin/jurisdiction"} subtitle={subtitle || "Data Sovereignty Matrix"}>
             <Suspense fallback={<div className="w-full h-full flex items-center justify-center"><div className="w-8 h-8 border-2 border-brand-jade/20 border-t-brand-jade rounded-full animate-spin" /></div>}>
               <JurisdictionalIsolation />
             </Suspense>
@@ -66,7 +68,7 @@ export function ModuleGraphic({ id }: GraphicProps) {
         );
       case "02": // Precision Access Control
         return (
-          <UXFrame title="gov.systems/security/rbac" subtitle="Role-Based Access Control">
+          <UXFrame title={title || "gov.systems/security/rbac"} subtitle={subtitle || "Role-Based Access Control"}>
             <div className="p-4 sm:p-6 h-full flex flex-col">
               <div className="flex justify-between items-center mb-4 sm:mb-6">
                 <div className="space-y-1">
@@ -98,7 +100,7 @@ export function ModuleGraphic({ id }: GraphicProps) {
         );
       case "03": // Procedural Friction
         return (
-          <UXFrame title="gov.systems/analytics/friction" subtitle="Administrative Burden Index">
+          <UXFrame title={title || "gov.systems/analytics/friction"} subtitle={subtitle || "Administrative Burden Index"}>
             <div className="p-4 sm:p-6 h-full flex flex-col">
               <div className="grid grid-cols-2 gap-3 sm:gap-4 mb-4 sm:mb-8">
                 <div className="p-3 sm:p-4 rounded-2xl bg-brand-jade/5 border border-brand-jade/10">
@@ -136,7 +138,7 @@ export function ModuleGraphic({ id }: GraphicProps) {
         );
       case "04": // Deterministic Policy Engine
         return (
-          <UXFrame title="gov.systems/policy/engine" subtitle="Rules-as-Code Workspace">
+          <UXFrame title={title || "gov.systems/policy/engine"} subtitle={subtitle || "Rules-as-Code Workspace"}>
             <div className="flex h-full">
               <div className="w-1/3 border-r border-slate-100 dark:border-slate-800 p-3 sm:p-4 space-y-3 sm:space-y-4">
                 <div className="text-[7px] sm:text-[8px] font-bold text-slate-400 uppercase">Statutory Input</div>
@@ -165,7 +167,7 @@ export function ModuleGraphic({ id }: GraphicProps) {
         );
       case "05": // Enterprise Quality Control
         return (
-          <UXFrame title="gov.systems/audit/qc" subtitle="Quality Control Dashboard">
+          <UXFrame title={title || "gov.systems/audit/qc"} subtitle={subtitle || "Quality Control Dashboard"}>
             <div className="p-4 sm:p-6 h-full flex flex-col">
               <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 mb-4 sm:mb-8">
                 <div className="relative w-16 h-16 sm:w-24 sm:h-24 shrink-0 mx-auto sm:mx-0">
@@ -215,7 +217,7 @@ export function ModuleGraphic({ id }: GraphicProps) {
         );
       case "06": // SNAP PER Mitigation
         return (
-          <UXFrame title="gov.systems/compliance/snap" subtitle="PER Mitigation Engine">
+          <UXFrame title={title || "gov.systems/compliance/snap"} subtitle={subtitle || "PER Mitigation Engine"}>
             <div className="p-4 sm:p-6 h-full flex flex-col">
               <div className="flex justify-between items-end mb-4 sm:mb-8">
                 <div className="space-y-1 sm:space-y-2">
@@ -253,7 +255,7 @@ export function ModuleGraphic({ id }: GraphicProps) {
         );
       case "07": // ABAWD Compliance
         return (
-          <UXFrame title="gov.systems/compliance/abawd" subtitle="ABAWD Clock Management">
+          <UXFrame title={title || "gov.systems/compliance/abawd"} subtitle={subtitle || "ABAWD Clock Management"}>
             <div className="p-4 sm:p-6 h-full flex flex-col">
               <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 items-center mb-4 sm:mb-8">
                 <div className="relative w-24 h-24 sm:w-32 sm:h-32 shrink-0">
@@ -296,7 +298,7 @@ export function ModuleGraphic({ id }: GraphicProps) {
         );
       case "08": // Administrative Adjudication
         return (
-          <UXFrame title="gov.systems/judicial/appeals" subtitle="Hearing Docket Management">
+          <UXFrame title={title || "gov.systems/judicial/appeals"} subtitle={subtitle || "Hearing Docket Management"}>
             <div className="flex h-full flex-col sm:flex-row">
               <div className="w-full sm:w-1/3 border-b sm:border-b-0 sm:border-r border-slate-100 dark:border-slate-800 p-3 sm:p-4 space-y-3 sm:space-y-4">
                 <div className="text-[7px] sm:text-[8px] font-bold text-slate-400 uppercase">Calendar</div>
@@ -334,7 +336,7 @@ export function ModuleGraphic({ id }: GraphicProps) {
         );
       case "09": // Citizen Self-Service
         return (
-          <UXFrame title="gov.systems/portal/mobile" subtitle="Citizen Experience Hub">
+          <UXFrame title={title || "gov.systems/portal/mobile"} subtitle={subtitle || "Citizen Experience Hub"}>
             <div className="flex h-full items-center justify-center p-3 sm:p-4 bg-slate-50 dark:bg-slate-900/50">
               <div className="w-32 sm:w-40 h-[150px] sm:h-[180px] relative bg-white dark:bg-slate-900 border-[4px] sm:border-[6px] border-slate-900 dark:border-slate-800 rounded-[1.5rem] sm:rounded-[2rem] shadow-2xl flex flex-col overflow-hidden">
                 <div className="h-3 sm:h-4 flex items-center justify-center pt-1">
@@ -377,7 +379,7 @@ export function ModuleGraphic({ id }: GraphicProps) {
         );
       case "10": // Mathematical Policy Verification
         return (
-          <UXFrame title="gov.systems/verify/formal" subtitle="Mathematical Policy Proof">
+          <UXFrame title={title || "gov.systems/verify/formal"} subtitle={subtitle || "Mathematical Policy Proof"}>
             <div className="flex h-full bg-slate-900">
               <div className="w-8 sm:w-12 border-r border-white/5 flex flex-col items-center py-3 sm:py-4 gap-3 sm:gap-4">
                 <div className="w-5 h-5 sm:w-6 sm:h-6 rounded bg-emerald-500/20 flex items-center justify-center text-emerald-500">
@@ -418,7 +420,7 @@ export function ModuleGraphic({ id }: GraphicProps) {
         );
       case "11": // Statutory Tracking
         return (
-          <UXFrame title="gov.systems/legislative/tracker" subtitle="Statutory Fidelity Hub">
+          <UXFrame title={title || "gov.systems/legislative/tracker"} subtitle={subtitle || "Statutory Fidelity Hub"}>
             <div className="p-4 sm:p-6 h-full flex flex-col">
               <div className="flex justify-between items-center mb-6 sm:mb-8">
                 <div className="space-y-1">
@@ -455,7 +457,7 @@ export function ModuleGraphic({ id }: GraphicProps) {
         );
       case "12": // Integrated Workforce Readiness
         return (
-          <UXFrame title="gov.systems/academy/training" subtitle="Workforce Training Academy">
+          <UXFrame title={title || "gov.systems/academy/training"} subtitle={subtitle || "Workforce Training Academy"}>
             <div className="p-4 sm:p-6 h-full flex flex-col">
               <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 mb-4 sm:mb-8">
                 <div className="w-full sm:w-1/3 p-3 sm:p-4 rounded-2xl bg-brand-jade/5 border border-brand-jade/10">
@@ -494,7 +496,7 @@ export function ModuleGraphic({ id }: GraphicProps) {
         );
       case "13": // Integrated Financial Data
         return (
-          <UXFrame title="gov.systems/finance/gateway" subtitle="Financial Data Integration">
+          <UXFrame title={title || "gov.systems/finance/gateway"} subtitle={subtitle || "Financial Data Integration"}>
             <div className="p-4 sm:p-6 h-full flex flex-col">
               <div className="flex-1 flex items-center justify-center relative">
                 <div className="absolute inset-0 flex items-center justify-center">
@@ -525,7 +527,7 @@ export function ModuleGraphic({ id }: GraphicProps) {
         );
       case "14": // Multi-Program Cross-Enrollment
         return (
-          <UXFrame title="gov.systems/enrollment/cross" subtitle="Cross-Program Eligibility Engine">
+          <UXFrame title={title || "gov.systems/enrollment/cross"} subtitle={subtitle || "Cross-Program Eligibility Engine"}>
             <div className="p-4 sm:p-6 h-full flex flex-col">
               <div className="flex-1 flex items-center justify-center">
                 <div className="relative w-40 sm:w-48 h-24 sm:h-32 scale-90 sm:scale-100">
@@ -560,7 +562,7 @@ export function ModuleGraphic({ id }: GraphicProps) {
         );
       case "15": // Interoperability & API Gateway
         return (
-          <UXFrame title="gov.systems/developer/api" subtitle="Developer API Explorer">
+          <UXFrame title={title || "gov.systems/developer/api"} subtitle={subtitle || "Developer API Explorer"}>
             <div className="flex h-full">
               <div className="w-12 sm:w-16 border-r border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50 p-1.5 sm:p-2 space-y-1.5 sm:space-y-2">
                 <div className="h-3 sm:h-4 bg-brand-jade/20 rounded" />
@@ -592,7 +594,7 @@ export function ModuleGraphic({ id }: GraphicProps) {
         );
       case "16": // AI Governance
         return (
-          <UXFrame title="gov.systems/ai/governance" subtitle="Algorithmic Bias Monitor">
+          <UXFrame title={title || "gov.systems/ai/governance"} subtitle={subtitle || "Algorithmic Bias Monitor"}>
             <div className="p-4 sm:p-6 h-full flex flex-col">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-4 sm:mb-8">
                 <div className="p-3 sm:p-4 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800">

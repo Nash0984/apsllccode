@@ -100,32 +100,217 @@
       "title": "Verificación y Validación Independiente."
     },
     "expertise": {
-      "label": "Asesoría Estratégica",
-      "title": "Cerrando la brecha entre la política y el código.",
-      "science": {
-        "title": "Asesoría de Expertos en la Materia (SME)",
-        "desc": "Nuestros expertos en políticas cierran la brecha entre la intención legislativa y la realidad operativa. Brindamos el profundo conocimiento del dominio requerido para optimizar los flujos de trabajo gubernamentales complejos y garantizar los resultados de las políticas previstos.",
-        "tip": "Estrategia y Optimización"
-      },
-      "compliance": {
-        "title": "Diagnóstico de Cumplimiento y Riesgo",
-        "desc": "Auditorías profundas de las tasas de error de pago a nivel estatal (SNAP/Medicaid). Identificamos vulnerabilidades sistémicas y conceptualizamos mecanismos de intervención en tiempo real para mitigar los riesgos antes de que activen sanciones federales.",
-        "tip": "Auditoría y Mitigación"
-      },
-      "data": {
-        "title": "Estrategia de Datos Interagenciales",
-        "desc": "Arquitecturamos marcos seguros de intercambio de datos entre impuestos y servicios humanos. Nos especializamos en cruzar datos de no declarantes para maximizar la adopción de beneficios sin comprometer la PII o la integridad del sistema.",
-        "tip": "Arquitectura de Datos"
-      },
-      "fidelity": {
-        "title": "Verificación y Validación Independiente (IV&V)",
-        "desc": "Brindamos verificación independiente de terceros de la lógica del sistema. Utilizando una metodología de 'Reglas como Código', auditamos las arquitecturas para garantizar el cumplimiento estatutario absoluto y la fidelidad operativa.",
-        "tip": "Auditoría de Fidelidad"
+      "label": "Pilares Estratégicos",
+      "title": "Un marco multidimensional para la integridad del sistema.",
+      "pillars": {
+        "fidelity": {
+          "title": "Verificación Estatutaria y Fidelidad",
+          "desc": "Marcos de verificación independientes que aseguran que los sistemas administrativos complejos se mantengan estrictamente alineados con la ley escrita.",
+          "modules": {
+            "isolation": {
+              "title": "Arquitectura de Aislamiento Jurisdiccional",
+              "desc": "Soberanía absoluta de datos para jerarquías complejas federales/estatales, asegurando que las operaciones localizadas nunca comprometan la línea base de seguridad global.",
+              "features": {
+                "security": { "name": "Seguridad de Cierre por Falla", "detail": "Se establece por defecto en las líneas base de privacidad federales estrictas, asegurando el cumplimiento antes de la configuración localizada." },
+                "environments": { "name": "Entornos Aislados", "detail": "Los límites geográficos actúan como bóvedas seguras y aisladas para la aplicación de reglas administrativas." },
+                "audit": { "name": "Pistas de Auditoría Inmutables", "detail": "Cada acción del sistema se registra con un contexto jurisdiccional estricto para una supervisión federal transparente." }
+              }
+            },
+            "math": {
+              "title": "Verificación Matemática de Políticas",
+              "desc": "Entorno de lógica formal que permite a los responsables de las políticas demostrar matemáticamente que las reglas del sistema coinciden con la ley escrita.",
+              "features": {
+                "proofs": { "name": "Pruebas de Lógica Formal", "detail": "Traduce los estatutos en axiomas para demostrar que la lógica no contiene callejones sin salida ni lagunas." },
+                "simulation": { "name": "Simulación de Escenarios", "detail": "Simula cambios en las políticas contra datos históricos para proyectar impactos en la carga de casos y financieros." },
+                "prevention": { "name": "Prevención de Regresión", "detail": "Asegura que las exenciones localizadas no rompan la línea base de cumplimiento federal para el estado." }
+              }
+            },
+            "certification": {
+              "title": "Centro de Certificación Estatutaria",
+              "desc": "Seguimiento centralizado de cambios legislativos y requisitos de certificación federal (MES/CMS/FNS).",
+              "features": {
+                "mapping": { "name": "Mapeo Legislativo", "detail": "Mapea los proyectos de ley pendientes directamente a las reglas de software que impactan, asegurando una evolución sincrónica." },
+                "readiness": { "name": "Preparación para la Certificación", "detail": "Estructura automáticamente los artefactos del sistema en los formatos precisos requeridos para el financiamiento federal." }
+              }
+            },
+            "bias": {
+              "title": "Monitoreo de Sesgo Algorítmico",
+              "desc": "Supervisión obligatoria que asegura que los resultados generados por el sistema sigan siendo equitativos, transparentes y legalmente defendibles.",
+              "features": {
+                "detection": { "name": "Detección de Sesgo", "detail": "Monitorea continuamente los resultados para detectar disparidades sistémicas en datos de ubicación o demográficos." },
+                "auditing": { "name": "Auditoría de Árbol Lógico", "detail": "Registra los parámetros exactos y la lógica utilizada para cada determinación impulsada por la máquina." },
+                "integrity": { "name": "Alertas de Integridad de la Fuente", "detail": "Alerta a los administradores si las integraciones de datos externos devuelven resultados anómalos o de baja confianza." }
+              }
+            }
+          }
+        },
+        "risk": {
+          "title": "Integridad Financiera y Mitigación de Riesgos",
+          "desc": "Módulos de ingeniería de precisión creados para gestionar tolerancias estrictas y proteger a las agencias de las sanciones federales.",
+          "modules": {
+            "qc": {
+              "title": "Control de Calidad Empresarial (QC)",
+              "desc": "Un motor de auditoría unificado que asegura que las revisiones de elegibilidad entre programas (SNAP/Medicaid) sigan cumpliendo estrictamente.",
+              "features": {
+                "sampling": { "name": "Muestreo Inteligente", "detail": "Dirige automáticamente los casos de alto riesgo a los revisores de QC basándose en las directrices federales." },
+                "diagnostics": { "name": "Diagnóstico de Causa Raíz", "detail": "Determina si los errores se originaron por omisión del cliente, entrada del trabajador del caso o configuración incorrecta de la política." },
+                "feedback": { "name": "Retroalimentación de Remediación", "detail": "Crea un ciclo entre los hallazgos de la auditoría y las operaciones para abordar las tendencias sistémicas de manera proactiva." }
+              }
+            },
+            "per": {
+              "title": "Motor de Mitigación SNAP PER",
+              "desc": "Cumplimiento financiero especializado para SNAP, gestionando tolerancias estrictas para prevenir sanciones federales por pagos excesivos.",
+              "features": {
+                "scoring": { "name": "Calificación de Riesgo Previa a la Autorización", "detail": "Marca los casos de alta varianza (ingresos fluctuantes) para una revisión secundaria antes de la emisión de beneficios." },
+                "dashboards": { "name": "Tableros de Tolerancia", "detail": "Visualiza las tasas de pago excesivo/insuficiente frente a los umbrales nacionales del FNS en tiempo real." },
+                "tracking": { "name": "Seguimiento de Responsabilidad", "detail": "Distingue entre errores de la agencia y del cliente para generar los Planes de Acción Correctiva requeridos." }
+              }
+            },
+            "abawd": {
+              "title": "Gestión de Cumplimiento ABAWD",
+              "desc": "Automatiza el complejo seguimiento del límite de tiempo de 3 en 36 meses, reduciendo la fricción procedimental para los trabajadores del caso y los ciudadanos.",
+              "features": {
+                "exemptions": { "name": "Exenciones Proactivas", "detail": "Escanea bases de datos integradas para identificar exenciones estatutarias sin papeleo redundante." },
+                "clock": { "name": "Gestión del Reloj", "detail": "Rastrea con precisión los meses contables y las exenciones geográficas en las áreas del mercado laboral." },
+                "reporting": { "name": "Informes de Actividad", "detail": "Interfaces móviles simplificadas para registrar las horas de trabajo, minimizando las caídas procedimentales." }
+              }
+            },
+            "rbac": {
+              "title": "Control de Acceso de Precisión (RBAC)",
+              "desc": "Una matriz de acceso granular que coordina el trabajo entre solicitantes, trabajadores del caso y adjudicadores con cero fugas de datos.",
+              "features": {
+                "workflows": { "name": "Flujos de Trabajo Basados en Personas", "detail": "Aísla las capacidades entre distintos roles, desde el personal de admisión hasta los jueces de derecho administrativo." },
+                "generation": { "name": "Generación Dinámica de UI", "detail": "Las interfaces se generan en el servidor basándose en la autorización de seguridad, evitando la exposición no autorizada de datos." },
+                "handoffs": { "name": "Traspasos Seguros", "detail": "Dirige los casos entre departamentos sin exponer PII al personal interno no autorizado." }
+              }
+            }
+          }
+        },
+        "intelligence": {
+          "title": "Inteligencia Operativa y Automatización",
+          "desc": "Motores deterministas y analíticas que traducen estatutos complejos en resultados matemáticamente demostrables.",
+          "modules": {
+            "rac": {
+              "title": "Motor de Reglas (RaC)",
+              "desc": "Un motor de reglas legalmente fundamentado que traduce el texto legislativo en lógica ejecutable por máquina utilizando una metodología de Reglas como Código.",
+              "features": {
+                "renewals": { "name": "Renovaciones Impulsadas por Datos", "detail": "Facilita las revisiones de elegibilidad a través de la integración de datos externos, eliminando la carga de cálculo manual mientras se mantiene una adherencia estricta a la política." },
+                "communications": { "name": "Comunicaciones Estatutarias", "detail": "Genera los avisos requeridos (NOMI) basándose en los cambios de estado del caso en tiempo real, asegurando el cumplimiento procedimental." },
+                "workspace": { "name": "Espacio de Trabajo de Políticas", "detail": "Entorno estructurado para actualizar los parámetros del programa sin cambios de software codificados." }
+              }
+            },
+            "burden": {
+              "title": "Analítica de Carga Administrativa",
+              "desc": "Cuantifica la fricción impuesta a los ciudadanos y al personal, reemplazando las métricas autoinformadas con datos demostrables.",
+              "features": {
+                "calculation": { "name": "Cálculo de Carga", "detail": "Calcula las reducciones exactas del tiempo de procesamiento y las tasas de abandono tras nuevas iniciativas." },
+                "diagnostics": { "name": "Diagnóstico de Deserción", "detail": "Aísla las solicitudes denegadas debido a la fricción del papeleo en lugar de la inelegibilidad estatutaria." },
+                "reporting": { "name": "Informes de Cumplimiento", "detail": "Agrega datos para satisfacer los mandatos federales con respecto a la reducción de obstáculos administrativos." }
+              }
+            },
+            "gateway": {
+              "title": "Pasarela de Datos Financieros e Impuestos",
+              "desc": "Centro de integración seguro que gestiona parámetros financieros complejos y el enrutamiento de impuestos para apoyar la verificación de ingresos.",
+              "features": {
+                "infrastructure": { "name": "Infraestructura de Presentación Electrónica", "detail": "Tubería monitoreada para la transmisión segura de datos cumpliendo con los estándares fiscales federales." },
+                "parameters": { "name": "Parámetros Dinámicos", "detail": "Permite actualizaciones de las tasas de impuestos localizadas y los umbrales de deducción sin cambios de código." },
+                "verification": { "name": "Verificación Instantánea", "detail": "Se conecta con bases de datos de la fuerza laboral para validar los ingresos, reduciendo la dependencia de los recibos de sueldo manuales." }
+              }
+            },
+            "api": {
+              "title": "Pasarela API de Interoperabilidad",
+              "desc": "Capa de integración integral diseñada para prevenir el bloqueo del proveedor y conectar sistemas estatales/federales dispares.",
+              "features": {
+                "sandbox": { "name": "Sandbox para Desarrolladores", "detail": "Acceso seguro a la documentación de la API y entornos de prueba para los equipos de TI internos." },
+                "webhooks": { "name": "Infraestructura de Webhooks", "detail": "Arquitectura moderna para la sincronización de datos en tiempo real a través de bases de datos dispares." },
+                "cryptography": { "name": "Criptografía de Carga Útil", "detail": "Impone estándares de seguridad estrictos en todas las solicitudes de API entrantes y salientes." }
+              }
+            }
+          }
+        },
+        "delivery": {
+          "title": "Entrega de Servicios y Capital Humano",
+          "desc": "Infraestructura diseñada para eliminar la carga administrativa e integrar la capacitación directamente en la producción.",
+          "modules": {
+            "adjudication": {
+              "title": "Adjudicación Administrativa",
+              "desc": "Marco legalmente robusto para gestionar audiencias justas y apelaciones con un contexto histórico completo para los jueces.",
+              "features": {
+                "snapshots": { "name": "Instantáneas Inmutables", "detail": "Captura los datos exactos del hogar y las reglas activas en el momento de la denegación original." },
+                "automation": { "name": "Automatización de Expedientes", "detail": "Gestiona la programación y la notificación para evitar que se pierdan los plazos estatutarios." },
+                "resolution": { "name": "Resolución Previa a la Audiencia", "detail": "Dirige los casos impugnados al personal superior para anular errores claros antes de la revisión judicial." }
+              }
+            },
+            "portal": {
+              "title": "Portal Omnicanal para el Ciudadano",
+              "desc": "Centro de autoservicio con capacidad de respuesta móvil que desvía el tráfico de los centros de llamadas al empoderar a los ciudadanos para gestionar sus casos.",
+              "features": {
+                "hub": { "name": "Centro de Casos Unificado", "detail": "Portal seguro para verificar el estado, informar cambios y cargar documentos digitales." },
+                "communications": { "name": "Motor de Comunicaciones", "detail": "Registra toda la correspondencia a través de correo, correo electrónico y SMS para una pista de auditoría indiscutible." },
+                "navigator": { "name": "Interfaces de Navegador", "detail": "Pantallas especializadas para que los asistentes comunitarios trien las consultas y solucionen los casos." }
+              }
+            },
+            "academy": {
+              "title": "Academia de Capacitación de la Fuerza Laboral",
+              "desc": "Integra la capacitación directamente en el entorno de producción para abordar la rotación de personal y la complejidad de las políticas.",
+              "features": {
+                "lessons": { "name": "Lecciones Contextuales", "detail": "Ofrece módulos de capacitación específicos para cada rol directamente dentro de los flujos de trabajo diarios del usuario." },
+                "simulations": { "name": "Simulaciones en Sandbox", "detail": "Permite al personal practicar en casos sintéticos que imitan el sistema de producción real." },
+                "tracking": { "name": "Seguimiento de Competencias", "detail": "Tableros que rastrean la finalización de la capacitación para identificar brechas de conocimiento antes de que ocurran errores." }
+              }
+            },
+            "enrollment": {
+              "title": "Motor de Inscripción Cruzada",
+              "desc": "Identifica automáticamente los solapamientos de elegibilidad entre programas para maximizar el acceso de los ciudadanos a los beneficios.",
+              "features": {
+                "matching": { "name": "Coincidencia de Programas", "detail": "Escanea el índice de clientes para marcar los hogares que reciben un beneficio y que probablemente califiquen para otros." },
+                "bridging": { "name": "Puente de Solicitudes", "detail": "Pre-puebla las solicitudes secundarias con datos verificados para eliminar la entrada redundante." },
+                "analytics": { "name": "Analítica Holística", "detail": "Tableros entre programas para medir el éxito de las iniciativas de integración horizontal." }
+              }
+            }
+          }
+        }
       }
+    },
+    "lifecycle": {
+      "label": "La Metodología",
+      "title": "El Ciclo de Vida de Modernización",
+      "subtitle": "Nuestro enfoque de cuatro fases para lograr una fidelidad estatutaria absoluta.",
+      "phases": {
+        "discovery": {
+          "title": "Descubrimiento Estatutario",
+          "desc": "Descomponemos mandatos legislativos complejos en una biblioteca de axiomas lógicos atómicos."
+        },
+        "mapping": {
+          "title": "Mapeo Arquitectónico",
+          "desc": "Mapeo de axiomas lógicos a requisitos del sistema para asegurar que cada línea de código tenga un padre estatutario."
+        },
+        "verification": {
+          "title": "Verificación Lógica",
+          "desc": "Pruebas rigurosas de las reglas del sistema contra casos límite y datos históricos para demostrar el cumplimiento."
+        },
+        "certification": {
+          "title": "Certificación Continua",
+          "desc": "Monitoreo y auditoría en tiempo real para asegurar la integridad del sistema a medida que evolucionan la política y la tecnología."
+        }
+      }
+    },
+    "commandCenter": {
+      "label": "Inmersión Técnica",
+      "title": "Centro de Mando Interactivo.",
+      "pillars": "Pilares Estratégicos",
+      "capabilities": "Capacidades Principales",
+      "consultation": "Consulta Arquitectónica",
+      "simulation": "Simulación de Verificación",
+      "nextPhase": "Siguiente Fase"
     },
     "audiences": {
       "label": "Audiencias Objetivo",
       "title": "Creando un impacto sistémico en todos los sectores.",
+      "trusted": {
+        "label": "Asesoría de Confianza",
+        "title": "Recomendaciones oficiales al Comisionado del IRS sobre estándares de infraestructura digital."
+      },
       "agencies": {
         "title": "Agencias Estatales y Municipales",
         "desc": "Protegiendo los presupuestos de las agencias de las penalizaciones de las auditorías federales a través de la formulación de políticas ejecutivas y una rigurosa estrategia de modernización."
@@ -137,6 +322,17 @@
       "coalitions": {
         "title": "Coaliciones Comunitarias",
         "desc": "Diseñando modelos de prestación de servicios que eliminen las barreras de documentación y la rotación de renovaciones para las poblaciones vulnerables."
+      }
+    },
+    "cta": {
+      "title": "¿Listo para Modernizar?",
+      "desc": "Nuestra infraestructura modular está diseñada para ser desplegada de forma incremental, garantizando cero tiempo de inactividad y cumplimiento estatutario inmediato.",
+      "action": "Iniciar Consulta Arquitectónica",
+      "stats": {
+        "capabilities": "Capacidades Principales",
+        "pillars": "Pilares Estratégicos",
+        "compliance": "Cumplimiento",
+        "federal": "Federal"
       }
     }
   },

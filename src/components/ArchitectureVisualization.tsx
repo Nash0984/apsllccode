@@ -1,33 +1,31 @@
 import { motion } from 'motion/react';
 import { FileText, Binary, Cpu, CheckCircle2, ArrowRight } from 'lucide-react';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export function ArchitectureVisualization() {
+  const { t } = useTranslation();
   const [activeStep, setActiveStep] = useState(0);
 
   const steps = [
     {
-      title: "Statutory Discovery",
+      key: "discovery",
       icon: <FileText size={24} />,
-      desc: "Our experts deconstruct complex legislative mandates into a library of atomic logical axioms.",
       color: "bg-blue-500"
     },
     {
-      title: "Logic Engineering",
+      key: "mapping",
       icon: <Binary size={24} />,
-      desc: "We engineer a 'Rules-as-Code' layer that mirrors the law with mathematical precision.",
       color: "bg-indigo-500"
     },
     {
-      title: "System Deployment",
+      key: "verification",
       icon: <Cpu size={24} />,
-      desc: "The deterministic engine is integrated into your agency's operational workflow.",
       color: "bg-brand-jade"
     },
     {
-      title: "Continuous Compliance",
+      key: "certification",
       icon: <CheckCircle2 size={24} />,
-      desc: "Automated monitoring ensures every decision remains auditable and statutorily compliant.",
       color: "bg-emerald-500"
     }
   ];
@@ -38,8 +36,8 @@ export function ArchitectureVisualization() {
       
       <div className="relative z-10">
         <div className="mb-8">
-          <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-brand-jade mb-2">The Modernization Lifecycle</h3>
-          <p className="text-sm text-slate-500 dark:text-slate-400">Our four-phase approach to achieving statutory fidelity.</p>
+          <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-brand-jade mb-2">{t('expertisePage.lifecycle.title')}</h3>
+          <p className="text-sm text-slate-500 dark:text-slate-400">{t('expertisePage.lifecycle.subtitle')}</p>
         </div>
         <div className="flex justify-between items-center mb-12">
           {steps.map((step, index) => (
@@ -88,11 +86,11 @@ export function ArchitectureVisualization() {
                 Phase 0{activeStep + 1}
               </span>
               <h4 className="text-xl font-black text-slate-900 dark:text-white">
-                {steps[activeStep].title}
+                {t(`expertisePage.lifecycle.phases.${steps[activeStep].key}.title`)}
               </h4>
             </div>
             <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
-              {steps[activeStep].desc}
+              {t(`expertisePage.lifecycle.phases.${steps[activeStep].key}.desc`)}
             </p>
           </motion.div>
         </div>
@@ -112,7 +110,7 @@ export function ArchitectureVisualization() {
             onClick={() => setActiveStep((prev) => (prev + 1) % steps.length)}
             className="text-xs font-bold text-brand-jade flex items-center gap-2 hover:gap-3 transition-all"
           >
-            Next Phase
+            {t('expertisePage.commandCenter.nextPhase')}
             <ArrowRight size={14} />
           </button>
         </div>
