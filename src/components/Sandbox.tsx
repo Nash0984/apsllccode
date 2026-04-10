@@ -9,7 +9,7 @@ const UNIFIED_VERIFICATION_ONTOLOGY = [
     workerCategory: "1.0 Demographics & Identity",
     clientCategory: "Personal Information",
     protocols: [
-      { id: 'id-citizenship', workerLabel: '1.1 Identity & Citizenship (SAVE/REAL ID)', clientLabel: 'ID or Citizenship Documents' },
+      { id: 'id-citizenship', workerLabel: '1.1 Identity & Citizenship (6 CFR Part 37)', clientLabel: 'ID or Citizenship Documents' },
       { id: 'residency', workerLabel: '1.2 Residency Verification (42 CFR 435.403)', clientLabel: 'Proof of Address' }
     ]
   },
@@ -17,9 +17,9 @@ const UNIFIED_VERIFICATION_ONTOLOGY = [
     workerCategory: "2.0 Financial Means Testing",
     clientCategory: "Income & Assets",
     protocols: [
-      { id: 'earned-income', workerLabel: '2.1 Earned Income (SNAP/TANF)', clientLabel: 'Pay Stubs / Proof of Income' },
-      { id: 'unearned-income', workerLabel: '2.2 Unearned Income (UI/SSI)', clientLabel: 'Unemployment or SSI Letters' },
-      { id: 'asset-verification', workerLabel: '2.3 Resource & Asset Test', clientLabel: 'Bank Statements' }
+      { id: 'earned-income', workerLabel: '2.1 Earned Income (7 CFR 273.9 / 42 CFR 435.603)', clientLabel: 'Pay Stubs or Proof of Income' },
+      { id: 'unearned-income', workerLabel: '2.2 Unearned Income (7 CFR 273.9(c))', clientLabel: 'Unemployment or SSI Letters' },
+      { id: 'asset-verification', workerLabel: '2.3 Resource & Asset Test (7 CFR 273.8)', clientLabel: 'Bank Statements' }
     ]
   },
   {
@@ -27,22 +27,22 @@ const UNIFIED_VERIFICATION_ONTOLOGY = [
     clientCategory: "Work & Medical Info",
     protocols: [
       { id: 'abawd-work', workerLabel: '3.1 Work Compliance Logs (7 CFR 273.24)', clientLabel: 'Work Hours Log' },
-      { id: 'medical-exemption', workerLabel: '3.2 Medical Exemption', clientLabel: 'Medical Exemption Form' }
+      { id: 'medical-exemption', workerLabel: '3.2 Medical Exemption (42 CFR 435.541)', clientLabel: 'Medical Exemption Form' }
     ]
   },
   {
     workerCategory: "4.0 Deductions & Expenses",
     clientCategory: "Household Expenses",
     protocols: [
-      { id: 'shelter-utility', workerLabel: '4.1 Shelter/Utility Costs (LIHEAP)', clientLabel: 'Utility Bills or Rent Receipts' },
-      { id: 'dependent-care', workerLabel: '4.2 Dependent Care (CCDF)', clientLabel: 'Child Care Expenses' }
+      { id: 'shelter-utility', workerLabel: '4.1 Shelter/Utility Costs (7 CFR 273.9(d))', clientLabel: 'Utility Bills or Rent Receipts' },
+      { id: 'dependent-care', workerLabel: '4.2 Dependent Care (7 CFR 273.9(d))', clientLabel: 'Child Care Expenses' }
     ]
   },
   {
     workerCategory: "5.0 Tax Integration",
     clientCategory: "Tax Documents",
     protocols: [
-      { id: 'vita-intake', workerLabel: '5.1 VITA Tax Intake (13614-C)', clientLabel: 'Tax Intake Form' }
+      { id: 'vita-intake', workerLabel: '5.1 VITA Tax Intake (IRS Form 13614-C)', clientLabel: 'Tax Intake Form' }
     ]
   }
 ];
@@ -73,6 +73,7 @@ export function Sandbox() {
   
   const [appState, setAppState] = useState<AppState>('idle');
   const [loadingPhase, setLoadingPhase] = useState('');
+  const [fileError, setFileError] = useState<string | null>(null);
   
   // Master state controls
   const [persona, setPersona] = useState<Persona>('client');
@@ -130,6 +131,18 @@ export function Sandbox() {
     const selectedFile = e.target.files?.[0];
     if (!selectedFile) return;
 
+    // File type validation
+    const supportedTypes = ['image/jpeg', 'image/png', 'image/jpg', 'application/pdf'];
+    if (!supportedTypes.includes(selectedFile.type)) {
+      setFileError(persona === 'client' 
+        ? "We can only accept PDF, JPG, or PNG files. Please try uploading your document in one of these formats."
+        : "ERROR: Unsupported file type. System requires PDF, JPG, or PNG for statutory analysis."
+      );
+      if (fileInputRef.current) fileInputRef.current.value = '';
+      return;
+    }
+
+    setFileError(null);
     setFile(selectedFile);
     if (fileUrl) URL.revokeObjectURL(fileUrl);
     setFileUrl(URL.createObjectURL(selectedFile));
@@ -145,6 +158,7 @@ export function Sandbox() {
   const removeFile = () => {
     setFile(null);
     setFileData(null);
+    setFileError(null);
     if (fileInputRef.current) fileInputRef.current.value = '';
   };
 
@@ -153,6 +167,7 @@ export function Sandbox() {
     if (fileUrl) URL.revokeObjectURL(fileUrl);
     setFileUrl(null);
     setFileData(null);
+    setFileError(null);
     setInput('');
     setEngineResponse(null);
     setAppState('idle');
@@ -302,18 +317,30 @@ export function Sandbox() {
   const renderClientDashboard = () => {
     if (appState === 'idle') {
       return (
-        <div className="flex flex-col items-center justify-center h-full text-slate-600 gap-6">
-          <Upload size={48} className="text-blue-500/50" />
-          <div className="text-center max-w-md mb-4">
-            <h3 className="text-xl font-bold text-slate-200 mb-2">Submit a Document</h3>
-            <p className="text-sm text-slate-400">Select the type of document you are providing, attach your file, and submit.</p>
+        <div className="flex flex-col items-center justify-center h-full text-slate-600 gap-8">
+          <div className="w-24 h-24 bg-blue-50 rounded-full flex items-center justify-center text-blue-500 shadow-inner">
+            <Upload size={48} />
           </div>
-          <div className="bg-[#050a0f] border border-slate-800 p-6 rounded-xl w-full max-w-md shadow-inner text-left">
-            <span className="text-blue-400 font-bold block mb-2 text-sm">Demonstrating: Secure Document Submission</span>
-            <span className="text-slate-400 block mb-3 text-xs leading-relaxed">Showcases a frictionless, guided upload experience designed to reduce administrative burden for the resident.</span>
-            <ul className="text-slate-500 list-disc pl-4 space-y-1 text-xs">
-              <li>Select a Document Category below.</li>
-              <li>Attach a file to simulate submission.</li>
+          <div className="text-center max-w-md">
+            <h3 className="text-2xl font-extrabold text-slate-900 mb-3">Ready to help</h3>
+            <p className="text-slate-500 leading-relaxed">Select the type of document you're providing, and we'll help you check if it meets the requirements.</p>
+          </div>
+          <div className="bg-white border border-blue-100 p-8 rounded-2xl w-full max-w-lg shadow-sm text-left relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-blue-50/50 rounded-full -mr-16 -mt-16" />
+            <span className="text-blue-600 font-bold block mb-3 text-sm uppercase tracking-wider">How it works</span>
+            <ul className="text-slate-600 space-y-4 text-sm relative z-10">
+              <li className="flex gap-3">
+                <div className="w-5 h-5 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-[10px] font-bold shrink-0 mt-0.5">1</div>
+                <span>Pick a document category from the menu below.</span>
+              </li>
+              <li className="flex gap-3">
+                <div className="w-5 h-5 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-[10px] font-bold shrink-0 mt-0.5">2</div>
+                <span>Upload a photo or PDF of your document.</span>
+              </li>
+              <li className="flex gap-3">
+                <div className="w-5 h-5 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-[10px] font-bold shrink-0 mt-0.5">3</div>
+                <span>Get instant feedback on your document's readiness.</span>
+              </li>
             </ul>
           </div>
         </div>
@@ -322,75 +349,80 @@ export function Sandbox() {
 
     if (appState === 'processing') {
       return (
-        <div className="flex flex-col items-center justify-center h-full gap-4">
-          <div className="w-10 h-10 border-4 border-blue-500 border-t-transparent rounded-full animate-spin" />
-          <div className="text-blue-400 text-sm font-bold tracking-wide animate-pulse">{loadingPhase}</div>
+        <div className="flex flex-col items-center justify-center h-full gap-6">
+          <div className="relative">
+            <div className="w-16 h-16 border-4 border-blue-100 rounded-full" />
+            <div className="w-16 h-16 border-4 border-blue-600 border-t-transparent rounded-full animate-spin absolute top-0 left-0" />
+          </div>
+          <div className="text-blue-600 text-lg font-bold tracking-tight animate-pulse">{loadingPhase}</div>
         </div>
       );
     }
 
     return (
       <div className="flex flex-col h-full gap-6">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between bg-white p-4 rounded-2xl border border-blue-50 shadow-sm">
           <div className="flex items-center gap-4">
-            <div className="w-12 h-12 bg-blue-900/20 border-2 border-blue-500 rounded-full flex items-center justify-center text-blue-400">
+            <div className="w-12 h-12 bg-green-50 border-2 border-green-100 rounded-full flex items-center justify-center text-green-600">
               <CheckCircle size={24} />
             </div>
             <div>
-              <h3 className="text-xl font-bold text-white">Submission Analysis</h3>
-              <p className="text-sm text-slate-400">We've analyzed your document against program requirements.</p>
+              <h3 className="text-lg font-bold text-slate-900">Analysis Complete</h3>
+              <p className="text-xs text-slate-500 font-medium">We've checked your document against the rules.</p>
             </div>
           </div>
-          <button onClick={resetState} className="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded font-bold transition-colors text-xs uppercase tracking-wider">
+          <button onClick={resetState} className="px-5 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-xl font-bold transition-all text-xs uppercase tracking-wider">
             Submit Another
           </button>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 flex-1 overflow-hidden">
-          <div className="bg-slate-950 border border-slate-800 rounded-xl flex flex-col overflow-hidden">
-            <div className="bg-[#050a0f] px-4 py-3 border-b border-slate-800 text-xs font-bold text-slate-400 uppercase tracking-wider flex justify-between items-center">
+          <div className="bg-white border border-blue-50 rounded-2xl flex flex-col overflow-hidden shadow-sm">
+            <div className="bg-slate-50 px-5 py-4 border-b border-blue-50 text-[11px] font-bold text-slate-400 uppercase tracking-[0.15em] flex justify-between items-center">
               <span>Your Document</span>
-              <span className="truncate max-w-[150px] text-slate-600 font-mono text-[10px]">{file?.name}</span>
+              <span className="truncate max-w-[150px] text-blue-400 font-medium">{file?.name}</span>
             </div>
-            <div className="flex-1 p-2 overflow-auto flex items-center justify-center bg-slate-900/30">
+            <div className="flex-1 p-4 overflow-auto flex items-center justify-center bg-slate-50/30">
               {file?.type.includes('pdf') ? (
-                <object data={fileUrl || ''} type="application/pdf" className="w-full h-full rounded" />
+                <object data={fileUrl || ''} type="application/pdf" className="w-full h-full rounded-xl" />
               ) : (
-                <img src={fileUrl || ''} alt="Document Payload" className="max-w-full max-h-full object-contain rounded shadow-lg" />
+                <img src={fileUrl || ''} alt="Document Payload" className="max-w-full max-h-full object-contain rounded-xl shadow-md" />
               )}
             </div>
           </div>
 
-          <div className="bg-slate-950 border border-slate-800 rounded-xl flex flex-col overflow-hidden">
-            <div className="bg-[#050a0f] px-4 py-3 border-b border-slate-800 text-xs font-bold text-blue-400 uppercase tracking-wider">
+          <div className="bg-white border border-blue-50 rounded-2xl flex flex-col overflow-hidden shadow-sm">
+            <div className="bg-slate-50 px-5 py-4 border-b border-blue-50 text-[11px] font-bold text-blue-600 uppercase tracking-[0.15em]">
               Readiness Report
             </div>
-            <div className="flex-1 p-4 overflow-y-auto space-y-4">
+            <div className="flex-1 p-6 overflow-y-auto space-y-6">
               {engineResponse?.status === 'PROCEED TO RULES ENGINE' && (
-                <div className="p-4 bg-blue-900/20 border border-blue-500/50 rounded-lg text-blue-300 font-bold flex items-center gap-3 text-sm">
-                  <CheckCircle size={20} className="text-blue-400" /> High Readiness: This document likely meets requirements.
+                <div className="p-5 bg-green-50 border border-green-100 rounded-2xl text-green-700 font-bold flex items-center gap-4 text-sm shadow-sm">
+                  <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-green-600 shrink-0"><CheckCircle size={20} /></div>
+                  High Readiness: This document looks great and meets the requirements!
                 </div>
               )}
               {engineResponse?.status === 'REQUIRES HITL REVIEW' && (
-                <div className="p-4 bg-amber-950/30 border border-amber-500/50 rounded-lg text-amber-300 font-bold flex items-center gap-3 text-sm">
-                  <ShieldAlert size={20} className="text-amber-500" /> Action Needed: This document may need more information.
+                <div className="p-5 bg-amber-50 border border-amber-100 rounded-2xl text-amber-700 font-bold flex items-center gap-4 text-sm shadow-sm">
+                  <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-amber-600 shrink-0"><ShieldAlert size={20} /></div>
+                  Almost there: This document might need a quick look or more info.
                 </div>
               )}
 
-              <div className="space-y-4 pt-2">
+              <div className="space-y-5">
                 {engineResponse?.extractedData?.map((data, idx) => (
-                  <div key={idx} className="bg-slate-900/50 border border-slate-800 rounded-lg p-4">
-                    <div className="flex justify-between items-start mb-3">
+                  <div key={idx} className="bg-slate-50/50 border border-blue-50 rounded-2xl p-5 transition-all hover:shadow-md">
+                    <div className="flex justify-between items-start mb-4">
                       <div>
-                        <div className="text-[10px] text-slate-500 uppercase tracking-wider font-bold mb-1">Information Found</div>
-                        <div className="text-sm font-medium text-slate-200">{data.value}</div>
+                        <div className="text-[10px] text-blue-600 uppercase tracking-widest font-extrabold mb-1.5">Information Found</div>
+                        <div className="text-base font-bold text-slate-800">{data.value}</div>
                       </div>
-                      <div className={`text-[10px] font-bold px-2 py-1 rounded ${data.statutorySufficiency >= 0.85 ? 'bg-blue-900/30 text-blue-400 border border-blue-500/30' : 'bg-slate-800 text-slate-400 border border-slate-700'}`}>
-                        READINESS: {(data.statutorySufficiency * 100).toFixed(0)}%
+                      <div className={`text-[10px] font-black px-3 py-1.5 rounded-full shadow-sm ${data.statutorySufficiency >= 0.85 ? 'bg-blue-600 text-white' : 'bg-slate-200 text-slate-600'}`}>
+                        {(data.statutorySufficiency * 100).toFixed(0)}% READY
                       </div>
                     </div>
-                    <div className="text-xs text-slate-400 leading-relaxed bg-slate-950/50 p-2 rounded border border-slate-800/50">
-                      {data.complianceNote}
+                    <div className="text-sm text-slate-600 leading-relaxed bg-white p-4 rounded-xl border border-blue-50/50 italic">
+                      "{data.complianceNote}"
                     </div>
                   </div>
                 ))}
@@ -403,42 +435,44 @@ export function Sandbox() {
   };
 
   const renderChatInterface = () => (
-    <div className="flex flex-col h-full bg-[#050a0f] rounded-lg border border-slate-800 overflow-hidden">
-      <div className={`px-4 py-3 border-b border-slate-800 text-xs font-bold uppercase tracking-wider ${persona === 'client' ? 'text-blue-400 bg-blue-950/20' : 'text-brand-jade bg-[#002a2e]/30'}`}>
+    <div className={`flex flex-col h-full rounded-2xl border overflow-hidden transition-colors duration-500 ${persona === 'client' ? 'bg-white border-blue-50 shadow-sm' : 'bg-[#050a0f] border-slate-800'}`}>
+      <div className={`px-6 py-4 border-b text-xs font-bold uppercase tracking-[0.2em] ${persona === 'client' ? 'text-blue-600 bg-blue-50/30 border-blue-50' : 'text-brand-jade bg-[#002a2e]/30 border-slate-800'}`}>
         {persona === 'worker' ? 'Policy Operations Copilot' : 'Resident Benefits Assistant'}
       </div>
-      <div ref={chatScrollRef} className="flex-1 p-6 overflow-y-auto space-y-6">
+      <div ref={chatScrollRef} className="flex-1 p-8 overflow-y-auto space-y-8">
         {chatHistory.length === 0 && (
-          <div className="flex flex-col items-center justify-center h-full text-slate-500 text-center max-w-md mx-auto gap-6">
-            <MessageSquare size={40} className="opacity-50" />
-            <div className="bg-slate-950 border border-slate-800 p-6 rounded-xl w-full shadow-inner text-left">
-              <span className={`font-bold block mb-2 text-sm ${persona === 'client' ? 'text-blue-400' : 'text-brand-jade'}`}>
-                Demonstrating: {persona === 'worker' ? 'Intelligent Policy Navigation' : 'Plain Language Translation'}
+          <div className="flex flex-col items-center justify-center h-full text-center max-w-md mx-auto gap-8">
+            <div className={`w-20 h-20 rounded-full flex items-center justify-center ${persona === 'client' ? 'bg-blue-50 text-blue-500' : 'bg-slate-900 text-slate-700'}`}>
+              <MessageSquare size={40} className="opacity-80" />
+            </div>
+            <div className={`p-8 rounded-2xl w-full shadow-sm text-left relative overflow-hidden border ${persona === 'client' ? 'bg-white border-blue-100' : 'bg-slate-950 border-slate-800'}`}>
+              <span className={`font-black block mb-3 text-sm uppercase tracking-wider ${persona === 'client' ? 'text-blue-600' : 'text-brand-jade'}`}>
+                {persona === 'worker' ? 'Intelligent Policy Navigation' : 'Plain Language Translation'}
               </span>
-              <span className="text-slate-400 block mb-3 text-xs leading-relaxed">
+              <span className={`block mb-4 text-sm leading-relaxed ${persona === 'client' ? 'text-slate-600' : 'text-slate-400'}`}>
                 {persona === 'worker' 
                   ? 'Showcases how the engine can parse complex scenarios and locate specific eligibility statutes instantly.' 
-                  : 'Showcases how the neurosymbolic engine grounds its answers in statute, but translates the rules into plain language to help residents understand their options.'}
+                  : 'We translate complex rules into simple steps to help you understand your benefits and how to qualify.'}
               </span>
-              <ul className="text-slate-500 list-disc pl-4 space-y-1 text-xs">
+              <ul className={`list-disc pl-5 space-y-2 text-xs font-medium ${persona === 'client' ? 'text-slate-500' : 'text-slate-500'}`}>
                 <li>{persona === 'worker' ? 'Ask a question about a specific program limit (e.g., "What is the SNAP limit for a family of 4?")' : 'Ask a general question (e.g., "How do I know if I qualify for child care?")'}</li>
               </ul>
             </div>
           </div>
         )}
         {chatHistory.map((msg, idx) => (
-          <div key={idx} className={`flex flex-col gap-2 ${msg.role === 'user' ? 'items-end' : 'items-start'}`}>
-            <span className={`text-[10px] uppercase tracking-wider font-bold ${msg.role === 'user' ? 'text-slate-500' : (persona === 'client' ? 'text-blue-400' : 'text-brand-jade')}`}>
+          <div key={idx} className={`flex flex-col gap-3 ${msg.role === 'user' ? 'items-end' : 'items-start'}`}>
+            <span className={`text-[10px] uppercase tracking-widest font-black ${msg.role === 'user' ? 'text-slate-400' : (persona === 'client' ? 'text-blue-600' : 'text-brand-jade')}`}>
               {msg.role === 'user' ? 'You' : 'System'}
             </span>
-            <div className={`p-4 rounded-xl text-sm max-w-[85%] leading-relaxed ${msg.role === 'user' ? 'bg-slate-800 text-slate-200 rounded-tr-sm' : 'bg-slate-900 border border-slate-800 text-slate-300 rounded-tl-sm whitespace-pre-wrap'}`}>
+            <div className={`p-5 rounded-2xl text-sm max-w-[85%] leading-relaxed shadow-sm ${msg.role === 'user' ? (persona === 'client' ? 'bg-blue-600 text-white rounded-tr-sm' : 'bg-slate-800 text-slate-200 rounded-tr-sm') : (persona === 'client' ? 'bg-slate-50 text-slate-800 border border-blue-50 rounded-tl-sm' : 'bg-slate-900 border border-slate-800 text-slate-300 rounded-tl-sm whitespace-pre-wrap')}`}>
               {msg.parts[0].text}
             </div>
           </div>
         ))}
         {appState === 'processing' && (
-          <div className={`flex items-center gap-3 text-xs font-bold uppercase ${persona === 'client' ? 'text-blue-400' : 'text-brand-jade'}`}>
-            <div className={`w-5 h-5 border-2 border-t-transparent rounded-full animate-spin ${persona === 'client' ? 'border-blue-500' : 'border-brand-jade'}`} />
+          <div className={`flex items-center gap-4 text-xs font-black uppercase tracking-widest ${persona === 'client' ? 'text-blue-600' : 'text-brand-jade'}`}>
+            <div className={`w-5 h-5 border-2 border-t-transparent rounded-full animate-spin ${persona === 'client' ? 'border-blue-600' : 'border-brand-jade'}`} />
             Synthesizing guidance...
           </div>
         )}
@@ -450,24 +484,24 @@ export function Sandbox() {
     <div className="w-full max-w-6xl mx-auto flex flex-col gap-6 font-sans">
       
       {/* Main Application Frame */}
-      <div className={`border rounded-xl overflow-hidden shadow-2xl flex flex-col h-[750px] transition-colors duration-300 ${persona === 'client' ? 'bg-slate-900 border-slate-700' : 'bg-[#0a0f14] border-slate-800'}`}>
+      <div className={`border rounded-2xl overflow-hidden shadow-2xl flex flex-col h-[800px] transition-all duration-500 ${persona === 'client' ? 'bg-slate-50 border-blue-100' : 'bg-[#0a0f14] border-slate-800'}`}>
         
         {/* The Fourth Wall: Global Simulator Controls */}
-        <div className="bg-[#020617] border-b border-slate-800 px-6 py-3 flex flex-wrap justify-between items-center gap-4 shrink-0">
+        <div className={`px-6 py-3 flex flex-wrap justify-between items-center gap-4 shrink-0 border-b transition-colors duration-500 ${persona === 'client' ? 'bg-white border-blue-50' : 'bg-[#020617] border-slate-800'}`}>
           <div className="flex items-center gap-4">
-            <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest flex items-center gap-2">
+            <span className={`text-[10px] font-bold uppercase tracking-widest flex items-center gap-2 ${persona === 'client' ? 'text-blue-400' : 'text-slate-500'}`}>
               <User size={14} /> Simulated Persona:
             </span>
-            <div className="flex bg-slate-900/50 rounded-lg p-1 border border-slate-800">
+            <div className={`flex rounded-xl p-1 border transition-colors duration-500 ${persona === 'client' ? 'bg-blue-50/50 border-blue-100' : 'bg-slate-900/50 border-slate-800'}`}>
               <button
                 onClick={() => togglePersona('client')}
-                className={`px-4 py-1.5 rounded-md text-xs font-bold transition-all ${persona === 'client' ? 'bg-blue-600 text-white shadow-md' : 'text-slate-500 hover:text-slate-300'}`}
+                className={`px-4 py-1.5 rounded-lg text-xs font-bold transition-all ${persona === 'client' ? 'bg-white text-blue-600 shadow-sm' : 'text-slate-500 hover:text-slate-300'}`}
               >
                 Resident (Applicant)
               </button>
               <button
                 onClick={() => togglePersona('worker')}
-                className={`px-4 py-1.5 rounded-md text-xs font-bold transition-all ${persona === 'worker' ? 'bg-brand-jade text-slate-950 shadow-md' : 'text-slate-500 hover:text-slate-300'}`}
+                className={`px-4 py-1.5 rounded-lg text-xs font-bold transition-all ${persona === 'worker' ? 'bg-brand-jade text-slate-950 shadow-md' : 'text-slate-400 hover:text-slate-200'}`}
               >
                 Caseworker (Agency)
               </button>
@@ -475,19 +509,19 @@ export function Sandbox() {
           </div>
 
           <div className="flex items-center gap-4">
-            <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">
+            <span className={`text-[10px] font-bold uppercase tracking-widest ${persona === 'client' ? 'text-blue-400' : 'text-slate-500'}`}>
               Active Module:
             </span>
-            <div className="flex bg-slate-900/50 rounded-lg p-1 border border-slate-800">
+            <div className={`flex rounded-xl p-1 border transition-colors duration-500 ${persona === 'client' ? 'bg-blue-50/50 border-blue-100' : 'bg-slate-900/50 border-slate-800'}`}>
               <button 
                 onClick={() => { setActiveMode('upload'); resetState(); }}
-                className={`px-4 py-1.5 rounded-md text-xs font-bold transition-colors ${activeMode === 'upload' ? 'bg-slate-700 text-white shadow-md' : 'text-slate-500 hover:text-slate-300'}`}
+                className={`px-4 py-1.5 rounded-lg text-xs font-bold transition-all ${activeMode === 'upload' ? (persona === 'client' ? 'bg-white text-blue-600 shadow-sm' : 'bg-slate-700 text-white shadow-md') : 'text-slate-500 hover:text-slate-300'}`}
               >
                 {persona === 'client' ? 'Document Upload' : 'Intake Pipeline'}
               </button>
               <button 
                 onClick={() => setActiveMode('chat')}
-                className={`px-4 py-1.5 rounded-md text-xs font-bold transition-colors ${activeMode === 'chat' ? 'bg-slate-700 text-white shadow-md' : 'text-slate-500 hover:text-slate-300'}`}
+                className={`px-4 py-1.5 rounded-lg text-xs font-bold transition-all ${activeMode === 'chat' ? (persona === 'client' ? 'bg-white text-blue-600 shadow-sm' : 'bg-slate-700 text-white shadow-md') : 'text-slate-500 hover:text-slate-300'}`}
               >
                 {persona === 'client' ? 'Benefits Assistant' : 'Policy Copilot'}
               </button>
@@ -496,21 +530,21 @@ export function Sandbox() {
         </div>
 
         {/* Application Context Header (Inside the Simulation) */}
-        <div className={`px-6 py-4 border-b flex items-center gap-4 shrink-0 ${persona === 'client' ? 'bg-slate-800/80 border-slate-700' : 'bg-[#050a0f] border-slate-800'}`}>
+        <div className={`px-8 py-5 border-b flex items-center gap-5 shrink-0 transition-colors duration-500 ${persona === 'client' ? 'bg-white border-blue-50' : 'bg-[#050a0f] border-slate-800'}`}>
           {persona === 'client' ? (
             <>
-              <div className="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400"><FileText size={20} /></div>
+              <div className="w-12 h-12 rounded-2xl bg-blue-600 flex items-center justify-center text-white shadow-lg shadow-blue-200"><FileText size={24} /></div>
               <div>
-                <div className="font-bold text-white tracking-wide text-lg leading-none">State Benefits Portal</div>
-                <div className="text-[10px] text-blue-400 font-bold uppercase tracking-wider mt-1.5">Public Resident Interface</div>
+                <div className="font-extrabold text-slate-900 tracking-tight text-xl">State Benefits Portal</div>
+                <div className="text-[11px] text-blue-600 font-bold uppercase tracking-[0.2em] mt-1">Public Resident Interface</div>
               </div>
             </>
           ) : (
             <>
-              <div className="w-10 h-10 rounded bg-brand-jade/20 flex items-center justify-center text-brand-jade"><Activity size={20} /></div>
+              <div className="w-12 h-12 rounded bg-brand-jade/10 border border-brand-jade/30 flex items-center justify-center text-brand-jade"><Activity size={24} /></div>
               <div>
-                <div className="font-bold text-white tracking-wide font-mono uppercase text-lg leading-none">Agency Adjudication System</div>
-                <div className="text-[10px] text-brand-jade font-bold font-mono uppercase tracking-wider mt-1.5">Secure Internal Operations</div>
+                <div className="font-bold text-white tracking-widest font-mono uppercase text-xl">Agency Adjudication System</div>
+                <div className="text-[10px] text-brand-jade font-bold font-mono uppercase tracking-[0.3em] mt-1.5">Secure Internal Operations</div>
               </div>
             </>
           )}
@@ -524,51 +558,59 @@ export function Sandbox() {
         </div>
 
         {/* Unified Input Footer */}
-        <div className={`p-6 border-t flex-shrink-0 relative ${persona === 'client' ? 'bg-slate-800 border-slate-700' : 'bg-[#050a0f] border-slate-800'}`}>
-          {(file && activeMode === 'upload') && (
-            <div className="flex items-center gap-3 mb-4 p-2 bg-slate-950 rounded border border-slate-800 inline-flex">
-              <FileText size={16} className={persona === 'client' ? 'text-blue-400' : 'text-brand-jade'} />
-              <span className="text-sm font-mono text-slate-300 truncate max-w-[300px]">{file.name}</span>
-              <button onClick={removeFile} className="text-slate-500 hover:text-white"><X size={16} /></button>
+        <div className={`p-8 border-t flex-shrink-0 relative transition-colors duration-500 ${persona === 'client' ? 'bg-white border-blue-50' : 'bg-[#050a0f] border-slate-800'}`}>
+          {fileError && (
+            <div className={`flex items-center gap-3 mb-5 p-4 rounded-xl border animate-in fade-in slide-in-from-bottom-2 ${persona === 'client' ? 'bg-red-50 border-red-100 text-red-600' : 'bg-red-950/30 border-red-500/50 text-red-400'}`}>
+              <ShieldAlert size={18} className="shrink-0" />
+              <span className="text-sm font-bold">{fileError}</span>
+              <button onClick={() => setFileError(null)} className="ml-auto hover:opacity-70"><X size={16} /></button>
             </div>
           )}
 
-          <div className="flex flex-col gap-3">
+          {(file && activeMode === 'upload') && (
+            <div className={`flex items-center gap-3 mb-5 p-3 rounded-xl border inline-flex shadow-sm ${persona === 'client' ? 'bg-blue-50 border-blue-100' : 'bg-slate-950 border-slate-800'}`}>
+              <FileText size={18} className={persona === 'client' ? 'text-blue-600' : 'text-brand-jade'} />
+              <span className={`text-sm font-bold truncate max-w-[300px] ${persona === 'client' ? 'text-slate-700' : 'text-slate-300 font-mono'}`}>{file.name}</span>
+              <button onClick={removeFile} className="text-slate-400 hover:text-red-500 transition-colors"><X size={18} /></button>
+            </div>
+          )}
+
+          <div className="flex flex-col gap-4">
             {activeMode === 'upload' && (
               <div className="relative w-full" ref={dropdownRef}>
                 <button
                   type="button"
                   disabled={appState === 'processing'}
                   onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                  className={`w-full text-left bg-slate-950 border border-slate-800 rounded-lg p-3.5 text-slate-300 focus:outline-none focus:ring-1 text-sm flex justify-between items-center transition-colors disabled:opacity-50 shadow-inner ${persona === 'client' ? 'focus:ring-blue-500 hover:border-slate-700' : 'focus:ring-brand-jade hover:border-slate-700 font-mono'}`}
+                  className={`w-full text-left border rounded-xl p-4 text-sm flex justify-between items-center transition-all disabled:opacity-50 shadow-sm ${persona === 'client' ? 'bg-slate-50 border-blue-100 text-slate-700 focus:ring-2 focus:ring-blue-500/20 hover:bg-white' : 'bg-slate-950 border-slate-800 text-slate-300 focus:ring-1 focus:ring-brand-jade hover:border-slate-700 font-mono'}`}
                 >
-                  <span className={!dropdownValue ? 'text-slate-500' : ''}>{getSelectedDropdownLabel()}</span>
-                  <ChevronDown size={16} className={`transition-transform duration-200 text-slate-500 ${isDropdownOpen ? 'rotate-180' : ''}`} />
+                  <span className={!dropdownValue ? 'text-slate-400' : 'font-bold'}>{getSelectedDropdownLabel()}</span>
+                  <ChevronDown size={18} className={`transition-transform duration-300 text-slate-400 ${isDropdownOpen ? 'rotate-180' : ''}`} />
                 </button>
 
                 {/* Custom Dropdown Menu */}
                 {isDropdownOpen && (
-                  <div className="absolute z-50 w-full mb-2 bottom-[100%] bg-slate-900 border border-slate-700 rounded-lg shadow-[0_-10px_40px_rgba(0,0,0,0.5)] overflow-hidden max-h-[300px] overflow-y-auto">
+                  <div className={`absolute z-50 w-full mb-3 bottom-[100%] border rounded-2xl shadow-2xl overflow-hidden max-h-[400px] overflow-y-auto transition-all ${persona === 'client' ? 'bg-white border-blue-100' : 'bg-slate-900 border-slate-700'}`}>
                     {UNIFIED_VERIFICATION_ONTOLOGY.map((domain, idx) => (
-                      <div key={idx} className="pb-1">
-                        <div className="px-4 py-2 sticky top-0 bg-slate-950/95 backdrop-blur z-10 text-[10px] font-bold text-slate-500 uppercase tracking-wider border-b border-slate-800/50">
+                      <div key={idx} className="pb-2">
+                        <div className={`px-5 py-3 sticky top-0 backdrop-blur z-10 text-[10px] font-black uppercase tracking-[0.2em] border-b ${persona === 'client' ? 'bg-slate-50/95 text-blue-600 border-blue-50' : 'bg-slate-950/95 text-slate-500 border-slate-800/50'}`}>
                           {persona === 'client' ? domain.clientCategory : domain.workerCategory}
                         </div>
-                        <div className="py-1">
+                        <div className="py-2">
                           {domain.protocols.map((protocol) => (
                             <button
                               key={protocol.id}
                               type="button"
-                              className={`w-full text-left px-4 py-1.5 text-sm transition-colors flex items-center gap-3 ${dropdownValue === protocol.id ? (persona === 'client' ? 'bg-blue-900/30 text-blue-400' : 'bg-[#002a2e] text-brand-jade') : 'text-slate-300 hover:bg-slate-800'}`}
+                              className={`w-full text-left px-5 py-2.5 text-sm transition-all flex items-center gap-4 ${dropdownValue === protocol.id ? (persona === 'client' ? 'bg-blue-50 text-blue-600 font-bold' : 'bg-[#002a2e] text-brand-jade font-bold') : (persona === 'client' ? 'text-slate-600 hover:bg-slate-50' : 'text-slate-300 hover:bg-slate-800')}`}
                               onClick={() => {
                                 setDropdownValue(protocol.id);
                                 setIsDropdownOpen(false);
                               }}
                             >
-                              <div className="w-4 flex justify-center">
-                                {dropdownValue === protocol.id && <Check size={14} />}
+                              <div className="w-5 flex justify-center shrink-0">
+                                {dropdownValue === protocol.id && <Check size={16} />}
                               </div>
-                              <span className={dropdownValue === protocol.id ? 'font-bold' : ''}>
+                              <span className="truncate">
                                 {persona === 'client' ? protocol.clientLabel : protocol.workerLabel}
                               </span>
                             </button>
@@ -581,32 +623,32 @@ export function Sandbox() {
               </div>
             )}
 
-            <div className="flex gap-3">
+            <div className="flex gap-4">
               <textarea
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 placeholder={
                   activeMode === 'chat'
-                    ? (persona === 'client' ? 'Ask a question about benefits...' : 'Query policy framework...')
-                    : (persona === 'client' ? 'Add an optional note to your file...' : 'Append optional instructions to payload...')
+                    ? (persona === 'client' ? 'Type your message here...' : 'Query policy framework...')
+                    : (persona === 'client' ? 'Add a note (optional)...' : 'Append optional instructions to payload...')
                 }
-                className={`flex-1 bg-slate-950 border border-slate-800 rounded-lg p-4 text-slate-200 focus:outline-none resize-none min-h-[60px] text-sm shadow-inner ${persona === 'client' ? 'focus:border-blue-500' : 'focus:border-brand-jade font-mono'}`}
+                className={`flex-1 border rounded-xl p-4 text-slate-800 focus:outline-none resize-none min-h-[60px] text-sm shadow-sm transition-all ${persona === 'client' ? 'bg-slate-50 border-blue-100 focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10' : 'bg-slate-950 border-slate-800 text-slate-200 focus:border-brand-jade font-mono'}`}
                 rows={1}
               />
               {activeMode === 'upload' && (
                 <>
                   <input type="file" ref={fileInputRef} onChange={handleFileChange} className="hidden" accept="image/*,application/pdf" />
-                  <button onClick={() => fileInputRef.current?.click()} disabled={appState === 'processing'} className="px-6 bg-slate-900 hover:bg-slate-800 text-slate-300 rounded-lg border border-slate-700 transition-colors disabled:opacity-50 flex items-center justify-center shadow-md" title="Select Document">
-                    <Upload size={20} />
+                  <button onClick={() => fileInputRef.current?.click()} disabled={appState === 'processing'} className={`px-6 rounded-xl border transition-all disabled:opacity-50 flex items-center justify-center shadow-sm ${persona === 'client' ? 'bg-white border-blue-100 text-blue-600 hover:bg-blue-50' : 'bg-slate-900 border-slate-700 text-slate-300 hover:bg-slate-800'}`} title="Select Document">
+                    <Upload size={22} />
                   </button>
                 </>
               )}
               <button 
                 onClick={handleSubmit} 
                 disabled={appState === 'processing' || (activeMode === 'upload' && !fileData && !input.trim()) || (activeMode === 'chat' && !input.trim())} 
-                className={`px-8 text-white rounded-lg font-bold transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center shadow-md ${persona === 'client' ? 'bg-blue-600 hover:bg-blue-700' : 'bg-brand-jade hover:bg-[#005a62] text-slate-950'}`}
+                className={`px-10 rounded-xl font-black transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center shadow-lg active:scale-95 ${persona === 'client' ? 'bg-blue-600 hover:bg-blue-700 text-white shadow-blue-200' : 'bg-brand-jade hover:bg-[#005a62] text-slate-950 shadow-brand-jade/20'}`}
               >
-                <Send size={20} />
+                <Send size={22} />
               </button>
             </div>
           </div>
