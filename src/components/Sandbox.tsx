@@ -53,7 +53,8 @@ type AppState = 'idle' | 'processing' | 'results';
 interface ExtractedField {
   field: string;
   value: string;
-  confidence: number;
+  statutorySufficiency: number;
+  complianceNote: string;
 }
 
 interface EngineResponse {
@@ -108,7 +109,7 @@ export function Sandbox() {
     if (appState === 'processing') {
       const phases = activeMode === 'upload' 
         ? (persona === 'worker' 
-            ? ['Ingesting payload...', 'Executing deterministic extraction...', 'Evaluating statutory thresholds...', 'Rendering payload data...']
+            ? ['Ingesting payload...', 'Executing deterministic extraction...', 'Evaluating statutory sufficiency (SNAP/Medicaid)...', 'Calculating compliance thresholds...', 'Rendering diagnostic results...']
             : ['Encrypting transmission...', 'Verifying document format...', 'Submitting to state agency...'])
         : ['Querying policy repository...', 'Synthesizing statutory guidance...', 'Formatting response...'];
       
@@ -272,13 +273,18 @@ export function Sandbox() {
 
             <div className="space-y-4">
               {engineResponse?.extractedData?.map((data, idx) => (
-                <div key={idx} className="bg-[#050a0f] border border-slate-800 rounded p-3 flex justify-between items-center">
-                  <div>
-                    <div className="text-[10px] text-slate-500 uppercase tracking-wider font-bold mb-1">{data.field}</div>
-                    <div className="text-sm font-mono text-slate-200">{data.value}</div>
+                <div key={idx} className="bg-[#050a0f] border border-slate-800 rounded p-3">
+                  <div className="flex justify-between items-start mb-2">
+                    <div>
+                      <div className="text-[10px] text-slate-500 uppercase tracking-wider font-bold mb-1">{data.field}</div>
+                      <div className="text-sm font-mono text-slate-200">{data.value}</div>
+                    </div>
+                    <div className={`text-[10px] font-mono px-2 py-1 rounded bg-slate-900 border ${data.statutorySufficiency >= 0.85 ? 'text-brand-jade border-brand-jade/30' : 'text-red-400 border-red-500/30'}`}>
+                      STATUTORY SUFFICIENCY: {data.statutorySufficiency.toFixed(2)}
+                    </div>
                   </div>
-                  <div className={`text-[10px] font-mono px-2 py-1 rounded bg-slate-900 border ${data.confidence >= 0.85 ? 'text-brand-jade border-brand-jade/30' : 'text-red-400 border-red-500/30'}`}>
-                    CONF: {data.confidence.toFixed(2)}
+                  <div className="text-[10px] text-slate-500 italic border-t border-slate-800/50 pt-2 mt-2">
+                    {data.complianceNote}
                   </div>
                 </div>
               ))}
@@ -324,17 +330,74 @@ export function Sandbox() {
     }
 
     return (
-      <div className="flex flex-col items-center justify-center h-full gap-6">
-        <div className="w-20 h-20 bg-blue-900/20 border-2 border-blue-500 rounded-full flex items-center justify-center text-blue-400">
-          <CheckCircle size={40} />
+      <div className="flex flex-col h-full gap-6">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-12 bg-blue-900/20 border-2 border-blue-500 rounded-full flex items-center justify-center text-blue-400">
+              <CheckCircle size={24} />
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-white">Submission Analysis</h3>
+              <p className="text-sm text-slate-400">We've analyzed your document against program requirements.</p>
+            </div>
+          </div>
+          <button onClick={resetState} className="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded font-bold transition-colors text-xs uppercase tracking-wider">
+            Submit Another
+          </button>
         </div>
-        <div className="text-center">
-          <h3 className="text-2xl font-bold text-white mb-2">Upload Successful</h3>
-          <p className="text-base text-slate-400 max-w-md">{engineResponse?.message}</p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 flex-1 overflow-hidden">
+          <div className="bg-slate-950 border border-slate-800 rounded-xl flex flex-col overflow-hidden">
+            <div className="bg-[#050a0f] px-4 py-3 border-b border-slate-800 text-xs font-bold text-slate-400 uppercase tracking-wider flex justify-between items-center">
+              <span>Your Document</span>
+              <span className="truncate max-w-[150px] text-slate-600 font-mono text-[10px]">{file?.name}</span>
+            </div>
+            <div className="flex-1 p-2 overflow-auto flex items-center justify-center bg-slate-900/30">
+              {file?.type.includes('pdf') ? (
+                <object data={fileUrl || ''} type="application/pdf" className="w-full h-full rounded" />
+              ) : (
+                <img src={fileUrl || ''} alt="Document Payload" className="max-w-full max-h-full object-contain rounded shadow-lg" />
+              )}
+            </div>
+          </div>
+
+          <div className="bg-slate-950 border border-slate-800 rounded-xl flex flex-col overflow-hidden">
+            <div className="bg-[#050a0f] px-4 py-3 border-b border-slate-800 text-xs font-bold text-blue-400 uppercase tracking-wider">
+              Readiness Report
+            </div>
+            <div className="flex-1 p-4 overflow-y-auto space-y-4">
+              {engineResponse?.status === 'PROCEED TO RULES ENGINE' && (
+                <div className="p-4 bg-blue-900/20 border border-blue-500/50 rounded-lg text-blue-300 font-bold flex items-center gap-3 text-sm">
+                  <CheckCircle size={20} className="text-blue-400" /> High Readiness: This document likely meets requirements.
+                </div>
+              )}
+              {engineResponse?.status === 'REQUIRES HITL REVIEW' && (
+                <div className="p-4 bg-amber-950/30 border border-amber-500/50 rounded-lg text-amber-300 font-bold flex items-center gap-3 text-sm">
+                  <ShieldAlert size={20} className="text-amber-500" /> Action Needed: This document may need more information.
+                </div>
+              )}
+
+              <div className="space-y-4 pt-2">
+                {engineResponse?.extractedData?.map((data, idx) => (
+                  <div key={idx} className="bg-slate-900/50 border border-slate-800 rounded-lg p-4">
+                    <div className="flex justify-between items-start mb-3">
+                      <div>
+                        <div className="text-[10px] text-slate-500 uppercase tracking-wider font-bold mb-1">Information Found</div>
+                        <div className="text-sm font-medium text-slate-200">{data.value}</div>
+                      </div>
+                      <div className={`text-[10px] font-bold px-2 py-1 rounded ${data.statutorySufficiency >= 0.85 ? 'bg-blue-900/30 text-blue-400 border border-blue-500/30' : 'bg-slate-800 text-slate-400 border border-slate-700'}`}>
+                        READINESS: {(data.statutorySufficiency * 100).toFixed(0)}%
+                      </div>
+                    </div>
+                    <div className="text-xs text-slate-400 leading-relaxed bg-slate-950/50 p-2 rounded border border-slate-800/50">
+                      {data.complianceNote}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
-        <button onClick={resetState} className="mt-6 px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded font-bold transition-colors text-sm">
-          Submit Another Document
-        </button>
       </div>
     );
   };
