@@ -41,7 +41,7 @@ export function Capabilities() {
               },
               {
                 title: "System Fidelity Evaluation",
-                desc: "Independent third-party verification of automated eligibility platforms. We audit 'Rules-as-Code' architectures to ensure absolute statutory compliance and maximum accessibility for frontline navigators.",
+                desc: "Independent third-party verification of Rules-as-Code architectures. We audit system logic to ensure absolute statutory compliance and maximum accessibility for frontline navigators.",
                 icon: <ArrowRight className="text-brand-jade" size={28} strokeWidth={1.5} />,
                 tip: "Fidelity Audit"
               }

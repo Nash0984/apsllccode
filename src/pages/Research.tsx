@@ -15,12 +15,12 @@ export function Research() {
   const researchDocs = [
     {
       title: "Rules as Code (RaC) Implementation",
-      desc: "A technical guide on translating subjective policy into deterministic logic. This framework covers the entire lifecycle from legislative analysis to automated testing, ensuring legislative intent is preserved through digital transformation.",
+      desc: "A technical guide on translating subjective policy into deterministic logic. This framework covers the entire lifecycle from legislative analysis to rigorous logic testing, ensuring legislative intent is preserved through digital transformation.",
       icon: <FileText size={24} strokeWidth={1.5} />
     },
     {
       title: "SNAP Payment Error Rate Mitigation",
-      desc: "Root cause analysis and operational frameworks to improve payment accuracy and audit compliance. Our research identifies key friction points in eligibility determinations and provides evidence-based recommendations for reducing churn.",
+      desc: "Root cause analysis and operational frameworks to improve payment accuracy and audit compliance. Our research identifies key friction points in eligibility reviews and provides evidence-based recommendations for reducing churn.",
       icon: <BarChart3 size={24} strokeWidth={1.5} />
     },
     {

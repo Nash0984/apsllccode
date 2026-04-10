@@ -58,7 +58,7 @@ export function Platform() {
           id: "16",
           title: "Algorithmic Bias Monitoring",
           icon: <Eye className="text-brand-jade" size={32} strokeWidth={1.5} />,
-          desc: "Mandatory oversight ensuring automated decisions remain equitable, transparent, and legally defensible.",
+          desc: "Mandatory oversight ensuring system-generated outcomes remain equitable, transparent, and legally defensible.",
           features: [
             { name: "Bias Detection", detail: "Continuously monitors outcomes for systemic disparities in location or demographic data." },
             { name: "Logic Tree Auditing", detail: "Logs the exact parameters and logic utilized for every machine-driven determination." },
@@ -76,7 +76,7 @@ export function Platform() {
           id: "05",
           title: "Enterprise Quality Control (QC)",
           icon: <FileSearch className="text-brand-jade" size={32} strokeWidth={1.5} />,
-          desc: "A unified auditing engine ensuring cross-program determinations (SNAP/Medicaid) remain strictly compliant.",
+          desc: "A unified auditing engine ensuring cross-program eligibility reviews (SNAP/Medicaid) remain strictly compliant.",
           features: [
             { name: "Intelligent Sampling", detail: "Automatically routes high-risk cases to QC reviewers based on federal guidelines." },
             { name: "Root Cause Diagnostics", detail: "Determines if errors originated from client omission, caseworker entry, or policy misconfiguration." },
@@ -125,12 +125,12 @@ export function Platform() {
       modules: [
         {
           id: "04",
-          title: "Deterministic Policy Engine",
+          title: "Rules Engine (RaC)",
           icon: <Cpu className="text-brand-jade" size={32} strokeWidth={1.5} />,
-          desc: "Centralized rules engine translating legislative text into automated, zero-touch eligibility determinations.",
+          desc: "A legally grounded Rules Engine translating legislative text into machine-executable logic using a Rules-as-Code methodology.",
           features: [
-            { name: "Zero-Touch Renewals", detail: "Processes determinations via external data, removing manual calculation from caseworkers." },
-            { name: "Automated Noticing", detail: "Triggers required communications (NOMI) based on real-time case status changes." },
+            { name: "Data-Driven Renewals", detail: "Facilitates eligibility reviews via external data integration, removing manual calculation burden while maintaining strict policy adherence." },
+            { name: "Statutory Communications", detail: "Generates required notices (NOMI) based on real-time case status changes, ensuring procedural compliance." },
             { name: "Policy Workspace", detail: "Structured environment for updating program parameters without hardcoded software changes." }
           ]
         },

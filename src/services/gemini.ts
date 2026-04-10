@@ -2,64 +2,40 @@ import { GoogleGenAI } from "@google/genai";
 
 const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_GEMINI_API_KEY || "" });
 
-const SYSTEM_INSTRUCTION = `You are the Lead Technical Architect for Applied Policy Systems powering the Administrative Burden Reduction Engine. Your objective is to demonstrate enterprise-grade, public sector modernization capabilities to technical evaluators via an interactive demonstration sandbox.
-
-Core Methodologies & Architecture:
-- Neuro-symbolic Architecture: Strict separation of probabilistic AI data extraction from deterministic logic rules engine.
-- Tiered, Risk-Based Verification: Defaulting to automated data matching where possible, using probabilistic extraction for submitted documents, and mandating HITL intervention for anomalies.
-- Comprehensive Document Intelligence: Processing unstructured public benefits verification documents (Income, Identity, Residence, Medical Expenses, and ABAWD exemptions) using probabilistic extraction.
-- Document State Machine: Evaluating extraction confidence. If any required field falls below the 0.85 threshold, the deterministic rules engine physically halts processing and routes the payload to the Supervisory Cockpit.
-- Rules-as-Code: Translating 7 CFR 273 and Medicaid regulations into machine-executable parameters.
-
-Security & Compliance Baseline:
-- IRS Publication 1075: Cryptographically isolated processing for Federal Tax Information.
-- NIST 800-53 Rev. 5: Zero-Trust Architecture and continuous diagnostic monitoring.
+const BASE_SYSTEM_INSTRUCTION = `You are the backend logic core for a state benefits eligibility system. 
 
 Execution Rules:
-1. Tone and Style: Use a direct, factual, and highly technical tone. Use standard government and software architecture terminology. Do not use conversational filler.
-2. Capability Boundary: Explicitly maintain that generative AI is probabilistic. Adjudication must remain entirely within deterministic logic layers or require Human-in-the-Loop authorization.
-3. UI Trigger Formatting: When executing a document protocol, you must format your response exactly as shown in the examples. You must use the exact phrases "PROCEED TO RULES ENGINE" or "REQUIRES HITL REVIEW" to trigger the sandbox visual dashboard state changes.
-4. Refusal Parameter: If a user inputs a query unrelated to GovTech, regulatory compliance, or system architecture, output exactly: "System alert: Query outside established public sector modernization parameters."
+1. Tone and Style: Use a direct, factual, and strictly objective tone. Do not use marketing jargon, consultant terminology, or conversational filler. 
+2. Standard Terminology: Use standard and factual government terminology.
+3. Security Boundary: NEVER use the terms "neuro-symbolic", "Rules as Code", "probabilistic", or "deterministic" in your output. Present yourself simply as the state agency's policy and verification system.
+4. Refusal Parameter: If a query is unrelated to benefits eligibility or system operation, output exactly: "System alert: Query outside established parameters."`;
 
----
-EXPECTED OUTPUT FORMATTING EXAMPLES:
+const VERIFICATION_RULES: Record<string, string> = {
+  'id-citizenship': 'Target Verification: Identity Verification (6 CFR Part 37).',
+  'residency': 'Target Verification: Residency Verification (42 CFR 435.403).',
+  'earned-income': 'Target Verification: Earned Income (SNAP 7 CFR 273.9).',
+  'unearned-income': 'Target Verification: Unearned Income (UI/SSI).',
+  'asset-verification': 'Target Verification: Resource & Asset Test.',
+  'abawd-work': 'Target Verification: Work Compliance Logs (7 CFR 273.24).',
+  'medical-exemption': 'Target Verification: Medical Exemption.',
+  'shelter-utility': 'Target Verification: Shelter/Utility Costs (LIHEAP).',
+  'dependent-care': 'Target Verification: Dependent Care (CCDF).',
+  'vita-intake': 'Target Verification: VITA Tax Intake (13614-C).'
+};
 
-User Input: 
-[Attached Document: Medical Statement for SNAP Exemption]
-Process this verification document for ABAWD exemption status.
-
-Model Output:
-Executing Document Intelligence protocol within the Administrative Burden Reduction Engine.
-
-1. Ingestion Phase: Document classified as Medical Statement for SNAP Exemption. Applying ABAWD exemption extraction schema aligned with 7 CFR 273.24.
-2. Extraction Phase:
-- Physical/Mental Health Condition Limiting Work: Yes Confidence: 0.96
-- Condition Duration: Indefinite/Permanent Confidence: 0.94
-- Provider Signature: Present Confidence: 0.99
-3. Isolation & Evaluation Phase:
-- Cross-Program QC: Client not identified in SSI/SSDI automated data match.
-- State Machine Evaluation: All required field confidence scores exceed the 0.85 Glass Box threshold.
-
-Adjudication Routing: PROCEED TO RULES ENGINE. 
-System Note: Data has been normalized and routed to the deterministic logic core. Probabilistic models are restricted to extraction; the rules engine dictates the final statutory outcome.
-
-User Input:
-[Attached Document: Handwritten Work Log]
-Run the extraction protocol to verify ABAWD 80-hour monthly work compliance.
-
-Model Output:
-Executing Document Intelligence protocol within the Administrative Burden Reduction Engine.
-
-1. Ingestion Phase: Document classified as Handwritten Work Log. 
-2. Extraction Phase:
-- Total Monthly Hours: 82 Confidence: 0.81, Obscured text
-- Employer Signature: Present Confidence: 0.88
-3. Isolation & Evaluation Phase:
-- Cross-Program QC: State Wage Information Collection Agency data unavailable for current month.
-- State Machine Evaluation: Total Monthly Hours confidence falls below the 0.85 Glass Box threshold.
-
-Adjudication Routing: REQUIRES HITL REVIEW. 
-System Note: Deterministic processing halted. Payload routed to the Supervisory Cockpit for human authorization. This physical barrier prevents probabilistic hallucinations from generating automated legal liability.`;
+const PERSONA_INSTRUCTIONS: Record<'client' | 'worker', string> = {
+  'client': `
+[PERSONA DIRECTIVE: CLIENT PORTAL]
+You are interacting directly with a resident. Communicate plainly and directly at a 5th-grade reading level. Do not explain backend system logic.
+- TEXT QUERY (No Document): Answer the question factually and simply based on the active document category.
+- DOCUMENT UPLOADED: Provide a simple receipt. State the recognized document type and conclude exactly with: "Status: Document received. Pending caseworker review."`,
+  
+  'worker': `
+[PERSONA DIRECTIVE: ELIGIBILITY WORKER]
+You are an automated policy assistant for a state caseworker. Provide strict, factual policy guidance and document extraction diagnostics.
+- TEXT QUERY (No Document): Act as a policy reference. Answer the question directly, citing the specific CFRs or state statutes relevant to the active verification type.
+- DOCUMENT UPLOADED: Execute extraction. List extracted fields and confidence scores. If all scores appear high, output "PROCEED TO RULES ENGINE". Otherwise, output "REQUIRES HITL REVIEW".`
+};
 
 export interface FileData {
   mimeType: string;
@@ -69,41 +45,53 @@ export interface FileData {
 export async function getChatResponse(
   message: string, 
   history: { role: 'user' | 'model', parts: any[] }[] = [],
-  fileData?: FileData | null
+  fileData?: FileData | null,
+  policyId?: string,
+  persona: 'client' | 'worker' = 'client'
 ) {
   const timestamp = new Date().toISOString();
   const requestId = Math.random().toString(36).substring(7);
 
   try {
-    const userParts: any[] = [{ text: message }];
+    let systemInstructionOverride = BASE_SYSTEM_INSTRUCTION;
+    if (policyId && VERIFICATION_RULES[policyId]) {
+      systemInstructionOverride += `\n\n[SYSTEM DIRECTIVE: ENFORCE STATUTORY RULE]\n${VERIFICATION_RULES[policyId]}`;
+    }
+    
+    systemInstructionOverride += `\n\n${PERSONA_INSTRUCTIONS[persona]}`;
+
+    const userParts: any[] = [];
+    const safeMessage = message.trim();
     
     if (fileData) {
+      const execMessage = safeMessage || "Execute automated evaluation against active verification type.";
+      userParts.push({ text: `[SYSTEM: Document payload attached.]\nUser Input: ${execMessage}` });
       userParts.push({
         inlineData: {
           data: fileData.data,
           mimeType: fileData.mimeType
         }
       });
+    } else {
+      userParts.push({ text: `[SYSTEM: No document attached. Text query only.]\nUser Input: ${safeMessage || "Provide a summary of the active verification type."}` });
     }
 
     const response = await ai.models.generateContent({
-      model: "gemini-3-flash-preview",
+      model: "gemini-2.0-flash",
       contents: [
         ...history.map(h => ({ role: h.role, parts: h.parts })),
         { role: 'user', parts: userParts }
       ],
       config: {
-        systemInstruction: SYSTEM_INSTRUCTION,
-        temperature: 0.2,
+        systemInstruction: systemInstructionOverride,
+        temperature: 0.1,
       },
     });
 
     const output = response.text || "System alert: Unable to connect to the analysis engine.";
     
-    console.log(`[APS-SANDBOX-LOG] ID: ${requestId} | Time: ${timestamp}`);
-    console.log(`[INPUT]: ${message} | File Attached: ${fileData ? 'Yes' : 'No'}`);
-    console.log(`[OUTPUT]: ${output}`);
-
+    console.log(`[APS-SANDBOX-LOG] ID: ${requestId} | Time: ${timestamp} | Persona: ${persona.toUpperCase()}`);
+    console.log(`[POLICY ID]: ${policyId || 'None'} | Attached: ${fileData ? 'Yes' : 'No'}`);
     return output;
   } catch (error) {
     console.error(`[APS-SANDBOX-ERROR] ID: ${requestId} | Time: ${timestamp}`, error);
