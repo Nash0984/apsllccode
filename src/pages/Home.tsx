@@ -62,16 +62,16 @@ export function Home() {
         <div className="container-wide">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="label-muted">{t('home.challenge.label')}</h2>
-              <h3 className="text-4xl md:text-5xl font-bold mb-8 tracking-tight leading-tight">{t('home.challenge.title')}</h3>
+              <h2 className="label-muted">The Implementation Disconnect</h2>
+              <h3 className="text-4xl md:text-5xl font-bold mb-8 tracking-tight leading-tight">Policy is written in statutes. Systems are built in code.</h3>
               <p className="text-lg leading-relaxed mb-8">
-                {t('home.challenge.text')}
+                Public administration technology fails when there is a translation gap between legislative mandates and software engineering. Off-the-shelf software often lacks the structural nuance required by the Code of Federal Regulations, while custom builds become paralyzed by complex policy requirements.
               </p>
             </div>
             <div className="relative p-10 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-card shadow-xl">
               <div className="absolute top-0 left-0 w-1.5 h-full bg-brand-jade rounded-l-card" />
               <p className="font-medium text-slate-900 dark:text-slate-100 italic leading-relaxed text-xl">
-                {t('home.challenge.solution')}
+                Applied Policy Systems bridges this gap by translating statutory rules into deterministic logic and actionable digital infrastructure.
               </p>
             </div>
           </div>
@@ -85,11 +85,11 @@ export function Home() {
         </div>
         
         <div className="container-wide relative z-10">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-sm font-bold uppercase tracking-[0.4em] text-brand-jade mb-6">Interactive Capability Showcase</h2>
-            <h3 className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-6">Applied Policy & Verification Demonstrator</h3>
-            <p className="text-slate-400 text-lg leading-relaxed">
-              This interactive environment demonstrates our capacity to map eligibility protocols to software architecture. Test the distinct interfaces to see how we balance the resident intake experience with strict operational telemetry and statutory routing for the agency.
+          <div className="text-center max-w-4xl mx-auto mb-16">
+            <h2 className="text-sm font-bold uppercase tracking-[0.4em] text-brand-jade mb-6">Proof of Concept</h2>
+            <h3 className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-6">The Translation in Practice</h3>
+            <p className="text-slate-400 text-lg leading-relaxed max-w-3xl mx-auto">
+              The environment below demonstrates how statutory policy becomes actionable infrastructure. It illustrates the resolution to the implementation disconnect by balancing two competing mandates: providing a frictionless intake experience for the resident while executing strict, automated compliance routing for the caseworker.
             </p>
           </div>
           
