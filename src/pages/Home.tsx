@@ -118,7 +118,7 @@ export function Home() {
           <div className="grid md:grid-cols-3 gap-8">
             {[
               { name: t('home.quickLinks.platform.title'), path: '/expertise', desc: t('home.quickLinks.platform.desc'), action: t('home.quickLinks.platform.action') },
-              { name: t('home.quickLinks.company.title'), path: '/about', desc: t('home.quickLinks.company.desc'), action: t('home.quickLinks.company.action') },
+              { name: t('home.quickLinks.about.title'), path: '/about', desc: t('home.quickLinks.about.desc'), action: t('home.quickLinks.about.action') },
               { name: t('home.quickLinks.contact.title'), path: '/contact', desc: t('home.quickLinks.contact.desc'), action: t('home.quickLinks.contact.action') }
             ].map((item) => (
               <Link 

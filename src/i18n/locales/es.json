@@ -40,8 +40,8 @@
         "desc": "Asesoría profunda de IV&V y SME para la modernización de los servicios de salud y humanos.",
         "action": "Ver Servicios Principales"
       },
-      "company": {
-        "title": "La Empresa",
+      "about": {
+        "title": "La Firma",
         "desc": "Nuestra misión, liderazgo e investigación empírica sobre los resultados administrativos.",
         "action": "Acerca de APS"
       },
@@ -91,7 +91,93 @@
     },
     "research": {
       "label": "Investigación y Perspectivas",
-      "title": "Perspectivas para mejorar la prestación de servicios y la fidelidad de las políticas."
+      "title": "Perspectivas para mejorar la prestación de servicios y la fidelidad de las políticas.",
+      "text": "Nuestra metodología se basa en un análisis de datos riguroso y un contexto histórico. Publicamos marcos que cierran la brecha entre la intención legislativa y la realidad administrativa.",
+      "docs": {
+        "rac": {
+          "title": "Implementación de Reglas como Código (RaC)",
+          "desc": "Una guía técnica sobre la traducción de políticas subjetivas en lógica determinista. Este marco cubre todo el ciclo de vida, desde el análisis legislativo hasta las pruebas de lógica rigurosas, asegurando que la intención legislativa se preserve a través de la transformación digital."
+        },
+        "snap": {
+          "title": "Mitigación de la Tasa de Error de Pago de SNAP",
+          "desc": "Análisis de causa raíz y marcos operativos para mejorar la precisión de los pagos y el cumplimiento de las auditorías. Nuestra investigación identifica puntos clave de fricción en las revisiones de elegibilidad y proporciona recomendaciones basadas en evidencia para reducir la deserción."
+        },
+        "vita": {
+          "title": "Integración de la Infraestructura VITA",
+          "desc": "Diseño de flujos de datos fluidos entre los servicios tributarios y los sistemas de beneficios estatales. Este estudio explora los requisitos técnicos y de política para el intercambio de datos en tiempo real, centrándose en protocolos que preservan la privacidad para maximizar la adopción de beneficios."
+        }
+      }
+    },
+    "journey": {
+      "label": "Trayectoria Profesional",
+      "title": "Un Legado de Optimización de Sistemas.",
+      "milestones": {
+        "m1": {
+          "year": "2011",
+          "title": "Impacto Municipal",
+          "org": "Ciudad de Filadelfia",
+          "role": "Administrador de Asistencia al Contribuyente",
+          "desc": "Dirigió la iniciativa EITC \"You Earned It Philly\", devolviendo más de $44 millones a 26,000 residentes y estableciendo un modelo para el alcance de créditos fiscales municipales."
+        },
+        "m2": {
+          "year": "2016",
+          "title": "Estrategia Nacional",
+          "org": "Prosperity Now",
+          "role": "Estratega de Políticas",
+          "desc": "Actuó como enlace nacional para programas de administración tributaria, integrando regulaciones financieras federales en la infraestructura comunitaria en todo EE. UU."
+        },
+        "m3": {
+          "year": "2019",
+          "title": "Operaciones Estatales",
+          "org": "Maryland DHS",
+          "role": "Director de Operaciones",
+          "desc": "Evaluó y guió estrategias de modernización para el acceso a beneficios, centrándose en el diseño centrado en el humano y traduciendo los mandatos legislativos en sistemas operativos."
+        },
+        "m4": {
+          "year": "2023",
+          "title": "Asesoría Federal",
+          "org": "Applied Policy Systems",
+          "role": "Fundador y Asesor Federal",
+          "desc": "Fundó APS para cerrar la brecha entre la política y la implementación. Nombrado para un comité asesor federal que asesora al Congreso y al IRS sobre la administración tributaria electrónica."
+        }
+      }
+    },
+    "impact": {
+      "label": "Impacto Medible",
+      "title": "Resultados Comprobados en la Administración Pública.",
+      "stats": {
+        "citizen": {
+          "value": "$44M+",
+          "label": "Beneficio Directo al Ciudadano",
+          "desc": "Créditos fiscales devueltos a los residentes de Filadelfia a través de la iniciativa 'You Earned It Philly'."
+        },
+        "funding": {
+          "value": "$2M",
+          "label": "Financiamiento de Modernización",
+          "desc": "Financiamiento federal y filantrópico asegurado para iniciativas de reducción de la tasa de error de pago de SNAP."
+        },
+        "execution": {
+          "value": "15+",
+          "label": "Años de Ejecución",
+          "desc": "Una carrera dedicada a optimizar los sistemas públicos a nivel municipal, estatal y federal."
+        }
+      }
+    },
+    "ecosystem": {
+      "label": "Ecosistema y Compromisos Estratégicos",
+      "title": "Historia de Colaboración de Graham con Líderes Nacionales.",
+      "desc": "Las siguientes descripciones describen la experiencia operativa y las colaboraciones en red del Consultor Principal de la firma.",
+      "quote": "Applied Policy Systems LLC se basa en una base de profunda historia profesional. A lo largo de su carrera, Graham ha colaborado con expertos nacionales en implementación, evaluación y diseño, asegurando que nuestra metodología esté informada por la inteligencia colectiva del ecosistema de tecnología cívica.",
+      "partners": {
+        "nava": { "name": "Nava PBC", "focus": "Arquitectura Técnica", "context": "Coordinó la planificación técnica para software impulsado por IA y tableros en tiempo real dentro de los sistemas de beneficios estatales, centrándose en entornos de datos sintéticos y verificación estatutaria." },
+        "usdr": { "name": "U.S. Digital Response (USDR)", "focus": "Análisis de Causa Raíz", "context": "Gestionó sprints de descubrimiento y análisis de causa raíz para reducir las Tasas de Error de Pago (PER) de SNAP y mitigar la deserción por recertificación en los sistemas de beneficios públicos." },
+        "cfa": { "name": "Code for America", "focus": "Integración de Tecnología Cívica", "context": "Aseguró asociaciones operativas para desplegar software de impuestos virtuales y colaboró en el diseño centrado en el humano para avisos de beneficios públicos y analítica para trabajadores del caso." },
+        "arnold": { "name": "Arnold Ventures", "focus": "Arquitectura de Proyectos", "context": "Autor de propuestas fundamentales para iniciativas de ciencia de datos con múltiples partes interesadas, estableciendo vías para abordar la precisión de SNAP a través del modelado predictivo." },
+        "rfa": { "name": "Results for America", "focus": "Evaluación Basada en Evidencia", "context": "Supervisó las evaluaciones de ensayos controlados aleatorios para el desempeño de programas municipales, alineando las iniciativas locales con los estándares de políticas basados en evidencia." },
+        "prosperity": { "name": "Prosperity Now", "focus": "Estrategia de Política Nacional", "context": "Se desempeñó como enlace de política nacional ante el IRS, FDIC y CFPB, integrando programas de impuestos federales en la infraestructura financiera local." },
+        "cwf": { "name": "Campaign for Working Families", "focus": "Desarrollo Estratégico", "context": "Dirigió asociaciones operativas y aseguró más de $2.2 millones en financiamiento de subvenciones para escalar los servicios financieros comunitarios y la tecnología cívica." },
+        "civilla": { "name": "Civilla", "focus": "Diseño de Servicios", "context": "Aplicó la investigación de diseño de servicios y los patrones de identidad digital para informar las evaluaciones de arquitectura de sistemas y los formularios de beneficios públicos centrados en el humano." }
+      }
     }
   },
   "expertisePage": {

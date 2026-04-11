@@ -40,8 +40,8 @@
         "desc": "Deep-dive IV&V and SME advisory for health and human services modernization.",
         "action": "View Core Services"
       },
-      "company": {
-        "title": "The Company",
+      "about": {
+        "title": "The Firm",
         "desc": "Our mission, leadership, and empirical research into administrative outcomes.",
         "action": "About APS"
       },
@@ -91,7 +91,93 @@
     },
     "research": {
       "label": "Research & Insights",
-      "title": "Insights to improve service delivery and policy fidelity."
+      "title": "Insights to improve service delivery and policy fidelity.",
+      "text": "Our methodology is rooted in rigorous data analysis and historical context. We publish frameworks that bridge the gap between legislative intent and administrative reality.",
+      "docs": {
+        "rac": {
+          "title": "Rules as Code (RaC) Implementation",
+          "desc": "A technical guide on translating subjective policy into deterministic logic. This framework covers the entire lifecycle from legislative analysis to rigorous logic testing, ensuring legislative intent is preserved through digital transformation."
+        },
+        "snap": {
+          "title": "SNAP Payment Error Rate Mitigation",
+          "desc": "Root cause analysis and operational frameworks to improve payment accuracy and audit compliance. Our research identifies key friction points in eligibility reviews and provides evidence-based recommendations for reducing churn."
+        },
+        "vita": {
+          "title": "VITA Infrastructure Integration",
+          "desc": "Designing seamless data flows between tax services and state benefit systems. This study explores technical and policy requirements for real-time data sharing, focusing on privacy-preserving protocols to maximize benefit uptake."
+        }
+      }
+    },
+    "journey": {
+      "label": "Career Journey",
+      "title": "A Legacy of Systems Optimization.",
+      "milestones": {
+        "m1": {
+          "year": "2011",
+          "title": "Municipal Impact",
+          "org": "City of Philadelphia",
+          "role": "Administrator of Taxpayer Assistance",
+          "desc": "Directed the \"You Earned It Philly\" EITC initiative, returning over $44 million to 26,000 residents and establishing a model for municipal tax credit outreach."
+        },
+        "m2": {
+          "year": "2016",
+          "title": "National Strategy",
+          "org": "Prosperity Now",
+          "role": "Policy Strategist",
+          "desc": "Acted as a national liaison for tax administration programs, integrating federal financial regulations into community-based infrastructure across the U.S."
+        },
+        "m3": {
+          "year": "2019",
+          "title": "State Operations",
+          "org": "Maryland DHS",
+          "role": "Director of Operations",
+          "desc": "Evaluated and guided modernization strategies for benefits access, focusing on human-centered design and translating legislative mandates into operational systems."
+        },
+        "m4": {
+          "year": "2023",
+          "title": "Federal Advisory",
+          "org": "Applied Policy Systems",
+          "role": "Founder & Federal Advisor",
+          "desc": "Founded APS to bridge the policy-implementation gap. Appointed to a federal advisory committee advising Congress and the IRS on electronic tax administration."
+        }
+      }
+    },
+    "impact": {
+      "label": "Measurable Impact",
+      "title": "Proven Results in Public Administration.",
+      "stats": {
+        "citizen": {
+          "value": "$44M+",
+          "label": "Direct Citizen Benefit",
+          "desc": "Tax credits returned to Philadelphia residents through the 'You Earned It Philly' initiative."
+        },
+        "funding": {
+          "value": "$2M",
+          "label": "Modernization Funding",
+          "desc": "Federal & Philanthropic funding secured for SNAP Payment Error Rate reduction initiatives."
+        },
+        "execution": {
+          "value": "15+",
+          "label": "Years of Execution",
+          "desc": "A career dedicated to optimizing public systems at municipal, state, and federal levels."
+        }
+      }
+    },
+    "ecosystem": {
+      "label": "Ecosystem & Strategic Engagements",
+      "title": "Graham's History of Collaboration with National Leaders.",
+      "desc": "The following descriptions outline the operational expertise and network collaborations of the firm's Principal Consultant.",
+      "quote": "Applied Policy Systems LLC is built on a foundation of deep professional history. Throughout his career, Graham has collaborated with national experts in implementation, evaluation, and design, ensuring that our methodology is informed by the collective intelligence of the civic tech ecosystem.",
+      "partners": {
+        "nava": { "name": "Nava PBC", "focus": "Technical Architecture", "context": "Coordinated technical planning for AI-powered software and real-time dashboards within state benefit systems, focusing on synthetic data environments and statutory verification." },
+        "usdr": { "name": "U.S. Digital Response (USDR)", "focus": "Root Cause Analysis", "context": "Managed discovery sprints and root cause analysis to reduce SNAP Payment Error Rates (PER) and mitigate recertification churn in public benefit systems." },
+        "cfa": { "name": "Code for America", "focus": "Civic Tech Integration", "context": "Secured operational partnerships to deploy virtual tax software and collaborated on human-centered design for public benefit notices and caseworker analytics." },
+        "arnold": { "name": "Arnold Ventures", "focus": "Project Architecture", "context": "Authored foundational proposals for multi-stakeholder data science initiatives, establishing pathways to address SNAP accuracy through predictive modeling." },
+        "rfa": { "name": "Results for America", "focus": "Evidence-Based Evaluation", "context": "Oversaw randomized controlled trial evaluations for municipal program performance, aligning local initiatives with evidence-based policy standards." },
+        "prosperity": { "name": "Prosperity Now", "focus": "National Policy Strategy", "context": "Served as a national policy liaison to the IRS, FDIC, and CFPB, integrating federal tax programs into local financial infrastructure." },
+        "cwf": { "name": "Campaign for Working Families", "focus": "Strategic Development", "context": "Directed operational partnerships and secured over $2.2 million in grant funding to scale community-based financial services and civic technology." },
+        "civilla": { "name": "Civilla", "focus": "Service Design", "context": "Applied service design research and digital identity patterns to inform system architecture evaluations and human-centered public benefit forms." }
+      }
     }
   },
   "expertisePage": {

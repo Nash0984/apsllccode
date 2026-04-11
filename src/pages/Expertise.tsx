@@ -2,11 +2,11 @@ import { useState, lazy, Suspense } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useTranslation } from 'react-i18next';
 import { 
-  Shield, Lock, BarChart3, Cpu, CheckCircle2, ArrowRight, Zap, 
-  Database, Users, Scale, FileSearch, AlertTriangle, Clock, 
+  Shield, Lock, BarChart3, Cpu, CheckCircle2, ArrowRight, 
+  FileSearch, AlertTriangle, Clock, 
   Gavel, Smartphone, Binary, History, GraduationCap, Globe, 
-  RefreshCw, Code2, Eye, LayoutDashboard, Settings, Activity, Heart,
-  Sparkles, ZapOff, Fingerprint, Network, Building2, LayoutGrid
+  RefreshCw, Code2, Eye, Activity, Heart,
+  Network, Building2, LayoutGrid, Scale, Users
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -282,10 +282,13 @@ export function Expertise() {
           <AnimatePresence mode="wait">
             <motion.div
               key={`${activePillar}-${activeModule}`}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.5, ease: "easeOut" }}
+              initial={{ opacity: 0, scale: 0.98, y: 10 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.98, y: -10 }}
+              transition={{ 
+                duration: 0.4, 
+                ease: [0.23, 1, 0.32, 1]
+              }}
               className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-[4rem] p-10 md:p-16 shadow-2xl h-full flex flex-col relative overflow-hidden"
             >
               <div className="flex flex-col gap-12 relative z-10 h-full">
