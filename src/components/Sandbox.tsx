@@ -311,10 +311,10 @@ export function Sandbox() {
 
     return (
       <div className="flex flex-col lg:flex-row h-full gap-4 overflow-y-auto lg:overflow-hidden">
-        <div className="flex-1 min-h-[300px] lg:min-h-0 bg-slate-950 border border-slate-800 rounded-lg flex flex-col overflow-hidden">
-          <div className="bg-[#050a0f] px-4 py-3 border-b border-slate-800 text-xs font-bold text-slate-400 uppercase tracking-wider flex justify-between items-center">
+        <div className="flex-1 min-h-[400px] lg:min-h-0 bg-slate-950 border border-slate-800 rounded-lg flex flex-col overflow-hidden">
+          <div className="bg-[#050a0f] px-4 py-3 border-b border-slate-800 text-[10px] sm:text-xs font-bold text-slate-400 uppercase tracking-wider flex justify-between items-center">
             <span>Payload Viewer</span>
-            <span className="truncate max-w-[200px] text-slate-600 font-mono">{file?.name}</span>
+            <span className="truncate max-w-[150px] sm:max-w-[200px] text-slate-600 font-mono">{file?.name}</span>
           </div>
           <div className="flex-1 p-2 overflow-auto flex items-center justify-center">
             {file?.type.includes('pdf') ? (
@@ -325,13 +325,13 @@ export function Sandbox() {
           </div>
         </div>
 
-        <div className="flex-1 bg-slate-950 border border-slate-800 rounded-lg flex flex-col overflow-hidden">
-          <div className="bg-[#050a0f] px-4 py-3 border-b border-slate-800 text-xs font-bold text-brand-jade uppercase tracking-wider flex justify-between items-center">
+        <div className="flex-1 bg-slate-950 border border-slate-800 rounded-lg flex flex-col overflow-hidden min-h-[400px] lg:min-h-0">
+          <div className="bg-[#050a0f] px-4 py-3 border-b border-slate-800 text-[10px] sm:text-xs font-bold text-brand-jade uppercase tracking-wider flex justify-between items-center">
             <span>Diagnostic Extraction</span>
             {engineResponse?.extractedData && engineResponse.extractedData.length > 0 && (
               <div className="flex items-center gap-2">
-                <span className="text-[10px] text-slate-500">OVERALL SUFFICIENCY:</span>
-                <span className={`font-mono text-sm ${
+                <span className="text-[8px] sm:text-[10px] text-slate-500">OVERALL SUFFICIENCY:</span>
+                <span className={`font-mono text-xs sm:text-sm ${
                   (engineResponse.extractedData.reduce((acc, curr) => acc + curr.statutorySufficiency, 0) / engineResponse.extractedData.length) >= 0.85 
                     ? 'text-brand-jade' 
                     : 'text-red-400'
@@ -343,15 +343,15 @@ export function Sandbox() {
           </div>
           <div className="flex-1 p-4 overflow-y-auto">
             {engineResponse?.status === 'PROCEED TO RULES ENGINE' && (
-              <div className="mb-6 p-4 bg-[#002a2e] border border-brand-jade rounded-lg text-brand-jade font-bold flex items-center gap-3 text-sm">
-                <CheckCircle size={20} /> {engineResponse.status}
-                <span className="ml-auto text-[10px] opacity-70">STATUTORY THRESHOLD MET</span>
+              <div className="mb-6 p-4 bg-[#002a2e] border border-brand-jade rounded-lg text-brand-jade font-bold flex items-center gap-3 text-xs sm:text-sm">
+                <CheckCircle size={18} sm:size={20} /> {engineResponse.status}
+                <span className="ml-auto text-[8px] sm:text-[10px] opacity-70">STATUTORY THRESHOLD MET</span>
               </div>
             )}
             {engineResponse?.status === 'REQUIRES HITL REVIEW' && (
-              <div className="mb-6 p-4 bg-red-950 border border-red-500 rounded-lg text-red-500 font-bold flex items-center gap-3 text-sm">
-                <ShieldAlert size={20} /> {engineResponse.status}
-                <span className="ml-auto text-[10px] opacity-70">BELOW COMPLIANCE FLOOR</span>
+              <div className="mb-6 p-4 bg-red-950 border border-red-500 rounded-lg text-red-500 font-bold flex items-center gap-3 text-xs sm:text-sm">
+                <ShieldAlert size={18} sm:size={20} /> {engineResponse.status}
+                <span className="ml-auto text-[8px] sm:text-[10px] opacity-70">BELOW COMPLIANCE FLOOR</span>
               </div>
             )}
             {engineResponse?.status === 'ERROR' && (
@@ -456,10 +456,10 @@ export function Sandbox() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 flex-1 overflow-y-auto lg:overflow-hidden">
-          <div className="bg-white border border-blue-50 rounded-2xl flex flex-col overflow-hidden shadow-sm min-h-[300px] lg:min-h-0">
-            <div className="bg-slate-50 px-5 py-4 border-b border-blue-50 text-[11px] font-bold text-slate-400 uppercase tracking-[0.15em] flex justify-between items-center">
+          <div className="bg-white border border-blue-50 rounded-2xl flex flex-col overflow-hidden shadow-sm min-h-[400px] lg:min-h-0">
+            <div className="bg-slate-50 px-5 py-4 border-b border-blue-50 text-[10px] sm:text-[11px] font-bold text-slate-400 uppercase tracking-[0.15em] flex justify-between items-center">
               <span>Your Document</span>
-              <span className="truncate max-w-[150px] text-blue-400 font-medium">{file?.name}</span>
+              <span className="truncate max-w-[120px] sm:max-w-[150px] text-blue-400 font-medium">{file?.name}</span>
             </div>
             <div className="flex-1 p-4 overflow-auto flex items-center justify-center bg-slate-50/30">
               {file?.type.includes('pdf') ? (
@@ -470,19 +470,19 @@ export function Sandbox() {
             </div>
           </div>
 
-          <div className="bg-white border border-blue-50 rounded-2xl flex flex-col overflow-hidden shadow-sm">
-            <div className="bg-slate-50 px-5 py-4 border-b border-blue-50 text-[11px] font-bold text-blue-600 uppercase tracking-[0.15em]">
+          <div className="bg-white border border-blue-50 rounded-2xl flex flex-col overflow-hidden shadow-sm min-h-[400px] lg:min-h-0">
+            <div className="bg-slate-50 px-5 py-4 border-b border-blue-50 text-[10px] sm:text-[11px] font-bold text-blue-600 uppercase tracking-[0.15em]">
               Readiness Report
             </div>
-            <div className="flex-1 p-6 overflow-y-auto space-y-6">
+            <div className="flex-1 p-4 sm:p-6 overflow-y-auto space-y-6">
               {engineResponse?.status === 'PROCEED TO RULES ENGINE' && (
-                <div className="p-5 bg-green-50 border border-green-100 rounded-2xl text-green-700 font-bold flex items-center gap-4 text-sm shadow-sm">
+                <div className="p-4 sm:p-5 bg-green-50 border border-green-100 rounded-2xl text-green-700 font-bold flex items-center gap-4 text-xs sm:text-sm shadow-sm">
                   <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-green-600 shrink-0"><CheckCircle size={20} /></div>
                   High Readiness: This document looks great and meets the requirements!
                 </div>
               )}
               {engineResponse?.status === 'REQUIRES HITL REVIEW' && (
-                <div className="p-5 bg-amber-50 border border-amber-100 rounded-2xl text-amber-700 font-bold flex items-center gap-4 text-sm shadow-sm">
+                <div className="p-4 sm:p-5 bg-amber-50 border border-amber-100 rounded-2xl text-amber-700 font-bold flex items-center gap-4 text-xs sm:text-sm shadow-sm">
                   <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-amber-600 shrink-0"><ShieldAlert size={20} /></div>
                   Almost there: This document might need a quick look or more info.
                 </div>
@@ -543,21 +543,21 @@ export function Sandbox() {
         </div>
 
         {/* Application Context Header (Inside the Simulation) */}
-        <div className={`px-8 py-5 border-b flex items-center gap-5 shrink-0 transition-colors duration-500 ${persona === 'client' ? 'bg-white border-blue-50' : 'bg-[#050a0f] border-slate-800'}`}>
+        <div className={`px-4 sm:px-8 py-4 sm:py-5 border-b flex items-center gap-4 sm:gap-5 shrink-0 transition-colors duration-500 ${persona === 'client' ? 'bg-white border-blue-50' : 'bg-[#050a0f] border-slate-800'}`}>
           {persona === 'client' ? (
             <>
-              <div className="w-12 h-12 rounded-2xl bg-blue-600 flex items-center justify-center text-white shadow-lg shadow-blue-200"><FileText size={24} /></div>
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-blue-600 flex items-center justify-center text-white shadow-lg shadow-blue-200"><FileText size={20} sm:size={24} /></div>
               <div>
-                <div className="font-extrabold text-slate-900 tracking-tight text-xl">State Benefits Portal</div>
-                <div className="text-[11px] text-blue-600 font-bold uppercase tracking-[0.2em] mt-1">Public Resident Interface</div>
+                <div className="font-extrabold text-slate-900 tracking-tight text-lg sm:text-xl">State Benefits Portal</div>
+                <div className="text-[9px] sm:text-[11px] text-blue-600 font-bold uppercase tracking-[0.2em] mt-0.5 sm:mt-1">Public Resident Interface</div>
               </div>
             </>
           ) : (
             <>
-              <div className="w-12 h-12 rounded bg-brand-jade/10 border border-brand-jade/30 flex items-center justify-center text-brand-jade"><Activity size={24} /></div>
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded bg-brand-jade/10 border border-brand-jade/30 flex items-center justify-center text-brand-jade"><Activity size={20} sm:size={24} /></div>
               <div>
-                <div className="font-bold text-white tracking-widest font-mono uppercase text-xl">Agency Adjudication System</div>
-                <div className="text-[10px] text-brand-jade font-bold font-mono uppercase tracking-[0.3em] mt-1.5">Secure Internal Operations</div>
+                <div className="font-bold text-white tracking-widest font-mono uppercase text-lg sm:text-xl">Agency Adjudication System</div>
+                <div className="text-[9px] sm:text-[10px] text-brand-jade font-bold font-mono uppercase tracking-[0.3em] mt-1 sm:mt-1.5">Secure Internal Operations</div>
               </div>
             </>
           )}

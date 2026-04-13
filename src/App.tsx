@@ -9,6 +9,7 @@ const Home = lazy(() => import('./pages/Home').then(m => ({ default: m.Home })))
 const About = lazy(() => import('./pages/About').then(m => ({ default: m.About })));
 const Contact = lazy(() => import('./pages/Contact').then(m => ({ default: m.Contact })));
 const Expertise = lazy(() => import('./pages/Expertise').then(m => ({ default: m.Expertise })));
+const Insights = lazy(() => import('./pages/Insights').then(m => ({ default: m.Insights })));
 const Privacy = lazy(() => import('./pages/Privacy').then(m => ({ default: m.Privacy })));
 const Terms = lazy(() => import('./pages/Terms').then(m => ({ default: m.Terms })));
 
@@ -18,6 +19,7 @@ const prefetchMap: Record<string, () => Promise<any>> = {
   '/about': () => import('./pages/About'),
   '/contact': () => import('./pages/Contact'),
   '/expertise': () => import('./pages/Expertise'),
+  '/insights': () => import('./pages/Insights'),
   '/privacy': () => import('./pages/Privacy'),
   '/terms': () => import('./pages/Terms'),
 };
@@ -52,6 +54,7 @@ function AnimatedRoutes() {
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="expertise" element={<Expertise />} />
+          <Route path="insights" element={<Insights />} />
           <Route path="contact" element={<Contact />} />
           <Route path="privacy" element={<Privacy />} />
           <Route path="terms" element={<Terms />} />

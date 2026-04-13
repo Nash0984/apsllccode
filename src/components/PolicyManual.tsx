@@ -86,7 +86,7 @@ export function PolicyManual() {
       <div className="flex flex-col lg:flex-row border border-slate-200 dark:border-slate-800 rounded-3xl overflow-hidden shadow-2xl bg-white dark:bg-slate-950 min-h-[700px] lg:h-[800px]">
         
         {/* Sidebar: Policy Navigation */}
-        <div className="w-full lg:w-80 bg-slate-50 dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex flex-col">
+        <div className="w-full lg:w-80 bg-slate-50 dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex flex-col shrink-0">
           <div className="p-6 border-b border-slate-200 dark:border-slate-800">
             <div className="flex items-center gap-3 text-brand-jade mb-2">
               <BookOpen size={20} />
@@ -95,28 +95,28 @@ export function PolicyManual() {
             <h2 className="text-xl font-bold text-slate-900 dark:text-white">Living Manual</h2>
           </div>
           
-          <div className="flex-1 overflow-y-auto p-4 space-y-6">
-            <div>
+          <div className="flex-1 overflow-y-auto p-4 space-y-6 flex lg:flex-col overflow-x-auto lg:overflow-x-hidden">
+            <div className="min-w-[200px] lg:min-w-0">
               <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest block mb-4 px-2">Chapters</span>
-              <div className="space-y-1">
+              <div className="flex lg:flex-col gap-1">
                 {POLICY_CHAPTERS.map((chapter) => (
                   <button
                     key={chapter.id}
                     onClick={() => setActiveChapter(chapter)}
-                    className={`w-full text-left px-4 py-3 rounded-xl text-sm transition-all flex items-center justify-between group ${activeChapter.id === chapter.id ? 'bg-brand-jade text-white font-bold shadow-lg shadow-brand-jade/20' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800'}`}
+                    className={`whitespace-nowrap lg:whitespace-normal text-left px-4 py-3 rounded-xl text-sm transition-all flex items-center justify-between group gap-4 ${activeChapter.id === chapter.id ? 'bg-brand-jade text-white font-bold shadow-lg shadow-brand-jade/20' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800'}`}
                   >
                     {chapter.title}
-                    <ChevronRight size={14} className={`transition-transform ${activeChapter.id === chapter.id ? 'rotate-90' : 'group-hover:translate-x-1'}`} />
+                    <ChevronRight size={14} className={`transition-transform hidden lg:block ${activeChapter.id === chapter.id ? 'rotate-90' : 'group-hover:translate-x-1'}`} />
                   </button>
                 ))}
               </div>
             </div>
 
-            <div>
+            <div className="min-w-[150px] lg:min-w-0 lg:pt-0">
               <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest block mb-4 px-2">Active Statutes</span>
-              <div className="space-y-2 px-2">
+              <div className="flex lg:flex-col gap-2 px-2">
                 {activeChapter.statutes.map((statute, idx) => (
-                  <div key={idx} className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-500 font-mono">
+                  <div key={idx} className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-500 font-mono whitespace-nowrap">
                     <Scale size={12} className="text-brand-jade" />
                     {statute}
                   </div>
@@ -124,18 +124,18 @@ export function PolicyManual() {
               </div>
             </div>
 
-            <div className="pt-4 border-t border-slate-200 dark:border-slate-800">
+            <div className="min-w-[150px] lg:min-w-0 pt-0 lg:pt-4 lg:border-t border-slate-200 dark:border-slate-800">
               <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest block mb-4 px-2">Perspective</span>
               <div className="flex p-1 bg-slate-200 dark:bg-slate-800 rounded-xl">
                 <button
                   onClick={() => setPersona('client')}
-                  className={`flex-1 py-2 rounded-lg text-[10px] font-bold transition-all ${persona === 'client' ? 'bg-white dark:bg-slate-700 text-brand-jade shadow-sm' : 'text-slate-500'}`}
+                  className={`flex-1 py-2 px-3 rounded-lg text-[10px] font-bold transition-all whitespace-nowrap ${persona === 'client' ? 'bg-white dark:bg-slate-700 text-brand-jade shadow-sm' : 'text-slate-500'}`}
                 >
                   Resident
                 </button>
                 <button
                   onClick={() => setPersona('worker')}
-                  className={`flex-1 py-2 rounded-lg text-[10px] font-bold transition-all ${persona === 'worker' ? 'bg-white dark:bg-slate-700 text-brand-jade shadow-sm' : 'text-slate-500'}`}
+                  className={`flex-1 py-2 px-3 rounded-lg text-[10px] font-bold transition-all whitespace-nowrap ${persona === 'worker' ? 'bg-white dark:bg-slate-700 text-brand-jade shadow-sm' : 'text-slate-500'}`}
                 >
                   Caseworker
                 </button>
@@ -148,16 +148,16 @@ export function PolicyManual() {
         <div className="flex-1 flex flex-col bg-white dark:bg-slate-950 relative">
           
           {/* Header */}
-          <div className="px-8 py-6 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
+          <div className="px-6 sm:px-8 py-4 sm:py-6 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
             <div>
               <div className="flex items-center gap-2 mb-1">
-                <h3 className="text-lg font-bold text-slate-900 dark:text-white">{activeChapter.title}</h3>
-                <span className="px-2 py-0.5 rounded bg-brand-jade/10 text-brand-jade text-[10px] font-bold uppercase tracking-widest border border-brand-jade/20">Methodology: Rules-as-Code</span>
+                <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">{activeChapter.title}</h3>
+                <span className="px-2 py-0.5 rounded bg-brand-jade/10 text-brand-jade text-[8px] sm:text-[10px] font-bold uppercase tracking-widest border border-brand-jade/20">Rules-as-Code</span>
               </div>
-              <p className="text-xs text-slate-500">Ask questions about {activeChapter.topics.join(', ')}.</p>
+              <p className="text-[10px] sm:text-xs text-slate-500">Ask questions about {activeChapter.topics.join(', ')}.</p>
             </div>
-            <div className="hidden md:flex items-center gap-4">
-              <div className="flex items-center gap-2 text-xs text-slate-400">
+            <div className="hidden sm:flex items-center gap-4">
+              <div className="flex items-center gap-2 text-[10px] sm:text-xs text-slate-400">
                 <ShieldCheck size={14} className="text-green-500" />
                 Legally Grounded
               </div>
@@ -165,18 +165,18 @@ export function PolicyManual() {
           </div>
 
           {/* Chat Area */}
-          <div ref={chatScrollRef} className="flex-1 overflow-y-auto p-8 space-y-8">
+          <div ref={chatScrollRef} className="flex-1 overflow-y-auto p-4 sm:p-8 space-y-6 sm:space-y-8">
             {chatHistory.length === 0 && (
-              <div className="flex flex-col items-center justify-center h-full text-center max-w-md mx-auto gap-8">
-                <div className="w-20 h-20 rounded-full bg-slate-50 dark:bg-slate-900 flex items-center justify-center text-brand-jade shadow-inner">
-                  <Search size={40} className="opacity-50" />
+              <div className="flex flex-col items-center justify-center h-full text-center max-w-md mx-auto gap-6 sm:gap-8">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-slate-50 dark:bg-slate-900 flex items-center justify-center text-brand-jade shadow-inner">
+                  <Search size={32} sm:size={40} className="opacity-50" />
                 </div>
                 <div className="space-y-4">
-                  <h4 className="text-xl font-bold text-slate-900 dark:text-white">How can I assist with policy?</h4>
-                  <p className="text-sm text-slate-500 leading-relaxed">
+                  <h4 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">How can I assist with policy?</h4>
+                  <p className="text-xs sm:text-sm text-slate-500 leading-relaxed px-4">
                     Our Living Policy Manual uses neurosymbolic AI to translate strict statutory requirements into actionable guidance.
                   </p>
-                  <div className="grid grid-cols-1 gap-2 mt-6">
+                  <div className="grid grid-cols-1 gap-2 mt-6 px-4">
                     {[
                       `"What are the income limits for ${activeChapter.topics[0]}?"`,
                       `"How is ${activeChapter.topics[1]} verified?"`,
@@ -185,7 +185,7 @@ export function PolicyManual() {
                       <button 
                         key={i}
                         onClick={() => setInput(prompt)}
-                        className="text-left px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 text-xs text-slate-600 dark:text-slate-400 hover:border-brand-jade hover:bg-brand-jade/5 transition-all"
+                        className="text-left px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 text-[10px] sm:text-xs text-slate-600 dark:text-slate-400 hover:border-brand-jade hover:bg-brand-jade/5 transition-all"
                       >
                         {prompt}
                       </button>
@@ -196,20 +196,20 @@ export function PolicyManual() {
             )}
 
             {chatHistory.map((msg, idx) => (
-              <div key={idx} className={`flex flex-col gap-3 ${msg.role === 'user' ? 'items-end' : 'items-start'}`}>
-                <div className={`flex items-center gap-2 text-[10px] uppercase tracking-widest font-black ${msg.role === 'user' ? 'text-slate-400' : 'text-brand-jade'}`}>
+              <div key={idx} className={`flex flex-col gap-2 sm:gap-3 ${msg.role === 'user' ? 'items-end' : 'items-start'}`}>
+                <div className={`flex items-center gap-2 text-[8px] sm:text-[10px] uppercase tracking-widest font-black ${msg.role === 'user' ? 'text-slate-400' : 'text-brand-jade'}`}>
                   {msg.role === 'user' ? 'Query' : 'Statutory Guidance'}
                   {msg.role === 'model' && <Scale size={10} />}
                 </div>
-                <div className={`p-5 rounded-2xl text-sm max-w-[85%] leading-relaxed shadow-sm ${msg.role === 'user' ? 'bg-brand-jade text-white rounded-tr-sm' : 'bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200 rounded-tl-sm whitespace-pre-wrap'}`}>
+                <div className={`p-4 sm:p-5 rounded-2xl text-xs sm:text-sm max-w-[90%] sm:max-w-[85%] leading-relaxed shadow-sm ${msg.role === 'user' ? 'bg-brand-jade text-white rounded-tr-sm' : 'bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200 rounded-tl-sm whitespace-pre-wrap'}`}>
                   {msg.parts[0].text}
                   {msg.role === 'model' && (
-                    <div className="mt-4 pt-4 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between text-[10px] font-bold text-slate-400">
+                    <div className="mt-4 pt-4 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-[8px] sm:text-[10px] font-bold text-slate-400">
                       <div className="flex items-center gap-2">
                         <AlertCircle size={12} />
                         Citing: {activeChapter.statutes[0]}
                       </div>
-                      <button className="flex items-center gap-1 hover:text-brand-jade transition-colors">
+                      <button className="flex items-center gap-1 hover:text-brand-jade transition-colors self-start sm:self-auto">
                         View Full Statute <ExternalLink size={10} />
                       </button>
                     </div>

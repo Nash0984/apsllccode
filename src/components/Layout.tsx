@@ -57,9 +57,10 @@ export function Layout() {
 
   const navItems = [
     { name: t('nav.home'), path: '/' },
-    { name: t('nav.platform'), path: '/expertise' },
-    { name: t('nav.about'), path: '/about' },
-    { name: t('nav.contact'), path: '/contact' }
+    { name: t('routes.expertise.label'), path: '/expertise' },
+    { name: t('nav.insights'), path: '/insights' },
+    { name: t('routes.about.label'), path: '/about' },
+    { name: t('routes.contact.label'), path: '/contact' }
   ];
 
   return (
@@ -355,9 +356,14 @@ export function Layout() {
                 >
                   <Linkedin size={20} strokeWidth={1.5} />
                 </a>
-                <p className="text-[10px] text-slate-400 dark:text-slate-500 font-mono uppercase tracking-widest">
-                  {t('footer.rights')}
-                </p>
+                <div className="flex flex-col items-center md:items-end">
+                  <p className="font-mono uppercase text-[10px] text-slate-400 dark:text-slate-500 mb-2">
+                    {t('footer.location')}
+                  </p>
+                  <p className="text-[10px] text-slate-400 dark:text-slate-500 font-mono uppercase tracking-widest">
+                    {t('footer.rights')}
+                  </p>
+                </div>
               </div>
             </div>
           </div>

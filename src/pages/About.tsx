@@ -11,7 +11,12 @@ import {
   TrendingUp,
   Quote,
   ChevronUp,
-  ChevronDown
+  ChevronDown,
+  Shield,
+  Cpu,
+  Building2,
+  Network,
+  Scale
 } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
@@ -20,28 +25,7 @@ export function About() {
   const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState('experience');
   const [expandedDocs, setExpandedDocs] = useState<string[]>([]);
-  const [activeMilestone, setActiveMilestone] = useState(3);
-
-  const researchDocs = useMemo(() => [
-    {
-      id: 'rac',
-      title: t('about.research.docs.rac.title'),
-      desc: t('about.research.docs.rac.desc'),
-      icon: <FileText size={24} strokeWidth={1.5} />
-    },
-    {
-      id: 'snap',
-      title: t('about.research.docs.snap.title'),
-      desc: t('about.research.docs.snap.desc'),
-      icon: <Target size={24} strokeWidth={1.5} />
-    },
-    {
-      id: 'vita',
-      title: t('about.research.docs.vita.title'),
-      desc: t('about.research.docs.vita.desc'),
-      icon: <TrendingUp size={24} strokeWidth={1.5} />
-    }
-  ], [t]);
+  const [activeMilestone, setActiveMilestone] = useState(0);
 
   const experience = useMemo(() => [
     {
@@ -51,7 +35,7 @@ export function About() {
       org: t('about.journey.milestones.m1.org'),
       role: t('about.journey.milestones.m1.role'),
       desc: t('about.journey.milestones.m1.desc'),
-      icon: '🏛️'
+      icon: <Cpu size={24} />
     },
     {
       id: 'm2',
@@ -60,7 +44,7 @@ export function About() {
       org: t('about.journey.milestones.m2.org'),
       role: t('about.journey.milestones.m2.role'),
       desc: t('about.journey.milestones.m2.desc'),
-      icon: '🌐'
+      icon: <Building2 size={24} />
     },
     {
       id: 'm3',
@@ -69,7 +53,7 @@ export function About() {
       org: t('about.journey.milestones.m3.org'),
       role: t('about.journey.milestones.m3.role'),
       desc: t('about.journey.milestones.m3.desc'),
-      icon: '🛡️'
+      icon: <Network size={24} />
     },
     {
       id: 'm4',
@@ -78,7 +62,25 @@ export function About() {
       org: t('about.journey.milestones.m4.org'),
       role: t('about.journey.milestones.m4.role'),
       desc: t('about.journey.milestones.m4.desc'),
-      icon: '💎'
+      icon: <Scale size={24} />
+    },
+    {
+      id: 'm5',
+      year: t('about.journey.milestones.m5.year'),
+      title: t('about.journey.milestones.m5.title'),
+      org: t('about.journey.milestones.m5.org'),
+      role: t('about.journey.milestones.m5.role'),
+      desc: t('about.journey.milestones.m5.desc'),
+      icon: <Users size={24} />
+    },
+    {
+      id: 'm6',
+      year: t('about.journey.milestones.m6.year'),
+      title: t('about.journey.milestones.m6.title'),
+      org: t('about.journey.milestones.m6.org'),
+      role: t('about.journey.milestones.m6.role'),
+      desc: t('about.journey.milestones.m6.desc'),
+      icon: <Shield size={24} />
     }
   ], [t]);
 
@@ -133,9 +135,9 @@ export function About() {
       {/* Hero Section */}
       <section className="hero-section">
         <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-jade/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/4 pointer-events-none" />
-        <div className="container-wide relative">
+        <div className="container-wide relative text-center lg:text-left">
           <h1 className="label-uppercase">{t('about.hero.label')}</h1>
-          <h2 className="max-w-4xl">
+          <h2 className="max-w-4xl mx-auto lg:mx-0 text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
             {t('about.hero.title').split(' ').slice(0, -1).join(' ')} <br />
             <span className="text-brand-jade">{t('about.hero.title').split(' ').slice(-1)}</span>
           </h2>
@@ -145,12 +147,12 @@ export function About() {
       {/* Founder Section */}
       <section className="section-padding">
         <div className="container-wide">
-          <div className="bg-white dark:bg-slate-900 rounded-[4rem] p-12 md:p-24 border border-slate-200 dark:border-slate-800 shadow-2xl relative overflow-hidden">
+          <div className="bg-white dark:bg-slate-900 rounded-[2.5rem] md:rounded-[4rem] p-8 sm:p-12 md:p-24 border border-slate-200 dark:border-slate-800 shadow-2xl relative overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 bg-brand-jade/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl" />
             
-            <div className="relative grid lg:grid-cols-12 gap-20 items-start">
-              <div className="lg:col-span-3 sticky top-32 flex flex-col items-center text-center">
-                <div className="w-full aspect-square bg-slate-50 dark:bg-slate-800 rounded-full border border-slate-100 dark:border-slate-700 overflow-hidden relative group shadow-xl shadow-slate-200/50 mb-6">
+            <div className="relative grid lg:grid-cols-12 gap-12 md:gap-20 items-start">
+              <div className="lg:col-span-3 lg:sticky lg:top-32 flex flex-col items-center text-center">
+                <div className="w-48 h-48 sm:w-64 sm:h-64 lg:w-full aspect-square bg-slate-50 dark:bg-slate-800 rounded-full border border-slate-100 dark:border-slate-700 overflow-hidden relative group shadow-xl shadow-slate-200/50 mb-6">
                   <img 
                     src="/graham-oneill.jpg" 
                     alt="Graham F. O'Neill" 
@@ -169,9 +171,9 @@ export function About() {
               </div>
               
               <div className="lg:col-span-9">
-                <h3 className="text-4xl font-extrabold text-slate-900 dark:text-white mb-12 tracking-tight">{t('about.founder.title')}</h3>
-                <div className="prose prose-slate prose-xl max-w-none text-slate-600 dark:text-slate-400 leading-relaxed space-y-8">
-                  <p className="text-xl text-slate-900 dark:text-slate-100 font-medium border-l-4 border-brand-jade pl-8">
+                <h3 className="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white mb-8 md:mb-12 tracking-tight">{t('about.founder.title')}</h3>
+                <div className="prose prose-slate prose-lg md:prose-xl max-w-none text-slate-600 dark:text-slate-400 leading-relaxed space-y-6 md:space-y-8">
+                  <p className="text-lg md:text-xl text-slate-900 dark:text-slate-100 font-medium border-l-4 border-brand-jade pl-6 md:pl-8">
                     {t('about.founder.intro')}
                   </p>
                   <p>{t('about.founder.p1')}</p>
@@ -198,37 +200,37 @@ export function About() {
             <h3 className="tracking-tight text-white">{t('about.journey.title')}</h3>
           </div>
 
-          <div className="grid lg:grid-cols-12 gap-16 items-center">
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             {/* Timeline Visualization */}
             <div className="lg:col-span-5 relative">
-              <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-slate-800" />
+              <div className="absolute left-6 sm:left-8 top-0 bottom-0 w-0.5 bg-slate-800" />
               
-              <div className="space-y-12 relative">
+              <div className="space-y-8 md:space-y-12 relative">
                 {experience.map((milestone, i) => (
                   <motion.button
                     key={milestone.id}
                     onClick={() => setActiveMilestone(i)}
-                    className="flex items-center gap-8 w-full text-left group"
+                    className="flex items-center gap-6 sm:gap-8 w-full text-left group"
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.1 }}
                   >
-                    <div className={`relative z-10 w-16 h-16 rounded-2xl flex items-center justify-center transition-all duration-500 border-2 ${
+                    <div className={`relative z-10 w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl flex items-center justify-center transition-all duration-500 border-2 ${
                       activeMilestone === i 
                         ? 'bg-brand-jade border-brand-jade shadow-[0_0_30px_rgba(0,163,174,0.3)]' 
                         : 'bg-slate-900 border-slate-800 group-hover:border-slate-700'
                     }`}>
-                      <span className="text-2xl">{milestone.icon}</span>
+                      <span className="text-xl sm:text-2xl">{milestone.icon}</span>
                     </div>
                     
                     <div>
-                      <div className={`text-sm font-bold tracking-widest uppercase mb-1 transition-colors ${
+                      <div className={`text-[10px] sm:text-sm font-bold tracking-widest uppercase mb-1 transition-colors ${
                         activeMilestone === i ? 'text-brand-jade' : 'text-slate-500'
                       }`}>
                         {milestone.year}
                       </div>
-                      <div className={`text-xl font-bold transition-colors ${
+                      <div className={`text-lg sm:text-xl font-bold transition-colors ${
                         activeMilestone === i ? 'text-white' : 'text-slate-400 group-hover:text-slate-300'
                       }`}>
                         {milestone.title}
@@ -248,22 +250,22 @@ export function About() {
                   animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
                   exit={{ opacity: 0, y: -20, filter: 'blur(10px)' }}
                   transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                  className="bg-slate-800/50 backdrop-blur-xl border border-white/10 p-12 md:p-16 rounded-[3rem] shadow-2xl relative overflow-hidden"
+                  className="bg-slate-800/50 backdrop-blur-xl border border-white/10 p-8 sm:p-12 md:p-16 rounded-[2rem] md:rounded-[3rem] shadow-2xl relative overflow-hidden"
                 >
-                  <div className="absolute top-0 right-0 p-12 text-8xl opacity-5 pointer-events-none font-bold italic">
+                  <div className="absolute top-0 right-0 p-8 md:p-12 text-6xl md:text-8xl opacity-5 pointer-events-none font-bold italic">
                     {experience[activeMilestone].year}
                   </div>
                   
                   <div className="relative">
-                    <div className="inline-block px-4 py-1.5 bg-brand-jade/10 text-brand-jade text-xs font-bold uppercase tracking-widest rounded-full border border-brand-jade/20 mb-8">
+                    <div className="inline-block px-4 py-1.5 bg-brand-jade/10 text-brand-jade text-[10px] sm:text-xs font-bold uppercase tracking-widest rounded-full border border-brand-jade/20 mb-6 md:mb-8">
                       {experience[activeMilestone].org}
                     </div>
                     
-                    <h4 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">
+                    <h4 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">
                       {experience[activeMilestone].role}
                     </h4>
                     
-                    <p className="text-xl text-slate-300 leading-relaxed mb-8">
+                    <p className="text-lg sm:text-xl text-slate-300 leading-relaxed mb-8">
                       {experience[activeMilestone].desc}
                     </p>
                   </div>
@@ -304,73 +306,6 @@ export function About() {
         </div>
       </section>
 
-      {/* Research & Insights Section */}
-      <section className="section-padding bg-slate-50 dark:bg-slate-900 border-y border-slate-100 dark:border-slate-800">
-        <div className="container-wide">
-          <div className="grid lg:grid-cols-2 gap-20 items-start">
-            <div>
-              <h2 className="label-muted">{t('about.research.label')}</h2>
-              <h3 className="tracking-tight mb-8">{t('about.research.title')}</h3>
-              <p className="text-xl leading-relaxed mb-12">
-                {t('about.research.text')}
-              </p>
-              
-              <div className="space-y-6">
-                {researchDocs.map((doc) => {
-                  const isExpanded = expandedDocs.includes(doc.id);
-                  return (
-                    <div key={doc.id} className="card-base p-8 relative overflow-hidden group bg-white dark:bg-slate-800">
-                      <div className="flex gap-6">
-                        <div className="shrink-0 w-12 h-12 rounded-xl bg-slate-50 dark:bg-slate-900 flex items-center justify-center text-brand-jade border border-slate-100 dark:border-slate-800">
-                          {doc.icon}
-                        </div>
-                        <div className="flex-1">
-                          <h4 className="text-lg font-bold mb-2">{doc.title}</h4>
-                          <motion.div
-                            animate={{ height: isExpanded ? 'auto' : '3rem' }}
-                            className="overflow-hidden"
-                          >
-                            <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
-                              {doc.desc}
-                            </p>
-                          </motion.div>
-                          <button
-                            onClick={() => toggleDoc(doc.id)}
-                            className="mt-4 text-brand-jade font-bold text-xs uppercase tracking-widest flex items-center gap-2"
-                          >
-                            {isExpanded ? 'Read Less' : 'Read More'}
-                            {isExpanded ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-            
-            <div className="relative hidden lg:block">
-              <div className="aspect-square bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-800 rounded-[3rem] p-12 flex flex-col justify-between shadow-xl">
-                <div className="space-y-4">
-                  <div className="h-2 w-24 bg-brand-jade/20 rounded-full" />
-                  <div className="h-2 w-48 bg-slate-200 dark:bg-slate-700 rounded-full" />
-                  <div className="h-2 w-32 bg-slate-200 dark:bg-slate-700 rounded-full" />
-                </div>
-                <div className="flex justify-end">
-                  <div className="w-32 h-32 border-2 border-brand-jade/10 rounded-full flex items-center justify-center">
-                    <div className="w-16 h-16 border border-brand-jade/20 rounded-full animate-ping" />
-                  </div>
-                </div>
-                <div className="space-y-4">
-                  <div className="h-2 w-full bg-slate-100 dark:bg-slate-800 rounded-full" />
-                  <div className="h-2 w-2/3 bg-slate-100 dark:bg-slate-800 rounded-full" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Ecosystem Section */}
       <section className="section-padding bg-slate-950 text-white overflow-hidden relative">
         <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
@@ -405,19 +340,19 @@ export function About() {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {ecosystemPartners.map((partner) => (
               <div
                 key={partner.id}
                 className="p-6 rounded-xl border bg-white/5 border-white/10 hover:border-brand-jade/50 transition-all group"
               >
                 <div className="flex items-center justify-between mb-2">
-                  <h4 className="font-bold text-lg group-hover:text-brand-jade transition-colors">{partner.name}</h4>
+                  <h4 className="font-bold text-base sm:text-lg group-hover:text-brand-jade transition-colors">{partner.name}</h4>
                 </div>
-                <div className="text-sm font-bold mb-4 text-brand-jade">
+                <div className="text-[10px] sm:text-sm font-bold mb-4 text-brand-jade">
                   {partner.focus}
                 </div>
-                <p className="text-sm text-white/70 leading-relaxed">
+                <p className="text-xs sm:text-sm text-white/70 leading-relaxed">
                   {partner.context}
                 </p>
               </div>

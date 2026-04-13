@@ -73,18 +73,19 @@ export function Expertise() {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
+              className="text-center lg:text-left"
             >
               <h1 className="label-uppercase">{t('expertisePage.hero.label')}</h1>
-              <h2 className="mb-8">
+              <h2 className="mb-8 text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
                 {t('expertisePage.hero.title').split(' ').slice(0, -1).join(' ')} <br />
                 <span className="text-brand-jade">{t('expertisePage.hero.title').split(' ').slice(-1)}</span>
               </h2>
-              <p className="text-xl mb-10 max-w-xl">
-                We provide Independent Verification & Validation (IV&V) and Subject Matter Expert (SME) advisory to bridge the gap between legislative intent and operational reality.
+              <p className="text-lg md:text-xl mb-10 max-w-xl mx-auto lg:mx-0">
+                {t('expertisePage.hero.subtitle')}
               </p>
               
-              <div className="flex flex-wrap gap-4">
-                <Link to="/contact" className="px-8 py-4 bg-brand-jade text-white font-bold rounded-xl hover:bg-[#005a62] transition-all shadow-xl shadow-brand-jade/20 flex items-center gap-2">
+              <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
+                <Link to="/contact" className="w-full sm:w-auto px-8 py-4 bg-brand-jade text-white font-bold rounded-xl hover:bg-[#005a62] transition-all shadow-xl shadow-brand-jade/20 flex items-center justify-center gap-2">
                   Request Technical Deep-Dive
                   <ArrowRight size={20} />
                 </Link>
@@ -140,10 +141,10 @@ export function Expertise() {
               <div className="absolute inset-0 bg-brand-jade/5 rounded-[3rem] blur-3xl -z-10" />
               <div className="grid grid-cols-2 gap-4 w-full">
                 {[
-                  { key: 'discovery', color: 'bg-blue-500' },
-                  { key: 'mapping', color: 'bg-brand-jade' },
-                  { key: 'verification', color: 'bg-purple-500' },
-                  { key: 'certification', color: 'bg-emerald-500' }
+                  { key: 'discovery' },
+                  { key: 'mapping' },
+                  { key: 'verification' },
+                  { key: 'certification' }
                 ].map((phase, i) => (
                   <motion.div
                     key={phase.key}
@@ -152,7 +153,7 @@ export function Expertise() {
                     transition={{ delay: i * 0.1 }}
                     className="p-6 rounded-3xl bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 shadow-lg flex flex-col items-center text-center gap-4"
                   >
-                    <div className={`w-12 h-12 rounded-2xl ${phase.color} text-white flex items-center justify-center font-black text-xl shadow-lg`}>
+                    <div className="w-12 h-12 rounded-2xl bg-slate-100 dark:bg-slate-700 text-slate-900 dark:text-white flex items-center justify-center font-black text-xl border border-slate-200 dark:border-slate-600">
                       {i + 1}
                     </div>
                     <div className="text-[10px] font-bold uppercase tracking-widest text-slate-400">Phase 0{i + 1}</div>
@@ -160,6 +161,38 @@ export function Expertise() {
                 ))}
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Procurement Pathways Section */}
+      <section className="section-padding bg-white dark:bg-slate-950">
+        <div className="container-wide">
+          <div className="max-w-3xl mb-16">
+            <h2 className="label-muted">{t('expertisePage.engagements.label')}</h2>
+            <h3 className="tracking-tight">{t('expertisePage.engagements.title')}</h3>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            {Object.entries(t('expertisePage.engagements.pathways', { returnObjects: true }) as Record<string, { title: string, desc: string }>).map(([key, pathway], i) => (
+              <motion.div
+                key={key}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1 }}
+                className="p-8 rounded-[2.5rem] bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 hover:border-brand-jade/30 transition-all group"
+              >
+                <div className="w-12 h-12 rounded-2xl bg-white dark:bg-slate-800 shadow-sm flex items-center justify-center text-brand-jade mb-6 group-hover:bg-brand-jade group-hover:text-white transition-all">
+                  {key === 'sprints' && <Activity size={24} />}
+                  {key === 'advisory' && <Shield size={24} />}
+                  {key === 'integration' && <Network size={24} />}
+                </div>
+                <h4 className="text-xl font-bold mb-4">{pathway.title}</h4>
+                <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                  {pathway.desc}
+                </p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
@@ -210,10 +243,10 @@ export function Expertise() {
         </div>
         <div className="container-wide flex flex-col lg:flex-row gap-16">
         {/* Sidebar Navigation */}
-        <div className="lg:w-96 shrink-0 space-y-12">
-          <div className="p-8 rounded-card bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800">
-            <h3 className="label-muted mb-8">{t('expertisePage.commandCenter.pillars')}</h3>
-            <div className="space-y-3">
+        <div className="lg:w-96 shrink-0 space-y-8 lg:space-y-12">
+          <div className="p-6 md:p-8 rounded-card bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800">
+            <h3 className="label-muted mb-6 md:mb-8">{t('expertisePage.commandCenter.pillars')}</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3">
               {pillars.map((pillar, index) => (
                 <button
                   key={index}
@@ -221,16 +254,16 @@ export function Expertise() {
                     setActivePillar(index);
                     setActiveModule(0);
                   }}
-                  className={`w-full text-left p-5 rounded-2xl transition-all flex items-center gap-5 group ${
+                  className={`w-full text-left p-4 md:p-5 rounded-2xl transition-all flex items-center gap-4 md:gap-5 group ${
                     activePillar === index 
                       ? 'bg-brand-jade text-white shadow-2xl shadow-brand-jade/30 scale-[1.02]' 
                       : 'hover:bg-white dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 border border-transparent hover:border-slate-200 dark:hover:border-slate-700'
                   }`}
                 >
-                  <div className={`shrink-0 w-10 h-10 rounded-xl flex items-center justify-center ${activePillar === index ? 'bg-white/20 text-white' : 'bg-brand-jade/10 text-brand-jade group-hover:scale-110 transition-transform'}`}>
+                  <div className={`shrink-0 w-8 h-8 md:w-10 md:h-10 rounded-xl flex items-center justify-center ${activePillar === index ? 'bg-white/20 text-white' : 'bg-brand-jade/10 text-brand-jade group-hover:scale-110 transition-transform'}`}>
                     {pillar.icon}
                   </div>
-                  <span className="text-sm font-bold leading-tight">
+                  <span className="text-xs md:text-sm font-bold leading-tight">
                     {t(`expertisePage.expertise.pillars.${pillar.key}.title`)}
                   </span>
                 </button>
@@ -238,9 +271,9 @@ export function Expertise() {
             </div>
           </div>
 
-            <div className="p-8 rounded-card border border-slate-100 dark:border-slate-800">
-              <h3 className="label-muted mb-8">{t('expertisePage.commandCenter.capabilities')}</h3>
-              <div className="grid grid-cols-1 gap-2">
+            <div className="p-6 md:p-8 rounded-card border border-slate-100 dark:border-slate-800">
+              <h3 className="label-muted mb-6 md:mb-8">{t('expertisePage.commandCenter.capabilities')}</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-2">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={activePillar}
@@ -291,21 +324,21 @@ export function Expertise() {
               }}
               className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-[4rem] p-10 md:p-16 shadow-2xl h-full flex flex-col relative overflow-hidden"
             >
-              <div className="flex flex-col gap-12 relative z-10 h-full">
-                <div className="flex flex-col lg:flex-row justify-between items-start gap-12">
+              <div className="flex flex-col gap-8 md:gap-12 relative z-10 h-full">
+                <div className="flex flex-col lg:flex-row justify-between items-start gap-8 md:gap-12">
                   <div className="flex-1">
-                    <div className="flex items-center gap-6 mb-8">
-                      <div className="w-16 h-16 rounded-2xl bg-brand-jade/10 flex items-center justify-center text-brand-jade">
+                    <div className="flex items-center gap-4 md:gap-6 mb-6 md:mb-8">
+                      <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-brand-jade/10 flex items-center justify-center text-brand-jade">
                         {pillars[activePillar].modules[activeModule].icon}
                       </div>
                       <div>
                         <div className="label-uppercase mb-1">{t('expertisePage.commandCenter.capabilities')} {pillars[activePillar].modules[activeModule].id}</div>
-                        <h3 className="text-4xl md:text-5xl font-black tracking-tight">
+                        <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black tracking-tight">
                           {t(`expertisePage.expertise.pillars.${pillars[activePillar].key}.modules.${pillars[activePillar].modules[activeModule].key}.title`)}
                         </h3>
                       </div>
                     </div>
-                    <p className="text-xl leading-relaxed max-w-2xl">
+                    <p className="text-lg md:text-xl leading-relaxed max-w-2xl">
                       {t(`expertisePage.expertise.pillars.${pillars[activePillar].key}.modules.${pillars[activePillar].modules[activeModule].key}.desc`)}
                     </p>
                   </div>
@@ -324,7 +357,7 @@ export function Expertise() {
                 </div>
 
                 {/* Enlarged Module Graphic */}
-                <div className="flex-1 min-h-[400px] bg-slate-50/50 dark:bg-slate-950/50 rounded-[3rem] border border-slate-100 dark:border-slate-800 p-8 relative group/graphic">
+                <div className="flex-1 min-h-[300px] md:min-h-[400px] bg-slate-50/50 dark:bg-slate-950/50 rounded-[2rem] md:rounded-[3rem] border border-slate-100 dark:border-slate-800 p-4 md:p-8 relative group/graphic">
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="w-full h-full max-w-4xl">
                       <Suspense fallback={
@@ -419,28 +452,14 @@ export function Expertise() {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-16 items-center pt-24 border-t border-slate-200 dark:border-slate-800">
-            <div>
+          <div className="flex flex-col md:flex-row gap-12 items-center pt-24 border-t border-slate-200 dark:border-slate-800">
+            <div className="flex-1">
               <h3 className="text-3xl font-black mb-6">{t('expertisePage.cta.title')}</h3>
-              <p className="text-lg mb-8">
+              <p className="text-lg mb-0">
                 {t('expertisePage.cta.desc')}
               </p>
-              <div className="flex gap-12">
-                <div>
-                  <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">{t('expertisePage.cta.stats.capabilities')}</p>
-                  <p className="text-3xl font-black text-brand-jade">16</p>
-                </div>
-                <div>
-                  <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">{t('expertisePage.cta.stats.pillars')}</p>
-                  <p className="text-3xl font-black text-brand-jade">04</p>
-                </div>
-                <div>
-                  <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">{t('expertisePage.cta.stats.compliance')}</p>
-                  <p className="text-3xl font-black text-brand-jade">{t('expertisePage.cta.stats.federal')}</p>
-                </div>
-              </div>
             </div>
-            <div className="flex justify-end">
+            <div className="shrink-0">
               <a 
                 href="https://calendar.app.google/WiXHqdGmWaG5kxJQ7" 
                 target="_blank"

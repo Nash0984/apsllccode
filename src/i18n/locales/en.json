@@ -1,66 +1,60 @@
 {
+  "routes": {
+    "expertise": { "label": "Capabilities", "description": "Review our compliance frameworks, technical service models, and standard capability matrices." },
+    "about": { "label": "About", "description": "Examine our institutional background, federal tech ecosystem partners, and subject matter authority." },
+    "contact": { "label": "Contact", "description": "Initiate a dialogue regarding architectural deliverables, policy traceability, or systems alignment." }
+  },
   "nav": {
     "home": "Home",
-    "platform": "Expertise",
+    "platform": "Capabilities",
+    "insights": "Insights",
     "about": "About",
     "contact": "Contact",
-    "getInTouch": "Get in Touch"
+    "getInTouch": "Contact"
   },
   "home": {
     "hero": {
-      "title": "Strategic Advisory for Public Sector Modernization.",
-      "subtitle": "Applied Policy Systems LLC ensures that complex government administrative systems achieve absolute statutory fidelity through Independent Verification & Validation (IV&V) and Subject Matter Expert (SME) guidance.",
-      "cta": "Explore our Expertise"
+      "title": "Human-Centered Access. Deterministic Compliance.",
+      "subtitle": "We believe the foundation of public benefits access is built at the business rules layer. Applied Policy Systems translates strict federal statutes into plain-language, low-friction digital infrastructure that protects both the resident and the agency budget.",
+      "cta": "Technical Expertise"
     },
+    "trustBar": ["NIST 800-53", "FNS GUIDELINES", "IRS PUB 1075", "CMS MARS-E"],
+    "accessBar": ["SECTION 508", "WCAG 2.2 AA", "TITLE VI MANDATES", "PLAIN WRITING ACT"],
     "challenge": {
       "label": "The Implementation Gap",
-      "title": "Policy is written in statutes. Systems are built in code. We translate between the two.",
-      "text": "Public technology often fails when legislative mandates are lost in translation during software engineering. We bridge this gap by converting complex regulations into deterministic logic and actionable digital infrastructure.",
-      "solution": "We ensure that the 'Rules of the System' are a perfect reflection of the 'Rules of the Law'."
+      "title": "The Translation Layer.",
+      "text": "Public technology failures occur when legislative mandates are lost as they move from written law to operational systems. We mitigate this risk by converting complex regulations into deterministic business rules—engineering everything from core eligibility logic down to the exact document schemas required for accurate evidence triage. This ensures policy intent survives the transition into operational infrastructure.",
+      "solution": "We ensure system logic is a verifiable reflection of statutory requirements.",
+      "outputsLabel": "Technical Deliverables",
+      "outputsLead": "Representative outputs include:",
+      "outputs": ["Deterministic Logic Models", "Evidence Triage Schemas", "Rules Engine Architectures", "Policy Traceability Models", "Eligibility Logic Workflows", "Interagency Data Exchange Models", "Hybrid Logic & LLM Architectures"]
     },
     "infrastructure": {
       "label": "System Integrity",
       "title": "High-Fidelity Architecture.",
-      "text": "We architect secure frameworks for government agencies to deliver complex services with precision, protecting both the agency budget and the citizen experience.",
-      "cta": "Explore our Services"
+      "text": "We architect secure frameworks for government agencies to deliver complex services with precision, protecting agency budgets and the citizen experience.",
+      "cta": "Core Services"
     },
     "sandbox": {
-      "label": "Document Intelligence",
-      "title": "Designing for Administrative Clarity",
-      "text": "Modernization is only successful if it works for both the agency and the citizen. Our Document Intelligence demonstrator illustrates this balance—providing residents with immediate feedback on their requirements while ensuring the administration receives data that is 100% compliant with statutory mandates."
+      "label": "Demonstrator 01",
+      "title": "Live Consulting Demonstrator 01: Human-Centered Compliance",
+      "text": "This demonstrator illustrates the balance between administrative rigor and user access. It provides residents with immediate feedback on requirements while ensuring the administration receives data that is 100% compliant with statutory mandates."
     },
     "manual": {
-      "label": "Methodology",
-      "title": "Human-Centered Policy Access",
-      "text": "Policy is only as effective as its accessibility. Our Living Policy Manual demonstrator showcases the 'Rules as Code' methodology—transforming dense legislative text into an intuitive, conversational guide that empowers citizens while providing administrators with a mathematically provable source of truth."
-    },
-    "quickLinks": {
-      "platform": {
-        "title": "Our Services",
-        "desc": "Deep-dive IV&V and SME advisory for health and human services modernization.",
-        "action": "View Core Services"
-      },
-      "about": {
-        "title": "The Firm",
-        "desc": "Our mission, leadership, and empirical research into administrative outcomes.",
-        "action": "About APS"
-      },
-      "contact": {
-        "title": "Consultation",
-        "desc": "Schedule a formal architectural review or statutory mapping workshop.",
-        "action": "Get in Touch"
-      }
+      "label": "Demonstrator 02",
+      "title": "Live Consulting Demonstrator 02: Threat Diagnostic Verification",
+      "text": "This demonstrator showcases the 'Rules as Code' methodology—transforming dense legislative text into an intuitive, conversational guide that provides administrators with a mathematically provable source of truth."
     }
   },
   "contactPage": {
     "hero": {
       "label": "Consultation",
-      "title": "Start the conversation.",
-      "subtitle": "Whether you're a government agency looking to modernize or a technology vendor seeking policy alignment, our architectural experts are ready to consult."
+      "title": "Technical Intake.",
+      "subtitle": "Contact our architectural experts for government modernization or technology vendor policy alignment."
     },
     "ai": {
-      "title": "Consult with our AI Assistant",
-      "desc": "Our specialized consulting assistant can help triage your needs and provide immediate architectural insights."
+      "title": "Architectural Triage",
+      "desc": "Our specialized consulting assistant triages technical needs and provides immediate architectural insights."
     },
     "direct": {
       "label": "Direct Channels",
@@ -69,9 +63,9 @@
       "location": "Location"
     },
     "cta": {
-      "title": "Ready for a deep dive?",
-      "desc": "Our team is available for formal architectural reviews, statutory mapping workshops, and modernization strategy sessions.",
-      "action": "Schedule a Session"
+      "title": "Architectural Review",
+      "desc": "The team is available for formal architectural reviews, statutory mapping workshops, and modernization strategy sessions.",
+      "action": "Schedule Session"
     }
   },
   "about": {
@@ -81,8 +75,8 @@
     },
     "founder": {
       "title": "Graham O'Neill, Founder & Principal Consultant",
-      "intro": "Graham O’Neill is a public sector innovator with over 15 years of experience optimizing complex government systems.",
-      "p1": "His career is defined by successfully translating legislative mandates into compliant digital infrastructure. From municipal revenue operations to federal advisory roles, Graham has consistently focused on making policy work for the people it is intended to serve by aligning written regulations with operational realities.",
+      "intro": "Graham O’Neill has over 15 years of experience optimizing complex government systems.",
+      "p1": "His career focuses on translating legislative mandates into plain-language, deterministic infrastructure. From municipal revenue operations to federal advisory roles, Graham aligns written regulations with operational realities.",
       "p2": "Before founding Applied Policy Systems LLC, Graham held senior leadership positions across all levels of government, specializing in the structural evaluation of benefits access and the modernization of tax administration programs."
     },
     "performance": {
@@ -91,64 +85,82 @@
     },
     "research": {
       "label": "Research & Insights",
-      "title": "Insights to improve service delivery and policy fidelity.",
-      "text": "Our methodology is rooted in rigorous data analysis and historical context. We publish frameworks that bridge the gap between legislative intent and administrative reality.",
+      "title": "Service Delivery & Policy Fidelity.",
+      "text": "Our methodology is rooted in data analysis and historical context. We publish frameworks that bridge the gap between legislative intent and administrative reality.",
       "docs": {
-        "rac": {
-          "title": "Rules as Code (RaC) Implementation",
-          "desc": "A technical guide on translating subjective policy into deterministic logic. This framework covers the entire lifecycle from legislative analysis to rigorous logic testing, ensuring legislative intent is preserved through digital transformation."
+        "per": {
+          "title": "The 25-Year PER Dataset",
+          "desc": "A longitudinal analysis of Payment Error Rates and strict fiscal compliance tolerances."
         },
-        "snap": {
-          "title": "SNAP Payment Error Rate Mitigation",
-          "desc": "Root cause analysis and operational frameworks to improve payment accuracy and audit compliance. Our research identifies key friction points in eligibility reviews and provides evidence-based recommendations for reducing churn."
+        "trbv": {
+          "title": "TRBV Framework",
+          "desc": "Targeted Rule-Based Verification metrics to isolate Business Rules Engine calculation failures."
         },
-        "vita": {
-          "title": "VITA Infrastructure Integration",
-          "desc": "Designing seamless data flows between tax services and state benefit systems. This study explores technical and policy requirements for real-time data sharing, focusing on privacy-preserving protocols to maximize benefit uptake."
+        "glassbox": {
+          "title": "The Glass Box Ingestion Framework",
+          "desc": "Transparent data integration models ensuring automated determinations remain fully auditable."
+        },
+        "irc7216": {
+          "title": "IRC § 7216 Compliance",
+          "desc": "Architectural blueprints for securing tax return information within primary welfare program eligibility logic."
         }
       }
     },
     "journey": {
       "label": "Career Journey",
-      "title": "A Legacy of Systems Optimization.",
+      "title": "Systems Optimization History.",
       "milestones": {
         "m1": {
-          "year": "2011",
-          "title": "Municipal Impact",
-          "org": "City of Philadelphia",
-          "role": "Administrator of Taxpayer Assistance",
-          "desc": "Directed the \"You Earned It Philly\" EITC initiative, returning over $44 million to 26,000 residents and establishing a model for municipal tax credit outreach."
+          "year": "Current",
+          "title": "Systems Architecture",
+          "org": "Applied Policy Systems",
+          "role": "Founder & Principal Architect",
+          "desc": "Architects 'Rules Engine' prototypes combining Large Language Models and deterministic logic engines to automate public benefits eligibility and secure tax filing."
         },
         "m2": {
-          "year": "2016",
-          "title": "National Strategy",
-          "org": "Prosperity Now",
-          "role": "Policy Strategist",
-          "desc": "Acted as a national liaison for tax administration programs, integrating federal financial regulations into community-based infrastructure across the U.S."
+          "year": "Previous",
+          "title": "State Executive Leadership",
+          "org": "Maryland DHS",
+          "role": "Director of Benefits Access",
+          "desc": "Executed the Predictive Benefits Access Initiative, integrating state IT infrastructure with plain language mandates to prevent procedural drop-offs."
         },
         "m3": {
-          "year": "2019",
-          "title": "State Operations",
-          "org": "Maryland DHS",
-          "role": "Director of Operations",
-          "desc": "Evaluated and guided modernization strategies for benefits access, focusing on human-centered design and translating legislative mandates into operational systems."
+          "year": "Civic Tech",
+          "title": "Data Integration",
+          "org": "Code for America",
+          "role": "Technical Collaborator",
+          "desc": "Architected data-sharing agreements and integration logic for civic tech prototypes to ensure alignment with state IT security parameters."
         },
         "m4": {
-          "year": "2023",
+          "year": "National Policy",
+          "title": "Policy Translation",
+          "org": "Prosperity Now",
+          "role": "Tax Policy Strategist",
+          "desc": "Operated as a subject matter expert integrating public benefits and tax administration. Directed national policy initiatives and evaluated IRS quality control."
+        },
+        "m5": {
+          "year": "Multi-State",
+          "title": "Frontline Verification",
+          "org": "Benefits Data Trust",
+          "role": "Public Policy & Benefits Quality Specialist",
+          "desc": "Conducted direct client application assistance and utilized this engagement to author standard operating procedures and facilitate systemic quality control across multiple state jurisdictions."
+        },
+        "m6": {
+          "year": "Federal",
           "title": "Federal Advisory",
-          "org": "Applied Policy Systems",
-          "role": "Founder & Federal Advisor",
-          "desc": "Founded APS to bridge the policy-implementation gap. Appointed to a federal advisory committee advising Congress and the IRS on electronic tax administration."
+          "org": "ETAAC",
+          "role": "Advisory Committee Member",
+          "desc": "Serves in a concurrent advisory capacity to Congress and the IRS on electronic tax administration, providing subject matter expertise on federal privacy frameworks."
         }
       }
     },
     "impact": {
       "label": "Measurable Impact",
-      "title": "Proven Results in Public Administration.",
+      "title": "Results in Public Administration.",
       "stats": {
         "citizen": {
           "value": "$44M+",
-          "label": "Direct Citizen Benefit",
+          "label": "Citizen Benefit",
           "desc": "Tax credits returned to Philadelphia residents through the 'You Earned It Philly' initiative."
         },
         "funding": {
@@ -159,23 +171,23 @@
         "execution": {
           "value": "15+",
           "label": "Years of Execution",
-          "desc": "A career dedicated to optimizing public systems at municipal, state, and federal levels."
+          "desc": "Career dedicated to optimizing public systems at municipal, state, and federal levels."
         }
       }
     },
     "ecosystem": {
       "label": "Ecosystem & Strategic Engagements",
-      "title": "Graham's History of Collaboration with National Leaders.",
-      "desc": "The following descriptions outline the operational expertise and network collaborations of the firm's Principal Consultant.",
-      "quote": "Applied Policy Systems LLC is built on a foundation of deep professional history. Throughout his career, Graham has collaborated with national experts in implementation, evaluation, and design, ensuring that our methodology is informed by the collective intelligence of the civic tech ecosystem.",
+      "title": "Professional Collaboration History.",
+      "desc": "Operational expertise and network collaborations of the Principal Consultant.",
+      "quote": "Applied Policy Systems LLC is built on a foundation of deep professional history. Graham has collaborated with national experts in implementation, evaluation, and design, ensuring our methodology is informed by the civic tech ecosystem.",
       "partners": {
-        "nava": { "name": "Nava PBC", "focus": "Technical Architecture", "context": "Coordinated technical planning for AI-powered software and real-time dashboards within state benefit systems, focusing on synthetic data environments and statutory verification." },
-        "usdr": { "name": "U.S. Digital Response (USDR)", "focus": "Root Cause Analysis", "context": "Managed discovery sprints and root cause analysis to reduce SNAP Payment Error Rates (PER) and mitigate recertification churn in public benefit systems." },
-        "cfa": { "name": "Code for America", "focus": "Civic Tech Integration", "context": "Secured operational partnerships to deploy virtual tax software and collaborated on human-centered design for public benefit notices and caseworker analytics." },
-        "arnold": { "name": "Arnold Ventures", "focus": "Project Architecture", "context": "Authored foundational proposals for multi-stakeholder data science initiatives, establishing pathways to address SNAP accuracy through predictive modeling." },
-        "rfa": { "name": "Results for America", "focus": "Evidence-Based Evaluation", "context": "Oversaw randomized controlled trial evaluations for municipal program performance, aligning local initiatives with evidence-based policy standards." },
+        "nava": { "name": "Nava PBC", "focus": "Technical Architecture", "context": "Coordinated technical planning for software and real-time dashboards within state benefit systems, focusing on synthetic data environments and statutory verification." },
+        "usdr": { "name": "U.S. Digital Response (USDR)", "focus": "Root Cause Analysis", "context": "Managed discovery sprints and root cause analysis to reduce SNAP Payment Error Rates (PER) and mitigate recertification churn." },
+        "cfa": { "name": "Code for America", "focus": "Civic Tech Integration", "context": "Secured operational partnerships to deploy virtual tax software and collaborated on human-centered design for public benefit notices." },
+        "arnold": { "name": "Arnold Ventures", "focus": "Project Architecture", "context": "Authored proposals for multi-stakeholder data science initiatives, establishing pathways to address SNAP accuracy through predictive modeling." },
+        "rfa": { "name": "Results for America", "focus": "Evidence-Based Evaluation", "context": "Oversaw randomized controlled trial evaluations for municipal program performance, aligning initiatives with evidence-based policy standards." },
         "prosperity": { "name": "Prosperity Now", "focus": "National Policy Strategy", "context": "Served as a national policy liaison to the IRS, FDIC, and CFPB, integrating federal tax programs into local financial infrastructure." },
-        "cwf": { "name": "Campaign for Working Families", "focus": "Strategic Development", "context": "Directed operational partnerships and secured over $2.2 million in grant funding to scale community-based financial services and civic technology." },
+        "cwf": { "name": "Campaign for Working Families", "focus": "Strategic Development", "context": "Directed operational partnerships and secured over $2.2 million in grant funding to scale community-based financial services." },
         "civilla": { "name": "Civilla", "focus": "Service Design", "context": "Applied service design research and digital identity patterns to inform system architecture evaluations and human-centered public benefit forms." }
       }
     }
@@ -183,50 +195,32 @@
   "expertisePage": {
     "hero": {
       "label": "Core Services",
-      "title": "Independent Verification & Validation."
+      "title": "Independent Verification & Validation.",
+      "subtitle": "Applied Policy Systems LLC serves as The Translation Layer, providing Independent Verification & Validation (IV&V) and Subject Matter Expert (SME) advisory to ensure absolute statutory fidelity."
     },
     "expertise": {
       "label": "Strategic Pillars",
-      "title": "A multi-dimensional framework for system integrity.",
+      "title": "System Integrity Framework.",
       "pillars": {
         "fidelity": {
           "title": "Statutory Verification & Fidelity",
-          "desc": "Independent verification frameworks that ensure complex administrative systems remain strictly aligned with the written law.",
+          "desc": "Independent verification frameworks that ensure administrative systems remain strictly aligned with the written law.",
           "modules": {
             "isolation": {
               "title": "Jurisdictional Isolation Architecture",
-              "desc": "Absolute data sovereignty for complex federal/state hierarchies, ensuring localized operations never compromise the global security baseline.",
-              "features": {
-                "security": { "name": "Fail-Closed Security", "detail": "Defaults to strict federal privacy baselines, ensuring compliance prior to localized configuration." },
-                "environments": { "name": "Isolated Environments", "detail": "Geographic boundaries act as secure, isolated vaults for administrative rule application." },
-                "audit": { "name": "Immutable Audit Trails", "detail": "Every system action is logged with strict jurisdictional context for transparent federal oversight." }
-              }
+              "desc": "Absolute data sovereignty for complex federal/state hierarchies, ensuring localized operations never compromise the global security baseline."
             },
             "math": {
               "title": "Mathematical Policy Verification",
-              "desc": "Formal logic environment allowing policymakers to mathematically prove that system rules match the written law.",
-              "features": {
-                "proofs": { "name": "Formal Logic Proofs", "detail": "Translates statutes into axioms to prove logic contains no dead-ends or loopholes." },
-                "simulation": { "name": "Scenario Simulation", "detail": "Simulates policy changes against historical data to project caseload and financial impacts." },
-                "prevention": { "name": "Regression Prevention", "detail": "Ensures localized waivers do not break the federal compliance baseline for the state." }
-              }
+              "desc": "Formal logic environment allowing policymakers to mathematically prove that system rules match the written law."
             },
             "certification": {
               "title": "Statutory Certification Hub",
-              "desc": "Centralized tracking of legislative changes and federal certification requirements (MES/CMS/FNS).",
-              "features": {
-                "mapping": { "name": "Legislative Mapping", "detail": "Maps pending bills directly to the software rules they impact, ensuring synchronous evolution." },
-                "readiness": { "name": "Certification Readiness", "detail": "Automatically structures system artifacts into the precise formats required for federal funding." }
-              }
+              "desc": "Centralized tracking of legislative changes and federal certification requirements (MES/CMS/FNS)."
             },
             "bias": {
               "title": "Algorithmic Bias Monitoring",
-              "desc": "Mandatory oversight ensuring system-generated outcomes remain equitable, transparent, and legally defensible.",
-              "features": {
-                "detection": { "name": "Bias Detection", "detail": "Continuously monitors outcomes for systemic disparities in location or demographic data." },
-                "auditing": { "name": "Logic Tree Auditing", "detail": "Logs the exact parameters and logic utilized for every machine-driven determination." },
-                "integrity": { "name": "Source Integrity Alerts", "detail": "Alerts administrators if external data integrations return anomalous or low-confidence results." }
-              }
+              "desc": "Mandatory oversight ensuring system-generated outcomes remain equitable, transparent, and legally defensible."
             }
           }
         },
@@ -236,39 +230,19 @@
           "modules": {
             "qc": {
               "title": "Enterprise Quality Control (QC)",
-              "desc": "A unified auditing engine ensuring cross-program eligibility reviews (SNAP/Medicaid) remain strictly compliant.",
-              "features": {
-                "sampling": { "name": "Intelligent Sampling", "detail": "Automatically routes high-risk cases to QC reviewers based on federal guidelines." },
-                "diagnostics": { "name": "Root Cause Diagnostics", "detail": "Determines if errors originated from client omission, caseworker entry, or policy misconfiguration." },
-                "feedback": { "name": "Remediation Feedback", "detail": "Creates a loop between audit findings and operations to address systemic trends proactively." }
-              }
+              "desc": "A unified auditing engine ensuring cross-program eligibility reviews (SNAP/Medicaid) remain strictly compliant."
             },
             "per": {
               "title": "SNAP PER Mitigation Engine",
-              "desc": "Specialized financial compliance for SNAP, managing strict tolerances to prevent federal overpayment sanctions.",
-              "features": {
-                "scoring": { "name": "Pre-Auth Risk Scoring", "detail": "Flags high-variance cases (fluctuating income) for secondary review prior to benefit issuance." },
-                "dashboards": { "name": "Tolerance Dashboards", "detail": "Visualizes over/underpayment rates against FNS national thresholds in real-time." },
-                "tracking": { "name": "Liability Tracking", "detail": "Distinguishes between agency and client errors to generate required Corrective Action Plans." }
-              }
+              "desc": "Specialized financial compliance for SNAP, managing strict tolerances to prevent federal overpayment sanctions."
             },
             "abawd": {
               "title": "ABAWD Compliance Management",
-              "desc": "Automates the complex 3-in-36 month time-limit tracking, reducing procedural friction for caseworkers and citizens.",
-              "features": {
-                "exemptions": { "name": "Proactive Exemptions", "detail": "Scans integrated databases to identify statutory exemptions without redundant paperwork." },
-                "clock": { "name": "Clock Management", "detail": "Precisely tracks countable months and geographic waivers across labor market areas." },
-                "reporting": { "name": "Activity Reporting", "detail": "Simplified mobile interfaces for logging work hours, minimizing procedural drop-offs." }
-              }
+              "desc": "Automates the complex 3-in-36 month time-limit tracking, reducing procedural friction for caseworkers and citizens."
             },
             "rbac": {
               "title": "Precision Access Control (RBAC)",
-              "desc": "A granular access matrix coordinating work across applicants, caseworkers, and adjudicators with zero data leakage.",
-              "features": {
-                "workflows": { "name": "Persona-Based Workflows", "detail": "Isolates capabilities across distinct roles, from intake staff to administrative law judges." },
-                "generation": { "name": "Dynamic UI Generation", "detail": "Interfaces are generated server-side based on security clearance, preventing unauthorized data exposure." },
-                "handoffs": { "name": "Secure Handoffs", "detail": "Routes cases between departments without exposing PII to unauthorized internal personnel." }
-              }
+              "desc": "A granular access matrix coordinating work across applicants, caseworkers, and adjudicators with zero data leakage."
             }
           }
         },
@@ -278,39 +252,19 @@
           "modules": {
             "rac": {
               "title": "Rules Engine (RaC)",
-              "desc": "A legally grounded Rules Engine translating legislative text into machine-executable logic using a Rules-as-Code methodology.",
-              "features": {
-                "renewals": { "name": "Data-Driven Renewals", "detail": "Facilitates eligibility reviews via external data integration, removing manual calculation burden while maintaining strict policy adherence." },
-                "communications": { "name": "Statutory Communications", "detail": "Generates required notices (NOMI) based on real-time case status changes, ensuring procedural compliance." },
-                "workspace": { "name": "Policy Workspace", "detail": "Structured environment for updating program parameters without hardcoded software changes." }
-              }
+              "desc": "A legally grounded Rules Engine translating legislative text into machine-executable logic using a Rules-as-Code methodology."
             },
             "burden": {
               "title": "Administrative Burden Analytics",
-              "desc": "Quantifies the friction placed on citizens and staff, replacing self-reported metrics with provable data.",
-              "features": {
-                "calculation": { "name": "Burden Calculation", "detail": "Computes exact processing time reductions and drop-off rates following new initiatives." },
-                "diagnostics": { "name": "Churn Diagnostics", "detail": "Isolates applications denied due to paperwork friction rather than statutory ineligibility." },
-                "reporting": { "name": "Compliance Reporting", "detail": "Aggregates data to satisfy federal mandates regarding administrative hurdle reduction." }
-              }
+              "desc": "Quantifies the friction placed on citizens and staff, replacing self-reported metrics with provable data."
             },
             "gateway": {
               "title": "Financial Data & Tax Gateway",
-              "desc": "Secure integration hub managing complex financial parameters and tax routing to support income verification.",
-              "features": {
-                "infrastructure": { "name": "E-Filing Infrastructure", "detail": "Monitored pipeline for secure data transmission adhering to federal tax standards." },
-                "parameters": { "name": "Dynamic Parameters", "detail": "Allows updates to localized tax rates and deduction thresholds without code changes." },
-                "verification": { "name": "Instant Verification", "detail": "Interfaces with workforce databases to validate income, reducing manual paystub reliance." }
-              }
+              "desc": "Secure integration hub managing complex financial parameters and tax routing to support income verification."
             },
             "api": {
               "title": "Interoperability API Gateway",
-              "desc": "Comprehensive integration layer designed to prevent vendor lock-in and connect disparate state/federal systems.",
-              "features": {
-                "sandbox": { "name": "Developer Sandbox", "detail": "Secure access to API documentation and testing environments for internal IT teams." },
-                "webhooks": { "name": "Webhook Infrastructure", "detail": "Modern architecture for real-time data synchronization across disparate databases." },
-                "cryptography": { "name": "Payload Cryptography", "detail": "Enforces strict security standards on all inbound and outbound API requests." }
-              }
+              "desc": "Comprehensive integration layer designed to prevent vendor lock-in and connect disparate state/federal systems."
             }
           }
         },
@@ -320,64 +274,62 @@
           "modules": {
             "adjudication": {
               "title": "Administrative Adjudication",
-              "desc": "Legally robust framework for managing fair hearings and appeals with full historical context for judges.",
-              "features": {
-                "snapshots": { "name": "Immutable Snapshots", "detail": "Captures the exact household data and rules active at the time of the original denial." },
-                "automation": { "name": "Docket Automation", "detail": "Manages scheduling and noticing to prevent statutory deadlines from being missed." },
-                "resolution": { "name": "Pre-Hearing Resolution", "detail": "Routes contested cases to senior staff to overturn clear errors before judicial review." }
-              }
+              "desc": "Legally robust framework for managing fair hearings and appeals with full historical context for judges."
             },
             "portal": {
               "title": "Omnichannel Citizen Portal",
-              "desc": "Mobile-responsive self-service hub diverting traffic from call centers by empowering citizens to manage cases.",
-              "features": {
-                "hub": { "name": "Unified Case Hub", "detail": "Secure portal for checking status, reporting changes, and digital document uploads." },
-                "communications": { "name": "Communications Engine", "detail": "Logs all correspondence across mail, email, and SMS for an indisputable audit trail." },
-                "navigator": { "name": "Navigator Interfaces", "detail": "Specialized displays for community assisters to triage inquiries and troubleshoot cases." }
-              }
+              "desc": "Mobile-responsive self-service hub diverting traffic from call centers by empowering citizens to manage cases."
             },
             "academy": {
               "title": "Workforce Training Academy",
-              "desc": "Embeds training directly into the production environment to address staff turnover and policy complexity.",
-              "features": {
-                "lessons": { "name": "Contextual Lessons", "detail": "Delivers role-specific training modules directly within the user's daily workflows." },
-                "simulations": { "name": "Sandboxed Simulations", "detail": "Allows staff to practice on synthetic cases that mimic the live production system." },
-                "tracking": { "name": "Proficiency Tracking", "detail": "Dashboards tracking training completion to identify knowledge gaps before errors occur." }
-              }
+              "desc": "Embeds training directly into the production environment to address staff turnover and policy complexity."
             },
             "enrollment": {
               "title": "Cross-Enrollment Engine",
-              "desc": "Automatically identifies eligibility overlaps across programs to maximize citizen access to benefits.",
-              "features": {
-                "matching": { "name": "Program Matching", "detail": "Scans client index to flag households receiving one benefit that likely qualify for others." },
-                "bridging": { "name": "Application Bridging", "detail": "Pre-populates secondary applications with verified data to eliminate redundant entry." },
-                "analytics": { "name": "Holistic Analytics", "detail": "Cross-program dashboards to measure the success of horizontal integration initiatives." }
-              }
+              "desc": "Automatically identifies eligibility overlaps across programs to maximize citizen access to benefits."
             }
           }
+        }
+      }
+    },
+    "engagements": {
+      "label": "Procurement Pathways",
+      "title": "Strategic Engagement Models.",
+      "pathways": {
+        "sprints": {
+          "title": "Threat Diagnostic Sprints",
+          "desc": "Rapid evaluation of existing system logic to identify statutory drift and fiscal risk."
+        },
+        "advisory": {
+          "title": "IV&V Procurement Advisory",
+          "desc": "Independent oversight and requirements drafting for large-scale modernization tenders."
+        },
+        "integration": {
+          "title": "Prime SME Integration",
+          "desc": "Embedding specialized policy-to-code expertise within prime contractor delivery teams."
         }
       }
     },
     "lifecycle": {
       "label": "The Methodology",
       "title": "The Modernization Lifecycle",
-      "subtitle": "Our four-phase approach to achieving absolute statutory fidelity.",
+      "subtitle": "A four-phase approach to achieving absolute statutory fidelity.",
       "phases": {
         "discovery": {
-          "title": "Statutory Discovery",
-          "desc": "We deconstruct complex legislative mandates into a library of atomic logical axioms."
+          "title": "Statutory Translation",
+          "desc": "Deconstructing legislative text into atomic logical axioms for system ingestion."
         },
         "mapping": {
-          "title": "Architectural Mapping",
-          "desc": "Mapping logical axioms to system requirements to ensure every line of code has a statutory parent."
+          "title": "Burden Reduction Design",
+          "desc": "Architecting workflows that minimize administrative friction while maintaining strict compliance."
         },
         "verification": {
-          "title": "Logic Verification",
-          "desc": "Rigorous testing of system rules against edge cases and historical data to prove compliance."
+          "title": "Deterministic Verification",
+          "desc": "Rigorous logic testing to prove that system behavior matches the statutory parent."
         },
         "certification": {
-          "title": "Continuous Certification",
-          "desc": "Real-time monitoring and auditing to ensure system integrity as policy and technology evolve."
+          "title": "Audit Compliance",
+          "desc": "Continuous monitoring and artifact generation for federal certification and audit defense."
         }
       }
     },
@@ -392,28 +344,28 @@
     },
     "audiences": {
       "label": "Target Audiences",
-      "title": "Creating systemic impact across sectors.",
+      "title": "Systemic impact across sectors.",
       "trusted": {
         "label": "Trusted Advisory",
-        "title": "Official Recommendations to the IRS Commissioner on Digital Infrastructure Standards."
+        "title": "Recommendations to the IRS Commissioner on Digital Infrastructure Standards."
       },
       "agencies": {
         "title": "State & Municipal Agencies",
-        "desc": "Protecting agency budgets from federal audit penalties through executive policy formulation and rigorous modernization strategy."
+        "desc": "Protecting agency budgets from federal audit penalties through executive policy formulation and modernization strategy."
       },
       "vendors": {
         "title": "GovTech Vendors",
-        "desc": "Supplying the exact logical parameters and 'Rules-as-Code' blueprints required to build compliant, auditable public sector software."
+        "desc": "Supplying logical parameters and 'Rules-as-Code' blueprints required for compliant, auditable public sector software."
       },
       "coalitions": {
         "title": "Community Coalitions",
-        "desc": "Designing service delivery models that eliminate documentation barriers and renewal churn for vulnerable populations."
+        "desc": "Designing service delivery models that eliminate documentation barriers and renewal churn."
       }
     },
     "cta": {
-      "title": "Ready to Modernize?",
-      "desc": "Our modular infrastructure is designed to be deployed incrementally, ensuring zero downtime and immediate statutory compliance.",
-      "action": "Start Architectural Consultation",
+      "title": "Modernization Strategy",
+      "desc": "Modular infrastructure designed for incremental deployment, ensuring zero downtime and statutory compliance.",
+      "action": "Technical Consultation",
       "stats": {
         "capabilities": "Core Capabilities",
         "pillars": "Strategic Pillars",
@@ -426,6 +378,28 @@
     "privacy": "Privacy Policy",
     "terms": "Terms of Service",
     "contact": "Contact",
+    "location": "Philadelphia, PA",
     "rights": "© 2026 Applied Policy Systems LLC. All Rights Reserved."
+  },
+  "insightsPage": {
+    "hero": {
+      "label": "Intellectual Property",
+      "title": "Research & Interactive Blueprints.",
+      "subtitle": "Empirical analysis and executable architectural models demonstrating our methodology for translating federal statutes into operational infrastructure."
+    },
+    "blueprints": {
+      "label": "Executable Blueprints",
+      "title": "Hybrid Rules Engine Prototypes",
+      "documentTool": {
+        "label": "Demonstrator 01",
+        "title": "Document Upload Tool",
+        "desc": "A technical blueprint derived from state-level plain-language mandates. It acts as a reference architecture showing Prime Integrators how to structure evidence triage schemas without violating human-in-the-loop compliance."
+      },
+      "policyManual": {
+        "label": "Demonstrator 02",
+        "title": "Living Policy Manual",
+        "desc": "A direct output of our Threat Diagnostic Sprints. It demonstrates how Large Language Models and deterministic logic engines are combined to map statutory requirements directly to calculation logic."
+      }
+    }
   }
 }
