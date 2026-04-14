@@ -104,7 +104,7 @@
         },
         "glassbox": {
           "title": "The Glass Box Ingestion Framework",
-          "desc": "Transparent data integration models ensuring automated determinations remain fully auditable."
+          "desc": "Data integration models ensuring automated calculations are executed fully, transparently, and with minimal burden on both the resident and the administration, while remaining entirely auditable for human adjudicators."
         },
         "irc7216": {
           "title": "IRC § 7216 Compliance",
@@ -121,7 +121,7 @@
           "title": "Systems Architecture",
           "org": "Applied Policy Systems",
           "role": "Founder & Principal Architect",
-          "desc": "Architects 'Rules Engine' prototypes combining Large Language Models and deterministic logic engines to automate public benefits eligibility and secure tax filing."
+          "desc": "Architects 'Rules Engine' prototypes combining Large Language Models and deterministic logic engines to automate public benefits eligibility calculations and evidence triage, ensuring mathematical accuracy for human adjudicators."
         },
         "m2": {
           "year": "Previous",

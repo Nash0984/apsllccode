@@ -6,29 +6,33 @@ import { ArrowUpRight, Shield, Binary, Lock, Activity } from 'lucide-react';
 
 const ArchitectureVisualization = lazy(() => import('../components/ArchitectureVisualization').then(m => ({ default: m.ArchitectureVisualization })));
 
-export function Expertise() {
+export function Capabilities() {
   const { t } = useTranslation();
 
   const coreCapabilities = [
     { 
       title: "Hybrid Rules Engine Architecture",
       desc: "Architecting public benefits eligibility and tax filing systems using a hybrid intelligence model. This combines Large Language Models (LLMs) for plain-language triage with deterministic logic engines to ensure mathematical statutory compliance.",
-      icon: <Binary className="text-brand-jade mb-6" size={32} />
+      icon: <Binary className="text-brand-jade mb-6" size={32} />,
+      deliverables: ["Deterministic Logic Models", "Rules Engine Architectures", "Hybrid Logic & LLM Architectures"]
     },
     { 
       title: "SNAP PER & Fiscal Risk Mitigation",
       desc: "Root cause analysis and systemic diagnostics for Supplemental Nutrition Assistance Program (SNAP) Payment Error Rates (PER). We identify whether calculation failures originate from administrative workflows or core Business Rules Engine logic to prevent federal sanctions.",
-      icon: <Activity className="text-brand-jade mb-6" size={32} />
+      icon: <Activity className="text-brand-jade mb-6" size={32} />,
+      deliverables: ["Evidence Triage Schemas", "Eligibility Logic Workflows"]
     },
     { 
       title: "Federal Tax Data & Privacy Compliance",
       desc: "Architectural blueprinting for the secure integration of tax administration and primary welfare programs. This includes strict adherence to IRS Publication 1075 and IRC § 7216 requirements when handling cross-enrollment data and civic tech integrations.",
-      icon: <Lock className="text-brand-jade mb-6" size={32} />
+      icon: <Lock className="text-brand-jade mb-6" size={32} />,
+      deliverables: ["Interagency Data Exchange Models", "System Security Plans (SSP)"]
     },
     { 
       title: "Statutory Verification (IV&V)",
       desc: "Independent Verification and Validation (IV&V) for state IT modernization tenders. We ensure vendor-built logic directly mirrors written legislative mandates, preventing procedural drop-offs and ensuring strict statutory adherence survives the translation to code.",
-      icon: <Shield className="text-brand-jade mb-6" size={32} />
+      icon: <Shield className="text-brand-jade mb-6" size={32} />,
+      deliverables: ["Policy Traceability Models", "Algorithmic Bias Diagnostics"]
     }
   ];
 
@@ -73,16 +77,42 @@ export function Expertise() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="border-t-2 border-slate-200 dark:border-slate-800 pt-8"
+                className="border-t-2 border-slate-200 dark:border-slate-800 pt-8 flex flex-col h-full"
               >
-                {cap.icon}
-                <h4 className="text-2xl font-bold mb-4">{cap.title}</h4>
-                <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
-                  {cap.desc}
-                </p>
+                <div>
+                  {cap.icon}
+                  <h4 className="text-2xl font-bold mb-4">{cap.title}</h4>
+                  <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-8">
+                    {cap.desc}
+                  </p>
+                </div>
+                
+                {/* Deliverables Sub-Matrix */}
+                <div className="mt-auto pt-6 border-t border-slate-200 dark:border-slate-800">
+                  <h5 className="text-xs font-bold uppercase tracking-widest text-brand-jade mb-4">Technical Deliverables</h5>
+                  <div className="flex flex-wrap gap-2">
+                    {cap.deliverables.map((deliverable) => (
+                      <span 
+                        key={deliverable} 
+                        className="px-2.5 py-1.5 text-xs font-mono font-medium border border-slate-200 dark:border-slate-700 rounded-md bg-slate-100 dark:bg-slate-800/50 text-slate-700 dark:text-slate-300"
+                      >
+                        {deliverable}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Visual Break: Pipeline Architecture */}
+      <section className="section-padding bg-white dark:bg-slate-950">
+        <div className="container-wide">
+          <Suspense fallback={<div className="h-[400px] w-full bg-slate-100 dark:bg-slate-900 animate-pulse rounded-[2.5rem]"></div>}>
+            <ArchitectureVisualization />
+          </Suspense>
         </div>
       </section>
 
@@ -105,7 +135,7 @@ export function Expertise() {
               >
                 <h4 className="text-xl sm:text-2xl font-bold mb-4 flex items-center justify-between">
                   {t(`expertisePage.engagements.pathways.${pathway}.title`)}
-                  <ArrowUpRight size={24} className="text-brand-jade opacity-0 group-hover:opacity-100 transform translate-y-1 group-hover:translate-y-0 transition-all duration-300" />
+                  <ArrowUpRight size={24} className="text-brand-jade opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transform translate-y-0 lg:translate-y-1 lg:group-hover:translate-y-0 transition-all duration-300" />
                 </h4>
                 <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed">
                   {t(`expertisePage.engagements.pathways.${pathway}.desc`)}

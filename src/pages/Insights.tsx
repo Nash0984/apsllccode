@@ -11,6 +11,7 @@ import {
 } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 import { Sandbox } from '../components/Sandbox';
 import { PolicyManual } from '../components/PolicyManual';
 
@@ -23,25 +24,29 @@ export function Insights() {
       id: 'per',
       title: t('about.research.docs.per.title'),
       desc: t('about.research.docs.per.desc'),
-      icon: <Database size={24} strokeWidth={1.5} />
+      icon: <Database size={24} strokeWidth={1.5} />,
+      hasDetail: true
     },
     {
       id: 'trbv',
       title: t('about.research.docs.trbv.title'),
       desc: t('about.research.docs.trbv.desc'),
-      icon: <Shield size={24} strokeWidth={1.5} />
+      icon: <Shield size={24} strokeWidth={1.5} />,
+      hasDetail: true
     },
     {
       id: 'glassbox',
       title: t('about.research.docs.glassbox.title'),
       desc: t('about.research.docs.glassbox.desc'),
-      icon: <Box size={24} strokeWidth={1.5} />
+      icon: <Box size={24} strokeWidth={1.5} />,
+      hasDetail: true
     },
     {
       id: 'irc7216',
       title: t('about.research.docs.irc7216.title'),
       desc: t('about.research.docs.irc7216.desc'),
-      icon: <Lock size={24} strokeWidth={1.5} />
+      icon: <Lock size={24} strokeWidth={1.5} />,
+      hasDetail: false
     }
   ], [t]);
 
@@ -113,13 +118,24 @@ export function Insights() {
                           {doc.desc}
                         </p>
                       </motion.div>
-                      <button
-                        onClick={() => toggleDoc(doc.id)}
-                        className="mt-4 text-brand-jade font-bold text-xs uppercase tracking-widest flex items-center gap-2"
-                      >
-                        {isExpanded ? 'Read Less' : 'Read More'}
-                        {isExpanded ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
-                      </button>
+                      <div className="flex items-center gap-4 mt-4">
+                        <button
+                          onClick={() => toggleDoc(doc.id)}
+                          className="text-brand-jade font-bold text-xs uppercase tracking-widest flex items-center gap-2"
+                        >
+                          {isExpanded ? 'Brief' : 'Expand'}
+                          {isExpanded ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
+                        </button>
+                        {doc.hasDetail && (
+                          <Link
+                            to={`/insights/${doc.id}`}
+                            className="text-slate-400 hover:text-brand-jade font-bold text-xs uppercase tracking-widest flex items-center gap-2 transition-colors"
+                          >
+                            Full Report
+                            <ArrowRight size={14} />
+                          </Link>
+                        )}
+                      </div>
                     </div>
                   </div>
                 </motion.div>
