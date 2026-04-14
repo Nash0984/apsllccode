@@ -4,7 +4,8 @@ import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet-async';
 import { ArrowUpRight, Shield, Binary, Lock, Activity } from 'lucide-react';
 
-const ArchitectureVisualization = lazy(() => import('../components/ArchitectureVisualization').then(m => ({ default: m.ArchitectureVisualization })));
+// Corrected native default import pattern to prevent module resolution failures
+const ArchitectureVisualization = lazy(() => import('../components/ArchitectureVisualization'));
 
 export function Capabilities() {
   const { t } = useTranslation();
@@ -87,7 +88,7 @@ export function Capabilities() {
                   </p>
                 </div>
                 
-                {/* Deliverables Sub-Matrix */}
+                {/* Deliverables Sub-Matrix (Monospace Tags) */}
                 <div className="mt-auto pt-6 border-t border-slate-200 dark:border-slate-800">
                   <h5 className="text-xs font-bold uppercase tracking-widest text-brand-jade mb-4">Technical Deliverables</h5>
                   <div className="flex flex-wrap gap-2">

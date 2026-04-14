@@ -2,7 +2,7 @@ import { motion } from 'motion/react';
 import { FileText, Network, Binary, Shield, ArrowRight } from 'lucide-react';
 import { useState } from 'react';
 
-export function ArchitectureVisualization() {
+export default function ArchitectureVisualization() {
   const [activeStep, setActiveStep] = useState(0);
 
   const steps = [
@@ -33,7 +33,7 @@ export function ArchitectureVisualization() {
   ];
 
   return (
-    <div className="relative p-8 bg-white dark:bg-slate-900 rounded-[2.5rem] border border-slate-200 dark:border-slate-800 shadow-2xl overflow-hidden">
+    <div className="relative p-6 sm:p-8 bg-white dark:bg-slate-900 rounded-[2.5rem] border border-slate-200 dark:border-slate-800 shadow-2xl overflow-hidden">
       <div className="absolute inset-0 opacity-5 pointer-events-none" style={{ backgroundImage: 'radial-gradient(#00796b 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
       
       <div className="relative z-10">
@@ -41,53 +41,58 @@ export function ArchitectureVisualization() {
           <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-brand-jade mb-2">Reference Architecture</h3>
           <p className="text-sm text-slate-500 dark:text-slate-400">Hybrid Rules Engine Data Flow</p>
         </div>
-        <div className="flex justify-between items-center mb-12">
-          {steps.map((step, index) => (
-            <div key={index} className="flex items-center flex-1 last:flex-none">
-              <motion.button
-                onClick={() => setActiveStep(index)}
-                className={`relative w-14 h-14 rounded-2xl flex items-center justify-center transition-all ${
-                  activeStep === index 
-                    ? `bg-brand-jade text-white shadow-lg scale-110` 
-                    : 'bg-slate-100 dark:bg-slate-800 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200'
-                }`}
-                whileHover={{ y: -5 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                {step.icon}
-                {activeStep === index && (
-                  <motion.div
-                    layoutId="active-glow"
-                    className="absolute inset-0 rounded-2xl blur-xl bg-brand-jade opacity-40 -z-10"
-                  />
+
+        {/* Scrollable Pipeline Container for Mobile */}
+        <div className="w-full overflow-x-auto pb-6 -mb-6 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+          <div className="flex justify-between items-center mb-12 min-w-[480px] md:min-w-full">
+            {steps.map((step, index) => (
+              <div key={index} className="flex items-center flex-1 last:flex-none">
+                <motion.button
+                  onClick={() => setActiveStep(index)}
+                  className={`relative shrink-0 w-14 h-14 rounded-2xl flex items-center justify-center transition-all ${
+                    activeStep === index 
+                      ? `bg-brand-jade text-white shadow-lg scale-110` 
+                      : 'bg-slate-100 dark:bg-slate-800 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200'
+                  }`}
+                  whileHover={{ y: -5 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  {step.icon}
+                  {activeStep === index && (
+                    <motion.div
+                      layoutId="active-glow"
+                      className="absolute inset-0 rounded-2xl blur-xl bg-brand-jade opacity-40 -z-10"
+                    />
+                  )}
+                </motion.button>
+                {index < steps.length - 1 && (
+                  <div className="flex-1 min-w-[32px] h-px bg-slate-200 dark:bg-slate-800 mx-3 sm:mx-4 relative overflow-hidden">
+                    <motion.div
+                      initial={{ x: '-100%' }}
+                      animate={{ x: activeStep > index ? '100%' : '-100%' }}
+                      transition={{ duration: 0.8 }}
+                      className="absolute inset-0 bg-brand-jade"
+                    />
+                  </div>
                 )}
-              </motion.button>
-              {index < steps.length - 1 && (
-                <div className="flex-1 h-px bg-slate-200 dark:bg-slate-800 mx-4 relative overflow-hidden">
-                  <motion.div
-                    initial={{ x: '-100%' }}
-                    animate={{ x: activeStep > index ? '100%' : '-100%' }}
-                    transition={{ duration: 0.8 }}
-                    className="absolute inset-0 bg-brand-jade"
-                  />
-                </div>
-              )}
-            </div>
-          ))}
+              </div>
+            ))}
+          </div>
         </div>
 
-        <div className="min-h-[120px]">
+        <div className="min-h-[140px] sm:min-h-[120px] mt-4 sm:mt-0">
           <motion.div
             key={activeStep}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             className="space-y-4"
           >
-            <div className="flex items-center gap-3">
-              <span className="px-2 py-0.5 rounded text-[10px] font-bold text-white uppercase tracking-widest bg-brand-jade">
+            {/* Responsive Header: Stacks on mobile, inline on desktop */}
+            <div className="flex flex-col sm:flex-row sm:items-center items-start gap-2 sm:gap-3">
+              <span className="shrink-0 px-2 py-0.5 rounded text-[10px] font-bold text-white uppercase tracking-widest bg-brand-jade">
                 Node 0{activeStep + 1}
               </span>
-              <h4 className="text-xl font-black text-slate-900 dark:text-white">
+              <h4 className="text-xl font-black text-slate-900 dark:text-white leading-tight">
                 {steps[activeStep].title}
               </h4>
             </div>
@@ -97,7 +102,7 @@ export function ArchitectureVisualization() {
           </motion.div>
         </div>
 
-        <div className="mt-8 pt-8 border-t border-slate-100 dark:border-slate-800 flex justify-between items-center">
+        <div className="mt-8 pt-6 sm:pt-8 border-t border-slate-100 dark:border-slate-800 flex justify-between items-center">
           <div className="flex gap-1">
             {steps.map((_, index) => (
               <div 
