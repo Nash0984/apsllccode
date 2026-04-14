@@ -1,32 +1,34 @@
 import { motion } from 'motion/react';
-import { FileText, Binary, Cpu, CheckCircle2, ArrowRight } from 'lucide-react';
+import { FileText, Network, Binary, Shield, ArrowRight } from 'lucide-react';
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 
 export function ArchitectureVisualization() {
-  const { t } = useTranslation();
   const [activeStep, setActiveStep] = useState(0);
 
   const steps = [
     {
-      key: "discovery",
-      icon: <FileText size={24} />,
-      color: "bg-blue-500"
+      key: "ingestion",
+      title: "Statutory Ingestion",
+      desc: "Raw legislative text, federal mandates (e.g., IRS Pub 1075, FNS Guidelines), and state policies are ingested as the immutable source of truth.",
+      icon: <FileText size={24} />
     },
     {
-      key: "mapping",
-      icon: <Binary size={24} />,
-      color: "bg-indigo-500"
+      key: "llm",
+      title: "LLM Triage Layer",
+      desc: "Large Language Models map dense administrative requirements into plain-language conversational schemas, drastically reducing procedural drop-offs.",
+      icon: <Network size={24} />
     },
     {
-      key: "verification",
-      icon: <Cpu size={24} />,
-      color: "bg-brand-jade"
+      key: "logic",
+      title: "Deterministic Engine",
+      desc: "The core verification layer. All conversational inputs are mathematically evaluated against hardcoded business rules to guarantee absolute statutory fidelity and zero hallucination risk.",
+      icon: <Binary size={24} />
     },
     {
-      key: "certification",
-      icon: <CheckCircle2 size={24} />,
-      color: "bg-emerald-500"
+      key: "output",
+      title: "Compliant Integration",
+      desc: "Verified eligibility outcomes are compiled into secure, auditable API payloads for state system integration, creating a definitive Independent Verification & Validation (IV&V) trail.",
+      icon: <Shield size={24} />
     }
   ];
 
@@ -36,8 +38,8 @@ export function ArchitectureVisualization() {
       
       <div className="relative z-10">
         <div className="mb-8">
-          <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-brand-jade mb-2">{t('expertisePage.lifecycle.title')}</h3>
-          <p className="text-sm text-slate-500 dark:text-slate-400">{t('expertisePage.lifecycle.subtitle')}</p>
+          <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-brand-jade mb-2">Reference Architecture</h3>
+          <p className="text-sm text-slate-500 dark:text-slate-400">Hybrid Rules Engine Data Flow</p>
         </div>
         <div className="flex justify-between items-center mb-12">
           {steps.map((step, index) => (
@@ -46,7 +48,7 @@ export function ArchitectureVisualization() {
                 onClick={() => setActiveStep(index)}
                 className={`relative w-14 h-14 rounded-2xl flex items-center justify-center transition-all ${
                   activeStep === index 
-                    ? `${step.color} text-white shadow-lg scale-110` 
+                    ? `bg-brand-jade text-white shadow-lg scale-110` 
                     : 'bg-slate-100 dark:bg-slate-800 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200'
                 }`}
                 whileHover={{ y: -5 }}
@@ -56,7 +58,7 @@ export function ArchitectureVisualization() {
                 {activeStep === index && (
                   <motion.div
                     layoutId="active-glow"
-                    className={`absolute inset-0 rounded-2xl blur-xl ${step.color} opacity-40 -z-10`}
+                    className="absolute inset-0 rounded-2xl blur-xl bg-brand-jade opacity-40 -z-10"
                   />
                 )}
               </motion.button>
@@ -82,15 +84,15 @@ export function ArchitectureVisualization() {
             className="space-y-4"
           >
             <div className="flex items-center gap-3">
-              <span className={`px-2 py-0.5 rounded text-[10px] font-bold text-white uppercase tracking-widest ${steps[activeStep].color}`}>
-                Phase 0{activeStep + 1}
+              <span className="px-2 py-0.5 rounded text-[10px] font-bold text-white uppercase tracking-widest bg-brand-jade">
+                Node 0{activeStep + 1}
               </span>
               <h4 className="text-xl font-black text-slate-900 dark:text-white">
-                {t(`expertisePage.lifecycle.phases.${steps[activeStep].key}.title`)}
+                {steps[activeStep].title}
               </h4>
             </div>
             <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
-              {t(`expertisePage.lifecycle.phases.${steps[activeStep].key}.desc`)}
+              {steps[activeStep].desc}
             </p>
           </motion.div>
         </div>
@@ -110,7 +112,7 @@ export function ArchitectureVisualization() {
             onClick={() => setActiveStep((prev) => (prev + 1) % steps.length)}
             className="text-xs font-bold text-brand-jade flex items-center gap-2 hover:gap-3 transition-all"
           >
-            {t('expertisePage.commandCenter.nextPhase')}
+            Advance Pipeline
             <ArrowRight size={14} />
           </button>
         </div>

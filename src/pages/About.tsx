@@ -1,361 +1,188 @@
-import { useState, useMemo } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { 
-  FileText, 
-  ExternalLink, 
-  ChevronRight, 
-  Award, 
-  Target, 
-  Users, 
-  Briefcase, 
-  TrendingUp,
-  Quote,
-  ChevronUp,
-  ChevronDown,
-  Shield,
-  Cpu,
-  Building2,
-  Network,
-  Scale
-} from 'lucide-react';
-import { Helmet } from 'react-helmet-async';
+import { motion } from 'motion/react';
 import { useTranslation } from 'react-i18next';
+import { Helmet } from 'react-helmet-async';
+import { ArrowUpRight } from 'lucide-react';
 
 export function About() {
   const { t } = useTranslation();
-  const [activeTab, setActiveTab] = useState('experience');
-  const [expandedDocs, setExpandedDocs] = useState<string[]>([]);
-  const [activeMilestone, setActiveMilestone] = useState(0);
 
-  const experience = useMemo(() => [
+  const milestones = [
     {
-      id: 'm1',
       year: t('about.journey.milestones.m1.year'),
       title: t('about.journey.milestones.m1.title'),
       org: t('about.journey.milestones.m1.org'),
       role: t('about.journey.milestones.m1.role'),
-      desc: t('about.journey.milestones.m1.desc'),
-      icon: <Cpu size={24} />
+      desc: t('about.journey.milestones.m1.desc')
     },
     {
-      id: 'm2',
       year: t('about.journey.milestones.m2.year'),
       title: t('about.journey.milestones.m2.title'),
       org: t('about.journey.milestones.m2.org'),
       role: t('about.journey.milestones.m2.role'),
-      desc: t('about.journey.milestones.m2.desc'),
-      icon: <Building2 size={24} />
+      desc: t('about.journey.milestones.m2.desc')
     },
     {
-      id: 'm3',
       year: t('about.journey.milestones.m3.year'),
       title: t('about.journey.milestones.m3.title'),
       org: t('about.journey.milestones.m3.org'),
       role: t('about.journey.milestones.m3.role'),
-      desc: t('about.journey.milestones.m3.desc'),
-      icon: <Network size={24} />
+      desc: t('about.journey.milestones.m3.desc')
     },
     {
-      id: 'm4',
       year: t('about.journey.milestones.m4.year'),
       title: t('about.journey.milestones.m4.title'),
       org: t('about.journey.milestones.m4.org'),
       role: t('about.journey.milestones.m4.role'),
-      desc: t('about.journey.milestones.m4.desc'),
-      icon: <Scale size={24} />
+      desc: t('about.journey.milestones.m4.desc')
     },
     {
-      id: 'm5',
       year: t('about.journey.milestones.m5.year'),
       title: t('about.journey.milestones.m5.title'),
       org: t('about.journey.milestones.m5.org'),
       role: t('about.journey.milestones.m5.role'),
-      desc: t('about.journey.milestones.m5.desc'),
-      icon: <Users size={24} />
+      desc: t('about.journey.milestones.m5.desc')
     },
     {
-      id: 'm6',
       year: t('about.journey.milestones.m6.year'),
       title: t('about.journey.milestones.m6.title'),
       org: t('about.journey.milestones.m6.org'),
       role: t('about.journey.milestones.m6.role'),
-      desc: t('about.journey.milestones.m6.desc'),
-      icon: <Shield size={24} />
+      desc: t('about.journey.milestones.m6.desc')
     }
-  ], [t]);
+  ];
 
-  const impactStats = useMemo(() => [
-    {
-      id: 'citizen',
-      value: t('about.impact.stats.citizen.value'),
-      label: t('about.impact.stats.citizen.label'),
-      desc: t('about.impact.stats.citizen.desc'),
-      icon: <Users className="w-6 h-6" />
-    },
-    {
-      id: 'funding',
-      value: t('about.impact.stats.funding.value'),
-      label: t('about.impact.stats.funding.label'),
-      desc: t('about.impact.stats.funding.desc'),
-      icon: <Award className="w-6 h-6" />
-    },
-    {
-      id: 'execution',
-      value: t('about.impact.stats.execution.value'),
-      label: t('about.impact.stats.execution.label'),
-      desc: t('about.impact.stats.execution.desc'),
-      icon: <Briefcase className="w-6 h-6" />
-    }
-  ], [t]);
-
-  const ecosystemPartners = useMemo(() => [
-    { id: 'nava', name: t('about.ecosystem.partners.nava.name'), focus: t('about.ecosystem.partners.nava.focus'), context: t('about.ecosystem.partners.nava.context') },
-    { id: 'usdr', name: t('about.ecosystem.partners.usdr.name'), focus: t('about.ecosystem.partners.usdr.focus'), context: t('about.ecosystem.partners.usdr.context') },
-    { id: 'cfa', name: t('about.ecosystem.partners.cfa.name'), focus: t('about.ecosystem.partners.cfa.focus'), context: t('about.ecosystem.partners.cfa.context') },
-    { id: 'arnold', name: t('about.ecosystem.partners.arnold.name'), focus: t('about.ecosystem.partners.arnold.focus'), context: t('about.ecosystem.partners.arnold.context') },
-    { id: 'rfa', name: t('about.ecosystem.partners.rfa.name'), focus: t('about.ecosystem.partners.rfa.focus'), context: t('about.ecosystem.partners.rfa.context') },
-    { id: 'prosperity', name: t('about.ecosystem.partners.prosperity.name'), focus: t('about.ecosystem.partners.prosperity.focus'), context: t('about.ecosystem.partners.prosperity.context') },
-    { id: 'cwf', name: t('about.ecosystem.partners.cwf.name'), focus: t('about.ecosystem.partners.cwf.focus'), context: t('about.ecosystem.partners.cwf.context') },
-    { id: 'civilla', name: t('about.ecosystem.partners.civilla.name'), focus: t('about.ecosystem.partners.civilla.focus'), context: t('about.ecosystem.partners.civilla.context') }
-  ], [t]);
-
-  const toggleDoc = (id: string) => {
-    setExpandedDocs(prev => 
-      prev.includes(id) ? prev.filter(i => i !== id) : [...prev, id]
-    );
-  };
+  const partners = ['nava', 'usdr', 'cfa', 'arnold', 'rfa', 'prosperity', 'cwf', 'civilla'];
 
   return (
     <div className="bg-white dark:bg-slate-950 transition-colors duration-300">
       <Helmet>
-        <title>{t('about.hero.title')} | Applied Policy Systems</title>
-        <meta name="description" content={t('about.founder.intro')} />
+        <title>{t('routes.about.label')} | Applied Policy Systems</title>
+        <meta name="description" content="Examine our institutional background, federal tech ecosystem partners, and subject matter authority." />
       </Helmet>
 
       {/* Hero Section */}
       <section className="hero-section">
         <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-jade/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/4 pointer-events-none" />
         <div className="container-wide relative text-center lg:text-left">
-          <h1 className="label-uppercase">{t('about.hero.label')}</h1>
-          <h2 className="max-w-4xl mx-auto lg:mx-0 text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
-            {t('about.hero.title').split(' ').slice(0, -1).join(' ')} <br />
-            <span className="text-brand-jade">{t('about.hero.title').split(' ').slice(-1)}</span>
-          </h2>
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+            <h1 className="label-uppercase">{t('routes.about.label')}</h1>
+            <h2 className="max-w-4xl mx-auto lg:mx-0 text-4xl md:text-5xl lg:text-6xl mb-8">
+              {t('about.hero.title')}
+            </h2>
+            <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto lg:mx-0 leading-relaxed">
+              {t('routes.about.description')}
+            </p>
+          </motion.div>
         </div>
       </section>
 
-      {/* Founder Section */}
-      <section className="section-padding">
+      {/* Founder Dossier & Verified Metrics */}
+      <section className="section-padding bg-slate-50 dark:bg-slate-900 border-y border-slate-100 dark:border-slate-800">
         <div className="container-wide">
-          <div className="bg-white dark:bg-slate-900 rounded-[2.5rem] md:rounded-[4rem] p-8 sm:p-12 md:p-24 border border-slate-200 dark:border-slate-800 shadow-2xl relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-brand-jade/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl" />
-            
-            <div className="relative grid lg:grid-cols-12 gap-12 md:gap-20 items-start">
-              <div className="lg:col-span-3 lg:sticky lg:top-32 flex flex-col items-center text-center">
-                <div className="w-48 h-48 sm:w-64 sm:h-64 lg:w-full aspect-square bg-slate-50 dark:bg-slate-800 rounded-full border border-slate-100 dark:border-slate-700 overflow-hidden relative group shadow-xl shadow-slate-200/50 mb-6">
-                  <img 
-                    src="/graham-oneill.jpg" 
-                    alt="Graham F. O'Neill" 
-                    className="w-full h-full object-cover object-center transition-all duration-700 scale-105 group-hover:scale-100 grayscale hover:grayscale-0"
-                    referrerPolicy="no-referrer"
-                    loading="lazy"
-                    onError={(e) => {
-                      e.currentTarget.src = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?fit=crop&w=800&q=80";
-                    }}
-                  />
-                </div>
-                <div className="relative">
-                  <p className="text-slate-900 dark:text-white font-bold text-lg tracking-tight">Graham F. O'Neill</p>
-                  <p className="text-brand-jade text-[10px] font-bold uppercase tracking-[0.2em] mt-1">Principal</p>
-                </div>
-              </div>
-              
-              <div className="lg:col-span-9">
-                <h3 className="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white mb-8 md:mb-12 tracking-tight">{t('about.founder.title')}</h3>
-                <div className="prose prose-slate prose-lg md:prose-xl max-w-none text-slate-600 dark:text-slate-400 leading-relaxed space-y-6 md:space-y-8">
-                  <p className="text-lg md:text-xl text-slate-900 dark:text-slate-100 font-medium border-l-4 border-brand-jade pl-6 md:pl-8">
-                    {t('about.founder.intro')}
-                  </p>
+          <div className="grid lg:grid-cols-2 gap-16 items-start">
+            <motion.div 
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="space-y-8"
+            >
+              <div>
+                <h2 className="label-muted">{t('about.founder.title')}</h2>
+                <p className="text-2xl font-medium text-slate-900 dark:text-white leading-snug mb-6">
+                  {t('about.founder.intro')}
+                </p>
+                <div className="space-y-4 text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
                   <p>{t('about.founder.p1')}</p>
                   <p>{t('about.founder.p2')}</p>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
+            </motion.div>
 
-      {/* Career Journey Timeline */}
-      <section className="section-padding bg-slate-900 text-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10 pointer-events-none" 
-          style={{ 
-            backgroundImage: 'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)', 
-            backgroundSize: '100px 100px' 
-          }} 
-        />
-        
-        <div className="container-wide relative">
-          <div className="text-center mb-24">
-            <h2 className="label-uppercase">{t('about.journey.label')}</h2>
-            <h3 className="tracking-tight text-white">{t('about.journey.title')}</h3>
-          </div>
-
-          <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            {/* Timeline Visualization */}
-            <div className="lg:col-span-5 relative">
-              <div className="absolute left-6 sm:left-8 top-0 bottom-0 w-0.5 bg-slate-800" />
-              
-              <div className="space-y-8 md:space-y-12 relative">
-                {experience.map((milestone, i) => (
-                  <motion.button
-                    key={milestone.id}
-                    onClick={() => setActiveMilestone(i)}
-                    className="flex items-center gap-6 sm:gap-8 w-full text-left group"
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.1 }}
-                  >
-                    <div className={`relative z-10 w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl flex items-center justify-center transition-all duration-500 border-2 ${
-                      activeMilestone === i 
-                        ? 'bg-brand-jade border-brand-jade shadow-[0_0_30px_rgba(0,163,174,0.3)]' 
-                        : 'bg-slate-900 border-slate-800 group-hover:border-slate-700'
-                    }`}>
-                      <span className="text-xl sm:text-2xl">{milestone.icon}</span>
-                    </div>
-                    
-                    <div>
-                      <div className={`text-[10px] sm:text-sm font-bold tracking-widest uppercase mb-1 transition-colors ${
-                        activeMilestone === i ? 'text-brand-jade' : 'text-slate-500'
-                      }`}>
-                        {milestone.year}
-                      </div>
-                      <div className={`text-lg sm:text-xl font-bold transition-colors ${
-                        activeMilestone === i ? 'text-white' : 'text-slate-400 group-hover:text-slate-300'
-                      }`}>
-                        {milestone.title}
-                      </div>
-                    </div>
-                  </motion.button>
-                ))}
-              </div>
-            </div>
-
-            {/* Detail Card */}
-            <div className="lg:col-span-7">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={activeMilestone}
-                  initial={{ opacity: 0, y: 20, filter: 'blur(10px)' }}
-                  animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                  exit={{ opacity: 0, y: -20, filter: 'blur(10px)' }}
-                  transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                  className="bg-slate-800/50 backdrop-blur-xl border border-white/10 p-8 sm:p-12 md:p-16 rounded-[2rem] md:rounded-[3rem] shadow-2xl relative overflow-hidden"
+            <div className="grid gap-8">
+              {Object.entries(t('about.impact.stats', { returnObjects: true })).map(([key, stat]: [string, any], i) => (
+                <motion.div 
+                  key={key}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  className="border-t-2 border-slate-200 dark:border-slate-800 pt-6"
                 >
-                  <div className="absolute top-0 right-0 p-8 md:p-12 text-6xl md:text-8xl opacity-5 pointer-events-none font-bold italic">
-                    {experience[activeMilestone].year}
-                  </div>
-                  
-                  <div className="relative">
-                    <div className="inline-block px-4 py-1.5 bg-brand-jade/10 text-brand-jade text-[10px] sm:text-xs font-bold uppercase tracking-widest rounded-full border border-brand-jade/20 mb-6 md:mb-8">
-                      {experience[activeMilestone].org}
-                    </div>
-                    
-                    <h4 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">
-                      {experience[activeMilestone].role}
-                    </h4>
-                    
-                    <p className="text-lg sm:text-xl text-slate-300 leading-relaxed mb-8">
-                      {experience[activeMilestone].desc}
-                    </p>
-                  </div>
+                  <div className="text-4xl font-bold text-brand-jade mb-2">{stat.value}</div>
+                  <div className="text-lg font-bold text-slate-900 dark:text-white mb-1">{stat.label}</div>
+                  <p className="text-slate-600 dark:text-slate-400">{stat.desc}</p>
                 </motion.div>
-              </AnimatePresence>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Impact Stats */}
-      <section className="section-padding bg-white dark:bg-slate-950 border-y border-slate-100 dark:border-slate-800">
+      {/* Career Journey - Flattened Timeline */}
+      <section className="section-padding bg-white dark:bg-slate-950">
         <div className="container-wide">
-          <div className="text-center mb-20">
-            <h2 className="label-muted">{t('about.impact.label')}</h2>
-            <h3 className="tracking-tight">{t('about.impact.title')}</h3>
+          <div className="max-w-3xl mb-16">
+            <h2 className="label-muted">{t('about.journey.label')}</h2>
+            <h3 className="tracking-tight">{t('about.journey.title')}</h3>
           </div>
-          
-          <div className="grid md:grid-cols-3 gap-12">
-            {impactStats.map((stat, i) => (
+
+          <div className="space-y-12">
+            {milestones.map((milestone, i) => (
               <motion.div 
-                key={stat.id}
+                key={i}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="text-center card-base"
+                className="grid md:grid-cols-[120px_1fr] gap-8 border-t border-slate-100 dark:border-slate-800 pt-8"
               >
-                <div className="w-12 h-12 bg-brand-jade text-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-brand-jade/20">
-                  {stat.icon}
+                <div className="text-brand-jade font-mono font-bold text-xl">{milestone.year}</div>
+                <div>
+                  <h4 className="text-2xl font-bold mb-2">{milestone.title}</h4>
+                  <div className="text-lg font-medium text-slate-900 dark:text-white mb-4">
+                    {milestone.role} — <span className="text-slate-500">{milestone.org}</span>
+                  </div>
+                  <p className="text-slate-600 dark:text-slate-400 leading-relaxed max-w-3xl">
+                    {milestone.desc}
+                  </p>
                 </div>
-                <div className="text-5xl font-extrabold text-brand-jade mb-4 tracking-tighter">{stat.value}</div>
-                <div className="text-xl font-bold text-slate-900 dark:text-white mb-4">{stat.label}</div>
-                <p className="leading-relaxed">{stat.desc}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Ecosystem Section */}
-      <section className="section-padding bg-slate-950 text-white overflow-hidden relative">
-        <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
-          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(#006D77_1px,transparent_1px)] [background-size:40px_40px]" />
-        </div>
-
-        <div className="container-wide relative z-10">
-          <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
-            <div>
-              <span className="text-brand-jade font-bold tracking-widest uppercase text-sm mb-6 block">
-                {t('about.ecosystem.label')}
-              </span>
-              <h2 className="text-4xl md:text-5xl font-bold mb-8 tracking-tight">
-                {t('about.ecosystem.title')}
-              </h2>
-              <p className="text-slate-400 text-lg leading-relaxed">
-                {t('about.ecosystem.desc')}
-              </p>
-            </div>
-            <div className="bg-white/5 backdrop-blur-sm p-10 rounded-card border border-white/10">
-              <Quote className="text-brand-jade mb-6 w-10 h-10" />
-              <p className="text-xl italic text-slate-200 leading-relaxed mb-8">
-                {t('about.ecosystem.quote')}
-              </p>
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-brand-jade rounded-full" />
-                <div>
-                  <div className="font-bold">Graham O'Neill</div>
-                  <div className="text-slate-400 text-sm">Founder & Principal Consultant</div>
-                </div>
-              </div>
-            </div>
+      {/* Ecosystem & Partners - Top Bordered Directory */}
+      <section className="section-padding bg-slate-50 dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800">
+        <div className="container-wide">
+          <div className="max-w-3xl mb-16">
+            <h2 className="label-muted">{t('about.ecosystem.label')}</h2>
+            <h3 className="tracking-tight">{t('about.ecosystem.title')}</h3>
+            <p className="text-lg text-slate-600 dark:text-slate-400 mt-4">
+              {t('about.ecosystem.desc')}
+            </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-            {ecosystemPartners.map((partner) => (
-              <div
-                key={partner.id}
-                className="p-6 rounded-xl border bg-white/5 border-white/10 hover:border-brand-jade/50 transition-all group"
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12 border-t border-slate-200 dark:border-slate-700 pt-8">
+            {partners.map((partner, i) => (
+              <motion.div 
+                key={partner}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.05 }}
+                className="group block border-t-2 border-slate-200 dark:border-slate-800 pt-6 hover:border-brand-jade transition-colors"
               >
-                <div className="flex items-center justify-between mb-2">
-                  <h4 className="font-bold text-base sm:text-lg group-hover:text-brand-jade transition-colors">{partner.name}</h4>
+                <h4 className="text-xl font-bold mb-4 flex items-center justify-between">
+                  {t(`about.ecosystem.partners.${partner}.name`)}
+                  <ArrowUpRight size={20} className="text-brand-jade opacity-0 group-hover:opacity-100 transform translate-y-1 group-hover:translate-y-0 transition-all duration-300" />
+                </h4>
+                <div className="text-brand-jade font-mono text-xs uppercase tracking-wider mb-3">
+                  {t(`about.ecosystem.partners.${partner}.focus`)}
                 </div>
-                <div className="text-[10px] sm:text-sm font-bold mb-4 text-brand-jade">
-                  {partner.focus}
-                </div>
-                <p className="text-xs sm:text-sm text-white/70 leading-relaxed">
-                  {partner.context}
+                <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                  {t(`about.ecosystem.partners.${partner}.context`)}
                 </p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>

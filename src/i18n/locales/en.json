@@ -26,8 +26,18 @@
       "text": "Public technology failures occur when legislative mandates are lost as they move from written law to operational systems. We mitigate this risk by converting complex regulations into deterministic business rules—engineering everything from core eligibility logic down to the exact document schemas required for accurate evidence triage. This ensures policy intent survives the transition into operational infrastructure.",
       "solution": "We ensure system logic is a verifiable reflection of statutory requirements.",
       "outputsLabel": "Technical Deliverables",
-      "outputsLead": "Representative outputs include:",
-      "outputs": ["Deterministic Logic Models", "Evidence Triage Schemas", "Rules Engine Architectures", "Policy Traceability Models", "Eligibility Logic Workflows", "Interagency Data Exchange Models", "Hybrid Logic & LLM Architectures"]
+      "outputsLead": "Representative artifacts include:",
+      "outputs": [
+        "Hybrid Logic & LLM Architectures",
+        "Deterministic Logic Models",
+        "Rules Engine Architectures",
+        "Evidence Triage Schemas",
+        "Eligibility Logic Workflows",
+        "Interagency Data Exchange Models",
+        "System Security Plans (SSP)",
+        "Policy Traceability Models",
+        "Algorithmic Bias Diagnostics"
+      ]
     },
     "infrastructure": {
       "label": "System Integrity",
@@ -78,10 +88,6 @@
       "intro": "Graham O’Neill has over 15 years of experience optimizing complex government systems.",
       "p1": "His career focuses on translating legislative mandates into plain-language, deterministic infrastructure. From municipal revenue operations to federal advisory roles, Graham aligns written regulations with operational realities.",
       "p2": "Before founding Applied Policy Systems LLC, Graham held senior leadership positions across all levels of government, specializing in the structural evaluation of benefits access and the modernization of tax administration programs."
-    },
-    "performance": {
-      "label": "Past Performance",
-      "title": "Direct Execution & Case Studies."
     },
     "research": {
       "label": "Research & Insights",
@@ -155,8 +161,6 @@
       }
     },
     "impact": {
-      "label": "Measurable Impact",
-      "title": "Results in Public Administration.",
       "stats": {
         "citizen": {
           "value": "$44M+",
@@ -200,97 +204,7 @@
     },
     "expertise": {
       "label": "Strategic Pillars",
-      "title": "System Integrity Framework.",
-      "pillars": {
-        "fidelity": {
-          "title": "Statutory Verification & Fidelity",
-          "desc": "Independent verification frameworks that ensure administrative systems remain strictly aligned with the written law.",
-          "modules": {
-            "isolation": {
-              "title": "Jurisdictional Isolation Architecture",
-              "desc": "Absolute data sovereignty for complex federal/state hierarchies, ensuring localized operations never compromise the global security baseline."
-            },
-            "math": {
-              "title": "Mathematical Policy Verification",
-              "desc": "Formal logic environment allowing policymakers to mathematically prove that system rules match the written law."
-            },
-            "certification": {
-              "title": "Statutory Certification Hub",
-              "desc": "Centralized tracking of legislative changes and federal certification requirements (MES/CMS/FNS)."
-            },
-            "bias": {
-              "title": "Algorithmic Bias Monitoring",
-              "desc": "Mandatory oversight ensuring system-generated outcomes remain equitable, transparent, and legally defensible."
-            }
-          }
-        },
-        "risk": {
-          "title": "Financial Integrity & Risk Mitigation",
-          "desc": "Precision-engineered modules built to manage strict tolerances and protect agencies from federal sanctions.",
-          "modules": {
-            "qc": {
-              "title": "Enterprise Quality Control (QC)",
-              "desc": "A unified auditing engine ensuring cross-program eligibility reviews (SNAP/Medicaid) remain strictly compliant."
-            },
-            "per": {
-              "title": "SNAP PER Mitigation Engine",
-              "desc": "Specialized financial compliance for SNAP, managing strict tolerances to prevent federal overpayment sanctions."
-            },
-            "abawd": {
-              "title": "ABAWD Compliance Management",
-              "desc": "Automates the complex 3-in-36 month time-limit tracking, reducing procedural friction for caseworkers and citizens."
-            },
-            "rbac": {
-              "title": "Precision Access Control (RBAC)",
-              "desc": "A granular access matrix coordinating work across applicants, caseworkers, and adjudicators with zero data leakage."
-            }
-          }
-        },
-        "intelligence": {
-          "title": "Operational Intelligence & Automation",
-          "desc": "Deterministic engines and analytics that translate complex statutes into mathematically provable outcomes.",
-          "modules": {
-            "rac": {
-              "title": "Rules Engine (RaC)",
-              "desc": "A legally grounded Rules Engine translating legislative text into machine-executable logic using a Rules-as-Code methodology."
-            },
-            "burden": {
-              "title": "Administrative Burden Analytics",
-              "desc": "Quantifies the friction placed on citizens and staff, replacing self-reported metrics with provable data."
-            },
-            "gateway": {
-              "title": "Financial Data & Tax Gateway",
-              "desc": "Secure integration hub managing complex financial parameters and tax routing to support income verification."
-            },
-            "api": {
-              "title": "Interoperability API Gateway",
-              "desc": "Comprehensive integration layer designed to prevent vendor lock-in and connect disparate state/federal systems."
-            }
-          }
-        },
-        "delivery": {
-          "title": "Service Delivery & Human Capital",
-          "desc": "Infrastructure designed to eliminate administrative burden and embed training directly into production.",
-          "modules": {
-            "adjudication": {
-              "title": "Administrative Adjudication",
-              "desc": "Legally robust framework for managing fair hearings and appeals with full historical context for judges."
-            },
-            "portal": {
-              "title": "Omnichannel Citizen Portal",
-              "desc": "Mobile-responsive self-service hub diverting traffic from call centers by empowering citizens to manage cases."
-            },
-            "academy": {
-              "title": "Workforce Training Academy",
-              "desc": "Embeds training directly into the production environment to address staff turnover and policy complexity."
-            },
-            "enrollment": {
-              "title": "Cross-Enrollment Engine",
-              "desc": "Automatically identifies eligibility overlaps across programs to maximize citizen access to benefits."
-            }
-          }
-        }
-      }
+      "title": "System Integrity Framework."
     },
     "engagements": {
       "label": "Procurement Pathways",
@@ -309,77 +223,7 @@
           "desc": "Embedding specialized policy-to-code expertise within prime contractor delivery teams."
         }
       }
-    },
-    "lifecycle": {
-      "label": "The Methodology",
-      "title": "The Modernization Lifecycle",
-      "subtitle": "A four-phase approach to achieving absolute statutory fidelity.",
-      "phases": {
-        "discovery": {
-          "title": "Statutory Translation",
-          "desc": "Deconstructing legislative text into atomic logical axioms for system ingestion."
-        },
-        "mapping": {
-          "title": "Burden Reduction Design",
-          "desc": "Architecting workflows that minimize administrative friction while maintaining strict compliance."
-        },
-        "verification": {
-          "title": "Deterministic Verification",
-          "desc": "Rigorous logic testing to prove that system behavior matches the statutory parent."
-        },
-        "certification": {
-          "title": "Audit Compliance",
-          "desc": "Continuous monitoring and artifact generation for federal certification and audit defense."
-        }
-      }
-    },
-    "commandCenter": {
-      "label": "Technical Deep-Dive",
-      "title": "Interactive Command Center.",
-      "pillars": "Strategic Pillars",
-      "capabilities": "Core Capabilities",
-      "consultation": "Architectural Consultation",
-      "simulation": "Verification Simulation",
-      "nextPhase": "Next Phase"
-    },
-    "audiences": {
-      "label": "Target Audiences",
-      "title": "Systemic impact across sectors.",
-      "trusted": {
-        "label": "Trusted Advisory",
-        "title": "Recommendations to the IRS Commissioner on Digital Infrastructure Standards."
-      },
-      "agencies": {
-        "title": "State & Municipal Agencies",
-        "desc": "Protecting agency budgets from federal audit penalties through executive policy formulation and modernization strategy."
-      },
-      "vendors": {
-        "title": "GovTech Vendors",
-        "desc": "Supplying logical parameters and 'Rules-as-Code' blueprints required for compliant, auditable public sector software."
-      },
-      "coalitions": {
-        "title": "Community Coalitions",
-        "desc": "Designing service delivery models that eliminate documentation barriers and renewal churn."
-      }
-    },
-    "cta": {
-      "title": "Modernization Strategy",
-      "desc": "Modular infrastructure designed for incremental deployment, ensuring zero downtime and statutory compliance.",
-      "action": "Technical Consultation",
-      "stats": {
-        "capabilities": "Core Capabilities",
-        "pillars": "Strategic Pillars",
-        "compliance": "Compliance",
-        "federal": "Federal"
-      }
     }
-  },
-  "footer": {
-    "privacy": "Privacy Policy",
-    "terms": "Terms of Service",
-    "contact": "Contact",
-    "location": "Philadelphia, PA",
-    "rights": "© 2026 Applied Policy Systems LLC. All Rights Reserved."
   },
   "insightsPage": {
     "hero": {
@@ -401,5 +245,12 @@
         "desc": "A direct output of our Threat Diagnostic Sprints. It demonstrates how Large Language Models and deterministic logic engines are combined to map statutory requirements directly to calculation logic."
       }
     }
+  },
+  "footer": {
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "contact": "Contact",
+    "location": "Philadelphia, PA",
+    "rights": "© 2026 Applied Policy Systems LLC. All Rights Reserved."
   }
 }
