@@ -163,14 +163,22 @@ export function ChatWidget({ embedded = false }: { embedded?: boolean }) {
           >
             <div className="p-4 bg-brand-jade text-white flex justify-between items-center">
               <div className="flex items-center gap-3">
-                <Bot size={20} />
+                <Bot size={20} aria-hidden="true" />
                 <h3 className="font-bold text-sm">APS Assistant</h3>
               </div>
               <div className="flex items-center gap-2">
-                <button onClick={() => setIsMinimized(true)} className="p-1 hover:bg-white/20 rounded-lg transition-colors">
+                <button 
+                  onClick={() => setIsMinimized(true)} 
+                  className="p-1 hover:bg-white/20 rounded-lg transition-colors"
+                  aria-label="Minimize chat"
+                >
                   <Minimize2 size={16} />
                 </button>
-                <button onClick={() => setIsOpen(false)} className="p-1 hover:bg-white/20 rounded-lg transition-colors">
+                <button 
+                  onClick={() => setIsOpen(false)} 
+                  className="p-1 hover:bg-white/20 rounded-lg transition-colors"
+                  aria-label="Close chat"
+                >
                   <X size={16} />
                 </button>
               </div>
@@ -204,11 +212,13 @@ export function ChatWidget({ embedded = false }: { embedded?: boolean }) {
                   onChange={(e) => setInput(e.target.value)}
                   onKeyPress={(e) => e.key === 'Enter' && handleSend()}
                   placeholder="Type a message..."
+                  aria-label="Chat message"
                   className="flex-1 bg-slate-50 dark:bg-slate-800 border-none rounded-lg px-3 py-2 text-xs focus:ring-2 focus:ring-brand-jade transition-all"
                 />
                 <button
                   onClick={handleSend}
                   disabled={isLoading}
+                  aria-label="Send message"
                   className="p-2 bg-brand-jade text-white rounded-lg hover:bg-[#005a62] transition-colors disabled:opacity-50"
                 >
                   <Send size={16} />
@@ -236,6 +246,8 @@ export function ChatWidget({ embedded = false }: { embedded?: boolean }) {
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           onClick={() => setIsOpen(true)}
+          aria-label="Open consulting assistant"
+          aria-expanded="false"
           className="fixed bottom-24 right-8 w-14 h-14 bg-brand-jade text-white rounded-full flex items-center justify-center shadow-2xl z-[100] hover:bg-[#005a62] transition-colors"
         >
           <MessageSquare size={24} />

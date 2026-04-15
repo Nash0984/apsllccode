@@ -2,9 +2,9 @@ import { lazy, Suspense } from 'react';
 import { motion } from 'motion/react';
 import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet-async';
-import { ArrowUpRight, Shield, Binary, Lock, Activity } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { ArrowUpRight, Shield, Binary, Lock, Activity, ChevronRight, FileText, BookOpen } from 'lucide-react';
 
-// Corrected native default import pattern to prevent module resolution failures
 const ArchitectureVisualization = lazy(() => import('../components/ArchitectureVisualization'));
 
 export function Capabilities() {
@@ -13,27 +13,66 @@ export function Capabilities() {
   const coreCapabilities = [
     { 
       title: "Hybrid Rules Engine Architecture",
+      slug: "hybrid-rules-engine",
       desc: "Architecting public benefits eligibility and tax filing systems using a hybrid intelligence model. This combines Large Language Models (LLMs) for plain-language triage with deterministic logic engines to ensure mathematical statutory compliance.",
       icon: <Binary className="text-brand-jade mb-6" size={32} />,
-      deliverables: ["Deterministic Logic Models", "Rules Engine Architectures", "Hybrid Logic & LLM Architectures"]
+      deliverables: [
+        { name: "Deterministic Logic Models", slug: "deterministic-logic-models" },
+        { name: "Rules Engine Architecture Blueprints", slug: "rules-engine-architecture-blueprints" },
+        { name: "RAG Policy Gateways", slug: "rag-policy-gateways" }
+      ]
     },
     { 
       title: "SNAP PER & Fiscal Risk Mitigation",
+      slug: "snap-per-mitigation",
       desc: "Root cause analysis and systemic diagnostics for Supplemental Nutrition Assistance Program (SNAP) Payment Error Rates (PER). We identify whether calculation failures originate from administrative workflows or core Business Rules Engine logic to prevent federal sanctions.",
       icon: <Activity className="text-brand-jade mb-6" size={32} />,
-      deliverables: ["Evidence Triage Schemas", "Eligibility Logic Workflows"]
+      deliverables: [
+        { name: "FNS-310 Reconciliation Matrices", slug: "fns-310-reconciliation-matrices" },
+        { name: "SNAP PER Predictive Models", slug: "snap-per-predictive-models" },
+        { name: "Document Provenance Architecture", slug: "document-provenance-architecture" }
+      ]
     },
     { 
       title: "Federal Tax Data & Privacy Compliance",
+      slug: "tax-data-compliance",
       desc: "Architectural blueprinting for the secure integration of tax administration and primary welfare programs. This includes strict adherence to IRS Publication 1075 and IRC § 7216 requirements when handling cross-enrollment data and civic tech integrations.",
       icon: <Lock className="text-brand-jade mb-6" size={32} />,
-      deliverables: ["Interagency Data Exchange Models", "System Security Plans (SSP)"]
+      deliverables: [
+        { name: "IRS Pub 1075 Data Exchange Models", slug: "irs-pub-1075-data-exchange-models" },
+        { name: "IRC § 7216 Security Overlays", slug: "irc-7216-security-overlays" }
+      ]
     },
     { 
       title: "Statutory Verification (IV&V)",
-      desc: "Independent Verification and Validation (IV&V) for state IT modernization tenders. We ensure vendor-built logic directly mirrors written legislative mandates, preventing procedural drop-offs and ensuring strict statutory adherence survives the translation to code.",
+      slug: "statutory-verification",
+      desc: "Independent Verification and Validation (IV&V) for state IT integration tenders. We ensure vendor-built logic directly mirrors written legislative mandates, preventing procedural drop-offs and establishing empirical data baselines for program evaluation.",
       icon: <Shield className="text-brand-jade mb-6" size={32} />,
-      deliverables: ["Policy Traceability Models", "Algorithmic Bias Diagnostics"]
+      deliverables: [
+        { name: "Targeted Rule-Based Verification (TRBV)", slug: "trbv-diagnostics" },
+        { name: "Statutory Drift Diagnostics", slug: "statutory-drift-diagnostics" }
+      ]
+    },
+    { 
+      title: "Pre-Procurement & Vendor Governance",
+      slug: "pre-procurement-governance",
+      desc: "Providing state agencies with the technical specifications and legal architecture required before a prime contractor is hired, ensuring systems engineering tenders are structurally sound and vendors are held to strict statutory fidelity.",
+      icon: <FileText className="text-brand-jade mb-6" size={32} />,
+      deliverables: [
+        { name: "Technical SOW Drafting", slug: "technical-sow-drafting" },
+        { name: "Vendor Logic Evaluation Matrices", slug: "vendor-logic-evaluation-matrices" },
+        { name: "Data Sharing Agreements (DSAs)", slug: "data-sharing-agreements" }
+      ]
+    },
+    { 
+      title: "Frontline Operational Translation",
+      slug: "operational-translation",
+      desc: "Converting deterministic system logic back into human-readable formats. We ensure that frontline adjudicators and caseworkers understand the specific automated logic executing public policy to prevent administrative friction.",
+      icon: <BookOpen className="text-brand-jade mb-6" size={32} />,
+      deliverables: [
+        { name: "Deterministic SOPs", slug: "deterministic-sops" },
+        { name: "Living Policy Manuals", slug: "living-policy-manuals" }
+      ]
     }
   ];
 
@@ -70,7 +109,7 @@ export function Capabilities() {
             <h3 className="tracking-tight">{t('expertisePage.expertise.title')}</h3>
           </div>
           
-          <div className="grid md:grid-cols-2 gap-12 sm:gap-16">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12 sm:gap-16">
             {coreCapabilities.map((cap, i) => (
               <motion.div 
                 key={cap.title}
@@ -82,22 +121,28 @@ export function Capabilities() {
               >
                 <div>
                   {cap.icon}
-                  <h4 className="text-2xl font-bold mb-4">{cap.title}</h4>
-                  <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-8">
+                  <Link 
+                    to={`/capabilities/${cap.slug}`}
+                    className="group inline-flex items-center gap-2 mb-4 hover:text-brand-jade transition-colors"
+                  >
+                    <h4 className="text-xl font-bold">{cap.title}</h4>
+                    <ChevronRight size={20} className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-brand-jade" />
+                  </Link>
+                  <p className="text-base text-slate-600 dark:text-slate-400 leading-relaxed mb-8">
                     {cap.desc}
                   </p>
                 </div>
                 
-                {/* Deliverables Sub-Matrix (Monospace Tags) */}
+                {/* Deliverables Sub-Matrix */}
                 <div className="mt-auto pt-6 border-t border-slate-200 dark:border-slate-800">
                   <h5 className="text-xs font-bold uppercase tracking-widest text-brand-jade mb-4">Technical Deliverables</h5>
                   <div className="flex flex-wrap gap-2">
                     {cap.deliverables.map((deliverable) => (
                       <span 
-                        key={deliverable} 
-                        className="px-2.5 py-1.5 text-xs font-mono font-medium border border-slate-200 dark:border-slate-700 rounded-md bg-slate-100 dark:bg-slate-800/50 text-slate-700 dark:text-slate-300"
+                        key={deliverable.name} 
+                        className="px-2.5 py-1.5 text-xs font-mono font-bold border border-slate-200 dark:border-slate-700 rounded-md bg-slate-100 dark:bg-slate-800/50 text-slate-700 dark:text-slate-300"
                       >
-                        {deliverable}
+                        {deliverable.name}
                       </span>
                     ))}
                   </div>

@@ -525,15 +525,17 @@ export function Sandbox() {
             <span className={`text-[10px] font-bold uppercase tracking-widest flex items-center gap-2 ${persona === 'client' ? 'text-blue-400' : 'text-slate-500'}`}>
               <User size={14} /> Simulated Persona:
             </span>
-            <div className={`flex rounded-xl p-1 border transition-colors duration-500 ${persona === 'client' ? 'bg-blue-50/50 border-blue-100' : 'bg-slate-900/50 border-slate-800'}`}>
+            <div className={`flex rounded-xl p-1 border transition-colors duration-500 ${persona === 'client' ? 'bg-blue-50/50 border-blue-100' : 'bg-slate-900/50 border-slate-800'}`} role="group" aria-label="Select persona">
               <button
                 onClick={() => togglePersona('client')}
+                aria-pressed={persona === 'client'}
                 className={`px-4 py-1.5 rounded-lg text-xs font-bold transition-all ${persona === 'client' ? 'bg-white text-blue-600 shadow-sm' : 'text-slate-500 hover:text-slate-300'}`}
               >
                 Resident (Applicant)
               </button>
               <button
                 onClick={() => togglePersona('worker')}
+                aria-pressed={persona === 'worker'}
                 className={`px-4 py-1.5 rounded-lg text-xs font-bold transition-all ${persona === 'worker' ? 'bg-brand-jade text-slate-950 shadow-md' : 'text-slate-400 hover:text-slate-200'}`}
               >
                 Caseworker (Agency)
@@ -586,6 +588,9 @@ export function Sandbox() {
                     type="button"
                     disabled={appState === 'processing'}
                     onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                    aria-haspopup="listbox"
+                    aria-expanded={isDropdownOpen}
+                    aria-label={persona === 'client' ? 'Select document category' : 'Select target verification rule'}
                     className={`w-full text-left border rounded-xl px-4 py-3 text-xs flex justify-between items-center transition-all disabled:opacity-50 shadow-sm ${persona === 'client' ? 'bg-slate-50 border-blue-100 text-slate-700 focus:ring-2 focus:ring-blue-500/20 hover:bg-white' : 'bg-slate-950 border-slate-800 text-slate-300 focus:ring-1 focus:ring-brand-jade hover:border-slate-700 font-mono'}`}
                   >
                     <span className={!dropdownValue ? 'text-slate-400' : 'font-bold'}>{getSelectedDropdownLabel()}</span>
@@ -594,7 +599,10 @@ export function Sandbox() {
 
                   {/* Custom Dropdown Menu */}
                   {isDropdownOpen && (
-                    <div className={`absolute z-50 w-full mb-2 bottom-[100%] border rounded-2xl shadow-2xl overflow-hidden max-h-[300px] overflow-y-auto transition-all ${persona === 'client' ? 'bg-white border-blue-100' : 'bg-slate-900 border-slate-700'}`}>
+                    <div 
+                      className={`absolute z-50 w-full mb-2 bottom-[100%] border rounded-2xl shadow-2xl overflow-hidden max-h-[300px] overflow-y-auto transition-all ${persona === 'client' ? 'bg-white border-blue-100' : 'bg-slate-900 border-slate-700'}`}
+                      role="listbox"
+                    >
                       {UNIFIED_VERIFICATION_ONTOLOGY.map((domain, idx) => (
                         <div key={idx} className="pb-1">
                           <div className={`px-4 py-2 sticky top-0 backdrop-blur z-10 text-[9px] font-black uppercase tracking-[0.2em] border-b ${persona === 'client' ? 'bg-slate-50/95 text-blue-600 border-blue-50' : 'bg-slate-950/95 text-slate-500 border-slate-800/50'}`}>
@@ -605,6 +613,8 @@ export function Sandbox() {
                               <button
                                 key={protocol.id}
                                 type="button"
+                                role="option"
+                                aria-selected={dropdownValue === protocol.id}
                                 className={`w-full text-left px-4 py-2 text-xs transition-all flex items-center gap-3 ${dropdownValue === protocol.id ? (persona === 'client' ? 'bg-blue-50 text-blue-600 font-bold' : 'bg-[#002a2e] text-brand-jade font-bold') : (persona === 'client' ? 'text-slate-600 hover:bg-slate-50' : 'text-slate-300 hover:bg-slate-800')}`}
                                 onClick={() => {
                                   setDropdownValue(protocol.id);
@@ -670,6 +680,7 @@ export function Sandbox() {
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   placeholder={persona === 'client' ? 'Add a note (optional)...' : 'Append optional instructions to payload...'}
+                  aria-label={persona === 'client' ? 'Additional notes' : 'Optional instructions'}
                   className={`w-full border rounded-xl p-3 text-slate-800 focus:outline-none resize-none min-h-[50px] text-xs shadow-sm transition-all ${persona === 'client' ? 'bg-slate-50 border-blue-100 focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10' : 'bg-slate-950 border-slate-800 text-slate-200 focus:border-brand-jade font-mono'}`}
                   rows={1}
                 />
@@ -683,6 +694,7 @@ export function Sandbox() {
                 <button 
                   onClick={handleSubmit} 
                   disabled={appState === 'processing' || !fileData} 
+                  aria-label="Submit for analysis"
                   className={`w-12 h-12 rounded-xl font-black transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center shadow-lg active:scale-95 ${persona === 'client' ? 'bg-blue-600 hover:bg-blue-700 text-white shadow-blue-200' : 'bg-brand-jade hover:bg-[#005a62] text-slate-950 shadow-brand-jade/20'}`}
                 >
                   <Send size={20} />

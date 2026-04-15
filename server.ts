@@ -19,10 +19,31 @@ async function startServer() {
     res.json({ status: "ok", timestamp: new Date().toISOString() });
   });
 
-  // Example API route for contact form (placeholder)
+  // Example API route for contact form
   app.post("/api/contact", express.json(), (req, res) => {
-    console.log("Contact form submission:", req.body);
-    res.json({ success: true, message: "Message received" });
+    const { name, email, organization, message } = req.body;
+    
+    // Basic server-side validation
+    if (!name || !email || !organization || !message) {
+      return res.status(400).json({ 
+        success: false, 
+        message: "All fields are required" 
+      });
+    }
+
+    console.log("--- New Contact Inquiry ---");
+    console.log(`Name: ${name}`);
+    console.log(`Email: ${email}`);
+    console.log(`Org: ${organization}`);
+    console.log(`Message: ${message}`);
+    console.log("---------------------------");
+
+    // In a real app, you would send an email or save to a database here
+    
+    res.json({ 
+      success: true, 
+      message: "Inquiry received successfully" 
+    });
   });
 
   // Vite middleware for development

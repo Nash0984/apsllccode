@@ -23,7 +23,7 @@
     "challenge": {
       "label": "The Implementation Gap",
       "title": "The Translation Layer.",
-      "text": "Public technology failures occur when legislative mandates are lost as they move from written law to operational systems. We mitigate this risk by converting complex regulations into deterministic business rules—engineering everything from core eligibility logic down to the exact document schemas required for accurate evidence triage. This ensures policy intent survives the transition into operational infrastructure.",
+      "text": "Public technology failures occur when legislative mandates are lost as they move from written law to operational systems, shifting state risk from Title VI civil rights liabilities to federal fiscal sanctions. We mitigate this risk by converting regulations into deterministic business rules. This ensures policy intent survives the transition into operational infrastructure, protecting the agency budget from 15% state match penalties while reducing applicant friction without violating federal audit strictures.",
       "solution": "We ensure system logic is a verifiable reflection of statutory requirements.",
       "outputsLabel": "Technical Deliverables",
       "outputsLead": "Representative artifacts include:",
@@ -76,6 +76,18 @@
       "title": "Architectural Review",
       "desc": "The team is available for formal architectural reviews, statutory mapping workshops, and modernization strategy sessions.",
       "action": "Schedule Session"
+    },
+    "contactForm": {
+      "title": "Direct Inquiry",
+      "desc": "Submit a technical inquiry or request a capability briefing.",
+      "name": "Full Name",
+      "email": "Work Email",
+      "organization": "Organization",
+      "message": "Inquiry Details",
+      "submit": "Submit Inquiry",
+      "submitting": "Processing...",
+      "success": "Inquiry Received. Our team will review the technical requirements and respond within 24 hours.",
+      "error": "Submission failed. Please try again or contact us directly via email."
     }
   },
   "about": {
@@ -90,25 +102,21 @@
       "p2": "Before founding Applied Policy Systems LLC, Graham held senior leadership positions across all levels of government, specializing in the structural evaluation of benefits access and the modernization of tax administration programs."
     },
     "research": {
-      "label": "Research & Insights",
-      "title": "Service Delivery & Policy Fidelity.",
-      "text": "Our methodology is rooted in data analysis and historical context. We publish frameworks that bridge the gap between legislative intent and administrative reality.",
+      "label": "Proprietary Intelligence",
+      "title": "Empirical Data & Systems Architecture.",
+      "text": "This intelligence is not publicly distributed. It serves as the foundational data layer for our advisory engagements.",
       "docs": {
         "per": {
-          "title": "The 25-Year PER Dataset",
-          "desc": "A longitudinal analysis of Payment Error Rates and strict fiscal compliance tolerances."
-        },
-        "trbv": {
-          "title": "TRBV Framework",
-          "desc": "Targeted Rule-Based Verification metrics to isolate Business Rules Engine calculation failures."
+          "title": "25-Year National SNAP Dataset: State Policy Impacts on Error Rates",
+          "desc": "A comprehensive evaluation of federal Quality Control outcomes across all 53 U.S. jurisdictions from FY 2000 to 2024. This proprietary research maps specific state policy implementations against actual Payment Error Rates (PER), Case and Procedural Error Rates (CAPER), and the 15% state match penalty thresholds under Public Law 119-21."
         },
         "glassbox": {
-          "title": "The Glass Box Ingestion Framework",
-          "desc": "Data integration models ensuring automated calculations are executed fully, transparently, and with minimal burden on both the resident and the administration, while remaining entirely auditable for human adjudicators."
+          "title": "Verifiable Payload Architecture: Secure External Data Ingestion",
+          "desc": "An architectural framework defining strict Data Exchange Models and payload validation schemas. This allows third-party applications and interagency portals to securely transmit unstructured resident data into legacy state databases as mathematically verified evidence, reducing applicant friction without violating federal audit strictures."
         },
         "irc7216": {
-          "title": "IRC § 7216 Compliance",
-          "desc": "Architectural blueprints for securing tax return information within primary welfare program eligibility logic."
+          "title": "Architecting IRC § 7216 Security Overlays for Cross-Enrollment",
+          "desc": "Technical specifications for bridging the strict privacy requirements of federal tax data (IRC § 7216 and IRS Pub 1075) with the eligibility logic of primary public benefits programs (MAGI and 7 CFR 273). This framework enables 'No Wrong Door' cross-enrollment while satisfying State CISO security strictures."
         }
       }
     },
@@ -227,9 +235,9 @@
   },
   "insightsPage": {
     "hero": {
-      "label": "Intellectual Property",
-      "title": "Research & Interactive Blueprints.",
-      "subtitle": "Empirical analysis and executable architectural models demonstrating our methodology for translating federal statutes into operational infrastructure."
+      "label": "Proprietary Intelligence",
+      "title": "Empirical Data for Systems Engineering",
+      "subtitle": "Applied Policy Systems maintains exclusive, longitudinal datasets to support our consulting engagements. We utilize this intelligence to establish mathematical baselines for state agencies mitigating federal fiscal sanctions."
     },
     "blueprints": {
       "label": "Executable Blueprints",
@@ -237,12 +245,12 @@
       "documentTool": {
         "label": "Demonstrator 01",
         "title": "Document Upload Tool",
-        "desc": "A technical blueprint derived from state-level plain-language mandates. It acts as a reference architecture showing Prime Integrators how to structure evidence triage schemas without violating human-in-the-loop compliance."
+        "desc": "A technical blueprint demonstrating the intersection of human-centered design and strict statutory data schemas. It acts as a reference architecture showing Prime Integrators how to structure evidence triage to reduce applicant friction without violating human-in-the-loop federal audit strictures."
       },
       "policyManual": {
         "label": "Demonstrator 02",
         "title": "Living Policy Manual",
-        "desc": "A direct output of our Threat Diagnostic Sprints. It demonstrates how Large Language Models and deterministic logic engines are combined to map statutory requirements directly to calculation logic."
+        "desc": "A direct output of our Threat Diagnostic Sprints. It demonstrates how Large Language Models and deterministic logic engines combine to map statutory requirements directly to calculation logic, enabling frontline caseworkers and mitigating 15% state match penalties and Title VI civil rights liabilities."
       }
     }
   },

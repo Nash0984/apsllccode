@@ -4,6 +4,8 @@ import { Mail, Linkedin, MapPin, MessageSquare, ArrowRight, Bot } from 'lucide-r
 import { Helmet } from 'react-helmet-async';
 import { ChatWidget } from '../components/ChatWidget';
 
+import { ContactForm } from '../components/ContactForm';
+
 export function Contact() {
   const { t } = useTranslation();
   return (
@@ -42,7 +44,7 @@ export function Contact() {
       <section className="section-padding relative overflow-hidden">
         <div className="container-wide">
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
-            {/* Chat Interface */}
+            {/* Form Interface */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -50,20 +52,20 @@ export function Contact() {
               transition={{ duration: 0.6 }}
               className="space-y-10"
             >
-              <div>
-                <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-4">
-                  <div className="p-2 bg-brand-jade/10 rounded-lg">
-                    <Bot className="text-brand-jade" size={24} md:size={28} />
-                  </div>
+              <ContactForm />
+              
+              <div className="space-y-6">
+                <h3 className="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-3">
+                  <Bot className="text-brand-jade" size={20} />
                   {t('contactPage.ai.title')}
                 </h3>
-                <p className="text-base sm:text-lg text-slate-500 dark:text-slate-400 leading-relaxed">
+                <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
                   {t('contactPage.ai.desc')}
                 </p>
-              </div>
-              <div className="relative">
-                <div className="absolute -inset-4 bg-brand-jade/5 rounded-[3rem] blur-2xl -z-10" />
-                <ChatWidget embedded={true} />
+                <div className="relative">
+                  <div className="absolute -inset-4 bg-brand-jade/5 rounded-[3rem] blur-2xl -z-10" />
+                  <ChatWidget embedded={true} />
+                </div>
               </div>
             </motion.div>
 

@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { Globe } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 export function LanguageSwitcher() {
   const { i18n } = useTranslation();
@@ -19,13 +19,21 @@ export function LanguageSwitcher() {
     setIsOpen(false);
   };
 
+  // Handle keyboard navigation
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Escape') {
+      setIsOpen(false);
+    }
+  };
+
   return (
-    <div className="relative">
+    <div className="relative" onKeyDown={handleKeyDown}>
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-slate-600 dark:text-slate-400 font-bold text-sm"
         aria-label="Select language"
         aria-expanded={isOpen}
+        aria-haspopup="true"
       >
         <Globe size={18} strokeWidth={1.5} />
         <span>{currentLanguage.name}</span>
@@ -43,11 +51,14 @@ export function LanguageSwitcher() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 10, scale: 0.95 }}
               className="absolute right-0 mt-2 w-32 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl shadow-xl z-[70] overflow-hidden"
+              role="menu"
+              aria-label="Language options"
             >
               {languages.map((lang) => (
                 <button
                   key={lang.code}
                   onClick={() => changeLanguage(lang.code)}
+                  role="menuitem"
                   className={`w-full text-left px-4 py-3 text-sm font-bold transition-colors ${
                     i18n.language === lang.code
                       ? 'bg-brand-jade text-white'

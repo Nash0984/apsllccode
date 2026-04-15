@@ -9,25 +9,25 @@ export default function ArchitectureVisualization() {
     {
       key: "ingestion",
       title: "Statutory Ingestion",
-      desc: "Raw legislative text, federal mandates (e.g., IRS Pub 1075, FNS Guidelines), and state policies are ingested as the immutable source of truth.",
+      desc: "Raw legislative text, federal privacy mandates (e.g., IRS Pub 1075), state policy directives, and evidence-based program rules are ingested as the immutable source of truth.",
       icon: <FileText size={24} />
     },
     {
       key: "llm",
       title: "LLM Triage Layer",
-      desc: "Large Language Models map dense administrative requirements into plain-language conversational schemas, drastically reducing procedural drop-offs.",
+      desc: "Large Language Models map dense administrative requirements into plain-language, human-centered conversational schemas, drastically reducing procedural drop-offs for vulnerable residents.",
       icon: <Network size={24} />
     },
     {
       key: "logic",
       title: "Deterministic Engine",
-      desc: "The core verification layer. All conversational inputs are mathematically evaluated against hardcoded business rules to guarantee absolute statutory fidelity and zero hallucination risk.",
+      desc: "The core verification layer. All conversational inputs are mathematically evaluated against hardcoded business rules to guarantee absolute statutory fidelity, zero hallucination risk, and empirical verifiability.",
       icon: <Binary size={24} />
     },
     {
       key: "output",
       title: "Compliant Integration",
-      desc: "Verified eligibility outcomes are compiled into secure, auditable API payloads for state system integration, creating a definitive Independent Verification & Validation (IV&V) trail.",
+      desc: "Verified eligibility outcomes are compiled into secure API payloads for state systems and civic tech deployments, creating an auditable IV&V data trail for longitudinal evaluation.",
       icon: <Shield size={24} />
     }
   ];
@@ -49,6 +49,8 @@ export default function ArchitectureVisualization() {
               <div key={index} className="flex items-center flex-1 last:flex-none">
                 <motion.button
                   onClick={() => setActiveStep(index)}
+                  aria-label={`View step ${index + 1}: ${step.title}`}
+                  aria-pressed={activeStep === index}
                   className={`relative shrink-0 w-14 h-14 rounded-2xl flex items-center justify-center transition-all ${
                     activeStep === index 
                       ? `bg-brand-jade text-white shadow-lg scale-110` 
@@ -80,7 +82,7 @@ export default function ArchitectureVisualization() {
           </div>
         </div>
 
-        <div className="min-h-[140px] sm:min-h-[120px] mt-4 sm:mt-0">
+        <div className="min-h-[140px] sm:min-h-[120px] mt-4 sm:mt-0" aria-live="polite">
           <motion.div
             key={activeStep}
             initial={{ opacity: 0, y: 10 }}

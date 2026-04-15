@@ -1,31 +1,33 @@
-import { BrowserRouter, Routes, Route, useLocation, useParams } from 'react-router-dom';
-import { lazy, Suspense, useEffect, useMemo } from 'react';
+import React, { lazy, Suspense, useEffect } from 'react';
+import { BrowserRouter, Routes, Route, useLocation, useParams, Navigate } from 'react-router-dom';
 import { Layout } from './components/Layout';
 import ScrollToTop from './components/ScrollToTop';
-import { AnimatePresence, motion } from 'motion/react';
 
-// Lazy load pages for code splitting
+// Core Pages
 const Home = lazy(() => import('./pages/Home').then(m => ({ default: m.Home })));
 const About = lazy(() => import('./pages/About').then(m => ({ default: m.About })));
 const Contact = lazy(() => import('./pages/Contact').then(m => ({ default: m.Contact })));
-const Expertise = lazy(() => import('./pages/Capabilities').then(m => ({ default: m.Capabilities })));
+const Capabilities = lazy(() => import('./pages/Capabilities').then(m => ({ default: m.Capabilities })));
 const Insights = lazy(() => import('./pages/Insights').then(m => ({ default: m.Insights })));
 const Privacy = lazy(() => import('./pages/Privacy').then(m => ({ default: m.Privacy })));
 const Terms = lazy(() => import('./pages/Terms').then(m => ({ default: m.Terms })));
 
-// Dynamic Topic Loader for Insights
-const DynamicInsight = () => {
-  const { topic } = useParams();
-  const capitalized = topic ? topic.charAt(0).toUpperCase() + topic.slice(1) : '';
-  
-  const Component = useMemo(() => lazy(() => 
-    import(`./pages/insights/${capitalized}`)
-      .then(m => ({ default: m[capitalized] }))
-      .catch(() => import('./pages/Insights').then(m => ({ default: m.Insights })))
-  ), [capitalized]);
+// Dynamic Capability Loader
+const CapabilityMap: Record<string, React.LazyExoticComponent<any>> = {
+  'hybrid-rules-engine': lazy(() => import('./pages/capabilities/HybridEngine')),
+  'snap-per-mitigation': lazy(() => import('./pages/capabilities/Per')),
+  'tax-data-compliance': lazy(() => import('./pages/capabilities/Glassbox')),
+  'statutory-verification': lazy(() => import('./pages/capabilities/Trbv')),
+  'pre-procurement-governance': lazy(() => import('./pages/capabilities/PreProcurement')),
+  'operational-translation': lazy(() => import('./pages/capabilities/OperationalTranslation')),
+};
+
+const DynamicCapability = () => {
+  const { slug } = useParams();
+  const Component = slug && CapabilityMap[slug] ? CapabilityMap[slug] : Capabilities;
 
   return (
-    <Suspense fallback={null}>
+    <Suspense fallback={<div className="min-h-screen bg-slate-950 animate-pulse"></div>}>
       <Component />
     </Suspense>
   );
@@ -36,31 +38,24 @@ const prefetchMap: Record<string, () => Promise<any>> = {
   '/': () => import('./pages/Home'),
   '/about': () => import('./pages/About'),
   '/contact': () => import('./pages/Contact'),
-  '/expertise': () => import('./pages/Capabilities'),
+  '/capabilities': () => import('./pages/Capabilities'),
   '/insights': () => import('./pages/Insights'),
-  '/privacy': () => import('./pages/Privacy'),
-  '/terms': () => import('./pages/Terms'),
 };
 
 function AnimatedRoutes() {
   const location = useLocation();
   
-  // Global prefetch on hover
   useEffect(() => {
     const handleMouseOver = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       const link = target.closest('a');
       if (link) {
         const url = new URL(link.href);
-        if (url.origin === window.location.origin) {
-          const path = url.pathname;
-          if (prefetchMap[path]) {
-            prefetchMap[path]();
-          }
+        if (url.origin === window.location.origin && prefetchMap[url.pathname]) {
+          prefetchMap[url.pathname]();
         }
       }
     };
-
     document.addEventListener('mouseover', handleMouseOver);
     return () => document.removeEventListener('mouseover', handleMouseOver);
   }, []);
@@ -71,9 +66,14 @@ function AnimatedRoutes() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
-          <Route path="expertise" element={<Expertise />} />
+          
+          <Route path="expertise" element={<Navigate to="/capabilities" replace />} />
+          
+          <Route path="capabilities" element={<Capabilities />} />
+          <Route path="capabilities/:slug" element={<DynamicCapability />} />
+
           <Route path="insights" element={<Insights />} />
-          <Route path="insights/:topic" element={<DynamicInsight />} />
+          
           <Route path="contact" element={<Contact />} />
           <Route path="privacy" element={<Privacy />} />
           <Route path="terms" element={<Terms />} />

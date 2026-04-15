@@ -65,6 +65,14 @@ export function Layout() {
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950 font-sans text-brand-charcoal dark:text-slate-200 selection:bg-brand-cyan selection:text-brand-charcoal transition-colors duration-300">
+      {/* Skip to Content Link */}
+      <a 
+        href="#main-content" 
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[200] focus:px-4 focus:py-2 focus:bg-brand-jade focus:text-white focus:rounded-lg focus:font-bold focus:shadow-2xl transition-all"
+      >
+        Skip to main content
+      </a>
+
       {/* Navigation */}
       <motion.header 
         role="banner"
@@ -187,7 +195,7 @@ export function Layout() {
         </div>
       </motion.header>
 
-      <main className="relative">
+      <main id="main-content" className="relative">
         <AnimatePresence mode="wait">
           <motion.div
             key={location.pathname}

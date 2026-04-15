@@ -8,6 +8,7 @@ export const Logo: React.FC<{ className?: string }> = ({ className }) => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
+      aria-hidden="true"
     >
       <defs>
         <linearGradient id="cubeGradient" x1="0%" y1="0%" x2="100%" y2="100%">

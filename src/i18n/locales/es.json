@@ -72,6 +72,18 @@
       "title": "¿Listo para profundizar?",
       "desc": "Nuestro equipo está disponible para revisiones arquitectónicas formales, talleres de mapeo estatutario y sesiones de estrategia de modernización.",
       "action": "Programar una Sesión"
+    },
+    "contactForm": {
+      "title": "Consulta Directa",
+      "desc": "Envíe una consulta técnica o solicite una sesión informativa sobre capacidades.",
+      "name": "Nombre Completo",
+      "email": "Correo Electrónico de Trabajo",
+      "organization": "Organización",
+      "message": "Detalles de la Consulta",
+      "submit": "Enviar Consulta",
+      "submitting": "Procesando...",
+      "success": "Consulta Recibida. Nuestro equipo revisará los requisitos técnicos y responderá dentro de las 24 horas.",
+      "error": "Error al enviar. Inténtelo de nuevo o contáctenos directamente por correo electrónico."
     }
   },
   "about": {

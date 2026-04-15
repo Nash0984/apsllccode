@@ -95,7 +95,7 @@ export function PolicyManual() {
             <h2 className="text-xl font-bold text-slate-900 dark:text-white">Living Manual</h2>
           </div>
           
-          <div className="flex-1 overflow-y-auto p-4 space-y-6 flex lg:flex-col overflow-x-auto lg:overflow-x-hidden">
+          <div className="flex-1 overflow-y-auto p-4 space-y-6 flex lg:flex-col overflow-x-auto lg:overflow-x-hidden" role="tablist" aria-label="Policy chapters">
             <div className="min-w-[200px] lg:min-w-0">
               <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest block mb-4 px-2">Chapters</span>
               <div className="flex lg:flex-col gap-1">
@@ -103,6 +103,9 @@ export function PolicyManual() {
                   <button
                     key={chapter.id}
                     onClick={() => setActiveChapter(chapter)}
+                    role="tab"
+                    aria-selected={activeChapter.id === chapter.id}
+                    aria-controls={`chapter-panel-${chapter.id}`}
                     className={`whitespace-nowrap lg:whitespace-normal text-left px-4 py-3 rounded-xl text-sm transition-all flex items-center justify-between group gap-4 ${activeChapter.id === chapter.id ? 'bg-brand-jade text-white font-bold shadow-lg shadow-brand-jade/20' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800'}`}
                   >
                     {chapter.title}
@@ -126,15 +129,17 @@ export function PolicyManual() {
 
             <div className="min-w-[150px] lg:min-w-0 pt-0 lg:pt-4 lg:border-t border-slate-200 dark:border-slate-800">
               <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest block mb-4 px-2">Perspective</span>
-              <div className="flex p-1 bg-slate-200 dark:bg-slate-800 rounded-xl">
+              <div className="flex p-1 bg-slate-200 dark:bg-slate-800 rounded-xl" role="group" aria-label="Select persona">
                 <button
                   onClick={() => setPersona('client')}
+                  aria-pressed={persona === 'client'}
                   className={`flex-1 py-2 px-3 rounded-lg text-[10px] font-bold transition-all whitespace-nowrap ${persona === 'client' ? 'bg-white dark:bg-slate-700 text-brand-jade shadow-sm' : 'text-slate-500'}`}
                 >
                   Resident
                 </button>
                 <button
                   onClick={() => setPersona('worker')}
+                  aria-pressed={persona === 'worker'}
                   className={`flex-1 py-2 px-3 rounded-lg text-[10px] font-bold transition-all whitespace-nowrap ${persona === 'worker' ? 'bg-white dark:bg-slate-700 text-brand-jade shadow-sm' : 'text-slate-500'}`}
                 >
                   Caseworker
@@ -145,7 +150,7 @@ export function PolicyManual() {
         </div>
 
         {/* Main Interface: Chat & Intelligence */}
-        <div className="flex-1 flex flex-col bg-white dark:bg-slate-950 relative">
+        <div className="flex-1 flex flex-col bg-white dark:bg-slate-950 relative" role="tabpanel" id={`chapter-panel-${activeChapter.id}`} aria-labelledby={activeChapter.id}>
           
           {/* Header */}
           <div className="px-6 sm:px-8 py-4 sm:py-6 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
@@ -165,11 +170,11 @@ export function PolicyManual() {
           </div>
 
           {/* Chat Area */}
-          <div ref={chatScrollRef} className="flex-1 overflow-y-auto p-4 sm:p-8 space-y-6 sm:space-y-8">
+          <div ref={chatScrollRef} className="flex-1 overflow-y-auto p-4 sm:p-8 space-y-6 sm:space-y-8" aria-live="polite">
             {chatHistory.length === 0 && (
               <div className="flex flex-col items-center justify-center h-full text-center max-w-md mx-auto gap-6 sm:gap-8">
                 <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-slate-50 dark:bg-slate-900 flex items-center justify-center text-brand-jade shadow-inner">
-                  <Search size={32} sm:size={40} className="opacity-50" />
+                  <Search size={32} sm:size={40} className="opacity-50" aria-hidden="true" />
                 </div>
                 <div className="space-y-4">
                   <h4 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">How can I assist with policy?</h4>
@@ -199,18 +204,18 @@ export function PolicyManual() {
               <div key={idx} className={`flex flex-col gap-2 sm:gap-3 ${msg.role === 'user' ? 'items-end' : 'items-start'}`}>
                 <div className={`flex items-center gap-2 text-[8px] sm:text-[10px] uppercase tracking-widest font-black ${msg.role === 'user' ? 'text-slate-400' : 'text-brand-jade'}`}>
                   {msg.role === 'user' ? 'Query' : 'Statutory Guidance'}
-                  {msg.role === 'model' && <Scale size={10} />}
+                  {msg.role === 'model' && <Scale size={10} aria-hidden="true" />}
                 </div>
                 <div className={`p-4 sm:p-5 rounded-2xl text-xs sm:text-sm max-w-[90%] sm:max-w-[85%] leading-relaxed shadow-sm ${msg.role === 'user' ? 'bg-brand-jade text-white rounded-tr-sm' : 'bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200 rounded-tl-sm whitespace-pre-wrap'}`}>
                   {msg.parts[0].text}
                   {msg.role === 'model' && (
                     <div className="mt-4 pt-4 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-[8px] sm:text-[10px] font-bold text-slate-400">
                       <div className="flex items-center gap-2">
-                        <AlertCircle size={12} />
+                        <AlertCircle size={12} aria-hidden="true" />
                         Citing: {activeChapter.statutes[0]}
                       </div>
-                      <button className="flex items-center gap-1 hover:text-brand-jade transition-colors self-start sm:self-auto">
-                        View Full Statute <ExternalLink size={10} />
+                      <button className="flex items-center gap-1 hover:text-brand-jade transition-colors self-start sm:self-auto" aria-label={`View full statute for ${activeChapter.statutes[0]}`}>
+                        View Full Statute <ExternalLink size={10} aria-hidden="true" />
                       </button>
                     </div>
                   )}
@@ -220,7 +225,7 @@ export function PolicyManual() {
 
             {isProcessing && (
               <div className="flex items-center gap-4 text-xs font-black uppercase tracking-widest text-brand-jade">
-                <div className="w-5 h-5 border-2 border-brand-jade border-t-transparent rounded-full animate-spin" />
+                <div className="w-5 h-5 border-2 border-brand-jade border-t-transparent rounded-full animate-spin" aria-hidden="true" />
                 Consulting policy repository...
               </div>
             )}
@@ -240,12 +245,14 @@ export function PolicyManual() {
                     }
                   }}
                   placeholder="Ask a policy question..."
+                  aria-label="Policy question"
                   className="w-full border border-slate-200 dark:border-slate-800 rounded-2xl p-4 pr-12 text-slate-800 dark:text-slate-200 bg-white dark:bg-slate-950 focus:outline-none focus:ring-4 focus:ring-brand-jade/10 focus:border-brand-jade transition-all resize-none min-h-[60px] max-h-[200px] text-sm shadow-sm"
                   rows={1}
                 />
                 <button 
                   onClick={handleSubmit}
                   disabled={!input.trim() || isProcessing}
+                  aria-label="Send question"
                   className="absolute bottom-3 right-3 w-10 h-10 rounded-xl bg-brand-jade text-white flex items-center justify-center shadow-lg shadow-brand-jade/20 hover:bg-[#005a62] transition-all disabled:opacity-50 disabled:scale-95 active:scale-90"
                 >
                   <Send size={18} />
