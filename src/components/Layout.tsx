@@ -193,7 +193,7 @@ export function Layout() {
         </div>
       </motion.header>
 
-      <main id="main-content" className="relative">
+      <main id="main-content" className="relative" tabIndex={-1}>
         <AnimatePresence mode="wait">
           <motion.div
             key={location.pathname}
@@ -247,7 +247,7 @@ export function Layout() {
             </div>
             
             {/* Menu Links */}
-            <nav className="flex-1 flex flex-col items-center justify-center gap-8 p-8" aria-label="Mobile navigation">
+            <nav className="flex-1 flex flex-col items-center justify-center gap-8 p-8" aria-label="Mobile main navigation">
               {navItems.map((item, i) => (
                 <motion.div
                   key={item.path}

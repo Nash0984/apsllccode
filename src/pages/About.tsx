@@ -119,12 +119,12 @@ export function About() {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="hero-section">
+      <section className="hero-section" aria-labelledby="about-hero-title">
         <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-jade/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/4 pointer-events-none" />
         <div className="container-wide relative text-center lg:text-left">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <h1 className="label-uppercase">{t('about.hero.label')}</h1>
-            <h2 className="max-w-4xl mx-auto lg:mx-0 text-4xl md:text-5xl lg:text-6xl font-black tracking-tight mb-8">
+            <h2 id="about-hero-title" className="max-w-4xl mx-auto lg:mx-0 text-4xl md:text-5xl lg:text-6xl font-black tracking-tight mb-8">
               {t('about.hero.title')}
             </h2>
             <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto lg:mx-0 leading-relaxed">
@@ -135,24 +135,36 @@ export function About() {
       </section>
 
       {/* Founder Dossier & Verified Metrics */}
-      <section className="section-padding bg-slate-50 dark:bg-slate-900 border-y border-slate-100 dark:border-slate-800">
+      <section className="section-padding bg-slate-50 dark:bg-slate-900 border-y border-slate-100 dark:border-slate-800" aria-label="Founder and Impact Statistics">
         <div className="container-wide">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <motion.div 
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="space-y-8"
+              className="space-y-12"
             >
-              <div>
-                <h2 className="label-muted">{t('about.founder.title').toUpperCase()}</h2>
-                <p className="text-2xl font-black tracking-tight text-slate-900 dark:text-white leading-snug mb-6">
-                  {t('about.founder.intro')}
-                </p>
-                <div className="space-y-4 text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
-                  <p>{t('about.founder.p1')}</p>
-                  <p>{t('about.founder.p2')}</p>
+              <div className="flex flex-col sm:flex-row gap-10 items-center sm:items-start">
+                <div className="shrink-0 relative group">
+                  <div className="absolute -inset-4 bg-brand-jade/10 rounded-[2.5rem] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                  <img 
+                    src="/graham-oneill.jpg" 
+                    alt="Graham O'Neill" 
+                    className="relative w-48 h-64 rounded-2xl object-cover shadow-2xl grayscale hover:grayscale-0 transition-all duration-700 border border-slate-200 dark:border-slate-800"
+                    referrerPolicy="no-referrer"
+                  />
                 </div>
+                <div className="flex-1 text-center sm:text-left">
+                  <h2 className="label-muted mb-4">{t('about.founder.title').toUpperCase()}</h2>
+                  <p className="text-2xl font-black tracking-tight text-slate-900 dark:text-white leading-tight">
+                    {t('about.founder.intro')}
+                  </p>
+                </div>
+              </div>
+
+              <div className="space-y-6 text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+                <p>{t('about.founder.p1')}</p>
+                <p>{t('about.founder.p2')}</p>
               </div>
             </motion.div>
 

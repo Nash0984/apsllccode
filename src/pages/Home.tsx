@@ -42,7 +42,7 @@ export function Home() {
       </Helmet>
       
       {/* Hero Section */}
-      <section className="hero-section">
+      <section className="hero-section" aria-labelledby="hero-heading">
         <motion.div 
           style={{ 
             y,
@@ -50,6 +50,7 @@ export function Home() {
             backgroundSize: '100px 100px' 
           }}
           className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05] dark:invert pointer-events-none" 
+          aria-hidden="true"
         />
         
         <div className="container-wide relative text-center lg:text-left">
@@ -59,7 +60,7 @@ export function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             >
-              <h1 className="mb-8 text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black tracking-tight">
+              <h1 id="hero-heading" className="mb-8 text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black tracking-tight">
                 {t('home.hero.title')}
               </h1>
               <p className="text-base sm:text-lg md:text-xl mb-12 max-w-3xl mx-auto lg:mx-0 text-slate-600 dark:text-slate-400 leading-relaxed">
@@ -81,12 +82,12 @@ export function Home() {
       </section>
 
       {/* The Problem & Solution Section - Compact */}
-      <section className="section-padding bg-slate-50 dark:bg-slate-900 relative overflow-hidden border-b border-slate-200 dark:border-slate-800">
+      <section className="section-padding bg-slate-50 dark:bg-slate-900 relative overflow-hidden border-b border-slate-200 dark:border-slate-800" aria-labelledby="challenge-heading">
         <div className="container-wide">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div className="text-center lg:text-left">
               <h2 className="label-uppercase mb-4">{t('home.challenge.label')}</h2>
-              <h3 className="text-3xl sm:text-4xl md:text-5xl font-black mb-8 tracking-tight leading-tight text-slate-900 dark:text-white">
+              <h3 id="challenge-heading" className="text-3xl sm:text-4xl md:text-5xl font-black mb-8 tracking-tight leading-tight text-slate-900 dark:text-white">
                 {t('home.challenge.title')}
               </h3>
               <p className="text-lg leading-relaxed text-slate-600 dark:text-slate-400 mb-6">

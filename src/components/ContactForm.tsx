@@ -120,12 +120,16 @@ export function ContactForm() {
                 id="name"
                 name="name"
                 type="text"
+                required
+                aria-required="true"
+                aria-invalid={errors.name ? 'true' : 'false'}
+                aria-describedby={errors.name ? 'name-error' : undefined}
                 value={formData.name}
                 onChange={handleChange}
                 className={`w-full bg-slate-50 dark:bg-slate-800 border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-brand-jade transition-all ${errors.name ? 'ring-2 ring-red-500' : ''}`}
                 placeholder="John Doe"
               />
-              {errors.name && <p className="text-red-500 text-[10px] font-bold uppercase tracking-wider">{errors.name}</p>}
+              {errors.name && <p id="name-error" className="text-red-500 text-[10px] font-bold uppercase tracking-wider">{errors.name}</p>}
             </div>
             <div className="space-y-2">
               <label htmlFor="email" className="text-xs font-black uppercase tracking-widest text-slate-400">
@@ -135,12 +139,16 @@ export function ContactForm() {
                 id="email"
                 name="email"
                 type="email"
+                required
+                aria-required="true"
+                aria-invalid={errors.email ? 'true' : 'false'}
+                aria-describedby={errors.email ? 'email-error' : undefined}
                 value={formData.email}
                 onChange={handleChange}
                 className={`w-full bg-slate-50 dark:bg-slate-800 border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-brand-jade transition-all ${errors.email ? 'ring-2 ring-red-500' : ''}`}
                 placeholder="john@organization.gov"
               />
-              {errors.email && <p className="text-red-500 text-[10px] font-bold uppercase tracking-wider">{errors.email}</p>}
+              {errors.email && <p id="email-error" className="text-red-500 text-[10px] font-bold uppercase tracking-wider">{errors.email}</p>}
             </div>
           </div>
 
@@ -152,12 +160,16 @@ export function ContactForm() {
               id="organization"
               name="organization"
               type="text"
+              required
+              aria-required="true"
+              aria-invalid={errors.organization ? 'true' : 'false'}
+              aria-describedby={errors.organization ? 'organization-error' : undefined}
               value={formData.organization}
               onChange={handleChange}
               className={`w-full bg-slate-50 dark:bg-slate-800 border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-brand-jade transition-all ${errors.organization ? 'ring-2 ring-red-500' : ''}`}
               placeholder="Agency or Firm Name"
             />
-            {errors.organization && <p className="text-red-500 text-[10px] font-bold uppercase tracking-wider">{errors.organization}</p>}
+            {errors.organization && <p id="organization-error" className="text-red-500 text-[10px] font-bold uppercase tracking-wider">{errors.organization}</p>}
           </div>
 
           <div className="space-y-2">
@@ -167,13 +179,17 @@ export function ContactForm() {
             <textarea
               id="message"
               name="message"
+              required
+              aria-required="true"
+              aria-invalid={errors.message ? 'true' : 'false'}
+              aria-describedby={errors.message ? 'message-error' : undefined}
               value={formData.message}
               onChange={handleChange}
               rows={4}
               className={`w-full bg-slate-50 dark:bg-slate-800 border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-brand-jade transition-all resize-none ${errors.message ? 'ring-2 ring-red-500' : ''}`}
               placeholder="How can we assist with your modernization strategy?"
             />
-            {errors.message && <p className="text-red-500 text-[10px] font-bold uppercase tracking-wider">{errors.message}</p>}
+            {errors.message && <p id="message-error" className="text-red-500 text-[10px] font-bold uppercase tracking-wider">{errors.message}</p>}
           </div>
 
           <AnimatePresence>

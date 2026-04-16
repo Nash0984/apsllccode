@@ -85,12 +85,12 @@ export function Capabilities() {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="hero-section border-b border-slate-100 dark:border-slate-800">
+      <section className="hero-section border-b border-slate-100 dark:border-slate-800" aria-labelledby="capabilities-hero-title">
         <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-jade/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/4 pointer-events-none" />
         <div className="container-wide relative">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="max-w-4xl">
             <h1 className="label-uppercase mb-6">{t('capabilitiesPage.hero.label')}</h1>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight mb-8 text-slate-900 dark:text-white">
+            <h2 id="capabilities-hero-title" className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight mb-8 text-slate-900 dark:text-white">
               {t('capabilitiesPage.hero.title')}
             </h2>
             <p className="text-xl text-slate-600 dark:text-slate-400 leading-relaxed">
@@ -101,11 +101,11 @@ export function Capabilities() {
       </section>
 
       {/* Grid Section */}
-      <section className="section-padding bg-slate-50 dark:bg-slate-900">
+      <section className="section-padding bg-slate-50 dark:bg-slate-900" aria-labelledby="grid-header-title">
         <div className="container-wide">
           <div className="mb-16">
             <h3 className="label-uppercase mb-4">{t('capabilitiesPage.grid.headerLabel')}</h3>
-            <h2 className="text-3xl md:text-4xl font-black tracking-tight text-slate-900 dark:text-white">
+            <h2 id="grid-header-title" className="text-3xl md:text-4xl font-black tracking-tight text-slate-900 dark:text-white">
               {t('capabilitiesPage.grid.headerTitle')}
             </h2>
           </div>
@@ -120,18 +120,20 @@ export function Capabilities() {
                 transition={{ delay: i * 0.1 }}
                 className="h-full"
               >
-                <Link 
-                  to={`/capabilities/${cap.slug}`}
-                  className="block h-full bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl p-8 hover:border-brand-jade dark:hover:border-brand-jade transition-all shadow-sm hover:shadow-md group relative focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-jade focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-900"
-                >
-                  <div className="absolute top-8 right-8 text-brand-jade opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-                    <ArrowUpRight size={24} />
-                  </div>
+                <article className="h-full">
+                  <Link 
+                    to={`/capabilities/${cap.slug}`}
+                    aria-labelledby={`cap-title-${i}`}
+                    className="block h-full bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl p-8 hover:border-brand-jade dark:hover:border-brand-jade transition-all shadow-sm hover:shadow-md group relative focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-jade focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-900"
+                  >
+                    <div className="absolute top-8 right-8 text-brand-jade opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+                      <ArrowUpRight size={24} aria-hidden="true" />
+                    </div>
 
-                  <div className="text-brand-jade mb-6">
-                    {cap.icon}
-                  </div>
-                  <h4 className="text-2xl font-bold mb-4 text-slate-900 dark:text-white">{cap.title}</h4>
+                    <div className="text-brand-jade mb-6" aria-hidden="true">
+                      {cap.icon}
+                    </div>
+                    <h4 id={`cap-title-${i}`} className="text-2xl font-bold mb-4 text-slate-900 dark:text-white">{cap.title}</h4>
                   <p className="text-slate-600 dark:text-slate-400 mb-8 leading-relaxed text-sm">
                     {cap.desc}
                   </p>
@@ -150,7 +152,8 @@ export function Capabilities() {
                     </ul>
                   </div>
                 </Link>
-              </motion.div>
+              </article>
+            </motion.div>
             ))}
           </div>
         </div>

@@ -157,6 +157,8 @@ export function ChatWidget({ embedded = false }: { embedded?: boolean }) {
       <AnimatePresence>
         {isOpen && !isMinimized && (
           <motion.div
+            key="chat-window-popup"
+            id="chat-window"
             initial={{ opacity: 0, y: 20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
@@ -184,7 +186,7 @@ export function ChatWidget({ embedded = false }: { embedded?: boolean }) {
                 </button>
               </div>
             </div>
-            <div className="flex-1 overflow-y-auto p-4 space-y-4 scrollbar-hide">
+            <div className="flex-1 overflow-y-auto p-4 space-y-4 scrollbar-hide" aria-live="polite" aria-atomic="false">
               {messages.map((m, i) => (
                 <div key={i} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                   <div className={`max-w-[85%] p-3 rounded-xl text-sm ${
@@ -248,7 +250,8 @@ export function ChatWidget({ embedded = false }: { embedded?: boolean }) {
           whileTap={{ scale: 0.9 }}
           onClick={() => setIsOpen(true)}
           aria-label="Open consulting assistant"
-          aria-expanded="false"
+          aria-expanded={isOpen}
+          aria-controls="chat-window"
           className="fixed bottom-24 right-8 w-14 h-14 bg-brand-jade text-white rounded-full flex items-center justify-center shadow-2xl z-[100] hover:bg-[#005a62] transition-colors"
         >
           <MessageSquare size={24} />
