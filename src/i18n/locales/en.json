@@ -215,17 +215,29 @@
       "subtitle": "This analytics layer serves as the foundational data source for our advisory engagements. We leverage decades of federal oversight data to engineer high-compliance frameworks."
     },
     "docs": {
-      "per": {
-        "title": "25-Year SNAP Analysis: State Policy Impacts on Error Rates",
-        "desc": "An empirical evaluation of historical SNAP Payment Error Rates, isolating the fiscal impact of specific state-level administrative policy waivers and operational workflows to establish federal quality control baselines."
+      "adv1": {
+        "title": "Navigating the PL 119-21 Financial Penalties with Deterministic Rules-as-Code",
+        "desc": "This document outlines the fiscal liabilities of Public Law 119-21, detailing how legacy rules engines and manual transcription workflows create artificially high Payment Error Rates. It provides a high-level architectural framework for implementing deterministic rules-as-code and a \"Verify Once\" strategy utilizing real-time electronic payroll data (e.g., The Work Number) to map exact federal policy intent to state system behavior, demonstrating the technological shift required to mitigate severe financial penalties."
       },
-      "irc7216": {
-        "title": "Architecting IRS Security Overlays for Cross-Enrollment",
-        "desc": "Systems architecture analysis for integrating highly restricted federal tax data (IRS 1075 / IRC 7216) into state benefit eligibility engines without triggering compliance breaches or federal sanctions."
+      "adv2": {
+        "title": "Preventing Wrongful Denials and Title VI Audits Caused by Strict Verification",
+        "desc": "This document establishes the correlation between rigid physical verification mandates and procedural error spikes. It details how the incentive for \"Defensive Eligibility\" directly triggers Title VI audit liabilities and wrongful denials. It presents a tiered, risk-based verification framework designed to exhaust electronic sources before requesting documentation (\"Silent Verification\") as the required operational correction."
       },
-      "glassbox": {
-        "title": "Statutory Verification: Secure External Data Ingestion",
-        "desc": "Independent verification models for secure interagency data exchanges, ensuring external data pipelines are mathematically validated against statutory requirements prior to systemic ingestion."
+      "adv3": {
+        "title": "Resolving Application Bottlenecks via Deterministic Queue Separation and Pre-Calculation",
+        "desc": "This document diagnoses the structural failure of manual case processing in meeting 30-day federal processing mandates. It outlines how to implement deterministic queue separation and Intelligent Document Processing to automatically classify, understand, and extract key information from submitted work documents. By presenting merit-system caseworkers with a mathematically proven data schema, agencies can reduce processing time from weeks to seconds while strictly maintaining federal compliance regarding human eligibility determinations."
+      },
+      "adv4": {
+        "title": "Satisfying IRS Pub 1075 Data Isolation Requirements for Ex Parte Renewals",
+        "desc": "This document addresses the statutory conflict between CMS ex parte renewal mandates and the provisions of IRC § 7216 regarding the unauthorized disclosure of federal tax information. It defines the structural security overlays, strict logical data isolation requirements, role-based access controls, and Universal Consent Directives necessary to utilize federal tax data for eligibility matching without exposing the primary state mainframe to compliance liabilities."
+      },
+      "adv5": {
+        "title": "Using Schema Validation to Bridge Modern Frontends with Legacy State Mainframes",
+        "desc": "This document evaluates the integration failures of modern plain-language applications against MARS-E compliance standards and legacy system constraints. It identifies strict schema validation, API metadata constraints, and deterministic threshold enforcement as the mandatory data validation middleware required to safely ingest unstructured external data into legacy eligibility mainframes without exposing the state to audit liabilities."
+      },
+      "adv6": {
+        "title": "Bypassing Monolithic Bottlenecks: Modular API Integration for Rapid Federal Mandates",
+        "desc": "This document evaluates the structural inflexibility of monolithic builds in responding to sudden federal compliance mandates. It outlines the architectural necessity of independent, compliance-verified integration nodes that allow state agencies to rapidly deploy niche eligibility logic and APIs without breaking core legacy systems, triggering full-system regression tests, or incurring excessive vendor change-order bottlenecks."
       }
     },
     "cta": {

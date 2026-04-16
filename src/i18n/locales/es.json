@@ -180,7 +180,7 @@
       "government": {
         "title": "Operaciones Gubernamentales",
         "focus": "CUMPLIMIENTO Y EJECUCIÓN",
-        "desc": "Sirviendo como la capa de traducción entre la intención legislativa y el despliegue operativo en todos los niveles del gobierno.",
+        "desc": "Sirviendo como la capa de traducción entre la intención legislativa y el despliegue operativo en todos niveles del gobierno.",
         "nodes": {
           "n1": { "name": "Agencias Estatales de Servicios Humanos", "context": "Alineando las adquisiciones de modernización de sistemas de varios años con las realidades operativas de primera línea para asegurar los fondos de CMS y FNS." },
           "n2": { "name": "Oficinas Estatales de TI", "context": "Proporcionando verificación técnica independiente para los CIOs estatales, asegurando que la arquitectura del proveedor se adhiera estrictamente a la lógica de política codificada y a los parámetros federales de privacidad (ej., IRS 1075)." },
@@ -215,17 +215,29 @@
       "subtitle": "Esta capa de analítica sirve como la fuente de datos fundamental para nuestros compromisos de asesoría. Aprovechamos décadas de datos de supervisión federal para diseñar marcos de alto cumplimiento."
     },
     "docs": {
-      "per": {
-        "title": "Análisis de SNAP de 25 años: Impactos de la Política Estatal en las Tasas de Error",
-        "desc": "Una evaluación empírica de las Tasas de Error de Pago históricas de SNAP, aislando el impacto fiscal de exenciones de políticas administrativas específicas a nivel estatal y flujos de trabajo operativos para establecer líneas base de control de calidad federal."
+      "adv1": {
+        "title": "Navegando las Penalizaciones Financieras de la Ley Pública 119-21 con Reglas como Código Deterministas",
+        "desc": "Este documento describe las responsabilidades fiscales de la Ley Pública 119-21, detallando cómo los motores de reglas heredados y los flujos de trabajo de transcripción manual crean Tasas de Error de Pago artificialmente altas. Proporciona un marco arquitectónico de alto nivel para implementar reglas como código deterministas y una estrategia de \"Verificar una vez\" utilizando datos de nómina electrónica en tiempo real (ej., The Work Number) para mapear la intención exacta de la política federal al comportamiento del sistema estatal, demostrando el cambio tecnológico requerido para mitigar sanciones financieras severas."
       },
-      "irc7216": {
-        "title": "Arquitectura de Superposiciones de Seguridad del IRS para Inscripción Cruzada",
-        "desc": "Análisis de arquitectura de sistemas para la integración de datos fiscales federales altamente restringidos (IRS 1075 / IRC 7216) en motores estatales de elegibilidad de beneficios sin desencadenar brechas de cumplimiento o sanciones federales."
+      "adv2": {
+        "title": "Prevención de Denegaciones Injustificadas y Auditorías del Título VI Causadas por Verificación Estricta",
+        "desc": "Este documento establece la correlación entre los mandatos rígidos de verificación física y los picos de errores procedimentales. Detalla cómo el incentivo para la \"Elegibilidad Defensiva\" desencadena directamente las responsabilidades de auditoría del Título VI y las denegaciones injustificadas. Presenta un marco de verificación escalonado y basado en riesgos diseñado para agotar las fuentes electrónicas antes de solicitar documentación (\"Verificación Silenciosa\") como la corrección operativa requerida."
       },
-      "glassbox": {
-        "title": "Verificación Estatutaria: Ingestión Segura de Datos Externos",
-        "desc": "Modelos de verificación independiente para intercambios seguros de datos interagenciales, asegurando que las fuentes de datos externas sean matemáticamente validadas frente a los requisitos estatutarios antes de la ingestión sistémica."
+      "adv3": {
+        "title": "Resolución de Cuellos de Botella de Aplicaciones mediante Separación de Colas Determinista y Precálculo",
+        "desc": "Este documento diagnostica la falla estructural del procesamiento manual de casos para cumplir con los mandatos federales de procesamiento de 30 días. Describe cómo implementar la separación determinista de colas y el Procesamiento Inteligente de Documentos para clasificar, comprender y extraer automáticamente información clave de los documentos de trabajo enviados. Al presentar a los trabajadores sociales del sistema de méritos un esquema de datos comprobado matemáticamente, las agencias pueden reducir el tiempo de procesamiento de semanas a segundos mientras mantienen estrictamente el cumplimiento federal con respecto a las determinaciones de elegibilidad humana."
+      },
+      "adv4": {
+        "title": "Cumplimiento de los Requisitos de Aislamiento de Datos de la Publicación 1075 del IRS para Renovaciones Ex Parte",
+        "desc": "Este documento aborda el conflicto estatutario entre los mandatos de renovación ex parte de CMS y las disposiciones del IRC § 7216 con respecto a la divulgación no autorizada de información fiscal federal. Define las superposiciones de seguridad estructural, los requisitos estrictos de aislamiento de datos lógicos, los controles de acceso basados en roles y las Directivas de Consentimiento Universal necesarios para utilizar los datos fiscales federales para el emparejamiento de elegibilidad sin exponer el mainframe estatal primario a responsabilidades de cumplimiento."
+      },
+      "adv5": {
+        "title": "Uso de Validación de Esquemas para Conectar Interfaces Modernas con Mainframes Estatales Heredados",
+        "desc": "Este documento evalúa las fallas de integración de las aplicaciones modernas de lenguaje sencillo frente a los estándares de cumplimiento de MARS-E y las restricciones de los sistemas heredados. Identifica la validación estricta de esquemas, las restricciones de metadatos de API y la aplicación de umbrales deterministas como el middleware de validación de datos obligatorio requerido para ingerir de manera segura datos externos no estructurados en los mainframes de elegibilidad heredados sin exponer al estado a responsabilidades de auditoría."
+      },
+      "adv6": {
+        "title": "Evitando Cuellos de Botella Monolíticos: Integración de API Modular para Mandatos Federales Rápidos",
+        "desc": "Este documento evalúa la inflexibilidad estructural de las construcciones monolíticas en respuesta a mandatos federales de cumplimiento repentinos. Describe la necesidad arquitectónica de nodos de integración independientes y verificados por cumplimiento que permitan a las agencias estatales implementar rápidamente lógica de elegibilidad especializada y API sin romper los sistemas heredados centrales, desencadenar pruebas de regresión de todo el sistema o incurrir en excesivos cuellos de botella por órdenes de cambio de proveedores."
       }
     },
     "cta": {

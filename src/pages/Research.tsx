@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react';
 import { motion } from 'motion/react';
-import { Database, Box, Lock, ChevronUp, ChevronDown, ArrowRight } from 'lucide-react';
+import { Database, Shield, Layers, Lock, Network, Blocks, ChevronUp, ChevronDown, ArrowRight } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
@@ -11,22 +11,40 @@ export function Insights() {
 
   const researchDocs = useMemo(() => [
     {
-      id: 'per',
-      title: t('researchPage.docs.per.title'),
-      desc: t('researchPage.docs.per.desc'),
+      id: 'adv1',
+      title: t('researchPage.docs.adv1.title'),
+      desc: t('researchPage.docs.adv1.desc'),
       icon: <Database size={24} strokeWidth={1.5} aria-hidden="true" />
     },
     {
-      id: 'irc7216',
-      title: t('researchPage.docs.irc7216.title'),
-      desc: t('researchPage.docs.irc7216.desc'),
+      id: 'adv2',
+      title: t('researchPage.docs.adv2.title'),
+      desc: t('researchPage.docs.adv2.desc'),
+      icon: <Shield size={24} strokeWidth={1.5} aria-hidden="true" />
+    },
+    {
+      id: 'adv3',
+      title: t('researchPage.docs.adv3.title'),
+      desc: t('researchPage.docs.adv3.desc'),
+      icon: <Layers size={24} strokeWidth={1.5} aria-hidden="true" />
+    },
+    {
+      id: 'adv4',
+      title: t('researchPage.docs.adv4.title'),
+      desc: t('researchPage.docs.adv4.desc'),
       icon: <Lock size={24} strokeWidth={1.5} aria-hidden="true" />
     },
     {
-      id: 'glassbox',
-      title: t('researchPage.docs.glassbox.title'),
-      desc: t('researchPage.docs.glassbox.desc'),
-      icon: <Box size={24} strokeWidth={1.5} aria-hidden="true" />
+      id: 'adv5',
+      title: t('researchPage.docs.adv5.title'),
+      desc: t('researchPage.docs.adv5.desc'),
+      icon: <Network size={24} strokeWidth={1.5} aria-hidden="true" />
+    },
+    {
+      id: 'adv6',
+      title: t('researchPage.docs.adv6.title'),
+      desc: t('researchPage.docs.adv6.desc'),
+      icon: <Blocks size={24} strokeWidth={1.5} aria-hidden="true" />
     }
   ], [t]);
 
@@ -43,7 +61,7 @@ export function Insights() {
         <meta name="description" content={t('routes.insights.description')} />
       </Helmet>
 
-      {/* Hero Section - Now aligned with About/Capabilities styling */}
+      {/* Hero Section */}
       <section className="hero-section border-b border-slate-200 dark:border-slate-800 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-jade/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/4 pointer-events-none" />
         <div className="container-wide relative z-10">
@@ -114,7 +132,7 @@ export function Insights() {
         </div>
       </section>
 
-      {/* Access Field Prototypes Section - Visually harmonized */}
+      {/* Access Field Prototypes Section */}
       <section className="section-padding bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 text-center relative overflow-hidden" aria-label="Field Prototypes Access">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-brand-jade/5 rounded-full blur-[100px] pointer-events-none" />
         <div className="container-wide relative z-10">
