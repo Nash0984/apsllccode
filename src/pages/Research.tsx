@@ -43,9 +43,10 @@ export function Insights() {
         <meta name="description" content={t('routes.insights.description')} />
       </Helmet>
 
-      {/* Hero Section */}
-      <section className="hero-section border-b border-slate-200 dark:border-slate-800">
-        <div className="container-wide relative">
+      {/* Hero Section - Now aligned with About/Capabilities styling */}
+      <section className="hero-section border-b border-slate-200 dark:border-slate-800 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-jade/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/4 pointer-events-none" />
+        <div className="container-wide relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -64,7 +65,7 @@ export function Insights() {
       </section>
 
       {/* Research Documents */}
-      <section className="section-padding bg-slate-50 dark:bg-slate-900/50" aria-label="Research Documents">
+      <section className="section-padding bg-slate-50 dark:bg-slate-900" aria-label="Research Documents">
         <div className="container-wide max-w-4xl">
           <div className="space-y-6">
             {researchDocs.map((doc, i) => (
@@ -113,19 +114,22 @@ export function Insights() {
         </div>
       </section>
 
-      {/* Access Field Prototypes Section */}
-      <section className="section-padding bg-slate-900 text-white dark:bg-white dark:text-slate-900 text-center" aria-label="Field Prototypes Access">
-        <div className="container-wide">
-          <h2 className="text-3xl md:text-4xl font-black mb-6">Transition from Theory to Execution</h2>
-          <p className="text-xl text-slate-400 dark:text-slate-600 max-w-2xl mx-auto mb-12">
-            Access our Field Demonstrators to test payload verification and deterministic rules extraction in real-time.
+      {/* Access Field Prototypes Section - Visually harmonized */}
+      <section className="section-padding bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 text-center relative overflow-hidden" aria-label="Field Prototypes Access">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-brand-jade/5 rounded-full blur-[100px] pointer-events-none" />
+        <div className="container-wide relative z-10">
+          <h2 className="text-3xl md:text-4xl font-black mb-6 text-slate-900 dark:text-white">
+            {t('researchPage.cta.title')}
+          </h2>
+          <p className="text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-12 leading-relaxed">
+            {t('researchPage.cta.subtitle')}
           </p>
           <Link 
             to="/field"
-            className="inline-flex px-12 py-6 bg-brand-jade text-white font-bold rounded-[2rem] hover:bg-white hover:text-slate-900 transition-colors items-center gap-4 shadow-2xl focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-white outline-none"
+            className="inline-flex px-8 py-4 bg-brand-jade text-white font-bold rounded-xl hover:bg-[#005a62] transition-colors items-center gap-3 shadow-xl shadow-brand-jade/20 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-slate-950 focus-visible:ring-brand-jade outline-none group"
           >
-            Enter Field Demonstrators
-            <ArrowRight size={24} aria-hidden="true" />
+            {t('researchPage.cta.button')}
+            <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" aria-hidden="true" />
           </Link>
         </div>
       </section>

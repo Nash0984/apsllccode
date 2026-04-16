@@ -24,13 +24,13 @@
     "challenge": {
       "label": "Precisión Estatutaria",
       "title": "La Capa de Traducción.",
-      "text": "La tecnología pública falla cuando la arquitectura del sistema diverge de la legislación, exponiendo a las agencias a riesgos de cumplimiento y sanciones fiscales. Mitigamos este riesgo proporcionando supervisión de Verificación y Validación Independiente y traduciendo regulaciones complejas en lógica de sistema codificada. Esto asegura que la intención exacta de la política dicte el comportamiento operativo, protegiendo los presupuestos de las agencias de los hallazgos de auditoría mientras se reduce la carga administrativa impuesta a los residentes y al personal de primera línea.",
+      "text": "La tecnología pública falla cuando la arquitectura del sistema diverge de la legislación, exponiendo a las agencias a riesgos de cumplimiento y sanciones fiscales. Mitigamos este riesgo proporcionando supervisión de Verificación y Validación Independiente y traduciendo regulaciones complejas en lógica de sistema determinista. Esto asegura que la intención exacta de la política dicte el comportamiento operativo, protegiendo los presupuestos de las agencias de los hallazgos de auditoría mientras se reduce la carga administrativa impuesta a los residentes y al personal de primera línea.",
       "solution": "Aseguramos que la lógica del sistema sea un reflejo verificable de los requisitos estatutarios.",
       "outputsLabel": "Entregables Técnicos",
       "outputsLead": "Los artefactos de verificación estándar y los entregables operativos especializados incluyen:",
       "outputs": [
         "Especificaciones del Motor de Reglas de Negocio",
-        "Modelos de Lógica de Política Codificada",
+        "Modelos de Lógica Determinista",
         "Matrices de Trazabilidad de Requisitos Estatutarios",
         "Marcos de Pruebas Estatutarias",
         "Análisis de Brechas de Proveedores Independientes",
@@ -68,7 +68,7 @@
     },
     "ai": {
       "title": "Triaje Arquitectónico",
-      "desc": "Nuestro asistente de consultoría especializado clasifica las necesidades técnicas y proporciona perspectivas arquitectónicas inmediatas."
+      "desc": "Nuestro motor de triaje técnico especializado clasifica los requisitos técnicos y proporciona perspectivas de sistemas inmediatas."
     },
     "direct": {
       "label": "Canales Directos",
@@ -78,7 +78,7 @@
     },
     "cta": {
       "title": "Revisión Arquitectónica",
-      "desc": "El equipo está disponible para revisiones arquitectónicas formales, talleres de mapeo estatutario y sesiones de estrategia de modernización.",
+      "desc": "El equipo está disponible para revisiones arquitectónicas formales, talleres de mapeo estatutario y sesiones de integración de modernización.",
       "action": "Programar Sesión"
     },
     "contactForm": {
@@ -102,8 +102,8 @@
     },
     "founder": {
       "title": "Graham O'Neill, Fundador y Consultor Principal",
-      "intro": "Graham O'Neill es un arquitecto de sistemas y experto en políticas dedicado a hacer cumplir el cumplimiento estatutario y mitigar el riesgo fiscal en sistemas gubernamentales complejos.",
-      "p1": "Su carrera se centra en cerrar la brecha entre el acceso a beneficios centrado en el humano y la infraestructura de TI altamente regulada. Desde operaciones de ingresos municipales hasta roles de asesoría federal, Graham traduce estrictos mandatos legislativos en realidades operativas funcionales.",
+      "intro": "Graham O'Neill es un arquitecto de sistemas y experto en la implementación de políticas dedicado a hacer cumplir el cumplimiento estatutario y mitigar el riesgo fiscal en sistemas gubernamentales complejos.",
+      "p1": "Su carrera se centra en la integración técnica entre el acceso a beneficios centrado en el humano y la infraestructura de TI altamente regulada. Desde operaciones de ingresos municipales hasta roles de asesoría federal, Graham traduce estrictos mandatos legislativos en realidades operativas funcionales.",
       "p2": "Antes de fundar Applied Policy Systems LLC, Graham ocupó puestos ejecutivos de alto nivel en todos los niveles del gobierno, especializándose en la evaluación estructural del acceso a beneficios, la supervisión de la infraestructura de elegibilidad y la implementación de programas de administración tributaria segura."
     },
     "journey": {
@@ -120,7 +120,7 @@
         "m2": {
           "year": "Anterior",
           "title": "Liderazgo Ejecutivo Estatal",
-          "org": "Maryland DHS",
+          "org": "Departamento Estatal de Servicios Humanos",
           "role": "Director de Acceso a Beneficios",
           "desc": "Ejecutó la Iniciativa de Acceso Predictivo a Beneficios, integrando la infraestructura de TI estatal con mandatos de lenguaje sencillo para evitar caídas procedimentales y proteger el debido proceso de los residentes."
         },
@@ -164,7 +164,7 @@
         "funding": {
           "value": "$3.3M+",
           "label": "Financiamiento de Modernización",
-          "desc": "Financiamiento de subvenciones federales, municipales y filantrópicas aseguradas específicamente para la reducción de la Tasa de Error de Pago del Programa de Suplemento Nutricional (FSP), innovación cívica y servicios financieros comunitarios."
+          "desc": "Financiamiento de subvenciones federales, municipales y filantrópicas aseguradas específicamente para la reducción de la Tasa de Error de Pago de SNAP, modernizaciones técnicas cívicas y servicios financieros comunitarios."
         },
         "execution": {
           "value": "15+",
@@ -202,7 +202,7 @@
         "focus": "MITIGACIÓN DE RIESGOS SISTÉMICOS",
         "desc": "Diseñando marcos para asegurar que las inversiones masivas en TI generen un impacto económico verificable y cumplimiento estatutario.",
         "nodes": {
-          "n1": { "name": "Mitigación de Riesgos Filantrópicos", "context": "Diseñando marcos de verificación independiente para iniciativas de ciencia de datos de múltiples partes interesadas y programas de precisión del Programa de Suplemento Nutricional (FSP) financiados por subvenciones." },
+          "n1": { "name": "Mitigación de Riesgos Filantrópicos", "context": "Diseñando marcos de verificación independiente para iniciativas de ciencia de datos de múltiples partes interesadas y programas de precisión de SNAP financiados por subvenciones." },
           "n2": { "name": "Coaliciones Académicas y de Evidencia", "context": "Alineando la infraestructura de modernización con estrictos estándares de políticas basados en evidencia para facilitar modelos rigurosos de evaluación académica." }
         }
       }
@@ -210,9 +210,9 @@
   },
   "researchPage": {
     "hero": {
-      "label": "Inteligencia Aplicada",
+      "label": "Analítica Operacional",
       "title": "Análisis Empírico y Arquitectura de Sistemas.",
-      "subtitle": "Esta inteligencia sirve como la capa analítica fundamental para nuestros compromisos de asesoría. Aprovechamos décadas de datos de supervisión federal para diseñar marcos de alto cumplimiento."
+      "subtitle": "Esta capa de analítica sirve como la fuente de datos fundamental para nuestros compromisos de asesoría. Aprovechamos décadas de datos de supervisión federal para diseñar marcos de alto cumplimiento."
     },
     "docs": {
       "per": {
@@ -249,7 +249,7 @@
       "policyManual": {
         "label": "Prototipo 02",
         "title": "Motor de Política Codificada",
-        "desc": "Un entorno interactivo que demuestra cómo los Modelos de Lenguaje Extenso y la lógica determinista se combinan para mapear los requisitos estatutarios directamente a los flujos de trabajo operativos, empoderando a los trabajadores de primera línea y mitigando las penalizaciones del aporte estatal."
+        "desc": "Un entorno interactivo que demuestra cómo los Modelos de Lenguaje Extenso y la lógica determinista se combinan para mapear los requisitos estatutarios directamente a los flujos de trabajo operativos, equipando a los trabajadores de primera línea y mitigando las penalizaciones del aporte estatal."
       }
     }
   },
@@ -276,7 +276,7 @@
         "title": "Arquitectura del Motor de Reglas de Negocio",
         "desc": "Arquitecturas que combinan Modelos de Lenguaje Extenso y motores de lógica determinista para lograr precisión matemática en el triaje de elegibilidad.",
         "d1": "Especificaciones del Motor de Reglas de Negocio",
-        "d2": "Modelos de Lógica de Política Codificada",
+        "d2": "Modelos de Lógica Determinista",
         "d3": "Implementación de Reglas como Código"
       },
       "sanction": {

@@ -68,7 +68,7 @@
     },
     "ai": {
       "title": "Architectural Triage",
-      "desc": "Our specialized consulting assistant triages technical needs and provides immediate architectural insights."
+      "desc": "Our specialized technical triage engine classifies technical requirements and provides immediate systems insights."
     },
     "direct": {
       "label": "Direct Channels",
@@ -78,7 +78,7 @@
     },
     "cta": {
       "title": "Architectural Review",
-      "desc": "The team is available for formal architectural reviews, statutory mapping workshops, and modernization strategy sessions.",
+      "desc": "The team is available for formal architectural reviews, statutory mapping workshops, and modernization integration sessions.",
       "action": "Schedule Session"
     },
     "contactForm": {
@@ -102,8 +102,8 @@
     },
     "founder": {
       "title": "Graham O'Neill, Founder & Principal Consultant",
-      "intro": "Graham O'Neill is a systems architect and policy expert dedicated to enforcing statutory compliance and mitigating fiscal risk in complex government systems.",
-      "p1": "His career focuses on bridging the gap between human-centered benefits access and highly regulated IT infrastructure. From municipal revenue operations to federal advisory roles, Graham translates strict legislative mandates into functional operational realities.",
+      "intro": "Graham O'Neill is a systems architect and policy implementation expert dedicated to enforcing statutory compliance and mitigating fiscal risk in complex government systems.",
+      "p1": "His career focuses on the technical integration of human-centered benefits access and highly regulated IT infrastructure. From municipal revenue operations to federal advisory roles, Graham translates strict legislative mandates into functional operational realities.",
       "p2": "Before founding Applied Policy Systems LLC, Graham held senior executive positions across all levels of government, specializing in the structural evaluation of benefits access, the oversight of eligibility infrastructure, and the implementation of secure tax administration programs."
     },
     "journey": {
@@ -164,7 +164,7 @@
         "funding": {
           "value": "$3.3M+",
           "label": "Modernization Funding",
-          "desc": "Federal, municipal, and philanthropic grant funding secured specifically for SNAP Payment Error Rate reduction, civic innovation, and community financial services."
+          "desc": "Federal, municipal, and philanthropic grant funding secured specifically for SNAP Payment Error Rate reduction, civic technical modernizations, and community financial services."
         },
         "execution": {
           "value": "15+",
@@ -210,9 +210,9 @@
   },
   "researchPage": {
     "hero": {
-      "label": "Applied Intelligence",
+      "label": "Operational Analytics",
       "title": "Empirical Analysis & Systems Architecture.",
-      "subtitle": "This intelligence serves as the foundational analytical layer for our advisory engagements. We leverage decades of federal oversight data to engineer high-compliance frameworks."
+      "subtitle": "This analytics layer serves as the foundational data source for our advisory engagements. We leverage decades of federal oversight data to engineer high-compliance frameworks."
     },
     "docs": {
       "per": {
@@ -249,7 +249,7 @@
       "policyManual": {
         "label": "Prototype 02",
         "title": "Codified Policy Engine",
-        "desc": "An interactive environment demonstrating how Large Language Models and deterministic logic combine to map statutory requirements directly to operational workflows, empowering frontline caseworkers and mitigating state match penalties."
+        "desc": "An interactive environment demonstrating how Large Language Models and deterministic logic combine to map statutory requirements directly to operational workflows, equipping frontline caseworkers and mitigating state match penalties."
       }
     }
   },

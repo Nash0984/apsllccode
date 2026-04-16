@@ -107,11 +107,11 @@ export function Layout() {
             <Link to="/" className="flex items-center gap-2 group text-brand-charcoal dark:text-white" aria-label="Applied Policy Systems Home">
               <motion.div
                 animate={{ 
-                  scale: isScrolled ? 0.8 : 1,
+                  scale: isScrolled ? 0.75 : 1,
                   y: isScrolled ? 0 : -6,
                 }}
                 whileHover={{ 
-                  scale: isScrolled ? 0.85 : 1.05,
+                  scale: isScrolled ? 0.8 : 1.05,
                   y: isScrolled ? -2 : -8,
                 }}
                 transition={{ 
@@ -121,7 +121,7 @@ export function Layout() {
                   mass: 0.8
                 }}
               >
-                <Logo className="h-16 md:h-20 w-auto transition-colors" />
+                <Logo className="h-20 md:h-24 transition-colors" />
               </motion.div>
             </Link>
             
@@ -236,7 +236,7 @@ export function Layout() {
           >
             {/* Menu Header */}
             <div className="flex justify-between items-center h-20 px-6 border-b border-slate-800">
-              <Logo className="h-10 w-auto text-white" />
+              <Logo className="h-14 w-auto text-white" />
               <button 
                 onClick={() => setIsMenuOpen(false)}
                 className="p-2 text-white hover:text-brand-jade transition-colors"
@@ -298,7 +298,7 @@ export function Layout() {
           <div className="flex flex-col md:flex-row justify-between items-center gap-12">
             <div className="flex flex-col items-center md:items-start gap-6">
               <Link to="/" aria-label="Applied Policy Systems Home" className="relative group">
-                <Logo className="h-14 w-auto" />
+                <Logo className="h-20 w-auto" />
                 <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 px-3 py-1.5 bg-slate-900 dark:bg-slate-800 text-white text-[10px] font-bold uppercase tracking-widest rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap shadow-xl z-50">
                   Back to Home
                   <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-900 dark:border-t-slate-800" />

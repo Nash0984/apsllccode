@@ -40,7 +40,7 @@ const prefetchMap: Record<string, () => Promise<any>> = {
   '/about': () => import('./pages/About'),
   '/contact': () => import('./pages/Contact'),
   '/capabilities': () => import('./pages/Capabilities'),
-'/insights': () => import('./pages/Research'),
+  '/insights': () => import('./pages/Research'),
 };
 
 function AnimatedRoutes() {
