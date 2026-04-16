@@ -1,12 +1,13 @@
 import { motion } from 'motion/react';
-import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet-async';
-import { ArrowUpRight } from 'lucide-react';
+import { CheckCircle2 } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+import { useMemo } from 'react';
 
 export function About() {
   const { t } = useTranslation();
 
-  const milestones = [
+  const milestones = useMemo(() => [
     {
       year: t('about.journey.milestones.m1.year'),
       title: t('about.journey.milestones.m1.title'),
@@ -49,15 +50,72 @@ export function About() {
       role: t('about.journey.milestones.m6.role'),
       desc: t('about.journey.milestones.m6.desc')
     }
-  ];
+  ], [t]);
 
-  const partners = ['nava', 'usdr', 'cfa', 'arnold', 'rfa', 'prosperity', 'cwf', 'civilla'];
+  const macroEcosystems = useMemo(() => [
+    {
+      id: "government",
+      title: t('about.macroEcosystems.government.title'),
+      focus: t('about.macroEcosystems.government.focus'),
+      desc: t('about.macroEcosystems.government.desc'),
+      nodes: [
+        {
+          name: t('about.macroEcosystems.government.nodes.n1.name'),
+          context: t('about.macroEcosystems.government.nodes.n1.context')
+        },
+        {
+          name: t('about.macroEcosystems.government.nodes.n2.name'),
+          context: t('about.macroEcosystems.government.nodes.n2.context')
+        },
+        {
+          name: t('about.macroEcosystems.government.nodes.n3.name'),
+          context: t('about.macroEcosystems.government.nodes.n3.context')
+        }
+      ]
+    },
+    {
+      id: "technology",
+      title: t('about.macroEcosystems.technology.title'),
+      focus: t('about.macroEcosystems.technology.focus'),
+      desc: t('about.macroEcosystems.technology.desc'),
+      nodes: [
+        {
+          name: t('about.macroEcosystems.technology.nodes.n1.name'),
+          context: t('about.macroEcosystems.technology.nodes.n1.context')
+        },
+        {
+          name: t('about.macroEcosystems.technology.nodes.n2.name'),
+          context: t('about.macroEcosystems.technology.nodes.n2.context')
+        },
+        {
+          name: t('about.macroEcosystems.technology.nodes.n3.name'),
+          context: t('about.macroEcosystems.technology.nodes.n3.context')
+        }
+      ]
+    },
+    {
+      id: "oversight",
+      title: t('about.macroEcosystems.oversight.title'),
+      focus: t('about.macroEcosystems.oversight.focus'),
+      desc: t('about.macroEcosystems.oversight.desc'),
+      nodes: [
+        {
+          name: t('about.macroEcosystems.oversight.nodes.n1.name'),
+          context: t('about.macroEcosystems.oversight.nodes.n1.context')
+        },
+        {
+          name: t('about.macroEcosystems.oversight.nodes.n2.name'),
+          context: t('about.macroEcosystems.oversight.nodes.n2.context')
+        }
+      ]
+    }
+  ], [t]);
 
   return (
     <div className="bg-white dark:bg-slate-950 transition-colors duration-300">
       <Helmet>
         <title>{t('routes.about.label')} | Applied Policy Systems</title>
-        <meta name="description" content="Examine our institutional background, federal tech ecosystem partners, and subject matter authority." />
+        <meta name="description" content={t('about.hero.subtitle')} />
       </Helmet>
 
       {/* Hero Section */}
@@ -65,12 +123,12 @@ export function About() {
         <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-jade/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/4 pointer-events-none" />
         <div className="container-wide relative text-center lg:text-left">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-            <h1 className="label-uppercase">{t('routes.about.label')}</h1>
-            <h2 className="max-w-4xl mx-auto lg:mx-0 text-4xl md:text-5xl lg:text-6xl mb-8">
+            <h1 className="label-uppercase">{t('about.hero.label')}</h1>
+            <h2 className="max-w-4xl mx-auto lg:mx-0 text-4xl md:text-5xl lg:text-6xl font-black tracking-tight mb-8">
               {t('about.hero.title')}
             </h2>
             <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto lg:mx-0 leading-relaxed">
-              {t('routes.about.description')}
+              {t('about.hero.subtitle')}
             </p>
           </motion.div>
         </div>
@@ -87,8 +145,8 @@ export function About() {
               className="space-y-8"
             >
               <div>
-                <h2 className="label-muted">{t('about.founder.title')}</h2>
-                <p className="text-2xl font-medium text-slate-900 dark:text-white leading-snug mb-6">
+                <h2 className="label-muted">{t('about.founder.title').toUpperCase()}</h2>
+                <p className="text-2xl font-black tracking-tight text-slate-900 dark:text-white leading-snug mb-6">
                   {t('about.founder.intro')}
                 </p>
                 <div className="space-y-4 text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
@@ -99,31 +157,102 @@ export function About() {
             </motion.div>
 
             <div className="grid gap-8">
-              {Object.entries(t('about.impact.stats', { returnObjects: true })).map(([key, stat]: [string, any], i) => (
-                <motion.div 
-                  key={key}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                  className="border-t-2 border-slate-200 dark:border-slate-800 pt-6"
-                >
-                  <div className="text-4xl font-bold text-brand-jade mb-2">{stat.value}</div>
-                  <div className="text-lg font-bold text-slate-900 dark:text-white mb-1">{stat.label}</div>
-                  <p className="text-slate-600 dark:text-slate-400">{stat.desc}</p>
-                </motion.div>
-              ))}
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                className="border-t-2 border-slate-200 dark:border-slate-800 pt-6"
+              >
+                <div className="text-4xl font-black text-brand-jade mb-2">{t('about.impact.stats.citizen.value')}</div>
+                <div className="text-lg font-bold text-slate-900 dark:text-white mb-1">{t('about.impact.stats.citizen.label')}</div>
+                <p className="text-slate-600 dark:text-slate-400">{t('about.impact.stats.citizen.desc')}</p>
+              </motion.div>
+
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                className="border-t-2 border-slate-200 dark:border-slate-800 pt-6"
+              >
+                <div className="text-4xl font-black text-brand-jade mb-2">{t('about.impact.stats.funding.value')}</div>
+                <div className="text-lg font-bold text-slate-900 dark:text-white mb-1">{t('about.impact.stats.funding.label')}</div>
+                <p className="text-slate-600 dark:text-slate-400">{t('about.impact.stats.funding.desc')}</p>
+              </motion.div>
+
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3 }}
+                className="border-t-2 border-slate-200 dark:border-slate-800 pt-6"
+              >
+                <div className="text-4xl font-black text-brand-jade mb-2">{t('about.impact.stats.execution.value')}</div>
+                <div className="text-lg font-bold text-slate-900 dark:text-white mb-1">{t('about.impact.stats.execution.label')}</div>
+                <p className="text-slate-600 dark:text-slate-400">{t('about.impact.stats.execution.desc')}</p>
+              </motion.div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Career Journey - Flattened Timeline */}
+      {/* Macro Ecosystem Integrations */}
+      <section className="section-padding bg-slate-50 dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800">
+        <div className="container-wide">
+          <div className="max-w-3xl mb-16">
+            <h2 className="label-uppercase mb-4">{t('about.macroEcosystems.label')}</h2>
+            <h3 className="text-3xl md:text-4xl font-black tracking-tight text-slate-900 dark:text-white">{t('about.macroEcosystems.title')}</h3>
+            <p className="text-lg text-slate-600 dark:text-slate-400 mt-4 leading-relaxed">
+              {t('about.macroEcosystems.desc')}
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-3 gap-8 sm:gap-12 border-t border-slate-200 dark:border-slate-700 pt-8">
+            {macroEcosystems.map((macro, i) => (
+              <motion.div 
+                key={macro.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="bg-white dark:bg-slate-950 p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm"
+              >
+                <div className="text-brand-jade font-mono text-xs font-bold uppercase tracking-widest mb-4">
+                  {macro.focus}
+                </div>
+                <h4 className="text-2xl font-black mb-4 text-slate-900 dark:text-white">
+                  {macro.title}
+                </h4>
+                <p className="text-slate-600 dark:text-slate-400 mb-8 leading-relaxed">
+                  {macro.desc}
+                </p>
+                
+                <div className="space-y-6">
+                  {macro.nodes.map((node) => (
+                    <div key={node.name} className="relative">
+                      <div className="flex items-start gap-3">
+                        <CheckCircle2 size={18} className="text-brand-jade shrink-0 mt-1" />
+                        <div>
+                          <div className="font-bold text-slate-900 dark:text-white mb-1">{node.name}</div>
+                          <div className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">{node.context}</div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Career Journey */}
       <section className="section-padding bg-white dark:bg-slate-950">
         <div className="container-wide">
           <div className="max-w-3xl mb-16">
-            <h2 className="label-muted">{t('about.journey.label')}</h2>
-            <h3 className="tracking-tight">{t('about.journey.title')}</h3>
+            <h2 className="label-uppercase mb-4">{t('about.journey.label')}</h2>
+            <h3 className="text-3xl md:text-4xl font-black tracking-tight text-slate-900 dark:text-white">{t('about.journey.title')}</h3>
           </div>
 
           <div className="space-y-12">
@@ -135,53 +264,16 @@ export function About() {
                 viewport={{ once: true }}
                 className="grid md:grid-cols-[120px_1fr] gap-8 border-t border-slate-100 dark:border-slate-800 pt-8"
               >
-                <div className="text-brand-jade font-mono font-bold text-xl">{milestone.year}</div>
+                <div className="text-brand-jade font-mono font-bold text-sm uppercase tracking-widest">{milestone.year}</div>
                 <div>
-                  <h4 className="text-2xl font-bold mb-2">{milestone.title}</h4>
-                  <div className="text-lg font-medium text-slate-900 dark:text-white mb-4">
-                    {milestone.role} — <span className="text-slate-500">{milestone.org}</span>
+                  <h4 className="text-2xl font-black tracking-tight mb-2 text-slate-900 dark:text-white">{milestone.title}</h4>
+                  <div className="text-lg font-bold text-slate-900 dark:text-white mb-4">
+                    {milestone.role} — <span className="text-slate-500 font-medium">{milestone.org}</span>
                   </div>
                   <p className="text-slate-600 dark:text-slate-400 leading-relaxed max-w-3xl">
                     {milestone.desc}
                   </p>
                 </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Ecosystem & Partners - Top Bordered Directory */}
-      <section className="section-padding bg-slate-50 dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800">
-        <div className="container-wide">
-          <div className="max-w-3xl mb-16">
-            <h2 className="label-muted">{t('about.ecosystem.label')}</h2>
-            <h3 className="tracking-tight">{t('about.ecosystem.title')}</h3>
-            <p className="text-lg text-slate-600 dark:text-slate-400 mt-4">
-              {t('about.ecosystem.desc')}
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12 border-t border-slate-200 dark:border-slate-700 pt-8">
-            {partners.map((partner, i) => (
-              <motion.div 
-                key={partner}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.05 }}
-                className="group block border-t-2 border-slate-200 dark:border-slate-800 pt-6 hover:border-brand-jade transition-colors"
-              >
-                <h4 className="text-xl font-bold mb-4 flex items-center justify-between">
-                  {t(`about.ecosystem.partners.${partner}.name`)}
-                  <ArrowUpRight size={20} className="text-brand-jade opacity-0 group-hover:opacity-100 transform translate-y-1 group-hover:translate-y-0 transition-all duration-300" />
-                </h4>
-                <div className="text-brand-jade font-mono text-xs uppercase tracking-wider mb-3">
-                  {t(`about.ecosystem.partners.${partner}.focus`)}
-                </div>
-                <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                  {t(`about.ecosystem.partners.${partner}.context`)}
-                </p>
               </motion.div>
             ))}
           </div>

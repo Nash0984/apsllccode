@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { ArrowLeft, BookOpen, UserCheck, Binary } from 'lucide-react';
 
 export default function OperationalTranslation() {
-  const tags = ["FRONTLINE EXECUTION", "DETERMINISTIC SOPS", "HUMAN-IN-THE-LOOP"];
+  const tags = ["FRONTLINE EXECUTION", "DETERMINISTIC SOPS", "APPEALS DEFENSE"];
 
   return (
     <div className="bg-white dark:bg-slate-950 min-h-screen transition-colors duration-300">
@@ -17,7 +17,7 @@ export default function OperationalTranslation() {
         <div className="container-wide">
           <Link to="/capabilities" className="inline-flex items-center text-sm font-bold text-brand-jade hover:text-brand-jade/80 transition-colors">
             <ArrowLeft size={16} className="mr-2" />
-            Return to Capabilities Matrix
+            Return to Capabilities
           </Link>
         </div>
       </div>
@@ -54,10 +54,10 @@ export default function OperationalTranslation() {
               <div className="sticky top-24 p-6 bg-slate-50 dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800">
                 <div className="flex items-center gap-3 mb-6">
                   <UserCheck className="text-brand-jade" size={24} />
-                  <h3 className="font-bold text-lg text-slate-900 dark:text-white">Caseworker Support</h3>
+                  <h3 className="font-bold text-lg text-slate-900 dark:text-white">Due Process & Compliance</h3>
                 </div>
                 <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
-                  Automated systems must generate verifiable explanations for eligibility determinations to support administrative justice.
+                  Residents have a statutory right to a clear explanation of their eligibility outcomes. Frontline staff require precise, system-aligned documentation to honor that right, defend decisions during fair hearings, and mitigate audit findings.
                 </p>
                 <ul className="space-y-3">
                   <li className="flex items-start gap-2 text-sm text-slate-600 dark:text-slate-400">
@@ -66,7 +66,7 @@ export default function OperationalTranslation() {
                   </li>
                   <li className="flex items-start gap-2 text-sm text-slate-600 dark:text-slate-400">
                     <div className="w-1.5 h-1.5 bg-brand-jade rounded-full shrink-0 mt-1.5" />
-                    <span>Eliminating black-box outcomes during the appeals process.</span>
+                    <span>Eliminating black-box outcomes during the administrative appeals process.</span>
                   </li>
                 </ul>
               </div>
@@ -79,7 +79,10 @@ export default function OperationalTranslation() {
                   <h3 className="text-2xl font-black m-0">Deterministic SOPs</h3>
                 </div>
                 <p className="text-lg leading-relaxed text-slate-600 dark:text-slate-400">
-                  When a rules engine denies an application, frontline staff must have the documentation to explain the decision to the applicant. Deterministic Standard Operating Procedures align the agency's operational manuals strictly with the deployed codebase, eliminating discrepancies between what caseworkers are instructed to do and how the system calculates outcomes.
+                  When a rules engine denies an application, the resident is legally entitled to a clear, actionable explanation. If a system produces an opaque "black box" denial, the state cannot defend the mathematical calculation during a fair hearing. We translate the underlying codebase into plain-language Standard Operating Procedures (SOPs).
+                </p>
+                <p className="text-lg leading-relaxed text-slate-600 dark:text-slate-400 mt-4">
+                  This dual-purpose infrastructure arms frontline staff with the exact documentation needed to fulfill the applicant's right to due process, while simultaneously protecting the agency from federal audit penalties and reversed appeals.
                 </p>
               </div>
 
@@ -89,7 +92,7 @@ export default function OperationalTranslation() {
                   <h3 className="text-2xl font-black m-0">Living Policy Manuals</h3>
                 </div>
                 <p className="text-lg leading-relaxed text-slate-600 dark:text-slate-400">
-                  Static policy documents rapidly become obsolete following system updates. Living Policy Manuals map directly to the active logic pathways. This deployment ensures that adjudicators are continuously referencing the exact parameters the rules engine is executing in production environments.
+                  Static policy documents rapidly become obsolete following system updates. Living Policy Manuals map directly to the active logic pathways. This deployment ensures that adjudicators are continuously referencing the exact parameters the rules engine is executing in production environments, preventing wrongful denials caused by outdated instructional materials.
                 </p>
               </div>
             </div>

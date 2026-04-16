@@ -17,7 +17,7 @@ export default function PreProcurement() {
         <div className="container-wide">
           <Link to="/capabilities" className="inline-flex items-center text-sm font-bold text-brand-jade hover:text-brand-jade/80 transition-colors">
             <ArrowLeft size={16} className="mr-2" />
-            Return to Capabilities Matrix
+            Return to Capabilities
           </Link>
         </div>
       </div>
@@ -32,7 +32,7 @@ export default function PreProcurement() {
               Pre-Procurement Advisory
             </h2>
             <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl leading-relaxed mb-8">
-              Subject Matter Expert (S SME) advisory for drafting modernization tenders with absolute policy fidelity.
+              Subject Matter Expert (SME) advisory for drafting modernization tenders with absolute policy fidelity.
             </p>
             
             <div className="flex flex-wrap gap-3">
