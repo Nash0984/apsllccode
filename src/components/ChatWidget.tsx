@@ -3,20 +3,19 @@ import { motion, AnimatePresence } from 'motion/react';
 import { MessageSquare, X, Send, User, Bot, Loader2, Minimize2, Maximize2 } from 'lucide-react';
 
 const TypingIndicator = ({ size = 16 }: { size?: number }) => (
-  <div className="flex gap-1 items-center h-4 px-1">
+  <div className="flex gap-1.5 items-center h-4 px-1" aria-hidden="true">
     {[0, 1, 2].map((i) => (
       <motion.div
         key={i}
         className="bg-brand-jade rounded-full"
-        style={{ width: size / 4, height: size / 4 }}
+        style={{ width: size / 5, height: size / 5 }}
         animate={{
-          y: [0, -size / 4, 0],
-          opacity: [0.4, 1, 0.4]
+          opacity: [0.3, 1, 0.3]
         }}
         transition={{
-          duration: 0.6,
+          duration: 1.5,
           repeat: Infinity,
-          delay: i * 0.15,
+          delay: i * 0.2,
           ease: "easeInOut"
         }}
       />

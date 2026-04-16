@@ -255,13 +255,18 @@
     "blueprints": {
       "documentTool": {
         "label": "Prototipo 01",
-        "title": "Prototipo de Verificación Estatutaria",
-        "desc": "Un entorno interactivo que demuestra la ingestión de datos no estructurados de los residentes en esquemas estatutarios estrictos. Muestra cómo estructurar el triaje de evidencia para reducir la fricción de los solicitantes mientras se mantiene el cumplimiento de la auditoría con humanos en el ciclo."
+        "title": "Ingesta y Verificación de Documentos",
+        "desc": "Una herramienta de evaluación de documentos de doble cara. Proporciona a los solicitantes comentarios inmediatos, instándolos a corregir errores o brindando seguridad cuando un documento es válido. Para los trabajadores sociales, proporciona seguridad matemática para respaldar sus determinaciones finales de elegibilidad humana."
       },
       "policyManual": {
         "label": "Prototipo 02",
-        "title": "Motor de Política Codificada",
-        "desc": "Un entorno interactivo que demuestra cómo los Modelos de Lenguaje Extenso y la lógica determinista se combinan para mapear los requisitos estatutarios directamente a los flujos de trabajo operativos, equipando a los trabajadores de primera línea y mitigando las penalizaciones del aporte estatal."
+        "title": "Manual de Política Vivo",
+        "desc": "Una interfaz conversacional construida para trabajadores sociales de primera línea. Proporciona respuestas autorizadas y legalmente fundamentadas a preguntas complejas de elegibilidad, equipando a los trabajadores con un estándar determinista para el procesamiento de casos."
+      },
+      "extractionEngine": {
+        "label": "Prototipo 03",
+        "title": "Motor de Extracción de Reglas Empresariales",
+        "desc": "Una herramienta de extracción determinista para arquitectos de sistemas de TI. Extrae puertas lógicas ejecutables y parámetros del sistema directamente de textos legislativos densos para su integración en los mainframes estatales."
       }
     }
   },

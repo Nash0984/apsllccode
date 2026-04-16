@@ -246,7 +246,7 @@
       "button": "Enter Field Demonstrators"
     }
   },
-  "prototypesPage": {
+"prototypesPage": {
     "hero": {
       "label": "Operational Prototypes",
       "title": "Interactive Testing Environments",
@@ -255,13 +255,18 @@
     "blueprints": {
       "documentTool": {
         "label": "Prototype 01",
-        "title": "Statutory Verification Prototype",
-        "desc": "An interactive environment demonstrating the ingestion of unstructured resident data into strict statutory schemas. It shows how to structure evidence triage to reduce applicant friction while maintaining human-in-the-loop audit compliance."
+        "title": "Document Intake & Verification",
+        "desc": "A dual-facing document evaluation tool. It provides applicants with immediate feedback, nudging them to correct errors or providing surety when a document is valid. For caseworkers, it provides mathematical surety to support their final human eligibility determinations."
       },
       "policyManual": {
         "label": "Prototype 02",
-        "title": "Codified Policy Engine",
-        "desc": "An interactive environment demonstrating how Large Language Models and deterministic logic combine to map statutory requirements directly to operational workflows, equipping frontline caseworkers and mitigating state match penalties."
+        "title": "Living Policy Manual",
+        "desc": "A conversational interface built for frontline caseworkers. It provides authoritative, legally grounded answers to complex eligibility questions, equipping caseworkers with a deterministic standard for case processing."
+      },
+      "extractionEngine": {
+        "label": "Prototype 03",
+        "title": "Enterprise Rules Extraction Engine",
+        "desc": "A deterministic extraction tool for IT systems architects. It extracts executable logic gates and system parameters directly from dense legislative text for integration into state mainframes."
       }
     }
   },

@@ -175,7 +175,7 @@ export function Sandbox() {
     let interval: NodeJS.Timeout;
     if (appState === 'processing') {
       const phases = persona === 'worker' 
-        ? ['Ingesting payload...', 'Executing deterministic extraction...', 'Evaluating statutory sufficiency...', 'Calculating compliance thresholds...', 'Rendering diagnostic results...']
+        ? ['Ingesting unstructured transmission...', 'Executing deterministic extraction...', 'Evaluating statutory sufficiency...', 'Calculating compliance thresholds...', 'Rendering diagnostic results...']
         : ['Encrypting transmission...', 'Verifying document format...', 'Submitting to state agency...'];
       
       let step = 0;
@@ -285,11 +285,11 @@ export function Sandbox() {
           <Activity size={48} className="text-slate-700" />
           <div className="text-center max-w-lg mb-4">
             <h3 className="text-lg font-bold text-slate-300 mb-2">Automated Intake Engine</h3>
-            <p className="text-sm text-slate-500">Execute deterministic extraction and policy routing on resident payloads.</p>
+            <p className="text-sm text-slate-500">Execute deterministic extraction and policy routing on resident data transmissions.</p>
           </div>
           <div className="bg-[#050a0f] border border-slate-800 p-6 rounded-xl w-full max-w-md shadow-inner text-left">
             <span className="text-brand-jade font-bold block mb-2 text-sm">Demonstrating: Automated Extraction & Routing</span>
-            <span className="text-slate-400 block mb-3 text-xs leading-relaxed">Showcases how the engine eliminates manual data entry by processing unstructured payloads.</span>
+            <span className="text-slate-400 block mb-3 text-xs leading-relaxed">Showcases how the engine eliminates manual data entry by processing unstructured data inputs.</span>
             <ul className="text-slate-500 list-disc pl-4 space-y-1 text-xs">
               <li>Select a Target Verification Rule below.</li>
               <li>Upload a sample resident document.</li>
@@ -313,14 +313,14 @@ export function Sandbox() {
       <div className="flex flex-col lg:flex-row h-full gap-4 overflow-y-auto lg:overflow-hidden">
         <div className="flex-1 min-h-[400px] lg:min-h-0 bg-slate-950 border border-slate-800 rounded-lg flex flex-col overflow-hidden">
           <div className="bg-[#050a0f] px-4 py-3 border-b border-slate-800 text-[10px] sm:text-xs font-bold text-slate-400 uppercase tracking-wider flex justify-between items-center">
-            <span>Payload Viewer</span>
+            <span>Transmission Viewer</span>
             <span className="truncate max-w-[150px] sm:max-w-[200px] text-slate-600 font-mono">{file?.name}</span>
           </div>
           <div className="flex-1 p-2 overflow-auto flex items-center justify-center">
             {file?.type.includes('pdf') ? (
               <object data={fileUrl || ''} type="application/pdf" className="w-full h-full rounded" />
             ) : (
-              <img src={fileUrl || ''} alt="Document Payload" className="max-w-full max-h-full object-contain rounded" />
+              <img src={fileUrl || ''} alt="Document Transmission" className="max-w-full max-h-full object-contain rounded" />
             )}
           </div>
         </div>
@@ -385,7 +385,7 @@ export function Sandbox() {
             </div>
             
             <button onClick={resetState} className="mt-8 w-full py-3 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded font-bold transition-colors flex items-center justify-center gap-2 text-sm uppercase tracking-wider">
-              <RefreshCw size={16} /> Process Next Payload
+              <RefreshCw size={16} /> Process Next Transmission
             </button>
           </div>
         </div>
@@ -465,7 +465,7 @@ export function Sandbox() {
               {file?.type.includes('pdf') ? (
                 <object data={fileUrl || ''} type="application/pdf" className="w-full h-full rounded-xl" />
               ) : (
-                <img src={fileUrl || ''} alt="Document Payload" className="max-w-full max-h-full object-contain rounded-xl shadow-md" />
+                <img src={fileUrl || ''} alt="Document Transmission" className="max-w-full max-h-full object-contain rounded-xl shadow-md" />
               )}
             </div>
           </div>
@@ -680,7 +680,7 @@ export function Sandbox() {
                   <textarea
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
-                    placeholder="Append optional instructions to payload..."
+                    placeholder="Append optional instructions to transmission..."
                     aria-label="Optional instructions"
                     className="w-full border rounded-xl p-3 text-slate-800 focus:outline-none resize-none min-h-[50px] text-xs shadow-sm transition-all bg-slate-950 border-slate-800 text-slate-200 focus:border-brand-jade font-mono"
                     rows={1}
