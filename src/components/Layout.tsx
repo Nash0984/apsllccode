@@ -68,7 +68,7 @@ export function Layout() {
         href="#main-content" 
         className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[200] focus:px-4 focus:py-2 focus:bg-brand-jade focus:text-white focus:rounded-lg focus:font-bold focus:shadow-2xl transition-all"
       >
-        Skip to main content
+        {t('nav.skipToContent')}
       </a>
 
       {/* Navigation */}
@@ -236,7 +236,14 @@ export function Layout() {
           >
             {/* Menu Header */}
             <div className="flex justify-between items-center h-20 px-6 border-b border-slate-800">
-              <Logo className="h-14 w-auto text-white" />
+              <Link 
+                to="/" 
+                onClick={() => setIsMenuOpen(false)}
+                className="flex items-center"
+                aria-label="Applied Policy Systems Home"
+              >
+                <Logo className="h-14 w-auto text-white" />
+              </Link>
               <button 
                 onClick={() => setIsMenuOpen(false)}
                 className="p-2 text-white hover:text-brand-jade transition-colors"

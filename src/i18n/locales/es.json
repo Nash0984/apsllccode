@@ -13,7 +13,8 @@
     "field": "Prototipos",
     "about": "Acerca de",
     "contact": "Contacto",
-    "getInTouch": "Contacto"
+    "getInTouch": "Contacto",
+    "skipToContent": "Saltar al contenido principal"
   },
   "home": {
     "hero": {
@@ -256,7 +257,7 @@
       "documentTool": {
         "label": "Prototipo 01",
         "title": "Ingesta y Verificación de Documentos",
-        "desc": "Una herramienta de evaluación de documentos de doble cara. Proporciona a los solicitantes comentarios inmediatos, instándolos a corregir errores o brindando seguridad cuando un documento es válido. Para los trabajadores sociales, proporciona seguridad matemática para respaldar sus determinaciones finales de elegibilidad humana."
+        "desc": "Una herramienta de evaluación de documentos de doble cara. Ofrece a los solicitantes una comprobación clara e instantánea para corregir errores antes de la presentación y proporciona certeza cuando un documento cumple con las reglas del programa. Para la agencia, el sistema emite comentarios de diagnóstico y un rastro de auditoría matemáticamente demostrable para respaldar la decisión final de elegibilidad del trabajador social."
       },
       "policyManual": {
         "label": "Prototipo 02",

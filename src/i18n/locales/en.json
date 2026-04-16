@@ -13,12 +13,13 @@
     "field": "Prototypes",
     "about": "About",
     "contact": "Contact",
-    "getInTouch": "Contact"
+    "getInTouch": "Contact",
+    "skipToContent": "Skip to main content"
   },
   "home": {
     "hero": {
       "title": "Human-Centered Access. High-Compliance Infrastructure.",
-      "subtitle": "We believe the foundation of public benefits access is built at the business rules layer. Applied Policy Systems provides Independent Verification and Validation oversight and architects low-friction, highly regulated digital infrastructure, ensuring systems are a verifiable reflection of written law while reducing administrative burden.",
+      "subtitle": "We believe benefits access starts at the business rules layer. Applied Policy Systems provides Independent Verification and Validation oversight and architects low-friction, highly regulated digital infrastructure, ensuring systems are a verifiable reflection of written law while reducing administrative burden.",
       "cta": "Technical Expertise"
     },
     "challenge": {
@@ -51,13 +52,18 @@
     },
     "sandbox": {
       "label": "Prototype 01",
-      "title": "Prototype 01: Statutory Verification",
-      "text": "An operational prototype demonstrating how to provide residents with immediate, plain-language feedback on evidence requirements while outputting data that is 100% compliant with statutory mandates."
+      "title": "Prototype 01: Document Intake & Verification",
+      "text": "An operational prototype demonstrating how to provide residents with immediate, plain-language feedback on evidence requirements while generating a mathematically provable audit trail for caseworkers."
     },
     "manual": {
       "label": "Prototype 02",
-      "title": "Prototype 02: Rules Extraction",
-      "text": "An operational prototype demonstrating how to transform dense legislative text into an intuitive, plain-language guide that provides caseworkers with a mathematically provable source of truth."
+      "title": "Prototype 02: Living Policy Manual",
+      "text": "An operational prototype demonstrating how to provide caseworkers with authoritative, legally grounded answers to complex eligibility questions."
+    },
+    "extraction": {
+      "label": "Prototype 03",
+      "title": "Prototype 03: Enterprise Rules Extraction Engine",
+      "text": "An operational prototype demonstrating how to extract executable logic gates and system parameters directly from dense legislative text for integration into state mainframes."
     }
   },
   "contactPage": {
@@ -203,7 +209,7 @@
         "desc": "Architecting frameworks to ensure massive IT investments yield verifiable economic impact and statutory compliance.",
         "nodes": {
           "n1": { "name": "Philanthropic Risk Mitigation", "context": "Architecting independent verification frameworks for multi-stakeholder data science initiatives and grant-funded SNAP accuracy programs." },
-          "n2": { "name": "Academic & Evidence Coalitions", "context": "Aligning modernization infrastructure with strict evidence-based policy standards to facilitate rigorous academic evaluation models." }
+          "n2": { "name": "Academic & Evidence Coalitions", "context": "Alineando la infraestructura de modernización con estrictos estándares de políticas basados en evidencia para facilitar modelos rigurosos de evaluación académica." }
         }
       }
     }
@@ -246,7 +252,7 @@
       "button": "Enter Field Demonstrators"
     }
   },
-"prototypesPage": {
+  "prototypesPage": {
     "hero": {
       "label": "Operational Prototypes",
       "title": "Interactive Testing Environments",
@@ -256,7 +262,7 @@
       "documentTool": {
         "label": "Prototype 01",
         "title": "Document Intake & Verification",
-        "desc": "A dual-facing document evaluation tool. It provides applicants with immediate feedback, nudging them to correct errors or providing surety when a document is valid. For caseworkers, it provides mathematical surety to support their final human eligibility determinations."
+        "desc": "A dual-facing document evaluation tool. It gives applicants a clear, instant check to fix mistakes before submission and provides certainty when an upload meets program rules. For the agency, the system outputs diagnostic feedback and a mathematically provable audit trail to support the caseworker's final eligibility decision."
       },
       "policyManual": {
         "label": "Prototype 02",
