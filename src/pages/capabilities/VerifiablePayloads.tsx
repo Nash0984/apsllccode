@@ -3,21 +3,21 @@ import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Binary, FileCode, ShieldCheck } from 'lucide-react';
 
-export default function Trbv() {
-  const tags = ["ALGORITHMIC EQUITY", "IV&V COMPLIANCE", "SYSTEM DIAGNOSTICS"];
+export default function VerifiablePayloads() {
+  const tags = ["STATUTORY FIDELITY", "IV&V COMPLIANCE", "SYSTEM DIAGNOSTICS"];
 
   return (
     <div className="bg-white dark:bg-slate-950 min-h-screen transition-colors duration-300">
       <Helmet>
-        <title>TRBV Framework | Applied Policy Systems</title>
-        <meta name="description" content="Targeted Rule-Based Verification metrics to isolate Business Rules Engine calculation failures and ensure statutory fidelity." />
+        <title>Verifiable Payload Architectures | Applied Policy Systems</title>
+        <meta name="description" content="Independent Verification & Validation (IV&V) frameworks ensuring system logic is a verifiable reflection of statutory requirements." />
       </Helmet>
 
       <div className="border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-6 py-4">
         <div className="container-wide">
-          <Link to="/insights" className="inline-flex items-center text-sm font-bold text-brand-jade hover:text-brand-jade/80 transition-colors">
+          <Link to="/capabilities" className="inline-flex items-center text-sm font-bold text-brand-jade hover:text-brand-jade/80 transition-colors">
             <ArrowLeft size={16} className="mr-2" />
-            Return to Insights Library
+            Return to Capabilities
           </Link>
         </div>
       </div>
@@ -29,10 +29,10 @@ export default function Trbv() {
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <h1 className="label-uppercase mb-4">Architectural Framework</h1>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 dark:text-white mb-8 max-w-4xl">
-              TRBV: Targeted Rule-Based Verification
+              Verifiable Payload Architectures
             </h2>
             <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl leading-relaxed mb-8">
-              A diagnostic methodology designed to surgically isolate calculation failures within core Business Rules Engines (BRE), ensuring algorithmic equity and strict statutory alignment.
+              Independent Verification & Validation (IV&V) frameworks that ensure system logic is a verifiable reflection of statutory requirements.
             </p>
             
             <div className="flex flex-wrap gap-3">
@@ -57,7 +57,7 @@ export default function Trbv() {
                   <h3 className="font-bold text-lg text-slate-900 dark:text-white">Synthetic Data Environments</h3>
                 </div>
                 <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
-                  TRBV diagnostics are executed exclusively within secure, synthetic testing environments to ensure absolute privacy compliance.
+                  Our diagnostics are executed exclusively within secure, synthetic testing environments to ensure absolute privacy compliance.
                 </p>
                 <ul className="space-y-3">
                   <li className="flex items-start gap-2 text-sm text-slate-600 dark:text-slate-400">
@@ -76,10 +76,10 @@ export default function Trbv() {
               <div className="mb-12">
                 <div className="flex items-center gap-4 mb-6">
                   <Binary className="text-brand-jade shrink-0" size={32} />
-                  <h3 className="text-2xl font-black m-0">Isolating Algorithmic Drift</h3>
+                  <h3 className="text-2xl font-black m-0">Isolating Statutory Drift</h3>
                 </div>
                 <p className="text-lg leading-relaxed text-slate-600 dark:text-slate-400">
-                  The translation of complex public policy into operational code is highly susceptible to statutory drift, where the programmed logic subtly deviates from the written law. Unlike standard User Acceptance Testing (UAT) which evaluates the caseworker interface, TRBV surgically bypasses the UI to test the deterministic math layer directly.
+                  The translation of complex public policy into operational code is highly susceptible to statutory drift, where the programmed logic subtly deviates from the written law. Unlike standard User Acceptance Testing (UAT) which evaluates the caseworker interface, our methodology bypasses the UI to test the deterministic math layer directly.
                 </p>
                 <p className="text-lg leading-relaxed text-slate-600 dark:text-slate-400 mt-4">
                   By injecting synthetic, edge-case API payloads into the engine, we isolate whether an eligibility failure is a procedural human error or a hardcoded algorithmic flaw that requires immediate remediation.
@@ -89,13 +89,13 @@ export default function Trbv() {
               <div className="mb-12">
                 <div className="flex items-center gap-4 mb-6">
                   <FileCode className="text-brand-jade shrink-0" size={32} />
-                  <h3 className="text-2xl font-black m-0">Algorithmic Equity & IV&V</h3>
+                  <h3 className="text-2xl font-black m-0">Defect Remediation & IV&V</h3>
                 </div>
                 <p className="text-lg leading-relaxed text-slate-600 dark:text-slate-400">
-                  When a Business Rules Engine contains statutory drift, the resulting calculation failures disproportionately impact vulnerable residents by improperly denying or delaying benefits. TRBV provides Independent Verification and Validation (IV&V) teams with a mathematically provable framework to identify and eliminate these invisible technical barriers.
+                  When a Business Rules Engine contains statutory drift, the resulting calculation failures disproportionately impact vulnerable residents by improperly denying or delaying benefits. We provide Independent Verification and Validation (IV&V) teams with a mathematically provable framework to identify and eliminate these invisible technical barriers.
                 </p>
                 <p className="text-lg leading-relaxed text-slate-600 dark:text-slate-400 mt-4">
-                  This level of architectural rigor ensures that modernization tenders deliver systems capable of achieving true algorithmic equity, protecting both the fiscal integrity of the state and the fundamental rights of the citizen.
+                  This level of architectural rigor ensures that modernization tenders deliver systems capable of achieving absolute statutory fidelity, protecting both the fiscal integrity of the state and the fundamental rights of the citizen.
                 </p>
               </div>
             </div>

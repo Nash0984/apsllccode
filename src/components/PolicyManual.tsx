@@ -36,8 +36,10 @@ export function PolicyManual() {
   const [input, setInput] = useState('');
   const [chatHistory, setChatHistory] = useState<{ role: 'user' | 'model', parts: { text: string }[] }[]>([]);
   const [isProcessing, setIsProcessing] = useState(false);
-  const [persona, setPersona] = useState<'client' | 'worker'>('worker');
   const [activeChapter, setActiveChapter] = useState(POLICY_CHAPTERS[0]);
+  
+  // This component is now hard-locked to the eligibility worker persona
+  const persona = 'worker';
   
   const chatScrollRef = useRef<HTMLDivElement>(null);
 
@@ -126,26 +128,6 @@ export function PolicyManual() {
                 ))}
               </div>
             </div>
-
-            <div className="min-w-[150px] lg:min-w-0 pt-0 lg:pt-4 lg:border-t border-slate-200 dark:border-slate-800">
-              <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest block mb-4 px-2">Perspective</span>
-              <div className="flex p-1 bg-slate-200 dark:bg-slate-800 rounded-xl" role="group" aria-label="Select persona">
-                <button
-                  onClick={() => setPersona('client')}
-                  aria-pressed={persona === 'client'}
-                  className={`flex-1 py-2 px-3 rounded-lg text-[10px] font-bold transition-all whitespace-nowrap ${persona === 'client' ? 'bg-white dark:bg-slate-700 text-brand-jade shadow-sm' : 'text-slate-500'}`}
-                >
-                  Resident
-                </button>
-                <button
-                  onClick={() => setPersona('worker')}
-                  aria-pressed={persona === 'worker'}
-                  className={`flex-1 py-2 px-3 rounded-lg text-[10px] font-bold transition-all whitespace-nowrap ${persona === 'worker' ? 'bg-white dark:bg-slate-700 text-brand-jade shadow-sm' : 'text-slate-500'}`}
-                >
-                  Caseworker
-                </button>
-              </div>
-            </div>
           </div>
         </div>
 
@@ -179,7 +161,7 @@ export function PolicyManual() {
                 <div className="space-y-4">
                   <h4 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">How can I assist with policy?</h4>
                   <p className="text-xs sm:text-sm text-slate-500 leading-relaxed px-4">
-                    Our Living Policy Manual uses neurosymbolic AI to translate strict statutory requirements into actionable guidance.
+                    Our Living Policy Manual uses a deterministic hybrid architecture to translate strict statutory requirements into actionable guidance.
                   </p>
                   <div className="grid grid-cols-1 gap-2 mt-6 px-4">
                     {[
@@ -261,7 +243,7 @@ export function PolicyManual() {
             </div>
             <div className="mt-3 text-center">
               <p className="text-[10px] text-slate-400 font-medium uppercase tracking-widest">
-                Neurosymbolic Engine v2.4 • Legally Grounded Response
+                Hybrid Logic Engine v2.4 • Legally Grounded Response
               </p>
             </div>
           </div>

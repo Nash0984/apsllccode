@@ -9,7 +9,7 @@ export default function Per() {
   return (
     <div className="bg-white dark:bg-slate-950 min-h-screen transition-colors duration-300">
       <Helmet>
-        <title>The 25-Year PER Dataset | Applied Policy Systems</title>
+        <title>Applied Intelligence Analysis | Applied Policy Systems</title>
         <meta name="description" content="A longitudinal analysis of SNAP Payment Error Rates, isolating systemic calculation failures and procedural drop-offs." />
       </Helmet>
 
@@ -31,7 +31,7 @@ export default function Per() {
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <h1 className="label-uppercase mb-4">Research & Data Assets</h1>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 dark:text-white mb-8 max-w-4xl">
-              The 25-Year PER Dataset
+              Applied Intelligence Analysis
             </h2>
             <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl leading-relaxed mb-8">
               A longitudinal analysis of Supplemental Nutrition Assistance Program (SNAP) Payment Error Rates. We evaluate the intersection of strict fiscal compliance tolerances and the administrative burdens that drive systemic failure.
@@ -95,7 +95,7 @@ export default function Per() {
                   <h3 className="text-2xl font-black m-0">Root Cause Evaluation</h3>
                 </div>
                 <p className="text-lg leading-relaxed text-slate-600 dark:text-slate-400">
-                  Our longitudinal dataset provides the empirical baseline necessary to identify where modern business rules engines fail. By analyzing 25 years of aggregated federal reporting, we isolate specific nodes of systemic failure—differentiating between errors caused by frontline administrative workflows and errors hardcoded into the business logic layer.
+                  Our applied intelligence provides the empirical baseline necessary to identify where modern business rules engines fail. By analyzing 25 years of aggregated federal reporting, we isolate specific nodes of systemic failure—differentiating between errors caused by frontline administrative workflows and errors hardcoded into the business logic layer.
                 </p>
                 <p className="text-lg leading-relaxed text-slate-600 dark:text-slate-400 mt-4">
                   This data establishes the framework for our Independent Verification and Validation practices. It ensures that prime contractors prioritize human-centered design for data ingestion, ultimately reducing the evidentiary burden on the citizen while maintaining mathematical accuracy for the adjudicator.

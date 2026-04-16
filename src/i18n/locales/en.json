@@ -1,13 +1,16 @@
 {
   "routes": {
     "expertise": { "label": "Capabilities", "description": "Review our compliance frameworks, technical service models, and standard capability matrices." },
-    "about": { "label": "About", "description": "Examine our institutional background, federal tech ecosystem partners, and subject matter authority." },
+    "insights": { "label": "Research", "description": "Examine our empirical analysis, longitudinal federal data studies, and systems architecture frameworks." },
+    "field": { "label": "Prototypes", "description": "Interactive operational models demonstrating policy-to-code translation and rule validation." },
+    "about": { "label": "About", "description": "Review our institutional background, federal tech ecosystem partners, and professional history." },
     "contact": { "label": "Contact", "description": "Initiate a dialogue regarding architectural deliverables, policy traceability, or systems alignment." }
   },
   "nav": {
     "home": "Home",
     "platform": "Capabilities",
-    "insights": "Insights",
+    "insights": "Research",
+    "field": "Prototypes",
     "about": "About",
     "contact": "Contact",
     "getInTouch": "Contact"
@@ -15,28 +18,29 @@
   "home": {
     "hero": {
       "title": "Human-Centered Access. Deterministic Compliance.",
-      "subtitle": "We believe the foundation of public benefits access is built at the business rules layer. Applied Policy Systems translates strict federal statutes into plain-language, low-friction digital infrastructure that protects both the resident and the agency budget.",
+      "subtitle": "We believe the foundation of public benefits access is built at the business rules layer. Applied Policy Systems provides Independent Verification and Validation oversight and architects low-friction, deterministic digital infrastructure, ensuring systems are a verifiable reflection of written law while reducing administrative burden.",
       "cta": "Technical Expertise"
     },
-    "trustBar": ["NIST 800-53", "FNS GUIDELINES", "IRS PUB 1075", "CMS MARS-E"],
-    "accessBar": ["SECTION 508", "WCAG 2.2 AA", "TITLE VI MANDATES", "PLAIN WRITING ACT"],
     "challenge": {
-      "label": "The Implementation Gap",
+      "label": "Statutory Precision",
       "title": "The Translation Layer.",
-      "text": "Public technology failures occur when legislative mandates are lost as they move from written law to operational systems, shifting state risk from Title VI civil rights liabilities to federal fiscal sanctions. We mitigate this risk by converting regulations into deterministic business rules. This ensures policy intent survives the transition into operational infrastructure, protecting the agency budget from 15% state match penalties while reducing applicant friction without violating federal audit strictures.",
+      "text": "Public technology fails when system architecture diverges from legislation, exposing agencies to compliance risks and fiscal sanctions. We mitigate this risk by providing Independent Verification and Validation oversight and translating complex regulations into deterministic system logic. This ensures exact policy intent dictates operational behavior, protecting agency budgets from audit findings while reducing the administrative burden placed on residents and frontline caseworkers.",
       "solution": "We ensure system logic is a verifiable reflection of statutory requirements.",
       "outputsLabel": "Technical Deliverables",
-      "outputsLead": "Representative artifacts include:",
+      "outputsLead": "Standard verification artifacts and specialized operational deliverables include:",
       "outputs": [
-        "Hybrid Logic & LLM Architectures",
+        "Business Rules Engine Specifications",
         "Deterministic Logic Models",
-        "Rules Engine Architectures",
-        "Evidence Triage Schemas",
-        "Eligibility Logic Workflows",
+        "Statutory Requirements Traceability Matrices",
+        "Statutory Testing Frameworks",
+        "Independent Vendor Gap Analyses",
         "Interagency Data Exchange Models",
-        "System Security Plans (SSP)",
-        "Policy Traceability Models",
-        "Algorithmic Bias Diagnostics"
+        "System Security Plans",
+        "Automated Decision System Audits",
+        "Evidence Triage Schemas",
+        "Federal Tax Data Security Overlays",
+        "SNAP Payment Error Rate Diagnostics",
+        "Procedural Churn Diagnostics"
       ]
     },
     "infrastructure": {
@@ -46,14 +50,14 @@
       "cta": "Core Services"
     },
     "sandbox": {
-      "label": "Demonstrator 01",
-      "title": "Live Consulting Demonstrator 01: Human-Centered Compliance",
-      "text": "This demonstrator illustrates the balance between administrative rigor and user access. It provides residents with immediate feedback on requirements while ensuring the administration receives data that is 100% compliant with statutory mandates."
+      "label": "Prototype 01",
+      "title": "Prototype 01: Payload Verification",
+      "text": "An operational prototype demonstrating how to provide residents with immediate, plain-language feedback on evidence requirements while outputting data that is 100% compliant with statutory mandates."
     },
     "manual": {
-      "label": "Demonstrator 02",
-      "title": "Live Consulting Demonstrator 02: Threat Diagnostic Verification",
-      "text": "This demonstrator showcases the 'Rules as Code' methodology—transforming dense legislative text into an intuitive, conversational guide that provides administrators with a mathematically provable source of truth."
+      "label": "Prototype 02",
+      "title": "Prototype 02: Rules Extraction",
+      "text": "An operational prototype demonstrating how to transform dense legislative text into an intuitive, plain-language guide that provides caseworkers with a mathematically provable source of truth."
     }
   },
   "contactPage": {
@@ -93,43 +97,24 @@
   "about": {
     "hero": {
       "label": "The Firm",
-      "title": "Bridging the Disconnect."
+      "title": "Institutional Background."
     },
     "founder": {
       "title": "Graham O'Neill, Founder & Principal Consultant",
-      "intro": "Graham O’Neill has over 15 years of experience optimizing complex government systems.",
-      "p1": "His career focuses on translating legislative mandates into plain-language, deterministic infrastructure. From municipal revenue operations to federal advisory roles, Graham aligns written regulations with operational realities.",
-      "p2": "Before founding Applied Policy Systems LLC, Graham held senior leadership positions across all levels of government, specializing in the structural evaluation of benefits access and the modernization of tax administration programs."
-    },
-    "research": {
-      "label": "Proprietary Intelligence",
-      "title": "Empirical Data & Systems Architecture.",
-      "text": "This intelligence is not publicly distributed. It serves as the foundational data layer for our advisory engagements.",
-      "docs": {
-        "per": {
-          "title": "25-Year National SNAP Dataset: State Policy Impacts on Error Rates",
-          "desc": "A comprehensive evaluation of federal Quality Control outcomes across all 53 U.S. jurisdictions from FY 2000 to 2024. This proprietary research maps specific state policy implementations against actual Payment Error Rates (PER), Case and Procedural Error Rates (CAPER), and the 15% state match penalty thresholds under Public Law 119-21."
-        },
-        "glassbox": {
-          "title": "Verifiable Payload Architecture: Secure External Data Ingestion",
-          "desc": "An architectural framework defining strict Data Exchange Models and payload validation schemas. This allows third-party applications and interagency portals to securely transmit unstructured resident data into legacy state databases as mathematically verified evidence, reducing applicant friction without violating federal audit strictures."
-        },
-        "irc7216": {
-          "title": "Architecting IRC § 7216 Security Overlays for Cross-Enrollment",
-          "desc": "Technical specifications for bridging the strict privacy requirements of federal tax data (IRC § 7216 and IRS Pub 1075) with the eligibility logic of primary public benefits programs (MAGI and 7 CFR 273). This framework enables 'No Wrong Door' cross-enrollment while satisfying State CISO security strictures."
-        }
-      }
+      "intro": "Graham O’Neill has over 15 years of experience improving complex government systems.",
+      "p1": "His career focuses on providing systems oversight and architecting deterministic infrastructure. From municipal revenue operations to federal advisory roles, Graham aligns written regulations with operational realities.",
+      "p2": "Before founding Applied Policy Systems LLC, Graham held senior leadership positions across all levels of government, specializing in the structural evaluation of benefits access and the implementation of tax administration programs."
     },
     "journey": {
-      "label": "Career Journey",
-      "title": "Systems Optimization History.",
+      "label": "Operational History",
+      "title": "Professional Experience.",
       "milestones": {
         "m1": {
           "year": "Current",
           "title": "Systems Architecture",
           "org": "Applied Policy Systems",
           "role": "Founder & Principal Architect",
-          "desc": "Architects 'Rules Engine' prototypes combining Large Language Models and deterministic logic engines to automate public benefits eligibility calculations and evidence triage, ensuring mathematical accuracy for human adjudicators."
+          "desc": "Architects neuro-symbolic rules engine prototypes combining Large Language Models and deterministic logic engines to automate public benefits eligibility calculations and evidence triage, ensuring mathematical accuracy for human adjudicators."
         },
         "m2": {
           "year": "Previous",
@@ -183,18 +168,18 @@
         "execution": {
           "value": "15+",
           "label": "Years of Execution",
-          "desc": "Career dedicated to optimizing public systems at municipal, state, and federal levels."
+          "desc": "Career dedicated to improving public systems at municipal, state, and federal levels."
         }
       }
     },
     "ecosystem": {
-      "label": "Ecosystem & Strategic Engagements",
-      "title": "Professional Collaboration History.",
+      "label": "Civic Tech Network",
+      "title": "Strategic Collaborations.",
       "desc": "Operational expertise and network collaborations of the Principal Consultant.",
-      "quote": "Applied Policy Systems LLC is built on a foundation of deep professional history. Graham has collaborated with national experts in implementation, evaluation, and design, ensuring our methodology is informed by the civic tech ecosystem.",
+      "quote": "Applied Policy Systems LLC is built on a foundation of deep professional history. Graham has collaborated with national experts in implementation, evaluation, and design, ensuring our methodology is informed by the civic tech network.",
       "partners": {
         "nava": { "name": "Nava PBC", "focus": "Technical Architecture", "context": "Coordinated technical planning for software and real-time dashboards within state benefit systems, focusing on synthetic data environments and statutory verification." },
-        "usdr": { "name": "U.S. Digital Response (USDR)", "focus": "Root Cause Analysis", "context": "Managed discovery sprints and root cause analysis to reduce SNAP Payment Error Rates (PER) and mitigate recertification churn." },
+        "usdr": { "name": "U.S. Digital Response", "focus": "Root Cause Analysis", "context": "Managed discovery sprints and root cause analysis to reduce SNAP Payment Error Rates and mitigate recertification churn." },
         "cfa": { "name": "Code for America", "focus": "Civic Tech Integration", "context": "Secured operational partnerships to deploy virtual tax software and collaborated on human-centered design for public benefit notices." },
         "arnold": { "name": "Arnold Ventures", "focus": "Project Architecture", "context": "Authored proposals for multi-stakeholder data science initiatives, establishing pathways to address SNAP accuracy through predictive modeling." },
         "rfa": { "name": "Results for America", "focus": "Evidence-Based Evaluation", "context": "Oversaw randomized controlled trial evaluations for municipal program performance, aligning initiatives with evidence-based policy standards." },
@@ -204,54 +189,135 @@
       }
     }
   },
-  "expertisePage": {
+  "researchPage": {
     "hero": {
-      "label": "Core Services",
-      "title": "Independent Verification & Validation.",
-      "subtitle": "Applied Policy Systems LLC serves as The Translation Layer, providing Independent Verification & Validation (IV&V) and Subject Matter Expert (SME) advisory to ensure absolute statutory fidelity."
+      "label": "Applied Intelligence",
+      "title": "Empirical Analysis & Systems Architecture.",
+      "subtitle": "This intelligence serves as the foundational analytical layer for our advisory engagements. We leverage decades of federal oversight data to engineer deterministic compliance frameworks."
     },
-    "expertise": {
-      "label": "Strategic Pillars",
-      "title": "System Integrity Framework."
-    },
-    "engagements": {
-      "label": "Procurement Pathways",
-      "title": "Strategic Engagement Models.",
-      "pathways": {
-        "sprints": {
-          "title": "Threat Diagnostic Sprints",
-          "desc": "Rapid evaluation of existing system logic to identify statutory drift and fiscal risk."
-        },
-        "advisory": {
-          "title": "IV&V Procurement Advisory",
-          "desc": "Independent oversight and requirements drafting for large-scale modernization tenders."
-        },
-        "integration": {
-          "title": "Prime SME Integration",
-          "desc": "Embedding specialized policy-to-code expertise within prime contractor delivery teams."
-        }
+    "docs": {
+      "per": {
+        "title": "25-Year SNAP Analysis: State Policy Impacts on Error Rates",
+        "desc": "An applied methodology for evaluating federal Quality Control outcomes across all 53 U.S. jurisdictions from FY 2000 to 2024. Our analysis forensically maps specific state policy implementations against actual Payment Error Rates, Case and Procedural Error Rates, and the 15% state match penalty thresholds under Public Law 119-21."
+      },
+      "glassbox": {
+        "title": "Verifiable Payload Architecture: Secure External Data Ingestion",
+        "desc": "An architectural framework defining strict Data Exchange Models and payload validation schemas. This allows third-party applications and interagency portals to securely transmit unstructured resident data into legacy state databases as mathematically verified evidence, reducing applicant friction and maintaining audit compliance."
+      },
+      "irc7216": {
+        "title": "Architecting IRS Security Overlays for Cross-Enrollment",
+        "desc": "Technical specifications for bridging the strict privacy requirements of federal tax data under Internal Revenue Code Section 7216 and IRS Publication 1075 with the eligibility logic of primary public benefits programs including MAGI and 7 CFR 273. This framework enables seamless cross-enrollment while satisfying State CISO security strictures."
       }
     }
   },
-  "insightsPage": {
+  "prototypesPage": {
     "hero": {
-      "label": "Proprietary Intelligence",
-      "title": "Empirical Data for Systems Engineering",
-      "subtitle": "Applied Policy Systems maintains exclusive, longitudinal datasets to support our consulting engagements. We utilize this intelligence to establish mathematical baselines for state agencies mitigating federal fiscal sanctions."
+      "label": "Operational Prototypes",
+      "title": "Interactive Testing Environments",
+      "subtitle": "Live demonstrator models illustrating the translation of statutory requirements into deterministic business rules and operational workflows."
     },
     "blueprints": {
-      "label": "Executable Blueprints",
-      "title": "Hybrid Rules Engine Prototypes",
       "documentTool": {
-        "label": "Demonstrator 01",
-        "title": "Document Upload Tool",
-        "desc": "A technical blueprint demonstrating the intersection of human-centered design and strict statutory data schemas. It acts as a reference architecture showing Prime Integrators how to structure evidence triage to reduce applicant friction without violating human-in-the-loop federal audit strictures."
+        "label": "Prototype 01",
+        "title": "Payload Verification Prototype",
+        "desc": "An interactive environment demonstrating the ingestion of unstructured resident data into strict statutory schemas. It shows how to structure evidence triage to reduce applicant friction while maintaining human-in-the-loop audit compliance."
       },
       "policyManual": {
-        "label": "Demonstrator 02",
-        "title": "Living Policy Manual",
-        "desc": "A direct output of our Threat Diagnostic Sprints. It demonstrates how Large Language Models and deterministic logic engines combine to map statutory requirements directly to calculation logic, enabling frontline caseworkers and mitigating 15% state match penalties and Title VI civil rights liabilities."
+        "label": "Prototype 02",
+        "title": "Deterministic Rules Engine",
+        "desc": "An interactive environment demonstrating how Large Language Models and deterministic logic combine to map statutory requirements directly to operational workflows, enabling frontline caseworkers and mitigating state match penalties."
       }
+    }
+  },
+  "expertisePage": {
+   "hero": {
+      "label": "Capabilities",
+      "title": "Systems Architecture & Oversight.",
+      "subtitle": "Applied Policy Systems LLC serves as The Translation Layer, providing Independent Verification and Validation alongside Subject Matter Expert advisory to ensure absolute statutory fidelity."
+    },
+    "expertise": {
+      "label": "Technical Advisory",
+      "title": "Core Service Deliverables."
+    },
+    "services": {
+      "payload": {
+        "title": "Verifiable Payload Architectures",
+        "desc": "Independent Verification and Validation frameworks that ensure system logic is a verifiable reflection of statutory requirements.",
+        "deliverablesLabel": "TECHNICAL DELIVERABLES",
+        "deliverables": [
+          "Statutory Requirements Traceability Matrices",
+          "Statutory Testing Frameworks",
+          "Automated Decision System Audits"
+        ]
+      },
+      "rules": {
+        "title": "Business Rules Engine Architecture",
+        "desc": "Architectures combining Large Language Models and deterministic logic engines for mathematical accuracy in eligibility triage.",
+        "deliverablesLabel": "TECHNICAL DELIVERABLES",
+        "deliverables": [
+          "Business Rules Engine Specifications",
+          "Deterministic Logic Models",
+          "Rules as Code Implementation"
+        ]
+      },
+      "intelligence": {
+        "title": "Federal Sanction Mitigation",
+        "desc": "Leveraging decades of federal oversight data and executive leadership experience to establish mathematical baselines for mitigating state match penalties.",
+        "deliverablesLabel": "TECHNICAL DELIVERABLES",
+        "deliverables": [
+          "SNAP Payment Error Rate Diagnostics",
+          "Fiscal Risk Modeling",
+          "Federal Quality Control Baselines"
+        ]
+      },
+      "exchange": {
+        "title": "Secure Data Interoperability",
+        "desc": "Strict data exchange models and security overlays for interagency data ingestion, including the integration of highly restricted federal tax data.",
+        "deliverablesLabel": "TECHNICAL DELIVERABLES",
+        "deliverables": [
+          "Interagency Data Exchange Models",
+          "Federal Tax Data Security Overlays",
+          "System Security Plans"
+        ]
+      },
+      "advisory": {
+        "title": "Pre-Procurement Advisory",
+        "desc": "Subject Matter Expert advisory for drafting modernization tenders with absolute policy fidelity.",
+        "deliverablesLabel": "TECHNICAL DELIVERABLES",
+        "deliverables": [
+          "Independent Vendor Gap Analyses",
+          "Requirements Engineering",
+          "Request for Proposal Technical Drafting"
+        ]
+      },
+      "translation": {
+        "title": "Operational Translation",
+        "desc": "Converting dense legislative text into plain-language, low-friction digital infrastructure for frontline caseworkers.",
+        "deliverablesLabel": "TECHNICAL DELIVERABLES",
+        "deliverables": [
+          "Evidence Triage Schemas",
+          "Procedural Churn Diagnostics",
+          "Human Centered Logic Design"
+        ]
+      }
+    },
+    "engagements": {
+      "label": "Procurement Pathways",
+      "title": "Technical Engagement Models.",
+     "pathways": {
+          "sprints": {
+            "title": "Small Procurement Diagnostics",
+            "desc": "Targeted system audits executed under delegated agency purchasing thresholds. We rapidly evaluate existing software to identify compliance gaps and fiscal risk."
+          },
+          "advisory": {
+            "title": "Enterprise Verification Advisory",
+            "desc": "Comprehensive oversight for large-scale technology modernization. We provide Independent Verification and Validation services and draft formal procurement requirements."
+          },
+          "integration": {
+            "title": "Prime Contractor Integration",
+            "desc": "Specialized subcontractor support under existing state and federal Master Service Agreements. We embed policy-to-code expertise directly into prime contractor delivery teams."
+          }
+        }
     }
   },
   "footer": {

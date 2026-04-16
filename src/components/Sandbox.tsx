@@ -175,7 +175,7 @@ export function Sandbox() {
     let interval: NodeJS.Timeout;
     if (appState === 'processing') {
       const phases = persona === 'worker' 
-        ? ['Ingesting payload...', 'Executing deterministic extraction...', 'Evaluating statutory sufficiency (SNAP/Medicaid)...', 'Calculating compliance thresholds...', 'Rendering diagnostic results...']
+        ? ['Ingesting payload...', 'Executing deterministic extraction...', 'Evaluating statutory sufficiency...', 'Calculating compliance thresholds...', 'Rendering diagnostic results...']
         : ['Encrypting transmission...', 'Verifying document format...', 'Submitting to state agency...'];
       
       let step = 0;
@@ -676,14 +676,16 @@ export function Sandbox() {
                     <button onClick={removeFile} className="text-slate-400 hover:text-red-500 transition-colors"><X size={14} /></button>
                   </div>
                 )}
-                <textarea
-                  value={input}
-                  onChange={(e) => setInput(e.target.value)}
-                  placeholder={persona === 'client' ? 'Add a note (optional)...' : 'Append optional instructions to payload...'}
-                  aria-label={persona === 'client' ? 'Additional notes' : 'Optional instructions'}
-                  className={`w-full border rounded-xl p-3 text-slate-800 focus:outline-none resize-none min-h-[50px] text-xs shadow-sm transition-all ${persona === 'client' ? 'bg-slate-50 border-blue-100 focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10' : 'bg-slate-950 border-slate-800 text-slate-200 focus:border-brand-jade font-mono'}`}
-                  rows={1}
-                />
+                {persona === 'worker' && (
+                  <textarea
+                    value={input}
+                    onChange={(e) => setInput(e.target.value)}
+                    placeholder="Append optional instructions to payload..."
+                    aria-label="Optional instructions"
+                    className="w-full border rounded-xl p-3 text-slate-800 focus:outline-none resize-none min-h-[50px] text-xs shadow-sm transition-all bg-slate-950 border-slate-800 text-slate-200 focus:border-brand-jade font-mono"
+                    rows={1}
+                  />
+                )}
               </div>
               
               <div className="flex gap-2">

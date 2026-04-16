@@ -9,8 +9,8 @@ export default function OperationalTranslation() {
   return (
     <div className="bg-white dark:bg-slate-950 min-h-screen transition-colors duration-300">
       <Helmet>
-        <title>Frontline Operational Translation | Applied Policy Systems</title>
-        <meta name="description" content="Converting deterministic system logic back into human-readable formats for frontline adjudicators and caseworkers." />
+        <title>Operational Translation | Applied Policy Systems</title>
+        <meta name="description" content="Converting dense legislative text into plain-language, low-friction digital infrastructure for frontline caseworkers." />
       </Helmet>
 
       <div className="border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-6 py-4">
@@ -29,10 +29,10 @@ export default function OperationalTranslation() {
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <h1 className="label-uppercase mb-4">Implementation Delivery</h1>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 dark:text-white mb-8 max-w-4xl">
-              Frontline Operational Translation
+              Operational Translation
             </h2>
             <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl leading-relaxed mb-8">
-              Converting deterministic system logic back into human-readable formats to ensure frontline adjudicators understand the specific automated logic executing public policy.
+              Converting dense legislative text into plain-language, low-friction digital infrastructure for frontline caseworkers.
             </p>
             
             <div className="flex flex-wrap gap-3">

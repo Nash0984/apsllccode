@@ -1,9 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { MessageSquare, X, Send, User, Bot, Loader2, Minimize2, Maximize2 } from 'lucide-react';
-import { GoogleGenAI } from "@google/genai";
-
-const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_GEMINI_API_KEY });
 
 const TypingIndicator = ({ size = 16 }: { size?: number }) => (
   <div className="flex gap-1 items-center h-4 px-1">
@@ -36,7 +33,7 @@ export function ChatWidget({ embedded = false }: { embedded?: boolean }) {
   const [isOpen, setIsOpen] = useState(embedded);
   const [isMinimized, setIsMinimized] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
-    { role: 'assistant', content: 'Hello! I am the Applied Policy Systems Consulting Assistant. How can I help you explore our IV&V services, SME advisory for public benefits, or legislative mandate translation strategies today?' }
+    { role: 'assistant', content: 'Hello! I am the Applied Policy Systems Consulting Assistant. How can I help you explore our Independent Verification and Validation services, Subject Matter Expert advisory for public benefits, or legislative mandate translation strategies today?' }
   ]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -53,40 +50,44 @@ export function ChatWidget({ embedded = false }: { embedded?: boolean }) {
   const handleSend = async () => {
     if (!input.trim() || isLoading) return;
 
-    const userMessage = input.trim();
+    const userMessage: Message = { role: 'user', content: input.trim() };
+    const currentMessages = [...messages, userMessage];
+    
+    setMessages(currentMessages);
     setInput('');
-    setMessages(prev => [...prev, { role: 'user', content: userMessage }]);
     setIsLoading(true);
 
     try {
-      const response = await ai.models.generateContent({
-        model: "gemini-3-flash-preview",
-        contents: [
-          ...messages.map(m => ({ role: m.role === 'user' ? 'user' : 'model', parts: [{ text: m.content }] })),
-          { role: 'user', parts: [{ text: userMessage }] }
-        ],
-        config: {
-          systemInstruction: `You are the Applied Policy Systems (APS) Consulting Assistant. 
-          Your goal is to consult with the audience on the concepts and architecture behind Independent Verification & Validation (IV&V) and Subject Matter Expert (SME) advisory for public sector modernization.
-          
-          Key Priorities & Context:
-          - APS specializes in "Independent Verification & Validation (IV&V)" and "SME Advisory" for health and human services.
-          - We bridge the gap between "Legislative Mandate Translation" and digital infrastructure.
-          - Focus areas include Public Benefits (SNAP, Medicaid, TANF), Low Income Tax Credit (LITC), and Volunteer Income Tax Assistance (VITA).
-          - We use a "Rules-as-Code" methodology to audit system logic and ensure statutory fidelity.
-          - Be pragmatic, practical, and cutting-edge in your explanations.
-          - If a user asks about "Contacting" the company, provide graham@appliedpolicysystems.com as the primary contact and suggest scheduling a formal consultation via our booking page: https://calendar.app.google/WiXHqdGmWaG5kxJQ7.
-          - Keep responses professional, architectural, and strategic.`,
-        }
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          messages: currentMessages,
+          temperature: 0.2
+        }),
       });
 
-      const assistantMessage = response.text || "I apologize, I encountered an error. Please try again.";
-      setMessages(prev => [...prev, { role: 'assistant', content: assistantMessage }]);
+      if (!response.ok) {
+        throw new Error(`Server responded with status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      
+      setMessages(prev => [...prev, { role: 'assistant', content: data.response }]);
     } catch (error) {
-      console.error("Chat Error:", error);
-      setMessages(prev => [...prev, { role: 'assistant', content: "I'm having trouble connecting right now. Please try again in a moment." }]);
+      console.error("[CHAT WIDGET ERROR]:", error);
+      setMessages(prev => [...prev, { 
+        role: 'assistant', 
+        content: "System alert: Unable to reach the verification engine endpoint. Please try again later or contact us directly." 
+      }]);
     } finally {
       setIsLoading(false);
+      // Ensure scrolling to bottom after response
+      setTimeout(() => {
+        messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
     }
   };
 
@@ -141,9 +142,9 @@ export function ChatWidget({ embedded = false }: { embedded?: boolean }) {
             <button
               onClick={handleSend}
               disabled={isLoading}
-              className="p-3 bg-brand-jade text-white rounded-xl hover:bg-[#005a62] transition-colors disabled:opacity-50"
+              className="p-3 bg-brand-jade text-white rounded-xl hover:bg-[#005a62] transition-colors disabled:opacity-50 flex items-center justify-center min-w-[44px]"
             >
-              <Send size={20} />
+              {isLoading ? <Loader2 size={20} className="animate-spin" /> : <Send size={20} />}
             </button>
           </div>
         </div>
@@ -219,9 +220,9 @@ export function ChatWidget({ embedded = false }: { embedded?: boolean }) {
                   onClick={handleSend}
                   disabled={isLoading}
                   aria-label="Send message"
-                  className="p-2 bg-brand-jade text-white rounded-lg hover:bg-[#005a62] transition-colors disabled:opacity-50"
+                  className="p-2 bg-brand-jade text-white rounded-lg hover:bg-[#005a62] transition-colors disabled:opacity-50 flex items-center justify-center min-w-[36px]"
                 >
-                  <Send size={16} />
+                  {isLoading ? <Loader2 size={16} className="animate-spin" /> : <Send size={16} />}
                 </button>
               </div>
             </div>

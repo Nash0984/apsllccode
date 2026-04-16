@@ -8,17 +8,18 @@ const Home = lazy(() => import('./pages/Home').then(m => ({ default: m.Home })))
 const About = lazy(() => import('./pages/About').then(m => ({ default: m.About })));
 const Contact = lazy(() => import('./pages/Contact').then(m => ({ default: m.Contact })));
 const Capabilities = lazy(() => import('./pages/Capabilities').then(m => ({ default: m.Capabilities })));
-const Insights = lazy(() => import('./pages/Insights').then(m => ({ default: m.Insights })));
+const Insights = lazy(() => import('./pages/Research').then(m => ({ default: m.Insights })));
+const Field = lazy(() => import('./pages/Field').then(m => ({ default: m.Field })));
 const Privacy = lazy(() => import('./pages/Privacy').then(m => ({ default: m.Privacy })));
 const Terms = lazy(() => import('./pages/Terms').then(m => ({ default: m.Terms })));
 
 // Dynamic Capability Loader
 const CapabilityMap: Record<string, React.LazyExoticComponent<any>> = {
-  'hybrid-rules-engine': lazy(() => import('./pages/capabilities/HybridEngine')),
-  'snap-per-mitigation': lazy(() => import('./pages/capabilities/Per')),
-  'tax-data-compliance': lazy(() => import('./pages/capabilities/Glassbox')),
-  'statutory-verification': lazy(() => import('./pages/capabilities/Trbv')),
-  'pre-procurement-governance': lazy(() => import('./pages/capabilities/PreProcurement')),
+  'verifiable-payloads': lazy(() => import('./pages/capabilities/VerifiablePayloads')),
+  'hybrid-engine': lazy(() => import('./pages/capabilities/HybridEngine')),
+  'payment-error-rate': lazy(() => import('./pages/capabilities/Per')),
+  'glassbox-integration': lazy(() => import('./pages/capabilities/Glassbox')),
+  'pre-procurement': lazy(() => import('./pages/capabilities/PreProcurement')),
   'operational-translation': lazy(() => import('./pages/capabilities/OperationalTranslation')),
 };
 
@@ -39,7 +40,7 @@ const prefetchMap: Record<string, () => Promise<any>> = {
   '/about': () => import('./pages/About'),
   '/contact': () => import('./pages/Contact'),
   '/capabilities': () => import('./pages/Capabilities'),
-  '/insights': () => import('./pages/Insights'),
+'/insights': () => import('./pages/Research'),
 };
 
 function AnimatedRoutes() {
@@ -73,6 +74,7 @@ function AnimatedRoutes() {
           <Route path="capabilities/:slug" element={<DynamicCapability />} />
 
           <Route path="insights" element={<Insights />} />
+          <Route path="field" element={<Field />} />
           
           <Route path="contact" element={<Contact />} />
           <Route path="privacy" element={<Privacy />} />

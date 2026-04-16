@@ -1,23 +1,23 @@
 import { motion } from 'motion/react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, Binary, Cpu, Zap } from 'lucide-react';
+import { ArrowLeft, Binary, Cpu, Layers } from 'lucide-react';
 
 export default function HybridEngine() {
-  const tags = ["DETERMINISTIC LOGIC", "LLM TRIAGE", "STATUTORY COMPLIANCE"];
+  const tags = ["NEURO-SYMBOLIC", "DETERMINISTIC LOGIC", "STATUTORY COMPLIANCE"];
 
   return (
     <div className="bg-white dark:bg-slate-950 min-h-screen transition-colors duration-300">
       <Helmet>
-        <title>Hybrid Rules Engine | Applied Policy Systems</title>
-        <meta name="description" content="Architecting public benefits eligibility systems using a hybrid intelligence model combining LLMs with deterministic logic." />
+        <title>Business Rules Engine Architecture | Applied Policy Systems</title>
+        <meta name="description" content="Architectures combining Large Language Models (LLMs) for unstructured data triage with deterministic logic engines for mathematical accuracy." />
       </Helmet>
 
       <div className="border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-6 py-4">
         <div className="container-wide">
           <Link to="/capabilities" className="inline-flex items-center text-sm font-bold text-brand-jade hover:text-brand-jade/80 transition-colors">
             <ArrowLeft size={16} className="mr-2" />
-            Return to Capabilities Matrix
+            Return to Capabilities
           </Link>
         </div>
       </div>
@@ -27,12 +27,12 @@ export default function HybridEngine() {
         
         <div className="container-wide relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-            <h1 className="label-uppercase mb-4">Core Architecture</h1>
+            <h1 className="label-uppercase mb-4">Systems Architecture</h1>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 dark:text-white mb-8 max-w-4xl">
-              Hybrid Rules Engine Architecture
+              Business Rules Engine Architecture
             </h2>
             <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl leading-relaxed mb-8">
-              Combining the conversational power of Large Language Models with the mathematical certainty of deterministic logic engines to ensure statutory compliance in public benefits delivery.
+              Architectures combining Large Language Models (LLMs) for natural language ingestion with deterministic logic engines for absolute mathematical accuracy.
             </p>
             
             <div className="flex flex-wrap gap-3">
@@ -54,19 +54,19 @@ export default function HybridEngine() {
               <div className="sticky top-24 p-6 bg-slate-50 dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800">
                 <div className="flex items-center gap-3 mb-6">
                   <Cpu className="text-brand-jade" size={24} />
-                  <h3 className="font-bold text-lg text-slate-900 dark:text-white">The Hybrid Advantage</h3>
+                  <h3 className="font-bold text-lg text-slate-900 dark:text-white">Generative AI Risk Mitigation</h3>
                 </div>
                 <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
-                  Our architecture solves the "hallucination problem" in government AI by isolating the generative layer from the decision-making layer.
+                  Our architecture mitigates probabilistic error rates in public sector AI by strictly isolating the generative layer from the decision-making layer.
                 </p>
                 <ul className="space-y-3">
                   <li className="flex items-start gap-2 text-sm text-slate-600 dark:text-slate-400">
                     <div className="w-1.5 h-1.5 bg-brand-jade rounded-full shrink-0 mt-1.5" />
-                    <span>LLMs handle natural language ingestion and citizen triage.</span>
+                    <span>Large Language Models (LLMs) are restricted to natural language ingestion and unstructured data triage.</span>
                   </li>
                   <li className="flex items-start gap-2 text-sm text-slate-600 dark:text-slate-400">
                     <div className="w-1.5 h-1.5 bg-brand-jade rounded-full shrink-0 mt-1.5" />
-                    <span>Deterministic engines execute the final eligibility math.</span>
+                    <span>Stateless deterministic logic engines execute the binding eligibility math.</span>
                   </li>
                 </ul>
               </div>
@@ -79,17 +79,23 @@ export default function HybridEngine() {
                   <h3 className="text-2xl font-black m-0">Deterministic Fidelity</h3>
                 </div>
                 <p className="text-lg leading-relaxed text-slate-600 dark:text-slate-400">
-                  In public benefits, there is no room for "probabilistic" outcomes. A resident is either eligible or they are not, based on strict statutory thresholds. Our hybrid engine ensures that while the user experience is fluid and conversational, the underlying calculation is a rigid, auditable execution of the law.
+                  In public benefits administration, there is zero tolerance for probabilistic outcomes. A resident is either eligible or they are not, based on strict statutory thresholds.
+                </p>
+                <p className="text-lg leading-relaxed text-slate-600 dark:text-slate-400 mt-4">
+                  This hybrid architecture ensures that while the intake experience leverages natural language processing, the underlying calculation remains a rigid, mathematically auditable execution of the law.
                 </p>
               </div>
 
               <div className="mb-12">
                 <div className="flex items-center gap-4 mb-6">
-                  <Zap className="text-brand-jade shrink-0" size={32} />
-                  <h3 className="text-2xl font-black m-0">Accelerated Modernization</h3>
+                  <Layers className="text-brand-jade shrink-0" size={32} />
+                  <h3 className="text-2xl font-black m-0">Stateless Modernization</h3>
                 </div>
                 <p className="text-lg leading-relaxed text-slate-600 dark:text-slate-400">
-                  By decoupling the policy logic from the legacy codebase, we allow agencies to modernize their rules engines in weeks rather than years. This architecture supports rapid iteration as legislation changes, ensuring the system remains a living reflection of current policy.
+                  By decoupling policy logic from legacy codebases, agencies can execute deterministic rules engine modernization without requiring multi-year core system replacements.
+                </p>
+                <p className="text-lg leading-relaxed text-slate-600 dark:text-slate-400 mt-4">
+                  This stateless-first architecture supports immediate iteration as legislation changes, ensuring the decision support system remains an exact, verifiable reflection of current statutory policy.
                 </p>
               </div>
             </div>

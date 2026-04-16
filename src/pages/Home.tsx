@@ -55,16 +55,6 @@ export function Home() {
         </div>
       </section>
 
-      {/* Compliance Trust Bar */}
-      <div className="border-y border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50 py-4 sm:py-6">
-        <div className="flex flex-wrap justify-center md:justify-between items-center gap-6 container-wide">
-          {(t('home.trustBar', { returnObjects: true }) as string[]).map((acronym) => (
-            <span key={acronym} className="font-mono text-xs sm:text-sm tracking-widest text-slate-500 dark:text-slate-400 font-bold uppercase">
-              {acronym}
-            </span>
-          ))}
-        </div>
-      </div>
 
       {/* The Problem & Solution Section - Compact */}
       <section className="section-padding bg-slate-50 dark:bg-slate-900 relative overflow-hidden border-b border-slate-200 dark:border-slate-800">
@@ -101,16 +91,6 @@ export function Home() {
         </div>
       </section>
 
-      {/* Access Transition Bar */}
-      <div className="border-y border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50 py-4 sm:py-6 mt-16 sm:mt-24">
-        <div className="flex flex-wrap justify-center md:justify-between items-center gap-6 container-wide">
-          {(t('home.accessBar', { returnObjects: true }) as string[]).map((standard) => (
-            <span key={standard} className="font-mono text-xs sm:text-sm tracking-widest text-slate-500 dark:text-slate-400 font-bold uppercase">
-              {standard}
-            </span>
-          ))}
-        </div>
-      </div>
 
       {/* Homepage Directory */}
       <section className="bg-white dark:bg-slate-950">

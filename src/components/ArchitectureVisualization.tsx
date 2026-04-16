@@ -9,25 +9,25 @@ export default function ArchitectureVisualization() {
     {
       key: "ingestion",
       title: "Statutory Ingestion",
-      desc: "Raw legislative text, federal privacy mandates (e.g., IRS Pub 1075), state policy directives, and evidence-based program rules are ingested as the immutable source of truth.",
+      desc: "Raw legislative text, federal privacy mandates (e.g., IRS Pub 1075), and state policy directives are ingested as the immutable source of truth for deterministic compliance.",
       icon: <FileText size={24} />
     },
     {
       key: "llm",
-      title: "LLM Triage Layer",
-      desc: "Large Language Models map dense administrative requirements into plain-language, human-centered conversational schemas, drastically reducing procedural drop-offs for vulnerable residents.",
+      title: "Neuro-Symbolic Triage",
+      desc: "Large Language Models (LLMs) map dense administrative requirements into plain-language, human-centered conversational schemas, reducing procedural drop-offs.",
       icon: <Network size={24} />
     },
     {
       key: "logic",
       title: "Deterministic Engine",
-      desc: "The core verification layer. All conversational inputs are mathematically evaluated against hardcoded business rules to guarantee absolute statutory fidelity, zero hallucination risk, and empirical verifiability.",
+      desc: "The core verification layer. All conversational inputs are mathematically evaluated against hardcoded business rules to guarantee absolute statutory fidelity and zero hallucination risk.",
       icon: <Binary size={24} />
     },
     {
       key: "output",
-      title: "Compliant Integration",
-      desc: "Verified eligibility outcomes are compiled into secure API payloads for state systems and civic tech deployments, creating an auditable IV&V data trail for longitudinal evaluation.",
+      title: "Verifiable Payloads",
+      desc: "Verified eligibility outcomes are compiled into secure API payloads, creating an auditable IV&V data trail for longitudinal evaluation and federal compliance.",
       icon: <Shield size={24} />
     }
   ];

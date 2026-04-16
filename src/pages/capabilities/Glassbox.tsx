@@ -9,7 +9,7 @@ export default function Glassbox() {
   return (
     <div className="bg-white dark:bg-slate-950 min-h-screen transition-colors duration-300">
       <Helmet>
-        <title>The Glass Box Ingestion Framework | Applied Policy Systems</title>
+        <title>Statutory Data Exchange | Applied Policy Systems</title>
         <meta name="description" content="Data integration models ensuring automated calculations remain entirely auditable for human adjudicators." />
       </Helmet>
 
@@ -29,10 +29,10 @@ export default function Glassbox() {
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <h1 className="label-uppercase mb-4">Integration Models</h1>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 dark:text-white mb-8 max-w-4xl">
-              The Glass Box Ingestion Framework
+              Statutory Data Exchange
             </h2>
             <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl leading-relaxed mb-8">
-              A technical integration strategy that prevents the formation of "Black Box" algorithms in public benefits delivery, ensuring that automated eligibility calculations remain fully transparent and auditable by frontline caseworkers.
+              Strict Data Exchange Models (DEM) and payload validation schemas for secure interagency data ingestion.
             </p>
             
             <div className="flex flex-wrap gap-3">
@@ -82,7 +82,7 @@ export default function Glassbox() {
                   As state agencies automate verification through external data brokers and interagency APIs, systems often evolve into opaque "black boxes." When a resident is denied benefits based on an automated calculation that neither the applicant nor the caseworker can decipher, it violates fundamental principles of administrative justice.
                 </p>
                 <p className="text-lg leading-relaxed text-slate-600 dark:text-slate-400 mt-4">
-                  The Glass Box Ingestion Framework requires all data pipelines to map directly to plain-language policy manuals. Every automated decision must generate a definitive, human-readable audit trail that explains precisely which rule and which data point triggered the outcome.
+                  Our data exchange models require all data pipelines to map directly to plain-language policy manuals. Every automated decision must generate a definitive, human-readable audit trail that explains precisely which rule and which data point triggered the outcome.
                 </p>
               </div>
 

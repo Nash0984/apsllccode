@@ -9,7 +9,7 @@ export default function PreProcurement() {
   return (
     <div className="bg-white dark:bg-slate-950 min-h-screen transition-colors duration-300">
       <Helmet>
-        <title>Pre-Procurement & Vendor Governance | Applied Policy Systems</title>
+        <title>Pre-Procurement Advisory | Applied Policy Systems</title>
         <meta name="description" content="Technical specifications and legal architecture required before a prime contractor is hired for IT integration tenders." />
       </Helmet>
 
@@ -29,10 +29,10 @@ export default function PreProcurement() {
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <h1 className="label-uppercase mb-4">Strategic Architecture</h1>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 dark:text-white mb-8 max-w-4xl">
-              Pre-Procurement & Vendor Governance
+              Pre-Procurement Advisory
             </h2>
             <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl leading-relaxed mb-8">
-              Providing state agencies with the technical specifications and legal architecture required before a prime contractor is hired, ensuring IT integration tenders are structurally sound.
+              Subject Matter Expert (S SME) advisory for drafting modernization tenders with absolute policy fidelity.
             </p>
             
             <div className="flex flex-wrap gap-3">

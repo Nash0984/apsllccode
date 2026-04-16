@@ -3,7 +3,7 @@ import { LanguageSwitcher } from '../components/LanguageSwitcher';
 import { ThemeToggle } from '../components/ThemeToggle';
 import { useTheme } from '../context/ThemeContext';
 import { motion, useScroll, AnimatePresence, useSpring } from 'motion/react';
-import { Menu, X, Linkedin, ArrowUp, ChevronDown } from 'lucide-react';
+import { Menu, X, Linkedin, ArrowUp } from 'lucide-react';
 import { useState, useEffect, Suspense } from 'react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -15,9 +15,8 @@ export function Layout() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [showBackToTop, setShowBackToTop] = useState(false);
-  const [showScrollHint, setShowScrollHint] = useState(true);
   const location = useLocation();
-  const { scrollY, scrollYProgress } = useScroll();
+  const { scrollYProgress } = useScroll();
 
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -30,8 +29,6 @@ export function Layout() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
       setShowBackToTop(window.scrollY > 300);
-      if (window.scrollY > 100) setShowScrollHint(false);
-      else setShowScrollHint(true);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -59,6 +56,7 @@ export function Layout() {
     { name: t('nav.home'), path: '/' },
     { name: t('routes.expertise.label'), path: '/expertise' },
     { name: t('nav.insights'), path: '/insights' },
+    { name: t('nav.field'), path: '/field' },
     { name: t('routes.about.label'), path: '/about' },
     { name: t('routes.contact.label'), path: '/contact' }
   ];
@@ -217,26 +215,6 @@ export function Layout() {
           </motion.div>
         </AnimatePresence>
       </main>
-
-      {/* Scroll Hint */}
-      <AnimatePresence>
-        {showScrollHint && location.pathname !== '/contact' && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 20 }}
-            className="fixed bottom-12 left-1/2 -translate-x-1/2 z-40 flex flex-col items-center gap-2 pointer-events-none"
-          >
-            <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-400 dark:text-slate-500">Scroll to explore</span>
-            <motion.div
-              animate={{ y: [0, 5, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
-            >
-              <ChevronDown size={20} className="text-brand-jade" />
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
 
       <ChatWidget />
 
