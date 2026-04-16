@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { MessageSquare, X, Send, User, Bot, Loader2, Minimize2, Maximize2 } from 'lucide-react';
+import { useToast } from '../context/ToastContext';
 
 const TypingIndicator = ({ size = 16 }: { size?: number }) => (
   <div className="flex gap-1.5 items-center h-4 px-1" aria-hidden="true">
@@ -29,6 +30,7 @@ interface Message {
 }
 
 export function ChatWidget({ embedded = false }: { embedded?: boolean }) {
+  const { showToast } = useToast();
   const [isOpen, setIsOpen] = useState(embedded);
   const [isMinimized, setIsMinimized] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
@@ -77,6 +79,7 @@ export function ChatWidget({ embedded = false }: { embedded?: boolean }) {
       setMessages(prev => [...prev, { role: 'assistant', content: data.response }]);
     } catch (error) {
       console.error("[CHAT WIDGET ERROR]:", error);
+      showToast("Chat system connection error. Please try again or contact support.", "error");
       setMessages(prev => [...prev, { 
         role: 'assistant', 
         content: "System alert: Unable to reach the verification engine endpoint. Please try again later or contact us directly." 

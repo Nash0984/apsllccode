@@ -13,13 +13,12 @@
     "field": "Prototypes",
     "about": "About",
     "contact": "Contact",
-    "getInTouch": "Contact",
-    "skipToContent": "Skip to main content"
+    "getInTouch": "Contact"
   },
   "home": {
     "hero": {
       "title": "Human-Centered Access. High-Compliance Infrastructure.",
-      "subtitle": "We believe benefits access starts at the business rules layer. Applied Policy Systems provides Independent Verification and Validation oversight and architects low-friction, highly regulated digital infrastructure, ensuring systems are a verifiable reflection of written law while reducing administrative burden.",
+      "subtitle": "We believe the foundation of public benefits access is built at the business rules layer. Applied Policy Systems provides Independent Verification and Validation oversight and architects low-friction, highly regulated digital infrastructure, ensuring systems are a verifiable reflection of written law while reducing administrative burden.",
       "cta": "Technical Expertise"
     },
     "challenge": {
@@ -109,7 +108,7 @@
     "founder": {
       "title": "Graham O'Neill, Founder & Principal Consultant",
       "intro": "Graham O'Neill is a systems architect and policy implementation expert dedicated to enforcing statutory compliance and mitigating fiscal risk in complex government systems.",
-      "p1": "His career focuses on the technical integration of human-centered benefits access and highly regulated IT infrastructure. From municipal revenue operations to federal advisory roles, Graham translates strict legislative mandates into functional operational realities.",
+      "p1": "Su carrera se centra en la integración técnica entre el acceso a beneficios centrado en el humano y la infraestructura de TI altamente regulada. From municipal revenue operations to federal advisory roles, Graham translates strict legislative mandates into functional operational realities.",
       "p2": "Before founding Applied Policy Systems LLC, Graham held senior executive positions across all levels of government, specializing in the structural evaluation of benefits access, the oversight of eligibility infrastructure, and the implementation of secure tax administration programs."
     },
     "journey": {

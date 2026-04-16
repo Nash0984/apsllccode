@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'motion/react';
 import { Send, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
 import { z } from 'zod';
+import { useToast } from '../context/ToastContext';
 
 const contactSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
@@ -15,6 +16,7 @@ type ContactFormData = z.infer<typeof contactSchema>;
 
 export function ContactForm() {
   const { t } = useTranslation();
+  const { showToast } = useToast();
   const [formData, setFormData] = useState<ContactFormData>({
     name: '',
     email: '',
@@ -65,10 +67,12 @@ export function ContactForm() {
       }
 
       setStatus('success');
+      showToast(t('contactPage.contactForm.success'), 'success');
       setFormData({ name: '', email: '', organization: '', message: '' });
     } catch (error) {
       console.error('Contact form error:', error);
       setStatus('error');
+      showToast(t('contactPage.contactForm.error'), 'error');
     }
   };
 

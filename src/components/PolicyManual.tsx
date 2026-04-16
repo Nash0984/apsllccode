@@ -1,35 +1,11 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { 
-  MessageSquare, Send, Scale, BookOpen, Search, ChevronRight, Info, ShieldCheck, AlertCircle, ExternalLink
-} from 'lucide-react';
+import { BookOpen, Send, Scale, Search, ShieldCheck, AlertCircle } from 'lucide-react';
 import { getChatResponse } from '../services/gemini';
 
 const POLICY_CHAPTERS = [
-  {
-    title: "Financial Eligibility",
-    id: "financial",
-    statutes: ["7 CFR 273.9", "42 CFR 435.603"],
-    topics: ["Earned Income", "Unearned Income", "Asset Limits", "Deductions"]
-  },
-  {
-    title: "Non-Financial Requirements",
-    id: "non-financial",
-    statutes: ["6 CFR Part 37", "42 CFR 435.403"],
-    topics: ["Identity", "Citizenship", "Residency", "Household Composition"]
-  },
-  {
-    title: "Work Requirements",
-    id: "work",
-    statutes: ["7 CFR 273.24", "45 CFR 98.20"],
-    topics: ["ABAWD Compliance", "Work Registration", "Exemptions", "CCDF Work/Study"]
-  },
-  {
-    title: "Special Programs",
-    id: "special",
-    statutes: ["7 CFR 246.7", "42 USC 8624"],
-    topics: ["WIC Nutritional Risk", "LIHEAP Priority", "Medical Exemptions"]
-  }
+  { title: "Financial Eligibility", id: "financial", statutes: ["7 CFR 273.9"], topics: ["Earned Income", "Asset Limits"] },
+  { title: "Non-Financial", id: "non-financial", statutes: ["42 CFR 435.403"], topics: ["Identity", "Residency"] },
+  { title: "Work Requirements", id: "work", statutes: ["7 CFR 273.24"], topics: ["ABAWD Compliance", "Exemptions"] }
 ];
 
 export function PolicyManual() {
@@ -38,44 +14,27 @@ export function PolicyManual() {
   const [isProcessing, setIsProcessing] = useState(false);
   const [activeChapter, setActiveChapter] = useState(POLICY_CHAPTERS[0]);
   
-  // This component is now hard-locked to the eligibility worker persona
   const persona = 'worker';
-  
   const chatScrollRef = useRef<HTMLDivElement>(null);
 
-  // Auto-scroll chat
   useEffect(() => {
-    if (chatScrollRef.current) {
-      chatScrollRef.current.scrollTo({ top: chatScrollRef.current.scrollHeight, behavior: 'smooth' });
-    }
+    if (chatScrollRef.current) chatScrollRef.current.scrollTo({ top: chatScrollRef.current.scrollHeight, behavior: 'smooth' });
   }, [chatHistory, isProcessing]);
 
   const handleSubmit = async () => {
     if (!input.trim() || isProcessing) return;
-    
     setIsProcessing(true);
     const userMessage = input.trim();
     setInput('');
 
-    const newUserPart = { 
-      role: 'user', 
-      parts: [{ text: userMessage }]
-    };
-    setChatHistory(prev => [...prev, newUserPart]);
+    setChatHistory(prev => [...prev, { role: 'user', parts: [{ text: userMessage }] }]);
 
     try {
       const safeHistory = chatHistory.map(h => ({ role: h.role, parts: h.parts }));
-      
-      // Inject chapter context into the message for better grounding
       const contextualMessage = `[CHAPTER: ${activeChapter.title}]\n[STATUTES: ${activeChapter.statutes.join(', ')}]\n[TOPICS: ${activeChapter.topics.join(', ')}]\n\nUser Question: ${userMessage}`;
-      
       const responseData = await getChatResponse(contextualMessage, safeHistory, null, undefined, persona);
       
-      const newModelPart: { role: 'model', parts: { text: string }[] } = { 
-        role: 'model', 
-        parts: [{ text: responseData.message || "Policy guidance synthesized." }] 
-      };
-      setChatHistory(prev => [...prev, newModelPart]);
+      setChatHistory(prev => [...prev, { role: 'model', parts: [{ text: responseData.message || "Policy guidance synthesized." }] }]);
     } catch (error) {
       console.error("Policy Manual Error:", error);
     } finally {
@@ -84,169 +43,86 @@ export function PolicyManual() {
   };
 
   return (
-    <div className="w-full max-w-6xl mx-auto flex flex-col gap-6 font-sans">
-      <div className="flex flex-col lg:flex-row border border-slate-200 dark:border-slate-800 rounded-3xl overflow-hidden shadow-2xl bg-white dark:bg-slate-950 min-h-[700px] lg:h-[800px]">
-        
-        {/* Sidebar: Policy Navigation */}
-        <div className="w-full lg:w-80 bg-slate-50 dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex flex-col shrink-0">
-          <div className="p-6 border-b border-slate-200 dark:border-slate-800">
-            <div className="flex items-center gap-3 text-brand-jade mb-2">
-              <BookOpen size={20} />
-              <span className="font-black uppercase tracking-widest text-xs">Policy Repository</span>
-            </div>
-            <h2 className="text-xl font-bold text-slate-900 dark:text-white">Living Manual</h2>
+    <div className="w-full flex flex-col bg-white dark:bg-slate-950 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-2xl h-[600px] overflow-hidden">
+      
+      {/* Header & Horizontal Tabs (Replaces Sidebar) */}
+      <div className="bg-slate-50 dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 shrink-0">
+        <div className="p-4 flex items-center justify-between border-b border-slate-200 dark:border-slate-800/50">
+          <div className="flex items-center gap-2 text-brand-jade">
+            <BookOpen size={18} />
+            <span className="font-black uppercase tracking-widest text-xs">Living Manual</span>
           </div>
-          
-          <div className="flex-1 overflow-y-auto p-4 space-y-6 flex lg:flex-col overflow-x-auto lg:overflow-x-hidden" role="tablist" aria-label="Policy chapters">
-            <div className="min-w-[200px] lg:min-w-0">
-              <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest block mb-4 px-2">Chapters</span>
-              <div className="flex lg:flex-col gap-1">
-                {POLICY_CHAPTERS.map((chapter) => (
-                  <button
-                    key={chapter.id}
-                    onClick={() => setActiveChapter(chapter)}
-                    role="tab"
-                    aria-selected={activeChapter.id === chapter.id}
-                    aria-controls={`chapter-panel-${chapter.id}`}
-                    className={`whitespace-nowrap lg:whitespace-normal text-left px-4 py-3 rounded-xl text-sm transition-all flex items-center justify-between group gap-4 ${activeChapter.id === chapter.id ? 'bg-brand-jade text-white font-bold shadow-lg shadow-brand-jade/20' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800'}`}
-                  >
-                    {chapter.title}
-                    <ChevronRight size={14} className={`transition-transform hidden lg:block ${activeChapter.id === chapter.id ? 'rotate-90' : 'group-hover:translate-x-1'}`} />
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            <div className="min-w-[150px] lg:min-w-0 lg:pt-0">
-              <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest block mb-4 px-2">Active Statutes</span>
-              <div className="flex lg:flex-col gap-2 px-2">
-                {activeChapter.statutes.map((statute, idx) => (
-                  <div key={idx} className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-500 font-mono whitespace-nowrap">
-                    <Scale size={12} className="text-brand-jade" />
-                    {statute}
-                  </div>
-                ))}
-              </div>
-            </div>
+          <div className="text-[10px] text-slate-500 flex items-center gap-1 font-mono uppercase">
+            <Scale size={12} /> {activeChapter.statutes.join(', ')}
           </div>
         </div>
+        
+        <div className="flex overflow-x-auto no-scrollbar p-2 gap-2">
+          {POLICY_CHAPTERS.map((chapter) => (
+            <button
+              key={chapter.id}
+              onClick={() => setActiveChapter(chapter)}
+              className={`whitespace-nowrap px-4 py-2 rounded-lg text-xs font-bold transition-all ${activeChapter.id === chapter.id ? 'bg-brand-jade text-white shadow-md' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800'}`}
+            >
+              {chapter.title}
+            </button>
+          ))}
+        </div>
+      </div>
 
-        {/* Main Interface: Chat & Intelligence */}
-        <div className="flex-1 flex flex-col bg-white dark:bg-slate-950 relative" role="tabpanel" id={`chapter-panel-${activeChapter.id}`} aria-labelledby={activeChapter.id}>
-          
-          {/* Header */}
-          <div className="px-6 sm:px-8 py-4 sm:py-6 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
-            <div>
-              <div className="flex items-center gap-2 mb-1">
-                <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">{activeChapter.title}</h3>
-                <span className="px-2 py-0.5 rounded bg-brand-jade/10 text-brand-jade text-[8px] sm:text-[10px] font-bold uppercase tracking-widest border border-brand-jade/20">Rules-as-Code</span>
-              </div>
-              <p className="text-[10px] sm:text-xs text-slate-500">Ask questions about {activeChapter.topics.join(', ')}.</p>
+      {/* Chat Area */}
+      <div ref={chatScrollRef} className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-6">
+        {chatHistory.length === 0 && (
+          <div className="flex flex-col items-center justify-center h-full text-center max-w-sm mx-auto gap-4">
+            <div className="w-12 h-12 rounded-full bg-slate-50 dark:bg-slate-900 flex items-center justify-center text-brand-jade border border-slate-200 dark:border-slate-800">
+              <Search size={20} />
             </div>
-            <div className="hidden sm:flex items-center gap-4">
-              <div className="flex items-center gap-2 text-[10px] sm:text-xs text-slate-400">
-                <ShieldCheck size={14} className="text-green-500" />
-                Legally Grounded
-              </div>
-            </div>
-          </div>
-
-          {/* Chat Area */}
-          <div ref={chatScrollRef} className="flex-1 overflow-y-auto p-4 sm:p-8 space-y-6 sm:space-y-8" aria-live="polite">
-            {chatHistory.length === 0 && (
-              <div className="flex flex-col items-center justify-center h-full text-center max-w-md mx-auto gap-6 sm:gap-8">
-                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-slate-50 dark:bg-slate-900 flex items-center justify-center text-brand-jade shadow-inner">
-                  <Search size={32} sm:size={40} className="opacity-50" aria-hidden="true" />
-                </div>
-                <div className="space-y-4">
-                  <h4 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">How can I assist with policy?</h4>
-                  <p className="text-xs sm:text-sm text-slate-500 leading-relaxed px-4">
-                    Our Living Policy Manual uses a deterministic hybrid architecture to translate strict statutory requirements into actionable guidance.
-                  </p>
-                  <div className="grid grid-cols-1 gap-2 mt-6 px-4">
-                    {[
-                      `"What are the income limits for ${activeChapter.topics[0]}?"`,
-                      `"How is ${activeChapter.topics[1]} verified?"`,
-                      `"Are there exemptions for ${activeChapter.topics[2]}?"`
-                    ].map((prompt, i) => (
-                      <button 
-                        key={i}
-                        onClick={() => setInput(prompt)}
-                        className="text-left px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 text-[10px] sm:text-xs text-slate-600 dark:text-slate-400 hover:border-brand-jade hover:bg-brand-jade/5 transition-all"
-                      >
-                        {prompt}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            )}
-
-            {chatHistory.map((msg, idx) => (
-              <div key={idx} className={`flex flex-col gap-2 sm:gap-3 ${msg.role === 'user' ? 'items-end' : 'items-start'}`}>
-                <div className={`flex items-center gap-2 text-[8px] sm:text-[10px] uppercase tracking-widest font-black ${msg.role === 'user' ? 'text-slate-400' : 'text-brand-jade'}`}>
-                  {msg.role === 'user' ? 'Query' : 'Statutory Guidance'}
-                  {msg.role === 'model' && <Scale size={10} aria-hidden="true" />}
-                </div>
-                <div className={`p-4 sm:p-5 rounded-2xl text-xs sm:text-sm max-w-[90%] sm:max-w-[85%] leading-relaxed shadow-sm ${msg.role === 'user' ? 'bg-brand-jade text-white rounded-tr-sm' : 'bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200 rounded-tl-sm whitespace-pre-wrap'}`}>
-                  {msg.parts[0].text}
-                  {msg.role === 'model' && (
-                    <div className="mt-4 pt-4 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-[8px] sm:text-[10px] font-bold text-slate-400">
-                      <div className="flex items-center gap-2">
-                        <AlertCircle size={12} aria-hidden="true" />
-                        Citing: {activeChapter.statutes[0]}
-                      </div>
-                      <button className="flex items-center gap-1 hover:text-brand-jade transition-colors self-start sm:self-auto" aria-label={`View full statute for ${activeChapter.statutes[0]}`}>
-                        View Full Statute <ExternalLink size={10} aria-hidden="true" />
-                      </button>
-                    </div>
-                  )}
-                </div>
-              </div>
-            ))}
-
-            {isProcessing && (
-              <div className="flex items-center gap-4 text-xs font-black uppercase tracking-widest text-brand-jade">
-                <div className="w-5 h-5 border-2 border-brand-jade border-t-transparent rounded-full animate-spin" aria-hidden="true" />
-                Consulting policy repository...
-              </div>
-            )}
-          </div>
-
-          {/* Input Area */}
-          <div className="p-6 border-t border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50">
-            <div className="flex gap-4 items-end max-w-4xl mx-auto">
-              <div className="flex-1 relative">
-                <textarea
-                  value={input}
-                  onChange={(e) => setInput(e.target.value)}
-                  onKeyDown={(e) => {
-                    if (e.key === 'Enter' && !e.shiftKey) {
-                      e.preventDefault();
-                      handleSubmit();
-                    }
-                  }}
-                  placeholder="Ask a policy question..."
-                  aria-label="Policy question"
-                  className="w-full border border-slate-200 dark:border-slate-800 rounded-2xl p-4 pr-12 text-slate-800 dark:text-slate-200 bg-white dark:bg-slate-950 focus:outline-none focus:ring-4 focus:ring-brand-jade/10 focus:border-brand-jade transition-all resize-none min-h-[60px] max-h-[200px] text-sm shadow-sm"
-                  rows={1}
-                />
-                <button 
-                  onClick={handleSubmit}
-                  disabled={!input.trim() || isProcessing}
-                  aria-label="Send question"
-                  className="absolute bottom-3 right-3 w-10 h-10 rounded-xl bg-brand-jade text-white flex items-center justify-center shadow-lg shadow-brand-jade/20 hover:bg-[#005a62] transition-all disabled:opacity-50 disabled:scale-95 active:scale-90"
-                >
-                  <Send size={18} />
-                </button>
-              </div>
-            </div>
-            <div className="mt-3 text-center">
-              <p className="text-[10px] text-slate-400 font-medium uppercase tracking-widest">
-                Hybrid Logic Engine v2.4 • Legally Grounded Response
-              </p>
+            <h4 className="text-base font-bold text-slate-900 dark:text-white">Ask {activeChapter.title} Questions</h4>
+            <div className="grid grid-cols-1 gap-2 w-full mt-2">
+              <button onClick={() => setInput(`What are the parameters for ${activeChapter.topics[0]}?`)} className="text-left px-3 py-2 rounded border border-slate-200 dark:border-slate-800 text-[11px] text-slate-600 dark:text-slate-400 hover:border-brand-jade">
+                "What are the parameters for {activeChapter.topics[0]}?"
+              </button>
             </div>
           </div>
+        )}
+
+        {chatHistory.map((msg, idx) => (
+          <div key={idx} className={`flex flex-col gap-1.5 ${msg.role === 'user' ? 'items-end' : 'items-start'}`}>
+            <div className={`text-[9px] uppercase tracking-widest font-black flex items-center gap-1 ${msg.role === 'user' ? 'text-slate-400' : 'text-brand-jade'}`}>
+              {msg.role === 'user' ? 'Caseworker' : 'Policy Engine'}
+              {msg.role === 'model' && <ShieldCheck size={10} />}
+            </div>
+            <div className={`p-4 rounded-xl text-xs sm:text-sm max-w-[90%] leading-relaxed shadow-sm ${msg.role === 'user' ? 'bg-brand-jade text-white rounded-tr-sm' : 'bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200 rounded-tl-sm'}`}>
+              {msg.parts[0].text}
+            </div>
+          </div>
+        ))}
+
+        {isProcessing && (
+          <div className="flex items-center gap-3 text-[10px] font-black uppercase tracking-widest text-brand-jade">
+            <div className="w-4 h-4 border-2 border-brand-jade border-t-transparent rounded-full animate-spin" />
+            Analyzing statute...
+          </div>
+        )}
+      </div>
+
+      {/* Input Area */}
+      <div className="p-4 border-t border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50 shrink-0">
+        <div className="relative">
+          <textarea
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            onKeyDown={(e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handleSubmit(); } }}
+            placeholder="Ask a policy question..."
+            className="w-full border border-slate-200 dark:border-slate-800 rounded-xl p-3 pr-12 text-slate-800 dark:text-slate-200 bg-white dark:bg-slate-950 focus:ring-2 focus:ring-brand-jade/20 focus:border-brand-jade outline-none resize-none text-sm"
+            rows={1}
+          />
+          <button 
+            onClick={handleSubmit} disabled={!input.trim() || isProcessing}
+            className="absolute bottom-2 right-2 w-8 h-8 rounded-lg bg-brand-jade text-white flex items-center justify-center hover:bg-[#005a62] disabled:opacity-50"
+          >
+            <Send size={14} />
+          </button>
         </div>
       </div>
     </div>

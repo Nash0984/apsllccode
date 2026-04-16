@@ -4,6 +4,7 @@ import {
   Upload, X, FileText, Send, Activity, ShieldAlert, CheckCircle, RefreshCw, ChevronDown, Check, User, Scale
 } from 'lucide-react';
 import { getChatResponse, FileData } from '../services/gemini';
+import { useToast } from '../context/ToastContext';
 
 const UNIFIED_VERIFICATION_ONTOLOGY = [
   {
@@ -139,6 +140,7 @@ interface EngineResponse {
 }
 
 export function Sandbox() {
+  const { showToast } = useToast();
   const [input, setInput] = useState('');
   const [dropdownValue, setDropdownValue] = useState('');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -201,10 +203,11 @@ export function Sandbox() {
     const supportedExtensions = ['jpg', 'jpeg', 'png', 'pdf'];
 
     if (!supportedMimeTypes.includes(selectedFile.type) && !supportedExtensions.includes(fileExtension || '')) {
-      setFileError(persona === 'client' 
+      const errorMsg = persona === 'client' 
         ? "We can only accept PDF, JPG, or PNG files. Please try uploading your document in one of these formats."
-        : "ERROR: Unsupported file type. System requires PDF, JPG, or PNG for statutory analysis."
-      );
+        : "ERROR: Unsupported file type. System requires PDF, JPG, or PNG for statutory analysis.";
+      setFileError(errorMsg);
+      showToast(errorMsg, "error");
       if (fileInputRef.current) fileInputRef.current.value = '';
       return;
     }
@@ -258,6 +261,14 @@ export function Sandbox() {
     
     setEngineResponse(responseData);
     setAppState('results');
+    
+    if (responseData.status === 'PROCEED TO RULES ENGINE') {
+      showToast("Verification successful. Statutory threshold met.", "success");
+    } else if (responseData.status === 'REQUIRES HITL REVIEW') {
+      showToast("Manual review required for compliance verification.", "warning");
+    } else if (responseData.status === 'ERROR') {
+      showToast(responseData.message || "An error occurred during analysis.", "error");
+    }
   };
 
   const getSelectedDropdownLabel = () => {

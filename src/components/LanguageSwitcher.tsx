@@ -2,10 +2,12 @@ import { useTranslation } from 'react-i18next';
 import { Globe } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import React, { useState } from 'react';
+import { useToast } from '../context/ToastContext';
 
 export function LanguageSwitcher() {
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
+  const { showToast } = useToast();
 
   const languages = [
     { code: 'en', name: 'English' },
@@ -16,6 +18,8 @@ export function LanguageSwitcher() {
 
   const changeLanguage = (code: string) => {
     i18n.changeLanguage(code);
+    const langName = languages.find(l => l.code === code)?.name;
+    showToast(`${t('nav.languageUpdated')}: ${langName}`, 'info');
     setIsOpen(false);
   };
 
