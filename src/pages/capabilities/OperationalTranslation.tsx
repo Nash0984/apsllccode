@@ -9,8 +9,9 @@ export default function OperationalTranslation() {
   return (
     <div className="bg-white dark:bg-slate-950 min-h-screen transition-colors duration-300">
       <Helmet>
-        <title>Operational Translation | Applied Policy Systems</title>
+        <title>Applied Policy Systems | Operational Translation</title>
         <meta name="description" content="Converting dense legislative text into plain-language, low-friction digital infrastructure for frontline caseworkers." />
+        <meta name="keywords" content="operational translation, evidence triage schemas, procedural churn diagnostics, benefits access workflow, Applied Policy Systems" />
       </Helmet>
 
       <div className="border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-6 py-4">

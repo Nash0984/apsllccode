@@ -1,6 +1,6 @@
 import { GoogleGenAI, Type } from "@google/genai";
 
-const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || "" });
+const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
 const BASE_SYSTEM_INSTRUCTION = `You are the backend logic core for an Applied Policy & Verification Demonstrator, functioning specifically as a Living Policy Manual for public benefits programs including SNAP, Medicaid, TANF, and LIHEAP. You operate using a proprietary hybrid architectural pathway: bridging strict deterministic rules with natural language translation.
 
@@ -312,13 +312,12 @@ export async function getChatResponse(
     console.log(`[APS-SANDBOX-REQUEST] ID: ${requestId} | Persona: ${persona.toUpperCase()} | Policy: ${policyId || 'None'}`);
 
     const response = await ai.models.generateContent({
-      model: "gemini-2.0-flash",
+      model: "gemini-3-flash-preview",
       contents: [
         ...history.map(h => ({ role: h.role, parts: h.parts })),
         { role: 'user', parts: userParts }
       ],
       config: {
-        systemInstruction: systemInstructionOverride,
         temperature: 0.0,
         responseMimeType: "application/json",
         responseSchema: {
@@ -353,7 +352,8 @@ export async function getChatResponse(
             }
           },
           required: ["status", "message", "extractedData"]
-        }
+        },
+        systemInstruction: systemInstructionOverride,
       },
     });
 
@@ -374,5 +374,25 @@ export async function getChatResponse(
       message: "System alert: Connection timeout or JSON parse failure.",
       extractedData: []
     };
+  }
+}
+
+export async function getConversationalResponse(
+  message: string,
+  history: { role: 'user' | 'model', parts: { text: string }[] }[] = []
+) {
+  try {
+    const response = await ai.models.generateContent({
+      model: "gemini-3-flash-preview",
+      contents: history.length > 0 ? history : [{ role: 'user', parts: [{ text: message }] }],
+      config: {
+        systemInstruction: "You are the specialized architectural consulting assistant for Applied Policy Systems LLC. Use a direct, factual, and strictly objective tone. Focus on neuro-symbolic policy engines, deterministic logic, and public benefits modernization (SNAP, Medicaid). Do not invent marketing copy.",
+      }
+    });
+
+    return response.text || "";
+  } catch (error) {
+    console.error("[GEMINI CONVERSATIONAL ERROR]:", error);
+    throw error;
   }
 }

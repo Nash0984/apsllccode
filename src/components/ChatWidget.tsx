@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { MessageSquare, X, Send, User, Bot, Loader2, Minimize2, Maximize2 } from 'lucide-react';
 import { useToast } from '../context/ToastContext';
+import { getConversationalResponse } from '../services/gemini';
 
 const TypingIndicator = ({ size = 16 }: { size?: number }) => (
   <div className="flex gap-1.5 items-center h-4 px-1" aria-hidden="true">
@@ -59,24 +60,14 @@ export function ChatWidget({ embedded = false }: { embedded?: boolean }) {
     setIsLoading(true);
 
     try {
-      const response = await fetch('/api/chat', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          messages: currentMessages,
-          temperature: 0.2
-        }),
-      });
+      const history = currentMessages.map(m => ({
+        role: (m.role === 'user' ? 'user' : 'model') as 'user' | 'model',
+        parts: [{ text: m.content }]
+      }));
 
-      if (!response.ok) {
-        throw new Error(`Server responded with status: ${response.status}`);
-      }
-
-      const data = await response.json();
+      const botResponse = await getConversationalResponse(input.trim(), history);
       
-      setMessages(prev => [...prev, { role: 'assistant', content: data.response }]);
+      setMessages(prev => [...prev, { role: 'assistant', content: botResponse }]);
     } catch (error) {
       console.error("[CHAT WIDGET ERROR]:", error);
       showToast("Chat system connection error. Please try again or contact support.", "error");

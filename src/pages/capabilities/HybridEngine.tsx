@@ -9,8 +9,9 @@ export default function HybridEngine() {
   return (
     <div className="bg-white dark:bg-slate-950 min-h-screen transition-colors duration-300">
       <Helmet>
-        <title>Business Rules Engine Architecture | Applied Policy Systems</title>
-        <meta name="description" content="Architectures combining Large Language Models (LLMs) for unstructured data triage with deterministic logic engines for mathematical accuracy." />
+        <title>Applied Policy Systems | Hybrid Extraction Engine</title>
+        <meta name="description" content="Architectures combining Large Language Models (LLMs) for natural language ingestion with deterministic logic engines for absolute mathematical accuracy." />
+        <meta name="keywords" content="hybrid engine, extraction engine, rules engine architecture, LLM in government, Applied Policy Systems" />
       </Helmet>
 
       <div className="border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-6 py-4">

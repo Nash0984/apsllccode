@@ -37,8 +37,66 @@ export function Home() {
   return (
     <>
       <Helmet>
-        <title>Applied Policy Systems | {t('home.hero.title')}</title>
-        <meta name="description" content={t('home.hero.subtitle')} />
+        <title>Applied Policy Systems | {t('seo.pages.home.title')}</title>
+        <meta name="description" content={t('seo.pages.home.description')} />
+        <meta name="keywords" content={`${t('seo.pages.home.keywords')}, ${t('seo.defaultKeywords')}`} />
+        <meta property="og:title" content={`Applied Policy Systems | ${t('seo.pages.home.title')}`} />
+        <meta property="og:description" content={t('seo.pages.home.description')} />
+        <meta property="og:type" content="website" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Applied Policy Systems LLC",
+            "url": window.location.origin,
+            "logo": `${window.location.origin}/logo.svg`,
+            "description": t('home.hero.subtitle'),
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Philadelphia",
+              "addressRegion": "PA",
+              "addressCountry": "US"
+            },
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "email": "graham@appliedpolicysystems.com",
+              "contactType": "technical support"
+            },
+            "sameAs": [
+              "https://www.linkedin.com/company/applied-policy-systems"
+            ],
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Modernization Services",
+              "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Independent Verification and Validation (IV&V)",
+                    "description": "Architecting high-compliance digital infrastructure to ensure systems are a verifiable reflection of written law."
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Policy-to-Code Translation",
+                    "description": "Translating complex legislative requirements into deterministic business rules and system logic."
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Modernization Advisory",
+                    "description": "Strategic guidance on interagency data exchange, security overlays, and automated decision system audits."
+                  }
+                }
+              ]
+            }
+          })}
+        </script>
       </Helmet>
       
       {/* Hero Section */}

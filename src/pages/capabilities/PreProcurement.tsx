@@ -9,8 +9,9 @@ export default function PreProcurement() {
   return (
     <div className="bg-white dark:bg-slate-950 min-h-screen transition-colors duration-300">
       <Helmet>
-        <title>Pre-Procurement Advisory | Applied Policy Systems</title>
+        <title>Applied Policy Systems | Pre-Procurement Advisory</title>
         <meta name="description" content="Technical specifications and legal architecture required before a prime contractor is hired for IT integration tenders." />
+        <meta name="keywords" content="pre-procurement advisory, modernization tenders, vendor gap analysis, technical RFP drafting, Applied Policy Systems" />
       </Helmet>
 
       <div className="border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-6 py-4">

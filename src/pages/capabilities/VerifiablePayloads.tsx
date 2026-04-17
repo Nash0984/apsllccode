@@ -9,8 +9,9 @@ export default function VerifiablePayloads() {
   return (
     <div className="bg-white dark:bg-slate-950 min-h-screen transition-colors duration-300">
       <Helmet>
-        <title>Verifiable Payload Architectures | Applied Policy Systems</title>
+        <title>Applied Policy Systems | Verifiable Payload Architectures</title>
         <meta name="description" content="Independent Verification & Validation (IV&V) frameworks ensuring system logic is a verifiable reflection of statutory requirements." />
+        <meta name="keywords" content="verifiable payloads, IV&V frameworks, statutory fidelity, system logic verification, Applied Policy Systems" />
       </Helmet>
 
       <div className="border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-6 py-4">

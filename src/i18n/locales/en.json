@@ -18,7 +18,7 @@
   "home": {
     "hero": {
       "title": "Human-Centered Access. High-Compliance Infrastructure.",
-      "subtitle": "We believe the foundation of public benefits access is built at the business rules layer. Applied Policy Systems provides Independent Verification and Validation oversight and architects low-friction, highly regulated digital infrastructure, ensuring systems are a verifiable reflection of written law while reducing administrative burden.",
+      "subtitle": "We believe benefits access is built at the business rules layer. Applied Policy Systems provides Independent Verification and Validation oversight and architects low-friction, highly regulated digital infrastructure, ensuring systems are a verifiable reflection of written law while reducing administrative burden.",
       "cta": "Technical Expertise"
     },
     "challenge": {
@@ -355,5 +355,50 @@
     "contact": "Contact",
     "location": "Philadelphia, PA",
     "rights": "© 2026 Applied Policy Systems LLC. All Rights Reserved."
+  },
+  "seo": {
+    "defaultKeywords": "Applied Policy Systems, Statutory Compliance, Independent Verification and Validation, IV&V, Business Rules Engine, Government IT Modernization, Federal Policy Translation, SNAP Payment Error Rate, Medicaid Eligibility Infrastructure, IRS Pub 1075, Section 508 Accessibility",
+    "pages": {
+      "home": {
+        "title": "Public Benefits Access & High-Compliance Infrastructure",
+        "description": "Applied Policy Systems provide Independent Verification and Validation oversight and architects low-friction, highly regulated digital infrastructure for government agencies.",
+        "keywords": "public benefits, system integrity, rules engine, government architecture"
+      },
+      "about": {
+        "title": "Operational Authority & Systems Expertise",
+        "description": "Review our operational history, systems expertise, and ecosystem integration capabilities across all operational domains.",
+        "keywords": "Graham O'Neill, founder, agency transition, operational history"
+      },
+      "capabilities": {
+        "title": "Technical Advisory & Service Deliverables",
+        "description": "Applied Policy Systems LLC serves as The Translation Layer, providing Independent Verification and Validation alongside Subject Matter Expert advisory.",
+        "keywords": "technical advisory, service deliverables, statutory verification, rules engine architecture"
+      },
+      "research": {
+        "title": "Systems Architecture & Empirical Analysis",
+        "description": "We leverage decades of federal oversight data to engineer high-compliance frameworks. Review our analytical research layer.",
+        "keywords": "empirical analysis, federal oversight data, compliance frameworks, research"
+      },
+      "field": {
+        "title": "Operational Prototypes & Rules Extraction",
+        "description": "Live demonstrator models illustrating the translation of statutory requirements into codified business rules and operational workflows.",
+        "keywords": "document intake, policy manual, rules extraction engine, prototypes"
+      },
+      "contact": {
+        "title": "Consultation & Technical Intake",
+        "description": "Contact our architectural experts for government modernization or technology vendor policy alignment.",
+        "keywords": "consultation, inquiry, architectural review"
+      },
+      "privacy": {
+        "title": "Privacy Policy",
+        "description": "Privacy policy and data protection standards for Applied Policy Systems LLC.",
+        "keywords": "privacy, data protection, compliance"
+      },
+      "terms": {
+        "title": "Terms of Service",
+        "description": "Terms and conditions for utilizing Applied Policy Systems LLC technical services and platforms.",
+        "keywords": "terms of service, legal, agreement"
+      }
+    }
   }
 }

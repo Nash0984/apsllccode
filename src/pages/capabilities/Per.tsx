@@ -9,8 +9,9 @@ export default function Per() {
   return (
     <div className="bg-white dark:bg-slate-950 min-h-screen transition-colors duration-300">
       <Helmet>
-        <title>Applied Intelligence Analysis | Applied Policy Systems</title>
+        <title>Applied Policy Systems | SNAP Payment Error Rate Diagnostics</title>
         <meta name="description" content="A longitudinal analysis of SNAP Payment Error Rates, isolating systemic calculation failures and procedural drop-offs." />
+        <meta name="keywords" content="SNAP payment error rate, fiscal risk modeling, federal quality control, government sanctions mitigation, Applied Policy Systems" />
       </Helmet>
 
       {/* Navigation Bar */}

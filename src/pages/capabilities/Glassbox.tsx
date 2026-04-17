@@ -9,8 +9,9 @@ export default function Glassbox() {
   return (
     <div className="bg-white dark:bg-slate-950 min-h-screen transition-colors duration-300">
       <Helmet>
-        <title>Secure Data Interoperability | Applied Policy Systems</title>
+        <title>Applied Policy Systems | Glassbox Integration Architecture</title>
         <meta name="description" content="Strict Data Exchange Models (DEM) and payload validation schemas for secure interagency data ingestion, including IRS Publication 1075 compliance." />
+        <meta name="keywords" content="glassbox integration, interagency data exchange, federal tax data security, IRS 1075, Applied Policy Systems" />
       </Helmet>
 
       {/* Navigation Bar */}

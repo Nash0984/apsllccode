@@ -11,8 +11,12 @@ export function Field() {
   return (
     <div className="bg-white dark:bg-slate-950 transition-colors duration-300">
       <Helmet>
-        <title>{t('routes.field.label')} | Applied Policy Systems</title>
-        <meta name="description" content={t('routes.field.description')} />
+        <title>Applied Policy Systems | {t('seo.pages.field.title')}</title>
+        <meta name="description" content={t('seo.pages.field.description')} />
+        <meta name="keywords" content={`${t('seo.pages.field.keywords')}, ${t('seo.defaultKeywords')}`} />
+        <meta property="og:title" content={`Applied Policy Systems | ${t('seo.pages.field.title')}`} />
+        <meta property="og:description" content={t('seo.pages.field.description')} />
+        <meta property="og:type" content="website" />
       </Helmet>
 
       {/* Hero Section */}
@@ -52,7 +56,7 @@ export function Field() {
                 {t('prototypesPage.blueprints.documentTool.desc')}
               </p>
             </motion.div>
-            <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="bg-slate-900 dark:bg-slate-950 rounded-[2.5rem] p-8 shadow-2xl border border-slate-900">
+            <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="bg-white dark:bg-slate-950 rounded-[2.5rem] p-8 shadow-2xl border border-slate-100 dark:border-slate-900">
               <Sandbox />
             </motion.div>
           </div>
@@ -88,7 +92,7 @@ export function Field() {
                 {t('prototypesPage.blueprints.extractionEngine.desc')}
               </p>
             </motion.div>
-            <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="bg-slate-900 dark:bg-slate-950 rounded-[2.5rem] p-8 shadow-2xl border border-slate-900">
+            <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="bg-white dark:bg-slate-950 rounded-[2.5rem] p-8 shadow-2xl border border-slate-100 dark:border-slate-900">
               <ExtractionEngine />
             </motion.div>
           </div>

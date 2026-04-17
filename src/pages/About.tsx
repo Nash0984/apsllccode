@@ -114,8 +114,12 @@ export function About() {
   return (
     <div className="bg-white dark:bg-slate-950 transition-colors duration-300">
       <Helmet>
-        <title>{t('routes.about.label')} | Applied Policy Systems</title>
-        <meta name="description" content={t('about.hero.subtitle')} />
+        <title>Applied Policy Systems | {t('seo.pages.about.title')}</title>
+        <meta name="description" content={t('seo.pages.about.description')} />
+        <meta name="keywords" content={`${t('seo.pages.about.keywords')}, ${t('seo.defaultKeywords')}`} />
+        <meta property="og:title" content={`Applied Policy Systems | ${t('seo.pages.about.title')}`} />
+        <meta property="og:description" content={t('seo.pages.about.description')} />
+        <meta property="og:type" content="website" />
       </Helmet>
 
       {/* Hero Section */}

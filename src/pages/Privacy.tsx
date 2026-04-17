@@ -1,12 +1,16 @@
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'motion/react';
+import { useTranslation } from 'react-i18next';
 
 export function Privacy() {
+  const { t } = useTranslation();
+
   return (
     <div className="bg-white dark:bg-slate-950 min-h-screen transition-colors duration-300">
       <Helmet>
-        <title>Privacy Policy | Applied Policy Systems</title>
-        <meta name="description" content="Applied Policy Systems Privacy Policy and data protection standards." />
+        <title>Applied Policy Systems | {t('seo.pages.privacy.title')}</title>
+        <meta name="description" content={t('seo.pages.privacy.description')} />
+        <meta name="keywords" content={`${t('seo.pages.privacy.keywords')}, ${t('seo.defaultKeywords')}`} />
       </Helmet>
 
       <section className="hero-section">

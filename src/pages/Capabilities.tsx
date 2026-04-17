@@ -80,8 +80,12 @@ export function Capabilities() {
   return (
     <div className="bg-white dark:bg-slate-950 transition-colors duration-300 min-h-screen">
       <Helmet>
-        <title>{t('capabilitiesPage.hero.label')} | Applied Policy Systems</title>
-        <meta name="description" content={t('capabilitiesPage.hero.subtitle')} />
+        <title>Applied Policy Systems | {t('seo.pages.capabilities.title')}</title>
+        <meta name="description" content={t('seo.pages.capabilities.description')} />
+        <meta name="keywords" content={`${t('seo.pages.capabilities.keywords')}, ${t('seo.defaultKeywords')}`} />
+        <meta property="og:title" content={`Applied Policy Systems | ${t('seo.pages.capabilities.title')}`} />
+        <meta property="og:description" content={t('seo.pages.capabilities.description')} />
+        <meta property="og:type" content="website" />
       </Helmet>
 
       {/* Hero Section */}

@@ -1,18 +1,23 @@
 import { motion } from 'motion/react';
 import { useTranslation } from 'react-i18next';
-import { Mail, Linkedin, MapPin, MessageSquare, ArrowRight, Bot } from 'lucide-react';
+import { Mail, Linkedin, MapPin, MessageSquare, ArrowRight, Bot, Calendar } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 import { ChatWidget } from '../components/ChatWidget';
-
+import { useBooking } from '../context/BookingContext';
 import { ContactForm } from '../components/ContactForm';
 
 export function Contact() {
   const { t } = useTranslation();
+  const { openBooking } = useBooking();
   return (
     <div className="bg-white dark:bg-slate-950 transition-colors duration-300 min-h-screen">
       <Helmet>
-        <title>Contact | Applied Policy Systems</title>
-        <meta name="description" content="Get in touch with Applied Policy Systems for strategic consulting on platform architecture and public sector modernization." />
+        <title>Applied Policy Systems | {t('seo.pages.contact.title')}</title>
+        <meta name="description" content={t('seo.pages.contact.description')} />
+        <meta name="keywords" content={`${t('seo.pages.contact.keywords')}, ${t('seo.defaultKeywords')}`} />
+        <meta property="og:title" content={`Applied Policy Systems | ${t('seo.pages.contact.title')}`} />
+        <meta property="og:description" content={t('seo.pages.contact.description')} />
+        <meta property="og:type" content="website" />
       </Helmet>
 
       {/* Hero Section */}
@@ -127,15 +132,13 @@ export function Contact() {
                   <p className="text-base sm:text-lg opacity-80 dark:opacity-70 mb-10 leading-relaxed max-w-md">
                     {t('contactPage.cta.desc')}
                   </p>
-                  <a 
-                    href="https://calendar.app.google/WiXHqdGmWaG5kxJQ7"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <button 
+                    onClick={openBooking}
                     className="w-full sm:w-auto inline-flex items-center justify-center gap-4 px-10 py-5 bg-brand-jade text-white font-bold rounded-2xl hover:bg-[#005a62] hover:scale-105 transition-all shadow-xl shadow-brand-jade/20"
                   >
                     {t('contactPage.cta.action')}
                     <ArrowRight size={22} />
-                  </a>
+                  </button>
                 </div>
               </div>
             </motion.div>

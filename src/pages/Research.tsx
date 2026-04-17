@@ -57,8 +57,12 @@ export function Insights() {
   return (
     <div className="bg-white dark:bg-slate-950 transition-colors duration-300">
       <Helmet>
-        <title>{t('routes.insights.label')} | Applied Policy Systems</title>
-        <meta name="description" content={t('routes.insights.description')} />
+        <title>Applied Policy Systems | {t('seo.pages.research.title')}</title>
+        <meta name="description" content={t('seo.pages.research.description')} />
+        <meta name="keywords" content={`${t('seo.pages.research.keywords')}, ${t('seo.defaultKeywords')}`} />
+        <meta property="og:title" content={`Applied Policy Systems | ${t('seo.pages.research.title')}`} />
+        <meta property="og:description" content={t('seo.pages.research.description')} />
+        <meta property="og:type" content="article" />
       </Helmet>
 
       {/* Hero Section */}

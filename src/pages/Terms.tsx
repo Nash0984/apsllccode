@@ -1,12 +1,16 @@
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'motion/react';
+import { useTranslation } from 'react-i18next';
 
 export function Terms() {
+  const { t } = useTranslation();
+
   return (
     <div className="bg-white dark:bg-slate-950 min-h-screen transition-colors duration-300">
       <Helmet>
-        <title>Terms of Service | Applied Policy Systems</title>
-        <meta name="description" content="Applied Policy Systems Terms of Service and professional engagement framework." />
+        <title>Applied Policy Systems | {t('seo.pages.terms.title')}</title>
+        <meta name="description" content={t('seo.pages.terms.description')} />
+        <meta name="keywords" content={`${t('seo.pages.terms.keywords')}, ${t('seo.defaultKeywords')}`} />
       </Helmet>
 
       <section className="hero-section">

@@ -20,7 +20,7 @@
   "home": {
     "hero": {
       "title": "Acceso Centrado en el Humano. Infraestructura de Alto Cumplimiento.",
-      "subtitle": "Creemos que la base del acceso a los beneficios públicos se construye en la capa de reglas de negocio. Applied Policy Systems proporciona supervisión de Verificación y Validación Independiente y diseña infraestructura digital altamente regulada y de baja fricción, asegurando que los sistemas sean un reflejo verificable de la ley escrita mientras se reduce la carga administrativa.",
+      "subtitle": "Creemos que el acceso a los beneficios se construye en la capa de reglas de negocio. Applied Policy Systems proporciona supervisión de Verificación y Validación Independiente y diseña infraestructura digital altamente regulada y de baja fricción, asegurando que los sistemas sean un reflejo verificable de la ley escrita mientras se reduce la carga administrativa.",
       "cta": "Experiencia Técnica"
     },
     "challenge": {
@@ -352,5 +352,50 @@
     "contact": "Contacto",
     "location": "Filadelfia, PA",
     "rights": "© 2026 Applied Policy Systems LLC. Todos los derechos reservados."
+  },
+  "seo": {
+    "defaultKeywords": "Applied Policy Systems, Cumplimiento Estatutario, Verificación y Validación Independiente, IV&V, Motor de Reglas de Negocio, Modernización de TI del Gobierno, Traducción de Políticas Federales, Tasa de Error de Pago de SNAP, Infraestructura de Elegibilidad de Medicaid, IRS Pub 1075, Accesibilidad según la Sección 508",
+    "pages": {
+      "home": {
+        "title": "Acceso a Beneficios Públicos e Infraestructura de Alto Cumplimiento",
+        "description": "Applied Policy Systems proporciona supervisión de Verificación y Validación Independiente y diseña infraestructura digital altamente regulada y de baja fricción para agencias gubernamentales.",
+        "keywords": "beneficios públicos, integridad del sistema, motor de reglas, arquitectura gubernamental"
+      },
+      "about": {
+        "title": "Autoridad Operativa y Experiencia en Sistemas",
+        "description": "Revise nuestra historia operativa, experiencia en sistemas y capacidades de integración de ecosistemas en todos los dominios operativos.",
+        "keywords": "Graham O'Neill, fundador, transición de agencia, historia operativa"
+      },
+      "capabilities": {
+        "title": "Asesoría Técnica y Entregables de Servicio",
+        "description": "Applied Policy Systems LLC sirve como La Capa de Traducción, proporcionando Verificación y Validación Independiente junto con asesoría de expertos en la materia.",
+        "keywords": "asesoría técnica, entregables de servicio, verificación estatutaria, arquitectura del motor de reglas"
+      },
+      "research": {
+        "title": "Arquitectura de Sistemas y Análisis Empírico",
+        "description": "Aprovechamos décadas de datos de supervisión federal para diseñar marcos de alto cumplimiento. Revise nuestra capa de investigación analítica.",
+        "keywords": "análisis empírico, datos de supervisión federal, marcos de cumplimiento, investigación"
+      },
+      "field": {
+        "title": "Prototipos Operativos y Extracción de Reglas",
+        "description": "Modelos de demostración en vivo que ilustran la traducción de requisitos estatutarios en reglas de negocio codificadas y flujos de trabajo operativos.",
+        "keywords": "ingesta de documentos, manual de políticas, motor de extracción de reglas, prototipos"
+      },
+      "contact": {
+        "title": "Consulta y Admisión Técnica",
+        "description": "Póngase en contacto con nuestros expertos en arquitectura para la modernización del gobierno o la alineación de políticas de proveedores de tecnología.",
+        "keywords": "consulta, consulta, revisión arquitectónica"
+      },
+      "privacy": {
+        "title": "Política de Privacidad",
+        "description": "Política de privacidad y estándares de protección de datos para Applied Policy Systems LLC.",
+        "keywords": "privacidad, protección de datos, cumplimiento"
+      },
+      "terms": {
+        "title": "Términos de Servicio",
+        "description": "Términos y condiciones para utilizar los servicios técnicos y plataformas de Applied Policy Systems LLC.",
+        "keywords": "términos de servicio, legal, acuerdo"
+      }
+    }
   }
 }

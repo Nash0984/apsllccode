@@ -298,10 +298,10 @@ export function Sandbox() {
             <h3 className="text-lg font-bold text-slate-300 mb-2">Automated Intake Engine</h3>
             <p className="text-sm text-slate-500">Execute deterministic extraction and policy routing on resident data transmissions.</p>
           </div>
-          <div className="bg-[#050a0f] border border-slate-800 p-6 rounded-xl w-full max-w-md shadow-inner text-left">
+          <div className="bg-slate-100 dark:bg-[#050a0f] border border-slate-200 dark:border-slate-800 p-6 rounded-xl w-full max-w-md shadow-inner text-left">
             <span className="text-brand-jade font-bold block mb-2 text-sm">Demonstrating: Automated Extraction & Routing</span>
-            <span className="text-slate-400 block mb-3 text-xs leading-relaxed">Showcases how the engine eliminates manual data entry by processing unstructured data inputs.</span>
-            <ul className="text-slate-500 list-disc pl-4 space-y-1 text-xs">
+            <span className="text-slate-600 dark:text-slate-400 block mb-3 text-xs leading-relaxed">Showcases how the engine eliminates manual data entry by processing unstructured data inputs.</span>
+            <ul className="text-slate-500 dark:text-slate-500 list-disc pl-4 space-y-1 text-xs">
               <li>Select a Target Verification Rule below.</li>
               <li>Upload a sample resident document.</li>
               <li>Observe structured extraction and confidence scoring.</li>
@@ -322,10 +322,10 @@ export function Sandbox() {
 
     return (
       <div className="flex flex-col lg:flex-row h-full gap-4 overflow-y-auto lg:overflow-hidden">
-        <div className="flex-1 min-h-[400px] lg:min-h-0 bg-slate-950 border border-slate-800 rounded-lg flex flex-col overflow-hidden">
-          <div className="bg-[#050a0f] px-4 py-3 border-b border-slate-800 text-[10px] sm:text-xs font-bold text-slate-400 uppercase tracking-wider flex justify-between items-center">
+        <div className="flex-1 min-h-[400px] lg:min-h-0 bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg flex flex-col overflow-hidden">
+          <div className="bg-slate-50 dark:bg-[#050a0f] px-4 py-3 border-b border-slate-200 dark:border-slate-800 text-[10px] sm:text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider flex justify-between items-center">
             <span>Transmission Viewer</span>
-            <span className="truncate max-w-[150px] sm:max-w-[200px] text-slate-600 font-mono">{file?.name}</span>
+            <span className="truncate max-w-[150px] sm:max-w-[200px] text-slate-400 dark:text-slate-600 font-mono">{file?.name}</span>
           </div>
           <div className="flex-1 p-2 overflow-auto flex items-center justify-center">
             {file?.type.includes('pdf') ? (
@@ -336,16 +336,16 @@ export function Sandbox() {
           </div>
         </div>
 
-        <div className="flex-1 bg-slate-950 border border-slate-800 rounded-lg flex flex-col overflow-hidden min-h-[400px] lg:min-h-0">
-          <div className="bg-[#050a0f] px-4 py-3 border-b border-slate-800 text-[10px] sm:text-xs font-bold text-brand-jade uppercase tracking-wider flex justify-between items-center">
+        <div className="flex-1 bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg flex flex-col overflow-hidden min-h-[400px] lg:min-h-0">
+          <div className="bg-slate-50 dark:bg-[#050a0f] px-4 py-3 border-b border-slate-200 dark:border-slate-800 text-[10px] sm:text-xs font-bold text-brand-jade uppercase tracking-wider flex justify-between items-center">
             <span>Diagnostic Extraction</span>
             {engineResponse?.extractedData && engineResponse.extractedData.length > 0 && (
               <div className="flex items-center gap-2">
-                <span className="text-[8px] sm:text-[10px] text-slate-500">OVERALL SUFFICIENCY:</span>
+                <span className="text-[8px] sm:text-[10px] text-slate-400 dark:text-slate-500">OVERALL SUFFICIENCY:</span>
                 <span className={`font-mono text-xs sm:text-sm ${
                   (engineResponse.extractedData.reduce((acc, curr) => acc + curr.statutorySufficiency, 0) / engineResponse.extractedData.length) >= 0.85 
                     ? 'text-brand-jade' 
-                    : 'text-red-400'
+                    : 'text-red-500 dark:text-red-400'
                 }`}>
                   {(engineResponse.extractedData.reduce((acc, curr) => acc + curr.statutorySufficiency, 0) / engineResponse.extractedData.length).toFixed(2)}
                 </span>
@@ -354,48 +354,48 @@ export function Sandbox() {
           </div>
           <div className="flex-1 p-4 overflow-y-auto">
             {engineResponse?.status === 'PROCEED TO RULES ENGINE' && (
-              <div className="mb-6 p-4 bg-[#002a2e] border border-brand-jade rounded-lg text-brand-jade font-bold flex items-center gap-3 text-xs sm:text-sm">
+              <div className="mb-6 p-4 bg-emerald-50 dark:bg-[#002a2e] border border-brand-jade rounded-lg text-brand-jade font-bold flex items-center gap-3 text-xs sm:text-sm">
                 <CheckCircle size={18} sm:size={20} /> {engineResponse.status}
                 <span className="ml-auto text-[8px] sm:text-[10px] opacity-70">STATUTORY THRESHOLD MET</span>
               </div>
             )}
             {engineResponse?.status === 'REQUIRES HITL REVIEW' && (
-              <div className="mb-6 p-4 bg-red-950 border border-red-500 rounded-lg text-red-500 font-bold flex items-center gap-3 text-xs sm:text-sm">
+              <div className="mb-6 p-4 bg-red-50 dark:bg-red-950 border border-red-200 dark:border-red-500 rounded-lg text-red-600 dark:text-red-500 font-bold flex items-center gap-3 text-xs sm:text-sm">
                 <ShieldAlert size={18} sm:size={20} /> {engineResponse.status}
                 <span className="ml-auto text-[8px] sm:text-[10px] opacity-70">BELOW COMPLIANCE FLOOR</span>
               </div>
             )}
             {engineResponse?.status === 'ERROR' && (
-              <div className="mb-6 p-4 bg-red-950 border border-red-500 rounded-lg text-red-500 font-bold text-sm">
+              <div className="mb-6 p-4 bg-red-50 dark:bg-red-950 border border-red-200 dark:border-red-500 rounded-lg text-red-600 dark:text-red-500 font-bold text-sm">
                 {engineResponse.message}
               </div>
             )}
 
             <div className="space-y-4">
               {engineResponse?.extractedData?.map((data, idx) => (
-                <div key={idx} className="bg-[#050a0f] border border-slate-800 rounded p-3">
+                <div key={idx} className="bg-slate-50 dark:bg-[#050a0f] border border-slate-200 dark:border-slate-800 rounded p-3">
                   <div className="flex justify-between items-start mb-2">
                     <div>
-                      <div className="text-[10px] text-slate-500 uppercase tracking-wider font-bold mb-1">{data.field}</div>
-                      <div className="text-sm font-mono text-slate-200">{data.value}</div>
+                      <div className="text-[10px] text-slate-400 dark:text-slate-500 uppercase tracking-wider font-bold mb-1">{data.field}</div>
+                      <div className="text-sm font-mono text-slate-800 dark:text-slate-200">{data.value}</div>
                     </div>
                     <div className="flex flex-col items-end gap-1">
-                      <div className={`text-[10px] font-mono px-2 py-1 rounded bg-slate-900 border ${data.statutorySufficiency >= 0.85 ? 'text-brand-jade border-brand-jade/30' : 'text-red-400 border-red-500/30'}`}>
+                      <div className={`text-[10px] font-mono px-2 py-1 rounded bg-white dark:bg-slate-900 border ${data.statutorySufficiency >= 0.85 ? 'text-brand-jade border-brand-jade/30' : 'text-red-500 dark:text-red-400 border-red-500/30'}`}>
                         SUFFICIENCY: {data.statutorySufficiency.toFixed(2)}
                       </div>
-                      <div className="text-[8px] font-mono text-slate-600 uppercase">
+                      <div className="text-[8px] font-mono text-slate-400 dark:text-slate-600 uppercase">
                         {data.statutorySufficiency >= 0.85 ? 'Statutory Pass' : 'Statutory Fail'}
                       </div>
                     </div>
                   </div>
-                  <div className="text-[10px] text-slate-500 italic border-t border-slate-800/50 pt-2 mt-2">
+                  <div className="text-[10px] text-slate-500 italic border-t border-slate-200 dark:border-slate-800/50 pt-2 mt-2">
                     {data.complianceNote}
                   </div>
                 </div>
               ))}
             </div>
             
-            <button onClick={resetState} className="mt-8 w-full py-3 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded font-bold transition-colors flex items-center justify-center gap-2 text-sm uppercase tracking-wider">
+            <button onClick={resetState} className="mt-8 w-full py-3 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 rounded font-bold transition-colors flex items-center justify-center gap-2 text-sm uppercase tracking-wider border border-slate-200 dark:border-slate-700">
               <RefreshCw size={16} /> Process Next Transmission
             </button>
           </div>
