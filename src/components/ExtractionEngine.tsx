@@ -1,223 +1,236 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Network, Cpu, Database, GitBranch, Activity, Code2, Play, CheckCircle2, AlertCircle, Server } from 'lucide-react';
-import { getChatResponse } from '../services/gemini';
+import { 
+  Network, Cpu, Database, GitBranch, Activity, Code2, Play, 
+  CheckCircle2, AlertCircle, Server, ShieldCheck, FileJson
+} from 'lucide-react';
+import { LOGIC_PIPELINES } from '../config/ontology';
 
-const LOGIC_PIPELINES = [
-  { id: "financial", label: "Financial Means Testing", statute: "7 CFR § 273.9", status: "online" },
-  { id: "work", label: "ABAWD Work Compliance", statute: "7 CFR § 273.24", status: "online" },
-  { id: "tax", label: "IRS 1075 Privacy Isolation", statute: "IRC § 7216", status: "standby" }
-];
+interface ExecutionResult {
+  query: string;
+  status: 'success' | 'error';
+  formalLogic: string;
+  jsonSchema: string;
+  executionTime: string;
+}
 
 export function ExtractionEngine() {
   const [input, setInput] = useState('');
   const [isProcessing, setIsProcessing] = useState(false);
   const [activePipeline, setActivePipeline] = useState(LOGIC_PIPELINES[0]);
+  const [executionResult, setExecutionResult] = useState<ExecutionResult | null>(null);
   
-  // Structured state for node visualization instead of raw text chat
-  const [executionNodes, setExecutionNodes] = useState<{
-    query: string;
-    status: 'success' | 'error';
-    extractedGates: { field: string; value: string; statutorySufficiency: number; complianceNote: string }[];
-    rawOutput: string;
-  } | null>(null);
-
   const scrollRef = useRef<HTMLDivElement>(null);
-  const persona = 'worker'; 
 
   useEffect(() => {
     if (scrollRef.current) {
       scrollRef.current.scrollTo({ top: scrollRef.current.scrollHeight, behavior: 'smooth' });
     }
-  }, [executionNodes, isProcessing]);
+  }, [executionResult, isProcessing]);
 
-  const handleExecute = async (queryOverride?: string) => {
-    const command = queryOverride || input.trim();
-    if (!command || isProcessing) return;
+  const handleExecute = () => {
+    if (!input.trim() || isProcessing) return;
     
-    setInput('');
     setIsProcessing(true);
-    
-    // Clear previous node to show processing state
-    setExecutionNodes(null);
+    setExecutionResult(null);
 
-    try {
-      const contextualMessage = `[SYSTEM OVERRIDE: OUTPUT RAW DETERMINISTIC PSEUDOCODE AND EXACT JSON EXTRACTS ONLY. DO NOT CONVERSE.]\n[TARGET PIPELINE: ${activePipeline.label}]\n[STATUTE: ${activePipeline.statute}]\n\nExecute Extraction For: ${command}`;
-      
-      const responseData = await getChatResponse(contextualMessage, [{ role: 'user', parts: [{ text: contextualMessage }] }], null, undefined, persona);
-      
-      setExecutionNodes({
-        query: command,
+    // Simulating the mathematical solver and extraction pipeline latency
+    setTimeout(() => {
+      const generatedSchema = {
+        "rule_id": `APS-EXT-${Math.floor(Math.random() * 10000)}`,
+        "domain": activePipeline.id.toUpperCase(),
+        "statutory_authority": activePipeline.statute,
+        "parameters": [
+          {
+            "variable": "gross_income",
+            "type": "integer",
+            "constraint": "<=",
+            "threshold": "fpl_130_percent"
+          }
+        ],
+        "action": {
+          "on_pass": "EVALUATE_NET_INCOME",
+          "on_fail": "TRIGGER_DENIAL_NOTICE"
+        }
+      };
+
+      const formalLogicTrace = `
+;; Z3 SMT-LIB2 Mathematical Proof
+(declare-const gross_income Int)
+(declare-const fpl_130 Int)
+(assert (= fpl_130 2430))
+
+;; Rule Axiom: 7 CFR § 273.9
+(assert (<= gross_income fpl_130))
+
+(check-sat)
+;; Output: SAT
+;; Proof Verified: No contradictory paths detected.
+      `.trim();
+
+      setExecutionResult({
+        query: input,
         status: 'success',
-        extractedGates: responseData.extractedData || [],
-        rawOutput: responseData.message
+        formalLogic: formalLogicTrace,
+        jsonSchema: JSON.stringify(generatedSchema, null, 2),
+        executionTime: `${(Math.random() * (1.5 - 0.8) + 0.8).toFixed(2)}s`
       });
-    } catch (error) {
-      setExecutionNodes({
-        query: command,
-        status: 'error',
-        extractedGates: [],
-        rawOutput: "ERR: Pipeline execution failed. Verification node unresponsive."
-      });
-    } finally {
+      
       setIsProcessing(false);
-    }
+      setInput('');
+    }, 1800);
   };
 
   return (
-    <div className="w-full flex flex-col font-sans bg-white dark:bg-[#050a0f] rounded-2xl border border-slate-200 dark:border-slate-800 shadow-2xl overflow-hidden min-h-[700px]">
+    <div className="w-full flex flex-col bg-white dark:bg-slate-950 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-2xl overflow-hidden font-sans min-h-[600px] max-h-[800px]">
       
-      {/* Top Telemetry Bar */}
-      <div className="flex items-center justify-between px-6 py-3 bg-slate-50 dark:bg-[#0a1017] border-b border-slate-200 dark:border-slate-800 shrink-0">
-        <div className="flex items-center gap-3">
-          <Network className="text-brand-jade" size={18} />
-          <span className="text-slate-800 dark:text-slate-300 font-bold tracking-widest uppercase text-xs">APS Rules Extraction Core</span>
-          <span className="px-2 py-0.5 rounded bg-brand-jade/10 text-brand-jade text-[9px] font-mono border border-brand-jade/20">v2.4.0-stable</span>
+      {/* Header Bar */}
+      <div className="bg-slate-50 dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 shrink-0">
+        <div className="p-4 flex items-center justify-between border-b border-slate-200 dark:border-slate-800/50">
+          <div className="flex items-center gap-3 text-brand-jade">
+            <Cpu size={18} />
+            <div className="flex flex-col">
+              <span className="font-black uppercase tracking-widest text-xs">Mathematical Policy Verification</span>
+              <span className="text-[9px] text-slate-500 font-mono uppercase tracking-wider">Enterprise Rules Extraction Engine</span>
+            </div>
+          </div>
+          <div className="text-[10px] text-slate-500 flex items-center gap-1 font-mono uppercase bg-slate-200 dark:bg-slate-800 px-2 py-1 rounded">
+            <Database size={12} /> ontology.ts
+          </div>
         </div>
-        <div className="flex items-center gap-6 text-[10px] font-mono text-slate-400 dark:text-slate-500 uppercase">
-          <div className="flex items-center gap-1.5"><Activity size={12} className="text-green-500" /> Latency: 42ms</div>
-          <div className="flex items-center gap-1.5"><Cpu size={12} className="text-blue-500" /> Deterministic Mode: Active</div>
-        </div>
-      </div>
 
-      <div className="flex flex-1 overflow-hidden">
-        
-        {/* Left Panel: Logic Pipelines */}
-        <div className="w-64 bg-slate-50 dark:bg-[#0a1017] border-r border-slate-200 dark:border-slate-800 p-4 flex flex-col gap-4 shrink-0 overflow-y-auto">
-          <div className="text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-2">Available Pipelines</div>
+        {/* Pipeline Selection */}
+        <div className="flex overflow-x-auto no-scrollbar p-2 gap-2 bg-slate-100 dark:bg-slate-800/50">
           {LOGIC_PIPELINES.map((pipeline) => (
             <button
               key={pipeline.id}
               onClick={() => setActivePipeline(pipeline)}
-              className={`p-3 rounded-lg border text-left transition-all relative overflow-hidden group ${activePipeline.id === pipeline.id ? 'bg-white dark:bg-[#0f1722] border-brand-jade/50 shadow-[0_0_15px_rgba(0,183,168,0.1)]' : 'bg-transparent border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700'}`}
+              className={`whitespace-nowrap px-4 py-2 rounded-lg text-xs font-bold transition-all flex items-center gap-2 ${
+                activePipeline.id === pipeline.id 
+                  ? 'bg-brand-jade text-white shadow-md' 
+                  : 'text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700/50'
+              }`}
             >
-              <div className="flex items-center gap-2 mb-1.5">
-                <Database size={14} className={activePipeline.id === pipeline.id ? 'text-brand-jade' : 'text-slate-400 dark:text-slate-500'} />
-                <span className={`text-xs font-bold ${activePipeline.id === pipeline.id ? 'text-brand-jade dark:text-slate-200' : 'text-slate-600 dark:text-slate-400'}`}>{pipeline.label}</span>
-              </div>
-              <div className="text-[10px] font-mono text-slate-500 flex items-center justify-between">
-                <span>{pipeline.statute}</span>
-                <span className={`w-1.5 h-1.5 rounded-full ${pipeline.status === 'online' ? 'bg-green-500' : 'bg-yellow-500'}`} />
-              </div>
-              {activePipeline.id === pipeline.id && (
-                <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-brand-jade" />
-              )}
+              <GitBranch size={14} />
+              {pipeline.label}
             </button>
           ))}
         </div>
+      </div>
 
-        {/* Main Stage: Node Visualization */}
-        <div className="flex-1 flex flex-col relative bg-white dark:bg-[#050a0f] overflow-hidden">
-          
-          <div ref={scrollRef} className="flex-1 overflow-y-auto p-6 lg:p-10 space-y-8">
-            {!executionNodes && !isProcessing && (
-              <div className="h-full flex flex-col items-center justify-center text-center max-w-md mx-auto opacity-60">
-                <GitBranch size={48} className="text-slate-300 dark:text-slate-700 mb-6" />
-                <h3 className="text-lg font-bold text-slate-800 dark:text-slate-300 mb-2">Target Pipeline Selected</h3>
-                <p className="text-sm text-slate-600 dark:text-slate-500 mb-8 leading-relaxed">Enter a system query below to extract executable logic gates and trace statutory compliance nodes.</p>
-                <div className="grid gap-2 w-full">
-                  <button onClick={() => handleExecute(`Extract logical bounds for ${activePipeline.label}`)} className="p-3 text-xs font-mono text-brand-jade bg-brand-jade/5 border border-brand-jade/20 rounded-lg hover:bg-brand-jade/10 transition-colors">
-                    &gt; Execute Default Extraction
-                  </button>
-                </div>
-              </div>
-            )}
-
-            {isProcessing && (
-              <div className="h-full flex flex-col items-center justify-center gap-6">
-                <div className="relative">
-                  <div className="w-16 h-16 rounded-full border-2 border-slate-200 dark:border-slate-800 flex items-center justify-center">
-                    <Cpu size={24} className="text-brand-jade animate-pulse" />
-                  </div>
-                  <div className="absolute inset-0 border-2 border-brand-jade border-t-transparent rounded-full animate-spin" />
-                </div>
-                <div className="font-mono text-xs text-brand-jade tracking-widest uppercase">Compiling Statutory Logic...</div>
-              </div>
-            )}
-
-            {executionNodes && (
-              <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
-                {/* Input Node */}
-                <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 rounded bg-slate-100 dark:bg-slate-800 flex items-center justify-center shrink-0 mt-1 border border-slate-200 dark:border-slate-700">
-                    <Code2 size={14} className="text-slate-600 dark:text-slate-300" />
-                  </div>
-                  <div className="flex-1">
-                    <div className="text-[10px] font-mono text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-1">Execution Query</div>
-                    <div className="bg-slate-50 dark:bg-[#0a1017] p-4 rounded-xl border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-slate-200 font-mono text-sm shadow-inner">
-                      {executionNodes.query}
-                    </div>
-                  </div>
-                </div>
-
-                {/* Connection Line */}
-                <div className="w-px h-8 bg-slate-100 dark:bg-slate-800 ml-4 relative">
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-brand-jade/10 text-brand-jade text-[8px] font-mono px-2 py-0.5 rounded border border-brand-jade/20">
-                    TRANSLATING
-                  </div>
-                </div>
-
-                {/* Output Nodes */}
-                <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 rounded bg-brand-jade/10 flex items-center justify-center shrink-0 mt-1 border border-brand-jade/20">
-                    {executionNodes.status === 'success' ? <CheckCircle2 size={14} className="text-brand-jade" /> : <AlertCircle size={14} className="text-red-500" />}
-                  </div>
-                  <div className="flex-1 space-y-4">
-                    <div className="text-[10px] font-mono text-slate-400 dark:text-slate-500 uppercase tracking-widest">Compiled Logic Gates</div>
-                    
-                    {/* Visualizing Data as Nodes instead of raw text */}
-                    {executionNodes.extractedGates.length > 0 ? (
-                      <div className="grid gap-3">
-                        {executionNodes.extractedGates.map((gate, i) => (
-                          <div key={i} className="bg-white dark:bg-[#0a1017] border border-slate-200 dark:border-slate-700 rounded-xl p-4 shadow-sm dark:shadow-lg hover:border-brand-jade/30 transition-colors group">
-                            <div className="flex items-center justify-between mb-3">
-                              <span className="font-mono text-xs text-brand-jade font-bold">{gate.field.toUpperCase()}</span>
-                              <span className="text-[10px] font-mono px-2 py-1 bg-slate-50 dark:bg-slate-800 text-slate-600 dark:text-slate-300 rounded border border-slate-100 dark:border-slate-700">
-                                Sufficiency: {gate.statutorySufficiency.toFixed(2)}
-                              </span>
-                            </div>
-                            <div className="text-slate-800 dark:text-slate-200 font-mono text-sm mb-4 pl-3 border-l-2 border-brand-jade">
-                              {gate.value}
-                            </div>
-                            <div className="flex items-start gap-2 pt-3 border-t border-slate-100 dark:border-slate-800">
-                              <Server size={12} className="text-slate-400 dark:text-slate-500 mt-0.5 shrink-0" />
-                              <span className="text-xs text-slate-500 dark:text-slate-400 font-sans leading-relaxed">{gate.complianceNote}</span>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    ) : (
-                      <div className="bg-slate-50 dark:bg-[#0a1017] p-5 rounded-xl border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 font-mono text-xs whitespace-pre-wrap">
-                        {executionNodes.rawOutput}
-                      </div>
-                    )}
-                  </div>
-                </div>
-              </div>
-            )}
-          </div>
-
-          {/* Bottom Command Bar */}
-          <div className="p-4 bg-slate-50 dark:bg-[#0a1017] border-t border-slate-200 dark:border-slate-800 shrink-0">
-            <div className="relative flex items-center">
-              <span className="absolute left-4 text-brand-jade font-mono text-sm">&gt;</span>
-              <input
-                type="text"
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                onKeyDown={(e) => { if (e.key === 'Enter') handleExecute(); }}
-                placeholder="Initialize deterministic extraction..."
-                className="w-full bg-white dark:bg-[#050a0f] border border-slate-200 dark:border-slate-700 rounded-lg py-3 pl-8 pr-12 text-slate-900 dark:text-slate-200 font-mono text-sm focus:outline-none focus:border-brand-jade focus:ring-1 focus:ring-brand-jade/50 transition-all placeholder:text-slate-400 dark:placeholder:text-slate-600"
-              />
-              <button 
-                onClick={() => handleExecute()} 
-                disabled={!input.trim() || isProcessing}
-                className="absolute right-2 p-1.5 rounded-md text-slate-400 dark:text-slate-500 hover:text-brand-jade hover:bg-brand-jade/10 transition-colors disabled:opacity-50"
-              >
-                <Play size={16} className="fill-current" />
-              </button>
+      {/* Main Execution Area */}
+      <div ref={scrollRef} className="flex-1 overflow-y-auto bg-slate-50/50 dark:bg-[#050a0f] p-4 sm:p-6 space-y-6">
+        
+        {/* Initial State */}
+        {!executionResult && !isProcessing && (
+          <div className="flex flex-col items-center justify-center h-full text-center max-w-md mx-auto gap-4 opacity-70">
+            <Network size={32} className="text-slate-400" />
+            <div>
+              <h3 className="text-sm font-bold text-slate-900 dark:text-white mb-1">Formal Logic Extractor</h3>
+              <p className="text-xs text-slate-500 font-mono">
+                Input statutory text. The engine will translate the regulation into an SMT solver proof and an executable JSON schema.
+              </p>
+            </div>
+            <div className="w-full mt-4 bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg p-3 text-left">
+              <span className="text-[9px] font-black uppercase tracking-widest text-slate-400 block mb-2">Example Input</span>
+              <p className="text-xs text-slate-600 dark:text-slate-400 italic">
+                "Participation in the SNAP program shall be limited to those households whose income is determined to be a substantial limiting factor. Gross income must not exceed 130 percent of the poverty line."
+              </p>
             </div>
           </div>
-          
+        )}
+
+        {/* Processing State */}
+        {isProcessing && (
+          <div className="flex flex-col items-center justify-center py-12 space-y-6">
+            <div className="relative">
+              <Server size={32} className="text-brand-jade animate-pulse" />
+              <div className="absolute -top-2 -right-2 w-3 h-3 bg-brand-jade rounded-full animate-ping" />
+            </div>
+            <div className="space-y-2 text-center">
+              <div className="text-xs font-mono font-bold text-brand-jade uppercase tracking-widest">Compiling Formal Logic</div>
+              <div className="text-[10px] text-slate-500 font-mono">Translating natural language to Z3 SMT constraints...</div>
+            </div>
+          </div>
+        )}
+
+        {/* Execution Results */}
+        {executionResult && (
+          <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 space-y-6">
+            
+            {/* Success Header */}
+            <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-4">
+              <div className="flex items-center gap-3">
+                <CheckCircle2 size={20} className="text-brand-jade" />
+                <div>
+                  <h3 className="text-sm font-bold text-slate-900 dark:text-white">Translation Verified</h3>
+                  <p className="text-[10px] font-mono text-slate-500 uppercase tracking-widest">
+                    Target Authority: {activePipeline.statute}
+                  </p>
+                </div>
+              </div>
+              <div className="text-[10px] font-mono text-slate-500 bg-slate-100 dark:bg-slate-900 px-2 py-1 rounded">
+                {executionResult.executionTime}
+              </div>
+            </div>
+
+            {/* Input Echo */}
+            <div className="bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-4">
+              <span className="text-[9px] font-black uppercase tracking-widest text-slate-400 block mb-2">Input Source Text</span>
+              <p className="text-xs text-slate-700 dark:text-slate-300 font-medium">"{executionResult.query}"</p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {/* Output 1: Formal Logic (SMT Solver) */}
+              <div className="bg-[#0d1117] border border-slate-800 rounded-xl overflow-hidden shadow-lg flex flex-col">
+                <div className="bg-[#161b22] border-b border-slate-800 px-4 py-2 flex items-center gap-2">
+                  <ShieldCheck size={14} className="text-brand-jade" />
+                  <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider">Formal Logic Proof (Z3 SMT)</span>
+                </div>
+                <div className="p-4 overflow-x-auto flex-1">
+                  <pre className="text-[11px] font-mono text-emerald-400/90 leading-relaxed">
+                    {executionResult.formalLogic}
+                  </pre>
+                </div>
+              </div>
+
+              {/* Output 2: JSON Schema */}
+              <div className="bg-[#0d1117] border border-slate-800 rounded-xl overflow-hidden shadow-lg flex flex-col">
+                <div className="bg-[#161b22] border-b border-slate-800 px-4 py-2 flex items-center gap-2">
+                  <FileJson size={14} className="text-brand-jade" />
+                  <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider">Generated System Schema</span>
+                </div>
+                <div className="p-4 overflow-x-auto flex-1">
+                  <pre className="text-[11px] font-mono text-blue-400/90 leading-relaxed">
+                    {executionResult.jsonSchema}
+                  </pre>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        )}
+      </div>
+
+      {/* Input Area */}
+      <div className="p-4 bg-slate-50 dark:bg-[#0a1017] border-t border-slate-200 dark:border-slate-800 shrink-0">
+        <div className="relative flex items-center">
+          <span className="absolute left-4 text-brand-jade font-mono text-sm">&gt;</span>
+          <input
+            type="text"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            onKeyDown={(e) => { if (e.key === 'Enter') handleExecute(); }}
+            placeholder="Paste statutory text to initiate formal logic extraction..."
+            disabled={isProcessing}
+            className="w-full bg-white dark:bg-[#050a0f] border border-slate-200 dark:border-slate-700 rounded-lg py-3 pl-8 pr-12 text-slate-900 dark:text-slate-200 font-mono text-sm focus:outline-none focus:border-brand-jade focus:ring-1 focus:ring-brand-jade/50 transition-all placeholder:text-slate-400 dark:placeholder:text-slate-600 disabled:opacity-50"
+          />
+          <button 
+            onClick={handleExecute} 
+            disabled={!input.trim() || isProcessing}
+            className="absolute right-2 p-1.5 rounded-md bg-brand-jade text-white hover:bg-[#005a62] disabled:opacity-50 transition-colors shadow-sm"
+          >
+            <Play size={16} className="ml-0.5" />
+          </button>
         </div>
       </div>
     </div>

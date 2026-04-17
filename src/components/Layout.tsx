@@ -10,6 +10,7 @@ import { useTranslation } from 'react-i18next';
 import { ChatWidget } from './ChatWidget';
 import { useBooking } from '../context/BookingContext';
 import { BookingModal } from './BookingModal';
+import { trackInteraction } from '../services/analytics';
 
 export function Layout() {
   const { t } = useTranslation();
@@ -291,6 +292,7 @@ export function Layout() {
               </div>
               <button 
                 onClick={() => {
+                  trackInteraction('Layout', 'Schedule Session Clicked', { location: 'mobile-menu' });
                   setIsMenuOpen(false);
                   openBooking();
                 }}

@@ -5,6 +5,7 @@ import { Helmet } from 'react-helmet-async';
 import { ChatWidget } from '../components/ChatWidget';
 import { useBooking } from '../context/BookingContext';
 import { ContactForm } from '../components/ContactForm';
+import { trackInteraction } from '../services/analytics';
 
 export function Contact() {
   const { t } = useTranslation();
@@ -133,7 +134,10 @@ export function Contact() {
                     {t('contactPage.cta.desc')}
                   </p>
                   <button 
-                    onClick={openBooking}
+                    onClick={() => {
+                      trackInteraction('ContactPage', 'Schedule Session Clicked', { location: 'hero-cta' });
+                      openBooking();
+                    }}
                     className="w-full sm:w-auto inline-flex items-center justify-center gap-4 px-10 py-5 bg-brand-jade text-white font-bold rounded-2xl hover:bg-[#005a62] hover:scale-105 transition-all shadow-xl shadow-brand-jade/20"
                   >
                     {t('contactPage.cta.action')}

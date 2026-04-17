@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Send, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
 import { z } from 'zod';
 import { useToast } from '../context/ToastContext';
+import { trackInteraction } from '../services/analytics';
 
 const contactSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
@@ -51,6 +52,7 @@ export function ContactForm() {
       return;
     }
 
+    trackInteraction('ContactForm', 'Submit Inquiry Clicked', { organization: formData.organization });
     setStatus('submitting');
 
     try {

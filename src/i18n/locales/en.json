@@ -56,8 +56,8 @@
     },
     "manual": {
       "label": "Prototype 02",
-      "title": "Prototype 02: Living Policy Manual",
-      "text": "An operational prototype demonstrating how to provide caseworkers with authoritative, legally grounded answers to complex eligibility questions."
+      "title": "Prototype 02: In-Case Policy & Determination Assistant",
+      "text": "An operational prototype demonstrating an in-workflow policy assistant that binds deterministic statutory retrieval directly to an active case file, generating immutable audit logs for Quality Control."
     },
     "extraction": {
       "label": "Prototype 03",
@@ -265,8 +265,8 @@
       },
       "policyManual": {
         "label": "Prototype 02",
-        "title": "Living Policy Manual",
-        "desc": "A conversational interface built for frontline caseworkers. It provides authoritative, legally grounded answers to complex eligibility questions, equipping caseworkers with a deterministic standard for case processing."
+        "title": "In-Case Policy & Determination Assistant",
+        "desc": "A deterministic retrieval interface embedded directly into the eligibility workflow. It utilizes semantic routing to fetch hardcoded statutory procedures and automatically commits the logic to the resident's case file to defend against fair hearings."
       },
       "extractionEngine": {
         "label": "Prototype 03",
@@ -362,17 +362,17 @@
       "home": {
         "title": "Public Benefits Access & High-Compliance Infrastructure",
         "description": "Applied Policy Systems provide Independent Verification and Validation oversight and architects low-friction, highly regulated digital infrastructure for government agencies.",
-        "keywords": "public benefits, system integrity, rules engine, government architecture"
+        "keywords": "public benefits, system integrity, rules engine, government architecture, government IT modernization, public sector strategy"
       },
       "about": {
         "title": "Operational Authority & Systems Expertise",
         "description": "Review our operational history, systems expertise, and ecosystem integration capabilities across all operational domains.",
-        "keywords": "Graham O'Neill, founder, agency transition, operational history"
+        "keywords": "Graham O'Neill, founder, agency transition, operational history, systems architect, policy implementation"
       },
       "capabilities": {
         "title": "Technical Advisory & Service Deliverables",
         "description": "Applied Policy Systems LLC serves as The Translation Layer, providing Independent Verification and Validation alongside Subject Matter Expert advisory.",
-        "keywords": "technical advisory, service deliverables, statutory verification, rules engine architecture"
+        "keywords": "technical advisory, service deliverables, statutory verification, rules engine architecture, IV&V services, rules engine"
       },
       "research": {
         "title": "Systems Architecture & Empirical Analysis",
@@ -382,7 +382,7 @@
       "field": {
         "title": "Operational Prototypes & Rules Extraction",
         "description": "Live demonstrator models illustrating the translation of statutory requirements into codified business rules and operational workflows.",
-        "keywords": "document intake, policy manual, rules extraction engine, prototypes"
+        "keywords": "document intake, policy adjudication, semantic routing, rules extraction engine, prototypes"
       },
       "contact": {
         "title": "Consultation & Technical Intake",
