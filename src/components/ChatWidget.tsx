@@ -53,6 +53,32 @@ export function ChatWidget({ embedded = false }: { embedded?: boolean }) {
   const [isLoading, setIsLoading] = useState(false);
   const [isThrottled, setIsThrottled] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+
+  // Focus management
+  useEffect(() => {
+    if (isOpen && !isMinimized && !embedded) {
+      inputRef.current?.focus();
+    } else if (!isOpen && !embedded) {
+      triggerRef.current?.focus();
+    }
+  }, [isOpen, isMinimized, embedded]);
+
+  // Accessibility keyboard support
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isOpen && !embedded) {
+        if (!isMinimized) {
+          setIsMinimized(true);
+        } else {
+          setIsOpen(false);
+        }
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, isMinimized, embedded]);
 
   const clearChat = () => {
     setMessages(INITIAL_MESSAGES);
@@ -180,12 +206,14 @@ export function ChatWidget({ embedded = false }: { embedded?: boolean }) {
         <div className="p-6 border-t border-slate-100 dark:border-slate-800">
           <div className="flex gap-2">
             <input
+              ref={inputRef}
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyPress={(e) => e.key === 'Enter' && handleSend()}
               placeholder={isThrottled ? "Cooling down..." : "Ask about our architecture..."}
               disabled={isThrottled}
+              aria-label="Chat query input"
               className={`flex-1 bg-slate-50 dark:bg-slate-800 border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-brand-jade transition-all ${isThrottled ? 'opacity-50 cursor-not-allowed' : ''}`}
             />
             <button
@@ -286,13 +314,14 @@ export function ChatWidget({ embedded = false }: { embedded?: boolean }) {
             <div className="p-4 border-t border-slate-100 dark:border-slate-800">
               <div className="flex gap-2">
                 <input
+                  ref={inputRef}
                   type="text"
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   onKeyPress={(e) => e.key === 'Enter' && handleSend()}
                   placeholder={isThrottled ? "Wait..." : "Type a message..."}
                   disabled={isThrottled}
-                  aria-label="Chat message"
+                  aria-label="Chat message input"
                   className={`flex-1 bg-slate-50 dark:bg-slate-800 border-none rounded-lg px-3 py-2 text-xs focus:ring-2 focus:ring-brand-jade transition-all ${isThrottled ? 'opacity-50 cursor-not-allowed' : ''}`}
                 />
                 <button
@@ -314,6 +343,8 @@ export function ChatWidget({ embedded = false }: { embedded?: boolean }) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           onClick={() => setIsMinimized(false)}
+          aria-label="Restore consulting assistant"
+          aria-controls="chat-window"
           className="fixed bottom-24 right-8 px-6 py-3 bg-brand-jade text-white rounded-full shadow-xl z-[100] flex items-center gap-2 font-bold text-sm"
         >
           <Bot size={18} />
@@ -323,11 +354,12 @@ export function ChatWidget({ embedded = false }: { embedded?: boolean }) {
 
       {!isOpen && (
         <motion.button
+          ref={triggerRef}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           onClick={() => setIsOpen(true)}
           aria-label="Open consulting assistant"
-          aria-expanded={isOpen}
+          aria-expanded="false"
           aria-controls="chat-window"
           className="fixed bottom-24 right-8 w-14 h-14 bg-brand-jade text-white rounded-full flex items-center justify-center shadow-2xl z-[100] hover:bg-[#005a62] transition-colors"
         >
