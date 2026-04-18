@@ -2,13 +2,13 @@ import { z } from "zod";
 import { GoogleGenAI } from "@google/genai";
 
 const ChatSchema = z.object({
-  messages: z.array(
+  message: z.string().min(1, "Message content cannot be empty"),
+  history: z.array(
     z.object({
-      role: z.enum(["user", "assistant", "system", "model"]),
-      content: z.string().min(1, "Message content cannot be empty")
+      role: z.enum(["user", "model", "assistant", "system"]),
+      parts: z.array(z.object({ text: z.string() }))
     })
-  ).min(1, "At least one message is required"),
-  temperature: z.number().min(0).max(2).optional(),
+  ).optional(),
 });
 
 export async function onRequestPost(context: any) {
@@ -28,7 +28,7 @@ export async function onRequestPost(context: any) {
     
     if (!validation.success) {
       return new Response(JSON.stringify({ 
-        error: "Invalid input", 
+        error: "Invalid input schema", 
         details: validation.error.format() 
       }), {
         status: 400,
@@ -39,18 +39,23 @@ export async function onRequestPost(context: any) {
     const validatedData = validation.data;
     const ai = new GoogleGenAI({ apiKey });
 
-    // Map frontend roles to Gemini SDK roles (user/model)
-    const formattedContents = validatedData.messages.map((m: any) => ({
-      role: m.role === 'assistant' || m.role === 'model' ? 'model' : 'user',
-      parts: [{ text: m.content }]
-    }));
+    let formattedContents = [];
+    if (validatedData.history && validatedData.history.length > 0) {
+      formattedContents = validatedData.history.map(m => ({
+        role: m.role === 'assistant' ? 'model' : m.role,
+        parts: m.parts
+      }));
+    } else {
+      formattedContents = [{ role: 'user', parts: [{ text: validatedData.message }] }];
+    }
 
+    // Upgraded to the current Gemini 3 Flash model
     const response = await ai.models.generateContent({
-      model: "gemini-2.0-flash",
-      contents: formattedContents,
+      model: "gemini-3-flash",
+      contents: formattedContents as any,
       config: {
-        systemInstruction: "You are the specialized architectural consulting assistant for Applied Policy Systems LLC. Use a direct, factual, and strictly objective tone. Focus on neuro-symbolic policy engines, deterministic logic, and public benefits modernization (SNAP, Medicaid). Do not invent marketing copy.",
-        temperature: validatedData.temperature || 0.2,
+        systemInstruction: "You are the specialized architectural consulting assistant for Applied Policy Systems LLC. Use a direct, factual, and strictly objective tone. Focus on neuro-symbolic policy engines, deterministic logic, and public benefits modernization. Do not invent marketing copy. If a user wishes to schedule a consultation, ask them to provide their Name, Organization, and Work Email.",
+        temperature: 0.2,
       }
     });
 
