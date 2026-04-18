@@ -38,12 +38,24 @@ async function startServer() {
     console.log(`Message: ${message}`);
     console.log("---------------------------");
 
-    // In a real app, you would send an email or save to a database here
-    
     res.json({ 
       success: true, 
       message: "Inquiry received successfully" 
     });
+  });
+
+  // MOCK CHAT ROUTE FOR LOCAL PREVIEW
+  app.post("/api/chat", express.json(), (req, res) => {
+    const { message } = req.body;
+    
+    console.log(`[LOCAL SERVER] Received chat message: "${message}"`);
+    
+    // Simulate network delay for UI realism
+    setTimeout(() => {
+      res.json({ 
+        reply: "This is a simulated response from your local server. When deployed to Cloudflare, this interface will connect securely to the live Gemini logic engine to process your request." 
+      });
+    }, 1000);
   });
 
   // Vite middleware for development

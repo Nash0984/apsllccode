@@ -1,8 +1,19 @@
 import { useState, useEffect, useRef } from 'react';
+import { useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { MessageSquare, X, Send, User, Bot, Loader2, Minimize2, Maximize2 } from 'lucide-react';
+import { MessageSquare, X, Send, User, Bot, Loader2, Minimize2, Trash2 } from 'lucide-react';
 import { useToast } from '../context/ToastContext';
 import { getConversationalResponse } from '../services/gemini';
+
+const INITIAL_MESSAGES: Message[] = [
+  { 
+    role: 'assistant', 
+    content: 'Hello! I am the Applied Policy Systems Consulting Assistant. How can I help you explore our Independent Verification and Validation services, Subject Matter Expert advisory for public benefits, or legislative mandate translation strategies today?',
+    timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+  }
+];
+
+const THROTTLE_DURATION = 1500;
 
 const TypingIndicator = ({ size = 16 }: { size?: number }) => (
   <div className="flex gap-1.5 items-center h-4 px-1" aria-hidden="true">
@@ -28,18 +39,25 @@ const TypingIndicator = ({ size = 16 }: { size?: number }) => (
 interface Message {
   role: 'user' | 'assistant';
   content: string;
+  timestamp?: string;
 }
 
 export function ChatWidget({ embedded = false }: { embedded?: boolean }) {
+  // 1. ALL HOOKS MUST BE DECLARED FIRST
   const { showToast } = useToast();
+  const location = useLocation();
   const [isOpen, setIsOpen] = useState(embedded);
   const [isMinimized, setIsMinimized] = useState(false);
-  const [messages, setMessages] = useState<Message[]>([
-    { role: 'assistant', content: 'Hello! I am the Applied Policy Systems Consulting Assistant. How can I help you explore our Independent Verification and Validation services, Subject Matter Expert advisory for public benefits, or legislative mandate translation strategies today?' }
-  ]);
+  const [messages, setMessages] = useState<Message[]>(INITIAL_MESSAGES);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [isThrottled, setIsThrottled] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  const clearChat = () => {
+    setMessages(INITIAL_MESSAGES);
+    showToast("Chat history cleared", "info");
+  };
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -50,14 +68,20 @@ export function ChatWidget({ embedded = false }: { embedded?: boolean }) {
   }, [messages]);
 
   const handleSend = async () => {
-    if (!input.trim() || isLoading) return;
+    if (!input.trim() || isLoading || isThrottled) return;
 
-    const userMessage: Message = { role: 'user', content: input.trim() };
+    const timestamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    const userMessage: Message = { role: 'user', content: input.trim(), timestamp };
     const currentMessages = [...messages, userMessage];
     
     setMessages(currentMessages);
     setInput('');
     setIsLoading(true);
+    setIsThrottled(true);
+
+    setTimeout(() => {
+      setIsThrottled(false);
+    }, THROTTLE_DURATION);
 
     try {
       const history = currentMessages.map(m => ({
@@ -67,7 +91,11 @@ export function ChatWidget({ embedded = false }: { embedded?: boolean }) {
 
       const botResponse = await getConversationalResponse(input.trim(), history);
       
-      setMessages(prev => [...prev, { role: 'assistant', content: botResponse }]);
+      setMessages(prev => [...prev, { 
+        role: 'assistant', 
+        content: botResponse,
+        timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+      }]);
     } catch (error) {
       console.error("[CHAT WIDGET ERROR]:", error);
       showToast("Chat system connection error. Please try again or contact support.", "error");
@@ -77,42 +105,69 @@ export function ChatWidget({ embedded = false }: { embedded?: boolean }) {
       }]);
     } finally {
       setIsLoading(false);
-      // Ensure scrolling to bottom after response
       setTimeout(() => {
         messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
       }, 100);
     }
   };
 
+  // 2. COMPONENT SUPPRESSION (After all hooks are called)
+  if (!embedded && location.pathname === '/contact') {
+    return null;
+  }
+
+  // 3. RENDER LOGIC
   if (embedded) {
     return (
       <div className="flex flex-col h-[600px] bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-[2rem] overflow-hidden shadow-2xl">
         <div className="p-6 bg-brand-jade text-white flex justify-between items-center">
           <div className="flex items-center gap-3">
-            <Bot size={24} />
+            <div className="relative">
+              <Bot size={24} />
+              <div className="absolute -bottom-1 -right-1 w-2.5 h-2.5 bg-brand-jade-light border-2 border-white rounded-full animate-pulse" />
+            </div>
             <div>
               <h3 className="font-bold">APS Consulting Assistant</h3>
-              <p className="text-xs opacity-80">Online | Architecture Specialist</p>
+              <p className="text-[10px] opacity-80 font-mono tracking-wider uppercase">Online | Architecture Specialist</p>
             </div>
           </div>
+          <button 
+            onClick={clearChat}
+            className="p-2 hover:bg-white/20 rounded-lg transition-colors group relative"
+            title="Clear chat history"
+          >
+            <Trash2 size={18} />
+          </button>
         </div>
-        <div className="flex-1 overflow-y-auto p-6 space-y-4 scrollbar-hide">
-          {messages.map((m, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}
-            >
-              <div className={`max-w-[80%] p-4 rounded-2xl ${
-                m.role === 'user' 
-                  ? 'bg-brand-jade text-white rounded-tr-none' 
-                  : 'bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white rounded-tl-none'
-              }`}>
-                <p className="text-sm leading-relaxed whitespace-pre-wrap">{m.content}</p>
-              </div>
-            </motion.div>
-          ))}
+        <div className="flex-1 overflow-y-auto p-6 space-y-6 scrollbar-hide bg-slate-50/50 dark:bg-slate-900/50">
+          <AnimatePresence mode="popLayout">
+            {messages.map((m, i) => (
+              <motion.div
+                key={`${i}-${messages.length}`}
+                initial={{ opacity: 0, x: m.role === 'user' ? 20 : -20, y: 10 }}
+                animate={{ opacity: 1, x: 0, y: 0 }}
+                className={`flex gap-3 ${m.role === 'user' ? 'flex-row-reverse' : 'flex-row'}`}
+              >
+                <div className={`flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center ${
+                  m.role === 'user' ? 'bg-brand-jade text-white' : 'bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-400'
+                }`}>
+                  {m.role === 'user' ? <User size={16} /> : <Bot size={16} />}
+                </div>
+                <div className={`max-w-[80%] p-4 rounded-2xl shadow-sm ${
+                  m.role === 'user' 
+                    ? 'bg-brand-jade text-white rounded-tr-none' 
+                    : 'bg-white dark:bg-slate-800 text-slate-900 dark:text-white rounded-tl-none border border-slate-100 dark:border-slate-700'
+                }`}>
+                  <p className="text-sm leading-relaxed whitespace-pre-wrap">{m.content}</p>
+                </div>
+                {m.timestamp && (
+                  <div className="flex flex-col justify-end pb-1">
+                    <span className="text-[10px] text-slate-400 font-mono">{m.timestamp}</span>
+                  </div>
+                )}
+              </motion.div>
+            ))}
+          </AnimatePresence>
           {isLoading && (
             <div className="flex justify-start">
               <div className="bg-slate-100 dark:bg-slate-800 p-4 rounded-2xl rounded-tl-none">
@@ -129,12 +184,13 @@ export function ChatWidget({ embedded = false }: { embedded?: boolean }) {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyPress={(e) => e.key === 'Enter' && handleSend()}
-              placeholder="Ask about our architecture..."
-              className="flex-1 bg-slate-50 dark:bg-slate-800 border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-brand-jade transition-all"
+              placeholder={isThrottled ? "Cooling down..." : "Ask about our architecture..."}
+              disabled={isThrottled}
+              className={`flex-1 bg-slate-50 dark:bg-slate-800 border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-brand-jade transition-all ${isThrottled ? 'opacity-50 cursor-not-allowed' : ''}`}
             />
             <button
               onClick={handleSend}
-              disabled={isLoading}
+              disabled={isLoading || isThrottled}
               className="p-3 bg-brand-jade text-white rounded-xl hover:bg-[#005a62] transition-colors disabled:opacity-50 flex items-center justify-center min-w-[44px]"
             >
               {isLoading ? <Loader2 size={20} className="animate-spin" /> : <Send size={20} />}
@@ -157,40 +213,67 @@ export function ChatWidget({ embedded = false }: { embedded?: boolean }) {
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             className="fixed bottom-24 right-8 w-96 h-[500px] bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-[2rem] overflow-hidden shadow-2xl z-[100] flex flex-col"
           >
-            <div className="p-4 bg-brand-jade text-white flex justify-between items-center">
-              <div className="flex items-center gap-3">
-                <Bot size={20} aria-hidden="true" />
-                <h3 className="font-bold text-sm">APS Assistant</h3>
-              </div>
+            <div className="p-4 bg-brand-jade text-white flex justify-between items-center shadow-lg relative z-10">
               <div className="flex items-center gap-2">
+                <Bot size={18} aria-hidden="true" />
+                <h3 className="font-bold text-xs uppercase tracking-tight">APS Assistant</h3>
+              </div>
+              <div className="flex items-center gap-1">
+                <button 
+                  onClick={clearChat}
+                  className="p-1.5 hover:bg-white/20 rounded-md transition-colors"
+                  aria-label="Clear chat"
+                  title="Clear chat"
+                >
+                  <Trash2 size={14} />
+                </button>
+                <div className="w-px h-4 bg-white/20 mx-1" />
                 <button 
                   onClick={() => setIsMinimized(true)} 
-                  className="p-1 hover:bg-white/20 rounded-lg transition-colors"
+                  className="p-1.5 hover:bg-white/20 rounded-md transition-colors"
                   aria-label="Minimize chat"
                 >
-                  <Minimize2 size={16} />
+                  <Minimize2 size={14} />
                 </button>
                 <button 
                   onClick={() => setIsOpen(false)} 
-                  className="p-1 hover:bg-white/20 rounded-lg transition-colors"
+                  className="p-1.5 hover:bg-white/20 rounded-md transition-colors"
                   aria-label="Close chat"
                 >
-                  <X size={16} />
+                  <X size={14} />
                 </button>
               </div>
             </div>
-            <div className="flex-1 overflow-y-auto p-4 space-y-4 scrollbar-hide" aria-live="polite" aria-atomic="false">
-              {messages.map((m, i) => (
-                <div key={i} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                  <div className={`max-w-[85%] p-3 rounded-xl text-sm ${
-                    m.role === 'user' 
-                      ? 'bg-brand-jade text-white rounded-tr-none' 
-                      : 'bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white rounded-tl-none'
-                  }`}>
-                    {m.content}
-                  </div>
-                </div>
-              ))}
+            <div className="flex-1 overflow-y-auto p-4 space-y-6 scrollbar-hide bg-slate-50/30 dark:bg-slate-900/30" aria-live="polite" aria-atomic="false">
+              <AnimatePresence mode="popLayout">
+                {messages.map((m, i) => (
+                  <motion.div 
+                    key={`${i}-${messages.length}`}
+                    initial={{ opacity: 0, x: m.role === 'user' ? 10 : -10, y: 5 }}
+                    animate={{ opacity: 1, x: 0, y: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className={`flex gap-2 ${m.role === 'user' ? 'flex-row-reverse' : 'flex-row'}`}
+                  >
+                    <div className={`flex-shrink-0 w-6 h-6 rounded-md flex items-center justify-center mt-1 ${
+                      m.role === 'user' ? 'bg-brand-jade text-white' : 'bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-400'
+                    }`}>
+                      {m.role === 'user' ? <User size={12} /> : <Bot size={12} />}
+                    </div>
+                    <div className={`max-w-[85%] p-3 rounded-xl text-sm shadow-sm relative group ${
+                      m.role === 'user' 
+                        ? 'bg-brand-jade text-white rounded-tr-none' 
+                        : 'bg-white dark:bg-slate-800 text-slate-900 dark:text-white rounded-tl-none border border-slate-100 dark:border-slate-700'
+                    }`}>
+                      {m.content}
+                      {m.timestamp && (
+                        <div className={`absolute -bottom-5 ${m.role === 'user' ? 'right-0' : 'left-0'} opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap`}>
+                          <span className="text-[9px] text-slate-400 font-mono tracking-tighter">{m.timestamp}</span>
+                        </div>
+                      )}
+                    </div>
+                  </motion.div>
+                ))}
+              </AnimatePresence>
               {isLoading && (
                 <div className="flex justify-start">
                   <div className="bg-slate-100 dark:bg-slate-800 p-3 rounded-xl rounded-tl-none">
@@ -207,13 +290,14 @@ export function ChatWidget({ embedded = false }: { embedded?: boolean }) {
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   onKeyPress={(e) => e.key === 'Enter' && handleSend()}
-                  placeholder="Type a message..."
+                  placeholder={isThrottled ? "Wait..." : "Type a message..."}
+                  disabled={isThrottled}
                   aria-label="Chat message"
-                  className="flex-1 bg-slate-50 dark:bg-slate-800 border-none rounded-lg px-3 py-2 text-xs focus:ring-2 focus:ring-brand-jade transition-all"
+                  className={`flex-1 bg-slate-50 dark:bg-slate-800 border-none rounded-lg px-3 py-2 text-xs focus:ring-2 focus:ring-brand-jade transition-all ${isThrottled ? 'opacity-50 cursor-not-allowed' : ''}`}
                 />
                 <button
                   onClick={handleSend}
-                  disabled={isLoading}
+                  disabled={isLoading || isThrottled}
                   aria-label="Send message"
                   className="p-2 bg-brand-jade text-white rounded-lg hover:bg-[#005a62] transition-colors disabled:opacity-50 flex items-center justify-center min-w-[36px]"
                 >
