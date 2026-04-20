@@ -1,7 +1,6 @@
 import React, { lazy, Suspense, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation, useParams, Navigate } from 'react-router-dom';
 import { Layout } from './components/Layout';
-import ScrollToTop from './components/ScrollToTop';
 
 // Core Pages
 const Home = lazy(() => import('./pages/Home').then(m => ({ default: m.Home })));
@@ -88,7 +87,6 @@ function AnimatedRoutes() {
 export default function App() {
   return (
     <BrowserRouter>
-      <ScrollToTop />
       <AnimatedRoutes />
     </BrowserRouter>
   );

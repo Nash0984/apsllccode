@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { MessageSquare, X, Send, User, Bot, Loader2, Minimize2, Trash2 } from 'lucide-react';
 import { useToast } from '../context/ToastContext';
 import { getConversationalResponse } from '../services/gemini';
+import { TypingIndicator, ChatBubble } from './ui/ChatElements';
 
 const INITIAL_MESSAGES: Message[] = [
   { 
@@ -14,27 +15,7 @@ const INITIAL_MESSAGES: Message[] = [
 ];
 
 const THROTTLE_DURATION = 1500;
-
-const TypingIndicator = ({ size = 16 }: { size?: number }) => (
-  <div className="flex gap-1.5 items-center h-4 px-1" aria-hidden="true">
-    {[0, 1, 2].map((i) => (
-      <motion.div
-        key={i}
-        className="bg-brand-jade rounded-full"
-        style={{ width: size / 5, height: size / 5 }}
-        animate={{
-          opacity: [0.3, 1, 0.3]
-        }}
-        transition={{
-          duration: 1.5,
-          repeat: Infinity,
-          delay: i * 0.2,
-          ease: "easeInOut"
-        }}
-      />
-    ))}
-  </div>
-);
+const MAX_MESSAGES = 20;
 
 interface Message {
   role: 'user' | 'assistant';
@@ -93,12 +74,20 @@ export function ChatWidget({ embedded = false }: { embedded?: boolean }) {
     scrollToBottom();
   }, [messages]);
 
+  // Clear chat history on specific route changes to ensure fresh context
+  useEffect(() => {
+    const clearRoutes = ['/contact'];
+    if (clearRoutes.includes(location.pathname) && messages.length > INITIAL_MESSAGES.length) {
+      setMessages(INITIAL_MESSAGES);
+    }
+  }, [location.pathname, messages.length]);
+
   const handleSend = async () => {
     if (!input.trim() || isLoading || isThrottled) return;
 
     const timestamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
     const userMessage: Message = { role: 'user', content: input.trim(), timestamp };
-    const currentMessages = [...messages, userMessage];
+    const currentMessages = [...messages, userMessage].slice(-MAX_MESSAGES);
     
     setMessages(currentMessages);
     setInput('');
@@ -121,14 +110,14 @@ export function ChatWidget({ embedded = false }: { embedded?: boolean }) {
         role: 'assistant', 
         content: botResponse,
         timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
-      }]);
+      }].slice(-MAX_MESSAGES));
     } catch (error) {
       console.error("[CHAT WIDGET ERROR]:", error);
       showToast("Chat system connection error. Please try again or contact support.", "error");
       setMessages(prev => [...prev, { 
         role: 'assistant', 
         content: "System alert: Unable to reach the verification engine endpoint. Please try again later or contact us directly." 
-      }]);
+      }].slice(-MAX_MESSAGES));
     } finally {
       setIsLoading(false);
       setTimeout(() => {
@@ -168,30 +157,13 @@ export function ChatWidget({ embedded = false }: { embedded?: boolean }) {
         <div className="flex-1 overflow-y-auto p-6 space-y-6 scrollbar-hide bg-slate-50/50 dark:bg-slate-900/50">
           <AnimatePresence mode="popLayout">
             {messages.map((m, i) => (
-              <motion.div
+              <ChatBubble
                 key={`${i}-${messages.length}`}
-                initial={{ opacity: 0, x: m.role === 'user' ? 20 : -20, y: 10 }}
-                animate={{ opacity: 1, x: 0, y: 0 }}
-                className={`flex gap-3 ${m.role === 'user' ? 'flex-row-reverse' : 'flex-row'}`}
-              >
-                <div className={`flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center ${
-                  m.role === 'user' ? 'bg-brand-jade text-white' : 'bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-400'
-                }`}>
-                  {m.role === 'user' ? <User size={16} /> : <Bot size={16} />}
-                </div>
-                <div className={`max-w-[80%] p-4 rounded-2xl shadow-sm ${
-                  m.role === 'user' 
-                    ? 'bg-brand-jade text-white rounded-tr-none' 
-                    : 'bg-white dark:bg-slate-800 text-slate-900 dark:text-white rounded-tl-none border border-slate-100 dark:border-slate-700'
-                }`}>
-                  <p className="text-sm leading-relaxed whitespace-pre-wrap">{m.content}</p>
-                </div>
-                {m.timestamp && (
-                  <div className="flex flex-col justify-end pb-1">
-                    <span className="text-[10px] text-slate-400 font-mono">{m.timestamp}</span>
-                  </div>
-                )}
-              </motion.div>
+                role={m.role}
+                content={m.content}
+                timestamp={m.timestamp}
+                avatar={m.role === 'user' ? <User size={16} /> : <Bot size={16} />}
+              />
             ))}
           </AnimatePresence>
           {isLoading && (
@@ -275,31 +247,13 @@ export function ChatWidget({ embedded = false }: { embedded?: boolean }) {
             <div className="flex-1 overflow-y-auto p-4 space-y-6 scrollbar-hide bg-slate-50/30 dark:bg-slate-900/30" aria-live="polite" aria-atomic="false">
               <AnimatePresence mode="popLayout">
                 {messages.map((m, i) => (
-                  <motion.div 
+                  <ChatBubble
                     key={`${i}-${messages.length}`}
-                    initial={{ opacity: 0, x: m.role === 'user' ? 10 : -10, y: 5 }}
-                    animate={{ opacity: 1, x: 0, y: 0 }}
-                    transition={{ duration: 0.3 }}
-                    className={`flex gap-2 ${m.role === 'user' ? 'flex-row-reverse' : 'flex-row'}`}
-                  >
-                    <div className={`flex-shrink-0 w-6 h-6 rounded-md flex items-center justify-center mt-1 ${
-                      m.role === 'user' ? 'bg-brand-jade text-white' : 'bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-400'
-                    }`}>
-                      {m.role === 'user' ? <User size={12} /> : <Bot size={12} />}
-                    </div>
-                    <div className={`max-w-[85%] p-3 rounded-xl text-sm shadow-sm relative group ${
-                      m.role === 'user' 
-                        ? 'bg-brand-jade text-white rounded-tr-none' 
-                        : 'bg-white dark:bg-slate-800 text-slate-900 dark:text-white rounded-tl-none border border-slate-100 dark:border-slate-700'
-                    }`}>
-                      {m.content}
-                      {m.timestamp && (
-                        <div className={`absolute -bottom-5 ${m.role === 'user' ? 'right-0' : 'left-0'} opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap`}>
-                          <span className="text-[9px] text-slate-400 font-mono tracking-tighter">{m.timestamp}</span>
-                        </div>
-                      )}
-                    </div>
-                  </motion.div>
+                    role={m.role}
+                    content={m.content}
+                    timestamp={m.timestamp}
+                    avatar={m.role === 'user' ? <User size={12} /> : <Bot size={12} />}
+                  />
                 ))}
               </AnimatePresence>
               {isLoading && (

@@ -1,7 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { AnimatePresence } from 'motion/react';
 import { useTranslation } from 'react-i18next';
 import { Send, Bot, User, Loader2, ChevronRight } from 'lucide-react';
 import { trackInteraction } from '../services/analytics';
+import { TypingIndicator, ChatBubble } from './ui/ChatElements';
 
 export function ContactForm() {
   const { t } = useTranslation();
@@ -95,38 +97,33 @@ export function ContactForm() {
 
       {/* Chat History & Guided Inputs */}
       <div ref={chatScrollRef} className="flex-1 overflow-y-auto p-5 space-y-6 bg-slate-50 dark:bg-slate-900/50">
-        {messages.map((msg, idx) => (
-          <div key={idx} className="space-y-3">
-            <div className={`flex items-end gap-3 ${msg.role === 'user' ? 'flex-row-reverse' : 'flex-row'}`}>
-              
-              {/* Avatar */}
-              <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 shadow-sm ${msg.role === 'user' ? 'bg-slate-200 dark:bg-slate-700' : 'bg-slate-200 dark:bg-slate-800'}`}>
-                {msg.role === 'user' ? <User size={14} className="text-slate-600 dark:text-slate-300" /> : <Bot size={16} className="text-brand-jade dark:text-brand-jade" />}
-              </div>
+        <AnimatePresence mode="popLayout">
+          {messages.map((msg, idx) => (
+            <div key={idx} className="space-y-3">
+              <ChatBubble
+                role={msg.role === 'model' ? 'assistant' : 'user'}
+                content={msg.content}
+                avatar={msg.role === 'user' ? <User size={14} /> : <Bot size={16} />}
+              />
 
-              {/* Message Bubble */}
-              <div className={`p-4 rounded-2xl text-sm leading-relaxed max-w-[80%] shadow-sm ${msg.role === 'user' ? 'bg-brand-jade text-white rounded-br-sm' : 'bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 border border-slate-100 dark:border-slate-700 rounded-bl-sm'}`}>
-                {msg.content}
-              </div>
+              {/* Render Guided Routing Pills ONLY after the first bot message, if user hasn't interacted */}
+              {idx === 0 && !hasInteracted && !isProcessing && (
+                <div className="flex flex-col gap-2 pl-11 pr-4 animate-in fade-in slide-in-from-bottom-2 duration-500 delay-300 fill-mode-both">
+                  {intakeRoutes.map((route, i) => (
+                    <button
+                      key={i}
+                      onClick={() => processSubmit(route)}
+                      className="flex items-center justify-between w-fit max-w-full text-left px-4 py-2.5 rounded-xl border border-brand-jade/30 bg-brand-jade/5 hover:bg-brand-jade/10 text-brand-jade dark:text-teal-400 text-xs sm:text-sm font-medium transition-all group"
+                    >
+                      <span className="truncate pr-4">{route}</span>
+                      <ChevronRight size={14} className="shrink-0 opacity-50 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all" />
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
-
-            {/* Render Guided Routing Pills ONLY after the first bot message, if user hasn't interacted */}
-            {idx === 0 && !hasInteracted && !isProcessing && (
-              <div className="flex flex-col gap-2 pl-11 pr-4 animate-in fade-in slide-in-from-bottom-2 duration-500 delay-300 fill-mode-both">
-                {intakeRoutes.map((route, i) => (
-                  <button
-                    key={i}
-                    onClick={() => processSubmit(route)}
-                    className="flex items-center justify-between w-fit max-w-full text-left px-4 py-2.5 rounded-xl border border-brand-jade/30 bg-brand-jade/5 hover:bg-brand-jade/10 text-brand-jade dark:text-teal-400 text-xs sm:text-sm font-medium transition-all group"
-                  >
-                    <span className="truncate pr-4">{route}</span>
-                    <ChevronRight size={14} className="shrink-0 opacity-50 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all" />
-                  </button>
-                ))}
-              </div>
-            )}
-          </div>
-        ))}
+          ))}
+        </AnimatePresence>
 
         {isProcessing && (
           <div className="flex items-end gap-3">
@@ -134,8 +131,8 @@ export function ContactForm() {
               <Bot size={16} className="text-brand-jade" />
             </div>
             <div className="bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 px-5 py-4 rounded-2xl rounded-bl-sm shadow-sm flex items-center gap-3">
-              <Loader2 size={16} className="text-brand-jade animate-spin" />
-              <span className="text-xs text-slate-500 font-medium">Processing...</span>
+              <TypingIndicator size={16} />
+              <span className="text-xs text-slate-500 font-medium ml-2">Processing...</span>
             </div>
           </div>
         )}

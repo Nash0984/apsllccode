@@ -45,7 +45,8 @@ export function Layout() {
   // Close menu when location changes
   useEffect(() => {
     setIsMenuOpen(false);
-  }, [location]);
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
 
   // Prevent scrolling when menu is open
   useEffect(() => {
@@ -136,7 +137,7 @@ export function Layout() {
                   key={item.path} 
                   to={item.path}
                   aria-current={location.pathname === item.path ? 'page' : undefined}
-                  className="relative group py-2"
+                  className="relative group py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-jade focus-visible:ring-offset-8 rounded-sm transition-all"
                 >
                   <motion.span
                     animate={{ 
@@ -229,11 +230,11 @@ export function Layout() {
           <motion.div 
             key="mobile-nav-menu"
             id="mobile-menu"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
-            className="fixed inset-0 bg-slate-950 z-[2000] md:hidden flex flex-col"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 bg-slate-950 z-[2000] md:hidden flex flex-col will-change-[opacity]"
             role="dialog"
             aria-modal="true"
             aria-label="Mobile navigation menu"
@@ -263,16 +264,20 @@ export function Layout() {
               {navItems.map((item, i) => (
                 <motion.div
                   key={item.path}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.05 + 0.1 }}
-                  className="w-full text-center"
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ 
+                    duration: 0.2,
+                    delay: i * 0.05 + 0.1,
+                    ease: "easeOut"
+                  }}
+                  className="w-full text-center will-change-[opacity,transform]"
                 >
                   <Link 
                     to={item.path}
                     onClick={() => setIsMenuOpen(false)}
                     aria-current={location.pathname === item.path ? 'page' : undefined}
-                    className={`text-4xl font-black tracking-tighter transition-all hover:scale-105 inline-block ${
+                    className={`text-4xl font-black tracking-tighter transition-all hover:scale-105 inline-block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-jade focus-visible:ring-offset-4 rounded-xl ${
                       location.pathname === item.path 
                         ? 'text-brand-jade' 
                         : 'text-white hover:text-brand-jade'
@@ -296,7 +301,7 @@ export function Layout() {
                   setIsMenuOpen(false);
                   openBooking();
                 }}
-                className="w-full text-center py-5 bg-brand-jade text-white text-xl font-bold rounded-2xl shadow-2xl shadow-brand-jade/20"
+                className="w-full text-center py-5 bg-brand-jade text-white text-xl font-bold rounded-2xl shadow-2xl shadow-brand-jade/20 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-brand-jade/50 transition-all font-sans"
               >
                 Schedule a Session
               </button>
