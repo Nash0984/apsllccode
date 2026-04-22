@@ -54,58 +54,62 @@ export function About() {
 
   const macroEcosystems = useMemo(() => [
     {
-      id: "government",
-      title: t('about.macroEcosystems.government.title'),
-      focus: t('about.macroEcosystems.government.focus'),
-      desc: t('about.macroEcosystems.government.desc'),
+      id: "federal",
+      title: t('about.macroEcosystems.federal.title'),
+      focus: t('about.macroEcosystems.federal.focus'),
+      desc: t('about.macroEcosystems.federal.desc'),
       nodes: [
         {
-          name: t('about.macroEcosystems.government.nodes.n1.name'),
-          context: t('about.macroEcosystems.government.nodes.n1.context')
+          name: t('about.macroEcosystems.federal.nodes.n1.name'),
+          context: t('about.macroEcosystems.federal.nodes.n1.context')
         },
         {
-          name: t('about.macroEcosystems.government.nodes.n2.name'),
-          context: t('about.macroEcosystems.government.nodes.n2.context')
+          name: t('about.macroEcosystems.federal.nodes.n2.name'),
+          context: t('about.macroEcosystems.federal.nodes.n2.context')
         },
         {
-          name: t('about.macroEcosystems.government.nodes.n3.name'),
-          context: t('about.macroEcosystems.government.nodes.n3.context')
+          name: t('about.macroEcosystems.federal.nodes.n3.name'),
+          context: t('about.macroEcosystems.federal.nodes.n3.context')
         }
       ]
     },
     {
-      id: "technology",
-      title: t('about.macroEcosystems.technology.title'),
-      focus: t('about.macroEcosystems.technology.focus'),
-      desc: t('about.macroEcosystems.technology.desc'),
+      id: "state",
+      title: t('about.macroEcosystems.state.title'),
+      focus: t('about.macroEcosystems.state.focus'),
+      desc: t('about.macroEcosystems.state.desc'),
       nodes: [
         {
-          name: t('about.macroEcosystems.technology.nodes.n1.name'),
-          context: t('about.macroEcosystems.technology.nodes.n1.context')
+          name: t('about.macroEcosystems.state.nodes.n1.name'),
+          context: t('about.macroEcosystems.state.nodes.n1.context')
         },
         {
-          name: t('about.macroEcosystems.technology.nodes.n2.name'),
-          context: t('about.macroEcosystems.technology.nodes.n2.context')
+          name: t('about.macroEcosystems.state.nodes.n2.name'),
+          context: t('about.macroEcosystems.state.nodes.n2.context')
         },
         {
-          name: t('about.macroEcosystems.technology.nodes.n3.name'),
-          context: t('about.macroEcosystems.technology.nodes.n3.context')
+          name: t('about.macroEcosystems.state.nodes.n3.name'),
+          context: t('about.macroEcosystems.state.nodes.n3.context')
         }
       ]
     },
     {
-      id: "oversight",
-      title: t('about.macroEcosystems.oversight.title'),
-      focus: t('about.macroEcosystems.oversight.focus'),
-      desc: t('about.macroEcosystems.oversight.desc'),
+      id: "vendors",
+      title: t('about.macroEcosystems.vendors.title'),
+      focus: t('about.macroEcosystems.vendors.focus'),
+      desc: t('about.macroEcosystems.vendors.desc'),
       nodes: [
         {
-          name: t('about.macroEcosystems.oversight.nodes.n1.name'),
-          context: t('about.macroEcosystems.oversight.nodes.n1.context')
+          name: t('about.macroEcosystems.vendors.nodes.n1.name'),
+          context: t('about.macroEcosystems.vendors.nodes.n1.context')
         },
         {
-          name: t('about.macroEcosystems.oversight.nodes.n2.name'),
-          context: t('about.macroEcosystems.oversight.nodes.n2.context')
+          name: t('about.macroEcosystems.vendors.nodes.n2.name'),
+          context: t('about.macroEcosystems.vendors.nodes.n2.context')
+        },
+        {
+          name: t('about.macroEcosystems.vendors.nodes.n3.name'),
+          context: t('about.macroEcosystems.vendors.nodes.n3.context')
         }
       ]
     }

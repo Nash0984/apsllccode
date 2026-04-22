@@ -5,7 +5,7 @@ import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
-export function Insights() {
+export function Research() {
   const { t } = useTranslation();
   const [expandedDocs, setExpandedDocs] = useState<string[]>([]);
 
@@ -147,7 +147,7 @@ export function Insights() {
             {t('researchPage.cta.subtitle')}
           </p>
           <Link 
-            to="/field"
+            to="/prototypes"
             className="inline-flex px-8 py-4 bg-brand-jade text-white font-bold rounded-xl hover:bg-[#005a62] transition-colors items-center gap-3 shadow-xl shadow-brand-jade/20 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-slate-950 focus-visible:ring-brand-jade outline-none group"
           >
             {t('researchPage.cta.button')}

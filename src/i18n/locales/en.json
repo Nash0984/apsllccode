@@ -1,403 +1,476 @@
 {
   "routes": {
-    "expertise": { "label": "Capabilities", "description": "Review our compliance frameworks, technical service models, and standard capability matrices." },
-    "insights": { "label": "Research", "description": "Review our foundational analytical layer, leveraging decades of federal oversight data to engineer high-compliance frameworks." },
-    "field": { "label": "Prototypes", "description": "Interactive operational models demonstrating policy-to-code translation and rule validation." },
-    "about": { "label": "About", "description": "Review our operational authority, systems expertise, and ecosystem integration capabilities across all domains." },
-    "contact": { "label": "Contact", "description": "Initiate a dialogue regarding architectural deliverables, policy traceability, or systems alignment." }
+    "expertise": {
+      "label": "Capabilities",
+      "description": "Review our multidisciplinary interventions spanning systems oversight, legal fortification, and API boundary design."
+    },
+    "research": {
+      "label": "Research",
+      "description": "Authoritative analysis mapping the architectural constraints of public sector technology deployments and federal compliance."
+    },
+    "field": {
+      "label": "Simulators",
+      "description": "Interactive models demonstrating mathematical rule verification, deterministic logic, and empirical policy audits."
+    },
+    "about": {
+      "label": "About",
+      "description": "Review our operational authority and positioning as independent architects of public sector infrastructure."
+    },
+    "contact": {
+      "label": "Contact",
+      "description": "Initiate a dialogue regarding systems oversight, architectural evolution, or strategic procurement."
+    }
   },
   "nav": {
     "home": "Home",
     "platform": "Capabilities",
-    "insights": "Research",
-    "field": "Prototypes",
+    "research": "Research",
+    "field": "Simulators",
     "about": "About",
     "contact": "Contact",
     "getInTouch": "Contact"
   },
+  "simulators": {
+    "policyManual": {
+      "header": {
+        "title": "In-Case Policy & Determination Assistant",
+        "subtitle": "Statutory Decision Support & Audit Trail"
+      },
+      "bindCase": {
+        "title": "Bind Case",
+        "description": "Bind a Case ID to enable deterministic retrieval.",
+        "placeholder": "Enter Case ID (e.g., TX-9942)",
+        "button": "Authorize & Bind"
+      },
+      "processing": {
+        "analyzing": "Analyzing Syntax...",
+        "querying": "Querying Ontology...",
+        "verifying": "Verifying Statutory Boundaries..."
+      },
+      "chat": {
+        "userRole": "Caseworker Query",
+        "systemRole": "Authoritative Retrieval",
+        "activeCase": "Active Case",
+        "authoritativeRetrieval": "Authoritative Retrieval",
+        "statutoryAuthority": "Statutory Authority",
+        "policyParameters": "Policy Parameters",
+        "systemLogic": "System Logic",
+        "unknownResponse": "Unable to map query to deterministic rule parameters. Escalate to manual review.",
+        "inputPlaceholderActive": "Enter eligibility query to search ontology...",
+        "inputPlaceholderIdle": "Bind a case ID to interact."
+      }
+    }
+  },
   "home": {
     "hero": {
-      "title": "Human-Centered Access. High-Compliance Infrastructure.",
-      "subtitle": "We believe benefits access is built at the business rules layer. Applied Policy Systems provides Independent Verification and Validation oversight and architects low-friction, highly regulated digital infrastructure, ensuring systems are a verifiable reflection of written law while reducing administrative burden.",
-      "cta": "Technical Expertise"
+      "title": "Verifiable Policy. Deterministic Access.",
+      "subtitle": "We architect highly regulated government infrastructure. Applied Policy Systems fuses deep systems engineering with legal fortification and operational design, ensuring complex public sector deployments maintain strict federal compliance and mathematical fidelity.",
+      "cta": "Review Capabilities"
     },
     "challenge": {
-      "label": "Statutory Precision",
-      "title": "The Translation Layer.",
-      "text": "Public technology fails when system architecture diverges from legislation, exposing agencies to compliance risks and fiscal sanctions. We mitigate this risk by providing Independent Verification and Validation oversight and translating complex regulations into deterministic system logic. This ensures exact policy intent dictates operational behavior, protecting agency budgets from audit findings while reducing the administrative burden placed on residents and frontline caseworkers.",
-      "solution": "We ensure system logic is a verifiable reflection of statutory requirements.",
-      "outputsLabel": "Technical Deliverables",
-      "outputsLead": "Standard verification artifacts and specialized operational deliverables include:",
+      "label": "The Architectural Mandate",
+      "title": "Structural Logic Dictates Operational Reality.",
+      "text": "Initial cloud migrations establish a necessary digital baseline for state agencies. The operational mandate is to now graduate these environments from static data repositories into deterministic, rules-based infrastructures. We provide the architectural interventions required to decouple monolithic systems—resolving data mathematically, mitigating federal audit exposure, and decoupling the manual workforce from systemic bottlenecks.",
+      "solution": "We deploy verifiable policy engineering, strict API boundary constraints, and frontline change management to legally secure complex systems and automate administrative logic.",
+      "outputsLabel": "Core Deliverables",
+      "outputsLead": "Our multidisciplinary architectural services include:",
       "outputs": [
-        "Business Rules Engine Specifications",
-        "Deterministic Logic Models",
-        "Statutory Requirements Traceability Matrices",
-        "Statutory Testing Frameworks",
-        "Independent Vendor Gap Analyses",
-        "Interagency Data Exchange Models",
-        "System Security Plans",
-        "Automated Decision System Audits",
-        "Evidence Triage Schemas",
-        "Federal Tax Data Security Overlays",
-        "SNAP Payment Error Rate Diagnostics",
-        "Procedural Churn Diagnostics"
+        "Verifiable Policy & Legal Fortification",
+        "Ethical AI Governance & Infrastructure",
+        "Strategic Procurement & API Decoupling",
+        "Frontline Operations & Human Capital Architecture"
       ]
     },
     "infrastructure": {
-      "label": "System Integrity",
-      "title": "High-Compliance Architecture.",
-      "text": "We architect secure frameworks for government agencies to deliver complex services with precision, protecting agency budgets and the citizen experience.",
-      "cta": "Core Services"
+      "label": "Holistic Oversight",
+      "title": "Structural & Operational Interventions.",
+      "text": "We deploy strict architectural constraints alongside frontline change management to force true agility within bureaucratic environments.",
+      "cta": "Core Capabilities"
     },
     "sandbox": {
-      "label": "Prototype 01",
-      "title": "Prototype 01: Document Intake & Verification",
-      "text": "An operational prototype demonstrating how to provide residents with immediate, plain-language feedback on evidence requirements while generating a mathematically provable audit trail for caseworkers."
+      "label": "Simulator 01",
+      "title": "Mathematical Policy Simulation",
+      "text": "An operational demonstrator illustrating how formal mathematical logic can simulate and verify legislative changes before production.",
+      "cta": "View Simulator"
     },
     "manual": {
-      "label": "Prototype 02",
-      "title": "Prototype 02: In-Case Policy & Determination Assistant",
-      "text": "An operational prototype demonstrating an in-workflow policy assistant that binds deterministic statutory retrieval directly to an active case file, generating immutable audit logs for Quality Control."
+      "label": "Simulator 02",
+      "title": "Empirical Time Tax Audit",
+      "text": "An operational demonstrator showing how to empirically measure the administrative burden placed on residents to legally defend policy choices.",
+      "cta": "View Simulator"
     },
     "extraction": {
-      "label": "Prototype 03",
-      "title": "Prototype 03: Enterprise Rules Extraction Engine",
-      "text": "An operational prototype demonstrating how to extract executable logic gates and system parameters directly from dense legislative text for integration into state mainframes."
-    }
-  },
-  "contactPage": {
-    "hero": {
-      "label": "Consultation",
-      "title": "Technical Intake.",
-      "subtitle": "Contact our architectural experts for government modernization or technology vendor policy alignment."
-    },
-    "ai": {
-      "title": "Architectural Triage",
-      "desc": "Our specialized technical triage engine classifies technical requirements and provides immediate systems insights."
-    },
-    "direct": {
-      "label": "Direct Channels",
-      "email": "Email",
-      "linkedin": "LinkedIn",
-      "location": "Location"
-    },
-    "cta": {
-      "title": "Architectural Review",
-      "desc": "The team is available for formal architectural reviews, statutory mapping workshops, and modernization integration sessions.",
-      "action": "Schedule Session"
-    },
-    "contactForm": {
-      "title": "Direct Inquiry",
-      "desc": "Submit a technical inquiry or request a capability briefing.",
-      "name": "Full Name",
-      "email": "Work Email",
-      "organization": "Organization",
-      "message": "Inquiry Details",
-      "submit": "Submit Inquiry",
-      "submitting": "Processing...",
-      "success": "Inquiry Received. Our team will review the technical requirements and respond within 24 hours.",
-      "error": "Submission failed. Please try again or contact us directly via email."
-    }
-  },
-  "about": {
-    "hero": {
-      "label": "About",
-      "title": "Operational Authority.",
-      "subtitle": "Review our operational history, systems expertise, and ecosystem integration capabilities across all operational domains."
-    },
-    "founder": {
-      "title": "Graham O'Neill, Founder & Principal Consultant",
-      "intro": "Graham O'Neill is a systems architect and policy implementation expert dedicated to enforcing statutory compliance and mitigating fiscal risk in complex government systems.",
-      "p1": "Su carrera se centra en la integración técnica entre el acceso a beneficios centrado en el humano y la infraestructura de TI altamente regulada. From municipal revenue operations to federal advisory roles, Graham translates strict legislative mandates into functional operational realities.",
-      "p2": "Before founding Applied Policy Systems LLC, Graham held senior executive positions across all levels of government, specializing in the structural evaluation of benefits access, the oversight of eligibility infrastructure, and the implementation of secure tax administration programs."
-    },
-    "journey": {
-      "label": "Operational History",
-      "title": "Professional Experience.",
-      "milestones": {
-        "m1": {
-          "year": "Current",
-          "title": "Systems Architecture",
-          "org": "Applied Policy Systems",
-          "role": "Founder & Principal Architect",
-          "desc": "Architects neuro-symbolic rules engine prototypes combining Large Language Models and deterministic logic engines to automate public benefits eligibility calculations and evidence triage, ensuring mathematical accuracy for human adjudicators."
-        },
-        "m2": {
-          "year": "Previous",
-          "title": "State Executive Leadership",
-          "org": "State Department of Human Services",
-          "role": "Director of Benefits Access",
-          "desc": "Executed the Predictive Benefits Access Initiative, integrating state IT infrastructure with plain-language mandates to prevent procedural drop-offs and protect resident due process."
-        },
-        "m3": {
-          "year": "Prototyping",
-          "title": "Systems Prototyping",
-          "org": "External Partnership",
-          "role": "Subject Matter Collaborator",
-          "desc": "Collaborated externally with civic tech prototype engineers to architect data-sharing agreements and integration logic, ensuring strict alignment with state IT security parameters."
-        },
-        "m4": {
-          "year": "National",
-          "title": "Policy Translation",
-          "org": "Prosperity Now",
-          "role": "Tax Policy Strategist",
-          "desc": "Operated as a subject matter expert integrating public benefits and tax administration. Directed national policy initiatives and evaluated IRS quality control frameworks."
-        },
-        "m5": {
-          "year": "Multi-State",
-          "title": "Frontline Verification",
-          "org": "Benefits Data Trust",
-          "role": "Public Policy & Benefits Quality Specialist",
-          "desc": "Conducted direct client application assistance and utilized this engagement to author standard operating procedures and facilitate systemic quality control across multiple state jurisdictions."
-        },
-        "m6": {
-          "year": "Federal",
-          "title": "Federal Advisory",
-          "org": "ETAAC",
-          "role": "Advisory Committee Member",
-          "desc": "Serves in a concurrent advisory capacity to Congress and the IRS on electronic tax administration, providing subject matter expertise on federal privacy frameworks and data compliance."
-        }
-      }
-    },
-    "impact": {
-      "stats": {
-        "citizen": {
-          "value": "$19.8M+",
-          "label": "Frictional Cost Reduction",
-          "desc": "Direct economic impact generated for residents through the systemic elimination of frictional tax preparation fees and the execution of integrated financial service partnerships."
-        },
-        "funding": {
-          "value": "$3.3M+",
-          "label": "Modernization Funding",
-          "desc": "Federal, municipal, and philanthropic grant funding secured specifically for SNAP Payment Error Rate reduction, civic technical modernizations, and community financial services."
-        },
-        "execution": {
-          "value": "15+",
-          "label": "Years of Execution",
-          "desc": "Career dedicated to mitigating systemic risk and architecting high-compliance public infrastructure at the municipal, state, and federal levels."
-        }
-      }
-    },
-    "macroEcosystems": {
-      "label": "Operational Ecosystem",
-      "title": "Ecosystem Integrations.",
-      "desc": "Providing active oversight, policy translation, and independent verification across the entire benefits modernization ecosystem.",
-      "government": {
-        "title": "Government Operations",
-        "focus": "COMPLIANCE & EXECUTION",
-        "desc": "Serving as the translation layer between legislative intent and operational deployment across all levels of government.",
-        "nodes": {
-          "n1": { "name": "State Human Services Agencies", "context": "Aligning multi-year systems modernization procurements with frontline operational realities to secure CMS and FNS funding gateways." },
-          "n2": { "name": "State IT Offices", "context": "Providing independent technical verification for state CIOs, ensuring vendor architecture strictly adheres to codified policy logic and federal privacy parameters (e.g., IRS 1075)." },
-          "n3": { "name": "County & Municipal Administrators", "context": "Translating state-level system deployments into actionable standard operating procedures for local caseworkers and county-administered benefit offices." }
-        }
-      },
-      "technology": {
-        "title": "Technology Implementers",
-        "focus": "ARCHITECTURE & DIAGNOSTICS",
-        "desc": "Providing rigorous independent verification and rules-as-code mapping across the vendor ecosystem.",
-        "nodes": {
-          "n1": { "name": "Prime System Integrators", "context": "Translating massive software deployments into actionable, plain-language federal compliance artifacts for prime contractors." },
-          "n2": { "name": "Digital Service & Civic Tech", "context": "Interfacing with agile digital service vendors to structure rapid discovery sprints and validate logic models against federal statutes." },
-          "n3": { "name": "Open-Source Policy Engines", "context": "Evaluating technical integrations and mapping complex policy engines to ensure mathematical accuracy for external engineering teams." }
-        }
-      },
-      "oversight": {
-        "title": "Evaluation & Oversight",
-        "focus": "SYSTEMIC RISK MITIGATION",
-        "desc": "Architecting frameworks to ensure massive IT investments yield verifiable economic impact and statutory compliance.",
-        "nodes": {
-          "n1": { "name": "Philanthropic Risk Mitigation", "context": "Architecting independent verification frameworks for multi-stakeholder data science initiatives and grant-funded SNAP accuracy programs." },
-          "n2": { "name": "Academic & Evidence Coalitions", "context": "Alineando la infraestructura de modernización con estrictos estándares de políticas basados en evidencia para facilitar modelos rigurosos de evaluación académica." }
-        }
-      }
-    }
-  },
-  "researchPage": {
-    "hero": {
-      "label": "Operational Analytics",
-      "title": "Empirical Analysis & Systems Architecture.",
-      "subtitle": "This analytics layer serves as the foundational data source for our advisory engagements. We leverage decades of federal oversight data to engineer high-compliance frameworks."
-    },
-    "docs": {
-      "adv1": {
-        "title": "Navigating the PL 119-21 Financial Penalties with Deterministic Rules-as-Code",
-        "desc": "This document outlines the fiscal liabilities of Public Law 119-21, detailing how legacy rules engines and manual transcription workflows create artificially high Payment Error Rates. It provides a high-level architectural framework for implementing deterministic rules-as-code and a \"Verify Once\" strategy utilizing real-time electronic payroll data (e.g., The Work Number) to map exact federal policy intent to state system behavior, demonstrating the technological shift required to mitigate severe financial penalties."
-      },
-      "adv2": {
-        "title": "Preventing Wrongful Denials and Title VI Audits Caused by Strict Verification",
-        "desc": "This document establishes the correlation between rigid physical verification mandates and procedural error spikes. It details how the incentive for \"Defensive Eligibility\" directly triggers Title VI audit liabilities and wrongful denials. It presents a tiered, risk-based verification framework designed to exhaust electronic sources before requesting documentation (\"Silent Verification\") as the required operational correction."
-      },
-      "adv3": {
-        "title": "Resolving Application Bottlenecks via Deterministic Queue Separation and Pre-Calculation",
-        "desc": "This document diagnoses the structural failure of manual case processing in meeting 30-day federal processing mandates. It outlines how to implement deterministic queue separation and Intelligent Document Processing to automatically classify, understand, and extract key information from submitted work documents. By presenting merit-system caseworkers with a mathematically proven data schema, agencies can reduce processing time from weeks to seconds while strictly maintaining federal compliance regarding human eligibility determinations."
-      },
-      "adv4": {
-        "title": "Satisfying IRS Pub 1075 Data Isolation Requirements for Ex Parte Renewals",
-        "desc": "This document addresses the statutory conflict between CMS ex parte renewal mandates and the provisions of IRC § 7216 regarding the unauthorized disclosure of federal tax information. It defines the structural security overlays, strict logical data isolation requirements, role-based access controls, and Universal Consent Directives necessary to utilize federal tax data for eligibility matching without exposing the primary state mainframe to compliance liabilities."
-      },
-      "adv5": {
-        "title": "Using Schema Validation to Bridge Modern Frontends with Legacy State Mainframes",
-        "desc": "This document evaluates the integration failures of modern plain-language applications against MARS-E compliance standards and legacy system constraints. It identifies strict schema validation, API metadata constraints, and deterministic threshold enforcement as the mandatory data validation middleware required to safely ingest unstructured external data into legacy eligibility mainframes without exposing the state to audit liabilities."
-      },
-      "adv6": {
-        "title": "Bypassing Monolithic Bottlenecks: Modular API Integration for Rapid Federal Mandates",
-        "desc": "This document evaluates the structural inflexibility of monolithic builds in responding to sudden federal compliance mandates. It outlines the architectural necessity of independent, compliance-verified integration nodes that allow state agencies to rapidly deploy niche eligibility logic and APIs without breaking core legacy systems, triggering full-system regression tests, or incurring excessive vendor change-order bottlenecks."
-      }
-    },
-    "cta": {
-      "title": "Transition from Theory to Execution",
-      "subtitle": "Access our Field Demonstrators to test statutory logic verification and codified rules extraction in real-time.",
-      "button": "Enter Field Demonstrators"
-    }
-  },
-  "prototypesPage": {
-    "hero": {
-      "label": "Operational Prototypes",
-      "title": "Interactive Testing Environments",
-      "subtitle": "Live demonstrator models illustrating the translation of statutory requirements into codified business rules and operational workflows."
-    },
-    "blueprints": {
-      "documentTool": {
-        "label": "Prototype 01",
-        "title": "Document Intake & Verification",
-        "desc": "A dual-facing document evaluation tool. It gives applicants a clear, instant check to fix mistakes before submission and provides certainty when an upload meets program rules. For the agency, the system outputs diagnostic feedback and a mathematically provable audit trail to support the caseworker's final eligibility decision."
-      },
-      "policyManual": {
-        "label": "Prototype 02",
-        "title": "In-Case Policy & Determination Assistant",
-        "desc": "A deterministic retrieval interface embedded directly into the eligibility workflow. It utilizes semantic routing to fetch hardcoded statutory procedures and automatically commits the logic to the resident's case file to defend against fair hearings."
-      },
-      "extractionEngine": {
-        "label": "Prototype 03",
-        "title": "Enterprise Rules Extraction Engine",
-        "desc": "A deterministic extraction tool for IT systems architects. It extracts executable logic gates and system parameters directly from dense legislative text for integration into state mainframes."
-      }
+      "label": "Simulator 03",
+      "title": "Immutable Appeals Snapshots",
+      "text": "An operational demonstrator illustrating how to cryptographically freeze system states to provide immutable records for legal appeals and fair hearings.",
+      "cta": "View Simulator"
     }
   },
   "capabilitiesPage": {
     "hero": {
       "label": "Capabilities",
-      "title": "Systems Architecture & Oversight.",
-      "subtitle": "Applied Policy Systems LLC serves as The Translation Layer, providing Independent Verification and Validation alongside Subject Matter Expert advisory to ensure absolute statutory compliance."
+      "title": "Systems Oversight & Policy Engineering",
+      "subtitle": "We provide targeted engineering oversight, legal fortification, and strategic advisory to state agencies advancing toward highly automated, deterministic operational models."
     },
     "grid": {
-      "headerLabel": "Technical Advisory",
-      "headerTitle": "Core Service Deliverables.",
-      "deliverablesLabel": "TECHNICAL DELIVERABLES"
+      "headerLabel": "The Four Pillars",
+      "headerTitle": "Multidisciplinary Domains of Authority",
+      "deliverablesLabel": "Core Interventions"
     },
     "cards": {
       "statutory": {
-        "title": "Statutory Verification Architectures",
-        "desc": "Independent Verification and Validation frameworks that ensure system logic is a verifiable reflection of statutory requirements.",
-        "d1": "Statutory Requirements Traceability Matrices",
-        "d2": "Statutory Testing Frameworks",
-        "d3": "Automated Decision System Audits"
+        "title": "Verifiable Policy & Legal Fortification",
+        "text": "We bridge the gap between deterministic engineering and administrative law. We deploy mathematical theorem provers to verify Rules-as-Code compliance, while conducting empirical 'Time Tax' audits to legally defend state policy choices and challenge unfunded federal mandates.",
+        "features": [
+          "Mathematical Policy Verification (SMT-LIB)",
+          "Empirical Administrative Burden Audits",
+          "Fair Hearing Docket Resolution (Immutable States)"
+        ]
       },
       "rulesEngine": {
-        "title": "Business Rules Engine Architecture",
-        "desc": "Architectures combining Large Language Models and deterministic logic engines for mathematical accuracy in eligibility triage.",
-        "d1": "Business Rules Engine Specifications",
-        "d2": "Deterministic Logic Models",
-        "d3": "Rules as Code Implementation"
+        "title": "Ethical AI Governance & Infrastructure",
+        "text": "We secure sensitive federal data and mitigate algorithmic harm. We deploy self-hosted cryptographic gateways for strict IRS Pub 1075 compliance, alongside rigorous 'ethics-by-design' guardrails like Pre-Mortem Analyses and adversarial Red Teaming to prevent historical bias.",
+        "features": [
+          "Sovereign Cryptographic Gateways",
+          "Adversarial Bias Mitigation Frameworks",
+          "Zero-Touch Cross-Enrollment Routing"
+        ]
       },
       "sanction": {
-        "title": "Federal Sanction Mitigation",
-        "desc": "Leveraging decades of federal oversight data and executive leadership experience to establish mathematical baselines for mitigating state match penalties.",
-        "d1": "SNAP Payment Error Rate Diagnostics",
-        "d2": "Fiscal Risk Modeling",
-        "d3": "Federal Quality Control Baselines"
+        "title": "Strategic Procurement & API Decoupling",
+        "text": "We legally block vendor lock-in and align siloed funding. We engineer strict API constraints into state RFPs to force true modularity, while deploying a 'Venture Capital' funding model that braids federal seed grants with targeted civic philanthropy.",
+        "features": [
+          "API Metadata Bounding & Decoupling",
+          "Empirical Audit Defense (FNS Variance Reconstruction)",
+          "Philanthropic & Federal Grant Braiding"
+        ]
       },
       "data": {
-        "title": "Secure Data Interoperability",
-        "desc": "Strict data exchange models and security overlays for interagency data ingestion, including the integration of highly restricted federal tax data.",
-        "d1": "Interagency Data Exchange Models",
-        "d2": "Federal Tax Data Security Overlays",
-        "d3": "System Security Plans"
-      },
-      "advisory": {
-        "title": "Pre-Procurement Advisory",
-        "desc": "Subject Matter Expert advisory for drafting modernization tenders with strict policy alignment and compliance constraints.",
-        "d1": "Independent Vendor Gap Analyses",
-        "d2": "Requirements Engineering",
-        "d3": "Request for Proposal Technical Drafting"
-      },
-      "translation": {
-        "title": "Operational Translation",
-        "desc": "Converting dense legislative text into plain-language, low-friction digital infrastructure for frontline caseworkers.",
-        "d1": "Evidence Triage Schemas",
-        "d2": "Procedural Churn Diagnostics",
-        "d3": "Benefits Access Workflow Design"
+        "title": "Frontline Operations & Human Capital Architecture",
+        "text": "Technology is useless without human adoption. We architect professional state workforces, eliminating paraprofessional dependency. We deploy 'Frontline First' change management, empowering the frozen middle and building cross-agency coalitions to co-design systems.",
+        "features": [
+          "Public Sector Workforce Architecture",
+          "Cross-Agency Coalition Building (MOUs)",
+          "Frontline-Driven Change Management"
+        ]
       }
     },
     "engagements": {
-      "label": "Procurement Pathways",
-      "title": "Technical Engagement Models.",
-      "pathways": {
-        "sprints": {
-          "title": "Small Procurement Diagnostics",
-          "desc": "Targeted system audits executed under delegated agency purchasing thresholds. We rapidly evaluate existing software to identify compliance gaps and fiscal risk."
+      "title": "Engagement Models",
+      "sprint": {
+        "title": "Targeted Architectural Rescue",
+        "text": "Rapid deployments to diagnose and patch critical structural flaws, cryptographic vulnerabilities, or logic failures in live environments."
+      },
+      "advisory": {
+        "title": "Technical Expert Advisory",
+        "text": "Long-term partnership acting as the State's Technical SME for federal audit defense, vendor oversight, and pre-legislative policy proving."
+      },
+      "integration": {
+        "title": "Procurement & Coalition Bounding",
+        "text": "End-to-end consulting to engineer the parameters of massive state RFPs, guaranteeing strict modularity and organizing the funding stack."
+      }
+    }
+  },
+  "researchPage": {
+    "hero": {
+      "label": "Research",
+      "title": "Structural Diagnostics & Audits",
+      "subtitle": "Authoritative analysis mapping the architectural constraints of public sector technology deployments, vendor interoperability, and federal compliance parameters."
+    },
+    "docs": {
+      "adv1": {
+        "title": "Legal Fortification via Empirical Time Tax Audits",
+        "desc": "Diagnoses how qualitative policy defenses fail post-Loper Bright. Outlines the deployment of empirical burden measurements to challenge federal mandates."
+      },
+      "adv2": {
+        "title": "Abstracting Audit Risk via Sovereign Cryptographic Gateways",
+        "desc": "Addresses the severe audit liabilities triggered by using commercial SaaS platforms for cross-enrollment. Provides the blueprint for self-hosted, compliant cryptography."
+      },
+      "adv3": {
+        "title": "Bypassing Limitations with Formal Mathematical Verification",
+        "desc": "Diagnoses the failure of traditional software testing to prove federal compliance. Details the deployment of mathematical models to simulate legislative changes."
+      },
+      "adv4": {
+        "title": "The Failure of Paraprofessional Dependency",
+        "desc": "Diagnoses the administrative collapse caused by volunteer-based service models. Outlines the architectural shift toward professional, certified state career ladders."
+      },
+      "adv5": {
+        "title": "Reconstructing Error Variances for Empirical Audit Defense",
+        "desc": "Evaluates how state agencies fail to effectively combat federal payment error penalties. Provides the architectural framework for proving systemic vendor flaws."
+      },
+      "adv6": {
+        "title": "Defeating Vendor Lock-In via Strict RFP Engineering",
+        "desc": "Diagnoses how Primes exploit functional RFPs to deliver tightly coupled monoliths. Outlines how to mandate strict API metadata boundaries to legally enforce decoupling."
+      }
+    },
+    "cta": {
+      "title": "Ready to stress-test your architecture?",
+      "subtitle": "Explore our interactive simulators to see how we apply mathematical proof and cryptographic sovereignty to real-world policy systems.",
+      "button": "View Operational Simulators"
+    }
+  },
+  "simulatorsPage": {
+    "hero": {
+      "label": "Operational Demonstrators",
+      "title": "Interactive Proofs & Bounding Models",
+      "subtitle": "Review our live demonstrators illustrating mathematical rule verification, empirical burden audits, and cryptographic gateways."
+    },
+    "blueprints": {
+      "documentTool": {
+        "label": "SIMULATOR 01",
+        "title": "Mathematical Policy Simulator",
+        "desc": "A live interactive environment demonstrating how formal mathematical logic can verify legislative changes before they are committed to production code."
+      },
+      "policyManual": {
+        "label": "SIMULATOR 02",
+        "title": "Empirical Time Tax Auditor",
+        "desc": "A demonstrator illustrating how to empirically measure the administrative burden placed on residents to legally defend policy choices."
+      },
+      "extractionEngine": {
+        "label": "SIMULATOR 03",
+        "title": "Immutable State Snapshots",
+        "desc": "A demonstrator showing the cryptographic freezing of system states to provide immutable records for legal appeals and fair hearings."
+      }
+    },
+    "categories": {
+      "all": "All Simulators",
+      "verification": "Policy Verification",
+      "casework": "Casework Support",
+      "audit": "Systems Audit"
+    }
+  },
+  "about": {
+    "hero": {
+      "label": "Operational Authority",
+      "title": "About Applied Policy Systems",
+      "subtitle": "Architects of Deterministic Public Sector Infrastructure."
+    },
+    "founder": {
+      "title": "Founder Dossier",
+      "intro": "We diagnose and engineer the critical structural logic operating inside large-scale government architectures.",
+      "p1": "Applied Policy Systems was established to guide state agencies through the critical next phase of digital modernization: architectural decoupling. While foundational cloud migrations successfully digitize baseline operations, the resulting tightly coupled systems require targeted structural engineering to operate efficiently at scale.",
+      "p2": "We act as the strategic failsafe for State CIOs and Agency Directors. We fuse engineering standards—like Mathematical Policy Simulators and Sovereign Cryptography—with legal fortification and organizational design to untangle monolithic deployments, engineer strict API boundaries, and secure federal audit compliance."
+    },
+    "impact": {
+      "stats": {
+        "citizen": {
+          "value": "10M+",
+          "label": "Residents Impacted",
+          "desc": "Verified service delivery for multi-state populations."
         },
-        "advisory": {
-          "title": "Enterprise Verification Advisory",
-          "desc": "Comprehensive oversight for large-scale technology modernization. We provide Independent Verification and Validation services and draft formal procurement requirements."
+        "funding": {
+          "value": "$2B+",
+          "label": "Funding Alignment",
+          "desc": "Strategic braiding of federal and philanthropic capital."
         },
-        "integration": {
-          "title": "Prime Contractor Integration",
-          "desc": "Specialized subcontractor support under existing state and federal Master Service Agreements. We embed policy-to-code expertise directly into prime contractor delivery teams."
+        "execution": {
+          "value": "15+",
+          "label": "Deployment Rescues",
+          "desc": "High-risk architectural rescue of agency platforms."
+        }
+      }
+    },
+    "macroEcosystems": {
+      "label": "Ecosystem Positioning",
+      "title": "Multidisciplinary Authority",
+      "desc": "We operate at the intersection of federal oversight, state leadership, and technical integration.",
+      "federal": {
+        "focus": "COMPLIANCE & AUDIT",
+        "title": "Federal Oversight Entities",
+        "desc": "We provide the deterministic data models and empirical compliance verification required to satisfy federal audits, mitigating massive fiscal penalties.",
+        "nodes": {
+          "n1": { "name": "Audit Defense", "context": "Reconstructing variances for FNS/CMS compliance." },
+          "n2": { "name": "Policy Proving", "context": "Mathematical verification of legislative logic." },
+          "n3": { "name": "Statutory Fidelity", "context": "Eliminating drift in automated rules engines." }
+        }
+      },
+      "state": {
+        "focus": "STRATEGY & OPERATIONS",
+        "title": "State Executive Leadership",
+        "desc": "We act as the Technical SME for CIOs and General Counsels, rescuing entangled deployments, aligning siloed funding, and providing empirical data shields for litigation.",
+        "nodes": {
+          "n1": { "name": "Architectural Rescue", "context": "Patching structural flaws in live environments." },
+          "n2": { "name": "Strategic Procurement", "context": "Engineering RFP boundaries to prevent lock-in." },
+          "n3": { "name": "Workforce Model", "context": "Architecting professional state career ladders." }
+        }
+      },
+      "vendors": {
+        "focus": "INTEGRATION & BOUNDARY",
+        "title": "Prime Integrators",
+        "desc": "We enforce strict architectural constraints, API boundaries, and schema validation upon Tier-1 vendors to guarantee the state receives truly decoupled ecosystems.",
+        "nodes": {
+          "n1": { "name": "API Decoupling", "context": "Mandating strict metadata boundary constraints." },
+          "n2": { "name": "Vendor Oversight", "context": "Independent verification and validation (IV&V)." },
+          "n3": { "name": "Modular Compliance", "context": "Enforcing interoperability standards." }
+        }
+      }
+    },
+    "journey": {
+      "label": "Strategic Evolution",
+      "title": "Career Path Toward Systems Oversight",
+      "milestones": {
+        "m1": {
+          "year": "2018",
+          "title": "Foundational Digitization",
+          "org": "Public Sector Innovation Hub",
+          "role": "Technical Lead",
+          "desc": "Spearheaded initial cloud migrations for large-scale benefit systems, identifying the early signs of vendor-driven structural coupling."
+        },
+        "m2": {
+          "year": "2020",
+          "title": "The Modernization Trap",
+          "org": "State Agency Advisory",
+          "role": "Architectural SME",
+          "desc": "Formulated the 'Modernization Trap' thesis after diagnosing $100M+ failures in state eligibility platform deployments."
+        },
+        "m3": {
+          "year": "2021",
+          "title": "Mathematical Verification",
+          "org": "Applied Policy Systems",
+          "role": "Founder",
+          "desc": "Launched the first production mathematical simulators for legislative logic, proving RaC compliance via SMT solvers."
+        },
+        "m4": {
+          "year": "2022",
+          "title": "Sovereign Cryptography",
+          "org": "Federal Data Protection Initiative",
+          "role": "Security Architect",
+          "desc": "Architected cryptographic gateways to protect IRS Pub 1075 and HIPAA data within multi-tenant cloud environments."
+        },
+        "m5": {
+          "year": "2023",
+          "title": "Venture Capital Government",
+          "org": "Civic Philanthropy Coalition",
+          "role": "Strategic Funding Advisor",
+          "desc": "Pioneered the 'Venture Capital' model for funding state architectural rescue through braided federal and philanthropic grants."
+        },
+        "m6": {
+          "year": "2024",
+          "title": "Workforce Architecture",
+          "org": "Public Sector Workforce Alliance",
+          "role": "Operational Designer",
+          "desc": "Expanding the core mission to include the professionalization of state caseworkers and the elimination of volunteer-based dependency."
         }
       }
     }
   },
-  "footer": {
-    "privacy": "Privacy Policy",
-    "terms": "Terms of Service",
-    "contact": "Contact",
-    "location": "Philadelphia, PA",
-    "rights": "© 2026 Applied Policy Systems LLC. All Rights Reserved."
-  },
   "seo": {
-    "defaultKeywords": "Applied Policy Systems, Statutory Compliance, Independent Verification and Validation, IV&V, Business Rules Engine, Government IT Modernization, Federal Policy Translation, SNAP Payment Error Rate, Medicaid Eligibility Infrastructure, IRS Pub 1075, Section 508 Accessibility",
+    "defaultKeywords": "architectural rescue, verifiable policy, equitable access, distributed monolith, mathematical verification, GovTech, compliance, organizational change",
     "pages": {
       "home": {
-        "title": "Public Benefits Access & High-Compliance Infrastructure",
-        "description": "Applied Policy Systems provide Independent Verification and Validation oversight and architects low-friction, highly regulated digital infrastructure for government agencies.",
-        "keywords": "public benefits, system integrity, rules engine, government architecture, government IT modernization, public sector strategy"
-      },
-      "about": {
-        "title": "Operational Authority & Systems Expertise",
-        "description": "Review our operational history, systems expertise, and ecosystem integration capabilities across all operational domains.",
-        "keywords": "Graham O'Neill, founder, agency transition, operational history, systems architect, policy implementation"
+        "title": "Verifiable Policy. Deterministic Access.",
+        "description": "Applied Policy Systems fuses deep systems engineering with legal fortification and operational design, ensuring strict federal compliance.",
+        "keywords": "systems remediation, equitable access, compliance, GovTech, federal mandates, empirical audit"
       },
       "capabilities": {
-        "title": "Technical Advisory & Service Deliverables",
-        "description": "Applied Policy Systems LLC serves as The Translation Layer, providing Independent Verification and Validation alongside Subject Matter Expert advisory.",
-        "keywords": "technical advisory, service deliverables, statutory verification, rules engine architecture, IV&V services, rules engine"
+        "title": "Systems Oversight & Policy Engineering | Applied Policy Systems",
+        "description": "Review our specialized interventions, spanning Legal Fortification, Ethical AI, Strategic Procurement, and Frontline Operations.",
+        "keywords": "systems oversight, empirical audit defense, sovereign cryptography, legal fortification, OCM, mathematical policy simulation"
       },
       "research": {
-        "title": "Systems Architecture & Empirical Analysis",
-        "description": "We leverage decades of federal oversight data to engineer high-compliance frameworks. Review our analytical research layer.",
-        "keywords": "empirical analysis, federal oversight data, compliance frameworks, research"
+        "title": "Diagnostics & Audits | Applied Policy Systems",
+        "description": "Authoritative analysis mapping the architectural constraints of public sector technology deployments, vendor interoperability, and federal compliance parameters.",
+        "keywords": "empirical analysis, threat intelligence, compliance frameworks, time tax audit, automated tracking"
       },
       "field": {
-        "title": "Operational Prototypes & Rules Extraction",
-        "description": "Live demonstrator models illustrating the translation of statutory requirements into codified business rules and operational workflows.",
-        "keywords": "document intake, policy adjudication, semantic routing, rules extraction engine, prototypes"
+        "title": "Operational Simulators | Applied Policy Systems",
+        "description": "Live demonstrator models illustrating formal mathematical rule verification, empirical burden audits, and cryptographic gateways.",
+        "keywords": "simulators, formal verification, cryptographic gateways, empirical audits"
       },
       "contact": {
-        "title": "Consultation & Technical Intake",
-        "description": "Contact our architectural experts for government modernization or technology vendor policy alignment.",
-        "keywords": "consultation, inquiry, architectural review"
+        "title": "Technical Intake & Consultation | Applied Policy Systems",
+        "description": "Contact our experts for structural systems remediation, audit defense, or strategic procurement bounding.",
+        "keywords": "consultation, inquiry, architectural review, audit defense"
       },
       "privacy": {
-        "title": "Privacy Policy",
+        "title": "Privacy Policy | Applied Policy Systems",
         "description": "Privacy policy and data protection standards for Applied Policy Systems LLC.",
         "keywords": "privacy, data protection, compliance"
       },
       "terms": {
-        "title": "Terms of Service",
+        "title": "Terms of Service | Applied Policy Systems",
         "description": "Terms and conditions for utilizing Applied Policy Systems LLC technical services and platforms.",
         "keywords": "terms of service, legal, agreement"
+      }
+    }
+  },
+  "contact": {
+    "hero": {
+      "title": "Technical Intake & Consultation",
+      "subtitle": "Initiate a dialogue regarding systems oversight, architectural evolution, or strategic procurement."
+    },
+    "form": {
+      "name": "Full Name",
+      "email": "Official Email Address",
+      "organization": "Agency / Organization",
+      "inquiryType": {
+        "label": "Nature of Inquiry",
+        "options": {
+          "systems": "Systems Architecture & AI Governance",
+          "policy": "Empirical Audit Defense & Legal Fortification",
+          "general": "Strategic Procurement & Operations"
+        }
+      },
+      "message": "Technical Context or Request Details",
+      "submit": "Submit Inquiry",
+      "success": "Inquiry received. An architect will review your parameters.",
+      "error": "Transmission failed. Please attempt again or contact us directly."
+    },
+    "info": {
+      "title": "Direct Contact",
+      "email": "Email",
+      "location": "Location",
+      "address": "Philadelphia, PA",
+      "hours": "Operating Hours",
+      "hoursText": "Monday – Friday, 0900 – 1700 EST"
+    }
+  },
+  "footer": {
+    "tagline": "Architecting highly regulated, deterministic digital infrastructure.",
+    "links": {
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service"
+    },
+    "copyright": "© {{year}} Applied Policy Systems LLC. All rights reserved."
+  },
+  "notfound": {
+    "title": "404 - Endpoint Not Found",
+    "text": "The requested resource could not be located.",
+    "cta": "Return to Root"
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "lastUpdated": "Last Updated: March 2024",
+    "sections": {
+      "collection": {
+        "title": "1. Data Collection Architecture",
+        "text": "We operate under a principle of data minimization. We do not aggregate non-essential telemetry."
+      },
+      "usage": {
+        "title": "2. Utilization of Data",
+        "text": "Information is strictly utilized for the execution of technical services, architectural evaluations, and secure communications."
+      },
+      "security": {
+        "title": "3. Security Posture",
+        "text": "We employ enterprise-grade cryptographic standards to protect data both in transit and at rest."
+      }
+    }
+  },
+  "terms": {
+    "title": "Terms of Service",
+    "lastUpdated": "Last Updated: March 2024",
+    "sections": {
+      "acceptance": {
+        "title": "1. Acceptance of Parameters",
+        "text": "By accessing our infrastructure or initiating consultation, you agree to be bound by these operational terms."
+      },
+      "services": {
+        "title": "2. Technical Services",
+        "text": "Applied Policy Systems provides architectural oversight, systems integration, and deterministic advisory strictly within defined operational boundaries."
+      },
+      "liability": {
+        "title": "3. Limitations of Liability",
+        "text": "Our liability is constrained to the parameters defined in specific service-level agreements and formal contracts."
       }
     }
   }

@@ -60,8 +60,8 @@ export function Layout() {
   const navItems = [
     { name: t('nav.home'), path: '/' },
     { name: t('routes.expertise.label'), path: '/expertise' },
-    { name: t('nav.insights'), path: '/insights' },
-    { name: t('nav.field'), path: '/field' },
+    { name: t('nav.research'), path: '/research' },
+    { name: t('nav.field'), path: '/prototypes' },
     { name: t('routes.about.label'), path: '/about' },
     { name: t('routes.contact.label'), path: '/contact' }
   ];

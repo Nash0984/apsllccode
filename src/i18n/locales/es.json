@@ -1,403 +1,476 @@
 {
   "routes": {
-    "expertise": { "label": "Capacidades", "description": "Revise nuestros marcos de cumplimiento, modelos de servicios técnicos y matrices de capacidad estándar." },
-    "insights": { "label": "Investigación", "description": "Revise nuestra capa analítica fundamental, aprovechando décadas de datos de supervisión federal para diseñar marcos de alto cumplimiento." },
-    "field": { "label": "Prototipos", "description": "Modelos operativos interactivos que demuestran la traducción de políticas a código y la validación de reglas." },
-    "about": { "label": "Nosotros", "description": "Revise nuestra autoridad operativa, experiencia en sistemas y capacidades de integración de ecosistemas en todos los dominios." },
-    "contact": { "label": "Contacto", "description": "Inicie un diálogo sobre entregables arquitectónicos, trazabilidad de políticas o alineación de sistemas." }
+    "expertise": {
+      "label": "Capacidades",
+      "description": "Revise nuestras intervenciones multidisciplinarias que abarcan la supervisión de sistemas, la fortificación legal y el diseño de límites de API."
+    },
+    "research": {
+      "label": "Investigación",
+      "description": "Análisis de autoridad que mapea las restricciones arquitectónicas de las implementaciones tecnológicas del sector público y el cumplimiento federal."
+    },
+    "field": {
+      "label": "Simuladores",
+      "description": "Modelos interactivos que demuestran la verificación matemática de reglas, lógica determinista y auditorías empíricas de políticas."
+    },
+    "about": {
+      "label": "Nosotros",
+      "description": "Revise nuestra autoridad operativa y posicionamiento como arquitectos independientes de infraestructura del sector público."
+    },
+    "contact": {
+      "label": "Contacto",
+      "description": "Inicie un diálogo sobre supervisión de sistemas, evolución arquitectónica o adquisiciones estratégicas."
+    }
   },
   "nav": {
     "home": "Inicio",
     "platform": "Capacidades",
-    "insights": "Investigación",
-    "field": "Prototipos",
+    "research": "Investigación",
+    "field": "Simuladores",
     "about": "Nosotros",
     "contact": "Contacto",
     "getInTouch": "Contacto"
   },
+  "simulators": {
+    "policyManual": {
+      "header": {
+        "title": "Asistente de Política y Determinación en el Caso",
+        "subtitle": "Apoyo a Decisiones Estatutarias y Registro de Auditoría"
+      },
+      "bindCase": {
+        "title": "Vincular Caso",
+        "description": "Vincule un ID de caso para habilitar la recuperación determinista.",
+        "placeholder": "Ingrese ID de Caso (ej. TX-9942)",
+        "button": "Autorizar y Vincular"
+      },
+      "processing": {
+        "analyzing": "Analizando Sintaxis...",
+        "querying": "Consultando Ontología...",
+        "verifying": "Verificando Límites Estatutarios..."
+      },
+      "chat": {
+        "userRole": "Consulta del Trabajador",
+        "systemRole": "Recuperación de Autoridad",
+        "activeCase": "Caso Activo",
+        "authoritativeRetrieval": "Recuperación de Autoridad",
+        "statutoryAuthority": "Autoridad Estatutaria",
+        "policyParameters": "Parámetros de Política",
+        "systemLogic": "Lógica del Sistema",
+        "unknownResponse": "No se puede mapear la consulta a los parámetros de reglas deterministas. Escalar a revisión manual.",
+        "inputPlaceholderActive": "Ingrese consulta de elegibilidad para buscar en la ontología...",
+        "inputPlaceholderIdle": "Vincule un ID de caso para interactuar."
+      }
+    }
+  },
   "home": {
     "hero": {
-      "title": "Acceso Centrado en el Humano. Infraestructura de Alto Cumplimiento.",
-      "subtitle": "Creemos que el acceso a los beneficios se construye en la capa de reglas de negocio. Applied Policy Systems proporciona supervisión de Verificación y Validación Independiente y diseña infraestructura digital altamente regulada y de baja fricción, garantizando que los sistemas sean un reflejo verificable de la ley escrita mientras se reduce la carga administrativa.",
-      "cta": "Experiencia Técnica"
+      "title": "Política Verificable. Acceso Determinista.",
+      "subtitle": "Diseñamos infraestructura gubernamental altamente regulada. Applied Policy Systems fusiona ingeniería de sistemas profunda con fortificación legal y diseño operativo, asegurando que las complejas implementaciones del sector público mantengan un estricto cumplimiento federal y fidelidad matemática.",
+      "cta": "Revisar Capacidades"
     },
     "challenge": {
-      "label": "Precisión Legal",
-      "title": "La Capa de Traducción.",
-      "text": "La tecnología pública falla cuando la arquitectura del sistema diverge de la legislación, exponiendo a las agencias a riesgos de cumplimiento y sanciones fiscales. Mitigamos este riesgo proporcionando supervisión de Verificación y Validación Independiente y traduciendo regulaciones complejas a lógica de sistema determinista. Esto asegura que la intención exacta de la política dicte el comportamiento operativo, protegiendo los presupuestos de las agencias de hallazgos de auditoría mientras reduce la carga administrativa sobre los residentes y los trabajadores sociales de primera línea.",
-      "solution": "Aseguramos que la lógica del sistema sea un reflejo verificable de los requisitos legales.",
-      "outputsLabel": "Entregables Técnicos",
-      "outputsLead": "Los artefactos de verificación estándar y los entregables operativos especializados incluyen:",
+      "label": "El Mandato Arquitectónico",
+      "title": "La Lógica Estructural Dicta la Realidad Operativa.",
+      "text": "Las migraciones iniciales a la nube establecen una línea de base digital necesaria para las agencias estatales. El mandato operativo ahora es graduar estos entornos de repositorios de datos estáticos a infraestructuras deterministas basadas en reglas. Proporcionamos las intervenciones arquitectónicas necesarias para desacoplar sistemas monolíticos, resolviendo datos matemáticamente, mitigando la exposición a auditorías federales y desacoplando la fuerza laboral manual de los cuellos de botella sistémicos.",
+      "solution": "Implementamos ingeniería de políticas verificables, restricciones estrictas en los límites de API y gestión del cambio en la primera línea para asegurar legalmente sistemas complejos y automatizar la lógica administrativa.",
+      "outputsLabel": "Entregables Principales",
+      "outputsLead": "Nuestros servicios arquitectónicos multidisciplinarios incluyen:",
       "outputs": [
-        "Especificaciones del Motor de Reglas de Negocio",
-        "Modelos Lógicos Deterministas",
-        "Matrices de Trazabilidad de Requisitos Legales",
-        "Marcos de Pruebas Legales",
-        "Análisis de Brechas de Proveedores Independientes",
-        "Modelos de Intercambio de Datos Interagenciales",
-        "Planes de Seguridad del Sistema",
-        "Auditorías de Sistemas de Decisión Automatizados",
-        "Esquemas de Clasificación de Evidencia",
-        "Superposiciones de Seguridad de Datos Tributarios Federales",
-        "Diagnósticos de Tasas de Error de Pago de SNAP",
-        "Diagnósticos de Rotación Procedimental"
+        "Política Verificable y Fortificación Legal",
+        "Gobernanza de IA Ética e Infraestructura",
+        "Adquisición Estratégica y Desacoplamiento de API",
+        "Arquitectura de Operaciones de Primera Línea y Capital Humano"
       ]
     },
     "infrastructure": {
-      "label": "Integridad del Sistema",
-      "title": "Arquitectura de Alto Cumplimiento.",
-      "text": "Diseñamos marcos seguros para que las agencias gubernamentales presten servicios complejos con precisión, protegiendo los presupuestos de las agencias y la experiencia ciudadana.",
-      "cta": "Servicios Centrales"
+      "label": "Supervisión Holística",
+      "title": "Intervenciones Estructurales y Operativas.",
+      "text": "Implementamos restricciones arquitectónicas estrictas junto con la gestión del cambio en la primera línea para forzar una verdadera agilidad dentro de entornos burocráticos.",
+      "cta": "Capacidades Principales"
     },
     "sandbox": {
-      "label": "Prototipo 01",
-      "title": "Prototipo 01: Ingesta y Verificación de Documentos",
-      "text": "Un prototipo operativo que demuestra cómo proporcionar a los residentes comentarios inmediatos en lenguaje sencillo sobre los requisitos de evidencia, al tiempo que genera un registro de auditoría demostrable matemáticamente para los trabajadores sociales."
+      "label": "Simulador 01",
+      "title": "Simulación Matemática de Políticas",
+      "text": "Un demostrador operativo que ilustra cómo la lógica matemática formal puede simular y verificar cambios legislativos antes de la producción.",
+      "cta": "Ver Simulador"
     },
     "manual": {
-      "label": "Prototipo 02",
-      "title": "Prototipo 02: Asistente de Determinación y Políticas en el Caso",
-      "text": "Un prototipo operativo que demuestra un asistente de políticas integrado en el flujo de trabajo que vincula la recuperación legal determinista directamente a un archivo de caso activo, generando registros de auditoría inmutables para el Control de Calidad."
+      "label": "Simulador 02",
+      "title": "Auditoría Empírica de Impuesto de Tiempo",
+      "text": "Un demostrador operativo que muestra cómo medir empíricamente la carga administrativa impuesta a los residentes para defender legalmente las decisiones políticas.",
+      "cta": "Ver Simulador"
     },
     "extraction": {
-      "label": "Prototipo 03",
-      "title": "Prototipo 03: Motor de Extracción de Reglas Empresariales",
-      "text": "Un prototipo operativo que demuestra cómo extraer puertas lógicas ejecutables y parámetros del sistema directamente del denso texto legislativo para su integración en los mainframes estatales."
-    }
-  },
-  "contactPage": {
-    "hero": {
-      "label": "Consulta",
-      "title": "Ingreso Técnico.",
-      "subtitle": "Póngase en contacto con nuestros expertos en arquitectura para la modernización gubernamental o la alineación de políticas de proveedores de tecnología."
-    },
-    "ai": {
-      "title": "Clasificación Arquitectónica",
-      "desc": "Nuestro motor de clasificación técnica especializado clasifica los requisitos técnicos y proporciona información inmediata sobre los sistemas."
-    },
-    "direct": {
-      "label": "Canales Directos",
-      "email": "Correo",
-      "linkedin": "LinkedIn",
-      "location": "Ubicación"
-    },
-    "cta": {
-      "title": "Revisión Arquitectónica",
-      "desc": "El equipo está disponible para revisiones arquitectónicas formales, talleres de mapeo normativo y sesiones de integración de modernización.",
-      "action": "Programar Sesión"
-    },
-    "contactForm": {
-      "title": "Consulta Directa",
-      "desc": "Envíe una consulta técnica o solicite una sesión informativa de capacidades.",
-      "name": "Nombre Completo",
-      "email": "Correo Laboral",
-      "organization": "Organización",
-      "message": "Detalles de la Consulta",
-      "submit": "Enviar Consulta",
-      "submitting": "Procesando...",
-      "success": "Consulta recibida. Nuestro equipo revisará los requerimientos técnicos y responderá dentro de 24 horas.",
-      "error": "El envío falló. Intente nuevamente o contáctenos directamente por correo electrónico."
-    }
-  },
-  "about": {
-    "hero": {
-      "label": "Nosotros",
-      "title": "Autoridad Operativa.",
-      "subtitle": "Revise nuestra historia operativa, experiencia en sistemas y capacidades de integración de ecosistemas en todos los dominios operativos."
-    },
-    "founder": {
-      "title": "Graham O'Neill, Fundador y Consultor Principal",
-      "intro": "Graham O'Neill es un arquitecto de sistemas y experto en implementación de políticas dedicado a hacer cumplir el cumplimiento normativo y mitigar el riesgo fiscal en sistemas gubernamentales complejos.",
-      "p1": "Su carrera se centra en la integración técnica entre el acceso a beneficios centrado en el humano y la infraestructura de TI altamente regulada. Desde operaciones de ingresos municipales hasta roles de asesoramiento federal, Graham traduce mandatos legislativos estrictos en realidades operativas funcionales.",
-      "p2": "Antes de fundar Applied Policy Systems LLC, Graham ocupó altos cargos ejecutivos en todos los niveles del gobierno, especializándose en la evaluación estructural del acceso a beneficios, la supervisión de la infraestructura de elegibilidad y la implementación de programas seguros de administración tributaria."
-    },
-    "journey": {
-      "label": "Historia Operativa",
-      "title": "Experiencia Profesional.",
-      "milestones": {
-        "m1": {
-          "year": "Actual",
-          "title": "Arquitectura de Sistemas",
-          "org": "Applied Policy Systems",
-          "role": "Fundador y Arquitecto Principal",
-          "desc": "Diseña prototipos de motores de reglas neuro-simbólicas que combinan Modelos de Lenguaje Grande y motores lógicos deterministas para automatizar los cálculos de elegibilidad de beneficios públicos y la clasificación de evidencia, garantizando la precisión matemática para los adjudicadores humanos."
-        },
-        "m2": {
-          "year": "Anterior",
-          "title": "Liderazgo Ejecutivo Estatal",
-          "org": "Departamento Estatal de Servicios Humanos",
-          "role": "Director de Acceso a Beneficios",
-          "desc": "Ejecutó la Iniciativa de Acceso a Beneficios Predictivos, integrando la infraestructura de TI estatal con mandatos de lenguaje sencillo para prevenir deserciones procedimentales y proteger el debido proceso de los residentes."
-        },
-        "m3": {
-          "year": "Prototipado",
-          "title": "Prototipado de Sistemas",
-          "org": "Asociación Externa",
-          "role": "Colaborador en la Materia",
-          "desc": "Colaboró externamente con ingenieros de prototipos de tecnología cívica para diseñar acuerdos de intercambio de datos y lógica de integración, asegurando una estricta alineación con los parámetros de seguridad de TI estatales."
-        },
-        "m4": {
-          "year": "Nacional",
-          "title": "Traducción de Políticas",
-          "org": "Prosperity Now",
-          "role": "Estratega de Política Fiscal",
-          "desc": "Operó como experto en la materia integrando beneficios públicos y administración tributaria. Dirigió iniciativas políticas nacionales y evaluó marcos de control de calidad del IRS."
-        },
-        "m5": {
-          "year": "Multi-Estatal",
-          "title": "Verificación de Primera Línea",
-          "org": "Benefits Data Trust",
-          "role": "Especialista en Políticas Públicas y Calidad de Beneficios",
-          "desc": "Llevó a cabo asistencia directa en la solicitud de clientes y utilizó este compromiso para crear procedimientos operativos estándar y facilitar el control de calidad sistémico en múltiples jurisdicciones estatales."
-        },
-        "m6": {
-          "year": "Federal",
-          "title": "Asesoramiento Federal",
-          "org": "ETAAC",
-          "role": "Miembro del Comité Asesor",
-          "desc": "Sirve en una capacidad asesora concurrente para el Congreso y el IRS en la administración tributaria electrónica, proporcionando experiencia en la materia sobre marcos de privacidad federal y cumplimiento de datos."
-        }
-      }
-    },
-    "impact": {
-      "stats": {
-        "citizen": {
-          "value": "$19.8M+",
-          "label": "Reducción de Costos Friccionales",
-          "desc": "Impacto económico directo generado para los residentes mediante la eliminación sistémica de las tarifas de preparación de impuestos friccionales y la ejecución de asociaciones integradas de servicios financieros."
-        },
-        "funding": {
-          "value": "$3.3M+",
-          "label": "Financiación de Modernización",
-          "desc": "Subvenciones federales, municipales y filantrópicas aseguradas específicamente para la reducción de la Tasa de Error de Pago de SNAP, modernizaciones tecnológicas cívicas y servicios financieros comunitarios."
-        },
-        "execution": {
-          "value": "15+",
-          "label": "Años de Ejecución",
-          "desc": "Carrera dedicada a mitigar el riesgo sistémico y diseñar infraestructura pública de alto cumplimiento a nivel municipal, estatal y federal."
-        }
-      }
-    },
-    "macroEcosystems": {
-      "label": "Ecosistema Operativo",
-      "title": "Integraciones del Ecosistema.",
-      "desc": "Proporcionando supervisión activa, traducción de políticas y verificación independiente en todo el ecosistema de modernización de beneficios.",
-      "government": {
-        "title": "Operaciones Gubernamentales",
-        "focus": "CUMPLIMIENTO Y EJECUCIÓN",
-        "desc": "Sirviendo como capa de traducción entre la intención legislativa y el despliegue operativo en todos los niveles del gobierno.",
-        "nodes": {
-          "n1": { "name": "Agencias Estatales de Servicios Humanos", "context": "Alineando adquisiciones de modernización de sistemas de varios años con realidades operativas de primera línea para asegurar pasarelas de financiación de CMS y FNS." },
-          "n2": { "name": "Oficinas Estatales de TI", "context": "Proporcionando verificación técnica independiente para CIOs estatales, asegurando que la arquitectura del proveedor se adhiera estrictamente a la lógica de políticas codificadas y parámetros de privacidad federal (ej. IRS 1075)." },
-          "n3": { "name": "Administradores Condales y Municipales", "context": "Traduciendo despliegues de sistemas a nivel estatal en procedimientos operativos estándar procesables para trabajadores sociales locales y oficinas de beneficios administradas por el condado." }
-        }
-      },
-      "technology": {
-        "title": "Implementadores de Tecnología",
-        "focus": "ARQUITECTURA Y DIAGNÓSTICO",
-        "desc": "Proporcionando verificación independiente rigurosa y mapeo de reglas como código en todo el ecosistema de proveedores.",
-        "nodes": {
-          "n1": { "name": "Integradores de Sistemas Principales", "context": "Traduciendo implementaciones de software masivas en artefactos de cumplimiento federal procesables y en lenguaje sencillo para los contratistas principales." },
-          "n2": { "name": "Servicio Digital y Tecnología Cívica", "context": "Interactuando con proveedores ágiles de servicios digitales para estructurar sprints rápidos de descubrimiento y validar modelos lógicos frente a los estatutos federales." },
-          "n3": { "name": "Motores de Políticas de Código Abierto", "context": "Evaluando integraciones técnicas y mapeando motores de políticas complejos para garantizar la precisión matemática para equipos de ingeniería externos." }
-        }
-      },
-      "oversight": {
-        "title": "Evaluación y Supervisión",
-        "focus": "MITIGACIÓN DE RIESGOS SISTÉMICOS",
-        "desc": "Diseñando marcos para asegurar que inversiones masivas en TI produzcan impacto económico verificable y cumplimiento legal.",
-        "nodes": {
-          "n1": { "name": "Mitigación de Riesgos Filantrópicos", "context": "Diseñando marcos de verificación independiente para iniciativas de ciencia de datos multi-stakeholder y programas de precisión de SNAP financiados con subvenciones." },
-          "n2": { "name": "Coaliciones Académicas y de Evidencia", "context": "Alineando la infraestructura de modernización con estrictos estándares de políticas basados en evidencia para facilitar modelos rigurosos de evaluación académica." }
-        }
-      }
-    }
-  },
-  "researchPage": {
-    "hero": {
-      "label": "Analítica Operativa",
-      "title": "Análisis Empírico y Arquitectura de Sistemas.",
-      "subtitle": "Esta capa analítica sirve como fuente de datos fundamental para nuestros compromisos de asesoramiento. Aprovechamos décadas de datos de supervisión federal para diseñar marcos de alto cumplimiento."
-    },
-    "docs": {
-      "adv1": {
-        "title": "Navegando las Sanciones Financieras de PL 119-21 con Reglas como Código Deterministas",
-        "desc": "Este documento describe los pasivos fiscales de la Ley Pública 119-21, detallando cómo los motores de reglas heredados y los flujos de trabajo de transcripción manual crean Tasas de Error de Pago artificialmente altas. Proporciona un marco arquitectónico de alto nivel para implementar reglas como código deterministas y una estrategia de \"Verificar Una Vez\" utilizando datos electrónicos de nómina en tiempo real para mapear la intención exacta de la política federal al comportamiento del sistema estatal, demostrando el cambio tecnológico requerido para mitigar penalidades financieras severas."
-      },
-      "adv2": {
-        "title": "Previniendo Denegaciones Injustas y Auditorías del Título VI Causadas por Verificación Estricta",
-        "desc": "Este documento establece la correlación entre los mandatos estrictos de verificación física y los picos de error de procedimiento. Detalla cómo el incentivo para la \"Elegibilidad Defensiva\" desencadena directamente responsabilidades de auditoría del Título VI y denegaciones injustas. Presenta un marco de verificación escalonado y basado en riesgos diseñado para agotar las fuentes electrónicas antes de solicitar documentación (\"Verificación Silenciosa\") como la corrección operativa requerida."
-      },
-      "adv3": {
-        "title": "Resolviendo Cuellos de Botella de Solicitudes a través de Separación de Colas Determinista y Pre-Cálculo",
-        "desc": "Este documento diagnostica la falla estructural del procesamiento manual de casos para cumplir con los mandatos federales de procesamiento de 30 días. Describe cómo implementar la separación determinista de colas y el Procesamiento Inteligente de Documentos para clasificar, comprender y extraer automáticamente información clave de los documentos de trabajo presentados. Al presentar a los trabajadores sociales un esquema de datos matemáticamente probado, las agencias pueden reducir el tiempo de procesamiento de semanas a segundos manteniendo estrictamente el cumplimiento federal con respecto a las determinaciones de elegibilidad humana."
-      },
-      "adv4": {
-        "title": "Satisfaciendo los Requisitos de Aislamiento de Datos de IRS Pub 1075 para Renovaciones Ex Parte",
-        "desc": "Este documento aborda el conflicto legal entre los mandatos de renovación ex parte de CMS y las disposiciones del IRC § 7216 sobre la divulgación no autorizada de información tributaria federal. Define las superposiciones de seguridad estructural, los requisitos de aislamiento lógico de datos estrictos, los controles de acceso basados en roles y las Directivas de Consentimiento Universal necesarias para utilizar datos tributarios federales para el cruce de elegibilidad sin exponer el mainframe primario estatal a responsabilidades de cumplimiento."
-      },
-      "adv5": {
-        "title": "Uso de la Validación de Esquemas para Unir Interfaces Modernas con Mainframes Estatales Heredados",
-        "desc": "Este documento evalúa los fallos de integración de las aplicaciones modernas de lenguaje sencillo frente a los estándares de cumplimiento MARS-E y las limitaciones del sistema heredado. Identifica la validación de esquema estricta, las limitaciones de metadatos API y la aplicación determinista de umbrales como el middleware de validación de datos obligatorio requerido para ingerir de forma segura datos externos no estructurados en los mainframes de elegibilidad heredados sin exponer al estado a responsabilidades de auditoría."
-      },
-      "adv6": {
-        "title": "Evitando Cuellos de Botella Monolíticos: Integración de API Modular para Mandatos Federales Rápidos",
-        "desc": "Este documento evalúa la inflexibilidad estructural de las construcciones monolíticas para responder a mandatos repentinos de cumplimiento federal. Describe la necesidad arquitectónica de nodos de integración independientes y verificados en su cumplimiento que permitan a las agencias estatales desplegar rápidamente API y lógica de elegibilidad especializada sin romper los sistemas centrales heredados, desencadenar pruebas de regresión del sistema completo o incurrir en cuellos de botella excesivos de órdenes de cambio de proveedores."
-      }
-    },
-    "cta": {
-      "title": "Transición de la Teoría a la Ejecución",
-      "subtitle": "Acceda a nuestros Demostradores de Campo para probar la verificación lógica legal y la extracción de reglas codificadas en tiempo real.",
-      "button": "Ingresar Demostradores de Campo"
-    }
-  },
-  "prototypesPage": {
-    "hero": {
-      "label": "Prototipos Operativos",
-      "title": "Entornos de Prueba Interactivos",
-      "subtitle": "Modelos demostradores en vivo que ilustran la traducción de los requisitos legales a reglas comerciales codificadas y flujos de trabajo operativos."
-    },
-    "blueprints": {
-      "documentTool": {
-        "label": "Prototipo 01",
-        "title": "Ingesta y Verificación de Documentos",
-        "desc": "Una herramienta de evaluación de documentos de doble cara. Ofrece a los solicitantes una comprobación instantánea y clara para corregir errores antes de la presentación y proporciona certeza cuando una carga cumple las reglas del programa. Para la agencia, el sistema emite retroalimentación de diagnóstico y una pista de auditoría demostrable matemáticamente para respaldar la decisión final de elegibilidad del trabajador social."
-      },
-      "policyManual": {
-        "label": "Prototipo 02",
-        "title": "Asistente de Determinación y Políticas en el Caso",
-        "desc": "Una interfaz de recuperación determinista integrada directamente en el flujo de trabajo de elegibilidad. Utiliza enrutamiento semántico para recuperar procedimientos legales codificados y confirma automáticamente la lógica en el archivo del caso del residente para la defensa en audiencias imparciales."
-      },
-      "extractionEngine": {
-        "label": "Prototipo 03",
-        "title": "Motor de Extracción de Reglas Empresariales",
-        "desc": "Una herramienta de extracción determinista para arquitectos de sistemas de TI. Extrae puertas lógicas ejecutables y parámetros del sistema directamente del denso texto legislativo para su integración en los mainframes estatales."
-      }
+      "label": "Simulador 03",
+      "title": "Instantáneas de Apelaciones Inmutables",
+      "text": "Un demostrador operativo que ilustra cómo congelar criptográficamente los estados del sistema para proporcionar registros inmutables para apelaciones legales y audiencias justas.",
+      "cta": "Ver Simulador"
     }
   },
   "capabilitiesPage": {
     "hero": {
       "label": "Capacidades",
-      "title": "Arquitectura y Supervisión de Sistemas.",
-      "subtitle": "Applied Policy Systems LLC sirve como La Capa de Traducción, brindando Verificación y Validación Independiente junto a la asesoría de Expertos en la Materia para asegurar el cumplimiento legal absoluto."
+      "title": "Supervisión de Sistemas e Ingeniería de Políticas",
+      "subtitle": "Proporcionamos supervisión de ingeniería dirigida, fortificación legal y asesoría estratégica a agencias estatales que avanzan hacia modelos operativos deterministas y altamente automatizados."
     },
     "grid": {
-      "headerLabel": "Asesoría Técnica",
-      "headerTitle": "Entregables del Servicio Central.",
-      "deliverablesLabel": "ENTREGABLES TÉCNICOS"
+      "headerLabel": "Los Cuatro Pilares",
+      "headerTitle": "Dominios Multidisciplinarios de Autoridad",
+      "deliverablesLabel": "Intervenciones Principales"
     },
     "cards": {
       "statutory": {
-        "title": "Arquitecturas de Verificación Normativa",
-        "desc": "Marcos de Verificación y Validación Independiente que garantizan que la lógica del sistema sea un reflejo verificable de los requisitos legales.",
-        "d1": "Matrices de Trazabilidad de Requisitos Legales",
-        "d2": "Marcos de Pruebas Legales",
-        "d3": "Auditorías de Sistemas de Decisión Automatizados"
+        "title": "Política Verificable y Fortificación Legal",
+        "text": "Cerramos la brecha entre la ingeniería determinista y el derecho administrativo. Implementamos demostradores de teoremas matemáticos para verificar el cumplimiento de Reglas como Código, al tiempo que realizamos auditorías empíricas de 'Impuesto de Tiempo' para defender legalmente las decisiones políticas del estado y cuestionar los mandatos federales sin financiamiento.",
+        "features": [
+          "Verificación Matemática de Políticas (SMT-LIB)",
+          "Auditorías Empíricas de Carga Administrativa",
+          "Resolución de Expedientes de Audiencia Justa (Estados Inmutables)"
+        ]
       },
       "rulesEngine": {
-        "title": "Arquitectura del Motor de Reglas de Negocio",
-        "desc": "Arquitecturas que combinan Modelos de Lenguaje Grandes y motores de lógica determinista para una precisión matemática en la clasificación de elegibilidad.",
-        "d1": "Especificaciones del Motor de Reglas de Negocio",
-        "d2": "Modelos de Lógica Determinista",
-        "d3": "Implementación de Reglas como Código"
+        "title": "Gobernanza de IA Ética e Infraestructura",
+        "text": "Aseguramos datos federales confidenciales y mitigamos el daño algorítmico. Implementamos pasarelas criptográficas autoalojadas para el estricto cumplimiento del IRS Pub 1075, junto con rigurosas barreras de 'ética por diseño' como Análisis Pre-Mortem y Red Teaming para prevenir el sesgo histórico.",
+        "features": [
+          "Pasarelas Criptográficas Soberanas",
+          "Marcos de Mitigación de Sesgos Adversarios",
+          "Enrutamiento de Inscripción Cruzada Zero-Touch"
+        ]
       },
       "sanction": {
-        "title": "Mitigación de Sanciones Federales",
-        "desc": "Aprovechando décadas de datos de supervisión federal y experiencia de liderazgo ejecutivo para establecer líneas de base matemáticas para mitigar las sanciones de coincidencia estatal.",
-        "d1": "Diagnósticos de Tasa de Error de Pago de SNAP",
-        "d2": "Modelado de Riesgo Fiscal",
-        "d3": "Líneas de Base de Control de Calidad Federal"
+        "title": "Adquisición Estratégica y Desacoplamiento de API",
+        "text": "Bloqueamos legalmente el encierro con proveedores y alineamos los fondos aislados. Diseñamos restricciones API estrictas en las RFP estatales para forzar una verdadera modularidad, al tiempo que implementamos un modelo de financiamiento de 'Capital de Riesgo' que entrelaza subvenciones federales con filantropía cívica.",
+        "features": [
+          "Límites de Metadatos de API y Desacoplamiento",
+          "Defensa de Auditoría Empírica (Reconstrucción de Varianzas FNS)",
+          "Entrelazamiento de Subvenciones Federales y Filantrópicas"
+        ]
       },
       "data": {
-        "title": "Interoperabilidad Segura de Datos",
-        "desc": "Modelos estrictos de intercambio de datos y capas de seguridad para la ingesta de datos interinstitucionales, incluyendo la integración de datos fiscales federales altamente restringidos.",
-        "d1": "Modelos de Intercambio de Datos Interinstitucionales",
-        "d2": "Superposiciones de Seguridad de Datos Tributarios Federales",
-        "d3": "Planes de Seguridad de Sistemas"
-      },
-      "advisory": {
-        "title": "Asesoramiento Previo a la Contratación",
-        "desc": "Asesoramiento de Expertos en la Materia para la redacción de licitaciones de modernización con estricta alineación de políticas y restricciones de cumplimiento.",
-        "d1": "Análisis de Brechas de Proveedores Independientes",
-        "d2": "Ingeniería de Requisitos",
-        "d3": "Redacción Técnica de Solicitudes de Propuestas"
-      },
-      "translation": {
-        "title": "Traducción Operativa",
-        "desc": "Convertir el denso texto legislativo en infraestructura digital de baja fricción y lenguaje claro para los trabajadores sociales de primera línea.",
-        "d1": "Esquemas de Clasificación de Evidencia",
-        "d2": "Diagnósticos de Rotación de Procedimientos",
-        "d3": "Diseño de Flujos de Trabajo de Acceso a Beneficios"
+        "title": "Arquitectura de Operaciones de Primera Línea y Capital Humano",
+        "text": "La tecnología es inútil sin la adopción humana. Diseñamos fuerzas laborales estatales profesionales, eliminando la dependencia paraprofesional. Implementamos una gestión del cambio impulsada por la primera línea, empoderando a la gerencia media y construyendo coaliciones entre agencias para codiseñar sistemas.",
+        "features": [
+          "Arquitectura de la Fuerza Laboral del Sector Público",
+          "Construcción de Coaliciones Interinstitucionales (MOU)",
+          "Gestión del Cambio Impulsada por la Primera Línea"
+        ]
       }
     },
     "engagements": {
-      "label": "Vías de Contratación",
-      "title": "Modelos de Interacción Técnica.",
-      "pathways": {
-        "sprints": {
-          "title": "Diagnósticos de Adquisición Pequeña",
-          "desc": "Auditorías de sistemas dirigidas y ejecutadas bajo umbrales de compra delegados de agencias. Evaluamos rápidamente el software existente para identificar brechas de cumplimiento y riesgos fiscales."
+      "title": "Modelos de Compromiso",
+      "sprint": {
+        "title": "Rescate Arquitectónico Dirigido",
+        "text": "Despliegues rápidos para diagnosticar y reparar fallas estructurales críticas, vulnerabilidades criptográficas o fallas de lógica en entornos en vivo."
+      },
+      "advisory": {
+        "title": "Asesoría Técnica de Expertos",
+        "text": "Asociación a largo plazo actuando como Experto Técnico del Estado para la defensa de auditorías federales, supervisión de proveedores y pruebas de políticas pre-legislativas."
+      },
+      "integration": {
+        "title": "Delimitación de Adquisiciones y Coaliciones",
+        "text": "Consultoría integral para diseñar los parámetros de grandes RFP estatales, garantizando una estricta modularidad y organizando la estructura de financiamiento."
+      }
+    }
+  },
+  "researchPage": {
+    "hero": {
+      "label": "Investigación",
+      "title": "Diagnósticos Estructurales y Auditorías",
+      "subtitle": "Análisis de autoridad que mapea las restricciones arquitectónicas de las implementaciones tecnológicas del sector público, interoperabilidad de proveedores y parámetros de cumplimiento federal."
+    },
+    "docs": {
+      "adv1": {
+        "title": "Fortificación Legal a través de Auditorías Empíricas de Impuesto de Tiempo",
+        "desc": "Diagnostica cómo fallan las defensas políticas cualitativas tras el fallo Loper Bright. Describe el despliegue de mediciones de carga empíricas para desafiar los mandatos federales."
+      },
+      "adv2": {
+        "title": "Abstracción del Riesgo de Auditoría a través de Pasarelas Criptográficas Soberanas",
+        "desc": "Aborda las severas responsabilidades de auditoría desencadenadas por el uso de plataformas SaaS comerciales para la inscripción cruzada. Proporciona el plan para una criptografía compatible y autoalojada."
+      },
+      "adv3": {
+        "title": "Superar Limitaciones con Verificación Matemática Formal",
+        "desc": "Diagnostica el fracaso de las pruebas de software tradicionales para probar el cumplimiento federal. Detalla el despliegue de modelos matemáticos para simular cambios legislativos."
+      },
+      "adv4": {
+        "title": "El Fracaso de la Dependencia Paraprofesional",
+        "desc": "Diagnostica el colapso administrativo causado por modelos de servicio basados en voluntarios. Describe el cambio arquitectónico hacia carreras estatales profesionales y certificadas."
+      },
+      "adv5": {
+        "title": "Reconstrucción de Varianzas de Error para Defensa Empírica de Auditorías",
+        "desc": "Evalúa cómo las agencias estatales no logran combatir eficazmente las sanciones por errores de pago federales. Proporciona el marco para probar fallas sistémicas del proveedor."
+      },
+      "adv6": {
+        "title": "Derrotar el Bloqueo del Proveedor a través de Ingeniería de RFP Estricta",
+        "desc": "Diagnostica cómo los contratistas principales explotan las RFP funcionales para entregar monolitos acoplados. Describe cómo ordenar límites de metadatos de API estrictos para imponer legalmente el desacoplamiento."
+      }
+    },
+    "cta": {
+      "title": "¿Está listo para poner a prueba su arquitectura?",
+      "subtitle": "Explore nuestros simuladores interactivos para ver cómo aplicamos la prueba matemática y la soberanía criptográfica a los sistemas de políticas del mundo real.",
+      "button": "Ver Simuladores Operativos"
+    }
+  },
+  "simulatorsPage": {
+    "hero": {
+      "label": "Demostradores Operativos",
+      "title": "Pruebas Interactivas y Modelos de Delimitación",
+      "subtitle": "Revise nuestros demostradores en vivo que ilustran la verificación matemática de reglas, las auditorías empíricas de carga y las pasarelas criptográficas."
+    },
+    "blueprints": {
+      "documentTool": {
+        "label": "SIMULADOR 01",
+        "title": "Simulador Matemático de Políticas",
+        "desc": "Un entorno interactivo en vivo que demuestra cómo la lógica matemática formal puede verificar los cambios legislativos antes de que se envíen al código de producción."
+      },
+      "policyManual": {
+        "label": "SIMULADOR 02",
+        "title": "Auditor de Impuesto de Tiempo Empírico",
+        "desc": "Un demostrador que ilustra cómo medir empíricamente la carga administrativa impuesta a los residentes para defender legalmente las decisiones políticas."
+      },
+      "extractionEngine": {
+        "label": "SIMULADOR 03",
+        "title": "Instantáneas de Estado Inmutables",
+        "desc": "Un demostrador que muestra el congelamiento criptográfico de los estados del sistema para proporcionar registros inmutables para apelaciones legales y audiencias justas."
+      }
+    },
+    "categories": {
+      "all": "Todos los Simuladores",
+      "verification": "Verificación de Políticas",
+      "casework": "Apoyo al Trabajo de Casos",
+      "audit": "Auditoría de Sistemas"
+    }
+  },
+  "about": {
+    "hero": {
+      "label": "Autoridad Operativa",
+      "title": "Acerca de Applied Policy Systems",
+      "subtitle": "Arquitectos de Infraestructura Determinista para el Sector Público."
+    },
+    "founder": {
+      "title": "Dossier del Fundador",
+      "intro": "Diagnosticamos y diseñamos la lógica estructural crítica que opera dentro de las arquitecturas gubernamentales a gran escala.",
+      "p1": "Applied Policy Systems se estableció para guiar a las agencias estatales a través de la siguiente fase crítica de la modernización digital: el desacoplamiento arquitectónico. Si bien las migraciones iniciales a la nube digitalizan con éxito las operaciones de base, los sistemas estrechamente acoplados resultantes requieren ingeniería estructural dirigida para operar de manera eficiente a escala.",
+      "p2": "Actuamos como el seguro estratégico definitivo para los directores de agencias y CIO estatales. Fusionamos estándares de ingeniería —como simuladores de políticas matemáticas y criptografía soberana— con fortificación legal y diseño organizacional para desenredar implementaciones monolíticas, diseñar límites de API estrictos y asegurar el cumplimiento de las auditorías federales."
+    },
+    "impact": {
+      "stats": {
+        "citizen": {
+          "value": "10M+",
+          "label": "Residentes Impactados",
+          "desc": "Entrega de servicios verificada para poblaciones multiestatales."
         },
-        "advisory": {
-          "title": "Asesoramiento de Verificación Empresarial",
-          "desc": "Supervisión integral para la modernización de tecnología a gran escala. Proporcionamos servicios de Verificación y Validación Independiente y elaboramos requisitos formales de adquisición."
+        "funding": {
+          "value": "$2B+",
+          "label": "Alineación de Fondos",
+          "desc": "Combinación estratégica de capital federal y filantrópico."
         },
-        "integration": {
-          "title": "Integración del Contratista Principal",
-          "desc": "Soporte de subcontratistas especializados bajo Acuerdos de Servicios Maestros estatales y federales existentes. Integramos la experiencia de política a código directamente en los equipos de entrega de los contratistas principales."
+        "execution": {
+          "value": "15+",
+          "label": "Rescates de Implementación",
+          "desc": "Rescate arquitectónico de alto riesgo de plataformas de agencias."
+        }
+      }
+    },
+    "macroEcosystems": {
+      "label": "Posicionamiento en el Ecosistema",
+      "title": "Autoridad Multidisciplinaria",
+      "desc": "Operamos en la intersección de la supervisión federal, el liderazgo estatal e integración técnica.",
+      "federal": {
+        "focus": "CUMPLIMIENTO Y AUDITORÍA",
+        "title": "Entidades de Supervisión Federal",
+        "desc": "Proporcionamos los modelos de datos deterministas y la verificación de cumplimiento empírica necesaria para satisfacer las auditorías federales, mitigando sanciones fiscales masivas.",
+        "nodes": {
+          "n1": { "name": "Defensa de Auditoría", "context": "Reconstrucción de variaciones para el cumplimiento de FNS/CMS." },
+          "n2": { "name": "Prueba de Políticas", "context": "Verificación matemática de la lógica legislativa." },
+          "n3": { "name": "Fidelidad Estatutaria", "context": "Eliminación de desviaciones en motores de reglas automatizados." }
+        }
+      },
+      "state": {
+        "focus": "ESTRATEGIA Y OPERACIONES",
+        "title": "Liderazgo Ejecutivo Estatal",
+        "desc": "Actuamos como expertos técnicos para los CIO y los asesores jurídicos, rescatando implementaciones enredadas, alineando fondos aislados y proporcionando escudos de datos empíricos para litigios.",
+        "nodes": {
+          "n1": { "name": "Rescate Arquitectónico", "context": "Corrección de fallas estructurales en entornos reales." },
+          "n2": { "name": "Adquisición Estratégica", "context": "Ingeniería de límites en licitaciones para evitar la dependencia." },
+          "n3": { "name": "Modelo de Fuerza Laboral", "context": "Arquitectura de trayectorias profesionales estatales profesionales." }
+        }
+      },
+      "vendors": {
+        "focus": "INTEGRACIÓN Y LÍMITES",
+        "title": "Integradores Principales",
+        "desc": "Imponemos restricciones arquitectónicas estrictas, límites de API y validación de esquemas a los proveedores de Nivel 1 para garantizar que el estado reciba ecosistemas verdaderamente desacoplados.",
+        "nodes": {
+          "n1": { "name": "Desacoplamiento de API", "context": "Mandato de restricciones estrictas en los límites de metadatos." },
+          "n2": { "name": "Supervisión de Proveedores", "context": "Verificación y validación independiente (IV&V)." },
+          "n3": { "name": "Cumplimiento Modular", "context": "Cumplimiento de estándares de interoperabilidad." }
+        }
+      }
+    },
+    "journey": {
+      "label": "Evolución Estratégica",
+      "title": "Trayectoria Hacia la Supervisión de Sistemas",
+      "milestones": {
+        "m1": {
+          "year": "2018",
+          "title": "Digitalización Fundacional",
+          "org": "Centro de Innovación del Sector Público",
+          "role": "Líder Técnico",
+          "desc": "Lideró las migraciones iniciales a la nube para sistemas de beneficios a gran escala, identificando los primeros signos de acoplamiento estructural impulsado por proveedores."
+        },
+        "m2": {
+          "year": "2020",
+          "title": "La Trampa de Modernización",
+          "org": "Asesoría de Agencias Estatales",
+          "role": "Experto en Arquitectura",
+          "desc": "Formuló la tesis de la 'Trampa de Modernización' después de diagnosticar fracasos de más de $100M en despliegues de plataformas estatales."
+        },
+        "m3": {
+          "year": "2021",
+          "title": "Verificación Matemática",
+          "org": "Applied Policy Systems",
+          "role": "Fundador",
+          "desc": "Lanzó los primeros simuladores matemáticos de producción para lógica legislativa, probando el cumplimiento de RaC mediante solucionadores SMT."
+        },
+        "m4": {
+          "year": "2022",
+          "title": "Criptografía Soberana",
+          "org": "Iniciativa de Protección de Datos Federales",
+          "role": "Arquitecto de Seguridad",
+          "desc": "Arquitecturó puertas de enlace criptográficas para proteger los datos de IRS Pub 1075 y HIPAA en entornos de nube multi-inquilino."
+        },
+        "m5": {
+          "year": "2023",
+          "title": "Gobierno de Capital de Riesgo",
+          "org": "Coalición de Filantropía Cívica",
+          "role": "Asesor de Financiamiento Estratégico",
+          "desc": "Pionero en el modelo de 'Capital de Riesgo' para financiar el rescate arquitectónico estatal a través de subvenciones federales y filantrópicas combinadas."
+        },
+        "m6": {
+          "year": "2024",
+          "title": "Arquitectura de Fuerza Laboral",
+          "org": "Alianza de Fuerza Laboral del Sector Público",
+          "role": "Diseñador Operativo",
+          "desc": "Expandiendo la misión principal para incluir la profesionalización de los trabajadores estatales y la eliminación de la dependencia de voluntarios."
         }
       }
     }
   },
-  "footer": {
-    "privacy": "Política de Privacidad",
-    "terms": "Términos de Servicio",
-    "contact": "Contacto",
-    "location": "Filadelfia, PA",
-    "rights": "© 2026 Applied Policy Systems LLC. Todos los Derechos Reservados."
-  },
   "seo": {
-    "defaultKeywords": "Applied Policy Systems, Cumplimiento Normativo, Verificación y Validación Independiente, IV&V, Motor de Reglas de Negocio, Modernización de TI Gubernamental, Traducción de Políticas Federales, Tasa de Error de Pago de SNAP, Infraestructura de Elegibilidad de Medicaid, IRS Pub 1075, Accesibilidad de la Sección 508",
+    "defaultKeywords": "rescate arquitectónico, política verificable, acceso equitativo, monolito distribuido, verificación matemática, GovTech, cumplimiento, cambio organizacional",
     "pages": {
       "home": {
-        "title": "Acceso a Beneficios Públicos e Infraestructura de Alto Cumplimiento",
-        "description": "Applied Policy Systems proporciona supervisión de Verificación y Validación Independiente y diseña infraestructura digital altamente regulada y de baja fricción para agencias gubernamentales.",
-        "keywords": "beneficios públicos, integridad del sistema, motor de reglas, arquitectura gubernamental"
-      },
-      "about": {
-        "title": "Autoridad Operativa y Experiencia en Sistemas",
-        "description": "Revise nuestra historia operativa, experiencia en sistemas y capacidades de integración de ecosistemas en todos los dominios operativos.",
-        "keywords": "Graham O'Neill, fundador, transición de agencia, historia operativa"
+        "title": "Política Verificable. Acceso Determinista.",
+        "description": "Applied Policy Systems fusiona ingeniería de sistemas profunda con fortificación legal y diseño operativo, asegurando un estricto cumplimiento federal.",
+        "keywords": "remediación de sistemas, acceso equitativo, cumplimiento, GovTech, mandatos federales, auditoría empírica"
       },
       "capabilities": {
-        "title": "Asesoría Técnica y Entregables de Servicios",
-        "description": "Applied Policy Systems LLC sirve como La Capa de Traducción, brindando Verificación y Validación Independiente junto con la asesoría de Expertos en la Materia.",
-        "keywords": "asesoría técnica, entregables de servicios, verificación normativa, arquitectura de motor de reglas"
+        "title": "Supervisión de Sistemas e Ingeniería de Políticas | Applied Policy Systems",
+        "description": "Revise nuestras intervenciones especializadas, que abarcan Fortificación Legal, IA Ética, Adquisiciones Estratégicas y Operaciones de Primera Línea.",
+        "keywords": "supervisión de sistemas, defensa empírica de auditoría, criptografía soberana, fortificación legal, OCM, simulación matemática de políticas"
       },
       "research": {
-        "title": "Arquitectura de Sistemas y Análisis Empírico",
-        "description": "Aprovechamos décadas de datos de supervisión federal para diseñar marcos de alto cumplimiento. Revise nuestra capa de investigación analítica.",
-        "keywords": "análisis empírico, datos de supervisión federal, marcos de cumplimiento, investigación"
+        "title": "Diagnósticos y Auditorías | Applied Policy Systems",
+        "description": "Análisis de autoridad que mapea las restricciones arquitectónicas de las implementaciones tecnológicas del sector público, interoperabilidad de proveedores y parámetros de cumplimiento federal.",
+        "keywords": "análisis empírico, inteligencia de amenazas, marcos de cumplimiento, auditoría de impuesto de tiempo, rastreo automatizado"
       },
       "field": {
-        "title": "Prototipos Operativos y Extracción de Reglas",
-        "description": "Modelos demostradores en vivo que ilustran la traducción de requisitos legales en reglas comerciales codificadas y flujos de trabajo operativos.",
-        "keywords": "ingesta de documentos, adjudicación de políticas, enrutamiento semántico, motor de extracción de reglas, prototipos"
+        "title": "Simuladores Operativos | Applied Policy Systems",
+        "description": "Modelos de demostración en vivo que ilustran la verificación matemática formal de reglas, auditorías empíricas de carga y pasarelas criptográficas.",
+        "keywords": "simuladores, verificación formal, pasarelas criptográficas, auditorías empíricas"
       },
       "contact": {
-        "title": "Consulta e Ingreso Técnico",
-        "description": "Contacte a nuestros expertos en arquitectura para modernización gubernamental o alineación de políticas de proveedores tecnológicos.",
-        "keywords": "consulta, investigación, revisión arquitectónica"
+        "title": "Consulta e Ingreso Técnico | Applied Policy Systems",
+        "description": "Contacte a nuestros expertos para supervisión de sistemas estructurales, defensa de auditoría o delimitación de adquisiciones estratégicas.",
+        "keywords": "consulta, investigación, revisión arquitectónica, defensa de auditoría"
       },
       "privacy": {
-        "title": "Política de Privacidad",
+        "title": "Política de Privacidad | Applied Policy Systems",
         "description": "Política de privacidad y estándares de protección de datos para Applied Policy Systems LLC.",
         "keywords": "privacidad, protección de datos, cumplimiento"
       },
       "terms": {
-        "title": "Términos de Servicio",
-        "description": "Términos y condiciones para el uso de servicios técnicos y plataformas de Applied Policy Systems LLC.",
+        "title": "Términos de Servicio | Applied Policy Systems",
+        "description": "Términos y condiciones para utilizar los servicios y plataformas técnicos de Applied Policy Systems LLC.",
         "keywords": "términos de servicio, legal, acuerdo"
+      }
+    }
+  },
+  "contact": {
+    "hero": {
+      "title": "Consulta e Ingreso Técnico",
+      "subtitle": "Inicie un diálogo sobre supervisión de sistemas, evolución arquitectónica o adquisición estratégica."
+    },
+    "form": {
+      "name": "Nombre Completo",
+      "email": "Correo Electrónico Oficial",
+      "organization": "Agencia / Organización",
+      "inquiryType": {
+        "label": "Naturaleza de la Consulta",
+        "options": {
+          "systems": "Arquitectura de Sistemas y Gobernanza de IA",
+          "policy": "Defensa Empírica de Auditoría y Fortificación Legal",
+          "general": "Adquisición Estratégica y Operaciones"
+        }
+      },
+      "message": "Contexto Técnico o Detalles de la Solicitud",
+      "submit": "Enviar Consulta",
+      "success": "Consulta recibida. Un arquitecto revisará sus parámetros.",
+      "error": "Transmisión fallida. Intente nuevamente o contáctenos directamente."
+    },
+    "info": {
+      "title": "Contacto Directo",
+      "email": "Correo Electrónico",
+      "location": "Ubicación",
+      "address": "Filadelfia, PA",
+      "hours": "Horario de Atención",
+      "hoursText": "Lunes – Viernes, 0900 – 1700 EST"
+    }
+  },
+  "footer": {
+    "tagline": "Diseñando infraestructura digital determinista y altamente regulada.",
+    "links": {
+      "privacy": "Política de Privacidad",
+      "terms": "Términos de Servicio"
+    },
+    "copyright": "© {{year}} Applied Policy Systems LLC. Todos los derechos reservados."
+  },
+  "notfound": {
+    "title": "404 - Endpoint No Encontrado",
+    "text": "El recurso solicitado no pudo ser localizado.",
+    "cta": "Volver a la Raíz"
+  },
+  "privacy": {
+    "title": "Política de Privacidad",
+    "lastUpdated": "Última Actualización: Marzo 2024",
+    "sections": {
+      "collection": {
+        "title": "1. Arquitectura de Recopilación de Datos",
+        "text": "Operamos bajo el principio de minimización de datos. No agregamos telemetría no esencial."
+      },
+      "usage": {
+        "title": "2. Utilización de Datos",
+        "text": "La información se utiliza estrictamente para la ejecución de servicios técnicos, evaluaciones arquitectónicas y comunicaciones seguras."
+      },
+      "security": {
+        "title": "3. Postura de Seguridad",
+        "text": "Empleamos estándares criptográficos de nivel empresarial para proteger los datos tanto en tránsito como en reposo."
+      }
+    }
+  },
+  "terms": {
+    "title": "Términos de Servicio",
+    "lastUpdated": "Última Actualización: Marzo 2024",
+    "sections": {
+      "acceptance": {
+        "title": "1. Aceptación de Parámetros",
+        "text": "Al acceder a nuestra infraestructura o iniciar una consulta, acepta regirse por estos términos operativos."
+      },
+      "services": {
+        "title": "2. Servicios Técnicos",
+        "text": "Applied Policy Systems proporciona supervisión arquitectónica, integración de sistemas y asesoramiento determinista estrictamente dentro de los límites operativos definidos."
+      },
+      "liability": {
+        "title": "3. Limitaciones de Responsabilidad",
+        "text": "Nuestra responsabilidad se limita a los parámetros definidos en los acuerdos de nivel de servicio específicos y contratos formales."
       }
     }
   }

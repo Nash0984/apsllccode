@@ -7,19 +7,17 @@ const Home = lazy(() => import('./pages/Home').then(m => ({ default: m.Home })))
 const About = lazy(() => import('./pages/About').then(m => ({ default: m.About })));
 const Contact = lazy(() => import('./pages/Contact').then(m => ({ default: m.Contact })));
 const Capabilities = lazy(() => import('./pages/Capabilities').then(m => ({ default: m.Capabilities })));
-const Insights = lazy(() => import('./pages/Research').then(m => ({ default: m.Insights })));
-const Field = lazy(() => import('./pages/Field').then(m => ({ default: m.Field })));
+const Research = lazy(() => import('./pages/ResearchPage.tsx').then(m => ({ default: m.Research })));
+const Simulators = lazy(() => import('./pages/Simulators').then(m => ({ default: m.Simulators })));
 const Privacy = lazy(() => import('./pages/Privacy').then(m => ({ default: m.Privacy })));
 const Terms = lazy(() => import('./pages/Terms').then(m => ({ default: m.Terms })));
 
 // Dynamic Capability Loader
 const CapabilityMap: Record<string, React.LazyExoticComponent<any>> = {
-  'verifiable-payloads': lazy(() => import('./pages/capabilities/VerifiablePayloads')),
-  'hybrid-engine': lazy(() => import('./pages/capabilities/HybridEngine')),
-  'payment-error-rate': lazy(() => import('./pages/capabilities/Per')),
-  'glassbox-integration': lazy(() => import('./pages/capabilities/Glassbox')),
-  'pre-procurement': lazy(() => import('./pages/capabilities/PreProcurement')),
-  'operational-translation': lazy(() => import('./pages/capabilities/OperationalTranslation')),
+  'verifiable-policy-legal-fortification': lazy(() => import('./pages/capabilities/VerifiablePolicyLegalFortification')),
+  'ethical-ai-governance-infrastructure': lazy(() => import('./pages/capabilities/EthicalAIGovernanceInfrastructure')),
+  'strategic-procurement-alignment': lazy(() => import('./pages/capabilities/StrategicProcurementAlignment')),
+  'frontline-operations-human-capital': lazy(() => import('./pages/capabilities/FrontlineOperationsHumanCapital')),
 };
 
 const DynamicCapability = () => {
@@ -39,7 +37,8 @@ const prefetchMap: Record<string, () => Promise<any>> = {
   '/about': () => import('./pages/About'),
   '/contact': () => import('./pages/Contact'),
   '/capabilities': () => import('./pages/Capabilities'),
-  '/insights': () => import('./pages/Research'),
+  '/research': () => import('./pages/ResearchPage.tsx'),
+  '/prototypes': () => import('./pages/Simulators'),
 };
 
 function AnimatedRoutes() {
@@ -72,8 +71,10 @@ function AnimatedRoutes() {
           <Route path="capabilities" element={<Capabilities />} />
           <Route path="capabilities/:slug" element={<DynamicCapability />} />
 
-          <Route path="insights" element={<Insights />} />
-          <Route path="field" element={<Field />} />
+          <Route path="research" element={<Research />} />
+          <Route path="insights" element={<Navigate to="/research" replace />} />
+          <Route path="prototypes" element={<Simulators />} />
+          <Route path="field" element={<Navigate to="/prototypes" replace />} />
           
           <Route path="contact" element={<Contact />} />
           <Route path="privacy" element={<Privacy />} />

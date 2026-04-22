@@ -34,15 +34,30 @@ export function Home() {
     }
   ], [t]);
 
+  const heroTitle = t('home.hero.title');
+  const heroSubtitle = t('home.hero.subtitle');
+
   return (
     <>
       <Helmet>
         <title>Applied Policy Systems | {t('seo.pages.home.title')}</title>
         <meta name="description" content={t('seo.pages.home.description')} />
         <meta name="keywords" content={`${t('seo.pages.home.keywords')}, ${t('seo.defaultKeywords')}`} />
-        <meta property="og:title" content={`Applied Policy Systems | ${t('seo.pages.home.title')}`} />
-        <meta property="og:description" content={t('seo.pages.home.description')} />
+        
+        {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
+        <meta property="og:url" content={window.location.origin} />
+        <meta property="og:title" content={`Applied Policy Systems | ${heroTitle}`} />
+        <meta property="og:description" content={heroSubtitle} />
+        <meta property="og:image" content={`${window.location.origin}/logo.svg`} />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content={window.location.origin} />
+        <meta name="twitter:title" content={`Applied Policy Systems | ${heroTitle}`} />
+        <meta name="twitter:description" content={heroSubtitle} />
+        <meta name="twitter:image" content={`${window.location.origin}/logo.svg`} />
+
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -67,30 +82,38 @@ export function Home() {
             ],
             "hasOfferCatalog": {
               "@type": "OfferCatalog",
-              "name": "Modernization Services",
+              "name": "Multidisciplinary Domains of Authority",
               "itemListElement": [
                 {
                   "@type": "Offer",
                   "itemOffered": {
                     "@type": "Service",
-                    "name": "Independent Verification and Validation (IV&V)",
-                    "description": "Architecting high-compliance digital infrastructure to ensure systems are a verifiable reflection of written law."
+                    "name": "Verifiable Policy & Legal Fortification",
+                    "description": "Bridging deterministic engineering and administrative law via mathematical provers and empirical Time Tax audits."
                   }
                 },
                 {
                   "@type": "Offer",
                   "itemOffered": {
                     "@type": "Service",
-                    "name": "Policy-to-Code Translation",
-                    "description": "Translating complex legislative requirements into deterministic business rules and system logic."
+                    "name": "Ethical AI Governance & Infrastructure",
+                    "description": "Securing sensitive federal data via sovereign cryptography and deploying adversarial bias mitigation frameworks."
                   }
                 },
                 {
                   "@type": "Offer",
                   "itemOffered": {
                     "@type": "Service",
-                    "name": "Modernization Advisory",
-                    "description": "Strategic guidance on interagency data exchange, security overlays, and automated decision system audits."
+                    "name": "Strategic Procurement & Funding Alignment",
+                    "description": "Engineering strict API constraints into RFPs and braiding federal seed grants with civic philanthropy."
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Frontline Operations & Human Capital",
+                    "description": "Architecting professional state workforces and deploying frontline-driven change management."
                   }
                 }
               ]
@@ -127,7 +150,7 @@ export function Home() {
               <div className="flex flex-wrap justify-center lg:justify-start gap-6">
                 <Link 
                   to="/capabilities" 
-                  aria-label="View our technical capabilities"
+                  aria-label="View our capabilities"
                   className="w-full sm:w-auto px-8 sm:px-12 py-5 sm:py-6 bg-brand-jade text-white text-lg sm:text-xl font-bold rounded-2xl hover:bg-[#005a62] hover:scale-[1.02] transition-all shadow-2xl shadow-brand-jade/30 flex items-center justify-center gap-4 group"
                 >
                   {t('home.hero.cta')}

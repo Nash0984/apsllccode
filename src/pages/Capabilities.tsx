@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
 import { Helmet } from 'react-helmet-async';
-import { Shield, Network, LineChart, Database, FileText, BookOpen, ArrowUpRight } from 'lucide-react';
+import { Scale, ShieldCheck, Landmark, Users, ArrowUpRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
@@ -10,70 +10,32 @@ export function Capabilities() {
 
   const capabilities = useMemo(() => [
     {
-      slug: 'verifiable-payloads',
-      icon: <Shield size={24} />,
+      slug: 'verifiable-policy-legal-fortification',
+      icon: <Scale size={28} strokeWidth={1.5} />,
       title: t('capabilitiesPage.cards.statutory.title'),
-      desc: t('capabilitiesPage.cards.statutory.desc'),
-      deliverables: [
-        t('capabilitiesPage.cards.statutory.d1'),
-        t('capabilitiesPage.cards.statutory.d2'),
-        t('capabilitiesPage.cards.statutory.d3')
-      ]
+      desc: t('capabilitiesPage.cards.statutory.text'),
+      deliverables: t('capabilitiesPage.cards.statutory.features', { returnObjects: true }) as string[]
     },
     {
-      slug: 'hybrid-engine',
-      icon: <Network size={24} />,
+      slug: 'ethical-ai-governance-infrastructure',
+      icon: <ShieldCheck size={28} strokeWidth={1.5} />,
       title: t('capabilitiesPage.cards.rulesEngine.title'),
-      desc: t('capabilitiesPage.cards.rulesEngine.desc'),
-      deliverables: [
-        t('capabilitiesPage.cards.rulesEngine.d1'),
-        t('capabilitiesPage.cards.rulesEngine.d2'),
-        t('capabilitiesPage.cards.rulesEngine.d3')
-      ]
+      desc: t('capabilitiesPage.cards.rulesEngine.text'),
+      deliverables: t('capabilitiesPage.cards.rulesEngine.features', { returnObjects: true }) as string[]
     },
     {
-      slug: 'payment-error-rate',
-      icon: <LineChart size={24} />,
+      slug: 'strategic-procurement-alignment',
+      icon: <Landmark size={28} strokeWidth={1.5} />,
       title: t('capabilitiesPage.cards.sanction.title'),
-      desc: t('capabilitiesPage.cards.sanction.desc'),
-      deliverables: [
-        t('capabilitiesPage.cards.sanction.d1'),
-        t('capabilitiesPage.cards.sanction.d2'),
-        t('capabilitiesPage.cards.sanction.d3')
-      ]
+      desc: t('capabilitiesPage.cards.sanction.text'),
+      deliverables: t('capabilitiesPage.cards.sanction.features', { returnObjects: true }) as string[]
     },
     {
-      slug: 'glassbox-integration',
-      icon: <Database size={24} />,
+      slug: 'frontline-operations-human-capital',
+      icon: <Users size={28} strokeWidth={1.5} />,
       title: t('capabilitiesPage.cards.data.title'),
-      desc: t('capabilitiesPage.cards.data.desc'),
-      deliverables: [
-        t('capabilitiesPage.cards.data.d1'),
-        t('capabilitiesPage.cards.data.d2'),
-        t('capabilitiesPage.cards.data.d3')
-      ]
-    },
-    {
-      slug: 'pre-procurement',
-      icon: <FileText size={24} />,
-      title: t('capabilitiesPage.cards.advisory.title'),
-      desc: t('capabilitiesPage.cards.advisory.desc'),
-      deliverables: [
-        t('capabilitiesPage.cards.advisory.d1'),
-        t('capabilitiesPage.cards.advisory.d2'),
-        t('capabilitiesPage.cards.advisory.d3')
-      ]
-    },
-    {
-      slug: 'operational-translation',
-      icon: <BookOpen size={24} />,
-      title: t('capabilitiesPage.cards.translation.title'),
-      desc: t('capabilitiesPage.cards.translation.desc'),
-      deliverables: [
-        t('capabilitiesPage.cards.translation.d1'),
-        t('capabilitiesPage.cards.translation.d2'),
-        t('capabilitiesPage.cards.translation.d3')
-      ]
+      desc: t('capabilitiesPage.cards.data.text'),
+      deliverables: t('capabilitiesPage.cards.data.features', { returnObjects: true }) as string[]
     }
   ], [t]);
 
@@ -93,7 +55,7 @@ export function Capabilities() {
         <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-jade/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/4 pointer-events-none" />
         <div className="container-wide relative">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="max-w-4xl">
-            <h1 className="label-uppercase mb-6">{t('capabilitiesPage.hero.label')}</h1>
+            <h1 className="label-uppercase mb-6">{t('capabilitiesPage.hero.label', 'Capabilities')}</h1>
             <h2 id="capabilities-hero-title" className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight mb-8 text-slate-900 dark:text-white">
               {t('capabilitiesPage.hero.title')}
             </h2>
@@ -104,17 +66,17 @@ export function Capabilities() {
         </div>
       </section>
 
-      {/* Grid Section */}
+      {/* Grid Section - Updated to 2x2 for the 4 Pillars */}
       <section className="section-padding bg-slate-50 dark:bg-slate-900" aria-labelledby="grid-header-title">
         <div className="container-wide">
-          <div className="mb-16">
-            <h3 className="label-uppercase mb-4">{t('capabilitiesPage.grid.headerLabel')}</h3>
+          <div className="mb-16 text-center md:text-left">
+            <h3 className="label-uppercase mb-4">{t('capabilitiesPage.grid.headerLabel', 'The Four Pillars')}</h3>
             <h2 id="grid-header-title" className="text-3xl md:text-4xl font-black tracking-tight text-slate-900 dark:text-white">
-              {t('capabilitiesPage.grid.headerTitle')}
+              {t('capabilitiesPage.grid.headerTitle', 'Multidisciplinary Domains of Authority')}
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
             {capabilities.map((cap, i) => (
               <motion.div 
                 key={i} 
@@ -128,36 +90,36 @@ export function Capabilities() {
                   <Link 
                     to={`/capabilities/${cap.slug}`}
                     aria-labelledby={`cap-title-${i}`}
-                    className="block h-full bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl p-8 hover:border-brand-jade dark:hover:border-brand-jade transition-all shadow-sm hover:shadow-md group relative focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-jade focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-900"
+                    className="block h-full bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-3xl p-10 hover:border-brand-jade dark:hover:border-brand-jade transition-all shadow-sm hover:shadow-xl group relative focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-jade focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-900"
                   >
-                    <div className="absolute top-8 right-8 text-brand-jade opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-                      <ArrowUpRight size={24} aria-hidden="true" />
+                    <div className="absolute top-10 right-10 text-brand-jade opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+                      <ArrowUpRight size={28} aria-hidden="true" />
                     </div>
 
-                    <div className="text-brand-jade mb-6" aria-hidden="true">
+                    <div className="text-brand-jade mb-8" aria-hidden="true">
                       {cap.icon}
                     </div>
-                    <h4 id={`cap-title-${i}`} className="text-2xl font-bold mb-4 text-slate-900 dark:text-white">{cap.title}</h4>
-                  <p className="text-slate-600 dark:text-slate-400 mb-8 leading-relaxed text-sm">
-                    {cap.desc}
-                  </p>
+                    <h4 id={`cap-title-${i}`} className="text-2xl md:text-3xl font-black mb-5 text-slate-900 dark:text-white tracking-tight">{cap.title}</h4>
+                    <p className="text-slate-600 dark:text-slate-400 mb-10 leading-relaxed text-base md:text-lg">
+                      {cap.desc}
+                    </p>
 
-                  <div className="border-t border-slate-100 dark:border-slate-800 pt-6">
-                    <div className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-4">
-                       {t('capabilitiesPage.grid.deliverablesLabel')}
+                    <div className="border-t border-slate-100 dark:border-slate-800 pt-8 mt-auto">
+                      <div className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-6">
+                         {t('capabilitiesPage.grid.deliverablesLabel', 'Core Interventions')}
+                      </div>
+                      <ul className="space-y-4">
+                         {Array.isArray(cap.deliverables) && cap.deliverables.map((item, j) => (
+                            <li key={j} className="flex items-start gap-4 text-base font-medium text-slate-700 dark:text-slate-300">
+                               <div className="w-2 h-2 rounded-full bg-brand-jade mt-2 shrink-0 transition-transform group-hover:scale-125 group-hover:shadow-[0_0_8px_rgba(0,90,98,0.5)]" />
+                               {item}
+                            </li>
+                         ))}
+                      </ul>
                     </div>
-                    <ul className="space-y-3">
-                       {cap.deliverables.map((item, j) => (
-                          <li key={j} className="flex items-start gap-3 text-sm text-slate-700 dark:text-slate-300">
-                             <div className="w-1.5 h-1.5 rounded-full bg-brand-jade mt-1.5 shrink-0 transition-transform group-hover:scale-125" />
-                             {item}
-                          </li>
-                       ))}
-                    </ul>
-                  </div>
-                </Link>
-              </article>
-            </motion.div>
+                  </Link>
+                </article>
+              </motion.div>
             ))}
           </div>
         </div>

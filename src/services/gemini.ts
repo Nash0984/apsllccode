@@ -1,5 +1,5 @@
 import { GoogleGenAI, Type } from "@google/genai";
-import { VERIFICATION_RULES, PERSONA_INSTRUCTIONS } from "../config/ontology";
+import { VERIFICATION_RULES, PERSONA_INSTRUCTIONS, STATE_RULES_ONTOLOGY } from "../config/ontology";
 
 const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
@@ -90,17 +90,20 @@ export async function evaluateDocument(
 
 export async function routePolicyQuery(
   userMessage: string,
-  availableNodes: string
+  availableNodes?: string
 ) {
   const requestId = `ROUTE-${Math.random().toString(36).substring(7)}`;
   
+  // Use provided nodes or extract from ontology if not provided
+  const nodes = availableNodes || Object.keys(STATE_RULES_ONTOLOGY).join(", ");
+
   const routingPrompt = `
     [SYSTEM OVERRIDE: NEURAL ROUTING LAYER]
     You are a semantic router for a state benefits ontology. 
-    Available Rule Nodes: ${availableNodes}.
+    Available Rule Nodes: ${nodes}.
     User Query: "${userMessage}"
-    Identify the single most applicable Rule Node for this query. 
-    Output ONLY the exact Rule Node string. If no match is found, output "UNKNOWN".
+    Identify the single most applicable Rule Node for this query from the available list. 
+    Output ONLY the exact Rule Node ID (e.g., "SNAP-INC-05"). If no match is found, output "UNKNOWN".
   `;
 
   try {
