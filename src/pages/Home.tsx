@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import { useMemo } from 'react';
+import { TimeTaxChart } from '../components/TimeTaxChart';
 
 export function Home() {
   const { t } = useTranslation();
@@ -177,10 +178,13 @@ export function Home() {
             </div>
             
             <div className="relative p-8 sm:p-10 bg-brand-jade text-white rounded-[2rem] shadow-xl">
-              <p className="font-medium italic leading-relaxed text-lg sm:text-xl">
+              <p className="font-medium italic leading-relaxed text-lg sm:text-xl mb-8">
                 {t('home.challenge.solution')}
               </p>
-              <hr className="my-6 border-white/20" />
+
+              <TimeTaxChart />
+
+              <hr className="my-8 border-white/20" />
               <h4 className="text-sm font-bold tracking-widest mb-2 opacity-80 uppercase">
                 {t('home.challenge.outputsLabel')}
               </h4>

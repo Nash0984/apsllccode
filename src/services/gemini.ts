@@ -48,6 +48,35 @@ const ROUTING_SCHEMA = {
   required: ["message"]
 };
 
+const FORMAL_LOGIC_SCHEMA = {
+  type: Type.OBJECT,
+  properties: {
+    formalLogic: { type: Type.STRING },
+    jsonSchema: { type: Type.STRING },
+  },
+  required: ["formalLogic", "jsonSchema"]
+};
+
+const AUDIT_ANALYSIS_SCHEMA = {
+  type: Type.OBJECT,
+  properties: {
+    hasConflicts: { type: Type.BOOLEAN },
+    conflicts: {
+      type: Type.ARRAY,
+      items: {
+        type: Type.OBJECT,
+        properties: {
+          severity: { type: Type.STRING },
+          description: { type: Type.STRING },
+          eventsAffected: { type: Type.ARRAY, items: { type: Type.STRING } }
+        },
+        required: ["severity", "description", "eventsAffected"]
+      }
+    }
+  },
+  required: ["hasConflicts", "conflicts"]
+};
+
 export async function evaluateDocument(
   fileData: FileData,
   policyId: string,
@@ -142,5 +171,71 @@ export async function getConversationalResponse(
   } catch (error) {
     console.error("Conversational API Error:", error);
     return "Error communicating with the conversational agent backend.";
+  }
+}
+
+export async function extractFormalLogic(statutoryText: string) {
+  const requestId = `SMT-${Math.random().toString(36).substring(7)}`;
+  
+  const prompt = `
+    [SYSTEM: FORMAL LOGIC EXTRACTION ENGINE]
+    Translate the following statutory text into two deterministic outputs:
+    1. A Z3 SMT-LIB2 mathematical proof representing the policy's logical assertions (Axioms, Constraints, Check-Sat).
+    2. A comprehensive JSON schema representing the executable rule parameters and thresholds.
+
+    Statutory Text: "${statutoryText}"
+  `;
+
+  try {
+    const response = await ai.models.generateContent({
+      model: "gemini-3-flash-preview",
+      contents: [{ role: 'user', parts: [{ text: prompt }] }],
+      config: {
+        temperature: 0.1,
+        responseMimeType: "application/json",
+        responseSchema: FORMAL_LOGIC_SCHEMA,
+        systemInstruction: BASE_SYSTEM_INSTRUCTION + "\n\n[DIRECTIVE] You MUST generate syntactically correct SMT-LIB2 code for the formalLogic property. Do NOT include Markdown formatting in the string values.",
+      },
+    });
+
+    return JSON.parse(response.text || "{}");
+  } catch (error) {
+    console.error(`[APS-FORMAL-LOGIC-ERROR] ID: ${requestId}`, error);
+    throw error;
+  }
+}
+
+export async function analyzeAuditTrail(log: any[]) {
+  const requestId = `AUDIT-${Math.random().toString(36).substring(7).toUpperCase()}`;
+  
+  const prompt = `
+    [SYSTEM: FORENSIC AUDIT ANALYZER]
+    Review the following operational session logs for an Applied Policy Systems environment.
+    Identify any "Linguistic Inconsistencies" or "Statutory Conflicts" between different events.
+    For example: 
+    - A document was evaluated against one statute, but a later query asks about a different contradictory statute for the same case.
+    - The logical extraction of a rule seems to diverge from how it was applied in a query.
+
+    Operational Session Logs: ${JSON.stringify(log)}
+    
+    Analyze for data integrity and statutory alignment.
+  `;
+
+  try {
+    const response = await ai.models.generateContent({
+      model: "gemini-3-flash-preview",
+      contents: [{ role: 'user', parts: [{ text: prompt }] }],
+      config: {
+        temperature: 0.0,
+        responseMimeType: "application/json",
+        responseSchema: AUDIT_ANALYSIS_SCHEMA,
+        systemInstruction: BASE_SYSTEM_INSTRUCTION + "\n\n[DIRECTIVE] You are a Forensic Logic Auditor. Your goal is to find cracks in the deterministic pathway of this operational session.",
+      },
+    });
+
+    return JSON.parse(response.text || '{"hasConflicts": false, "conflicts": []}');
+  } catch (error) {
+    console.error(`[APS-AUDIT-ANALYSIS-ERROR] ID: ${requestId}`, error);
+    return { hasConflicts: false, conflicts: [] };
   }
 }

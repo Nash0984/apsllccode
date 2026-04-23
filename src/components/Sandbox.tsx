@@ -5,11 +5,15 @@ import {
 } from 'lucide-react';
 import { evaluateDocument, FileData } from '../services/gemini';
 import { useToast } from '../context/ToastContext';
+import { useCase } from '../context/CaseContext';
 import { UNIFIED_VERIFICATION_ONTOLOGY, ExtractedField } from '../config/ontology';
 import { trackInteraction } from '../services/analytics';
+import { useTranslation } from 'react-i18next';
 
 export function Sandbox() {
+  const { t } = useTranslation();
   const { showToast } = useToast();
+  const { activeCaseId, setActiveCaseId, addEvent } = useCase();
   const [persona, setPersona] = useState<'client' | 'worker'>('worker');
   const [activeCategoryIndex, setActiveCategoryIndex] = useState(0);
   const [activeProtocolIndex, setActiveProtocolIndex] = useState(0);
@@ -19,12 +23,21 @@ export function Sandbox() {
   const [fileData, setFileData] = useState<FileData | null>(null);
   const [appState, setAppState] = useState<'idle' | 'processing' | 'results'>('idle');
   const [extractedVariables, setExtractedVariables] = useState<ExtractedField[]>([]);
+  const [caseInput, setCaseInput] = useState('');
   
+  const isCaseValid = caseInput.trim().length > 4;
+
   const fileInputRef = useRef<HTMLInputElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const activeDomain = UNIFIED_VERIFICATION_ONTOLOGY[activeCategoryIndex];
   const activeProtocol = activeDomain.protocols[activeProtocolIndex];
+
+  const handleCaseLock = () => {
+    if (caseInput.trim().length > 4) {
+      setActiveCaseId(caseInput.trim().toUpperCase());
+    }
+  };
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -79,6 +92,13 @@ export function Sandbox() {
       if (response.extractedData && Array.isArray(response.extractedData)) {
         setExtractedVariables(response.extractedData);
         setAppState('results');
+
+        // Log to global audit trail
+        addEvent(
+          'Document Evaluation',
+          `Evaluated "${file?.name}" against ${activeProtocol.id} protocol.`,
+          activeProtocol.id
+        );
       } else {
         throw new Error("Invalid schema returned from extraction engine.");
       }
@@ -167,6 +187,49 @@ export function Sandbox() {
       {/* Main Content Area */}
       <div className="flex-1 p-6 sm:p-8 flex flex-col items-center justify-center relative bg-slate-50/50 dark:bg-[#050a0f]">
         
+        {!activeCaseId && (
+          <div className="absolute inset-0 z-10 bg-slate-50/90 dark:bg-[#050a0f]/90 backdrop-blur-sm flex items-center justify-center p-6">
+            <div className="bg-white dark:bg-slate-900 rounded-2xl p-6 shadow-xl border border-slate-200 dark:border-slate-800 max-w-sm w-full">
+              <div className="w-12 h-12 rounded-full bg-brand-navy/10 dark:bg-brand-navy/30 text-brand-navy dark:text-brand-jade flex items-center justify-center mb-4 mx-auto">
+                <Lock size={20} />
+              </div>
+              <h3 className="text-sm font-bold text-slate-900 dark:text-white mb-2 text-center">
+                {t('simulators.policyManual.bindCase.title')}
+              </h3>
+              <p className="text-xs text-slate-500 dark:text-slate-400 mb-4 text-center leading-relaxed">
+                {t('simulators.policyManual.bindCase.description')}
+              </p>
+              <div className="space-y-3">
+                <input 
+                  type="text" 
+                  value={caseInput}
+                  onChange={(e) => setCaseInput(e.target.value)}
+                  placeholder={t('simulators.policyManual.bindCase.placeholder')}
+                  className="w-full text-center font-mono uppercase bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-brand-jade focus:ring-1 focus:ring-brand-jade"
+                />
+                <button 
+                  onClick={handleCaseLock}
+                  disabled={!isCaseValid}
+                  className="w-full bg-brand-navy dark:bg-brand-jade text-white dark:text-slate-950 font-bold text-xs uppercase tracking-wider py-3 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                >
+                  {t('simulators.policyManual.bindCase.button')}
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {activeCaseId && (
+          <div className="absolute top-4 left-4 z-10">
+            <div className="bg-brand-jade/10 border border-brand-jade/20 rounded-full px-3 py-1 flex items-center gap-2">
+              <Lock size={10} className="text-brand-jade" />
+              <span className="text-[9px] font-mono font-bold tracking-widest text-brand-jade uppercase">
+                {activeCaseId}
+              </span>
+            </div>
+          </div>
+        )}
+
         {/* State: Idle / File Upload */}
         {appState === 'idle' && (
           <div className="w-full max-w-md flex flex-col items-center">

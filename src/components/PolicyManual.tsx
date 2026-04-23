@@ -4,14 +4,16 @@ import { useTranslation } from 'react-i18next';
 import { routePolicyQuery } from '../services/gemini';
 import { STATE_RULES_ONTOLOGY } from '../config/ontology';
 import { useToast } from '../context/ToastContext';
+import { useCase } from '../context/CaseContext';
+import { StatuteTooltip } from './ui/StatuteTooltip';
 
 export function PolicyManual() {
   const { t } = useTranslation();
   const { showToast } = useToast();
+  const { activeCaseId, setActiveCaseId, addEvent } = useCase();
   const [input, setInput] = useState('');
   const [chatHistory, setChatHistory] = useState<{ role: 'user' | 'system', content: any }[]>([]);
   const [processingPhase, setProcessingPhase] = useState('');
-  const [activeCaseId, setActiveCaseId] = useState<string | null>(null);
   const [caseInput, setCaseInput] = useState('');
   
   const isCaseValid = caseInput.trim().length > 4;
@@ -44,6 +46,14 @@ export function PolicyManual() {
 
     const result = await routePolicyQuery(userMessage);
     
+    // Log event to global context
+    const node = result.message !== "UNKNOWN" ? STATE_RULES_ONTOLOGY[result.message as keyof typeof STATE_RULES_ONTOLOGY] : null;
+    addEvent(
+      'Policy Query', 
+      `Inquiry: "${userMessage}" | Result: ${result.message}`,
+      node?.statute
+    );
+
     setProcessingPhase('');
     setChatHistory(prev => [...prev, { role: 'system', content: result }]);
   };
@@ -80,9 +90,11 @@ export function PolicyManual() {
             <ShieldCheck size={14} />
             {t('simulators.policyManual.chat.authoritativeRetrieval')}
           </div>
-          <span className="text-[10px] font-mono text-slate-500 bg-white dark:bg-slate-800 px-2 py-1 rounded border border-slate-200 dark:border-slate-700">
-            {node.ruleId}
-          </span>
+          <StatuteTooltip statuteId={node.ruleId}>
+            <span className="text-[10px] font-mono text-slate-500 bg-white dark:bg-slate-800 px-2 py-1 rounded border border-slate-200 dark:border-slate-700">
+              {node.ruleId}
+            </span>
+          </StatuteTooltip>
         </div>
         <div className="p-4 sm:p-5 space-y-4">
           <div>

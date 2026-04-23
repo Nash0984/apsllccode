@@ -1,9 +1,13 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { 
   Network, Cpu, Database, GitBranch, Activity, Code2, Play, 
-  CheckCircle2, AlertCircle, Server, ShieldCheck, FileJson
+  CheckCircle2, AlertCircle, Server, ShieldCheck, FileJson, Lock
 } from 'lucide-react';
 import { LOGIC_PIPELINES } from '../config/ontology';
+import { useCase } from '../context/CaseContext';
+import { useTranslation } from 'react-i18next';
+import { extractFormalLogic } from '../services/gemini';
+import { useToast } from '../context/ToastContext';
 
 interface ExecutionResult {
   query: string;
@@ -14,10 +18,16 @@ interface ExecutionResult {
 }
 
 export function ExtractionEngine() {
+  const { t } = useTranslation();
+  const { showToast } = useToast();
+  const { activeCaseId, setActiveCaseId, addEvent } = useCase();
   const [input, setInput] = useState('');
   const [isProcessing, setIsProcessing] = useState(false);
   const [activePipeline, setActivePipeline] = useState(LOGIC_PIPELINES[0]);
   const [executionResult, setExecutionResult] = useState<ExecutionResult | null>(null);
+  const [caseInput, setCaseInput] = useState('');
+  
+  const isCaseValid = caseInput.trim().length > 4;
   
   const scrollRef = useRef<HTMLDivElement>(null);
 
@@ -27,57 +37,45 @@ export function ExtractionEngine() {
     }
   }, [executionResult, isProcessing]);
 
-  const handleExecute = () => {
-    if (!input.trim() || isProcessing) return;
+  const handleCaseLock = () => {
+    if (caseInput.trim().length > 4) {
+      setActiveCaseId(caseInput.trim().toUpperCase());
+    }
+  };
+
+  const handleExecute = async () => {
+    if (!input.trim() || isProcessing || !activeCaseId) return;
     
     setIsProcessing(true);
     setExecutionResult(null);
 
-    // Simulating the mathematical solver and extraction pipeline latency
-    setTimeout(() => {
-      const generatedSchema = {
-        "rule_id": `APS-EXT-${Math.floor(Math.random() * 10000)}`,
-        "domain": activePipeline.id.toUpperCase(),
-        "statutory_authority": activePipeline.statute,
-        "parameters": [
-          {
-            "variable": "gross_income",
-            "type": "integer",
-            "constraint": "<=",
-            "threshold": "fpl_130_percent"
-          }
-        ],
-        "action": {
-          "on_pass": "EVALUATE_NET_INCOME",
-          "on_fail": "TRIGGER_DENIAL_NOTICE"
-        }
-      };
+    const startTime = performance.now();
 
-      const formalLogicTrace = `
-;; Z3 SMT-LIB2 Mathematical Proof
-(declare-const gross_income Int)
-(declare-const fpl_130 Int)
-(assert (= fpl_130 2430))
-
-;; Rule Axiom: 7 CFR § 273.9
-(assert (<= gross_income fpl_130))
-
-(check-sat)
-;; Output: SAT
-;; Proof Verified: No contradictory paths detected.
-      `.trim();
-
+    try {
+      const result = await extractFormalLogic(input);
+      const endTime = performance.now();
+      
       setExecutionResult({
         query: input,
         status: 'success',
-        formalLogic: formalLogicTrace,
-        jsonSchema: JSON.stringify(generatedSchema, null, 2),
-        executionTime: `${(Math.random() * (1.5 - 0.8) + 0.8).toFixed(2)}s`
+        formalLogic: result.formalLogic,
+        jsonSchema: typeof result.jsonSchema === 'string' ? result.jsonSchema : JSON.stringify(result.jsonSchema, null, 2),
+        executionTime: `${((endTime - startTime) / 1000).toFixed(2)}s`
       });
+
+      addEvent(
+        'Formal Logic Extraction',
+        `Translated statute to SMT-LIB2 for ${activePipeline.statute}`,
+        activePipeline.id
+      );
       
-      setIsProcessing(false);
       setInput('');
-    }, 1800);
+    } catch (error) {
+      console.error(error);
+      showToast("Formal logic extraction failed.", "error");
+    } finally {
+      setIsProcessing(false);
+    }
   };
 
   return (
@@ -118,8 +116,51 @@ export function ExtractionEngine() {
       </div>
 
       {/* Main Execution Area */}
-      <div ref={scrollRef} className="flex-1 overflow-y-auto bg-slate-50/50 dark:bg-[#050a0f] p-4 sm:p-6 space-y-6">
+      <div ref={scrollRef} className="flex-1 overflow-y-auto bg-slate-50/50 dark:bg-[#050a0f] p-4 sm:p-6 space-y-6 relative">
         
+        {!activeCaseId && (
+          <div className="absolute inset-0 z-10 bg-slate-50/90 dark:bg-[#050a0f]/90 backdrop-blur-sm flex items-center justify-center p-6">
+            <div className="bg-white dark:bg-slate-900 rounded-2xl p-6 shadow-xl border border-slate-200 dark:border-slate-800 max-w-sm w-full">
+              <div className="w-12 h-12 rounded-full bg-brand-navy/10 dark:bg-brand-navy/30 text-brand-navy dark:text-brand-jade flex items-center justify-center mb-4 mx-auto">
+                <Lock size={20} />
+              </div>
+              <h3 className="text-sm font-bold text-slate-900 dark:text-white mb-2 text-center">
+                {t('simulators.policyManual.bindCase.title')}
+              </h3>
+              <p className="text-xs text-slate-500 dark:text-slate-400 mb-4 text-center leading-relaxed">
+                {t('simulators.policyManual.bindCase.description')}
+              </p>
+              <div className="space-y-3">
+                <input 
+                  type="text" 
+                  value={caseInput}
+                  onChange={(e) => setCaseInput(e.target.value)}
+                  placeholder={t('simulators.policyManual.bindCase.placeholder')}
+                  className="w-full text-center font-mono uppercase bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-brand-jade focus:ring-1 focus:ring-brand-jade"
+                />
+                <button 
+                  onClick={handleCaseLock}
+                  disabled={!isCaseValid}
+                  className="w-full bg-brand-navy dark:bg-brand-jade text-white dark:text-slate-950 font-bold text-xs uppercase tracking-wider py-3 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                >
+                  {t('simulators.policyManual.bindCase.button')}
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {activeCaseId && (
+          <div className="absolute top-4 left-4 z-10">
+            <div className="bg-brand-jade/10 border border-brand-jade/20 rounded-full px-3 py-1 flex items-center gap-2">
+              <Lock size={10} className="text-brand-jade" />
+              <span className="text-[9px] font-mono font-bold tracking-widest text-brand-jade uppercase">
+                {activeCaseId}
+              </span>
+            </div>
+          </div>
+        )}
+
         {/* Initial State */}
         {!executionResult && !isProcessing && (
           <div className="flex flex-col items-center justify-center h-full text-center max-w-md mx-auto gap-4 opacity-70">
