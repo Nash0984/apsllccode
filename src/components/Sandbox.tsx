@@ -102,10 +102,11 @@ export function Sandbox() {
       } else {
         throw new Error("Invalid schema returned from extraction engine.");
       }
-    } catch (error) {
-      console.error(error);
+    } catch (error: any) {
+      console.error("Evaluation Error:", error);
       setAppState('idle');
-      showToast("Verification engine failed to process the document.", "error");
+      const errorMessage = error.message || "Verification engine failed to process the document.";
+      showToast(errorMessage, "error");
     }
   };
 

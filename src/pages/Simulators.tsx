@@ -7,9 +7,11 @@ import { PolicyManual } from '../components/PolicyManual';
 import { ExtractionEngine } from '../components/ExtractionEngine';
 import { Filter, Download, FileJson, ShieldAlert, RefreshCw, AlertTriangle, ShieldCheck as ShieldCheckIcon } from 'lucide-react';
 import { useCase } from '../context/CaseContext';
+import { useToast } from '../context/ToastContext';
 
 export function Simulators() {
   const { t } = useTranslation();
+  const { showToast } = useToast();
   const { 
     activeCaseId, 
     sessionLog, 
@@ -20,6 +22,14 @@ export function Simulators() {
     setIntegrityReport
   } = useCase();
   const [activeFilter, setActiveFilter] = useState('all');
+
+  const handleIntegrityCheck = async () => {
+    try {
+      await performIntegrityCheck();
+    } catch (error: any) {
+      showToast(error.message || "Failed to complete AI integrity audit.", "error");
+    }
+  };
 
   const simulators = useMemo(() => [
     {
@@ -184,7 +194,7 @@ export function Simulators() {
                 exit={{ opacity: 0, x: 20 }}
               >
                 <button
-                  onClick={performIntegrityCheck}
+                  onClick={handleIntegrityCheck}
                   disabled={isAnalyzingIntegrity}
                   className="bg-brand-navy dark:bg-white text-white dark:text-brand-navy px-6 py-4 rounded-full shadow-2xl flex items-center gap-3 hover:scale-105 transition-transform group whitespace-nowrap"
                 >

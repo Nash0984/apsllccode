@@ -46,7 +46,8 @@ export function CaseProvider({ children }: { children: ReactNode }) {
       const report = await analyzeAuditTrail(sessionLog);
       setIntegrityReport(report);
     } catch (error) {
-      console.error(error);
+      console.error("Integrity check failed:", error);
+      throw error;
     } finally {
       setIsAnalyzingIntegrity(false);
     }

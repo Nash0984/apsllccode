@@ -110,10 +110,44 @@ export async function evaluateDocument(
       },
     });
 
-    return JSON.parse(response.text || "{}");
-  } catch (error) {
+    if (!response || !response.text) {
+      throw new Error("Empty response received from the evaluation engine.");
+    }
+
+    let parsedData;
+    try {
+      parsedData = JSON.parse(response.text);
+    } catch (parseError) {
+      console.error(`[APS-EXTRACTION-PARSE-ERROR] ID: ${requestId}`, parseError);
+      throw new Error("Failed to parse the evaluation results. The response format was invalid.");
+    }
+
+    // Basic schema validation
+    if (!parsedData.extractedData || !Array.isArray(parsedData.extractedData)) {
+      throw new Error("Invalid schema: 'extractedData' array is missing or invalid.");
+    }
+
+    return parsedData;
+  } catch (error: any) {
     console.error(`[APS-EXTRACTION-ERROR] ID: ${requestId}`, error);
-    throw error;
+    
+    // Check if it's already a custom error we threw
+    if (error.message && (
+      error.message.includes("Empty response") ||
+      error.message.includes("Failed to parse") ||
+      error.message.includes("Invalid schema")
+    )) {
+      throw error;
+    }
+
+    // Wrap external API errors with more specific feedback
+    if (error.message && error.message.includes("API key not valid")) {
+      throw new Error("API Authentication failed. Please check your API key.");
+    } else if (error.name === "TypeError" && error.message.includes("fetch")) {
+      throw new Error("Network error during evaluation. Please check your connection.");
+    } else {
+      throw new Error(`Evaluation processing failed: ${error.message || "Unknown error occurred"}`);
+    }
   }
 }
 
@@ -198,10 +232,41 @@ export async function extractFormalLogic(statutoryText: string) {
       },
     });
 
-    return JSON.parse(response.text || "{}");
-  } catch (error) {
+    if (!response || !response.text) {
+      throw new Error("Empty response received from the formal logic engine.");
+    }
+
+    let parsedData;
+    try {
+      parsedData = JSON.parse(response.text);
+    } catch (parseError) {
+      console.error(`[APS-FORMAL-LOGIC-PARSE-ERROR] ID: ${requestId}`, parseError);
+      throw new Error("Failed to parse formal logic outputs. Format was invalid.");
+    }
+
+    if (!parsedData.formalLogic || !parsedData.jsonSchema) {
+      throw new Error("Invalid schema: 'formalLogic' or 'jsonSchema' missing.");
+    }
+
+    return parsedData;
+  } catch (error: any) {
     console.error(`[APS-FORMAL-LOGIC-ERROR] ID: ${requestId}`, error);
-    throw error;
+    
+    if (error.message && (
+      error.message.includes("Empty response") ||
+      error.message.includes("Failed to parse") ||
+      error.message.includes("Invalid schema")
+    )) {
+      throw error;
+    }
+
+    if (error.message && error.message.includes("API key not valid")) {
+      throw new Error("API Authentication failed. Please check your API key.");
+    } else if (error.name === "TypeError" && error.message.includes("fetch")) {
+      throw new Error("Network error during logic extraction. Please check your connection.");
+    } else {
+      throw new Error(`Logic extraction failed: ${error.message || "Unknown error occurred"}`);
+    }
   }
 }
 
@@ -233,9 +298,32 @@ export async function analyzeAuditTrail(log: any[]) {
       },
     });
 
-    return JSON.parse(response.text || '{"hasConflicts": false, "conflicts": []}');
-  } catch (error) {
+    if (!response || !response.text) {
+      throw new Error("Empty response received from the audit logic analyzer.");
+    }
+
+    try {
+      return JSON.parse(response.text);
+    } catch (parseError) {
+      console.error(`[APS-AUDIT-ANALYSIS-PARSE-ERROR] ID: ${requestId}`, parseError);
+      throw new Error("Failed to parse the audit results. The response format was invalid.");
+    }
+  } catch (error: any) {
     console.error(`[APS-AUDIT-ANALYSIS-ERROR] ID: ${requestId}`, error);
-    return { hasConflicts: false, conflicts: [] };
+
+    if (error.message && (
+      error.message.includes("Empty response") ||
+      error.message.includes("Failed to parse")
+    )) {
+      throw error;
+    }
+
+    if (error.message && error.message.includes("API key not valid")) {
+      throw new Error("API Authentication failed. Please check your API key.");
+    } else if (error.name === "TypeError" && error.message.includes("fetch")) {
+      throw new Error("Network error during audit verification. Please check your connection.");
+    } else {
+      throw new Error(`Audit verification failed: ${error.message || "Unknown error occurred"}`);
+    }
   }
 }

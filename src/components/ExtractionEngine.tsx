@@ -70,9 +70,10 @@ export function ExtractionEngine() {
       );
       
       setInput('');
-    } catch (error) {
-      console.error(error);
-      showToast("Formal logic extraction failed.", "error");
+    } catch (error: any) {
+      console.error("Logic Extraction Error:", error);
+      const errorMessage = error.message || "Formal logic extraction failed.";
+      showToast(errorMessage, "error");
     } finally {
       setIsProcessing(false);
     }
