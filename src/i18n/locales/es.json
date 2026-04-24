@@ -2,23 +2,23 @@
   "routes": {
     "expertise": {
       "label": "Capacidades",
-      "description": "Revise nuestras intervenciones multidisciplinarias que abarcan la supervisión de sistemas, la fortificación legal y el diseño de límites de API."
+      "description": "Revise nuestras intervenciones: eliminando cuellos de botella en las políticas, prediciendo efectos secundarios y traduciendo cambios programáticos en código."
     },
     "research": {
       "label": "Investigación",
-      "description": "Análisis de autoridad que mapea las restricciones arquitectónicas de las implementaciones tecnológicas del sector público y el cumplimiento federal."
+      "description": "Análisis claro de por qué el retraso en las políticas estanca la tecnología gubernamental, cómo los errores entre programas se propagan en cascada y cómo los estados pueden acelerar el control estructural."
     },
     "field": {
       "label": "Simuladores",
-      "description": "Modelos interactivos que demuestran la verificación matemática de reglas, lógica determinista y auditorías empíricas de políticas."
+      "description": "Modelos interactivos que muestran cómo probamos los cambios de política desde el inicio y rastreamos la carga administrativa empírica."
     },
     "about": {
       "label": "Nosotros",
-      "description": "Revise nuestra autoridad operativa y posicionamiento como arquitectos independientes de infraestructura del sector público."
+      "description": "Revise nuestra autoridad como arquitectos independientes y expertos en programas para la infraestructura del sector público."
     },
     "contact": {
       "label": "Contacto",
-      "description": "Inicie un diálogo sobre supervisión de sistemas, evolución arquitectónica o adquisiciones estratégicas."
+      "description": "Inicie un diálogo sobre supervisión arquitectónica, aceleración de despliegues o prevención de riesgos secundarios."
     }
   },
   "nav": {
@@ -29,208 +29,211 @@
     "about": "Nosotros",
     "contact": "Contacto",
     "getInTouch": "Contacto",
-    "scheduleSession": "Programar una Sesión"
+    "scheduleSession": "Programar una Sesión",
+    "skipToContent": "Saltar al contenido",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú"
   },
   "simulators": {
     "policyManual": {
       "header": {
-        "title": "Asistente de Política y Determinación en el Caso",
-        "subtitle": "Apoyo a Decisiones Estatutarias y Registro de Auditoría"
+        "title": "Asistente de Política y Determinación",
+        "subtitle": "Apoyo a decisiones claro y registros de auditoría"
       },
       "bindCase": {
-        "title": "Vincular Caso",
-        "description": "Vincule un ID de caso para habilitar la recuperación determinista.",
-        "placeholder": "Ingrese ID de Caso (ej. TX-9942)",
-        "button": "Autorizar y Vincular"
+        "title": "Vincular caso",
+        "description": "Vincule de forma segura un ID de caso para recuperar reglas precisas.",
+        "placeholder": "Ingrese ID de caso (ej. TX-9942)",
+        "button": "Autorizar y vincular"
       },
       "processing": {
-        "analyzing": "Analizando Sintaxis...",
-        "querying": "Consultando Ontología...",
-        "verifying": "Verificando Límites Estatutarios..."
+        "analyzing": "Analizando solicitud...",
+        "querying": "Buscando reglas de política...",
+        "verifying": "Verificando límites legales..."
       },
       "chat": {
-        "userRole": "Consulta del Trabajador",
-        "systemRole": "Recuperación de Autoridad",
-        "activeCase": "Caso Activo",
-        "authoritativeRetrieval": "Recuperación de Autoridad",
-        "statutoryAuthority": "Autoridad Estatutaria",
-        "policyParameters": "Parámetros de Política",
-        "systemLogic": "Lógica del Sistema",
-        "unknownResponse": "No se puede mapear la consulta a los parámetros de reglas deterministas. Escalar a revisión manual.",
-        "inputPlaceholderActive": "Ingrese consulta de elegibilidad para buscar en la ontología...",
+        "userRole": "Consulta del trabajador",
+        "systemRole": "Recuperación del sistema",
+        "activeCase": "Caso activo",
+        "authoritativeRetrieval": "Recuperación de política",
+        "statutoryAuthority": "Autoridad legal",
+        "policyParameters": "Reglas de política",
+        "systemLogic": "Lógica del sistema",
+        "unknownResponse": "No se puede mapear la consulta a una regla de política clara. Escalar a revisión manual.",
+        "inputPlaceholderActive": "Ingrese pregunta de elegibilidad...",
         "inputPlaceholderIdle": "Vincule un ID de caso para interactuar."
       }
     }
   },
   "home": {
     "hero": {
-      "title": "Política Verificable. Acceso Determinista.",
-      "subtitle": "Diseñamos infraestructura gubernamental altamente regulada. Applied Policy Systems fusiona ingeniería de sistemas profunda con fortificación legal y diseño operativo, asegurando que las complejas implementaciones del sector público mantengan un estricto cumplimiento federal y fidelidad matemática.",
+      "title": "Política Verificable. Acceso Sin Compromisos.",
+      "subtitle": "Eliminamos los cuellos de botella en las políticas proporcionando supervisión arquitectónica y una profunda experiencia en programas (SME). Traducimos mandatos complejos en código determinista desde el inicio, manteniendo los despliegues en movimiento, prediciendo efectos secundarios y garantizando el cumplimiento federal.",
       "cta": "Revisar Capacidades"
     },
     "challenge": {
-      "label": "El Mandato Arquitectónico",
-      "title": "La Lógica Estructural Dicta la Realidad Operativa.",
-      "text": "Las migraciones iniciales a la nube establecen una línea de base digital necesaria para las agencias estatales. El mandato operativo ahora es graduar estos entornos de repositorios de datos estáticos a infraestructuras deterministas basadas en reglas. Proporcionamos las intervenciones arquitectónicas necesarias para desacoplar sistemas monolíticos, resolviendo datos matemáticamente, mitigando la exposición a auditorías federales y desacoplando la fuerza laboral manual de los cuellos de botella sistémicos.",
-      "solution": "Implementamos ingeniería de políticas verificables, restricciones estrictas en los límites de API y gestión del cambio en la primera línea para asegurar legalmente sistemas complejos y automatizar la lógica administrativa.",
+      "label": "La Brecha de Traducción",
+      "title": "Acelerando la Alineación Técnica.",
+      "text": "Los despliegues tecnológicos estatales a menudo se estancan en la brecha entre las complejas reglas federales y la arquitectura del sistema. Cerramos esta división. En lugar de que TI espere meses por interpretaciones de políticas abiertas, traducimos los mandatos programáticos en lógica determinista desde el inicio. Armamos a sus equipos de ingeniería con los parámetros exactos que necesitan para forzar decisiones rápidas y en el acto de las partes interesadas en las políticas, manteniendo los despliegues en movimiento, prediciendo efectos secundarios y asegurando el cumplimiento federal.",
+      "solution": "Implementamos ingeniería de políticas clara, reglas de adquisición estrictas y una gestión del cambio enfocada en la primera línea para forzar la rendición de cuentas, ya sea que su sistema sea construido por un proveedor principal o un equipo de TI interno, y asegurar legalmente su infraestructura.",
       "outputsLabel": "Entregables Principales",
-      "outputsLead": "Nuestros servicios arquitectónicos multidisciplinarios incluyen:",
+      "outputsLead": "Nuestros servicios arquitectónicos especializados incluyen:",
       "outputs": [
-        "Política Verificable y Fortificación Legal",
-        "Gobernanza de IA Ética e Infraestructura",
-        "Adquisición Estratégica y Desacoplamiento de API",
-        "Arquitectura de Operaciones de Primera Línea y Capital Humano"
+        "Política Verificable y Predicción de Efectos Secundarios",
+        "Gobernanza de IA Segura e Infraestructura",
+        "Responsabilidad del Sistema y Adquisiciones",
+        "Operaciones de Primera Línea y Diseño de la Fuerza Laboral"
       ]
     },
     "infrastructure": {
       "label": "Supervisión Holística",
-      "title": "Intervenciones Estructurales y Operativas.",
-      "text": "Implementamos restricciones arquitectónicas estrictas junto con la gestión del cambio en la primera línea para forzar una verdadera agilidad dentro de entornos burocráticos.",
+      "title": "Aceleración Arquitectónica y SME.",
+      "text": "Implementamos reglas técnicas estrictas informadas por la experiencia en diversos programas para evitar el lastre burocrático y asegurar que los cambios sistémicos no desencadenen penalizaciones federales automatizadas.",
       "cta": "Capacidades Principales"
     },
     "sandbox": {
       "label": "Simulador 01",
-      "title": "Simulación Matemática de Políticas",
-      "text": "Un demostrador operativo que ilustra cómo la lógica matemática formal puede simular y verificar cambios legislativos antes de la producción.",
+      "title": "Pruebas de Política Automatizadas",
+      "text": "Vea cómo utilizamos la lógica matemática para verificar los cambios legislativos desde el inicio y predecir los radios de impacto antes de que lleguen al código de producción.",
       "cta": "Ver Simulador"
     },
     "manual": {
       "label": "Simulador 02",
-      "title": "Auditoría Empírica de Impuesto de Tiempo",
-      "text": "Un demostrador operativo que muestra cómo medir empíricamente la carga administrativa impuesta a los residentes para defender legalmente las decisiones políticas.",
+      "title": "La Auditoría del Impuesto de Tiempo",
+      "text": "Vea cómo medimos la carga administrativa exacta impuesta a los residentes para defender legalmente las decisiones políticas de su estado.",
       "cta": "Ver Simulador"
     },
     "extraction": {
       "label": "Simulador 03",
-      "title": "Instantáneas de Apelaciones Inmutables",
-      "text": "Un demostrador operativo que ilustra cómo congelar criptográficamente los estados del sistema para proporcionar registros inmutables para apelaciones legales y audiencias justas.",
+      "title": "Registros de Apelación Inmutables",
+      "text": "Vea cómo congelamos los datos del sistema para crear un registro seguro e incuestionable para apelaciones legales y audiencias justas.",
       "cta": "Ver Simulador"
     }
   },
   "capabilitiesPage": {
     "hero": {
       "label": "Capacidades",
-      "title": "Supervisión de Sistemas e Ingeniería de Políticas",
-      "subtitle": "Proporcionamos supervisión de ingeniería dirigida, fortificación legal y asesoría estratégica a agencias estatales que avanzan hacia modelos operativos deterministas y altamente automatizados."
+      "title": "Supervisión Arquitectónica e Ingeniería de Políticas",
+      "subtitle": "Proporcionamos supervisión de ingeniería dirigida y capacidades de SME de amplia visión para eliminar el retraso en las políticas. Aseguramos que los cambios programáticos se traduzcan perfectamente en código sin estancar la TI ni desencadenar errores catastróficos entre programas."
     },
     "grid": {
       "headerLabel": "Los Cuatro Pilares",
-      "headerTitle": "Dominios Multidisciplinarios de Autoridad",
+      "headerTitle": "Autoridad Multidisciplinaria",
       "deliverablesLabel": "Intervenciones Principales"
     },
     "cards": {
       "statutory": {
-        "title": "Política Verificable y Fortificación Legal",
-        "text": "Cerramos la brecha entre la ingeniería determinista y el derecho administrativo. Implementamos demostradores de teoremas matemáticos para verificar el cumplimiento de Reglas como Código, al tiempo que realizamos auditorías empíricas de 'Impuesto de Tiempo' para defender legalmente las decisiones políticas del estado y cuestionar los mandatos federales sin financiamiento.",
+        "title": "Política Verificable y Predicción de Efectos Secundarios",
+        "text": "Cerramos la brecha entre la intención de la política y la lógica del sistema desde el inicio. Proporcionamos a sus equipos de ingeniería las reglas deterministas exactas, evitando que las revisiones de políticas interminables retrasen los cronogramas. Verificamos matemáticamente que el nuevo código no desencadenará errores en cascada en programas interconectados, defendiéndolo contra mandatos federales sin financiamiento.",
         "features": [
-          "Verificación Matemática de Políticas (SMT-LIB)",
-          "Auditorías Empíricas de Carga Administrativa",
-          "Resolución de Expedientes de Audiencia Justa (Estados Inmutables)"
+          "Predicción del Radio de Impacto entre Programas",
+          "Verificación de Política Automatizada",
+          "Auditorías Empíricas del 'Impuesto de Tiempo'"
         ]
       },
       "rulesEngine": {
-        "title": "Gobernanza de IA Ética e Infraestructura",
-        "text": "Aseguramos datos federales confidenciales y mitigamos el daño algorítmico. Implementamos pasarelas criptográficas autoalojadas para el estricto cumplimiento del IRS Pub 1075, junto con rigurosas barreras de 'ética por diseño' como Análisis Pre-Mortem y Red Teaming para prevenir el sesgo histórico.",
+        "title": "Gobernanza de IA e Infraestructura Segura",
+        "text": "Redactamos el derecho administrativo para vincular y controlar legalmente los despliegues de IA. Mandatamos límites arquitectónicos estrictos para proteger los datos sensibles del IRS y HIPAA, asegurando que las nuevas herramientas de automatización actúen como ayudas para los trabajadores, no como motores de decisión probabilísticos no verificados.",
         "features": [
-          "Pasarelas Criptográficas Soberanas",
-          "Marcos de Mitigación de Sesgos Adversarios",
-          "Enrutamiento de Inscripción Cruzada Zero-Touch"
+          "Marcos de Gobernanza de IA Vinculantes",
+          "Pasarelas de Datos Federales Seguras",
+          "Pruebas y Prevención de Sesgos en IA"
         ]
       },
       "sanction": {
-        "title": "Adquisición Estratégica y Desacoplamiento de API",
-        "text": "Bloqueamos legalmente el encierro con proveedores y alineamos los fondos aislados. Diseñamos restricciones API estrictas en las RFP estatales para forzar una verdadera modularidad, al tiempo que implementamos un modelo de financiamiento de 'Capital de Riesgo' que entrelaza subvenciones federales con filantropía cívica.",
+        "title": "Responsabilidad del Sistema y Adquisiciones Inteligentes",
+        "text": "Forzamos la rendición de cuentas en ingeniería. Redactamos reglas técnicas estrictas para sus RFP y estatutos internos de TI para evitar que los grandes proveedores o los equipos de TI aislados creen código heredado difícil de mantener. Ayudamos a financiar esta supervisión entrelazando subvenciones federales con filantropía cívica.",
         "features": [
-          "Límites de Metadatos de API y Desacoplamiento",
-          "Defensa de Auditoría Empírica (Reconstrucción de Varianzas FNS)",
-          "Entrelazamiento de Subvenciones Federales y Filantrópicas"
+          "Planos de Ingeniería Estrictos",
+          "Defensa de la Tasa de Error de Pago (PER)",
+          "Combinación de Subvenciones Federales y Filantrópicas"
         ]
       },
       "data": {
-        "title": "Arquitectura de Operaciones de Primera Línea y Capital Humano",
-        "text": "La tecnología es inútil sin la adopción humana. Diseñamos fuerzas laborales estatales profesionales, eliminando la dependencia paraprofesional. Implementamos una gestión del cambio impulsada por la primera línea, empoderando a la gerencia media y construyendo coaliciones entre agencias para codiseñar sistemas.",
+        "title": "Operaciones de Primera Línea y Diseño de la Fuerza Laboral",
+        "text": "Incluso el código perfectamente traducido falla si los trabajadores no pueden usarlo. Diseñamos procedimientos operativos en torno a las personas que realmente realizan el trabajo, implementando una gestión del cambio enfocada en la primera línea para construir fuerzas laborales estatales profesionales y empoderadas.",
         "features": [
-          "Arquitectura de la Fuerza Laboral del Sector Público",
-          "Construcción de Coaliciones Interinstitucionales (MOU)",
-          "Gestión del Cambio Impulsada por la Primera Línea"
+          "Modernización de la Fuerza Laboral Estatal",
+          "Construcción de Coaliciones entre Agencias",
+          "Gestión del Cambio Enfocada en la Primera Línea"
         ]
       }
     },
     "engagements": {
       "title": "Modelos de Compromiso",
       "sprint": {
-        "title": "Rescate Arquitectónico Dirigido",
-        "text": "Despliegues rápidos para diagnosticar y reparar fallas estructurales críticas, vulnerabilidades criptográficas o fallas de lógica en entornos en vivo."
+        "title": "Intervenciones Arquitectónicas Dirigidas",
+        "text": "Despliegues rápidos de supervisión para diagnosticar fallas de lógica estructural, evitar cuellos de botella en las políticas, mapear dependencias y verificar código complejo."
       },
       "advisory": {
         "title": "Asesoría Técnica de Expertos",
-        "text": "Asociación a largo plazo actuando como Experto Técnico del Estado para la defensa de auditorías federales, supervisión de proveedores y pruebas de políticas pre-legislativas."
+        "text": "Asociación a largo plazo actuando como árbitro técnico del estado, eliminando el lastre de las políticas, prediciendo efectos secundarios entre sistemas y pre-probando nuevas reglas antes de la producción."
       },
       "integration": {
-        "title": "Delimitación de Adquisiciones y Coaliciones",
-        "text": "Consultoría integral para diseñar los parámetros de grandes RFP estatales, garantizando una estricta modularidad y organizando la estructura de financiamiento."
+        "title": "Adquisición de Sistemas y Planos",
+        "text": "Consultoría integral para redactar las reglas técnicas estrictas de grandes RFP estatales o construcciones internas, asegurando que los cambios programáticos se ejecuten de manera determinista."
       }
     }
   },
   "researchPage": {
     "hero": {
       "label": "Investigación",
-      "title": "Diagnósticos Estructurales y Auditorías",
-      "subtitle": "Análisis de autoridad que mapea las restricciones arquitectónicas de las implementaciones tecnológicas del sector público, interoperabilidad de proveedores y parámetros de cumplimiento federal."
+      "title": "Inteligencia de Amenazas y Diagnósticos",
+      "subtitle": "Análisis claro sobre por qué el retraso en las políticas estanca la tecnología gubernamental, cómo el código no verificado desencadena penalizaciones secundarias y cómo sobrevivir a las auditorías federales."
     },
     "docs": {
       "adv1": {
-        "title": "Fortificación Legal a través de Auditorías Empíricas de Impuesto de Tiempo",
-        "desc": "Diagnostica cómo fallan las defensas políticas cualitativas tras el fallo Loper Bright. Describe el despliegue de mediciones de carga empíricas para desafiar los mandatos federales."
+        "title": "Predicción de Radios de Impacto entre Programas",
+        "desc": "Por qué los cambios de código aislados desencadenan variaciones federales masivas y cómo la experiencia de amplia visión previene errores en cascada."
       },
       "adv2": {
-        "title": "Abstracción del Riesgo de Auditoría a través de Pasarelas Criptográficas Soberanas",
-        "desc": "Aborda las severas responsabilidades de auditoría desencadenadas por el uso de plataformas SaaS comerciales para la inscripción cruzada. Proporciona el plan para una criptografía compatible y autoalojada."
+        "title": "Protección de Datos con Pasarelas Seguras",
+        "desc": "Los graves riesgos de utilizar plataformas de nube comerciales para beneficios estatales y cómo exigir alternativas seguras."
       },
       "adv3": {
-        "title": "Superar Limitaciones con Verificación Matemática Formal",
-        "desc": "Diagnostica el fracaso de las pruebas de software tradicionales para probar el cumplimiento federal. Detalla el despliegue de modelos matemáticos para simular cambios legislativos."
+        "title": "Traducción de Políticas desde el Inicio",
+        "desc": "Por qué esperar a las revisiones de políticas estanca los despliegues de TI y cómo proporcionar matemáticamente a los desarrolladores código determinista desde el primer día."
       },
       "adv4": {
-        "title": "El Fracaso de la Dependencia Paraprofesional",
-        "desc": "Diagnostica el colapso administrativo causado por modelos de servicio basados en voluntarios. Describe el cambio arquitectónico hacia carreras estatales profesionales y certificadas."
+        "title": "Diseño Operativo Enfocado en la Primera Línea",
+        "desc": "Por qué los sistemas perfectamente programados fallan sin alineación operativa y cómo construir una fuerza laboral estatal empoderada."
       },
       "adv5": {
-        "title": "Reconstrucción de Varianzas de Error para Defensa Empírica de Auditorías",
-        "desc": "Evalúa cómo las agencias estatales no logran combatir eficazmente las sanciones por errores de pago federales. Proporciona el marco para probar fallas sistémicas del proveedor."
+        "title": "Combatiendo las Penalizaciones de Pago Federales",
+        "desc": "Cómo las agencias estatales pueden reconstruir los datos del sistema para probar fallas de lógica estructural y combatir con éxito las multas de auditoría federal."
       },
       "adv6": {
-        "title": "Derrotar el Bloqueo del Proveedor a través de Ingeniería de RFP Estricta",
-        "desc": "Diagnostica cómo los contratistas principales explotan las RFP funcionales para entregar monolitos acoplados. Describe cómo ordenar límites de metadatos de API estrictos para imponer legalmente el desacoplamiento."
+        "title": "Derrotando la Deuda Técnica y el Encierro de Proveedores",
+        "desc": "Cómo las malas adquisiciones y los equipos de TI aislados explotan reglas vagas, y cómo exigir límites de ingeniería estrictos."
       }
     },
     "cta": {
-      "title": "¿Está listo para poner a prueba su arquitectura?",
-      "subtitle": "Explore nuestros simuladores interactivos para ver cómo aplicamos la prueba matemática y la soberanía criptográfica a los sistemas de políticas del mundo real.",
+      "title": "¿Está listo para poner a prueba su infraestructura?",
+      "subtitle": "Explore nuestros simuladores interactivos para ver cómo verificamos la lógica de las políticas desde el inicio y mapeamos las dependencias.",
       "button": "Ver Simuladores Operativos"
     }
   },
   "simulatorsPage": {
     "hero": {
       "label": "Demostradores Operativos",
-      "title": "Pruebas Interactivas y Modelos de Delimitación",
-      "subtitle": "Revise nuestros demostradores en vivo que ilustran la verificación matemática de reglas, las auditorías empíricas de carga y las pasarelas criptográficas."
+      "title": "Pruebas Interactivas y Modelos de Sistema",
+      "subtitle": "Revise nuestros demostradores en vivo que ilustran las pruebas de políticas automatizadas, la predicción de riesgos secundarios y el manejo seguro de datos."
     },
     "blueprints": {
       "documentTool": {
         "label": "SIMULADOR 01",
-        "title": "Simulador Matemático de Políticas",
-        "desc": "Un entorno interactivo en vivo que demuestra cómo la lógica matemática formal puede verificar los cambios legislativos antes de que se envíen al código de producción."
+        "title": "Simulador de Políticas Automatizado",
+        "desc": "Un entorno en vivo que muestra cómo la lógica puede verificar los cambios legislativos desde el inicio y predecir los impactos antes del código real."
       },
       "policyManual": {
         "label": "SIMULADOR 02",
-        "title": "Auditor de Impuesto de Tiempo Empírico",
-        "desc": "Un demostrador que ilustra cómo medir empíricamente la carga administrativa impuesta a los residentes para defender legalmente las decisiones políticas."
+        "title": "Auditor del Impuesto de Tiempo",
+        "desc": "Una herramienta que muestra cómo medir la carga administrativa impuesta a los residentes para defender legalmente las decisiones políticas."
       },
       "extractionEngine": {
         "label": "SIMULADOR 03",
         "title": "Instantáneas de Estado Inmutables",
-        "desc": "Un demostrador que muestra el congelamiento criptográfico de los estados del sistema para proporcionar registros inmutables para apelaciones legales y audiencias justas."
+        "desc": "Un demostrador que muestra cómo congelar registros del sistema para proporcionar evidencia incuestionable para apelaciones legales."
       }
     },
     "categories": {
@@ -244,65 +247,65 @@
     "hero": {
       "label": "Autoridad Operativa",
       "title": "Acerca de Applied Policy Systems",
-      "subtitle": "Arquitectos de Infraestructura Determinista para el Sector Público."
+      "subtitle": "Arquitectos de Infraestructura Gubernamental Confiable."
     },
     "founder": {
       "title": "Dossier del Fundador",
-      "intro": "Diagnosticamos y diseñamos la lógica estructural crítica que opera dentro de las arquitecturas gubernamentales a gran escala.",
-      "p1": "Applied Policy Systems se estableció para guiar a las agencias estatales a través de la siguiente fase crítica de la modernización digital: el desacoplamiento arquitectónico. Si bien las migraciones iniciales a la nube digitalizan con éxito las operaciones de base, los sistemas estrechamente acoplados resultantes requieren ingeniería estructural dirigida para operar de manera eficiente a escala.",
-      "p2": "Actuamos como el seguro estratégico definitivo para los directores de agencias y CIO estatales. Fusionamos estándares de ingeniería —como simuladores de políticas matemáticas y criptografía soberana— con fortificación legal y diseño organizacional para desenredar implementaciones monolíticas, diseñar límites de API estrictos y asegurar el cumplimiento de las auditorías federales."
+      "intro": "Proporcionamos la supervisión arquitectónica y la experiencia en programas de amplia visión necesaria para eliminar los cuellos de botella en las políticas y asegurar que los mandatos estatales se traduzcan perfectamente en código de sistema determinista.",
+      "p1": "Applied Policy Systems se estableció para guiar a las agencias estatales fuera de la 'Trampa de la Modernización'. Los estados gastaron cientos de millones mudándose a la nube, solo para darse cuenta de que sus equipos de TI están atrapados esperando interpretaciones de políticas complejas, y sus sistemas están ciegos a los efectos secundarios entre programas.",
+      "p2": "Actuamos como el acelerador definitivo y el salvaguarda estratégico para los CIO estatales y directores de agencias. Aprovechamos nuestro alcance único de experiencia programática para proporcionar lógica técnica exacta desde el inicio, evitando el lastre burocrático y asegurando que su infraestructura sea precisa, responsable y legalmente segura."
     },
     "impact": {
       "stats": {
         "citizen": {
           "value": "10M+",
           "label": "Residentes Impactados",
-          "desc": "Entrega de servicios verificada para poblaciones multiestatales."
+          "desc": "Entrega de servicios verificada en poblaciones de varios estados."
         },
         "funding": {
           "value": "$2B+",
-          "label": "Alineación de Fondos",
+          "label": "Financiamiento Asegurado",
           "desc": "Combinación estratégica de capital federal y filantrópico."
         },
         "execution": {
           "value": "15+",
-          "label": "Rescates de Implementación",
-          "desc": "Rescate arquitectónico de alto riesgo de plataformas de agencias."
+          "label": "Sistemas Remediados",
+          "desc": "Supervisión arquitectónica de alto riesgo de plataformas de agencias estatales."
         }
       }
     },
     "macroEcosystems": {
       "label": "Posicionamiento en el Ecosistema",
       "title": "Autoridad Multidisciplinaria",
-      "desc": "Operamos en la intersección de la supervisión federal, el liderazgo estatal e integración técnica.",
+      "desc": "Operamos en la intersección crítica de las reglas federales, el liderazgo estatal y los equipos de implementación técnica.",
       "federal": {
         "focus": "CUMPLIMIENTO Y AUDITORÍA",
-        "title": "Entidades de Supervisión Federal",
-        "desc": "Proporcionamos los modelos de datos deterministas y la verificación de cumplimiento empírica necesaria para satisfacer las auditorías federales, mitigando sanciones fiscales masivas.",
+        "title": "Supervisión Federal",
+        "desc": "Proporcionamos los datos duros y la verificación de políticas necesarios para satisfacer las auditorías federales y detener penalizaciones fiscales masivas.",
         "nodes": {
-          "n1": { "name": "Defensa de Auditoría", "context": "Reconstrucción de variaciones para el cumplimiento de FNS/CMS." },
-          "n2": { "name": "Prueba de Políticas", "context": "Verificación matemática de la lógica legislativa." },
-          "n3": { "name": "Fidelidad Estatutaria", "context": "Eliminación de desviaciones en motores de reglas automatizados." }
+          "n1": { "name": "Defensa de Auditoría", "context": "Reconstrucción de errores para cumplimiento de FNS/CMS." },
+          "n2": { "name": "Prueba de Política", "context": "Verificación matemática de la lógica del sistema frente a la ley." },
+          "n3": { "name": "Prevención de Efectos Secundarios", "context": "Detención de variaciones en cascada entre programas." }
         }
       },
       "state": {
         "focus": "ESTRATEGIA Y OPERACIONES",
-        "title": "Liderazgo Ejecutivo Estatal",
-        "desc": "Actuamos como expertos técnicos para los CIO y los asesores jurídicos, rescatando implementaciones enredadas, alineando fondos aislados y proporcionando escudos de datos empíricos para litigios.",
+        "title": "Liderazgo Estatal",
+        "desc": "Actuamos como la Autoridad Técnica para los CIO, prediciendo impactos en el sistema, eliminando el lastre interno y proporcionando escudos de datos.",
         "nodes": {
-          "n1": { "name": "Rescate Arquitectónico", "context": "Corrección de fallas estructurales en entornos reales." },
-          "n2": { "name": "Adquisición Estratégica", "context": "Ingeniería de límites en licitaciones para evitar la dependencia." },
-          "n3": { "name": "Modelo de Fuerza Laboral", "context": "Arquitectura de trayectorias profesionales estatales profesionales." }
+          "n1": { "name": "Aceleración Arquitectónica", "context": "Traducción de políticas complejas desde el inicio para que TI pueda construir." },
+          "n2": { "name": "Adquisiciones Inteligentes", "context": "Redacción de reglas que evitan la deuda de código heredado." },
+          "n3": { "name": "Diseño de la Fuerza Laboral", "context": "Construcción de trayectorias profesionales estatales profesionales." }
         }
       },
       "vendors": {
         "focus": "INTEGRACIÓN Y LÍMITES",
-        "title": "Integradores Principales",
-        "desc": "Imponemos restricciones arquitectónicas estrictas, límites de API y validación de esquemas a los proveedores de Nivel 1 para garantizar que el estado reciba ecosistemas verdaderamente desacoplados.",
+        "title": "Límites de Implementación",
+        "desc": "Obligamos a los grandes proveedores tecnológicos y equipos de desarrollo internos a obedecer límites técnicos estrictos, asegurando que el estado mantenga el control.",
         "nodes": {
-          "n1": { "name": "Desacoplamiento de API", "context": "Mandato de restricciones estrictas en los límites de metadatos." },
-          "n2": { "name": "Supervisión de Proveedores", "context": "Verificación y validación independiente (IV&V)." },
-          "n3": { "name": "Cumplimiento Modular", "context": "Cumplimiento de estándares de interoperabilidad." }
+          "n1": { "name": "Rompiendo Silos y Encierro", "context": "Aplicación de reglas estrictas sobre cómo se conectan los sistemas." },
+          "n2": { "name": "Supervisión de Ingeniería", "context": "Verificación independiente de la entrega técnica." },
+          "n3": { "name": "Modularidad Forzada", "context": "Asegurando que el estado pueda cambiar una arquitectura defectuosa." }
         }
       }
     },
@@ -315,73 +318,73 @@
           "title": "Digitalización Fundacional",
           "org": "Centro de Innovación del Sector Público",
           "role": "Líder Técnico",
-          "desc": "Lideró las migraciones iniciales a la nube para sistemas de beneficios a gran escala, identificando los primeros signos de acoplamiento estructural impulsado por proveedores."
+          "desc": "Lideró las primeras migraciones a la nube para sistemas de beneficios, identificando los primeros signos de cómo una mala arquitectura atrapa a los estados."
         },
         "m2": {
           "year": "2020",
-          "title": "La Trampa de Modernización",
+          "title": "La Trampa de la Modernización",
           "org": "Asesoría de Agencias Estatales",
-          "role": "Experto en Arquitectura",
-          "desc": "Formuló la tesis de la 'Trampa de Modernización' después de diagnosticar fracasos de más de $100M en despliegues de plataformas estatales."
+          "role": "Experto Arquitectónico",
+          "desc": "Diagnosticó fallas masivas de más de $100M en sistemas estatales, demostrando que los despliegues de TI se estancan sin una supervisión SME previa para traducir políticas complejas."
         },
         "m3": {
           "year": "2021",
-          "title": "Verificación Matemática",
+          "title": "Verificación Automatizada",
           "org": "Applied Policy Systems",
           "role": "Fundador",
-          "desc": "Lanzó los primeros simuladores matemáticos de producción para lógica legislativa, probando el cumplimiento de RaC mediante solucionadores SMT."
+          "desc": "Desplegó herramientas para demostrar matemáticamente que el código de software de un estado obedecía realmente la ley estatal y no desencadenaba variaciones secundarias."
         },
         "m4": {
           "year": "2022",
-          "title": "Criptografía Soberana",
+          "title": "Infraestructura Segura",
           "org": "Iniciativa de Protección de Datos Federales",
           "role": "Arquitecto de Seguridad",
-          "desc": "Arquitecturó puertas de enlace criptográficas para proteger los datos de IRS Pub 1075 y HIPAA en entornos de nube multi-inquilino."
+          "desc": "Construyó pasarelas seguras para proteger datos sensibles del IRS y HIPAA de las vulnerabilidades masivas de la nube comercial."
         },
         "m5": {
           "year": "2023",
-          "title": "Gobierno de Capital de Riesgo",
-          "org": "Coalición de Filantropía Cívica",
-          "role": "Asesor de Financiamiento Estratégico",
-          "desc": "Pionero en el modelo de 'Capital de Riesgo' para financiar el rescate arquitectónico estatal a través de subvenciones federales y filantrópicas combinadas."
+          "title": "Filantropía Estratégica",
+          "org": "Coalición Cívica",
+          "role": "Asesor de Financiamiento",
+          "desc": "Pionero en un nuevo modelo para financiar mejoras tecnológicas estatales combinando subvenciones federales con filantropía cívica dirigida."
         },
         "m6": {
           "year": "2024",
-          "title": "Arquitectura de Fuerza Laboral",
-          "org": "Alianza de Fuerza Laboral del Sector Público",
+          "title": "Modernización de la Fuerza Laboral",
+          "org": "Alianza de la Fuerza Laboral del Sector Público",
           "role": "Diseñador Operativo",
-          "desc": "Expandiendo la misión principal para incluir la profesionalización de los trabajadores estatales y la eliminación de la dependencia de voluntarios."
+          "desc": "Expandió la misión para centrarse en las personas que realizan el trabajo, implementando una gestión del cambio enfocada en la primera línea para profesionalizar las operaciones estatales."
         }
       }
     }
   },
   "seo": {
-    "defaultKeywords": "rescate arquitectónico, política verificable, acceso equitativo, monolito distribuido, verificación matemática, GovTech, cumplimiento, cambio organizacional",
+    "defaultKeywords": "supervisión arquitectónica, política verificable, traducción de políticas, predicción de efectos secundarios, GovTech, cumplimiento, gestión del cambio centrada en la primera línea",
     "pages": {
       "home": {
-        "title": "Política Verificable. Acceso Determinista.",
-        "description": "Applied Policy Systems fusiona ingeniería de sistemas profunda con fortificación legal y diseño operativo, asegurando un estricto cumplimiento federal.",
-        "keywords": "remediación de sistemas, acceso equitativo, cumplimiento, GovTech, mandatos federales, auditoría empírica"
+        "title": "Política Verificable. Acceso Sin Compromisos.",
+        "description": "Applied Policy Systems proporciona supervisión arquitectónica y capacidades de SME para eliminar cuellos de botella en las políticas y traducir mandatos en código determinista.",
+        "keywords": "supervisión de sistemas, traducción de políticas, acelerando TI, predicción de efectos secundarios, cumplimiento, GovTech, mandatos federales"
       },
       "capabilities": {
-        "title": "Supervisión de Sistemas e Ingeniería de Políticas | Applied Policy Systems",
-        "description": "Revise nuestras intervenciones especializadas, que abarcan Fortificación Legal, IA Ética, Adquisiciones Estratégicas y Operaciones de Primera Línea.",
-        "keywords": "supervisión de sistemas, defensa empírica de auditoría, criptografía soberana, fortificación legal, OCM, simulación matemática de políticas"
+        "title": "Supervisión Arquitectónica e Ingeniería de Políticas | Applied Policy Systems",
+        "description": "Revise nuestras intervenciones especializadas: predicción de riesgos secundarios, aceleración de TI, responsabilidad de ingeniería y operaciones de primera línea.",
+        "keywords": "supervisión de sistemas, defensa de auditoría empírica, fortificación legal, simulación de políticas, dependencias entre programas, eliminar lastre"
       },
       "research": {
         "title": "Diagnósticos y Auditorías | Applied Policy Systems",
-        "description": "Análisis de autoridad que mapea las restricciones arquitectónicas de las implementaciones tecnológicas del sector público, interoperabilidad de proveedores y parámetros de cumplimiento federal.",
-        "keywords": "análisis empírico, inteligencia de amenazas, marcos de cumplimiento, auditoría de impuesto de tiempo, rastreo automatizado"
+        "description": "Análisis sobre por qué el retraso en las políticas estanca la tecnología del sector público, radios de impacto secundarios y reglas de cumplimiento federal.",
+        "keywords": "análisis empírico, inteligencia de amenazas, marcos de cumplimiento, seguimiento automatizado, radio de impacto, cuellos de botella en las políticas"
       },
       "field": {
         "title": "Simuladores Operativos | Applied Policy Systems",
-        "description": "Modelos de demostración en vivo que ilustran la verificación matemática formal de reglas, auditorías empíricas de carga y pasarelas criptográficas.",
+        "description": "Modelos en vivo que ilustran las pruebas de políticas automatizadas, el seguimiento de efectos secundarios y el manejo seguro de datos.",
         "keywords": "simuladores, verificación formal, pasarelas criptográficas, auditorías empíricas"
       },
       "contact": {
         "title": "Consulta e Ingreso Técnico | Applied Policy Systems",
-        "description": "Contacte a nuestros expertos para supervisión de sistemas estructurales, defensa de auditoría o delimitación de adquisiciones estratégicas.",
-        "keywords": "consulta, investigación, revisión arquitectónica, defensa de auditoría"
+        "description": "Contacte a nuestros expertos para supervisión arquitectónica, aceleración de despliegues o traducción de políticas programáticas.",
+        "keywords": "consulta, consulta, revisión arquitectónica, defensa de auditoría, acelerando TI"
       },
       "privacy": {
         "title": "Política de Privacidad | Applied Policy Systems",
@@ -398,92 +401,92 @@
   "contact": {
     "hero": {
       "title": "Consulta e Ingreso Técnico",
-      "subtitle": "Inicie un diálogo sobre supervisión de sistemas, evolución arquitectónica o adquisición estratégica."
+      "subtitle": "Inicie un diálogo sobre supervisión arquitectónica, aceleración de despliegues o prevención de riesgos secundarios."
     },
     "form": {
-      "name": "Nombre Completo",
-      "email": "Correo Electrónico Oficial",
+      "name": "Nombre completo",
+      "email": "Dirección de correo electrónico oficial",
       "organization": "Agencia / Organización",
       "inquiryType": {
-        "label": "Naturaleza de la Consulta",
+        "label": "Naturaleza de la consulta",
         "options": {
-          "systems": "Arquitectura de Sistemas y Gobernanza de IA",
-          "policy": "Defensa Empírica de Auditoría y Fortificación Legal",
-          "general": "Adquisición Estratégica y Operaciones"
+          "systems": "Arquitectura de sistemas y gobernanza de IA",
+          "policy": "Defensa de auditoría y traducción de políticas",
+          "general": "Adquisiciones estratégicas y operaciones"
         }
       },
-      "message": "Contexto Técnico o Detalles de la Solicitud",
-      "submit": "Enviar Consulta",
-      "success": "Consulta recibida. Un arquitecto revisará sus parámetros.",
-      "error": "Transmisión fallida. Intente nuevamente o contáctenos directamente."
+      "message": "Contexto técnico o detalles de la solicitud",
+      "submit": "Enviar consulta",
+      "success": "Consulta recibida. Un arquitecto revisará su solicitud.",
+      "error": "Error de transmisión. Inténtelo de nuevo o contáctenos directamente."
     },
     "info": {
-      "title": "Contacto Directo",
-      "email": "Correo Electrónico",
+      "title": "Contacto directo",
+      "email": "Correo electrónico",
       "location": "Ubicación",
       "address": "Filadelfia, PA",
-      "hours": "Horario de Atención",
-      "hoursText": "Lunes – Viernes, 0900 – 1700 EST"
+      "hours": "Horario de atención",
+      "hoursText": "Lunes – Viernes, 09:00 – 17:00 EST"
     }
   },
   "footer": {
-    "tagline": "Diseñando infraestructura digital determinista y altamente regulada.",
-    "privacy": "Política de Privacidad",
-    "terms": "Términos de Servicio",
-    "contact": "Ingreso Técnico",
+    "tagline": "Arquitecturando infraestructura gubernamental confiable y altamente regulada.",
+    "privacy": "Política de privacidad",
+    "terms": "Términos de servicio",
+    "contact": "Ingreso técnico",
     "location": "Filadelfia, PA",
     "rights": "Applied Policy Systems LLC. Todos los derechos reservados.",
-    "backToHome": "Volver al Inicio",
+    "backToHome": "Volver al inicio",
     "tips": {
-      "privacy": "Protección de Datos",
-      "terms": "Marco Legal",
-      "contact": "Iniciar Consulta"
+      "privacy": "Protección de datos",
+      "terms": "Marco legal",
+      "contact": "Iniciar consulta"
     },
     "labels": {
-      "privacy": "Ver nuestra Política de Privacidad",
-      "terms": "Ver nuestros Términos de Servicio",
+      "privacy": "Ver nuestra política de privacidad",
+      "terms": "Ver nuestros términos de servicio",
       "contact": "Contáctenos para una consulta"
     },
-    "copyright": "© {{year}} APS. Verificación y Lógica."
+    "copyright": "© 2024 APS. Verificación y Lógica."
   },
   "notfound": {
-    "title": "404 - Endpoint No Encontrado",
+    "title": "404 - Punto final no encontrado",
     "text": "El recurso solicitado no pudo ser localizado.",
-    "cta": "Volver a la Raíz"
+    "cta": "Volver al origen"
   },
   "privacy": {
     "title": "Política de Privacidad",
-    "lastUpdated": "Última Actualización: Marzo 2024",
+    "lastUpdated": "Última actualización: Marzo de 2024",
     "sections": {
       "collection": {
-        "title": "1. Arquitectura de Recopilación de Datos",
-        "text": "Operamos bajo el principio de minimización de datos. No agregamos telemetría no esencial."
+        "title": "1. Arquitectura de recopilación de datos",
+        "text": "Operamos bajo un principio estricto de minimización de datos. No rastreamos información no esencial."
       },
       "usage": {
-        "title": "2. Utilización de Datos",
+        "title": "2. Utilización de datos",
         "text": "La información se utiliza estrictamente para la ejecución de servicios técnicos, evaluaciones arquitectónicas y comunicaciones seguras."
       },
       "security": {
-        "title": "3. Postura de Seguridad",
+        "title": "3. Postura de seguridad",
         "text": "Empleamos estándares criptográficos de nivel empresarial para proteger los datos tanto en tránsito como en reposo."
       }
     }
   },
   "terms": {
     "title": "Términos de Servicio",
-    "lastUpdated": "Última Actualización: Marzo 2024",
+    "lastUpdated": "Última actualización: Marzo de 2024",
     "sections": {
       "acceptance": {
-        "title": "1. Aceptación de Parámetros",
-        "text": "Al acceder a nuestra infraestructura o iniciar una consulta, acepta regirse por estos términos operativos."
+        "title": "1. Aceptación de parámetros",
+        "text": "Al acceder a nuestra infraestructura o iniciar una consulta, usted acepta estar sujeto a estos términos operativos."
       },
       "services": {
-        "title": "2. Servicios Técnicos",
-        "text": "Applied Policy Systems proporciona supervisión arquitectónica, integración de sistemas y asesoramiento determinista estrictamente dentro de los límites operativos definidos."
+        "title": "2. Servicios técnicos",
+        "text": "Applied Policy Systems proporciona supervisión arquitectónica, construcción de sistemas y asesoramiento estrictamente dentro de los límites operativos definidos."
       },
       "liability": {
-        "title": "3. Limitaciones de Responsabilidad",
-        "text": "Nuestra responsabilidad se limita a los parámetros definidos en los acuerdos de nivel de servicio específicos y contratos formales."
+        "title": "3. Limitaciones de responsabilidad",
+        "text": "Nuestra responsabilidad está restringida a los parámetros definidos en los acuerdos de nivel de servicio específicos y contratos formales."
       }
     }
   }
