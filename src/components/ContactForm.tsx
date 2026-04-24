@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { AnimatePresence } from 'motion/react';
 import { useTranslation } from 'react-i18next';
-import { Send, Bot, User, Loader2, ChevronRight } from 'lucide-react';
+import { Send, Bot, User, ChevronRight } from 'lucide-react';
 import { trackInteraction } from '../services/analytics';
 import { TypingIndicator, ChatBubble } from './ui/ChatElements';
 
