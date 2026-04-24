@@ -31,13 +31,6 @@ async function startServer() {
       });
     }
 
-    console.log("--- New Contact Inquiry ---");
-    console.log(`Name: ${name}`);
-    console.log(`Email: ${email}`);
-    console.log(`Org: ${organization}`);
-    console.log(`Message: ${message}`);
-    console.log("---------------------------");
-
     res.json({ 
       success: true, 
       message: "Inquiry received successfully" 
@@ -47,8 +40,6 @@ async function startServer() {
   // MOCK CHAT ROUTE FOR LOCAL PREVIEW
   app.post("/api/chat", express.json(), (req, res) => {
     const { message } = req.body;
-    
-    console.log(`[LOCAL SERVER] Received chat message: "${message}"`);
     
     // Simulate network delay for UI realism
     setTimeout(() => {
