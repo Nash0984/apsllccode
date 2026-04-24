@@ -1,7 +1,18 @@
-import { GoogleGenAI, Type } from "@google/genai";
+import { GoogleGenerativeAI, SchemaType } from "@google/generative-ai";
 import { VERIFICATION_RULES, PERSONA_INSTRUCTIONS, STATE_RULES_ONTOLOGY } from "../config/ontology";
 
-const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+let genAI: GoogleGenerativeAI | null = null;
+
+function getGenAI() {
+  if (!genAI) {
+    const apiKey = typeof process !== 'undefined' ? process.env.GEMINI_API_KEY : (import.meta as any).env.VITE_GEMINI_API_KEY;
+    if (!apiKey) {
+      throw new Error("GEMINI_API_KEY is not defined in the environment.");
+    }
+    genAI = new GoogleGenerativeAI(apiKey);
+  }
+  return genAI;
+}
 
 const BASE_SYSTEM_INSTRUCTION = `You are the backend logic core for an Applied Policy Systems environment. You operate using a hybrid architectural pathway: bridging strict deterministic rules with natural language translation.
 
@@ -19,19 +30,19 @@ export interface FileData {
 }
 
 const EXTRACTION_SCHEMA = {
-  type: Type.OBJECT,
+  type: SchemaType.OBJECT,
   properties: {
-    status: { type: Type.STRING },
-    message: { type: Type.STRING },
+    status: { type: SchemaType.STRING },
+    message: { type: SchemaType.STRING },
     extractedData: {
-      type: Type.ARRAY,
+      type: SchemaType.ARRAY,
       items: {
-        type: Type.OBJECT,
+        type: SchemaType.OBJECT,
         properties: {
-          field: { type: Type.STRING },
-          value: { type: Type.STRING },
-          statutorySufficiency: { type: Type.NUMBER },
-          complianceNote: { type: Type.STRING }
+          field: { type: SchemaType.STRING },
+          value: { type: SchemaType.STRING },
+          statutorySufficiency: { type: SchemaType.NUMBER },
+          complianceNote: { type: SchemaType.STRING }
         },
         required: ["field", "value", "statutorySufficiency", "complianceNote"]
       }
@@ -41,34 +52,34 @@ const EXTRACTION_SCHEMA = {
 };
 
 const ROUTING_SCHEMA = {
-  type: Type.OBJECT,
+  type: SchemaType.OBJECT,
   properties: {
-    message: { type: Type.STRING }
+    message: { type: SchemaType.STRING }
   },
   required: ["message"]
 };
 
 const FORMAL_LOGIC_SCHEMA = {
-  type: Type.OBJECT,
+  type: SchemaType.OBJECT,
   properties: {
-    formalLogic: { type: Type.STRING },
-    jsonSchema: { type: Type.STRING },
+    formalLogic: { type: SchemaType.STRING },
+    jsonSchema: { type: SchemaType.STRING },
   },
   required: ["formalLogic", "jsonSchema"]
 };
 
 const AUDIT_ANALYSIS_SCHEMA = {
-  type: Type.OBJECT,
+  type: SchemaType.OBJECT,
   properties: {
-    hasConflicts: { type: Type.BOOLEAN },
+    hasConflicts: { type: SchemaType.BOOLEAN },
     conflicts: {
-      type: Type.ARRAY,
+      type: SchemaType.ARRAY,
       items: {
-        type: Type.OBJECT,
+        type: SchemaType.OBJECT,
         properties: {
-          severity: { type: Type.STRING },
-          description: { type: Type.STRING },
-          eventsAffected: { type: Type.ARRAY, items: { type: Type.STRING } }
+          severity: { type: SchemaType.STRING },
+          description: { type: SchemaType.STRING },
+          eventsAffected: { type: SchemaType.ARRAY, items: { type: SchemaType.STRING } }
         },
         required: ["severity", "description", "eventsAffected"]
       }
@@ -90,6 +101,12 @@ export async function evaluateDocument(
   }
   systemInstructionOverride += `\n\n${PERSONA_INSTRUCTIONS[persona]}`;
 
+  const ai = getGenAI();
+  const model = ai.getGenerativeModel({ 
+    model: "gemini-1.5-flash",
+    systemInstruction: systemInstructionOverride,
+  });
+
   const contents = [{
     role: 'user',
     parts: [
@@ -99,30 +116,30 @@ export async function evaluateDocument(
   }];
 
   try {
-    const response = await ai.models.generateContent({
-      model: "gemini-3-flash-preview",
+    const result = await model.generateContent({
       contents: contents as any,
-      config: {
+      generationConfig: {
         temperature: 0.0,
         responseMimeType: "application/json",
-        responseSchema: EXTRACTION_SCHEMA,
-        systemInstruction: systemInstructionOverride,
+        responseSchema: EXTRACTION_SCHEMA as any,
       },
     });
 
-    if (!response || !response.text) {
+    const response = await result.response;
+    const text = response.text();
+
+    if (!text) {
       throw new Error("Empty response received from the evaluation engine.");
     }
 
     let parsedData;
     try {
-      parsedData = JSON.parse(response.text);
+      parsedData = JSON.parse(text);
     } catch (parseError) {
       console.error(`[APS-EXTRACTION-PARSE-ERROR] ID: ${requestId}`, parseError);
       throw new Error("Failed to parse the evaluation results. The response format was invalid.");
     }
 
-    // Basic schema validation
     if (!parsedData.extractedData || !Array.isArray(parsedData.extractedData)) {
       throw new Error("Invalid schema: 'extractedData' array is missing or invalid.");
     }
@@ -131,7 +148,6 @@ export async function evaluateDocument(
   } catch (error: any) {
     console.error(`[APS-EXTRACTION-ERROR] ID: ${requestId}`, error);
     
-    // Check if it's already a custom error we threw
     if (error.message && (
       error.message.includes("Empty response") ||
       error.message.includes("Failed to parse") ||
@@ -140,7 +156,6 @@ export async function evaluateDocument(
       throw error;
     }
 
-    // Wrap external API errors with more specific feedback
     if (error.message && error.message.includes("API key not valid")) {
       throw new Error("API Authentication failed. Please check your API key.");
     } else if (error.name === "TypeError" && error.message.includes("fetch")) {
@@ -156,8 +171,6 @@ export async function routePolicyQuery(
   availableNodes?: string
 ) {
   const requestId = `ROUTE-${Math.random().toString(36).substring(7)}`;
-  
-  // Use provided nodes or extract from ontology if not provided
   const nodes = availableNodes || Object.keys(STATE_RULES_ONTOLOGY).join(", ");
 
   const routingPrompt = `
@@ -170,18 +183,23 @@ export async function routePolicyQuery(
   `;
 
   try {
-    const response = await ai.models.generateContent({
-      model: "gemini-3-flash-preview",
+    const ai = getGenAI();
+    const model = ai.getGenerativeModel({ 
+      model: "gemini-1.5-flash",
+      systemInstruction: BASE_SYSTEM_INSTRUCTION,
+    });
+
+    const result = await model.generateContent({
       contents: [{ role: 'user', parts: [{ text: routingPrompt }] }],
-      config: {
+      generationConfig: {
         temperature: 0.0,
         responseMimeType: "application/json",
-        responseSchema: ROUTING_SCHEMA,
-        systemInstruction: BASE_SYSTEM_INSTRUCTION,
+        responseSchema: ROUTING_SCHEMA as any,
       },
     });
 
-    return JSON.parse(response.text || '{"message": "UNKNOWN"}');
+    const response = await result.response;
+    return JSON.parse(response.text() || '{"message": "UNKNOWN"}');
   } catch (error) {
     console.error(`[APS-ROUTING-ERROR] ID: ${requestId}`, error);
     return { message: "UNKNOWN" };
@@ -193,15 +211,18 @@ export async function getConversationalResponse(
   history: { role: 'user' | 'model', parts: { text: string }[] }[] = []
 ) {
   try {
-    const response = await ai.models.generateContent({
-      model: "gemini-3-flash-preview",
-      contents: history.length > 0 ? history : [{ role: 'user', parts: [{ text: message }] }],
-      config: {
-        systemInstruction: "You are the specialized architectural consulting assistant for Applied Policy Systems LLC. Use a direct, factual, and strictly objective tone. Focus on neuro-symbolic policy engines, deterministic logic, and public benefits modernization (SNAP, Medicaid).",
-      }
+    const ai = getGenAI();
+    const model = ai.getGenerativeModel({ 
+      model: "gemini-1.5-flash",
+      systemInstruction: "You are the specialized architectural consulting assistant for Applied Policy Systems LLC. Use a direct, factual, and strictly objective tone. Focus on neuro-symbolic policy engines, deterministic logic, and public benefits modernization (SNAP, Medicaid).",
     });
 
-    return response.text || "";
+    const result = await model.generateContent({
+      contents: history.length > 0 ? history : [{ role: 'user', parts: [{ text: message }] }],
+    });
+
+    const response = await result.response;
+    return response.text() || "";
   } catch (error) {
     console.error("Conversational API Error:", error);
     return "Error communicating with the conversational agent backend.";
@@ -221,24 +242,31 @@ export async function extractFormalLogic(statutoryText: string) {
   `;
 
   try {
-    const response = await ai.models.generateContent({
-      model: "gemini-3-flash-preview",
+    const ai = getGenAI();
+    const model = ai.getGenerativeModel({ 
+      model: "gemini-1.5-flash",
+      systemInstruction: BASE_SYSTEM_INSTRUCTION + "\n\n[DIRECTIVE] You MUST generate syntactically correct SMT-LIB2 code for the formalLogic property. Do NOT include Markdown formatting in the string values.",
+    });
+
+    const result = await model.generateContent({
       contents: [{ role: 'user', parts: [{ text: prompt }] }],
-      config: {
+      generationConfig: {
         temperature: 0.1,
         responseMimeType: "application/json",
-        responseSchema: FORMAL_LOGIC_SCHEMA,
-        systemInstruction: BASE_SYSTEM_INSTRUCTION + "\n\n[DIRECTIVE] You MUST generate syntactically correct SMT-LIB2 code for the formalLogic property. Do NOT include Markdown formatting in the string values.",
+        responseSchema: FORMAL_LOGIC_SCHEMA as any,
       },
     });
 
-    if (!response || !response.text) {
+    const response = await result.response;
+    const text = response.text();
+
+    if (!text) {
       throw new Error("Empty response received from the formal logic engine.");
     }
 
     let parsedData;
     try {
-      parsedData = JSON.parse(response.text);
+      parsedData = JSON.parse(text);
     } catch (parseError) {
       console.error(`[APS-FORMAL-LOGIC-PARSE-ERROR] ID: ${requestId}`, parseError);
       throw new Error("Failed to parse formal logic outputs. Format was invalid.");
@@ -287,23 +315,30 @@ export async function analyzeAuditTrail(log: any[]) {
   `;
 
   try {
-    const response = await ai.models.generateContent({
-      model: "gemini-3-flash-preview",
+    const ai = getGenAI();
+    const model = ai.getGenerativeModel({ 
+      model: "gemini-1.5-flash",
+      systemInstruction: BASE_SYSTEM_INSTRUCTION + "\n\n[DIRECTIVE] You are a Forensic Logic Auditor. Your goal is to find cracks in the deterministic pathway of this operational session.",
+    });
+
+    const result = await model.generateContent({
       contents: [{ role: 'user', parts: [{ text: prompt }] }],
-      config: {
+      generationConfig: {
         temperature: 0.0,
         responseMimeType: "application/json",
-        responseSchema: AUDIT_ANALYSIS_SCHEMA,
-        systemInstruction: BASE_SYSTEM_INSTRUCTION + "\n\n[DIRECTIVE] You are a Forensic Logic Auditor. Your goal is to find cracks in the deterministic pathway of this operational session.",
+        responseSchema: AUDIT_ANALYSIS_SCHEMA as any,
       },
     });
 
-    if (!response || !response.text) {
+    const response = await result.response;
+    const text = response.text();
+
+    if (!text) {
       throw new Error("Empty response received from the audit logic analyzer.");
     }
 
     try {
-      return JSON.parse(response.text);
+      return JSON.parse(text);
     } catch (parseError) {
       console.error(`[APS-AUDIT-ANALYSIS-PARSE-ERROR] ID: ${requestId}`, parseError);
       throw new Error("Failed to parse the audit results. The response format was invalid.");

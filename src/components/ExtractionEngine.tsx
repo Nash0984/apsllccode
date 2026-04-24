@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { 
   Network, Cpu, Database, GitBranch, Activity, Code2, Play, 
-  CheckCircle2, AlertCircle, Server, ShieldCheck, FileJson, Lock
+  CheckCircle2, AlertCircle, Server as ServerIcon, ShieldCheck, FileJson, Lock
 } from 'lucide-react';
 import { LOGIC_PIPELINES } from '../config/ontology';
 import { useCase } from '../context/CaseContext';
@@ -185,7 +185,7 @@ export function ExtractionEngine() {
         {isProcessing && (
           <div className="flex flex-col items-center justify-center py-12 space-y-6">
             <div className="relative">
-              <Server size={32} className="text-brand-jade animate-pulse" />
+              <ServerIcon size={32} className="text-brand-jade animate-pulse" />
               <div className="absolute -top-2 -right-2 w-3 h-3 bg-brand-jade rounded-full animate-ping" />
             </div>
             <div className="space-y-2 text-center">

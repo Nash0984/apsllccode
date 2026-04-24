@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
-  Upload, X, FileText, Activity, ShieldAlert, CheckCircle, RefreshCw, ChevronDown, Check, User, Scale
+  Upload, X, FileText, Activity, ShieldAlert, CheckCircle, RefreshCw, ChevronDown, Check, User, Scale, Lock
 } from 'lucide-react';
 import { evaluateDocument, FileData } from '../services/gemini';
 import { useToast } from '../context/ToastContext';

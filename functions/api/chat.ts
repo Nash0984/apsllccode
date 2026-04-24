@@ -23,13 +23,13 @@ export async function onRequestPost(context: any) {
   }
 
   try {
-    const body = await request.json();
+    const body = await request.json().catch(() => ({}));
     const validation = ChatSchema.safeParse(body);
     
     if (!validation.success) {
       return new Response(JSON.stringify({ 
         error: "Invalid input schema", 
-        details: validation.error.format() 
+        details: "The request body did not match the expected format." 
       }), {
         status: 400,
         headers: { "content-type": "application/json" }
@@ -37,7 +37,7 @@ export async function onRequestPost(context: any) {
     }
 
     const validatedData = validation.data;
-    const ai = new GoogleGenAI({ apiKey });
+    const ai = new GoogleGenAI({ apiKey: String(apiKey) });
 
     let formattedContents = [];
     if (validatedData.history && validatedData.history.length > 0) {

@@ -28,7 +28,8 @@
     "field": "Simuladores",
     "about": "Nosotros",
     "contact": "Contacto",
-    "getInTouch": "Contacto"
+    "getInTouch": "Contacto",
+    "scheduleSession": "Programar una Sesión"
   },
   "simulators": {
     "policyManual": {
@@ -427,11 +428,23 @@
   },
   "footer": {
     "tagline": "Diseñando infraestructura digital determinista y altamente regulada.",
-    "links": {
-      "privacy": "Política de Privacidad",
-      "terms": "Términos de Servicio"
+    "privacy": "Política de Privacidad",
+    "terms": "Términos de Servicio",
+    "contact": "Ingreso Técnico",
+    "location": "Filadelfia, PA",
+    "rights": "Applied Policy Systems LLC. Todos los derechos reservados.",
+    "backToHome": "Volver al Inicio",
+    "tips": {
+      "privacy": "Protección de Datos",
+      "terms": "Marco Legal",
+      "contact": "Iniciar Consulta"
     },
-    "copyright": "© {{year}} Applied Policy Systems LLC. Todos los derechos reservados."
+    "labels": {
+      "privacy": "Ver nuestra Política de Privacidad",
+      "terms": "Ver nuestros Términos de Servicio",
+      "contact": "Contáctenos para una consulta"
+    },
+    "copyright": "© {{year}} APS. Verificación y Lógica."
   },
   "notfound": {
     "title": "404 - Endpoint No Encontrado",

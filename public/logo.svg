@@ -1,0 +1,24 @@
+<svg viewBox="0 0 590 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="cubeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#005A62" />
+      <stop offset="100%" stopColor="#005A62" stopOpacity="0.8" />
+    </linearGradient>
+  </defs>
+  <g transform="translate(0, 82.5) scale(1.4)">
+    <path d="M5.35898 20L40 40V80L5.35898 60V20Z" fill="url(#cubeGradient)" />
+    <path d="M5.35898 60L40 80L74.641 60L40 40L5.35898 60Z" fill="#000" fillOpacity="0.15" />
+    <path d="M40 0L74.641 20L40 40L5.35898 20L40 0Z" fill="#005A62" fillOpacity="0.05" stroke="#005A62" strokeWidth="0.5" strokeOpacity="0.3" />
+    <path d="M40 40L74.641 20V60L40 80V40Z" stroke="#005A62" strokeWidth="0.75" strokeOpacity="0.4" />
+    <path d="M40 0L74.641 20V60L40 80L5.35898 60V20L40 0Z" stroke="#005A62" strokeWidth="1.2" strokeOpacity="0.6" />
+    <circle cx="40" cy="0" r="2" fill="#005A62" />
+    <circle cx="74.641" cy="20" r="2" fill="#005A62" />
+    <circle cx="74.641" cy="60" r="2" fill="#005A62" />
+    <circle cx="40" cy="80" r="2" fill="#005A62" />
+    <circle cx="5.35898" cy="60" r="2" fill="#005A62" />
+    <circle cx="5.35898" cy="20" r="2" fill="#005A62" />
+    <circle cx="40" cy="40" r="2" fill="#005A62" />
+  </g>
+  <text x="140" y="115.5" fill="#0f172a" style="font-family: sans-serif; font-weight: 700; font-size: 56px;">Applied Policy</text>
+  <text x="140" y="185.5" fill="#0f172a" style="font-family: sans-serif; font-weight: 700; font-size: 56px;">Systems LLC</text>
+</svg>

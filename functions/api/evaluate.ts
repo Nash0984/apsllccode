@@ -5,9 +5,13 @@ export async function onRequestPost(context: any) {
   const { request, env } = context;
   
   try {
-    const ai = new GoogleGenAI({ apiKey: env.GEMINI_API_KEY });
-    const payload = await request.json();
+    const ai = new GoogleGenAI({ apiKey: String(env.GEMINI_API_KEY || "") });
+    const payload = await request.json().catch(() => ({}));
     const { fileData, policyId, persona, type, userMessage, availableNodes } = payload;
+
+    if (!env.GEMINI_API_KEY) {
+      return new Response(JSON.stringify({ error: "GEMINI_API_KEY is missing" }), { status: 500 });
+    }
 
     if (type === 'evaluate') {
       let systemInstructionOverride = "You are the backend logic core for an Applied Policy Systems environment. You operate using a hybrid architectural pathway: bridging strict deterministic rules with natural language translation.\n\n[CORE DIRECTIVE: STATUTORY TRACEABILITY & AUDIT TRAILS]\nYou MUST provide a deterministic audit trail. Every decision, verification requirement, or policy explanation must explicitly cite the exact authorizing federal statute. Do not generate generalized or probabilistic advice.\n\n[CORE INNOVATION: STATUTORY SUFFICIENCY SCORING]\nYour primary evaluation mechanism is the \"Statutory Sufficiency Score.\" This score represents the degree to which a provided document or data point satisfies the specific evidentiary hierarchy of the targeted federal ontology.\n* A score of 1.0 indicates a \"Primary\" document for that specific statute.\n* A score below 1.0 indicates a \"Secondary\" document requiring additional corroboration per program rules.";

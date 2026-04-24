@@ -4,7 +4,7 @@ import { ThemeToggle } from '../components/ThemeToggle';
 import { useTheme } from '../context/ThemeContext';
 import { motion, useScroll, AnimatePresence, useSpring } from 'motion/react';
 import { Menu, X, Linkedin, ArrowUp } from 'lucide-react';
-import { useState, useEffect, Suspense } from 'react';
+import { useState, useEffect, Suspense, useRef } from 'react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ChatWidget } from './ChatWidget';
@@ -21,6 +21,9 @@ export function Layout() {
   const [showBackToTop, setShowBackToTop] = useState(false);
   const location = useLocation();
   const { scrollYProgress } = useScroll();
+  const mainContentRef = useRef<HTMLElement>(null);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
 
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -42,19 +45,78 @@ export function Layout() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  // Close menu when location changes
+  // Close menu when location changes and focus main content
   useEffect(() => {
     setIsMenuOpen(false);
     window.scrollTo(0, 0);
+    
+    // Focus main content on route change
+    if (mainContentRef.current) {
+      mainContentRef.current.focus();
+    }
   }, [location.pathname]);
 
-  // Prevent scrolling when menu is open
+  // Prevent scrolling and handle Escape key when menu is open
   useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isMenuOpen) {
+        setIsMenuOpen(false);
+      }
+    };
+
     if (isMenuOpen) {
       document.body.style.overflow = 'hidden';
+      window.addEventListener('keydown', handleEscape);
     } else {
       document.body.style.overflow = 'unset';
+      if (menuButtonRef.current) {
+        menuButtonRef.current.focus();
+      }
     }
+    
+    return () => window.removeEventListener('keydown', handleEscape);
+  }, [isMenuOpen]);
+
+  // Focus trap for mobile menu
+  useEffect(() => {
+    if (!isMenuOpen) return;
+
+    const modal = mobileMenuRef.current;
+    if (!modal) return;
+
+    const focusableElements = modal.querySelectorAll(
+      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+    );
+    const firstElement = focusableElements[0] as HTMLElement;
+    const lastElement = focusableElements[focusableElements.length - 1] as HTMLElement;
+
+    const handleTabTrap = (e: KeyboardEvent) => {
+      if (e.key !== 'Tab') return;
+
+      if (e.shiftKey) {
+        if (document.activeElement === firstElement) {
+          e.preventDefault();
+          lastElement.focus();
+        }
+      } else {
+        if (document.activeElement === lastElement) {
+          e.preventDefault();
+          firstElement.focus();
+        }
+      }
+    };
+
+    modal.addEventListener('keydown', handleTabTrap);
+    
+    // Set initial focus to the first element (usually the close button or logo)
+    const timeoutId = setTimeout(() => {
+      firstElement?.focus();
+    }, 100);
+
+    return () => {
+      modal.removeEventListener('keydown', handleTabTrap);
+      clearTimeout(timeoutId);
+    };
   }, [isMenuOpen]);
 
   const navItems = [
@@ -185,9 +247,10 @@ export function Layout() {
             {/* Mobile Menu Button */}
             <div className="md:hidden">
               <button 
+                ref={menuButtonRef}
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="p-2 text-slate-600 dark:text-slate-300 hover:text-brand-jade transition-colors relative z-[120]"
-                aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+                className="p-2 text-slate-600 dark:text-slate-300 hover:text-brand-jade transition-colors relative z-[120] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-jade rounded-lg"
+                aria-label={isMenuOpen ? t('nav.closeMenu') : t('nav.openMenu')}
                 aria-expanded={isMenuOpen}
                 aria-controls="mobile-menu"
               >
@@ -198,7 +261,7 @@ export function Layout() {
         </div>
       </motion.header>
 
-      <main id="main-content" className="relative" tabIndex={-1}>
+      <main id="main-content" ref={mainContentRef} className="relative outline-none" tabIndex={-1}>
         <AnimatePresence mode="wait">
           <motion.div
             key={location.pathname}
@@ -228,6 +291,7 @@ export function Layout() {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div 
+            ref={mobileMenuRef}
             key="mobile-nav-menu"
             id="mobile-menu"
             initial={{ opacity: 0 }}
@@ -303,7 +367,7 @@ export function Layout() {
                 }}
                 className="w-full text-center py-5 bg-brand-jade text-white text-xl font-bold rounded-2xl shadow-2xl shadow-brand-jade/20 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-brand-jade/50 transition-all font-sans"
               >
-                Schedule a Session
+                {t('nav.scheduleSession')}
               </button>
             </div>
           </motion.div>
@@ -318,21 +382,21 @@ export function Layout() {
               <Link to="/" aria-label="Applied Policy Systems Home" className="relative group">
                 <Logo className="h-20 w-auto" />
                 <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 px-3 py-1.5 bg-slate-900 dark:bg-slate-800 text-white text-[10px] font-bold uppercase tracking-widest rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap shadow-xl z-50">
-                  Back to Home
+                  {t('footer.backToHome')}
                   <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-900 dark:border-t-slate-800" />
                 </div>
               </Link>
               <p className="text-sm text-slate-500 dark:text-slate-400 max-w-xs text-center md:text-left leading-relaxed">
-                Bridging the gap between legislative intent and administrative reality through precision-engineered infrastructure.
+                {t('footer.tagline')}
               </p>
             </div>
             
             <div className="flex flex-col items-center md:items-end gap-8">
               <nav className="flex flex-wrap justify-center gap-x-10 gap-y-4 text-sm font-bold uppercase tracking-widest" aria-label="Footer navigation">
                 {[
-                  { name: t('footer.privacy'), path: '/privacy', tip: 'Data Protection', label: 'View our Privacy Policy' },
-                  { name: t('footer.terms'), path: '/terms', tip: 'Legal Framework', label: 'View our Terms of Service' },
-                  { name: t('footer.contact'), path: '/contact', tip: 'Start Consultation', label: 'Contact us for a consultation' }
+                  { name: t('footer.privacy'), path: '/privacy', tip: t('footer.tips.privacy'), label: t('footer.labels.privacy') },
+                  { name: t('footer.terms'), path: '/terms', tip: t('footer.tips.terms'), label: t('footer.labels.terms') },
+                  { name: t('footer.contact'), path: '/contact', tip: t('footer.tips.contact'), label: t('footer.labels.contact') }
                 ].map((link) => (
                   <div key={link.name} className="relative group">
                     <Link 

@@ -18,10 +18,7 @@ export async function onRequest(context) {
   };
 
   if (validation.success && validation.data.verbose) {
-    responseData.env = {
-      node_version: process.version,
-      memory_usage: process.memoryUsage(),
-    };
+    responseData.runtime = "Cloudflare Workers";
   }
 
   return new Response(JSON.stringify(responseData), {

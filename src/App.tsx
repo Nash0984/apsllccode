@@ -49,9 +49,13 @@ function AnimatedRoutes() {
       const target = e.target as HTMLElement;
       const link = target.closest('a');
       if (link) {
-        const url = new URL(link.href);
-        if (url.origin === window.location.origin && prefetchMap[url.pathname]) {
-          prefetchMap[url.pathname]();
+        try {
+          const url = new URL(link.href);
+          if (url.origin === window.location.origin && prefetchMap[url.pathname]) {
+            prefetchMap[url.pathname]();
+          }
+        } catch (err) {
+          // Ignore invalid URLs or non-standard protocols
         }
       }
     };
