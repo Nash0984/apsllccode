@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import { useMemo } from 'react';
-import { TimeTaxChart } from '../components/TimeTaxChart';
 
 export function Home() {
   const { t } = useTranslation();
@@ -89,32 +88,32 @@ export function Home() {
                   "@type": "Offer",
                   "itemOffered": {
                     "@type": "Service",
-                    "name": "Verifiable Policy & Legal Fortification",
-                    "description": "Bridging deterministic engineering and administrative law via mathematical provers and empirical Time Tax audits."
+                    "name": "Verifiable Policy & Downstream Prediction",
+                    "description": "Predicting blast radiuses and bridging deterministic engineering with administrative law."
                   }
                 },
                 {
                   "@type": "Offer",
                   "itemOffered": {
                     "@type": "Service",
-                    "name": "Ethical AI Governance & Infrastructure",
-                    "description": "Securing sensitive federal data via sovereign cryptography and deploying adversarial bias mitigation frameworks."
+                    "name": "Secure AI Governance & Infrastructure",
+                    "description": "Securing sensitive federal data via architectural boundaries and deploying binding AI frameworks."
                   }
                 },
                 {
                   "@type": "Offer",
                   "itemOffered": {
                     "@type": "Service",
-                    "name": "Strategic Procurement & Funding Alignment",
-                    "description": "Engineering strict API constraints into RFPs and braiding federal seed grants with civic philanthropy."
+                    "name": "System Accountability & Procurement",
+                    "description": "Engineering strict technical rules into RFPs and internal builds to force modularity."
                   }
                 },
                 {
                   "@type": "Offer",
                   "itemOffered": {
                     "@type": "Service",
-                    "name": "Frontline Operations & Human Capital",
-                    "description": "Architecting professional state workforces and deploying frontline-driven change management."
+                    "name": "Frontline Operations & Workforce Design",
+                    "description": "Architecting professional state workforces and deploying frontline-first change management."
                   }
                 }
               ]
@@ -181,8 +180,6 @@ export function Home() {
               <p className="font-medium italic leading-relaxed text-lg sm:text-xl mb-8">
                 {t('home.challenge.solution')}
               </p>
-
-              <TimeTaxChart />
 
               <hr className="my-8 border-white/20" />
               <h4 className="text-sm font-bold tracking-widest mb-2 opacity-80 uppercase">

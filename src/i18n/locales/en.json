@@ -2,23 +2,23 @@
   "routes": {
     "expertise": {
       "label": "Capabilities",
-      "description": "Review our interventions: fixing broken systems, defending against audits, and preventing vendor lock-in."
+      "description": "Review our interventions: predicting downstream effects, enforcing system logic, and translating programmatic changes into code."
     },
     "research": {
       "label": "Research",
-      "description": "Clear analysis of why government tech fails and how states can regain structural control."
+      "description": "Clear analysis of why government tech fails, how cross-program errors cascade, and how states can regain structural control."
     },
     "field": {
       "label": "Simulators",
-      "description": "Interactive models showing how we test policy changes and track administrative burden."
+      "description": "Interactive models showing how we test policy changes and track empirical administrative burden."
     },
     "about": {
       "label": "About",
-      "description": "Review our authority as independent architects of resilient public sector infrastructure."
+      "description": "Review our authority as independent architects and programmatic SMEs for public sector infrastructure."
     },
     "contact": {
       "label": "Contact",
-      "description": "Initiate a dialogue regarding system rescues, audit defense, or strategic procurement."
+      "description": "Initiate a dialogue regarding architectural oversight, programmatic strategy, or downstream risk prevention."
     }
   },
   "nav": {
@@ -68,33 +68,33 @@
   "home": {
     "hero": {
       "title": "Verifiable Policy. Uncompromised Access.",
-      "subtitle": "We rescue and rebuild highly regulated government systems. We combine deep technical architecture with policy expertise to ensure state systems pass federal audits, work for caseworkers, and actually serve residents.",
+      "subtitle": "We provide architectural oversight and deep programmatic Subject Matter Expertise (SME) for highly regulated government systems. We predict cascading downstream effects before they happen, ensuring complex programmatic changes are accurately translated into deterministic code that passes federal audits.",
       "cta": "Review Capabilities"
     },
     "challenge": {
       "label": "The Modernization Trap",
-      "title": "Technology Must Follow the Law.",
-      "text": "State agencies spent millions moving to the cloud, but caseworkers and residents are still trapped in red tape. The mandate now is to fix these tightly coupled systems. We untangle broken infrastructure to stop federal audit penalties, reduce caseworker burnout, and guarantee services reach the public.",
-      "solution": "We deploy clear policy engineering, strict system boundaries, and frontline change management to legally secure complex platforms and eliminate administrative burden.",
+      "title": "Systems Built for Compliance.",
+      "text": "State agencies spent millions moving to the cloud, but the resulting platforms are often too rigid to adapt to new rules. We do not write code; we ensure programmatic changes are accurately translated into deterministic system logic. We combine deep SME with strict engineering oversight to predict cascading downstream effects, prevent automated errors, and stop federal audit fines.",
+      "solution": "We deploy clear policy engineering, rigid procurement rules, and frontline change management to force accountability—whether your system is built by a prime vendor or an in-house IT team—and legally secure your infrastructure.",
       "outputsLabel": "Core Deliverables",
       "outputsLead": "Our specialized architectural services include:",
       "outputs": [
-        "Verifiable Policy & Legal Defense",
+        "Verifiable Policy & Downstream Prediction",
         "Secure AI Governance & Infrastructure",
-        "Strategic Procurement & Breaking Lock-In",
+        "System Accountability & Procurement",
         "Frontline Operations & Workforce Design"
       ]
     },
     "infrastructure": {
       "label": "Holistic Oversight",
-      "title": "Structural & Operational Rescues.",
-      "text": "We deploy strict technical rules alongside frontline support to force actual agility inside bureaucratic environments.",
+      "title": "Architectural Oversight & SME.",
+      "text": "We deploy strict technical rules informed by cross-program expertise to ensure systemic changes do not trigger automated federal penalties.",
       "cta": "Core Capabilities"
     },
     "sandbox": {
       "label": "Simulator 01",
       "title": "Automated Policy Testing",
-      "text": "See how we use mathematical logic to test and verify legislative changes before they ever reach live code.",
+      "text": "See how we use mathematical logic to verify legislative changes and predict downstream blast radiuses before they reach production code.",
       "cta": "View Simulator"
     },
     "manual": {
@@ -113,8 +113,8 @@
   "capabilitiesPage": {
     "hero": {
       "label": "Capabilities",
-      "title": "Systems Rescue & Policy Engineering",
-      "subtitle": "We provide targeted engineering, legal defense, and strategic advice to state agencies trapped by failed IT deployments and crippling federal audits."
+      "title": "Architectural Oversight & Policy Engineering",
+      "subtitle": "We provide targeted engineering oversight and wide-lens SME capabilities to ensure programmatic changes are translated flawlessly into code without triggering catastrophic cross-program errors."
     },
     "grid": {
       "headerLabel": "The Four Pillars",
@@ -123,35 +123,35 @@
     },
     "cards": {
       "statutory": {
-        "title": "Verifiable Policy & Legal Defense",
-        "text": "We ensure your IT systems accurately reflect the law. We use automated tools to verify that state policies are coded correctly, and we measure the 'Time Tax' on residents to legally defend your decisions against unfunded federal mandates.",
+        "title": "Verifiable Policy & Downstream Prediction",
+        "text": "We bridge the gap between policy intent and system logic. We ensure your codebase accurately reflects the law, whether built by a massive vendor or an internal state team. We mathematically verify that new rules won't trigger cascading downstream errors in interconnected programs, defending you against unfunded federal mandates.",
         "features": [
-          "Automated Policy Verification (Rules-as-Code)",
-          "Empirical 'Time Tax' Audits",
-          "Fair Hearing System Snapshots"
+          "Cross-Program Blast Radius Prediction",
+          "Automated Policy Verification",
+          "Empirical 'Time Tax' Audits"
         ]
       },
       "rulesEngine": {
         "title": "AI Governance & Secure Infrastructure",
-        "text": "We protect sensitive federal data and prevent algorithmic bias. We build secure, self-hosted gateways to protect IRS and HIPAA data, ensuring new automation tools help residents instead of harming them.",
+        "text": "We write the administrative law to legally bind and control AI deployments. We mandate strict architectural boundaries to protect sensitive IRS and HIPAA data, ensuring new automation tools act as caseworker aids, not unverified, probabilistic decision engines.",
         "features": [
+          "Binding AI Governance Frameworks",
           "Secure Federal Data Gateways",
-          "AI Bias Testing & Prevention",
-          "Seamless Cross-Program Enrollment"
+          "AI Bias Testing & Prevention"
         ]
       },
       "sanction": {
-        "title": "Smart Procurement & Breaking Lock-In",
-        "text": "We legally block vendor lock-in. We write strict technical rules for your RFPs to prevent massive vendors from holding your state hostage, and we help fund these rescues by braiding federal grants with civic philanthropy.",
+        "title": "System Accountability & Smart Procurement",
+        "text": "We force engineering accountability. We write strict technical rules for your RFPs and internal IT charters to prevent massive vendors or isolated internal teams from creating unmaintainable legacy code. We help fund this oversight by braiding federal grants with civic philanthropy.",
         "features": [
-          "Strict RFP Engineering (Preventing Lock-In)",
-          "Audit Defense via Error Tracking",
+          "Strict Engineering Blueprints",
+          "Payment Error Rate (PER) Defense",
           "Federal & Philanthropic Grant Braiding"
         ]
       },
       "data": {
         "title": "Frontline Operations & Workforce Design",
-        "text": "Technology fails if caseworkers cannot use it. We design systems around the people who actually do the work, eliminating volunteer dependency and building professional, empowered state workforces.",
+        "text": "Even perfectly translated code fails if caseworkers cannot use it. We engineer operational procedures around the people who actually do the work, eliminating volunteer dependency and building professional, empowered state workforces.",
         "features": [
           "State Workforce Modernization",
           "Cross-Agency Coalition Building",
@@ -162,16 +162,16 @@
     "engagements": {
       "title": "Engagement Models",
       "sprint": {
-        "title": "Targeted Architectural Rescue",
-        "text": "Rapid deployments to find and fix critical flaws, security vulnerabilities, or logic errors in live government systems."
+        "title": "Targeted Architectural Interventions",
+        "text": "Rapid oversight deployments to diagnose structural logic flaws, map downstream dependencies, and verify that complex policy is accurately coded into live government systems."
       },
       "advisory": {
         "title": "Technical Expert Advisory",
-        "text": "Long-term partnership acting as the State's technical authority for federal audit defense, vendor oversight, and testing new policies."
+        "text": "Long-term partnership acting as the State's technical referee, predicting cross-system downstream effects, and pre-testing new policies before production."
       },
       "integration": {
-        "title": "RFP Engineering & Procurement",
-        "text": "End-to-end consulting to write the technical rules of massive state RFPs, ensuring you retain control of your own infrastructure."
+        "title": "System Procurement & Blueprinting",
+        "text": "End-to-end consulting to write the strict technical rules of massive state RFPs or internal builds, ensuring programmatic changes execute deterministically."
       }
     }
   },
@@ -179,20 +179,20 @@
     "hero": {
       "label": "Research",
       "title": "Threat Intelligence & Diagnostics",
-      "subtitle": "Clear, authoritative analysis on why government tech deployments fail, how vendors trap states, and how to survive federal audits."
+      "subtitle": "Clear analysis on why government tech fails, how unverified code triggers downstream penalties, and how to survive federal audits."
     },
     "docs": {
       "adv1": {
-        "title": "Legal Defense via Time Tax Audits",
-        "desc": "How to use hard data on administrative burden to challenge unfunded federal mandates in court."
+        "title": "Predicting Cross-Program Blast Radiuses",
+        "desc": "Why isolated code changes trigger massive federal variances, and how wide-lens SME prevents cascading errors."
       },
       "adv2": {
         "title": "Protecting Data with Secure Gateways",
-        "desc": "The severe risks of using commercial cloud platforms for state benefits, and how to build secure alternatives."
+        "desc": "The severe risks of using commercial cloud platforms for state benefits, and how to mandate secure alternatives."
       },
       "adv3": {
-        "title": "Testing Policy with Mathematical Verification",
-        "desc": "Why standard software testing fails government systems, and how to simulate policy changes accurately."
+        "title": "Translating Policy to Deterministic Code",
+        "desc": "Why standard software testing fails government systems, and how to mathematically simulate programmatic changes."
       },
       "adv4": {
         "title": "Ending Volunteer Dependency",
@@ -200,16 +200,16 @@
       },
       "adv5": {
         "title": "Fighting Federal Payment Penalties",
-        "desc": "How state agencies can use data to prove systemic vendor flaws and successfully fight federal audit fines."
+        "desc": "How state agencies can reconstruct system data to prove structural logic flaws and successfully fight federal audit fines."
       },
       "adv6": {
-        "title": "Defeating Vendor Lock-In via RFP Design",
-        "desc": "How massive tech vendors exploit vague RFPs, and how to write strict technical rules to force them to open up."
+        "title": "Defeating Tech Debt & Vendor Lock-In",
+        "desc": "How bad procurement and isolated IT teams exploit vague rules, and how to mandate strict engineering boundaries."
       }
     },
     "cta": {
       "title": "Ready to stress-test your infrastructure?",
-      "subtitle": "Explore our interactive simulators to see how we apply secure testing and real-world policy logic to state systems.",
+      "subtitle": "Explore our interactive simulators to see how we verify policy logic and map downstream dependencies.",
       "button": "View Operational Simulators"
     }
   },
@@ -217,13 +217,13 @@
     "hero": {
       "label": "Operational Demonstrators",
       "title": "Interactive Proofs & System Models",
-      "subtitle": "Review our live demonstrators illustrating automated policy testing, time tax audits, and secure data handling."
+      "subtitle": "Review our live demonstrators illustrating automated policy testing, downstream risk prediction, and secure data handling."
     },
     "blueprints": {
       "documentTool": {
         "label": "SIMULATOR 01",
         "title": "Automated Policy Simulator",
-        "desc": "A live environment showing how logic can verify legislative changes before they are committed to live code."
+        "desc": "A live environment showing how logic can verify legislative changes and predict downstream impacts before live code."
       },
       "policyManual": {
         "label": "SIMULATOR 02",
@@ -251,9 +251,9 @@
     },
     "founder": {
       "title": "Founder Dossier",
-      "intro": "We diagnose and fix the critical flaws hidden inside massive government systems.",
-      "p1": "Applied Policy Systems was established to guide state agencies out of the 'Modernization Trap.' States spent hundreds of millions moving to the cloud, only to realize they bought rigidly coupled systems that ignore frontline realities and fail federal audits.",
-      "p2": "We act as the ultimate strategic failsafe for State CIOs and Agency Directors. We combine deep engineering with legal defense and organizational design to untangle broken systems, force vendors to open their architecture, and secure federal compliance."
+      "intro": "We provide the architectural oversight and wide-lens programmatic SME required to ensure state policy is flawlessly translated into deterministic system code.",
+      "p1": "Applied Policy Systems was established to guide state agencies out of the 'Modernization Trap.' States spent hundreds of millions moving to the cloud, only to realize their systems are blind to cross-program downstream effects, triggering massive federal audits.",
+      "p2": "We act as the ultimate strategic failsafe for State CIOs and Agency Directors. We leverage our unique scope of programmatic experience to predict the cascading effects that isolated IT teams and vendors miss, ensuring your infrastructure is accurate, accountable, and legally secure."
     },
     "impact": {
       "stats": {
@@ -269,43 +269,43 @@
         },
         "execution": {
           "value": "15+",
-          "label": "Systems Rescued",
-          "desc": "High-risk architectural rescues of state agency platforms."
+          "label": "Systems Remediated",
+          "desc": "High-risk architectural oversight of state agency platforms."
         }
       }
     },
     "macroEcosystems": {
       "label": "Ecosystem Positioning",
       "title": "Multidisciplinary Authority",
-      "desc": "We operate at the critical intersection of federal rules, state leadership, and massive tech vendors.",
+      "desc": "We operate at the critical intersection of federal rules, state leadership, and technical implementation teams.",
       "federal": {
         "focus": "COMPLIANCE & AUDIT",
         "title": "Federal Oversight",
         "desc": "We provide the hard data and policy verification required to satisfy federal audits and stop massive fiscal penalties.",
         "nodes": {
           "n1": { "name": "Audit Defense", "context": "Reconstructing errors for FNS/CMS compliance." },
-          "n2": { "name": "Policy Proving", "context": "Verifying that the system matches the law." },
-          "n3": { "name": "Statutory Fidelity", "context": "Stopping rule drift in automated systems." }
+          "n2": { "name": "Policy Proving", "context": "Mathematically verifying system logic against the law." },
+          "n3": { "name": "Downstream Prevention", "context": "Stopping cascading cross-program variances." }
         }
       },
       "state": {
         "focus": "STRATEGY & OPERATIONS",
         "title": "State Leadership",
-        "desc": "We act as the Technical Authority for CIOs, rescuing entangled deployments and providing data shields for litigation.",
+        "desc": "We act as the Technical Authority for CIOs, predicting system impacts and providing data shields for litigation.",
         "nodes": {
-          "n1": { "name": "Architectural Rescue", "context": "Fixing structural flaws in live state environments." },
-          "n2": { "name": "Smart Procurement", "context": "Writing RFPs that prevent vendor lock-in." },
+          "n1": { "name": "Architectural Oversight", "context": "Translating complex policy into deterministic code." },
+          "n2": { "name": "Smart Procurement", "context": "Writing rules that prevent legacy code debt." },
           "n3": { "name": "Workforce Design", "context": "Building professional state career ladders." }
         }
       },
       "vendors": {
         "focus": "INTEGRATION & BOUNDARY",
-        "title": "Massive Prime Integrators",
-        "desc": "We force massive tech vendors to obey strict technical boundaries, ensuring the state retains control of its own data.",
+        "title": "Implementation Boundaries",
+        "desc": "We force massive tech vendors and in-house development teams to obey strict technical boundaries, ensuring the state retains control.",
         "nodes": {
-          "n1": { "name": "Breaking Lock-In", "context": "Enforcing strict rules on how systems connect." },
-          "n2": { "name": "Vendor Oversight", "context": "Independent verification of vendor promises." },
-          "n3": { "name": "Forced Modularity", "context": "Ensuring the state can swap out bad software." }
+          "n1": { "name": "Breaking Silos & Lock-In", "context": "Enforcing strict rules on how systems connect." },
+          "n2": { "name": "Engineering Oversight", "context": "Independent verification of technical delivery." },
+          "n3": { "name": "Forced Modularity", "context": "Ensuring the state can swap out bad architecture." }
         }
       }
     },
@@ -318,21 +318,21 @@
           "title": "Foundational Digitization",
           "org": "Public Sector Innovation Hub",
           "role": "Technical Lead",
-          "desc": "Led early cloud migrations for benefits systems, identifying the first signs of how vendors trap states in rigid architecture."
+          "desc": "Led early cloud migrations for benefits systems, identifying the first signs of how poor architecture traps states."
         },
         "m2": {
           "year": "2020",
           "title": "The Modernization Trap",
           "org": "State Agency Advisory",
           "role": "Architectural SME",
-          "desc": "Diagnosed massive $100M+ failures in state eligibility systems, proving that new software alone cannot fix broken policy."
+          "desc": "Diagnosed massive $100M+ failures in state eligibility systems, proving that developers cannot accurately translate complex policy without SME oversight."
         },
         "m3": {
           "year": "2021",
           "title": "Automated Verification",
           "org": "Applied Policy Systems",
           "role": "Founder",
-          "desc": "Deployed tools to mathematically prove that a state's software code actually obeyed state law."
+          "desc": "Deployed tools to mathematically prove that a state's software code actually obeyed state law and didn't trigger downstream variances."
         },
         "m4": {
           "year": "2022",
@@ -346,7 +346,7 @@
           "title": "Strategic Philanthropy",
           "org": "Civic Coalition",
           "role": "Funding Advisor",
-          "desc": "Pioneered a new model to fund state tech rescues by combining federal grants with targeted civic philanthropy."
+          "desc": "Pioneered a new model to fund state tech improvements by combining federal grants with targeted civic philanthropy."
         },
         "m6": {
           "year": "2024",
@@ -359,31 +359,31 @@
     }
   },
   "seo": {
-    "defaultKeywords": "architectural rescue, verifiable policy, equitable access, tightly coupled systems, policy verification, GovTech, compliance, organizational change",
+    "defaultKeywords": "architectural oversight, verifiable policy, downstream prediction, GovTech, compliance, organizational change",
     "pages": {
       "home": {
         "title": "Verifiable Policy. Uncompromised Access.",
-        "description": "Applied Policy Systems rescues and rebuilds highly regulated government systems to ensure strict federal compliance and frontline impact.",
-        "keywords": "systems remediation, equitable access, compliance, GovTech, federal mandates, empirical audit"
+        "description": "Applied Policy Systems provides architectural oversight and wide-lens SME capabilities to translate policy into deterministic code.",
+        "keywords": "systems oversight, policy translation, downstream prediction, compliance, GovTech, federal mandates"
       },
       "capabilities": {
-        "title": "Systems Rescue & Policy Engineering | Applied Policy Systems",
-        "description": "Review our specialized interventions: Legal Defense, Secure AI, Smart Procurement, and Frontline Operations.",
-        "keywords": "systems oversight, empirical audit defense, sovereign cryptography, legal fortification, OCM, policy simulation"
+        "title": "Architectural Oversight & Policy Engineering | Applied Policy Systems",
+        "description": "Review our specialized interventions: Downstream Risk Prediction, Secure AI, Engineering Accountability, and Frontline Operations.",
+        "keywords": "systems oversight, empirical audit defense, legal fortification, policy simulation, cross-program dependencies"
       },
       "research": {
         "title": "Diagnostics & Audits | Applied Policy Systems",
-        "description": "Analysis on why public sector technology fails, vendor interoperability, and federal compliance rules.",
-        "keywords": "empirical analysis, threat intelligence, compliance frameworks, time tax audit, automated tracking"
+        "description": "Analysis on why public sector technology fails, downstream blast radiuses, and federal compliance rules.",
+        "keywords": "empirical analysis, threat intelligence, compliance frameworks, automated tracking, blast radius"
       },
       "field": {
         "title": "Operational Simulators | Applied Policy Systems",
-        "description": "Live models illustrating automated policy testing, empirical burden audits, and secure data handling.",
+        "description": "Live models illustrating automated policy testing, downstream effect tracking, and secure data handling.",
         "keywords": "simulators, formal verification, cryptographic gateways, empirical audits"
       },
       "contact": {
         "title": "Technical Intake & Consultation | Applied Policy Systems",
-        "description": "Contact our experts for system rescues, audit defense, or strategic procurement design.",
+        "description": "Contact our experts for architectural oversight, audit defense, or programmatic policy translation.",
         "keywords": "consultation, inquiry, architectural review, audit defense"
       },
       "privacy": {
@@ -401,7 +401,7 @@
   "contact": {
     "hero": {
       "title": "Technical Intake & Consultation",
-      "subtitle": "Initiate a dialogue regarding system rescues, architectural strategy, or procurement."
+      "subtitle": "Initiate a dialogue regarding architectural oversight, programmatic strategy, or engineering blueprints."
     },
     "form": {
       "name": "Full Name",
@@ -411,7 +411,7 @@
         "label": "Nature of Inquiry",
         "options": {
           "systems": "Systems Architecture & AI Governance",
-          "policy": "Audit Defense & Legal Fortification",
+          "policy": "Audit Defense & Policy Translation",
           "general": "Strategic Procurement & Operations"
         }
       },
@@ -447,7 +447,7 @@
       "terms": "View our Terms of Service",
       "contact": "Contact us for a consultation"
     },
-    "copyright": "© {{year}} APS. Verification & Logic."
+    "copyright": "© 2024 APS. Verification & Logic."
   },
   "notfound": {
     "title": "404 - Endpoint Not Found",
@@ -482,7 +482,7 @@
       },
       "services": {
         "title": "2. Technical Services",
-        "text": "Applied Policy Systems provides architectural oversight, systems integration, and advisory strictly within defined operational boundaries."
+        "text": "Applied Policy Systems provides architectural oversight, systems evaluation, and advisory strictly within defined operational boundaries."
       },
       "liability": {
         "title": "3. Limitations of Liability",
