@@ -1,18 +1,18 @@
 import { motion } from 'motion/react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, Lock, Cpu, EyeOff } from 'lucide-react';
+import { ArrowLeft, Cpu, Scale, Building2 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 export default function EthicalAIGovernanceInfrastructure() {
   const { t } = useTranslation();
-  const tags = ["CRYPTOGRAPHY", "IRS PUB 1075", "ADVERSARIAL RED TEAMING"];
+  const tags = ["SYSTEM SOVEREIGNTY", "VENDOR NEUTRALITY", "ADVERSARIAL RED TEAMING"];
 
   return (
     <div className="bg-white dark:bg-slate-950 min-h-screen transition-colors duration-300">
       <Helmet>
-        <title>Applied Policy Systems | Ethical AI Governance & Infrastructure</title>
-        <meta name="description" content="Securing sensitive federal data via sovereign cryptography and deploying adversarial bias mitigation frameworks." />
+        <title>Applied Policy Systems | AI Governance & System Sovereignty</title>
+        <meta name="description" content="Eliminating vendor lock-in and establishing technical legal frameworks for sovereign AI deployments." />
       </Helmet>
 
       <div className="border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-6 py-4">
@@ -29,7 +29,7 @@ export default function EthicalAIGovernanceInfrastructure() {
         
         <div className="container-wide relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-            <h1 className="label-uppercase mb-4">Architectural Rescue</h1>
+            <h1 className="label-uppercase mb-4">Strategic Autonomy</h1>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 dark:text-white mb-8 max-w-4xl">
               {t('capabilitiesPage.cards.rulesEngine.title')}
             </h2>
@@ -55,11 +55,11 @@ export default function EthicalAIGovernanceInfrastructure() {
             <div className="lg:col-span-4">
               <div className="sticky top-24 p-6 bg-slate-50 dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800">
                 <div className="flex items-center gap-3 mb-6">
-                  <Lock className="text-brand-jade" size={24} />
-                  <h3 className="font-bold text-lg text-slate-900 dark:text-white">Compliance Sovereignty</h3>
+                  <Scale className="text-brand-jade" size={24} />
+                  <h3 className="font-bold text-lg text-slate-900 dark:text-white">{t('capabilitiesPage.subPages.rulesEngine.sideCard.title')}</h3>
                 </div>
                 <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
-                  Maintaining federal data security standards while deploying modern algorithmic tools.
+                  {t('capabilitiesPage.subPages.rulesEngine.sideCard.text')}
                 </p>
                 <ul className="space-y-3">
                    {(t('capabilitiesPage.cards.rulesEngine.features', { returnObjects: true }) as string[]).map((feature, idx) => (
@@ -76,20 +76,20 @@ export default function EthicalAIGovernanceInfrastructure() {
               <div className="mb-12">
                 <div className="flex items-center gap-4 mb-6">
                   <Cpu className="text-brand-jade shrink-0" size={32} />
-                  <h3 className="text-2xl font-black m-0 tracking-tight">Ethics-by-Design</h3>
+                  <h3 className="text-2xl font-black m-0 tracking-tight">{t('capabilitiesPage.subPages.rulesEngine.section1.title')}</h3>
                 </div>
                 <p className="text-lg leading-relaxed text-slate-600 dark:text-slate-400">
-                  Algorithmic harm isn't an accident; it's an architectural failure. We deploy rigorous 'ethics-by-design' guardrails, including Pre-Mortem Analyses and adversarial Red Teaming, to prevent the reinforcement of historical bias in public sector automation.
+                  {t('capabilitiesPage.subPages.rulesEngine.section1.text')}
                 </p>
               </div>
 
               <div className="mb-12">
                 <div className="flex items-center gap-4 mb-6">
-                  <EyeOff className="text-brand-jade shrink-0" size={32} />
-                  <h3 className="text-2xl font-black m-0 tracking-tight">Sovereign Gateways</h3>
+                  <Building2 className="text-brand-jade shrink-0" size={32} />
+                  <h3 className="text-2xl font-black m-0 tracking-tight">{t('capabilitiesPage.subPages.rulesEngine.section2.title')}</h3>
                 </div>
                 <p className="text-lg leading-relaxed text-slate-600 dark:text-slate-400">
-                  Using commercial SaaS for cross-enrollment creates severe IRS Pub 1075 audit liabilities. We architect self-hosted, sovereign cryptographic gateways that allow agencies to securely route sensitive data without surrendering sovereignty to cloud vendors.
+                  {t('capabilitiesPage.subPages.rulesEngine.section2.text')}
                 </p>
               </div>
             </div>

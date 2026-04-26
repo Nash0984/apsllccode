@@ -1,18 +1,18 @@
 import { motion } from 'motion/react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, Users, Briefcase, GraduationCap } from 'lucide-react';
+import { ArrowLeft, Users2, Handshake, ArrowUpRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 export default function FrontlineOperationsHumanCapital() {
   const { t } = useTranslation();
-  const tags = ["OCM", "WORKFORCE ARCHITECTURE", "FRONTLINE-FIRST"];
+  const tags = ["COALITION BUILDING", "FRONTLINE READINESS", "OPERATIONAL ALIGNMENT"];
 
   return (
     <div className="bg-white dark:bg-slate-950 min-h-screen transition-colors duration-300">
       <Helmet>
-        <title>Applied Policy Systems | Frontline Operations & Human Capital</title>
-        <meta name="description" content="Architecting professional state workforces and deploying frontline-driven change management." />
+        <title>Applied Policy Systems | Coalition Building & Frontline Readiness</title>
+        <meta name="description" content="Aligning cross-agency coalitions and deploying frontline-first change management for durable system adoption." />
       </Helmet>
 
       <div className="border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-6 py-4">
@@ -29,7 +29,7 @@ export default function FrontlineOperationsHumanCapital() {
         
         <div className="container-wide relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-            <h1 className="label-uppercase mb-4">Architectural Rescue</h1>
+            <h1 className="label-uppercase mb-4">Operational Readiness</h1>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 dark:text-white mb-8 max-w-4xl">
               {t('capabilitiesPage.cards.data.title')}
             </h2>
@@ -55,11 +55,11 @@ export default function FrontlineOperationsHumanCapital() {
             <div className="lg:col-span-4">
               <div className="sticky top-24 p-6 bg-slate-50 dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800">
                 <div className="flex items-center gap-3 mb-6">
-                  <Users className="text-brand-jade" size={24} />
-                  <h3 className="font-bold text-lg text-slate-900 dark:text-white">Operational Authority</h3>
+                  <ArrowUpRight className="text-brand-jade" size={24} />
+                  <h3 className="font-bold text-lg text-slate-900 dark:text-white">{t('capabilitiesPage.subPages.data.sideCard.title')}</h3>
                 </div>
                 <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
-                  Technology is useless without human adoption and operational readiness.
+                  {t('capabilitiesPage.subPages.data.sideCard.text')}
                 </p>
                 <ul className="space-y-3">
                    {(t('capabilitiesPage.cards.data.features', { returnObjects: true }) as string[]).map((feature, idx) => (
@@ -75,21 +75,21 @@ export default function FrontlineOperationsHumanCapital() {
             <div className="lg:col-span-8 prose prose-slate dark:prose-invert max-w-none">
               <div className="mb-12">
                 <div className="flex items-center gap-4 mb-6">
-                  <GraduationCap className="text-brand-jade shrink-0" size={32} />
-                  <h3 className="text-2xl font-black m-0 tracking-tight">Workforce Architecture</h3>
+                  <Handshake className="text-brand-jade shrink-0" size={32} />
+                  <h3 className="text-2xl font-black m-0 tracking-tight">{t('capabilitiesPage.subPages.data.section1.title')}</h3>
                 </div>
                 <p className="text-lg leading-relaxed text-slate-600 dark:text-slate-400">
-                  We architect professional state workforces, eliminating the dependency on paraprofessional or volunteer-based service models. We help agencies build certified state career ladders, ensuring that infrastructure is maintained by a permanent, professional professional state workforce.
+                  {t('capabilitiesPage.subPages.data.section1.text')}
                 </p>
               </div>
 
               <div className="mb-12">
                 <div className="flex items-center gap-4 mb-6">
-                  <Briefcase className="text-brand-jade shrink-0" size={32} />
-                  <h3 className="text-2xl font-black m-0 tracking-tight">Frontline-First Change Management</h3>
+                  <Users2 className="text-brand-jade shrink-0" size={32} />
+                  <h3 className="text-2xl font-black m-0 tracking-tight">{t('capabilitiesPage.subPages.data.section2.title')}</h3>
                 </div>
                 <p className="text-lg leading-relaxed text-slate-600 dark:text-slate-400">
-                  Top-down mandates rarely survive the frontline. We deploy 'Frontline First' change management—engaging caseworkers and supervisors as co-designers of the system to ensure that new technology actually reduces their burden rather than increasing it.
+                  {t('capabilitiesPage.subPages.data.section2.text')}
                 </p>
               </div>
             </div>

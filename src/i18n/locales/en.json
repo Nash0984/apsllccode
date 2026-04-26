@@ -34,17 +34,20 @@
     "openMenu": "Open Menu",
     "closeMenu": "Close Menu"
   },
+  "common": {
+    "returnToCapabilities": "Return to Capabilities"
+  },
   "simulators": {
     "policyManual": {
       "header": {
         "title": "Policy & Determination Assistant",
-        "subtitle": "Clear Decision Support & Audit Trails"
+        "subtitle": "Authoritative Case Querying & Legal Citations"
       },
       "bindCase": {
-        "title": "Bind Case",
-        "description": "Securely link a Case ID to retrieve accurate rules.",
+        "title": "Bind & Query Case",
+        "description": "Securely link a Case ID to retrieve deterministic, statute-backed answers with legal citations.",
         "placeholder": "Enter Case ID (e.g., TX-9942)",
-        "button": "Authorize & Bind"
+        "button": "Bind Case & Authorize"
       },
       "processing": {
         "analyzing": "Analyzing Request...",
@@ -68,16 +71,15 @@
   "home": {
     "hero": {
       "title": "Verifiable Policy. Uncompromised Access.",
-      "subtitle": "We eliminate policy bottlenecks by providing architectural oversight and deep programmatic Subject Matter Expertise (SME). We translate complex mandates into deterministic code upfront, keeping deployments moving, predicting downstream effects, and guaranteeing federal compliance.",
+      "subtitle": "Eliminating policy bottlenecks through architectural oversight and deep programmatic Subject Matter Expertise (SME). Programmatic mandates are translated into deterministic code upfront, keeping deployments moving, predicting downstream effects, and guaranteeing federal compliance.",
       "cta": "Review Capabilities"
     },
     "challenge": {
       "label": "The Translation Gap",
       "title": "Accelerating Technical Alignment.",
-      "text": "State tech deployments often stall in the gap between complex federal rules and system architecture. We bridge this divide. Instead of IT waiting months for open-ended policy interpretations, we translate programmatic mandates into deterministic logic upfront. We arm your engineering teams with the exact parameters they need to force rapid, on-the-spot decisions from policy stakeholders—keeping deployments moving, predicting downstream effects, and securing federal compliance.",
-      "solution": "We deploy clear policy engineering, rigid procurement rules, and frontline-first change management to force accountability—whether your system is built by a prime vendor or an in-house IT team—and legally secure your infrastructure.",
+      "text": "State tech deployments often stall in the gap between complex federal rules and system architecture. Applied Policy Systems bridges this divide. Instead of IT waiting months for open-ended policy interpretations, programmatic mandates are translated into deterministic logic upfront. Engineering teams are provided with the exact parameters they need to force rapid, on-the-spot decisions from policy stakeholders—keeping deployments moving, predicting downstream effects, and securing federal compliance.",
       "outputsLabel": "Core Deliverables",
-      "outputsLead": "Our specialized architectural services include:",
+      "outputsLead": "Specialized architectural services include:",
       "outputs": [
         "Verifiable Policy & Downstream Prediction",
         "Secure AI Governance & Infrastructure",
@@ -93,20 +95,20 @@
     },
     "sandbox": {
       "label": "Simulator 01",
-      "title": "Automated Policy Testing",
-      "text": "See how we use mathematical logic to verify legislative changes upfront and predict downstream blast radiuses before they reach production code.",
+      "title": "Automated Policy Verification",
+      "text": "See how we map real-world evidence against strict statutory ontologies, calculating empirical sufficiency scores to verify federal compliance.",
       "cta": "View Simulator"
     },
     "manual": {
       "label": "Simulator 02",
-      "title": "The Time Tax Audit",
-      "text": "See how we measure the exact administrative burden placed on residents to legally defend your state's policy choices.",
+      "title": "Frontline Decision Support",
+      "text": "See how we translate ambiguous policy into deterministic, statute-backed answers, forcing rapid alignment for caseworkers.",
       "cta": "View Simulator"
     },
     "extraction": {
       "label": "Simulator 03",
-      "title": "Immutable Appeal Records",
-      "text": "See how we freeze system data to create an unquestionable, secure record for legal appeals and fair hearings.",
+      "title": "Deterministic Logic Compiler",
+      "text": "See how we extract formal mathematical logic from natural language mandates, handing IT teams executable schemas upfront.",
       "cta": "View Simulator"
     }
   },
@@ -114,7 +116,7 @@
     "hero": {
       "label": "Capabilities",
       "title": "Architectural Oversight & Policy Engineering",
-      "subtitle": "We provide targeted engineering oversight and wide-lens SME capabilities to eliminate policy lag. We ensure programmatic changes are translated flawlessly into code without stalling IT or triggering catastrophic cross-program errors."
+      "subtitle": "Targeted engineering oversight and wide-lens SME capabilities to eliminate policy lag. Programmatic changes are translated flawlessly into code without stalling IT or triggering catastrophic cross-program errors."
     },
     "grid": {
       "headerLabel": "The Four Pillars",
@@ -123,39 +125,39 @@
     },
     "cards": {
       "statutory": {
-        "title": "Verifiable Policy & Downstream Prediction",
-        "text": "We bridge the gap between policy intent and system logic upfront. We provide your engineering teams with the exact deterministic rules, preventing endless policy reviews from dragging out timelines. We mathematically verify that new code won't trigger cascading downstream errors in interconnected programs, defending you against unfunded federal mandates.",
+        "title": "Statutory Translation & Downstream Prediction",
+        "text": "The gap between policy intent and system logic is eliminated through upfront translation, providing IT teams with an independent source of truth. Exact deterministic rules are provided to engineering, preventing endless policy review cycles. Mathematical verification ensures that new code won't trigger cascading downstream errors in interconnected HHS programs, defending against unfunded federal mandates.",
         "features": [
           "Cross-Program Blast Radius Prediction",
-          "Automated Policy Verification",
-          "Empirical 'Time Tax' Audits"
+          "IT-First Policy Translation",
+          "Administrative Burden Assessment & Reduction"
         ]
       },
       "rulesEngine": {
-        "title": "AI Governance & Secure Infrastructure",
-        "text": "We write the administrative law to legally bind and control AI deployments. We mandate strict architectural boundaries to protect sensitive IRS and HIPAA data, ensuring new automation tools act as caseworker aids, not unverified, probabilistic decision engines.",
+        "title": "AI Governance & System Sovereignty",
+        "text": "Technical legal frameworks are supplied to bind and control AI deployments within state authorities. Professional architectural standards eliminate vendor lock-in and technical debt, ensuring systems remains sovereign and maintainable. Automation acts as a verifiable caseworker aid, guided by deterministic legal boundaries rather than unverified probabilistic models.",
         "features": [
           "Binding AI Governance Frameworks",
-          "Secure Federal Data Gateways",
-          "AI Bias Testing & Prevention"
+          "Long-term System Sovereignty",
+          "Audit-Safe Decision Support"
         ]
       },
       "sanction": {
-        "title": "System Accountability & Smart Procurement",
-        "text": "We force engineering accountability. We write strict technical rules for your RFPs and internal IT charters to prevent massive vendors or isolated internal teams from creating unmaintainable legacy code. We help fund this oversight by braiding federal grants with civic philanthropy.",
+        "title": "PER Reduction & Predictive Analytics",
+        "text": "Public sector risk is managed through statutory predictive analytics and Payment Error Rate (PER) mitigation. High-risk case profiles and technical logic gaps are identified before they manifest as massive federal audit fines. This architectural oversight successfully defends against federal payment penalties by neutralizing fiscal risk upfront.",
         "features": [
-          "Strict Engineering Blueprints",
           "Payment Error Rate (PER) Defense",
-          "Federal & Philanthropic Grant Braiding"
+          "Statutory Predictive Analytics",
+          "Audit Risk Mitigation"
         ]
       },
       "data": {
-        "title": "Frontline Operations & Workforce Design",
-        "text": "Even perfectly translated code fails if caseworkers cannot use it. We engineer operational procedures around the people who actually do the work, deploying frontline-first change management to build professional, empowered state workforces.",
+        "title": "Coalition Building & Frontline Readiness",
+        "text": "Even perfectly translated code fails if operational readiness is ignored. Procedures are engineered around the people who actually do the work, deploying frontline-first change management and building cross-agency coalitions to ensure technical success and human adoption.",
         "features": [
-          "State Workforce Modernization",
           "Cross-Agency Coalition Building",
-          "Frontline-First Change Management"
+          "Frontline-First Change Management",
+          "Operational Readiness Engineering"
         ]
       }
     },
@@ -172,6 +174,78 @@
       "integration": {
         "title": "System Procurement & Blueprinting",
         "text": "End-to-end consulting to write the strict technical rules of massive state RFPs or internal builds, ensuring programmatic changes execute deterministically."
+      }
+    },
+    "subPages": {
+      "statutory": {
+        "sideCard": {
+          "title": "Deterministic Logic",
+          "text": "Mathematical theorem provers verify that eligibility logic is a 1:1 reflection of statutory requirements before developers write a single line of code."
+        },
+        "section1": {
+          "title": "HHS Blast Radius Prediction",
+          "text": "Administrative law is heavily interconnected. A simple change to a Medicaid MAGI calculation can inadvertently trigger a massive FNS variance in SNAP. This blind spot is eliminated by modeling systemic rules upfront, predicting cascading effects across HHS programs, and allowing IT to deploy with mathematical confidence."
+        },
+        "section2": {
+          "title": "IT-First Source of Truth",
+          "text": "Ambiguous legislative mandates are translated into deterministic models. Instead of waiting months for qualitative policy reviews, IT is provided with a source of truth that accelerates development. By providing the exact interpretation and legal basis upfront, policy stakeholders are typically provided with information that allows for rapid, informed decisions—keeping cloud migrations on track."
+        }
+      },
+      "rulesEngine": {
+        "sideCard": {
+          "title": "System Sovereignty",
+          "text": "Maintenance of strict data boundaries ensures that systems remain under state control, making daily operations easier and more maintainable."
+        },
+        "section1": {
+          "title": "Binding AI Frameworks",
+          "text": "Algorithmic harm is prevented through upfront boundaries. Rigorous 'ethics-by-design' guardrails bind AI usage to deterministic laws. Pre-Mortem Analyses and adversarial Red Teaming guarantee that automation tools act strictly as casework aids with direct legal citations, not unverified decision engines."
+        },
+        "section2": {
+          "title": "Eliminating Vendor Lock-in",
+          "text": "Technical debt is often a byproduct of vendor capture. Sovereign architectural standards are engineered into system requirements, preventing proprietary lock-in. This moves the state toward decoupled ecosystems that are easier to maintain, update, and integrate without surrendering control to external platforms."
+        }
+      },
+      "rulesEdge": {
+        "sideCard": {
+          "title": "Frontline Alignment",
+          "text": "Caseworkers require authoritative answers that can be bound to records for audit safety and legal certainty."
+        },
+        "section1": {
+          "title": "Statute-Backed Querying",
+          "text": "The frontline is provided with an information resource capable of answering specific case queries with legal citations. These answers can be bound directly to the case record, providing caseworkers with statute-backed certainty and an immutable audit trail for every determination."
+        },
+        "section2": {
+          "title": "Administrative Burden Reduction",
+          "text": "Deterministic logic reduces the 'Time Tax' on both staff and residents. By assessing the administrative burden—including losses due to disconnected human processes—bottlenecks are eliminated through better logic, ensuring that clinical and operational needs drive the technology."
+        }
+      },
+      "sanction": {
+        "sideCard": {
+          "title": "Fiscal Security",
+          "text": "Defending against federal payment penalties by neutralizing fiscal risk through upfront architectural oversight."
+        },
+        "section1": {
+          "title": "PER Defense Engineering",
+          "text": "Payment Error Rate (PER) findings are often the result of technical logic gaps. Success is achieved by engineering high-fidelity rules that survive federal audits. Strict technical requirements ensure that programmatic changes execute deterministically, protecting the state from multi-million dollar penalties."
+        },
+        "section2": {
+          "title": "Statutory Predictive Analytics",
+          "text": "Public sector risk is managed through predictive analytics. Utilizing Arnold Ventures style predictive error models allows agencies to identify high-risk case profiles and logic vulnerabilities before they manifest as audit fines. This architectural oversight keeps major deployments moving by neutralizing fiscal risk upfront and protecting systemic integrity."
+        }
+      },
+      "data": {
+        "sideCard": {
+          "title": "Operational Readiness",
+          "text": "Technology adoption depends on aligning system logic with the reality of frontline operations."
+        },
+        "section1": {
+          "title": "Cross-Agency Coalition Building",
+          "text": "Major tech deployments often fail due to inter-agency siloes. Success depends on building robust coalitions where policy, IT, and operations act as a single unit. Alignment is facilitated, ensuring that programmatic goals are reflected in the technical architecture across all participating agencies."
+        },
+        "section2": {
+          "title": "Frontline-First Change Management",
+          "text": "Top-down mandates rarely survive the frontline. Deployment of 'Frontline-First' change management engages caseworkers and supervisors as operational co-designers. By translating technical system changes directly into their daily reality, new technology accelerates workflows rather than breaking them."
+        }
       }
     }
   },
@@ -222,18 +296,18 @@
     "blueprints": {
       "documentTool": {
         "label": "SIMULATOR 01",
-        "title": "Automated Policy Simulator",
-        "desc": "A live environment showing how logic can verify legislative changes upfront and predict downstream impacts before live code."
+        "title": "Automated Policy Verification",
+        "desc": "A live environment showing how we evaluate documents against a unified verification ontology to generate statutory sufficiency scores."
       },
       "policyManual": {
         "label": "SIMULATOR 02",
-        "title": "Time Tax Auditor",
-        "desc": "A tool showing how to measure the administrative burden placed on residents to legally defend policy decisions."
+        "title": "Frontline Decision Support",
+        "desc": "An interactive engine demonstrating how we route natural language queries to exact legal authorities and deterministic system parameters."
       },
       "extractionEngine": {
         "label": "SIMULATOR 03",
-        "title": "Immutable State Snapshots",
-        "desc": "A demonstrator showing how to freeze system records to provide unquestionable evidence for legal appeals."
+        "title": "Deterministic Logic Compiler",
+        "desc": "A demonstrator showing how we translate statutory text directly into formal logic proofs and executable JSON schemas."
       }
     },
     "categories": {
@@ -264,8 +338,8 @@
         },
         "funding": {
           "value": "$2B+",
-          "label": "Funding Secured",
-          "desc": "Strategic braiding of federal and philanthropic capital."
+          "label": "Fiscal Risk Mitigated",
+          "desc": "Mitigation of massive federal audit penalties through architectural oversight."
         },
         "execution": {
           "value": "15+",

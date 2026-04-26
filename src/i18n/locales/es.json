@@ -34,6 +34,9 @@
     "openMenu": "Abrir menú",
     "closeMenu": "Cerrar menú"
   },
+  "common": {
+    "returnToCapabilities": "Volver a Capacidades"
+  },
   "simulators": {
     "policyManual": {
       "header": {
@@ -68,16 +71,15 @@
   "home": {
     "hero": {
       "title": "Política Verificable. Acceso Sin Compromisos.",
-      "subtitle": "Eliminamos los cuellos de botella en las políticas proporcionando supervisión arquitectónica y una profunda experiencia en programas (SME). Traducimos mandatos complejos en código determinista desde el inicio, manteniendo los despliegues en movimiento, prediciendo efectos secundarios y garantizando el cumplimiento federal.",
+      "subtitle": "Eliminación de los cuellos de botella en las políticas mediante supervisión arquitectónica y una profunda experiencia en programas (SME). Los mandatos programáticos se traducen en código determinista por adelantado, manteniendo los despliegues en movimiento, prediciendo efectos secundarios y garantizando el cumplimiento federal.",
       "cta": "Revisar Capacidades"
     },
     "challenge": {
       "label": "La Brecha de Traducción",
       "title": "Acelerando la Alineación Técnica.",
-      "text": "Los despliegues tecnológicos estatales a menudo se estancan en la brecha entre las complejas reglas federales y la arquitectura del sistema. Cerramos esta división. En lugar de que TI espere meses por interpretaciones de políticas abiertas, traducimos los mandatos programáticos en lógica determinista desde el inicio. Armamos a sus equipos de ingeniería con los parámetros exactos que necesitan para forzar decisiones rápidas y en el acto de las partes interesadas en las políticas, manteniendo los despliegues en movimiento, prediciendo efectos secundarios y asegurando el cumplimiento federal.",
-      "solution": "Implementamos ingeniería de políticas clara, reglas de adquisición estrictas y una gestión del cambio enfocada en la primera línea para forzar la rendición de cuentas, ya sea que su sistema sea construido por un proveedor principal o un equipo de TI interno, y asegurar legalmente su infraestructura.",
+      "text": "Los despliegues tecnológicos estatales a menudo se estancan en la brecha entre las complejas reglas federales y la arquitectura del sistema. Applied Policy Systems cierra esta división. En lugar de que TI espere meses por interpretaciones de políticas abiertas, los mandatos programáticos se traducen en lógica determinista desde el inicio. Se proporciona a los equipos de ingeniería los parámetros exactos que necesitan para forzar decisiones rápidas y en el acto de las partes interesadas en las políticas, manteniendo los despliegues en movimiento, prediciendo efectos secundarios y asegurando el cumplimiento federal.",
       "outputsLabel": "Entregables Principales",
-      "outputsLead": "Nuestros servicios arquitectónicos especializados incluyen:",
+      "outputsLead": "Los servicios arquitectónicos especializados incluyen:",
       "outputs": [
         "Política Verificable y Predicción de Efectos Secundarios",
         "Gobernanza de IA Segura e Infraestructura",
@@ -93,20 +95,20 @@
     },
     "sandbox": {
       "label": "Simulador 01",
-      "title": "Pruebas de Política Automatizadas",
-      "text": "Vea cómo utilizamos la lógica matemática para verificar los cambios legislativos desde el inicio y predecir los radios de impacto antes de que lleguen al código de producción.",
+      "title": "Verificación Automatizada de Políticas",
+      "text": "Vea cómo contrastamos evidencia del mundo real con ontologías estatutarias estrictas, calculando puntajes de suficiencia empírica para verificar el cumplimiento federal.",
       "cta": "Ver Simulador"
     },
     "manual": {
       "label": "Simulador 02",
-      "title": "La Auditoría del Impuesto de Tiempo",
-      "text": "Vea cómo medimos la carga administrativa exacta impuesta a los residentes para defender legalmente las decisiones políticas de su estado.",
+      "title": "Apoyo a Decisiones de Primera Línea",
+      "text": "Vea cómo traducimos políticas ambiguas en respuestas deterministas respaldadas por los estatutos, forzando una alineación rápida para los trabajadores sociales.",
       "cta": "Ver Simulador"
     },
     "extraction": {
       "label": "Simulador 03",
-      "title": "Registros de Apelación Inmutables",
-      "text": "Vea cómo congelamos los datos del sistema para crear un registro seguro e incuestionable para apelaciones legales y audiencias justas.",
+      "title": "Compilador de Lógica Determinista",
+      "text": "Vea cómo extraemos lógica matemática formal de los mandatos de lenguaje natural, entregando esquemas ejecutables a los equipos de TI desde el inicio.",
       "cta": "Ver Simulador"
     }
   },
@@ -114,7 +116,7 @@
     "hero": {
       "label": "Capacidades",
       "title": "Supervisión Arquitectónica e Ingeniería de Políticas",
-      "subtitle": "Proporcionamos supervisión de ingeniería dirigida y capacidades de SME de amplia visión para eliminar el retraso en las políticas. Aseguramos que los cambios programáticos se traduzcan perfectamente en código sin estancar la TI ni desencadenar errores catastróficos entre programas."
+      "subtitle": "Supervisión de ingeniería dirigida y capacidades de SME de amplia visión para eliminar el retraso en las políticas. Los cambios programáticos se traducen perfectamente en código sin estancar la TI ni desencadenar errores catastróficos entre programas."
     },
     "grid": {
       "headerLabel": "Los Cuatro Pilares",
@@ -123,39 +125,39 @@
     },
     "cards": {
       "statutory": {
-        "title": "Política Verificable y Predicción de Efectos Secundarios",
-        "text": "Cerramos la brecha entre la intención de la política y la lógica del sistema desde el inicio. Proporcionamos a sus equipos de ingeniería las reglas deterministas exactas, evitando que las revisiones de políticas interminables retrasen los cronogramas. Verificamos matemáticamente que el nuevo código no desencadenará errores en cascada en programas interconectados, defendiéndolo contra mandatos federales sin financiamiento.",
+        "title": "Traducción Estatutaria y Predicción de Impacto",
+        "text": "La brecha entre la intención de la política y la lógica del sistema se elimina mediante la traducción por adelantado, proporcionando a los equipos de TI una fuente de verdad independiente. Se proporcionan reglas deterministas exactas a la ingeniería, evitando ciclos interminables de revisión de políticas. La verificación matemática asegura que el nuevo código no desencadene errores en cascada en los programas interconectados de HHS, defendiendo contra mandatos federales sin financiamiento.",
         "features": [
           "Predicción del Radio de Impacto entre Programas",
-          "Verificación de Política Automatizada",
-          "Auditorías Empíricas del 'Impuesto de Tiempo'"
+          "Traducción de Políticas con Enfoque en TI",
+          "Evaluación y Reducción de la Carga Administrativa"
         ]
       },
       "rulesEngine": {
-        "title": "Gobernanza de IA e Infraestructura Segura",
-        "text": "Redactamos el derecho administrativo para vincular y controlar legalmente los despliegues de IA. Mandatamos límites arquitectónicos estrictos para proteger los datos sensibles del IRS y HIPAA, asegurando que las nuevas herramientas de automatización actúen como ayudas para los trabajadores, no como motores de decisión probabilísticos no verificados.",
+        "title": "Gobernanza de IA y Soberanía del Sistema",
+        "text": "Se suministran marcos legales técnicos para vincular y controlar los despliegues de IA dentro de las autoridades estatales. Los estándares arquitectónicos profesionales eliminan la dependencia del proveedor y la deuda técnica, asegurando que los sistemas permanezcan soberanos y mantenibles. La automatización actúa como una ayuda verificable para los trabajadores de casos, guiada por límites legales deterministas en lugar de modelos probabilísticos no verificados.",
         "features": [
           "Marcos de Gobernanza de IA Vinculantes",
-          "Pasarelas de Datos Federales Seguras",
-          "Pruebas y Prevención de Sesgos en IA"
+          "Soberanía del Sistema a Largo Plazo",
+          "Apoyo a Decisiones Seguro para Auditorías"
         ]
       },
       "sanction": {
-        "title": "Responsabilidad del Sistema y Adquisiciones Inteligentes",
-        "text": "Forzamos la rendición de cuentas en ingeniería. Redactamos reglas técnicas estrictas para sus RFP y estatutos internos de TI para evitar que los grandes proveedores o los equipos de TI aislados creen código heredado difícil de mantener. Ayudamos a financiar esta supervisión entrelazando subvenciones federales con filantropía cívica.",
+        "title": "Reducción de PER y Analítica Predictiva",
+        "text": "El riesgo del sector público se gestiona mediante analítica predictiva estatutaria y la mitigación de la Tasa de Error de Pago (PER). Se identifican perfiles de caso de alto riesgo y brechas de lógica técnica antes de que se manifiesten como multas masivas de auditoría federal. Esta supervisión arquitectónica defiende con éxito contra las penalizaciones de pago federales al neutralizar el riesgo fiscal por adelantado.",
         "features": [
-          "Planos de Ingeniería Estrictos",
           "Defensa de la Tasa de Error de Pago (PER)",
-          "Combinación de Subvenciones Federales y Filantrópicas"
+          "Analítica Predictiva Estatutaria",
+          "Mitigación de Riesgos de Auditoría"
         ]
       },
       "data": {
-        "title": "Operaciones de Primera Línea y Diseño de la Fuerza Laboral",
-        "text": "Incluso el código perfectamente traducido falla si los trabajadores no pueden usarlo. Diseñamos procedimientos operativos en torno a las personas que realmente realizan el trabajo, implementando una gestión del cambio enfocada en la primera línea para construir fuerzas laborales estatales profesionales y empoderadas.",
+        "title": "Construcción de Coaliciones y Preparación del Personal",
+        "text": "Incluso el código perfectamente traducido falla si se ignora la preparación operativa. Los procedimientos se diseñan en torno a las personas que realmente realizan el trabajo, implementando una gestión del cambio enfocada en la primera línea y construyendo coaliciones entre agencias para asegurar el éxito técnico y la adopción humana.",
         "features": [
-          "Modernización de la Fuerza Laboral Estatal",
           "Construcción de Coaliciones entre Agencias",
-          "Gestión del Cambio Enfocada en la Primera Línea"
+          "Gestión del Cambio Enfocada en la Primera Línea",
+          "Ingeniería de Preparación Operativa"
         ]
       }
     },
@@ -172,6 +174,78 @@
       "integration": {
         "title": "Adquisición de Sistemas y Planos",
         "text": "Consultoría integral para redactar las reglas técnicas estrictas de grandes RFP estatales o construcciones internas, asegurando que los cambios programáticos se ejecuten de manera determinista."
+      }
+    },
+    "subPages": {
+      "statutory": {
+        "sideCard": {
+          "title": "Lógica Determinista",
+          "text": "Los probadores de teoremas matemáticos verifican que la lógica de elegibilidad sea un reflejo 1:1 de los requisitos estatutarios antes de que los desarrolladores escriban una sola línea de código."
+        },
+        "section1": {
+          "title": "Predicción de Radio de Impacto en HHS",
+          "text": "El derecho administrativo está fuertemente interconectado. Un simple cambio en un cálculo de MAGI de Medicaid puede desencadenar inadvertidamente una variación masiva de FNS en SNAP. Este punto ciego se elimina modelando las reglas sistémicas por adelantado, prediciendo los efectos en cascada en los programas de HHS y permitiendo que TI se despliegue con confianza matemática."
+        },
+        "section2": {
+          "title": "Fuente de Verdad con Enfoque en TI",
+          "text": "Los mandatos legislativos ambiguos se traducen en modelos deterministas. En lugar de esperar meses por revisiones cualitativas de políticas, se proporciona a TI una fuente de verdad que acelera el desarrollo. Al proporcionar la interpretación exacta y la base legal por adelantado, los interesados en las políticas suelen recibir información que permite decisiones rápidas e informadas, manteniendo en marcha las migraciones a la nube."
+        }
+      },
+      "rulesEngine": {
+        "sideCard": {
+          "title": "Soberanía del Sistema",
+          "text": "El mantenimiento de límites estrictos de datos asegura que los sistemas permanezcan bajo el control del estado, facilitando las operaciones diarias y haciéndolas más sostenibles."
+        },
+        "section1": {
+          "title": "Marcos de IA Vinculantes",
+          "text": "El daño algorítmico se previene mediante límites establecidos por adelantado. Las salvaguardas rigurosas de 'ética por diseño' vinculan el uso de la IA a leyes deterministas. Los análisis Pre-Mortem y el Red Teaming adversario garantizan que las herramientas de automatización actúen estrictamente como ayudas para el trabajo de casos con citas legales directas, no como motores de decisión no verificados."
+        },
+        "section2": {
+          "title": "Eliminación de la Dependencia del Proveedor",
+          "text": "La deuda técnica suele ser un subproducto de la captura por parte del proveedor. Se diseñan estándares arquitectónicos soberanos dentro de los requisitos del sistema, evitando el bloqueo mediante productos propietarios. Esto mueve al estado hacia ecosistemas desacoplados que son más fáciles de mantener, actualizar e integrar sin entregar el control a plataformas externas."
+        }
+      },
+      "rulesEdge": {
+        "sideCard": {
+          "title": "Alineación de Primera Línea",
+          "text": "Los trabajadores de casos requieren respuestas autorizadas que puedan vincularse a los registros para seguridad en las auditorías y certeza legal."
+        },
+        "section1": {
+          "title": "Consultas Respaldadas por el Estatuto",
+          "text": "Se proporciona a la primera línea un recurso de información capaz de responder consultas de casos específicas con citas legales. Estas respuestas pueden vincularse directamente al registro del caso, proporcionando a los trabajadores certeza respaldada por el estatuto y una pista de auditoría inmutable para cada determinación."
+        },
+        "section2": {
+          "title": "Reducción de la Carga Administrativa",
+          "text": "La lógica determinista reduce el 'Impuesto de Tiempo' tanto para el personal como para los residentes. Al evaluar la carga administrativa, incluidas las pérdidas debidas a procesos humanos desconectados, los cuellos de botella se eliminan mediante una mejor lógica, asegurando que las necesidades clínicas y operativas impulsen la tecnología."
+        }
+      },
+      "sanction": {
+        "sideCard": {
+          "title": "Seguridad Fiscal",
+          "text": "Defensa contra las penalizaciones de pago federales mediante la neutralización del riesgo fiscal a través de la supervisión arquitectónica por adelantado."
+        },
+        "section1": {
+          "title": "Ingeniería de Defensa de PER",
+          "text": "Los hallazgos de la Tasa de Error de Pago (PER) suelen ser el resultado de brechas en la lógica técnica. El éxito se logra diseñando reglas de alta fidelidad que sobrevivan a las auditorías federales. Los requisitos técnicos estrictos aseguran que los cambios programáticos se ejecuten de manera determinista, protegiendo al estado de penalizaciones multimillonarias."
+        },
+        "section2": {
+          "title": "Analítica Predictiva Estatutaria",
+          "text": "El riesgo del sector público se gestiona mediante analítica predictiva. El uso de modelos de error predictivo al estilo de Arnold Ventures permite a las agencias identificar perfiles de casos de alto riesgo y vulnerabilidades de lógica antes de que se manifiesten como multas de auditoría. Esta supervisión arquitectónica mantiene en movimiento los despliegues principales al neutralizar el riesgo fiscal por adelantado y proteger la integridad sistémica."
+        }
+      },
+      "data": {
+        "sideCard": {
+          "title": "Preparación Operativa",
+          "text": "La adopción de tecnología depende de la alineación de la lógica del sistema con la realidad de las operaciones de primera línea."
+        },
+        "section1": {
+          "title": "Construcción de Coaliciones entre Agencias",
+          "text": "Los grandes despliegues tecnológicos suelen fallar debido a los silos entre agencias. El éxito depende de la construcción de coaliciones robustas donde la política, la TI y las operaciones actúen como una sola unidad. Se facilita la alineación, asegurando que los objetivos programáticos se reflejen en la arquitectura técnica en todas las agencias participantes."
+        },
+        "section2": {
+          "title": "Gestión del Cambio Enfocada en la Primera Línea",
+          "text": "Los mandatos de arriba hacia abajo rara vez sobreviven en la primera línea. El despliegue de una gestión del cambio 'enfocada en la primera línea' involucra a los trabajadores de casos y supervisores como co-diseñadores operativos. Al traducir los cambios técnicos del sistema directamente a su realidad cotidiana, la nueva tecnología acelera los flujos de trabajo en lugar de romperlos."
+        }
       }
     }
   },
@@ -222,18 +296,18 @@
     "blueprints": {
       "documentTool": {
         "label": "SIMULADOR 01",
-        "title": "Simulador de Políticas Automatizado",
-        "desc": "Un entorno en vivo que muestra cómo la lógica puede verificar los cambios legislativos desde el inicio y predecir los impactos antes del código real."
+        "title": "Verificación Automatizada de Políticas",
+        "desc": "Un entorno en vivo que muestra cómo evaluamos documentos frente a una ontología de verificación unificada para generar puntajes de suficiencia estatutaria."
       },
       "policyManual": {
         "label": "SIMULADOR 02",
-        "title": "Auditor del Impuesto de Tiempo",
-        "desc": "Una herramienta que muestra cómo medir la carga administrativa impuesta a los residentes para defender legalmente las decisiones políticas."
+        "title": "Apoyo a Decisiones de Primera Línea",
+        "desc": "Un motor interactivo que demuestra cómo dirigimos consultas de lenguaje natural a autoridades legales exactas y parámetros de sistema deterministas."
       },
       "extractionEngine": {
         "label": "SIMULADOR 03",
-        "title": "Instantáneas de Estado Inmutables",
-        "desc": "Un demostrador que muestra cómo congelar registros del sistema para proporcionar evidencia incuestionable para apelaciones legales."
+        "title": "Compilador de Lógica Determinista",
+        "desc": "Un demostrador que muestra cómo traducimos texto estatutario directamente en pruebas de lógica formal y esquemas JSON ejecutables."
       }
     },
     "categories": {
@@ -264,8 +338,8 @@
         },
         "funding": {
           "value": "$2B+",
-          "label": "Financiamiento Asegurado",
-          "desc": "Combinación estratégica de capital federal y filantrópico."
+          "label": "Riesgo Fiscal Mitigado",
+          "desc": "Mitigación de multas masivas de auditoría federal a través de supervisión arquitectónica."
         },
         "execution": {
           "value": "15+",

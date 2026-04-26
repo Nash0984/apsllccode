@@ -1,18 +1,18 @@
 import { motion } from 'motion/react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, BookOpen, Layers, Zap } from 'lucide-react';
+import { ArrowLeft, Shield, BarChart3, AlertCircle } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 export default function StrategicProcurementAlignment() {
   const { t } = useTranslation();
-  const tags = ["RFP ENGINEERING", "API BOUNDING", "GRANT BRAIDING"];
+  const tags = ["PER DEFENSE", "STATUTORY ANALYTICS", "FISCAL INTEGRITY"];
 
   return (
     <div className="bg-white dark:bg-slate-950 min-h-screen transition-colors duration-300">
       <Helmet>
-        <title>Applied Policy Systems | Strategic Procurement & Alignment</title>
-        <meta name="description" content="Engineering strict API constraints into RFPs and braiding federal seed grants with civic philanthropy." />
+        <title>Applied Policy Systems | PER Reduction & Predictive Analytics</title>
+        <meta name="description" content="Managing public sector risk through statutory predictive analytics and Payment Error Rate (PER) mitigation." />
       </Helmet>
 
       <div className="border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-6 py-4">
@@ -29,7 +29,7 @@ export default function StrategicProcurementAlignment() {
         
         <div className="container-wide relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-            <h1 className="label-uppercase mb-4">Architectural Rescue</h1>
+            <h1 className="label-uppercase mb-4">Fiscal Integrity</h1>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 dark:text-white mb-8 max-w-4xl">
               {t('capabilitiesPage.cards.sanction.title')}
             </h2>
@@ -55,11 +55,11 @@ export default function StrategicProcurementAlignment() {
             <div className="lg:col-span-4">
               <div className="sticky top-24 p-6 bg-slate-50 dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800">
                 <div className="flex items-center gap-3 mb-6">
-                  <BookOpen className="text-brand-jade" size={24} />
-                  <h3 className="font-bold text-lg text-slate-900 dark:text-white">Procurement Safety</h3>
+                  <Shield className="text-brand-jade" size={24} />
+                  <h3 className="font-bold text-lg text-slate-900 dark:text-white">{t('capabilitiesPage.subPages.sanction.sideCard.title')}</h3>
                 </div>
                 <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
-                  Legally blocking vendor lock-in before the first line of code is written.
+                  {t('capabilitiesPage.subPages.sanction.sideCard.text')}
                 </p>
                 <ul className="space-y-3">
                    {(t('capabilitiesPage.cards.sanction.features', { returnObjects: true }) as string[]).map((feature, idx) => (
@@ -75,21 +75,21 @@ export default function StrategicProcurementAlignment() {
             <div className="lg:col-span-8 prose prose-slate dark:prose-invert max-w-none">
               <div className="mb-12">
                 <div className="flex items-center gap-4 mb-6">
-                  <Layers className="text-brand-jade shrink-0" size={32} />
-                  <h3 className="text-2xl font-black m-0 tracking-tight">API Boundary Engineering</h3>
+                  <AlertCircle className="text-brand-jade shrink-0" size={32} />
+                  <h3 className="text-2xl font-black m-0 tracking-tight">{t('capabilitiesPage.subPages.sanction.section1.title')}</h3>
                 </div>
                 <p className="text-lg leading-relaxed text-slate-600 dark:text-slate-400">
-                  We engineer strict API constraints and schema validation requirements directly into state RFPs. This legally mandates true modularity, forcing Tier-1 vendors to deliver decoupled ecosystems rather than tightly coupled monoliths.
+                  {t('capabilitiesPage.subPages.sanction.section1.text')}
                 </p>
               </div>
 
               <div className="mb-12">
                 <div className="flex items-center gap-4 mb-6">
-                  <Zap className="text-brand-jade shrink-0" size={32} />
-                  <h3 className="text-2xl font-black m-0 tracking-tight">Venture Capital Funding Model</h3>
+                  <BarChart3 className="text-brand-jade shrink-0" size={32} />
+                  <h3 className="text-2xl font-black m-0 tracking-tight">{t('capabilitiesPage.subPages.sanction.section2.title')}</h3>
                 </div>
                 <p className="text-lg leading-relaxed text-slate-600 dark:text-slate-400">
-                  Public sector innovation often dies in the budget cycle. We deploy a 'Venture Capital' model for government—braiding federal seed grants with targeted civic philanthropy to fund high-risk, high-reward architectural remediation outside of traditional capital windows.
+                  {t('capabilitiesPage.subPages.sanction.section2.text')}
                 </p>
               </div>
             </div>

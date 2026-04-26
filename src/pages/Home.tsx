@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from 'motion/react';
-import { ArrowRight, CheckCircle2, ArrowUpRight } from 'lucide-react';
+import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
@@ -176,26 +176,40 @@ export function Home() {
               </p>
             </div>
             
-            <div className="relative p-8 sm:p-10 bg-brand-jade text-white rounded-[2rem] shadow-xl">
-              <p className="font-medium italic leading-relaxed text-lg sm:text-xl mb-8">
-                {t('home.challenge.solution')}
-              </p>
-
-              <hr className="my-8 border-white/20" />
-              <h4 className="text-sm font-bold tracking-widest mb-2 opacity-80 uppercase">
+            <div className="relative p-8 sm:p-10 bg-brand-jade text-white rounded-[2rem] shadow-xl overflow-hidden">
+              {/* Aesthetic accent */}
+              <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+              
+              <h4 className="text-xs font-mono font-bold tracking-[0.2em] mb-8 opacity-70 uppercase">
                 {t('home.challenge.outputsLabel')}
               </h4>
-              <p className="text-sm mb-6 opacity-90">
-                {t('home.challenge.outputsLead')}
-              </p>
-              <ul className="flex flex-col gap-3">
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10">
                 {Array.isArray(technicalDeliverables) && technicalDeliverables.map((output, index) => (
-                  <li key={index} className="flex items-start gap-3 text-sm font-medium">
-                    <CheckCircle2 size={18} className="text-white/80 shrink-0 mt-0.5" />
-                    {output}
-                  </li>
+                  <div key={index} className="group">
+                    <div className="flex items-start gap-4 mb-2">
+                      <div className="w-8 h-8 rounded bg-white/10 flex items-center justify-center shrink-0 border border-white/20 group-hover:bg-white/20 transition-colors">
+                        <span className="text-xs font-mono font-bold">{String(index + 1).padStart(2, '0')}</span>
+                      </div>
+                      <h5 className="font-bold text-lg leading-tight pt-0.5">{output}</h5>
+                    </div>
+                    <div className="h-[1px] w-full bg-white/10 mt-4 group-hover:bg-white/30 transition-colors" />
+                  </div>
                 ))}
-              </ul>
+              </div>
+
+              <div className="mt-12 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 relative z-10">
+                <p className="text-sm opacity-80 max-w-sm leading-relaxed">
+                  {t('home.challenge.outputsLead')}
+                </p>
+                <Link 
+                  to="/capabilities" 
+                  className="px-6 py-3 bg-white text-brand-jade text-sm font-bold rounded hover:bg-slate-50 transition-all flex items-center gap-2 group/btn shrink-0"
+                >
+                  View All Capabilities
+                  <ArrowRight size={16} className="group-hover/btn:translate-x-1 transition-transform" />
+                </Link>
+              </div>
             </div>
           </div>
         </div>
