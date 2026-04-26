@@ -1,5 +1,6 @@
 import React from 'react';
-import { Construction } from 'lucide-react';
+import { Construction, ArrowLeft } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function UnderDevelopmentOverlay() {
   return (
@@ -20,12 +21,23 @@ export default function UnderDevelopmentOverlay() {
       
       {/* Centered Badge */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-auto">
-        <div className="bg-white dark:bg-slate-900 border-2 border-brand-jade px-8 py-4 rounded-2xl shadow-2xl flex flex-col items-center gap-2 transform transition-transform hover:scale-105">
-          <Construction className="text-brand-jade" size={48} />
-          <div className="text-center">
-            <h2 className="text-2xl font-black text-slate-900 dark:text-white tracking-tight">DEVELOPMENT PREVIEW</h2>
-            <p className="text-slate-500 dark:text-slate-400 font-medium">This module is currently being finalized.</p>
+        <div className="bg-white dark:bg-slate-900 border-2 border-brand-jade p-8 rounded-[2.5rem] shadow-2xl flex flex-col items-center gap-6 transform transition-transform hover:scale-105 max-w-sm w-full text-center">
+          <div className="bg-brand-jade/10 p-5 rounded-full">
+            <Construction className="text-brand-jade" size={64} />
           </div>
+          <div>
+            <h2 className="text-3xl font-black text-slate-900 dark:text-white tracking-tight mb-2">UNDER CONSTRUCTION</h2>
+            <p className="text-slate-500 dark:text-slate-400 font-medium leading-relaxed">
+              This technical module is currently being finalized for high-fidelity deployment.
+            </p>
+          </div>
+          <Link 
+            to="/" 
+            className="w-full py-4 bg-brand-navy dark:bg-white text-white dark:text-brand-navy rounded-2xl font-bold flex items-center justify-center gap-3 hover:bg-[#001a1d] dark:hover:bg-slate-100 transition-colors shadow-lg"
+          >
+            <ArrowLeft size={20} />
+            Return to Homepage
+          </Link>
         </div>
       </div>
 
