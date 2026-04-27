@@ -222,7 +222,7 @@
       "sanction": {
         "sideCard": {
           "title": "Crisis Mitigation",
-          "text": "Payment Error Rate (PER) audits threaten massive federal fines. APS designs predictive architecture to bridge the gap between audit findings and frontline execution."
+          "text": "Payment Error Rate (PER) audits threaten massive federal fines. APS deploys predictive architecture to bridge the gap between audit findings and frontline execution."
         },
         "section1": {
           "title": "PER Defense & Supervisory Failsafes",
@@ -327,7 +327,7 @@
       "title": "Architectural Dossier",
       "intro": "Led by programmatic experts who speak fluent system architecture, APS bridges the human translation gap and embeds statutory rights into system logic.",
       "p1": "Modern Health and Human Services rely on a complex ecosystem of frontline operations, community outreach, and statutory mandates. The technical system is the single universal throughput connecting them all. Yet, deployments consistently stall in the messy reality of human communication. IT teams are forced to guess at legislative intent, while policy teams struggle to translate their needs into technical parameters.",
-      "p2": "APS was established to resolve this structural disconnect. Instead of IT teams guessing at intent, or policy teams drowning in technical queries, APS absorbs the burden of interpretation. By acting as the policy-native architect and objective translator, the firm cuts through agency silos and delivers finished, correct artifacts. This clears the path for civic tech and implementation teams to execute flawlessly, while equipping policy directors with translated rule sets that are ready for rapid authorization. Simultaneously, APS architects the exact logic requirements needed to embed usability directly into the database. Because human change management is fragile, the core rules must hold strong—forcing true accessibility to radiate outward from the system itself."
+      "p2": "APS was established to resolve this structural disconnect. The gap between written regulations and frontline execution was so severe that it required a new approach. Operating as an autodidactic systems architect, APS leadership engineered functional, neuro-symbolic prototypes built specifically to prove that complex multi-program policy could be translated into deterministic code. Today, APS uses this methodology to absorb the burden of interpretation. By acting as the policy-native architect and objective translator, the firm cuts through agency silos and delivers finished, mathematically verified artifacts. This clears the path for civic tech and implementation teams to execute flawlessly, forcing true accessibility to radiate outward from the system itself."
     },
     "impact": {
       "stats": {
@@ -388,46 +388,46 @@
       "title": "Career Path Toward Systems Oversight",
       "milestones": {
         "m1": {
-          "year": "2018",
-          "title": "Foundational Digitization",
-          "org": "Public Sector Innovation Hub",
-          "role": "Technical Lead",
-          "desc": "Led early cloud migrations, identifying that tech fails when disconnected from policy intent and human reality."
+          "year": "2013 - 2015",
+          "title": "Frontline Diagnostics",
+          "org": "Benefits Data Trust (BDT)",
+          "role": "Benefits Quality Specialist & Public Policy Coordinator",
+          "desc": "Established deep operational roots on the frontline of benefits intake. Audited applications to federal standards, mimicking strict FNS reviews, and witnessed firsthand how complex regulations create procedural friction for caseworkers."
         },
         "m2": {
-          "year": "2020",
-          "title": "The Translation Gap",
-          "org": "State Agency Advisory",
-          "role": "Programmatic SME",
-          "desc": "Diagnosed massive failures in state systems, proving that the communication gap between policy and IT is where access breaks down."
+          "year": "2016 - 2021",
+          "title": "Municipal Integration & Burden Reduction",
+          "org": "City of Philadelphia & Campaign for Working Families",
+          "role": "Administrator & Director of Partnerships",
+          "desc": "Served as the bridge between legacy government operations and community access. Standardized operational workflows and deployed virtual civic tech pilots, proving that targeted programmatic design directly mitigates administrative burden."
         },
         "m3": {
-          "year": "2021",
-          "title": "Requirements Architecture",
-          "org": "Applied Policy Systems",
-          "role": "Founder",
-          "desc": "Deployed frameworks to translate policy into deterministic rules, giving both IT and policy teams a definitive source of truth from day one."
+          "year": "2022 - 2024",
+          "title": "Federal Policy Translation",
+          "org": "Prosperity Now & U.S. Treasury (ETAAC)",
+          "role": "Tax Policy Strategist & ETAAC Federal Appointee",
+          "desc": "Operated as the objective translation layer at the federal level. Advised the IRS on modernization and electronic administration, translating complex federal tax code into actionable strategies for national community networks."
         },
         "m4": {
-          "year": "2022",
-          "title": "Policy-Native IT Bridge",
-          "org": "Federal Data Protection Initiative",
-          "role": "Security Architect",
-          "desc": "Served as the policy expert translating between federal compliance officers and state IT teams to unblock deployments."
+          "year": "2025 - 2026",
+          "title": "Systems Architecture & PER Mitigation",
+          "org": "Maryland Department of Human Services (DHS)",
+          "role": "Director, Office of Benefits Access",
+          "desc": "Transitioned from policy advisor to systems architect. Designed predictive risk models for SNAP Payment Error Rates (PER), secured federal FNS grants, and authored a data-driven modernization playbook for integrated benefits access."
         },
         "m5": {
-          "year": "2023",
-          "title": "PER & Systems Accessibility",
-          "org": "Civic Coalition",
-          "role": "Funding Advisor",
-          "desc": "Advocated that true benefits access, and defense against PER audits, must radiate outward from functional system logic."
+          "year": "2026",
+          "title": "Applied Research & Prototyping",
+          "org": "Independent Research",
+          "role": "Autodidactic Systems Architect",
+          "desc": "Recognizing that IT vendors were starved of actionable requirements, self-taught and engineered functional neuro-symbolic prototypes designed to mathematically translate policy intent into deterministic IT logic."
         },
         "m6": {
-          "year": "2024",
-          "title": "Operational Throughput",
-          "org": "Public Sector Workforce Alliance",
-          "role": "Operational Designer",
-          "desc": "Ensured that vendor-built technology actually served the human operation, preventing systems from making the daily work harder."
+          "year": "Present",
+          "title": "Requirements Architecture",
+          "org": "Applied Policy Systems LLC",
+          "role": "Founder & Principal Architect",
+          "desc": "Launched APS to formalize the methodology of translating policy into systems architecture. Absorbs the burden of interpretation to deliver the definitive blueprints that enable IT and civic tech partners to build compliant, functional systems."
         }
       }
     }
