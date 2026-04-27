@@ -2,23 +2,23 @@
   "routes": {
     "expertise": {
       "label": "Capacidades",
-      "description": "Revise nuestras intervenciones: eliminando cuellos de botella en las políticas, prediciendo efectos secundarios y traduciendo cambios programáticos en código."
+      "description": "Revise las intervenciones de APS: Arquitectura de Requisitos, traducción de políticas en reglas comerciales y mitigación de Tasas de Error de Pago (PER)."
     },
     "research": {
       "label": "Investigación",
-      "description": "Análisis claro de por qué el retraso en las políticas estanca la tecnología gubernamental, cómo los errores entre programas se propagan en cascada y cómo los estados pueden acelerar el control estructural."
+      "description": "Análisis claro sobre por qué las brechas de traducción detienen la tecnología gubernamental, cómo fallan los procesos humanos y cómo construir sistemas que irradien accesibilidad."
     },
     "field": {
       "label": "Simuladores",
-      "description": "Modelos interactivos que muestran cómo probamos los cambios de política desde el inicio y rastreamos la carga administrativa empírica."
+      "description": "Modelos interactivos que demuestran cómo APS traduce políticas de antemano y extrae reglas deterministas para desarrolladores de TI."
     },
     "about": {
-      "label": "Nosotros",
-      "description": "Revise nuestra autoridad como arquitectos independientes y expertos en programas para la infraestructura del sector público."
+      "label": "Acerca de",
+      "description": "Revise cómo APS aporta experiencia programática en políticas a la mesa de TI, imponiendo la accesibilidad a través de una estricta arquitectura a nivel de sistemas."
     },
     "contact": {
       "label": "Contacto",
-      "description": "Inicie un diálogo sobre supervisión arquitectónica, aceleración de despliegues o prevención de riesgos secundarios."
+      "description": "Inicie un diálogo sobre Arquitectura de Requisitos, defensa contra la Tasa de Error de Pago (PER) o arquitectura de lógica legal."
     }
   },
   "nav": {
@@ -26,13 +26,13 @@
     "platform": "Capacidades",
     "research": "Investigación",
     "field": "Simuladores",
-    "about": "Nosotros",
+    "about": "Acerca de",
     "contact": "Contacto",
     "getInTouch": "Contacto",
     "scheduleSession": "Programar una Sesión",
-    "skipToContent": "Saltar al contenido",
-    "openMenu": "Abrir menú",
-    "closeMenu": "Cerrar menú"
+    "skipToContent": "Saltar al Contenido",
+    "openMenu": "Abrir Menú",
+    "closeMenu": "Cerrar Menú"
   },
   "common": {
     "returnToCapabilities": "Volver a Capacidades"
@@ -41,74 +41,74 @@
     "policyManual": {
       "header": {
         "title": "Asistente de Política y Determinación",
-        "subtitle": "Apoyo a decisiones claro y registros de auditoría"
+        "subtitle": "Consulta Autorizada de Casos y Citas Legales"
       },
       "bindCase": {
-        "title": "Vincular caso",
-        "description": "Vincule de forma segura un ID de caso para recuperar reglas precisas.",
-        "placeholder": "Ingrese ID de caso (ej. TX-9942)",
-        "button": "Autorizar y vincular"
+        "title": "Vincular y Consultar Caso",
+        "description": "Vincule de forma segura un ID de caso para recuperar respuestas deterministas respaldadas por estatutos con citas legales.",
+        "placeholder": "Ingrese el ID del Caso (ej. TX-9942)",
+        "button": "Vincular Caso y Autorizar"
       },
       "processing": {
-        "analyzing": "Analizando solicitud...",
-        "querying": "Buscando reglas de política...",
-        "verifying": "Verificando límites legales..."
+        "analyzing": "Analizando Solicitud...",
+        "querying": "Buscando Reglas de Política...",
+        "verifying": "Verificando Límites Legales..."
       },
       "chat": {
-        "userRole": "Consulta del trabajador",
-        "systemRole": "Recuperación del sistema",
-        "activeCase": "Caso activo",
-        "authoritativeRetrieval": "Recuperación de política",
-        "statutoryAuthority": "Autoridad legal",
-        "policyParameters": "Reglas de política",
-        "systemLogic": "Lógica del sistema",
-        "unknownResponse": "No se puede mapear la consulta a una regla de política clara. Escalar a revisión manual.",
-        "inputPlaceholderActive": "Ingrese pregunta de elegibilidad...",
+        "userRole": "Consulta de Trabajador Social",
+        "systemRole": "Recuperación del Sistema",
+        "activeCase": "Caso Activo",
+        "authoritativeRetrieval": "Recuperación de Política",
+        "statutoryAuthority": "Autoridad Legal",
+        "policyParameters": "Reglas de Política",
+        "systemLogic": "Lógica del Sistema",
+        "unknownResponse": "Incapaz de hacer coincidir la consulta con una regla de política clara. Escalar a revisión manual.",
+        "inputPlaceholderActive": "Ingrese una pregunta de elegibilidad...",
         "inputPlaceholderIdle": "Vincule un ID de caso para interactuar."
       }
     }
   },
   "home": {
     "hero": {
-      "title": "Política Verificable. Acceso Sin Compromisos.",
-      "subtitle": "Los despliegues tecnológicos estatales a menudo se estancan en la brecha entre las complejas reglas federales y la arquitectura del sistema. Applied Policy Systems cierra esta división. Al traducir los mandatos programáticos en lógica determinista desde el inicio, proporcionamos a los equipos de ingeniería los parámetros exactos que necesitan para mantener los despliegues en movimiento, predecir los efectos secundarios y garantizar el cumplimiento federal.",
+      "title": "Traduciendo Políticas. Arquitectando el Acceso.",
+      "subtitle": "Los sistemas gubernamentales se estancan cuando las políticas complejas, la ejecución técnica y la realidad de la primera línea no logran alinearse. APS sirve como la capa de traducción objetiva que cierra esta brecha. Al proporcionar una estricta supervisión arquitectónica y requisitos definitivos, la firma permite a las agencias desbloquear implementaciones tecnológicas, mitigar el riesgo de auditorías federales y garantizar que la infraestructura realmente sirva al público.",
       "cta": "Revisar Capacidades"
     },
     "challenge": {
       "label": "La Brecha de Traducción",
-      "title": "Acelerando la Alineación Técnica.",
-      "text": "La división tradicional entre la intención de la política y la arquitectura del sistema crea fricción, lo que lleva a retrasos en los lanzamientos y a una costosa deuda técnica. Eliminamos esta brecha mediante la ingeniería de estrictas restricciones operativas directamente en los requisitos de los proveedores y en los estatutos internos de TI. Al fundamentar cada decisión arquitectónica en una clara autoridad legal, aseguramos que los nuevos sistemas apoyen a los trabajadores de primera línea sin violar el derecho administrativo.",
-      "outputsLabel": "Entregables Principales",
+      "title": "Uniendo la Política y la Ejecución Técnica.",
+      "text": "Cuando las implementaciones fallan, rara vez se debe a un código deficiente. La falla ocurre en la capa de traducción humana, donde la burocracia y la jerga privan a la TI de requisitos claros. APS elimina esta fricción. Operando como un Experto en la Materia (SME) programático, la firma ofrece verificación independiente de la lógica legal y los planos estratégicos que los desarrolladores necesitan para construir realmente el sistema.",
+      "outputsLabel": "Intervenciones Centrales",
       "outputsLead": "Los servicios arquitectónicos especializados incluyen:",
       "outputs": [
-        "Política Verificable y Predicción de Efectos Secundarios",
-        "Gobernanza de IA Segura e Infraestructura",
-        "Responsabilidad del Sistema y Adquisiciones",
-        "Operaciones de Primera Línea y Diseño de la Fuerza Laboral"
+        "Verificación Independiente y Auditorías de Sistemas",
+        "Experiencia Programática en la Materia (SME)",
+        "Arquitectura de Requisitos y Traducción de Políticas",
+        "Análisis Predictivo y Mitigación de PER"
       ]
     },
     "infrastructure": {
       "label": "Supervisión Holística",
-      "title": "Aceleración Arquitectónica y SME.",
-      "text": "Implementamos reglas técnicas estrictas informadas por la experiencia en diversos programas para evitar el lastre burocrático y asegurar que los cambios sistémicos no desencadenen penalizaciones federales automatizadas.",
-      "cta": "Capacidades Principales"
+      "title": "Accesibilidad a Nivel de Sistemas.",
+      "text": "La gestión humana del cambio es frágil. APS diseña las reglas comerciales exactas desde el principio, brindando a los desarrolladores un plano impecable para garantizar que el sistema final proteja fundamentalmente los derechos legales y agilice las operaciones de primera línea.",
+      "cta": "Capacidades Centrales"
     },
     "sandbox": {
       "label": "Simulador 01",
       "title": "Verificación Automatizada de Políticas",
-      "text": "Vea cómo contrastamos evidencia del mundo real con ontologías estatutarias estrictas, calculando puntajes de suficiencia empírica para verificar el cumplimiento federal.",
+      "text": "Vea cómo APS mapea evidencia del mundo real contra ontologías legales estrictas, demostrando que la lógica puede verificarse antes de que comience el desarrollo.",
       "cta": "Ver Simulador"
     },
     "manual": {
       "label": "Simulador 02",
       "title": "Apoyo a Decisiones de Primera Línea",
-      "text": "Vea cómo traducimos políticas ambiguas en respuestas deterministas respaldadas por los estatutos, forzando una alineación rápida para los trabajadores sociales.",
+      "text": "Vea cómo APS traduce políticas ambiguas en respuestas deterministas respaldadas por estatutos, forzando una alineación rápida para los trabajadores sociales.",
       "cta": "Ver Simulador"
     },
     "extraction": {
       "label": "Simulador 03",
       "title": "Compilador de Lógica Determinista",
-      "text": "Vea cómo extraemos lógica matemática formal de los mandatos de lenguaje natural, entregando esquemas ejecutables a los equipos de TI desde el inicio.",
+      "text": "Vea cómo APS extrae lógica formal a partir de mandatos en lenguaje natural, brindando a TI una fuente definitiva de verdad sobre la cual construir.",
       "cta": "Ver Simulador"
     }
   },
@@ -116,135 +116,135 @@
     "hero": {
       "label": "Capacidades",
       "title": "Supervisión Arquitectónica e Ingeniería de Políticas",
-      "subtitle": "Supervisión de ingeniería dirigida y capacidades de SME de amplia visión para eliminar el retraso en las políticas. Los cambios programáticos se traducen perfectamente en código sin estancar la TI ni desencadenar errores catastróficos entre programas."
+      "subtitle": "Intervenciones de doble capa: traducir políticas humanas complejas en requisitos de TI procesables y diseñar la lógica precisa necesaria para garantizar que la accesibilidad irradie hacia el exterior."
     },
     "grid": {
       "headerLabel": "Los Cuatro Pilares",
-      "headerTitle": "Autoridad Multidisciplinaria",
-      "deliverablesLabel": "Intervenciones Principales"
+      "headerTitle": "Alineación Holística de Sistemas",
+      "deliverablesLabel": "Intervenciones Centrales"
     },
     "cards": {
       "statutory": {
-        "title": "Traducción Estatutaria y Predicción de Impacto",
-        "text": "La brecha entre la intención de la política y la lógica del sistema se elimina mediante la traducción por adelantado, proporcionando a los equipos de TI una fuente de verdad independiente. Se proporcionan reglas deterministas exactas a la ingeniería, evitando ciclos interminables de revisión de políticas. La verificación matemática asegura que el nuevo código no desencadene errores en cascada en los programas interconectados de HHS, defendiendo contra mandatos federales sin financiamiento.",
+        "title": "Traducción Legal y Habilitación de TI",
+        "text": "La brecha entre la intención de la política y la ejecución del sistema se elimina a través de la Arquitectura de Requisitos. Al actuar como el experto nativo en políticas y traductor independiente, APS asume la carga de la interpretación. A los equipos de TI se les proporciona una fuente de verdad matemática y definitiva desde el primer día, mientras que los equipos de políticas están protegidos de ciclos de revisión técnica interminables. Al modelar reglas sistémicas por adelantado, APS predice efectos en cascada en programas interconectados de HHS.",
         "features": [
-          "Predicción del Radio de Impacto entre Programas",
-          "Traducción de Políticas con Enfoque en TI",
-          "Evaluación y Reducción de la Carga Administrativa"
+          "Arquitectura de Requisitos",
+          "Traducción de Políticas Priorizando TI",
+          "Mapeo de Dependencias Inter-Programas"
         ]
       },
       "rulesEngine": {
-        "title": "Gobernanza de IA y Soberanía del Sistema",
-        "text": "Se suministran marcos legales técnicos para vincular y controlar los despliegues de IA dentro de las autoridades estatales. Los estándares arquitectónicos profesionales eliminan la dependencia del proveedor y la deuda técnica, asegurando que los sistemas permanezcan soberanos y mantenibles. La automatización actúa como una ayuda verificable para los trabajadores de casos, guiada por límites legales deterministas en lugar de modelos probabilísticos no verificados.",
+        "title": "Accesibilidad de Sistemas y Límites de IA",
+        "text": "Debido a que los procesos humanos son frágiles, la usabilidad y los derechos legales deben estar integrados en el sistema. APS diseña los marcos técnicos y las reglas comerciales que permiten a TI vincular la IA y la lógica del sistema a la realidad legal, asegurando que la arquitectura nunca viole los derechos. Estos estándares soberanos eliminan la dependencia del proveedor, forzando a la tecnología a actuar como el conducto universal que apoya la misión.",
         "features": [
-          "Marcos de Gobernanza de IA Vinculantes",
-          "Soberanía del Sistema a Largo Plazo",
-          "Apoyo a Decisiones Seguro para Auditorías"
+          "Arquitectura de Reglas Legales",
+          "Marcos Vinculantes de Gobernanza de IA",
+          "Requisitos de Sistema Seguros para Auditorías"
         ]
       },
       "sanction": {
-        "title": "Reducción de PER y Analítica Predictiva",
-        "text": "El riesgo del sector público se gestiona mediante analítica predictiva estatutaria y la mitigación de la Tasa de Error de Pago (PER). Se identifican perfiles de caso de alto riesgo y brechas de lógica técnica antes de que se manifiesten como multas masivas de auditoría federal. Esta supervisión arquitectónica defiende con éxito contra las penalizaciones de pago federales al neutralizar el riesgo fiscal por adelantado.",
+        "title": "Análisis Predictivo y Mitigación de PER",
+        "text": "Las agencias estatales enfrentan una responsabilidad financiera sin precedentes con respecto a las Tasas de Error de Pago (PER) federales del SNAP. Estos hallazgos rara vez son solo 'errores de los trabajadores sociales': son fallas sistémicas donde las políticas complejas superan el apoyo operativo. APS maneja esta crisis diseñando Motores de Riesgo Predictivos (P.R.E.) y paneles de control de supervisión en tiempo real. Al cambiar el enfoque de los datos de auditoría retrospectivos a los indicadores adelantados, APS permite a las agencias prevenir estructuralmente la recurrencia.",
         "features": [
-          "Defensa de la Tasa de Error de Pago (PER)",
-          "Analítica Predictiva Estatutaria",
-          "Mitigación de Riesgos de Auditoría"
+          "Arquitectura del Motor de Riesgo Predictivo (P.R.E.)",
+          "Paneles de Control de Garantía de Calidad en Tiempo Real",
+          "Ingeniería de Planes de Acción Correctiva (CAP)"
         ]
       },
       "data": {
-        "title": "Construcción de Coaliciones y Preparación del Personal",
-        "text": "Incluso el código perfectamente traducido falla si se ignora la preparación operativa. Los procedimientos se diseñan en torno a las personas que realmente realizan el trabajo, implementando una gestión del cambio enfocada en la primera línea y construyendo coaliciones entre agencias para asegurar el éxito técnico y la adopción humana.",
+        "title": "Alineación de Primera Línea y Realidad Operativa",
+        "text": "Incluso un código perfectamente traducido falla si ignora la realidad diaria de la primera línea. APS garantiza que las implementaciones técnicas estén alineadas con las operaciones humanas. Al establecer Ciclos de Entrenamiento Dirigido (T.T.L.) y tratar a los trabajadores sociales como los usuarios finales definitivos del sistema, se elimina la fricción procesal, asegurando que el código facilite la ejecución diaria, no que la dificulte.",
         "features": [
-          "Construcción de Coaliciones entre Agencias",
-          "Gestión del Cambio Enfocada en la Primera Línea",
-          "Ingeniería de Preparación Operativa"
+          "Diseño Operativo Priorizando la Primera Línea",
+          "Ciclos de Entrenamiento Dirigido (T.T.L.)",
+          "Construcción de Coaliciones Inter-Agencias"
         ]
       }
     },
     "engagements": {
       "title": "Modelos de Compromiso",
       "sprint": {
-        "title": "Intervenciones Arquitectónicas Dirigidas",
-        "text": "Despliegues rápidos de supervisión para diagnosticar fallas de lógica estructural, evitar cuellos de botella en las políticas, mapear dependencias y verificar código complejo."
+        "title": "Intervenciones Arquitectónicas Específicas",
+        "text": "Implementaciones rápidas de supervisión para absorber la carga de la traducción. Al actuar como el narrador objetivo de la verdad y el traductor independiente, APS entrega artefactos terminados: brindando a los equipos de políticas una lógica mapeada estatutariamente para una rápida autorización, y equipando a TI y socios tecnológicos cívicos con los requisitos definitivos para construir."
       },
       "advisory": {
-        "title": "Asesoría Técnica de Expertos",
-        "text": "Asociación a largo plazo actuando como árbitro técnico del estado, eliminando el lastre de las políticas, prediciendo efectos secundarios entre sistemas y pre-probando nuevas reglas antes de la producción."
+        "title": "Experiencia en la Materia (SME) y Asesoría",
+        "text": "Asociación a largo plazo para proporcionar verificación independiente de reglas técnicas, cerrar la brecha entre políticas y TI, y garantizar que el sistema irradie accesibilidad a medida que escala."
       },
       "integration": {
-        "title": "Adquisición de Sistemas y Planos",
-        "text": "Consultoría integral para redactar las reglas técnicas estrictas de grandes RFP estatales o construcciones internas, asegurando que los cambios programáticos se ejecuten de manera determinista."
+        "title": "Adquisición de Sistemas y Diseño de Planos",
+        "text": "Consultoría de extremo a extremo para redactar las reglas técnicas estrictas y los apéndices de cumplimiento de las masivas RFP estatales, asegurando que la tecnología construida por los proveedores sirva al estado."
       }
     },
     "subPages": {
       "statutory": {
         "sideCard": {
-          "title": "Lógica Determinista",
-          "text": "Los probadores de teoremas matemáticos verifican que la lógica de elegibilidad sea un reflejo 1:1 de los requisitos estatutarios antes de que los desarrolladores escriban una sola línea de código."
+          "title": "La Verdad Definitiva",
+          "text": "La lógica de elegibilidad se traduce en un reflejo 1:1 de los requisitos legales, dando tanto a las políticas como a TI los parámetros operativos exactos que necesitan."
         },
         "section1": {
-          "title": "Predicción de Radio de Impacto en HHS",
-          "text": "El derecho administrativo está fuertemente interconectado. Un simple cambio en un cálculo de MAGI de Medicaid puede desencadenar inadvertidamente una variación masiva de FNS en SNAP. Este punto ciego se elimina modelando las reglas sistémicas por adelantado, prediciendo los efectos en cascada en los programas de HHS y permitiendo que TI se despliegue con confianza matemática."
+          "title": "Traduciendo el Radio de Explosión",
+          "text": "El derecho administrativo está fuertemente interconectado. Un simple cambio en un cálculo MAGI de Medicaid puede desencadenar inadvertidamente una variación masiva del FNS en SNAP. Este punto ciego se elimina al traducir las reglas sistémicas por adelantado y mapear las dependencias en cascada, lo que permite que las implementaciones avancen con absoluta confianza."
         },
         "section2": {
-          "title": "Fuente de Verdad con Enfoque en TI",
-          "text": "Los mandatos legislativos ambiguos se traducen en modelos deterministas. En lugar de esperar meses por revisiones cualitativas de políticas, se proporciona a TI una fuente de verdad que acelera el desarrollo. Al proporcionar la interpretación exacta y la base legal por adelantado, los interesados en las políticas suelen recibir información que permite decisiones rápidas e informadas, manteniendo en marcha las migraciones a la nube."
+          "title": "Arquitectura de Requisitos",
+          "text": "Los mandatos legislativos ambiguos paralizan las implementaciones. En lugar de obligar a los equipos de políticas a responder interminables preguntas técnicas o dejar que TI adivine la intención, APS asume la carga de la interpretación. Al actuar como un arquitecto nativo de políticas y traductor, APS entrega artefactos completamente mapeados, empoderando a los líderes de políticas para autorizar rápidamente la lógica traducida, mientras brinda a los desarrolladores los requisitos exactos necesarios para ejecutar."
         }
       },
       "rulesEngine": {
         "sideCard": {
-          "title": "Soberanía del Sistema",
-          "text": "El mantenimiento de límites estrictos de datos asegura que los sistemas permanezcan bajo el control del estado, facilitando las operaciones diarias y haciéndolas más sostenibles."
+          "title": "Sistemas de Seguridad Integrados",
+          "text": "Cuando la gestión del cambio humano inevitablemente falla, la lógica del sistema debe mantenerse firme. Los derechos legales se diseñan en estrictas reglas comerciales."
         },
         "section1": {
-          "title": "Marcos de IA Vinculantes",
-          "text": "El daño algorítmico se previene mediante límites establecidos por adelantado. Las salvaguardas rigurosas de 'ética por diseño' vinculan el uso de la IA a leyes deterministas. Los análisis Pre-Mortem y el Red Teaming adversario garantizan que las herramientas de automatización actúen estrictamente como ayudas para el trabajo de casos con citas legales directas, no como motores de decisión no verificados."
+          "title": "Vinculando la IA a la Realidad",
+          "text": "El daño algorítmico se previene a través de límites iniciales a nivel de sistemas. Requisitos rigurosos vinculan las herramientas de IA a leyes deterministas, garantizando que la automatización funcione únicamente como una ayuda verificada por ley para el trabajador social que irradia usabilidad, en lugar de un obstáculo no verificado."
         },
         "section2": {
-          "title": "Eliminación de la Dependencia del Proveedor",
-          "text": "La deuda técnica suele ser un subproducto de la captura por parte del proveedor. Se diseñan estándares arquitectónicos soberanos dentro de los requisitos del sistema, evitando el bloqueo mediante productos propietarios. Esto mueve al estado hacia ecosistemas desacoplados que son más fáciles de mantener, actualizar e integrar sin entregar el control a plataformas externas."
+          "title": "Imponiendo Límites a los Proveedores",
+          "text": "La deuda técnica prospera en la brecha de traducción. Se diseñan estándares arquitectónicos soberanos en los requisitos del sistema para evitar la dependencia del proveedor. Esto asegura que el estado mantenga el control del conducto universal, forzando a la tecnología a servir a la misión, no al proveedor."
         }
       },
       "rulesEdge": {
         "sideCard": {
-          "title": "Alineación de Primera Línea",
-          "text": "Los trabajadores de casos requieren respuestas autorizadas que puedan vincularse a los registros para seguridad en las auditorías y certeza legal."
+          "title": "Ejecución de Primera Línea",
+          "text": "Los trabajadores sociales requieren respuestas autorizadas que estén respaldadas por certeza legal y velocidad operativa."
         },
         "section1": {
-          "title": "Consultas Respaldadas por el Estatuto",
-          "text": "Se proporciona a la primera línea un recurso de información capaz de responder consultas de casos específicas con citas legales. Estas respuestas pueden vincularse directamente al registro del caso, proporcionando a los trabajadores certeza respaldada por el estatuto y una pista de auditoría inmutable para cada determinación."
+          "title": "Flujos de Trabajo Respaldados por Ley",
+          "text": "La primera línea debe contar con sistemas capaces de determinar consultas de casos específicos basados en citas legales. Esto elimina la carga de interpretación de políticas del trabajador social, proporcionándoles certeza respaldada por estatutos y un rastro operativo inmutable."
         },
         "section2": {
-          "title": "Reducción de la Carga Administrativa",
-          "text": "La lógica determinista reduce el 'Impuesto de Tiempo' tanto para el personal como para los residentes. Al evaluar la carga administrativa, incluidas las pérdidas debidas a procesos humanos desconectados, los cuellos de botella se eliminan mediante una mejor lógica, asegurando que las necesidades clínicas y operativas impulsen la tecnología."
+          "title": "Reducción de la Fricción Procesal",
+          "text": "Dado que el sistema es el conducto único para todos los actores, la accesibilidad debe irradiar desde la capa tecnológica. Al identificar dónde el sistema crea cargas humanas innecesarias, los requisitos de lógica se rediseñan para eliminar cuellos de botella, haciendo que el trabajo diario sea fundamentalmente más fácil."
         }
       },
       "sanction": {
         "sideCard": {
-          "title": "Seguridad Fiscal",
-          "text": "Defensa contra las penalizaciones de pago federales mediante la neutralización del riesgo fiscal a través de la supervisión arquitectónica por adelantado."
+          "title": "Mitigación de Crisis",
+          "text": "Las auditorías de la Tasa de Error de Pago (PER) amenazan con multas federales masivas. APS implementa arquitectura predictiva para cerrar la brecha entre los hallazgos de las auditorías y la ejecución en primera línea."
         },
         "section1": {
-          "title": "Ingeniería de Defensa de PER",
-          "text": "Los hallazgos de la Tasa de Error de Pago (PER) suelen ser el resultado de brechas en la lógica técnica. El éxito se logra diseñando reglas de alta fidelidad que sobrevivan a las auditorías federales. Los requisitos técnicos estrictos aseguran que los cambios programáticos se ejecuten de manera determinista, protegiendo al estado de penalizaciones multimillonarias."
+          "title": "Defensa PER y Sistemas de Seguridad de Supervisión",
+          "text": "Los hallazgos de la Tasa de Error de Pago (PER) rara vez se deben a fallas humanas intencionales; ocurren cuando trabajadores sociales abrumados navegan por políticas desconectadas. El éxito se logra rastreando las auditorías fallidas hasta su causa raíz y diseñando Planes de Acción Correctiva (CAPs) equipados con paneles PER en tiempo real. Estos modelos integrados de revisión de casos de supervisión brindan visibilidad inmediata de las tendencias de error, sirviendo como un sistema de seguridad estructural contra las variaciones federales."
         },
         "section2": {
-          "title": "Analítica Predictiva Estatutaria",
-          "text": "El riesgo del sector público se gestiona mediante analítica predictiva. El uso de Modelos Predictivos Basados en Evidencia permite a las agencias identificar perfiles de casos de alto riesgo y vulnerabilidades de lógica antes de que se manifiesten como multas de auditoría. Esta supervisión arquitectónica mantiene en movimiento los despliegues principales al neutralizar el riesgo fiscal por adelantado y proteger la integridad sistémica."
+          "title": "Análisis de Riesgo Predictivo",
+          "text": "Mirar hacia atrás a los datos retrospectivos de Control de Calidad (QC) ya no es suficiente para mitigar la responsabilidad financiera. APS diseña Motores de Riesgo Predictivos (P.R.E.) que evalúan la latencia del proceso, la rotación de clientes y la complejidad financiera para agregar banderas de error prescriptivas a los casos antes de la certificación. Empoderados por un mecanismo de retroalimentación 'Human-in-the-Loop', los planos predictivos se actualizan continuamente, asegurando que el marco se adapte a la realidad operativa."
         }
       },
       "data": {
         "sideCard": {
-          "title": "Preparación Operativa",
-          "text": "La adopción de tecnología depende de la alineación de la lógica del sistema con la realidad de las operaciones de primera línea."
+          "title": "Realidad Operativa",
+          "text": "La adopción de tecnología depende de alinear la lógica final del sistema con la complicada realidad de las operaciones humanas de primera línea."
         },
         "section1": {
-          "title": "Construcción de Coaliciones entre Agencias",
-          "text": "Los grandes despliegues tecnológicos suelen fallar debido a los silos entre agencias. El éxito depende de la construcción de coaliciones robustas donde la política, la TI y las operaciones actúen como una sola unidad. Se facilita la alineación, asegurando que los objetivos programáticos se reflejen en la arquitectura técnica en todas las agencias participantes."
+          "title": "Rompiendo los Silos de las Agencias",
+          "text": "Las principales implementaciones tecnológicas a menudo fallan debido a silos aislados de agencias y guerras territoriales. El éxito requiere Arquitectura de Requisitos para construir coaliciones robustas donde las políticas, TI y operaciones se escuchen claramente entre sí. APS garantiza que los objetivos programáticos se reflejen con precisión en los planos finales."
         },
         "section2": {
-          "title": "Gestión del Cambio Enfocada en la Primera Línea",
-          "text": "Los mandatos de arriba hacia abajo rara vez sobreviven en la primera línea. El despliegue de una gestión del cambio 'enfocada en la primera línea' involucra a los trabajadores de casos y supervisores como co-diseñadores operativos. Al traducir los cambios técnicos del sistema directamente a su realidad cotidiana, la nueva tecnología acelera los flujos de trabajo en lugar de romperlos."
+          "title": "Alineando el Conducto",
+          "text": "Los mandatos tecnológicos de arriba hacia abajo rara vez sobreviven en la primera línea. Al tratar a la tecnología como el conducto universal, APS asegura que los nuevos sistemas se diseñen conjuntamente teniendo en cuenta la realidad operativa. El objetivo es simple: diseñar requisitos que aceleren los flujos de trabajo en lugar de fracturarlos."
         }
       }
     }
@@ -252,38 +252,38 @@
   "researchPage": {
     "hero": {
       "label": "Investigación",
-      "title": "Inteligencia de Amenazas y Diagnósticos",
-      "subtitle": "Análisis claro sobre por qué el retraso en las políticas estanca la tecnología gubernamental, cómo el código no verificado desencadena penalizaciones secundarias y cómo sobrevivir a las auditorías federales."
+      "title": "Diagnósticos Sistémicos e Inteligencia de Amenazas",
+      "subtitle": "Análisis sobre por qué las brechas de traducción detienen la tecnología gubernamental, cómo las reglas no verificadas inflan las auditorías PER y cómo diseñar accesibilidad."
     },
     "docs": {
       "adv1": {
-        "title": "Predicción de Radios de Impacto entre Programas",
-        "desc": "Por qué los cambios de código aislados desencadenan variaciones federales masivas y cómo la experiencia de amplia visión previene errores en cascada."
+        "title": "Predicción de Radios de Explosión Inter-Programas",
+        "desc": "Por qué los cambios de código aislados provocan variaciones federales masivas, y cómo la arquitectura nativa de políticas previene errores en cascada."
       },
       "adv2": {
-        "title": "Protección de Datos con Pasarelas Seguras",
-        "desc": "Los graves riesgos de utilizar plataformas de nube comerciales para beneficios estatales y cómo exigir alternativas seguras."
+        "title": "Protegiendo el Conducto Universal",
+        "desc": "Los graves riesgos de utilizar plataformas de nube comerciales para beneficios estatales, y cómo exigir alternativas seguras y utilizables."
       },
       "adv3": {
-        "title": "Traducción de Políticas desde el Inicio",
-        "desc": "Por qué esperar a las revisiones de políticas estanca los despliegues de TI y cómo proporcionar matemáticamente a los desarrolladores código determinista desde el primer día."
+        "title": "Traduciendo Políticas para TI el Primer Día",
+        "desc": "Por qué esperar revisiones de políticas paraliza a los desarrolladores, y cómo proporcionar a TI un conjunto definitivo de reglas comerciales."
       },
       "adv4": {
-        "title": "Diseño Operativo Enfocado en la Primera Línea",
-        "desc": "Por qué los sistemas perfectamente programados fallan sin alineación operativa y cómo construir una fuerza laboral estatal empoderada."
+        "title": "Alineando la Tecnología con la Realidad Operativa",
+        "desc": "Por qué fallan los sistemas perfectamente codificados sin alineación operativa, y cómo diseñar tecnología que facilite el trabajo social."
       },
       "adv5": {
-        "title": "Combatiendo las Penalizaciones de Pago Federales",
-        "desc": "Cómo las agencias estatales pueden reconstruir los datos del sistema para probar fallas de lógica estructural y combatir con éxito las multas de auditoría federal."
+        "title": "Análisis Predictivo para la Mitigación de PER",
+        "desc": "Cómo las agencias pueden pasar de datos de auditoría retrospectivos a indicadores adelantados mediante la arquitectura de Motores de Riesgo Predictivos (P.R.E.) actualizados continuamente para señalar casos de alto error."
       },
       "adv6": {
-        "title": "Derrotando la Deuda Técnica y el Encierro de Proveedores",
-        "desc": "Cómo las malas adquisiciones y los equipos de TI aislados explotan reglas vagas, y cómo exigir límites de ingeniería estrictos."
+        "title": "Derrotando Brechas de Traducción y Dependencia",
+        "desc": "Cómo la mala comunicación permite la explotación por parte de los proveedores, y cómo imponer estrictos límites de ingeniería."
       }
     },
     "cta": {
-      "title": "¿Está listo para poner a prueba su infraestructura?",
-      "subtitle": "Explore nuestros simuladores interactivos para ver cómo verificamos la lógica de las políticas desde el inicio y mapeamos las dependencias.",
+      "title": "¿Listo para probar la capa de sistemas?",
+      "subtitle": "Explore los simuladores interactivos de APS para observar la traducción automatizada de políticas y la lógica de reglas deterministas en tiempo real.",
       "button": "Ver Simuladores Operativos"
     }
   },
@@ -291,29 +291,29 @@
     "hero": {
       "label": "Demostradores Operativos",
       "title": "Pruebas Interactivas y Modelos de Sistema",
-      "subtitle": "Revise nuestros demostradores en vivo que ilustran las pruebas de políticas automatizadas, la predicción de riesgos secundarios y el manejo seguro de datos."
+      "subtitle": "Revise demostradores en vivo impulsados por el prototipo neuro-simbólico JAWN, que ilustran la traducción automatizada de políticas, la extracción de reglas comerciales y la verificación lógica."
     },
     "blueprints": {
       "documentTool": {
         "label": "SIMULADOR 01",
         "title": "Verificación Automatizada de Políticas",
-        "desc": "Un entorno en vivo que muestra cómo evaluamos documentos frente a una ontología de verificación unificada para generar puntajes de suficiencia estatutaria."
+        "desc": "Un entorno en vivo que se ejecuta en el marco JAWN, que muestra cómo APS evalúa documentos contra una ontología de verificación unificada para generar puntajes de suficiencia legal."
       },
       "policyManual": {
         "label": "SIMULADOR 02",
         "title": "Apoyo a Decisiones de Primera Línea",
-        "desc": "Un motor interactivo que demuestra cómo dirigimos consultas de lenguaje natural a autoridades legales exactas y parámetros de sistema deterministas."
+        "desc": "Un motor interactivo que demuestra el enrutamiento determinista de consultas en lenguaje natural hacia autoridades legales exactas y parámetros del sistema."
       },
       "extractionEngine": {
-        "label": "SIMULADOR 03",
+        "label": "SIMULATOR 03",
         "title": "Compilador de Lógica Determinista",
-        "desc": "Un demostrador que muestra cómo traducimos texto estatutario directamente en pruebas de lógica formal y esquemas JSON ejecutables."
+        "desc": "Un demostrador que muestra la traducción objetiva de texto estatutario directamente en esquemas de lógica formal."
       }
     },
     "categories": {
       "all": "Todos los Simuladores",
       "verification": "Verificación de Políticas",
-      "casework": "Apoyo al Trabajo de Casos",
+      "casework": "Apoyo a Trabajadores Sociales",
       "audit": "Auditoría de Sistemas"
     }
   },
@@ -321,246 +321,246 @@
     "hero": {
       "label": "Autoridad Operativa",
       "title": "Acerca de Applied Policy Systems",
-      "subtitle": "Arquitectos de Infraestructura Gubernamental Confiable."
+      "subtitle": "El acceso a beneficios es un ecosistema multifacético. APS garantiza que la verdadera accesibilidad irradie desde la capa de sistemas."
     },
     "founder": {
-      "title": "Dossier del Fundador",
-      "intro": "Proporcionamos la supervisión arquitectónica y la experiencia en programas de amplia visión necesaria para eliminar los cuellos de botella en las políticas y asegurar que los mandatos estatales se traduzcan perfectamente en código de sistema determinista.",
-      "p1": "Applied Policy Systems se estableció para guiar a las agencias estatales fuera de la 'Trampa de la Modernización'. Los estados gastaron cientos de millones mudándose a la nube, solo para darse cuenta de que sus equipos de TI están atrapados esperando interpretaciones de políticas complejas, y sus sistemas están ciegos a los efectos secundarios entre programas.",
-      "p2": "Actuamos como el acelerador definitivo y el salvaguarda estratégico para los CIO estatales y directores de agencias. Aprovechamos nuestro alcance único de experiencia programática para proporcionar lógica técnica exacta desde el inicio, evitando el lastre burocrático y asegurando que su infraestructura sea precisa, responsable y legalmente segura."
+      "title": "Dossier Arquitectónico",
+      "intro": "Liderado por expertos programáticos que dominan la arquitectura de sistemas, APS cierra la brecha de traducción humana e integra los derechos legales en la lógica del sistema.",
+      "p1": "La Salud y los Servicios Humanos modernos dependen de un ecosistema complejo de operaciones de primera línea, alcance comunitario y mandatos legales. El sistema técnico es el conducto universal único que los conecta a todos. Sin embargo, las implementaciones se estancan constantemente en la desordenada realidad de la comunicación humana. Los equipos de TI se ven obligados a adivinar la intención legislativa, mientras que los equipos de políticas luchan por traducir sus necesidades en parámetros técnicos.",
+      "p2": "APS se estableció para resolver esta desconexión estructural. Reconociendo los retrasos inherentes de los ciclos de subvenciones federales y las adquisiciones tradicionales, el liderazgo de APS tomó medidas proactivas e independientes. Operando como un arquitecto de sistemas autodidacta completamente fuera de los mandatos estatales, el fundador diseñó un prototipo de elegibilidad totalmente integrado desde cero. El objetivo no era solo traducir la política, sino diseñar una arquitectura donde generar un error de pago federal sea matemáticamente imposible, asegurando que existiera un plano impecable para entregar a los desarrolladores empresariales. Hoy en día, APS utiliza esta metodología exacta para absorber la carga de la interpretación. Al actuar como el arquitecto nativo de políticas y traductor objetivo, la firma despeja el camino para que los equipos tecnológicos cívicos ejecuten sin problemas, mientras equipa a los directores de políticas con conjuntos de reglas traducidos listos para una rápida autorización. Debido a que la gestión humana del cambio es frágil, las reglas centrales deben mantenerse firmes, forzando a que la verdadera accesibilidad irradie hacia el exterior desde el propio sistema."
     },
     "impact": {
       "stats": {
         "citizen": {
           "value": "10M+",
           "label": "Residentes Impactados",
-          "desc": "Entrega de servicios verificada en poblaciones de varios estados."
+          "desc": "Garantizando el acceso estructural a través de poblaciones multiestatales."
         },
         "funding": {
           "value": "$2B+",
           "label": "Riesgo Fiscal Mitigado",
-          "desc": "Mitigación de multas masivas de auditoría federal a través de supervisión arquitectónica."
+          "desc": "Defendiendo la infraestructura estatal a través de reglas comerciales verificadas."
         },
         "execution": {
           "value": "15+",
           "label": "Sistemas Remediados",
-          "desc": "Supervisión arquitectónica de alto riesgo de plataformas de agencias estatales."
+          "desc": "Cerrando la brecha de traducción entre política y tecnología."
         }
       }
     },
     "macroEcosystems": {
-      "label": "Posicionamiento en el Ecosistema",
-      "title": "Autoridad Multidisciplinaria",
-      "desc": "Operamos en la intersección crítica de las reglas federales, el liderazgo estatal y los equipos de implementación técnica.",
+      "label": "Posicionamiento del Ecosistema",
+      "title": "Intervención de Doble Capa",
+      "desc": "APS opera simultáneamente como el puente de traducción humana y el sistema de seguridad técnico, asegurando que el sistema sirva a la misión.",
       "federal": {
-        "focus": "CUMPLIMIENTO Y AUDITORÍA",
-        "title": "Supervisión Federal",
-        "desc": "Proporcionamos los datos duros y la verificación de políticas necesarios para satisfacer las auditorías federales y detener penalizaciones fiscales masivas.",
+        "focus": "ALINEACIÓN ESTRATÉGICA",
+        "title": "Arquitectura de Requisitos",
+        "desc": "Cerrando la brecha de comunicación entre creadores de políticas y desarrolladores de TI. APS actúa como el traductor y arquitecto nativo de políticas para eliminar la jerga y entregar conjuntos de reglas mapeados a ambas partes.",
         "nodes": {
-          "n1": { "name": "Defensa de Auditoría", "context": "Reconstrucción de errores para cumplimiento de FNS/CMS." },
-          "n2": { "name": "Prueba de Política", "context": "Verificación matemática de la lógica del sistema frente a la ley." },
-          "n3": { "name": "Prevención de Efectos Secundarios", "context": "Detención de variaciones en cascada entre programas." }
+          "n1": { "name": "Traducción de Jerga", "context": "Garantizando que todas las partes interesadas hablen el mismo idioma." },
+          "n2": { "name": "Experiencia en Políticas", "context": "Llevando expertos programáticos (SMEs) directamente a la mesa de TI." },
+          "n3": { "name": "Artefactos Terminados", "context": "Proporcionando lógica mapeada por ley para una rápida autorización de políticas." }
         }
       },
       "state": {
-        "focus": "ESTRATEGIA Y OPERACIONES",
-        "title": "Liderazgo Estatal",
-        "desc": "Actuamos como la Autoridad Técnica para los CIO, prediciendo impactos en el sistema, eliminando el lastre interno y proporcionando escudos de datos.",
+        "focus": "LÓGICA DETERMINISTA",
+        "title": "Accesibilidad a Nivel de Sistemas",
+        "desc": "Cuando los procesos humanos fallan, las reglas centrales deben mantenerse firmes. APS diseña derechos legales y límites operativos directamente en los requisitos del sistema.",
         "nodes": {
-          "n1": { "name": "Aceleración Arquitectónica", "context": "Traducción de políticas complejas desde el inicio para que TI pueda construir." },
-          "n2": { "name": "Adquisiciones Inteligentes", "context": "Redacción de reglas que evitan la deuda de código heredado." },
-          "n3": { "name": "Diseño de la Fuerza Laboral", "context": "Construcción de trayectorias profesionales estatales profesionales." }
+          "n1": { "name": "Arquitectando Derechos", "context": "Integrando protecciones legales en la lógica del sistema." },
+          "n2": { "name": "Análisis Predictivo", "context": "Señalando casos de alto error a través de modelos de riesgo actualizados continuamente." },
+          "n3": { "name": "Irradiando Accesibilidad", "context": "Forzando la usabilidad hacia el exterior desde la arquitectura central." }
         }
       },
       "vendors": {
-        "focus": "INTEGRACIÓN Y LÍMITES",
-        "title": "Límites de Implementación",
-        "desc": "Obligamos a los grandes proveedores tecnológicos y equipos de desarrollo internos a obedecer límites técnicos estrictos, asegurando que el estado mantenga el control.",
+        "focus": "REALIDAD OPERATIVA",
+        "title": "Socios de Implementación y Tecnología Cívica",
+        "desc": "APS sirve como el sistema de seguridad diagnóstico y escudo diplomático. Al navegar la fricción burocrática y traducir políticas complejas en parámetros estrictos, la firma asegura que los equipos de desarrollo externos reciban los requisitos exactos que necesitan para construir sistemas que funcionen.",
         "nodes": {
-          "n1": { "name": "Rompiendo Silos y Encierro", "context": "Aplicación de reglas estrictas sobre cómo se conectan los sistemas." },
-          "n2": { "name": "Supervisión de Ingeniería", "context": "Verificación independiente de la entrega técnica." },
-          "n3": { "name": "Modularidad Forzada", "context": "Asegurando que el estado pueda cambiar una arquitectura defectuosa." }
+          "n1": { "name": "Imposición de Usabilidad", "context": "Evitando que la tecnología complique el trabajo en primera línea." },
+          "n2": { "name": "Reducción de Cargas", "context": "Eliminando fricción procesal innecesaria." },
+          "n3": { "name": "Alineación de Procesos", "context": "Asegurando que la tecnología coincida con la realidad del trabajo." }
         }
       }
     },
     "journey": {
       "label": "Evolución Estratégica",
-      "title": "Trayectoria Hacia la Supervisión de Sistemas",
+      "title": "Trayectoria Profesional Hacia la Supervisión de Sistemas",
       "milestones": {
         "m1": {
-          "year": "2018",
-          "title": "Digitalización Fundacional",
-          "org": "Centro de Innovación del Sector Público",
-          "role": "Líder Técnico",
-          "desc": "Lideró las primeras migraciones a la nube para sistemas de beneficios, identificando los primeros signos de cómo una mala arquitectura atrapa a los estados."
+          "year": "2013 - 2015",
+          "title": "Diagnósticos de Primera Línea",
+          "org": "Benefits Data Trust (BDT)",
+          "role": "Especialista en Calidad de Beneficios y Coordinador de Políticas Públicas",
+          "desc": "Estableció profundas raíces operativas en la primera línea de la admisión de beneficios. Auditó solicitudes según estándares federales, imitando las estrictas revisiones del FNS, y presenció de primera mano cómo las regulaciones complejas crean fricción procesal para los trabajadores sociales."
         },
         "m2": {
-          "year": "2020",
-          "title": "La Trampa de la Modernización",
-          "org": "Asesoría de Agencias Estatales",
-          "role": "Experto Arquitectónico",
-          "desc": "Diagnosticó fallas masivas de más de $100M en sistemas estatales, demostrando que los despliegues de TI se estancan sin una supervisión SME previa para traducir políticas complejas."
+          "year": "2016 - 2021",
+          "title": "Integración Municipal y Reducción de Cargas",
+          "org": "Ciudad de Filadelfia y Campaign for Working Families",
+          "role": "Administrador y Director de Asociaciones",
+          "desc": "Sirvió como el puente entre las operaciones gubernamentales heredadas y el acceso comunitario. Estandarizó los flujos de trabajo operativos e implementó programas piloto virtuales de tecnología cívica, demostrando que el diseño programático focalizado mitiga directamente la carga administrativa."
         },
         "m3": {
-          "year": "2021",
-          "title": "Verificación Automatizada",
-          "org": "Applied Policy Systems",
-          "role": "Fundador",
-          "desc": "Desplegó herramientas para demostrar matemáticamente que el código de software de un estado obedecía realmente la ley estatal y no desencadenaba variaciones secundarias."
+          "year": "2022 - 2024",
+          "title": "Traducción de Políticas Federales",
+          "org": "Prosperity Now y Tesoro de EE. UU. (ETAAC)",
+          "role": "Estratega de Políticas Fiscales y Funcionario Federal ETAAC",
+          "desc": "Operó como la capa de traducción objetiva a nivel federal. Asesoró al IRS sobre modernización y administración electrónica, traduciendo códigos fiscales federales complejos en estrategias procesables para redes comunitarias nacionales."
         },
         "m4": {
-          "year": "2022",
-          "title": "Infraestructura Segura",
-          "org": "Iniciativa de Protección de Datos Federales",
-          "role": "Arquitecto de Seguridad",
-          "desc": "Construyó pasarelas seguras para proteger datos sensibles del IRS y HIPAA de las vulnerabilidades masivas de la nube comercial."
+          "year": "2025 - 2026",
+          "title": "Arquitectura de Sistemas y Mitigación PER",
+          "org": "Departamento de Servicios Humanos de Maryland (DHS)",
+          "role": "Director, Oficina de Acceso a Beneficios",
+          "desc": "Hizo la transición de asesor de políticas a arquitecto de sistemas. Diseñó modelos predictivos de riesgo para las Tasas de Error de Pago (PER) del SNAP, aseguró fondos de subvenciones federales del FNS y redactó un manual de modernización basado en datos para el acceso integrado a los beneficios."
         },
         "m5": {
-          "year": "2023",
-          "title": "Filantropía Estratégica",
-          "org": "Coalición Cívica",
-          "role": "Asesor de Financiamiento",
-          "desc": "Pionero en un nuevo modelo para financiar mejoras tecnológicas estatales combinando subvenciones federales con filantropía cívica dirigida."
+          "year": "2026",
+          "title": "Ingeniería de Sistemas Independiente",
+          "org": "Investigación Aplicada Independiente",
+          "role": "Arquitecto de Sistemas Autodidacta",
+          "desc": "Reconociendo que los ciclos de subvenciones tradicionales podrían retrasar la modernización crítica, tomó medidas proactivas e independientes para diseñar un prototipo de elegibilidad totalmente integrado desde cero. Diseñó la arquitectura para hacer que los errores de pago sean matemáticamente imposibles, creando un plano definitivo y probado en batalla listo para la entrega a TI."
         },
         "m6": {
-          "year": "2024",
-          "title": "Modernización de la Fuerza Laboral",
-          "org": "Alianza de la Fuerza Laboral del Sector Público",
-          "role": "Diseñador Operativo",
-          "desc": "Expandió la misión para centrarse en las personas que realizan el trabajo, implementando una gestión del cambio enfocada en la primera línea para profesionalizar las operaciones estatales."
+          "year": "Presente",
+          "title": "Arquitectura de Requisitos",
+          "org": "Applied Policy Systems LLC",
+          "role": "Fundador y Arquitecto Principal",
+          "desc": "Lanzó APS para formalizar la metodología de traducción de políticas en arquitectura de sistemas. Asume la carga de la interpretación para entregar los planos definitivos que permiten a TI y a los socios tecnológicos cívicos construir sistemas funcionales y que cumplan con la ley."
         }
       }
     }
   },
   "seo": {
-    "defaultKeywords": "supervisión arquitectónica, política verificable, traducción de políticas, predicción de efectos secundarios, GovTech, cumplimiento, gestión del cambio centrada en la primera línea",
+    "defaultKeywords": "arquitectura de requisitos, traducción de políticas, accesibilidad GovTech, conducto universal, mitigación PER, tasa de error de pago, experto programático",
     "pages": {
       "home": {
-        "title": "Política Verificable. Acceso Sin Compromisos.",
-        "description": "Applied Policy Systems proporciona supervisión arquitectónica y capacidades de SME para eliminar cuellos de botella en las políticas y traducir mandatos en código determinista.",
-        "keywords": "supervisión de sistemas, traducción de políticas, acelerando TI, predicción de efectos secundarios, cumplimiento, GovTech, mandatos federales"
+        "title": "Traduciendo Políticas. Arquitectando el Acceso. | Applied Policy Systems",
+        "description": "APS cierra la brecha de traducción humana y diseña reglas comerciales estrictas, asegurando que la tecnología gubernamental funcione fundamentalmente para el público.",
+        "keywords": "supervisión de sistemas, traducción de políticas, accesibilidad GovTech, conducto universal, arquitectura de requisitos, mitigación PER"
       },
       "capabilities": {
-        "title": "Supervisión Arquitectónica e Ingeniería de Políticas | Applied Policy Systems",
-        "description": "Revise nuestras intervenciones especializadas: predicción de riesgos secundarios, aceleración de TI, responsabilidad de ingeniería y operaciones de primera línea.",
-        "keywords": "supervisión de sistemas, defensa de auditoría empírica, fortificación legal, simulación de políticas, dependencias entre programas, eliminar lastre"
+        "title": "Arquitectura de Requisitos e Ingeniería de Políticas | Applied Policy Systems",
+        "description": "Revise las intervenciones de doble capa de APS: Arquitectura de Requisitos, traducción de políticas en reglas de TI procesables y mitigación de Tasas de Error de Pago (PER).",
+        "keywords": "arquitectura de requisitos, arquitectura de sistemas, aceleración de TI, mitigación PER, defensa contra la tasa de error de pago, GovTech"
       },
       "research": {
-        "title": "Diagnósticos y Auditorías | Applied Policy Systems",
-        "description": "Análisis sobre por qué el retraso en las políticas estanca la tecnología del sector público, radios de impacto secundarios y reglas de cumplimiento federal.",
-        "keywords": "análisis empírico, inteligencia de amenazas, marcos de cumplimiento, seguimiento automatizado, radio de impacto, cuellos de botella en las políticas"
+        "title": "Inteligencia de Amenazas y Diagnósticos de Traducción | Applied Policy Systems",
+        "description": "Análisis sobre por qué las brechas de traducción detienen la tecnología gubernamental, cómo las reglas no verificadas inflan las auditorías PER y cómo construir sistemas que irradien accesibilidad.",
+        "keywords": "análisis empírico, brechas de traducción, marcos de cumplimiento, tasa de error de pago, diagnósticos sistémicos"
       },
       "field": {
         "title": "Simuladores Operativos | Applied Policy Systems",
-        "description": "Modelos en vivo que ilustran las pruebas de políticas automatizadas, el seguimiento de efectos secundarios y el manejo seguro de datos.",
-        "keywords": "simuladores, verificación formal, pasarelas criptográficas, auditorías empíricas"
+        "description": "Modelos en vivo que ilustran la traducción automatizada de políticas, la extracción de lógica empresarial y la generación de reglas deterministas.",
+        "keywords": "simuladores, lógica determinista, traducción de políticas, reglas comerciales"
       },
       "contact": {
-        "title": "Consulta e Ingreso Técnico | Applied Policy Systems",
-        "description": "Contacte a nuestros expertos para supervisión arquitectónica, aceleración de despliegues o traducción de políticas programáticas.",
-        "keywords": "consulta, consulta, revisión arquitectónica, defensa de auditoría, acelerando TI"
+        "title": "Admisión Técnica y Arquitectura | Applied Policy Systems",
+        "description": "Comuníquese con APS para Arquitectura de Requisitos, mitigar auditorías PER o traducir derechos legales en requisitos del sistema.",
+        "keywords": "consulta, arquitectura de requisitos, revisión arquitectónica, defensa PER"
       },
       "privacy": {
-        "title": "Política de Privacidad | Applied Policy Systems",
-        "description": "Política de privacidad y estándares de protección de datos para Applied Policy Systems LLC.",
+        "title": "Arquitectura de Privacidad | Applied Policy Systems",
+        "description": "Arquitectura de privacidad y estándares de protección de datos para Applied Policy Systems LLC.",
         "keywords": "privacidad, protección de datos, cumplimiento"
       },
       "terms": {
-        "title": "Términos de Servicio | Applied Policy Systems",
-        "description": "Términos y condiciones para utilizar los servicios y plataformas técnicos de Applied Policy Systems LLC.",
-        "keywords": "términos de servicio, legal, acuerdo"
+        "title": "Parámetros Operativos | Applied Policy Systems",
+        "description": "Parámetros operativos y términos para utilizar los servicios técnicos y plataformas de Applied Policy Systems LLC.",
+        "keywords": "términos de servicio, marco legal, parámetros"
       }
     }
   },
   "contact": {
     "hero": {
-      "title": "Consulta e Ingreso Técnico",
-      "subtitle": "Inicie un diálogo sobre supervisión arquitectónica, aceleración de despliegues o prevención de riesgos secundarios."
+      "title": "Admisión Técnica y Arquitectura",
+      "subtitle": "Inicie un diálogo sobre Arquitectura de Requisitos, defensa contra la Tasa de Error de Pago (PER) o arquitectura de lógica legal."
     },
     "form": {
-      "name": "Nombre completo",
-      "email": "Dirección de correo electrónico oficial",
+      "name": "Nombre Completo",
+      "email": "Dirección de Enrutamiento Oficial",
       "organization": "Agencia / Organización",
       "inquiryType": {
-        "label": "Naturaleza de la consulta",
+        "label": "Naturaleza de la Consulta",
         "options": {
-          "systems": "Arquitectura de sistemas y gobernanza de IA",
-          "policy": "Defensa de auditoría y traducción de políticas",
-          "general": "Adquisiciones estratégicas y operaciones"
+          "systems": "Arquitectura de Requisitos y Lógica",
+          "policy": "Experiencia en Políticas y Traducción",
+          "general": "Mitigación de PER y Defensa de Auditorías"
         }
       },
-      "message": "Contexto técnico o detalles de la solicitud",
-      "submit": "Enviar consulta",
-      "success": "Consulta recibida. Un arquitecto revisará su solicitud.",
-      "error": "Error de transmisión. Inténtelo de nuevo o contáctenos directamente."
+      "message": "Contexto Técnico o Solicitud Operativa",
+      "submit": "Transmitir Consulta",
+      "success": "Transmisión verificada. Un arquitecto revisará su solicitud.",
+      "error": "Transmisión fallida. Verifique la conexión de red e intente nuevamente."
     },
     "info": {
-      "title": "Contacto directo",
-      "email": "Correo electrónico",
+      "title": "Enrutamiento Seguro",
+      "email": "Despacho",
       "location": "Ubicación",
       "address": "Filadelfia, PA",
-      "hours": "Horario de atención",
-      "hoursText": "Lunes – Viernes, 09:00 – 17:00 EST"
+      "hours": "Ventana Operativa",
+      "hoursText": "Lunes – Viernes, 0900 – 1700 EST"
     }
   },
   "footer": {
-    "tagline": "Arquitecturando infraestructura gubernamental confiable y altamente regulada.",
-    "privacy": "Política de privacidad",
-    "terms": "Términos de servicio",
-    "contact": "Ingreso técnico",
+    "tagline": "Arquitectando el conducto universal para la infraestructura gubernamental.",
+    "privacy": "Arquitectura de Privacidad",
+    "terms": "Parámetros Operativos",
+    "contact": "Admisión Técnica",
     "location": "Filadelfia, PA",
     "rights": "Applied Policy Systems LLC. Todos los derechos reservados.",
-    "backToHome": "Volver al inicio",
+    "backToHome": "Volver a la Raíz",
     "tips": {
-      "privacy": "Protección de datos",
-      "terms": "Marco legal",
-      "contact": "Iniciar consulta"
+      "privacy": "Gobernanza de Datos",
+      "terms": "Marco Legal",
+      "contact": "Iniciar Transmisión"
     },
     "labels": {
-      "privacy": "Ver nuestra política de privacidad",
-      "terms": "Ver nuestros términos de servicio",
-      "contact": "Contáctenos para una consulta"
+      "privacy": "Revisar Arquitectura de Privacidad",
+      "terms": "Revisar Parámetros Operativos",
+      "contact": "Iniciar Admisión Técnica"
     },
-    "copyright": "© 2024 APS. Verificación y Lógica."
+    "copyright": "© 2024 APS. Traducción y Lógica."
   },
   "notfound": {
-    "title": "404 - Punto final no encontrado",
-    "text": "El recurso solicitado no pudo ser localizado.",
-    "cta": "Volver al origen"
+    "title": "404 - Punto Final Inalcanzable",
+    "text": "El nodo del sistema solicitado no pudo ser localizado en el esquema actual.",
+    "cta": "Volver a la Raíz"
   },
   "privacy": {
-    "title": "Política de Privacidad",
-    "lastUpdated": "Última actualización: Marzo de 2024",
+    "title": "Arquitectura de Privacidad",
+    "lastUpdated": "Última Actualización: Marzo de 2024",
     "sections": {
       "collection": {
-        "title": "1. Arquitectura de recopilación de datos",
-        "text": "Operamos bajo un principio estricto de minimización de datos. No rastreamos información no esencial."
+        "title": "1. Arquitectura de Recopilación de Datos",
+        "text": "APS opera bajo un estricto principio de minimización de datos. La firma no rastrea información no esencial."
       },
       "usage": {
-        "title": "2. Utilización de datos",
-        "text": "La información se utiliza estrictamente para la ejecución de servicios técnicos, evaluaciones arquitectónicas y comunicaciones seguras."
+        "title": "2. Utilización de Datos",
+        "text": "La información se utiliza estrictamente para la ejecución de Arquitectura de Requisitos, evaluaciones de sistemas y comunicaciones seguras."
       },
       "security": {
-        "title": "3. Postura de seguridad",
-        "text": "Empleamos estándares criptográficos de nivel empresarial para proteger los datos tanto en tránsito como en reposo."
+        "title": "3. Postura de Seguridad",
+        "text": "APS emplea estándares criptográficos de nivel empresarial para proteger los datos tanto en tránsito como en reposo."
       }
     }
   },
   "terms": {
-    "title": "Términos de Servicio",
-    "lastUpdated": "Última actualización: Marzo de 2024",
+    "title": "Parámetros Operativos",
+    "lastUpdated": "Última Actualización: Marzo de 2024",
     "sections": {
       "acceptance": {
-        "title": "1. Aceptación de parámetros",
-        "text": "Al acceder a nuestra infraestructura o iniciar una consulta, usted acepta estar sujeto a estos términos operativos."
+        "title": "1. Ejecución de Parámetros",
+        "text": "Al acceder a la infraestructura de APS o iniciar la transmisión, usted acepta estar sujeto a estos términos operativos."
       },
       "services": {
-        "title": "2. Servicios técnicos",
-        "text": "Applied Policy Systems proporciona supervisión arquitectónica, construcción de sistemas y asesoramiento estrictamente dentro de los límites operativos definidos."
+        "title": "2. Intervenciones Técnicas",
+        "text": "Applied Policy Systems proporciona Arquitectura de Requisitos, diseño de sistemas y supervisión de políticas estrictamente dentro de parámetros definidos."
       },
       "liability": {
-        "title": "3. Limitaciones de responsabilidad",
-        "text": "Nuestra responsabilidad está restringida a los parámetros definidos en los acuerdos de nivel de servicio específicos y contratos formales."
+        "title": "3. Alcance de la Responsabilidad",
+        "text": "La responsabilidad de APS está acotada matemáticamente por los parámetros definidos en los acuerdos de nivel de servicio específicos y los contratos ejecutados."
       }
     }
   }

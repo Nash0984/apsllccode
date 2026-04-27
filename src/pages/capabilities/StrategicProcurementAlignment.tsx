@@ -48,7 +48,7 @@ export default function StrategicProcurementAlignment() {
         </div>
       </section>
 
-      <section className="section-padding pt-0">
+      <section className="section-padding py-12 bg-slate-50 dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800">
         <div className="container-wide">
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-24">
             

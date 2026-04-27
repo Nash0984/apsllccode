@@ -124,6 +124,45 @@ export function Capabilities() {
           </div>
         </div>
       </section>
+
+      {/* Engagement Models Section */}
+      <section className="section-padding bg-white dark:bg-slate-950 border-t border-slate-100 dark:border-slate-800" aria-labelledby="engagements-title">
+        <div className="container-wide">
+          <div className="max-w-3xl mb-16">
+            <h2 className="label-uppercase mb-4">{t('capabilitiesPage.engagements.title', 'Engagement Models')}</h2>
+            <h3 id="engagements-title" className="text-3xl md:text-4xl font-black tracking-tight text-slate-900 dark:text-white">
+              Strategic Oversight Architectures
+            </h3>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              { key: 'sprint', icon: <Scale size={24} /> },
+              { key: 'advisory', icon: <ShieldCheck size={24} /> },
+              { key: 'integration', icon: <Landmark size={24} /> }
+            ].map((model, i) => (
+              <motion.div 
+                key={model.key}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="bg-white dark:bg-slate-950 p-8 rounded-3xl border border-slate-200 dark:border-slate-800 hover:border-brand-jade/30 transition-all flex flex-col"
+              >
+                <div className="w-12 h-12 rounded-2xl bg-brand-jade/5 flex items-center justify-center text-brand-jade mb-6">
+                  {model.icon}
+                </div>
+                <h4 className="text-xl font-black text-slate-900 dark:text-white mb-4 tracking-tight">
+                  {t(`capabilitiesPage.engagements.${model.key}.title`)}
+                </h4>
+                <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                  {t(`capabilitiesPage.engagements.${model.key}.text`)}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
