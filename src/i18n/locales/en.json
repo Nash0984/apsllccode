@@ -252,39 +252,57 @@
   "researchPage": {
     "hero": {
       "label": "Research",
-      "title": "Systemic Diagnostics & Threat Intel",
-      "subtitle": "Analysis on why translation gaps stall government tech, how unverified rules inflate PER audits, and how to architect accessibility."
+      "title": "Beyond Standalone AI: Reconnecting the Audit Trail in Public Benefits",
+      "subtitle": "Publish Date: March 2026 • Reading Time: 6 Min",
+      "cta": "Download PDF Version"
     },
-    "docs": {
-      "adv1": {
-        "title": "Predicting Cross-Program Blast Radiuses",
-        "desc": "Why isolated code changes trigger massive federal variances, and how policy-native architecture prevents cascading errors."
-      },
-      "adv2": {
-        "title": "Protecting the Universal Throughput",
-        "desc": "The severe risks of using commercial cloud platforms for state benefits, and how to mandate secure, usable alternatives."
-      },
-      "adv3": {
-        "title": "Translating Policy for IT Day One",
-        "desc": "Why waiting on policy reviews stalls developers, and how to provide IT with a definitive set of business rules."
-      },
-      "adv4": {
-        "title": "Aligning Tech with Operational Reality",
-        "desc": "Why perfectly coded systems fail without operational alignment, and how to architect tech that makes casework easier."
-      },
-      "adv5": {
-        "title": "Predictive Analytics for PER Mitigation",
-        "desc": "How agencies can shift from lagging audit data to leading indicators by architecting continuously refreshed Predictive Risk Engines (P.R.E.) to flag high-error cases."
-      },
-      "adv6": {
-        "title": "Defeating Translation Gaps & Lock-In",
-        "desc": "How bad communication allows vendor exploitation, and how to mandate strict engineering boundaries."
-      }
+    "executiveSummary": {
+      "title": "Executive Summary",
+      "text": "As agencies rush to deploy generative AI, relying on standalone chatbots introduces a severe enterprise risk—the disconnected audit trail. This brief outlines why audit survivability in public benefits requires moving beyond predictive AI and deploying a Neuro-Symbolic architecture."
+    },
+    "article": {
+      "sections": [
+        {
+          "id": "evolution",
+          "title": "The Structural Limits of Grounded AI (RAG)",
+          "content": "To mitigate the risks of standard AI, many agencies are exploring document-grounded AI and custom, persona-driven assistants using Retrieval-Augmented Generation (RAG). The premise is highly practical: by confining the AI to securely uploaded state policy manuals, agencies can drastically reduce hallucinations. \n\nThese tools are exceptionally powerful for reading comprehension and rapid policy retrieval. However, from a systems architecture perspective, they address only half of the equation. \n\nEven when perfectly grounded in a document, an LLM remains a probabilistic engine. It can instantly retrieve the correct statutory paragraph on income deductions, but it cannot mathematically guarantee the final calculation of a complex benefits case. Furthermore, if a caseworker uses a highly accurate policy bot in a standalone window, the interaction remains disconnected from the system of record. Grounding the AI makes it a much safer translator for the caseworker, but to truly protect the agency's budget, that translator must still be tethered to a deterministic rules engine and the immutable audit trail."
+        },
+        {
+          "id": "blackbox",
+          "title": "Section 2: The Problem with the \"Black Box\"",
+          "content": "Standard generative AI models are probabilistic engines—they are brilliant at predicting natural language, but they function as a \"black box.\" They cannot reliably perform complex math, nor can they deterministically prove how they arrived at a calculation. In the highly regulated space of public benefits, a system that cannot \"show its work\" mathematically cannot legally exist."
+        },
+        {
+          "id": "limits",
+          "title": "Section 3: The Limits of Pure Prediction",
+          "content": "Similarly, attempting to solve this with passive predictive analytics falls short. While these tools can flag potential errors, they cannot prevent them from occurring in real-time.",
+          "pullQuote": "A predictive dashboard functions as a thermometer, not a thermostat: it reports the fever, but it cannot cure it."
+        },
+        {
+          "id": "blueprint",
+          "title": "Section 4: The Blueprint: Neuro-Symbolic Architecture",
+          "content": "To bridge the gap between AI-driven efficiency and absolute legal defensibility, the architecture must combine the flexibility of neural networks (LLMs) with the rigid determinism of symbolic AI (rules engines). This requires a Neuro-Symbolic Dual Hybrid Architecture:\n\n1. The Deterministic Engine (Statutory Grounding): Handles mathematical calculations and generates the step-by-step logic chain required for federal compliance.\n2. The Generative Interface (The LLM Translator): Translates the caseworker’s question, queries the Deterministic Engine, and translates the math back into plain language citing the policy manual."
+        },
+        {
+          "id": "human",
+          "title": "Section 5: The Human-in-the-Loop Gateway",
+          "content": "In public benefits, AI cannot legally make the final call. If a caseworker's inputs deviate from the system's statutory math, the architecture acts as a gateway. It temporarily pauses the workflow, requiring the human worker to mathematically or legally justify their variance."
+        },
+        {
+          "id": "audit",
+          "title": "Section 6: Enforcing the Immutable Audit Trail",
+          "content": "Because the deterministic engine does not guess, it can write a perfect, step-by-step record of exactly how a decision was reached. Every evaluated rule, every mathematical calculation, the specific statutes cited by the AI, and the caseworker’s final variance justifications are bound together and written directly into the state's database as an Immutable Audit Trail."
+        }
+      ]
+    },
+    "author": {
+      "name": "Founder & Principal Architect",
+      "bio": "Led by programmatic experts who speak fluent system architecture, APS bridges the human translation gap and embeds statutory rights into system logic."
     },
     "cta": {
       "title": "Ready to test the systems layer?",
-      "subtitle": "Explore APS interactive simulators to observe automated policy translation and deterministic rules logic in real time.",
-      "button": "View Operational Simulators"
+      "subtitle": "Explore Applied Policy Systems engagement models or schedule a targeted Architecture Audit to reconnect your audit trail.",
+      "button": "View Engagement Models"
     }
   },
   "simulatorsPage": {
@@ -446,9 +464,9 @@
         "keywords": "requirements architecture, systems architecture, IT acceleration, PER mitigation, payment error rate defense, GovTech"
       },
       "research": {
-        "title": "Threat Intel & Translation Diagnostics | Applied Policy Systems",
-        "description": "Analysis on why translation gaps stall government tech, how unverified rules inflate PER audits, and how to build systems that radiate accessibility.",
-        "keywords": "empirical analysis, translation gaps, compliance frameworks, payment error rate, systemic diagnostics"
+        "title": "Beyond Standalone AI: Reconnecting the Audit Trail | APS Research",
+        "description": "Why audit survivability in public benefits requires moving beyond predictive AI and deploying a Neuro-Symbolic architecture.",
+        "keywords": "Neuro-Symbolic, AI governance, public benefits, audit trail, GovTech, payment error rate, SNAP, Medicaid"
       },
       "field": {
         "title": "Operational Simulators | Applied Policy Systems",
@@ -521,7 +539,7 @@
       "terms": "Review Operational Parameters",
       "contact": "Initiate Technical Intake"
     },
-    "copyright": "© 2024 APS. Translation & Logic."
+    "copyright": "© 2026 APS. Translation & Logic."
   },
   "notfound": {
     "title": "404 - Endpoint Unreachable",
@@ -530,7 +548,7 @@
   },
   "privacy": {
     "title": "Privacy Architecture",
-    "lastUpdated": "Last Updated: March 2024",
+    "lastUpdated": "Last Updated: March 2026",
     "sections": {
       "collection": {
         "title": "1. Data Collection Architecture",
@@ -548,7 +566,7 @@
   },
   "terms": {
     "title": "Operational Parameters",
-    "lastUpdated": "Last Updated: March 2024",
+    "lastUpdated": "Last Updated: March 2026",
     "sections": {
       "acceptance": {
         "title": "1. Execution of Parameters",

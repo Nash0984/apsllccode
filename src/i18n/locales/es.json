@@ -521,7 +521,7 @@
       "terms": "Revisar Parámetros Operativos",
       "contact": "Iniciar Admisión Técnica"
     },
-    "copyright": "© 2024 APS. Traducción y Lógica."
+    "copyright": "© 2026 APS. Traducción y Lógica."
   },
   "notfound": {
     "title": "404 - Punto Final Inalcanzable",
@@ -530,7 +530,7 @@
   },
   "privacy": {
     "title": "Arquitectura de Privacidad",
-    "lastUpdated": "Última Actualización: Marzo de 2024",
+    "lastUpdated": "Última Actualización: Marzo de 2026",
     "sections": {
       "collection": {
         "title": "1. Arquitectura de Recopilación de Datos",
@@ -548,7 +548,7 @@
   },
   "terms": {
     "title": "Parámetros Operativos",
-    "lastUpdated": "Última Actualización: Marzo de 2024",
+    "lastUpdated": "Última Actualización: Marzo de 2026",
     "sections": {
       "acceptance": {
         "title": "1. Ejecución de Parámetros",
