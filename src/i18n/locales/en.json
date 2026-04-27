@@ -2,23 +2,23 @@
   "routes": {
     "expertise": {
       "label": "Capabilities",
-      "description": "Review APS interventions: eliminating policy bottlenecks, predicting downstream effects, and translating programmatic changes into code."
+      "description": "Review APS interventions: Requirements Architecture, translating policy into business rules, and mitigating Payment Error Rates (PER)."
     },
     "research": {
       "label": "Research",
-      "description": "Clear analysis of why policy lag stalls government tech, how cross-program errors cascade, and how states can accelerate structural control."
+      "description": "Clear analysis on why translation gaps stall government tech, how human processes fail, and how to build systems that radiate accessibility."
     },
     "field": {
       "label": "Simulators",
-      "description": "Interactive models demonstrating how APS tests policy changes upfront and tracks empirical administrative burden."
+      "description": "Interactive models demonstrating how APS translates policy upfront and extracts deterministic rules for IT developers."
     },
     "about": {
       "label": "About",
-      "description": "Review the authority of APS as an independent architect and programmatic SME for public sector infrastructure."
+      "description": "Review how APS brings programmatic policy expertise to the IT table, enforcing accessibility through strict systems-level architecture."
     },
     "contact": {
       "label": "Contact",
-      "description": "Initiate a dialogue regarding architectural oversight, accelerating deployments, or downstream risk prevention."
+      "description": "Initiate a dialogue regarding Requirements Architecture, Payment Error Rate (PER) defense, or architecting statutory logic."
     }
   },
   "nav": {
@@ -70,33 +70,33 @@
   },
   "home": {
     "hero": {
-      "title": "Verifiable Policy. Uncompromised Access.",
-      "subtitle": "State tech deployments often stall in the gap between complex federal rules and system architecture. APS bridges this divide. By translating programmatic mandates into deterministic logic upfront, the firm provides engineering teams with the exact parameters they need to keep deployments moving, predict downstream effects, and guarantee federal compliance.",
+      "title": "Universal Throughput. Radiating Accessibility.",
+      "subtitle": "State tech deployments stall in the translation gap between policy intent and IT execution. APS bridges this divide. Led by programmatic experts who speak fluent systems architecture, the firm delivers the exact deterministic requirements needed to keep deployments moving and ensure the underlying technology actually serves the public.",
       "cta": "Review Capabilities"
     },
     "challenge": {
       "label": "The Translation Gap",
-      "title": "Accelerating Technical Alignment.",
-      "text": "The traditional divide between policy intent and system architecture creates friction, leading to delayed rollouts and expensive technical debt. APS eliminates this gap by engineering strict operational constraints directly into vendor requirements and internal IT charters. By grounding every architectural decision in clear statutory authority, APS ensures that new systems support frontline workers without violating administrative law.",
-      "outputsLabel": "Core Deliverables",
+      "title": "Bridging Policy and Technical Execution.",
+      "text": "When deployments fail, it is rarely due to bad code. The failure occurs in the human translation layer—where bureaucratic silos, jargon, and competing ideals starve implementation teams of actionable requirements. APS eliminates this friction. Operating as a policy-native architect and an objective truth-teller, the firm diagnoses the operational bottlenecks blocking the build. By providing a blunt, independent translation of statutory intent, APS acts as a strategic shield for IT and civic tech partners, delivering the definitive logic required to actually build the system.",
+      "outputsLabel": "Core Interventions",
       "outputsLead": "Specialized architectural services include:",
       "outputs": [
-        "Verifiable Policy & Downstream Prediction",
-        "Secure AI Governance & Infrastructure",
-        "System Accountability & Procurement",
-        "Frontline Operations & Workforce Design"
+        "Requirements Architecture & Policy Translation",
+        "Architecting Statutory Business Rules",
+        "Payment Error Rate (PER) Crisis Mitigation",
+        "Frontline Operational Alignment"
       ]
     },
     "infrastructure": {
       "label": "Holistic Oversight",
-      "title": "Architectural Acceleration & SME.",
-      "text": "APS deploys strict technical rules informed by cross-program expertise to bypass bureaucratic drag and ensure systemic changes do not trigger automated federal penalties.",
+      "title": "Systems-Layer Accessibility.",
+      "text": "Because human processes and change management are inherently fragile, APS architects the exact business rules upfront, ensuring the system itself never violates rights or makes daily operations harder.",
       "cta": "Core Capabilities"
     },
     "sandbox": {
       "label": "Simulator 01",
       "title": "Automated Policy Verification",
-      "text": "See how APS maps real-world evidence against strict statutory ontologies, calculating empirical sufficiency scores to verify federal compliance.",
+      "text": "See how APS maps real-world evidence against strict statutory ontologies, proving that logic can be verified before development begins.",
       "cta": "View Simulator"
     },
     "manual": {
@@ -108,7 +108,7 @@
     "extraction": {
       "label": "Simulator 03",
       "title": "Deterministic Logic Compiler",
-      "text": "See how APS extracts formal mathematical logic from natural language mandates, handing IT teams executable schemas upfront.",
+      "text": "See how APS extracts formal logic from natural language mandates, giving IT a definitive source of truth to build against.",
       "cta": "View Simulator"
     }
   },
@@ -116,48 +116,48 @@
     "hero": {
       "label": "Capabilities",
       "title": "Architectural Oversight & Policy Engineering",
-      "subtitle": "Targeted engineering oversight and wide-lens SME capabilities to eliminate policy lag. Programmatic changes are translated flawlessly into code without stalling IT or triggering catastrophic cross-program errors."
+      "subtitle": "Dual-layer interventions: translating complex human policy into actionable IT requirements, and architecting the precise logic needed to ensure accessibility radiates outward."
     },
     "grid": {
       "headerLabel": "The Four Pillars",
-      "headerTitle": "Multidisciplinary Authority",
+      "headerTitle": "Holistic Systems Alignment",
       "deliverablesLabel": "Core Interventions"
     },
     "cards": {
       "statutory": {
-        "title": "Statutory Translation & Downstream Prediction",
-        "text": "The gap between policy intent and system logic is eliminated through upfront translation, providing IT teams with an independent source of truth. Exact deterministic rules are provided to engineering, preventing endless policy review cycles. Mathematical verification ensures that new code won't trigger cascading downstream errors in interconnected HHS programs, defending against unfunded federal mandates.",
+        "title": "Statutory Translation & IT Acceleration",
+        "text": "The gap between policy intent and system execution is eliminated through Requirements Architecture. IT teams are provided with a definitive, mathematical source of truth from day one by a policy-native expert. By modeling systemic rules upfront, APS predicts cascading effects across interconnected HHS programs, keeping cloud migrations on track and shielding developers from subjective review cycles.",
         "features": [
-          "Cross-Program Blast Radius Prediction",
+          "Requirements Architecture",
           "IT-First Policy Translation",
-          "Administrative Burden Assessment & Reduction"
+          "Cross-Program Dependency Mapping"
         ]
       },
       "rulesEngine": {
-        "title": "AI Governance & System Sovereignty",
-        "text": "Technical legal frameworks are supplied to bind and control AI deployments within state authorities. Professional architectural standards eliminate vendor lock-in and technical debt, ensuring systems remains sovereign and maintainable. Automation acts as a verifiable caseworker aid, guided by deterministic legal boundaries rather than unverified probabilistic models.",
+        "title": "Systems-Layer Accessibility & AI Boundaries",
+        "text": "Because human processes are fragile, usability and legal rights must be embedded into the system. Technical frameworks and business rules are architected to bind AI and system logic to statutory reality, ensuring the architecture never violates rights. These sovereign standards eliminate vendor lock-in, forcing technology to act as the universal throughput that supports the mission.",
         "features": [
+          "Architecting Statutory Rules",
           "Binding AI Governance Frameworks",
-          "Long-term System Sovereignty",
-          "Audit-Safe Decision Support"
+          "Audit-Safe System Requirements"
         ]
       },
       "sanction": {
-        "title": "PER Reduction & Predictive Analytics",
-        "text": "Public sector risk is managed through statutory predictive analytics and Payment Error Rate (PER) mitigation. High-risk case profiles and technical logic gaps are identified before they manifest as massive federal audit fines. This architectural oversight successfully defends against federal payment penalties by neutralizing fiscal risk upfront.",
+        "title": "Payment Error Rate (PER) Mitigation",
+        "text": "State agencies face unprecedented scrutiny regarding federal SNAP and Medicaid Payment Error Rates (PER). These findings are usually the result of technical logic gaps caused by poor translation. APS manages this crisis through targeted oversight, tracing failed audits back to their structural origin, and engineering Corrective Action Plans (CAPs) that satisfy federal regulators.",
         "features": [
           "Payment Error Rate (PER) Defense",
-          "Statutory Predictive Analytics",
-          "Audit Risk Mitigation"
+          "Corrective Action Plan (CAP) Engineering",
+          "Federal Audit Survival Strategy"
         ]
       },
       "data": {
-        "title": "Coalition Building & Frontline Readiness",
-        "text": "Even perfectly translated code fails if operational readiness is ignored. Procedures are engineered around the people who actually do the work, deploying frontline-first change management and building cross-agency coalitions to ensure technical success and human adoption.",
+        "title": "Frontline Alignment & Operational Reality",
+        "text": "Even perfectly translated code fails if it ignores the daily reality of the frontline. APS ensures that technical deployments are aligned with human operations. By treating caseworkers and residents as the ultimate end-users of the system, procedural friction is eliminated, ensuring the code makes daily execution easier, not harder.",
         "features": [
-          "Cross-Agency Coalition Building",
-          "Frontline-First Change Management",
-          "Operational Readiness Engineering"
+          "Frontline-First Operational Design",
+          "Burden & Friction Reduction",
+          "Cross-Agency Coalition Building"
         ]
       }
     },
@@ -165,86 +165,86 @@
       "title": "Engagement Models",
       "sprint": {
         "title": "Targeted Architectural Interventions",
-        "text": "Rapid oversight deployments to diagnose structural logic flaws, bypass policy bottlenecks, map downstream dependencies, and verify complex code."
+        "text": "Rapid oversight deployments to act as the policy-native architect, clear operational roadblocks, unblock civic tech initiatives, and deliver mitigation plans for PER audits."
       },
       "advisory": {
         "title": "Technical Expert Advisory",
-        "text": "Long-term partnership acting as the State's technical referee, eliminating policy drag, predicting cross-system downstream effects, and pre-testing new rules before production."
+        "text": "Long-term partnership to bridge the policy-IT divide, architect business rules, and ensure the system radiates accessibility as it scales."
       },
       "integration": {
         "title": "System Procurement & Blueprinting",
-        "text": "End-to-end consulting to write the strict technical rules of massive state RFPs or internal builds, ensuring programmatic changes execute deterministically."
+        "text": "End-to-end consulting to write the strict technical rules and compliance appendices of massive state RFPs, ensuring vendor-built technology serves the state."
       }
     },
     "subPages": {
       "statutory": {
         "sideCard": {
-          "title": "Deterministic Logic",
-          "text": "Mathematical theorem provers verify that eligibility logic is a 1:1 reflection of statutory requirements before developers write a single line of code."
+          "title": "The Definitive Truth",
+          "text": "Eligibility logic is translated into a 1:1 reflection of statutory requirements, giving IT the exact operational parameters they need."
         },
         "section1": {
-          "title": "HHS Blast Radius Prediction",
-          "text": "Administrative law is heavily interconnected. A simple change to a Medicaid MAGI calculation can inadvertently trigger a massive FNS variance in SNAP. This blind spot is eliminated by modeling systemic rules upfront, predicting cascading effects across HHS programs, and allowing IT to deploy with mathematical confidence."
+          "title": "Translating the Blast Radius",
+          "text": "Administrative law is heavily interconnected. A simple change to a Medicaid MAGI calculation can inadvertently trigger a massive FNS variance in SNAP. This blind spot is eliminated by translating systemic rules upfront and mapping cascading dependencies, allowing IT to deploy with absolute confidence."
         },
         "section2": {
-          "title": "IT-First Source of Truth",
-          "text": "Ambiguous legislative mandates are translated into deterministic models. Instead of waiting months for qualitative policy reviews, IT is provided with a source of truth that accelerates development. By providing the exact interpretation and legal basis upfront, policy stakeholders are typically provided with information that allows for rapid, informed decisions—keeping cloud migrations on track."
+          "title": "Requirements Architecture",
+          "text": "Ambiguous legislative mandates stall deployments. Instead of waiting months for interpretation, APS brings programmatic policy expertise directly to the IT table. By acting as a policy-native architect, stakeholders are aligned rapidly, and developers are provided with the exact requirements needed to write the code."
         }
       },
       "rulesEngine": {
         "sideCard": {
-          "title": "System Sovereignty",
-          "text": "Maintenance of strict data boundaries ensures that systems remain under state control, making daily operations easier and more maintainable."
+          "title": "Embedded Failsafes",
+          "text": "When human change management inevitably falters, the system logic must hold strong. Statutory rights are architected into strict business rules."
         },
         "section1": {
-          "title": "Binding AI Frameworks",
-          "text": "Algorithmic harm is prevented through upfront boundaries. Rigorous 'ethics-by-design' guardrails bind AI usage to deterministic laws. Pre-Mortem Analyses and adversarial Red Teaming guarantee that automation tools act strictly as casework aids with direct legal citations, not unverified decision engines."
+          "title": "Binding AI to Reality",
+          "text": "Algorithmic harm is prevented through upfront systems-level boundaries. Rigorous requirements bind AI tools to deterministic laws, ensuring that automation functions solely as a statutorily verified caseworker aid that radiates usability, rather than an unverified hurdle."
         },
         "section2": {
-          "title": "Eliminating Vendor Lock-in",
-          "text": "Technical debt is often a byproduct of vendor capture. Sovereign architectural standards are engineered into system requirements, preventing proprietary lock-in. This moves the state toward decoupled ecosystems that are easier to maintain, update, and integrate without surrendering control to external platforms."
+          "title": "Enforcing Vendor Boundaries",
+          "text": "Technical debt thrives in the translation gap. Sovereign architectural standards are engineered into system requirements to prevent vendor lock-in. This ensures the state maintains control of the universal throughput, forcing the technology to serve the mission, not the vendor."
         }
       },
       "rulesEdge": {
         "sideCard": {
-          "title": "Frontline Alignment",
-          "text": "Caseworkers require authoritative answers that can be bound to records for audit safety and legal certainty."
+          "title": "Frontline Execution",
+          "text": "Caseworkers require authoritative answers that are backed by legal certainty and operational speed."
         },
         "section1": {
-          "title": "Statute-Backed Querying",
-          "text": "The frontline is provided with an information resource capable of answering specific case queries with legal citations. These answers can be bound directly to the case record, providing caseworkers with statute-backed certainty and an immutable audit trail for every determination."
+          "title": "Statute-Backed Workflows",
+          "text": "The frontline must be provided with systems capable of determining specific case queries based on legal citations. This removes the burden of policy interpretation from the caseworker, providing them with statute-backed certainty and an immutable operational trail."
         },
         "section2": {
-          "title": "Administrative Burden Reduction",
-          "text": "Deterministic logic reduces the 'Time Tax' on both staff and residents. By assessing the administrative burden—including losses due to disconnected human processes—bottlenecks are eliminated through better logic, ensuring that clinical and operational needs drive the technology."
+          "title": "Reducing Procedural Friction",
+          "text": "Because the system is the single throughput for all actors, accessibility must radiate from the tech layer. By identifying where the system creates unnecessary human burden, logic requirements are re-engineered to eliminate bottlenecks, making the daily grind fundamentally easier."
         }
       },
       "sanction": {
         "sideCard": {
-          "title": "Fiscal Security",
-          "text": "Defending against federal payment penalties by neutralizing fiscal risk through upfront architectural oversight."
+          "title": "Crisis Mitigation",
+          "text": "Payment Error Rate (PER) audits threaten massive federal fines. APS bridges the gap between the audit findings and the required technical fixes."
         },
         "section1": {
           "title": "PER Defense Engineering",
-          "text": "Payment Error Rate (PER) findings are often the result of technical logic gaps. Success is achieved by engineering high-fidelity rules that survive federal audits. Strict technical requirements ensure that programmatic changes execute deterministically, protecting the state from multi-million dollar penalties."
+          "text": "Payment Error Rate (PER) findings are rarely due to intentional failure; they are the result of mistranslated technical logic. Success is achieved by identifying exactly where the system rules fail federal standards, and engineering Corrective Action Plans (CAPs) that definitively solve the root structural issue."
         },
         "section2": {
-          "title": "Statutory Predictive Analytics",
-          "text": "Public sector risk is managed through predictive analytics. Utilizing Evidence-Based Predictive Modeling allows agencies to identify high-risk case profiles and logic vulnerabilities before they manifest as audit fines. This architectural oversight keeps major deployments moving by neutralizing fiscal risk upfront and protecting systemic integrity."
+          "title": "Audit Survival Strategy",
+          "text": "Federal oversight from FNS and CMS requires precise technical answers. APS provides independent risk analysis, tracing failed audits back to their structural origin, and serving as the translation layer between state IT leadership and federal compliance regulators."
         }
       },
       "data": {
         "sideCard": {
-          "title": "Operational Readiness",
-          "text": "Technology adoption depends on aligning system logic with the reality of frontline operations."
+          "title": "Operational Reality",
+          "text": "Technology adoption depends on aligning the final system logic with the messy reality of frontline human operations."
         },
         "section1": {
-          "title": "Cross-Agency Coalition Building",
-          "text": "Major tech deployments often fail due to inter-agency siloes. Success depends on building robust coalitions where policy, IT, and operations act as a single unit. Alignment is facilitated, ensuring that programmatic goals are reflected in the technical architecture across all participating agencies."
+          "title": "Breaking Agency Silos",
+          "text": "Major tech deployments often fail due to isolated agency siloes and turf wars. Success requires Requirements Architecture to build robust coalitions where policy, IT, and operations hear each other clearly. APS ensures programmatic goals are accurately reflected in the final architecture."
         },
         "section2": {
-          "title": "Frontline-First Change Management",
-          "text": "Top-down mandates rarely survive the frontline. Deployment of 'Frontline-First' change management engages caseworkers and supervisors as operational co-designers. By translating technical system changes directly into their daily reality, new technology accelerates workflows rather than breaking them."
+          "title": "Aligning the Throughput",
+          "text": "Top-down tech mandates rarely survive the frontline. By treating the technology as the universal throughput, APS ensures new systems are co-designed with operational reality in mind. The goal is simple: ensure the new technology accelerates workflows rather than fracturing them."
         }
       }
     }
@@ -252,38 +252,38 @@
   "researchPage": {
     "hero": {
       "label": "Research",
-      "title": "Threat Intelligence & Diagnostics",
-      "subtitle": "Clear analysis on why policy lag stalls government tech, how unverified code triggers downstream penalties, and how to survive federal audits."
+      "title": "Systemic Diagnostics & Threat Intel",
+      "subtitle": "Analysis on why translation gaps stall government tech, how unverified rules inflate PER audits, and how to architect accessibility."
     },
     "docs": {
       "adv1": {
         "title": "Predicting Cross-Program Blast Radiuses",
-        "desc": "Why isolated code changes trigger massive federal variances, and how wide-lens SME prevents cascading errors."
+        "desc": "Why isolated code changes trigger massive federal variances, and how policy-native architecture prevents cascading errors."
       },
       "adv2": {
-        "title": "Protecting Data with Secure Gateways",
-        "desc": "The severe risks of using commercial cloud platforms for state benefits, and how to mandate secure alternatives."
+        "title": "Protecting the Universal Throughput",
+        "desc": "The severe risks of using commercial cloud platforms for state benefits, and how to mandate secure, usable alternatives."
       },
       "adv3": {
-        "title": "Translating Policy Upfront",
-        "desc": "Why waiting on policy reviews stalls IT deployments, and how to mathematically provide developers with deterministic code from day one."
+        "title": "Translating Policy for IT Day One",
+        "desc": "Why waiting on policy reviews stalls developers, and how to provide IT with a definitive set of business rules."
       },
       "adv4": {
-        "title": "Frontline-First Operational Design",
-        "desc": "Why perfectly coded systems fail without operational alignment, and how to build an empowered state workforce."
+        "title": "Aligning Tech with Operational Reality",
+        "desc": "Why perfectly coded systems fail without operational alignment, and how to architect tech that makes casework easier."
       },
       "adv5": {
-        "title": "Fighting Federal Payment Penalties",
-        "desc": "How state agencies can reconstruct system data to prove structural logic flaws and successfully fight federal audit fines."
+        "title": "Mitigating Payment Error Rates (PER)",
+        "desc": "How agencies can trace system data to prove structural logic flaws and successfully engineer Corrective Action Plans."
       },
       "adv6": {
-        "title": "Defeating Tech Debt & Vendor Lock-In",
-        "desc": "How bad procurement and isolated IT teams exploit vague rules, and how to mandate strict engineering boundaries."
+        "title": "Defeating Translation Gaps & Lock-In",
+        "desc": "How bad communication allows vendor exploitation, and how to mandate strict engineering boundaries."
       }
     },
     "cta": {
-      "title": "Ready to stress-test your infrastructure?",
-      "subtitle": "Explore APS interactive simulators to observe automated policy verification and downstream dependency mapping.",
+      "title": "Ready to test the systems layer?",
+      "subtitle": "Explore APS interactive simulators to observe automated policy translation and deterministic rules logic in real time.",
       "button": "View Operational Simulators"
     }
   },
@@ -291,7 +291,7 @@
     "hero": {
       "label": "Operational Demonstrators",
       "title": "Interactive Proofs & System Models",
-      "subtitle": "Review live demonstrators illustrating automated policy testing, downstream risk prediction, and secure data handling."
+      "subtitle": "Review live demonstrators illustrating automated policy translation, business rules extraction, and logic verification."
     },
     "blueprints": {
       "documentTool": {
@@ -307,7 +307,7 @@
       "extractionEngine": {
         "label": "SIMULATOR 03",
         "title": "Deterministic Logic Compiler",
-        "desc": "A demonstrator showing the translation of statutory text directly into formal logic proofs and executable JSON schemas."
+        "desc": "A demonstrator showing the objective translation of statutory text directly into formal logic schemas."
       }
     },
     "categories": {
@@ -321,65 +321,65 @@
     "hero": {
       "label": "Operational Authority",
       "title": "About Applied Policy Systems",
-      "subtitle": "Architects of Reliable Government Infrastructure."
+      "subtitle": "Benefits access is a multi-faceted ecosystem. APS ensures that true accessibility radiates outward from the systems layer."
     },
     "founder": {
-      "title": "Founder Dossier",
-      "intro": "APS provides the architectural oversight and wide-lens programmatic SME required to eliminate policy bottlenecks and ensure state mandates are flawlessly translated into deterministic system code.",
-      "p1": "Applied Policy Systems was established to guide state agencies out of the 'Modernization Trap.' States spent hundreds of millions moving to the cloud, only to realize their IT teams are trapped waiting on complex policy interpretations, and their systems are blind to cross-program downstream effects.",
-      "p2": "APS acts as the ultimate accelerator and strategic failsafe for State CIOs and Agency Directors. Leveraging a unique scope of programmatic experience, the firm provides exact technical logic upfront, bypassing bureaucratic drag and ensuring infrastructure is accurate, accountable, and legally secure."
+      "title": "Architectural Dossier",
+      "intro": "Led by programmatic experts who speak fluent system architecture, APS bridges the human translation gap and embeds statutory rights into system logic.",
+      "p1": "Modern Health and Human Services rely on a complex ecosystem of frontline operations, community outreach, and statutory mandates. The technical system is the single universal throughput connecting them all. Yet, deployments consistently stall in the messy reality of human communication. IT teams are forced to guess at legislative intent, while policy teams struggle to translate their needs into technical parameters.",
+      "p2": "APS was established to resolve this structural disconnect. Instead of adding to the bureaucratic noise, the firm provides precise Requirements Architecture. By acting as an objective, independent translator, APS cuts through agency silos and idealistic assumptions to deliver the plain truth. This approach clears the path for civic tech and implementation teams, allowing them to focus on development. Simultaneously, APS architects usability and statutory rights directly into the database logic. Because human change management is fragile, the core rules must hold strong—forcing true accessibility to radiate outward from the system itself."
     },
     "impact": {
       "stats": {
         "citizen": {
           "value": "10M+",
           "label": "Residents Impacted",
-          "desc": "Verified service delivery across multi-state populations."
+          "desc": "Ensuring structural access across multi-state populations."
         },
         "funding": {
           "value": "$2B+",
           "label": "Fiscal Risk Mitigated",
-          "desc": "Mitigation of massive federal audit penalties through architectural oversight."
+          "desc": "Defending state infrastructure through verified business rules."
         },
         "execution": {
           "value": "15+",
           "label": "Systems Remediated",
-          "desc": "High-risk architectural oversight of state agency platforms."
+          "desc": "Bridging the translation gap between policy and tech."
         }
       }
     },
     "macroEcosystems": {
       "label": "Ecosystem Positioning",
-      "title": "Multidisciplinary Authority",
-      "desc": "APS operates at the critical intersection of federal rules, state leadership, and technical implementation teams.",
+      "title": "Dual-Layer Intervention",
+      "desc": "APS operates simultaneously as the human translation bridge and the technical failsafe, ensuring the system serves the mission.",
       "federal": {
-        "focus": "COMPLIANCE & AUDIT",
-        "title": "Federal Oversight",
-        "desc": "APS provides the hard data and policy verification required to satisfy federal audits and stop massive fiscal penalties.",
+        "focus": "STRATEGIC ALIGNMENT",
+        "title": "Requirements Architecture",
+        "desc": "Bridging the communication gap between policy creators and IT developers. APS acts as the policy-native architect to cut through jargon and align teams from day one.",
         "nodes": {
-          "n1": { "name": "Audit Defense", "context": "Reconstructing errors for FNS/CMS compliance." },
-          "n2": { "name": "Policy Proving", "context": "Mathematically verifying system logic against the law." },
-          "n3": { "name": "Downstream Prevention", "context": "Stopping cascading cross-program variances." }
+          "n1": { "name": "Jargon Translation", "context": "Ensuring all stakeholders speak the same language." },
+          "n2": { "name": "Policy Expertise", "context": "Bringing programmatic SMEs directly to the IT table." },
+          "n3": { "name": "Accelerating IT", "context": "Giving developers rapid, definitive policy requirements." }
         }
       },
       "state": {
-        "focus": "STRATEGY & OPERATIONS",
-        "title": "State Leadership",
-        "desc": "APS acts as the Technical Authority for CIOs, predicting system impacts, eliminating internal drag, and providing data shields.",
+        "focus": "DETERMINISTIC LOGIC",
+        "title": "Systems-Layer Accessibility",
+        "desc": "When human processes fail, the core rules must hold strong. APS architects statutory rights and operational boundaries directly into the system requirements.",
         "nodes": {
-          "n1": { "name": "Architectural Acceleration", "context": "Translating complex policy upfront so IT can build." },
-          "n2": { "name": "Smart Procurement", "context": "Writing rules that prevent legacy code debt." },
-          "n3": { "name": "Workforce Design", "context": "Building professional state career ladders." }
+          "n1": { "name": "Architecting Rights", "context": "Embedding legal protections into the system logic." },
+          "n2": { "name": "Definitive Policy Truth", "context": "Removing interpretation from the development cycle." },
+          "n3": { "name": "Radiating Accessibility", "context": "Forcing usability outward from the core architecture." }
         }
       },
       "vendors": {
-        "focus": "INTEGRATION & BOUNDARY",
-        "title": "Implementation Boundaries",
-        "desc": "APS forces massive tech vendors and in-house development teams to obey strict technical boundaries, ensuring the state retains control.",
+        "focus": "OPERATIONAL REALITY",
+        "title": "Implementation & Civic Tech Partners",
+        "desc": "APS serves as the diagnostic failsafe and diplomatic shield. By navigating the bureaucratic friction and translating complex policy into strict parameters, the firm ensures external development teams receive the exact requirements needed to build systems that work.",
         "nodes": {
-          "n1": { "name": "Breaking Silos & Lock-In", "context": "Enforcing strict rules on how systems connect." },
-          "n2": { "name": "Engineering Oversight", "context": "Independent verification of technical delivery." },
-          "n3": { "name": "Forced Modularity", "context": "Ensuring the state can swap out bad architecture." }
+          "n1": { "name": "Usability Enforcement", "context": "Preventing tech from complicating frontline work." },
+          "n2": { "name": "Burden Reduction", "context": "Eliminating unnecessary procedural friction." },
+          "n3": { "name": "Process Alignment", "context": "Ensuring the tech matches the reality of the job." }
         }
       }
     },
@@ -392,144 +392,144 @@
           "title": "Foundational Digitization",
           "org": "Public Sector Innovation Hub",
           "role": "Technical Lead",
-          "desc": "Led early cloud migrations for benefits systems, identifying the first signs of how poor architecture traps states."
+          "desc": "Led early cloud migrations, identifying that tech fails when disconnected from policy intent and human reality."
         },
         "m2": {
           "year": "2020",
-          "title": "The Modernization Trap",
+          "title": "The Translation Gap",
           "org": "State Agency Advisory",
-          "role": "Architectural SME",
-          "desc": "Diagnosed massive $100M+ failures in state systems, proving that IT deployments stall without upfront SME oversight to translate complex policy."
+          "role": "Programmatic SME",
+          "desc": "Diagnosed massive failures in state systems, proving that the communication gap between policy and IT is where access breaks down."
         },
         "m3": {
           "year": "2021",
-          "title": "Automated Verification",
+          "title": "Requirements Architecture",
           "org": "Applied Policy Systems",
           "role": "Founder",
-          "desc": "Deployed tools to mathematically prove that a state's software code actually obeyed state law and didn't trigger downstream variances."
+          "desc": "Deployed frameworks to translate policy into deterministic rules, giving IT a definitive source of truth from day one."
         },
         "m4": {
           "year": "2022",
-          "title": "Secure Infrastructure",
+          "title": "Policy-Native IT Bridge",
           "org": "Federal Data Protection Initiative",
           "role": "Security Architect",
-          "desc": "Built secure gateways to protect sensitive IRS and HIPAA data from massive commercial cloud vulnerabilities."
+          "desc": "Served as the policy expert translating between federal compliance officers and state IT teams to unblock deployments."
         },
         "m5": {
           "year": "2023",
-          "title": "Strategic Philanthropy",
+          "title": "PER & Systems Accessibility",
           "org": "Civic Coalition",
           "role": "Funding Advisor",
-          "desc": "Pioneered a new model to fund state tech improvements by combining federal grants with targeted civic philanthropy."
+          "desc": "Advocated that true benefits access, and defense against PER audits, must radiate outward from functional system logic."
         },
         "m6": {
           "year": "2024",
-          "title": "Workforce Modernization",
+          "title": "Operational Throughput",
           "org": "Public Sector Workforce Alliance",
           "role": "Operational Designer",
-          "desc": "Expanded the mission to focus on the people doing the work, deploying frontline-first change management to professionalize state operations."
+          "desc": "Ensured that vendor-built technology actually served the human operation, preventing systems from making the daily work harder."
         }
       }
     }
   },
   "seo": {
-    "defaultKeywords": "architectural oversight, verifiable policy, policy translation, downstream prediction, GovTech, compliance, frontline-first change management",
+    "defaultKeywords": "requirements architecture, policy translation, GovTech accessibility, universal throughput, PER mitigation, payment error rate, programmatic expert",
     "pages": {
       "home": {
-        "title": "Verifiable Policy. Uncompromised Access.",
-        "description": "Applied Policy Systems provides architectural oversight and wide-lens SME capabilities to eliminate policy bottlenecks and translate mandates into deterministic code.",
-        "keywords": "systems oversight, policy translation, accelerating IT, downstream prediction, compliance, GovTech, federal mandates"
+        "title": "Universal Throughput. Radiating Accessibility. | Applied Policy Systems",
+        "description": "APS bridges the human translation gap and architects strict business rules, ensuring government tech fundamentally works for the public.",
+        "keywords": "systems oversight, policy translation, GovTech accessibility, universal throughput, requirements architecture, PER mitigation"
       },
       "capabilities": {
-        "title": "Architectural Oversight & Policy Engineering | Applied Policy Systems",
-        "description": "Review APS specialized interventions: Downstream Risk Prediction, Accelerating IT, Engineering Accountability, and Frontline Operations.",
-        "keywords": "systems oversight, empirical audit defense, legal fortification, policy simulation, cross-program dependencies, eliminating drag"
+        "title": "Requirements Architecture & Policy Engineering | Applied Policy Systems",
+        "description": "Review APS dual-layer interventions: Requirements Architecture, translating policy into actionable IT rules, and mitigating Payment Error Rates (PER).",
+        "keywords": "requirements architecture, systems architecture, IT acceleration, PER mitigation, payment error rate defense, GovTech"
       },
       "research": {
-        "title": "Diagnostics & Audits | Applied Policy Systems",
-        "description": "Analysis on why policy lag stalls public sector technology, downstream blast radiuses, and federal compliance rules.",
-        "keywords": "empirical analysis, threat intelligence, compliance frameworks, automated tracking, blast radius, policy bottlenecks"
+        "title": "Threat Intel & Translation Diagnostics | Applied Policy Systems",
+        "description": "Analysis on why translation gaps stall government tech, how unverified rules inflate PER audits, and how to build systems that radiate accessibility.",
+        "keywords": "empirical analysis, translation gaps, compliance frameworks, payment error rate, systemic diagnostics"
       },
       "field": {
         "title": "Operational Simulators | Applied Policy Systems",
-        "description": "Live models illustrating automated policy testing, downstream effect tracking, and secure data handling.",
-        "keywords": "simulators, formal verification, cryptographic gateways, empirical audits"
+        "description": "Live models illustrating automated policy translation, business logic extraction, and deterministic rules generation.",
+        "keywords": "simulators, deterministic logic, policy translation, business rules"
       },
       "contact": {
-        "title": "Technical Intake & Consultation | Applied Policy Systems",
-        "description": "Contact APS for architectural oversight, accelerating deployments, or programmatic policy translation.",
-        "keywords": "consultation, inquiry, architectural review, audit defense, accelerating IT"
+        "title": "Technical Intake & Architecture | Applied Policy Systems",
+        "description": "Contact APS for Requirements Architecture, mitigating PER audits, or translating statutory rights into system requirements.",
+        "keywords": "consultation, requirements architecture, architectural review, PER defense"
       },
       "privacy": {
-        "title": "Privacy Policy | Applied Policy Systems",
-        "description": "Privacy policy and data protection standards for Applied Policy Systems LLC.",
+        "title": "Privacy Architecture | Applied Policy Systems",
+        "description": "Privacy architecture and data protection standards for Applied Policy Systems LLC.",
         "keywords": "privacy, data protection, compliance"
       },
       "terms": {
-        "title": "Terms of Service | Applied Policy Systems",
-        "description": "Terms and conditions for utilizing Applied Policy Systems LLC technical services and platforms.",
-        "keywords": "terms of service, legal, agreement"
+        "title": "Operational Parameters | Applied Policy Systems",
+        "description": "Operational parameters and terms for utilizing Applied Policy Systems LLC technical services and platforms.",
+        "keywords": "terms of service, legal framework, parameters"
       }
     }
   },
   "contact": {
     "hero": {
-      "title": "Technical Intake & Consultation",
-      "subtitle": "Initiate a dialogue regarding architectural oversight, accelerating deployments, or downstream risk prevention."
+      "title": "Technical Intake & Architecture",
+      "subtitle": "Initiate a dialogue regarding Requirements Architecture, Payment Error Rate (PER) defense, or architecting statutory logic."
     },
     "form": {
       "name": "Full Name",
-      "email": "Official Email Address",
+      "email": "Official Routing Address",
       "organization": "Agency / Organization",
       "inquiryType": {
         "label": "Nature of Inquiry",
         "options": {
-          "systems": "Systems Architecture & AI Governance",
-          "policy": "Audit Defense & Policy Translation",
-          "general": "Strategic Procurement & Operations"
+          "systems": "Requirements Architecture & Logic",
+          "policy": "Policy Expertise & Translation",
+          "general": "PER Mitigation & Audit Defense"
         }
       },
-      "message": "Technical Context or Request Details",
-      "submit": "Submit Inquiry",
-      "success": "Inquiry received. An architect will review your request.",
-      "error": "Transmission failed. Please attempt again or contact APS directly."
+      "message": "Technical Context or Operational Request",
+      "submit": "Transmit Inquiry",
+      "success": "Transmission verified. An architect will review your request.",
+      "error": "Transmission failed. Please verify network connection and retry."
     },
     "info": {
-      "title": "Direct Contact",
-      "email": "Email",
+      "title": "Secure Routing",
+      "email": "Dispatch",
       "location": "Location",
       "address": "Philadelphia, PA",
-      "hours": "Operating Hours",
+      "hours": "Operational Window",
       "hoursText": "Monday – Friday, 0900 – 1700 EST"
     }
   },
   "footer": {
-    "tagline": "Architecting reliable, highly regulated government infrastructure.",
-    "privacy": "Privacy Policy",
-    "terms": "Terms of Service",
+    "tagline": "Architecting the universal throughput for government infrastructure.",
+    "privacy": "Privacy Architecture",
+    "terms": "Operational Parameters",
     "contact": "Technical Intake",
     "location": "Philadelphia, PA",
     "rights": "Applied Policy Systems LLC. All rights reserved.",
-    "backToHome": "Back to Home",
+    "backToHome": "Return to Root",
     "tips": {
-      "privacy": "Data Protection",
+      "privacy": "Data Governance",
       "terms": "Legal Framework",
-      "contact": "Start Consultation"
+      "contact": "Initiate Transmission"
     },
     "labels": {
-      "privacy": "View the Privacy Policy",
-      "terms": "View the Terms of Service",
-      "contact": "Initiate a consultation"
+      "privacy": "Review Privacy Architecture",
+      "terms": "Review Operational Parameters",
+      "contact": "Initiate Technical Intake"
     },
-    "copyright": "© 2024 APS. Verification & Logic."
+    "copyright": "© 2024 APS. Translation & Logic."
   },
   "notfound": {
-    "title": "404 - Endpoint Not Found",
-    "text": "The requested resource could not be located.",
+    "title": "404 - Endpoint Unreachable",
+    "text": "The requested system node could not be located in the current schema.",
     "cta": "Return to Root"
   },
   "privacy": {
-    "title": "Privacy Policy",
+    "title": "Privacy Architecture",
     "lastUpdated": "Last Updated: March 2024",
     "sections": {
       "collection": {
@@ -538,7 +538,7 @@
       },
       "usage": {
         "title": "2. Utilization of Data",
-        "text": "Information is strictly utilized for the execution of technical services, architectural evaluations, and secure communications."
+        "text": "Information is strictly utilized for the execution of Requirements Architecture, system evaluations, and secure communications."
       },
       "security": {
         "title": "3. Security Posture",
@@ -547,20 +547,20 @@
     }
   },
   "terms": {
-    "title": "Terms of Service",
+    "title": "Operational Parameters",
     "lastUpdated": "Last Updated: March 2024",
     "sections": {
       "acceptance": {
-        "title": "1. Acceptance of Parameters",
-        "text": "By accessing APS infrastructure or initiating consultation, you agree to be bound by these operational terms."
+        "title": "1. Execution of Parameters",
+        "text": "By accessing APS infrastructure or initiating transmission, you agree to be bound by these operational terms."
       },
       "services": {
-        "title": "2. Technical Services",
-        "text": "Applied Policy Systems provides architectural oversight, system builds, and advisory strictly within defined operational boundaries."
+        "title": "2. Technical Interventions",
+        "text": "Applied Policy Systems provides Requirements Architecture, system blueprinting, and policy oversight strictly within defined parameters."
       },
       "liability": {
-        "title": "3. Limitations of Liability",
-        "text": "APS liability is constrained to the parameters defined in specific service-level agreements and formal contracts."
+        "title": "3. Scope of Liability",
+        "text": "APS liability is mathematically bounded by the parameters defined in specific service-level agreements and executed contracts."
       }
     }
   }
