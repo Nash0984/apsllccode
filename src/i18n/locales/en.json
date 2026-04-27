@@ -71,26 +71,26 @@
   "home": {
     "hero": {
       "title": "Translating Policy. Architecting Access.",
-      "subtitle": "Modern Health and Human Services rely on a complex ecosystem of statutory mandates, IT infrastructure, and frontline operations. When communication breaks down between these silos, systems fail and public access is denied. Led by programmatic experts fluent in systems architecture, APS serves as the objective translation layer. The firm untangles bureaucratic friction and delivers the exact deterministic requirements that enable IT to unblock deployments, mitigate audit risk, and ensure the underlying technology fundamentally serves the mission.",
+      "subtitle": "Government systems stall when complex policy, technical execution, and frontline reality fail to align. APS serves as the objective translation layer bridging these silos. By providing strict architectural oversight and definitive requirements, the firm enables agencies to unblock tech deployments, mitigate federal audit risk, and ensure infrastructure actually serves the public.",
       "cta": "Review Capabilities"
     },
     "challenge": {
       "label": "The Translation Gap",
       "title": "Bridging Policy and Technical Execution.",
-      "text": "When deployments fail, it is rarely due to bad code. The failure occurs in the human translation layer—where bureaucratic silos, jargon, and competing ideals starve implementation teams of actionable requirements. APS eliminates this friction. Operating as a policy-native architect and an objective truth-teller, the firm diagnoses the operational bottlenecks blocking the build. By providing a blunt, independent translation of statutory intent, APS acts as a strategic shield for IT and civic tech partners, delivering the definitive logic they need to actually build the system.",
+      "text": "When deployments fail, it is rarely due to bad code. The failure occurs in the human translation layer, where bureaucracy and jargon starve IT of clear requirements. APS eliminates this friction. Operating as a programmatic Subject Matter Expert (SME), the firm delivers independent verification of statutory logic and the strategic blueprints developers need to actually build the system.",
       "outputsLabel": "Core Interventions",
       "outputsLead": "Specialized architectural services include:",
       "outputs": [
+        "Independent Verification & System Audits",
+        "Programmatic Subject Matter Expertise (SME)",
         "Requirements Architecture & Policy Translation",
-        "Architecting Statutory Business Rules",
-        "Predictive Analytics & PER Mitigation",
-        "Frontline Operational Alignment"
+        "Predictive Analytics & PER Mitigation"
       ]
     },
     "infrastructure": {
       "label": "Holistic Oversight",
       "title": "Systems-Layer Accessibility.",
-      "text": "Because human processes and change management are inherently fragile, APS architects the exact business rules upfront, providing developers with a flawless blueprint to ensure the system itself never violates rights or makes daily operations harder.",
+      "text": "Human change management is fragile. APS architects the exact business rules upfront, giving developers a flawless blueprint to ensure the final system fundamentally protects statutory rights and streamlines frontline operations.",
       "cta": "Core Capabilities"
     },
     "sandbox": {
@@ -168,8 +168,8 @@
         "text": "Rapid oversight deployments to absorb the burden of translation. By acting as the objective truth-teller and independent translator, APS delivers finished artifacts—providing policy teams with statute-mapped logic for rapid authorization, and equipping IT and civic tech partners with the definitive requirements to build."
       },
       "advisory": {
-        "title": "Technical Expert Advisory",
-        "text": "Long-term partnership to bridge the policy-IT divide, architect business rules, and ensure the system radiates accessibility as it scales."
+        "title": "Subject Matter Expertise (SME) & Advisory",
+        "text": "Long-term partnership to provide independent verification of technical rules, bridge the policy-IT divide, and ensure the system radiates accessibility as it scales."
       },
       "integration": {
         "title": "System Procurement & Blueprinting",
@@ -230,7 +230,7 @@
         },
         "section2": {
           "title": "Predictive Risk Analytics",
-          "text": "Looking backward at lagging Quality Control (QC) data is no longer sufficient for mitigating financial liability. APS architects Predictive Risk Engines (P.R.E.) that evaluate process latency, client churn, and financial complexity to append prescriptive error flags to cases before certification. Empowered by a 'Human-in-the-Loop' feedback mechanism, the predictive analytics are continuously refreshed, ensuring the model adapts to operational reality."
+          "text": "Looking backward at lagging Quality Control (QC) data is no longer sufficient for mitigating financial liability. APS architects Predictive Risk Engines (P.R.E.) that evaluate process latency, client churn, and financial complexity to append prescriptive error flags to cases before certification. Empowered by a 'Human-in-the-Loop' feedback mechanism, the predictive blueprints are continuously refreshed, ensuring the framework adapts to operational reality."
         }
       },
       "data": {
@@ -240,11 +240,11 @@
         },
         "section1": {
           "title": "Breaking Agency Silos",
-          "text": "Major tech deployments often fail due to isolated agency siloes and turf wars. Success requires Requirements Architecture to build robust coalitions where policy, IT, and operations hear each other clearly. APS ensures programmatic goals are accurately reflected in the final architecture."
+          "text": "Major tech deployments often fail due to isolated agency siloes and turf wars. Success requires Requirements Architecture to build robust coalitions where policy, IT, and operations hear each other clearly. APS ensures programmatic goals are accurately reflected in the final blueprints."
         },
         "section2": {
           "title": "Aligning the Throughput",
-          "text": "Top-down tech mandates rarely survive the frontline. By treating the technology as the universal throughput, APS ensures new systems are co-designed with operational reality in mind. The goal is simple: ensure the new technology accelerates workflows rather than fracturing them."
+          "text": "Top-down tech mandates rarely survive the frontline. By treating the technology as the universal throughput, APS ensures new systems are co-designed with operational reality in mind. The goal is simple: architect requirements that accelerate workflows rather than fracturing them."
         }
       }
     }
@@ -274,7 +274,7 @@
       },
       "adv5": {
         "title": "Predictive Analytics for PER Mitigation",
-        "desc": "How agencies can shift from lagging audit data to leading indicators by deploying continuously refreshed Predictive Risk Engines (P.R.E.) to flag high-error cases."
+        "desc": "How agencies can shift from lagging audit data to leading indicators by architecting continuously refreshed Predictive Risk Engines (P.R.E.) to flag high-error cases."
       },
       "adv6": {
         "title": "Defeating Translation Gaps & Lock-In",
@@ -291,13 +291,13 @@
     "hero": {
       "label": "Operational Demonstrators",
       "title": "Interactive Proofs & System Models",
-      "subtitle": "Review live demonstrators illustrating automated policy translation, business rules extraction, and logic verification."
+      "subtitle": "Review live demonstrators powered by the JAWN neuro-symbolic prototype, illustrating automated policy translation, business rules extraction, and logic verification."
     },
     "blueprints": {
       "documentTool": {
         "label": "SIMULATOR 01",
         "title": "Automated Policy Verification",
-        "desc": "A live environment showing how APS evaluates documents against a unified verification ontology to generate statutory sufficiency scores."
+        "desc": "A live environment running on the JAWN framework, showing how APS evaluates documents against a unified verification ontology to generate statutory sufficiency scores."
       },
       "policyManual": {
         "label": "SIMULATOR 02",
@@ -327,7 +327,7 @@
       "title": "Architectural Dossier",
       "intro": "Led by programmatic experts who speak fluent system architecture, APS bridges the human translation gap and embeds statutory rights into system logic.",
       "p1": "Modern Health and Human Services rely on a complex ecosystem of frontline operations, community outreach, and statutory mandates. The technical system is the single universal throughput connecting them all. Yet, deployments consistently stall in the messy reality of human communication. IT teams are forced to guess at legislative intent, while policy teams struggle to translate their needs into technical parameters.",
-      "p2": "APS was established to resolve this structural disconnect. The gap between written regulations and frontline execution was so severe that it required a new approach. Operating as an autodidactic systems architect, APS leadership engineered functional, neuro-symbolic prototypes built specifically to prove that complex multi-program policy could be translated into deterministic code. Today, APS uses this methodology to absorb the burden of interpretation. By acting as the policy-native architect and objective translator, the firm cuts through agency silos and delivers finished, mathematically verified artifacts. This clears the path for civic tech and implementation teams to execute flawlessly, forcing true accessibility to radiate outward from the system itself."
+      "p2": "APS was established to resolve this structural disconnect. Recognizing the inherent delays of federal grant cycles and traditional procurement, APS leadership took proactive, independent action. Operating as an autodidactic systems architect entirely outside of state mandates, the founder engineered a fully integrated eligibility prototype from the ground up. The objective was not just to translate policy, but to design an architecture where generating a federal payment error is mathematically impossible—ensuring that a flawless blueprint existed to hand off to enterprise developers. Today, APS uses this exact methodology to absorb the burden of interpretation. By acting as the policy-native architect and objective translator, the firm clears the path for civic tech teams to execute flawlessly, while equipping policy directors with translated rule sets ready for rapid authorization. Because human change management is fragile, the core rules must hold strong—forcing true accessibility to radiate outward from the system itself."
     },
     "impact": {
       "stats": {
@@ -417,10 +417,10 @@
         },
         "m5": {
           "year": "2026",
-          "title": "Applied Research & Prototyping",
-          "org": "Independent Research",
+          "title": "Independent Systems Engineering",
+          "org": "Independent Applied Research",
           "role": "Autodidactic Systems Architect",
-          "desc": "Recognizing that IT vendors were starved of actionable requirements, self-taught and engineered functional neuro-symbolic prototypes designed to mathematically translate policy intent into deterministic IT logic."
+          "desc": "Recognizing that traditional grant cycles could delay critical modernization, took proactive, independent action to engineer a fully integrated eligibility prototype from the ground up. Designed the architecture to make payment errors mathematically impossible, creating a definitive, battle-tested blueprint ready for IT handoff."
         },
         "m6": {
           "year": "Present",

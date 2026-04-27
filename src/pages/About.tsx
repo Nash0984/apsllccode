@@ -142,8 +142,58 @@ export function About() {
         </div>
       </section>
 
+      {/* Macro Ecosystem Integrations */}
+      <section className="section-padding bg-slate-50 dark:bg-slate-900 border-y border-slate-100 dark:border-slate-800">
+        <div className="container-wide">
+          <div className="max-w-3xl mb-16">
+            <h2 className="label-uppercase mb-4">{t('about.macroEcosystems.label')}</h2>
+            <h3 className="text-3xl md:text-4xl font-black tracking-tight text-slate-900 dark:text-white">{t('about.macroEcosystems.title')}</h3>
+            <p className="text-lg text-slate-600 dark:text-slate-400 mt-4 leading-relaxed">
+              {t('about.macroEcosystems.desc')}
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-3 gap-8 sm:gap-12 border-t border-slate-200 dark:border-slate-700 pt-8">
+            {macroEcosystems.map((macro, i) => (
+              <motion.div 
+                key={macro.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="bg-white dark:bg-slate-950 p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm"
+              >
+                <div className="text-brand-jade font-mono text-xs font-bold uppercase tracking-widest mb-4">
+                  {macro.focus}
+                </div>
+                <h4 className="text-2xl font-black mb-4 text-slate-900 dark:text-white">
+                  {macro.title}
+                </h4>
+                <p className="text-slate-600 dark:text-slate-400 mb-8 leading-relaxed">
+                  {macro.desc}
+                </p>
+                
+                <div className="space-y-6">
+                  {macro.nodes.map((node) => (
+                    <div key={node.name} className="relative">
+                      <div className="flex items-start gap-3">
+                        <CheckCircle2 size={18} className="text-brand-jade shrink-0 mt-1" />
+                        <div>
+                          <div className="font-bold text-slate-900 dark:text-white mb-1">{node.name}</div>
+                          <div className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">{node.context}</div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Founder Dossier & Verified Metrics */}
-      <section className="section-padding bg-slate-50 dark:bg-slate-900 border-y border-slate-100 dark:border-slate-800" aria-label="Founder and Impact Statistics">
+      <section className="section-padding bg-white dark:bg-slate-950" aria-label="Founder and Impact Statistics">
         <div className="container-wide">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <motion.div 
@@ -217,58 +267,8 @@ export function About() {
         </div>
       </section>
 
-      {/* Macro Ecosystem Integrations */}
-      <section className="section-padding bg-slate-50 dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800">
-        <div className="container-wide">
-          <div className="max-w-3xl mb-16">
-            <h2 className="label-uppercase mb-4">{t('about.macroEcosystems.label')}</h2>
-            <h3 className="text-3xl md:text-4xl font-black tracking-tight text-slate-900 dark:text-white">{t('about.macroEcosystems.title')}</h3>
-            <p className="text-lg text-slate-600 dark:text-slate-400 mt-4 leading-relaxed">
-              {t('about.macroEcosystems.desc')}
-            </p>
-          </div>
-
-          <div className="grid lg:grid-cols-3 gap-8 sm:gap-12 border-t border-slate-200 dark:border-slate-700 pt-8">
-            {macroEcosystems.map((macro, i) => (
-              <motion.div 
-                key={macro.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="bg-white dark:bg-slate-950 p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm"
-              >
-                <div className="text-brand-jade font-mono text-xs font-bold uppercase tracking-widest mb-4">
-                  {macro.focus}
-                </div>
-                <h4 className="text-2xl font-black mb-4 text-slate-900 dark:text-white">
-                  {macro.title}
-                </h4>
-                <p className="text-slate-600 dark:text-slate-400 mb-8 leading-relaxed">
-                  {macro.desc}
-                </p>
-                
-                <div className="space-y-6">
-                  {macro.nodes.map((node) => (
-                    <div key={node.name} className="relative">
-                      <div className="flex items-start gap-3">
-                        <CheckCircle2 size={18} className="text-brand-jade shrink-0 mt-1" />
-                        <div>
-                          <div className="font-bold text-slate-900 dark:text-white mb-1">{node.name}</div>
-                          <div className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">{node.context}</div>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Career Journey */}
-      <section className="section-padding bg-white dark:bg-slate-950">
+      <section className="section-padding bg-slate-50 dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800">
         <div className="container-wide">
           <div className="max-w-3xl mb-16">
             <h2 className="label-uppercase mb-4">{t('about.journey.label')}</h2>
