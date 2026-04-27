@@ -70,27 +70,27 @@
   },
   "home": {
     "hero": {
-      "title": "Universal Throughput. Radiating Accessibility.",
-      "subtitle": "State tech deployments stall in the translation gap between policy intent and IT execution. APS bridges this divide. Led by programmatic experts who speak fluent systems architecture, the firm delivers the exact deterministic requirements needed to keep deployments moving and ensure the underlying technology actually serves the public.",
+      "title": "Translating Policy. Architecting Access.",
+      "subtitle": "Modern Health and Human Services rely on a complex ecosystem of statutory mandates, IT infrastructure, and frontline operations. When communication breaks down between these silos, systems fail and public access is denied. Led by programmatic experts fluent in systems architecture, APS serves as the objective translation layer. The firm untangles bureaucratic friction and delivers the exact deterministic requirements that enable IT to unblock deployments, mitigate audit risk, and ensure the underlying technology fundamentally serves the mission.",
       "cta": "Review Capabilities"
     },
     "challenge": {
       "label": "The Translation Gap",
       "title": "Bridging Policy and Technical Execution.",
-      "text": "When deployments fail, it is rarely due to bad code. The failure occurs in the human translation layer—where bureaucratic silos, jargon, and competing ideals starve implementation teams of actionable requirements. APS eliminates this friction. Operating as a policy-native architect and an objective truth-teller, the firm diagnoses the operational bottlenecks blocking the build. By providing a blunt, independent translation of statutory intent, APS acts as a strategic shield for IT and civic tech partners, delivering the definitive logic required to actually build the system.",
+      "text": "When deployments fail, it is rarely due to bad code. The failure occurs in the human translation layer—where bureaucratic silos, jargon, and competing ideals starve implementation teams of actionable requirements. APS eliminates this friction. Operating as a policy-native architect and an objective truth-teller, the firm diagnoses the operational bottlenecks blocking the build. By providing a blunt, independent translation of statutory intent, APS acts as a strategic shield for IT and civic tech partners, delivering the definitive logic they need to actually build the system.",
       "outputsLabel": "Core Interventions",
       "outputsLead": "Specialized architectural services include:",
       "outputs": [
         "Requirements Architecture & Policy Translation",
         "Architecting Statutory Business Rules",
-        "Payment Error Rate (PER) Crisis Mitigation",
+        "Predictive Analytics & PER Mitigation",
         "Frontline Operational Alignment"
       ]
     },
     "infrastructure": {
       "label": "Holistic Oversight",
       "title": "Systems-Layer Accessibility.",
-      "text": "Because human processes and change management are inherently fragile, APS architects the exact business rules upfront, ensuring the system itself never violates rights or makes daily operations harder.",
+      "text": "Because human processes and change management are inherently fragile, APS architects the exact business rules upfront, providing developers with a flawless blueprint to ensure the system itself never violates rights or makes daily operations harder.",
       "cta": "Core Capabilities"
     },
     "sandbox": {
@@ -125,8 +125,8 @@
     },
     "cards": {
       "statutory": {
-        "title": "Statutory Translation & IT Acceleration",
-        "text": "The gap between policy intent and system execution is eliminated through Requirements Architecture. IT teams are provided with a definitive, mathematical source of truth from day one by a policy-native expert. By modeling systemic rules upfront, APS predicts cascading effects across interconnected HHS programs, keeping cloud migrations on track and shielding developers from subjective review cycles.",
+        "title": "Statutory Translation & IT Enablement",
+        "text": "The gap between policy intent and system execution is eliminated through Requirements Architecture. By acting as the policy-native expert and independent translator, APS absorbs the burden of interpretation. IT teams are provided with a definitive, mathematical source of truth from day one, while policy teams are shielded from endless technical review cycles. By modeling systemic rules upfront, APS predicts cascading effects across interconnected HHS programs.",
         "features": [
           "Requirements Architecture",
           "IT-First Policy Translation",
@@ -135,7 +135,7 @@
       },
       "rulesEngine": {
         "title": "Systems-Layer Accessibility & AI Boundaries",
-        "text": "Because human processes are fragile, usability and legal rights must be embedded into the system. Technical frameworks and business rules are architected to bind AI and system logic to statutory reality, ensuring the architecture never violates rights. These sovereign standards eliminate vendor lock-in, forcing technology to act as the universal throughput that supports the mission.",
+        "text": "Because human processes are fragile, usability and legal rights must be embedded into the system. APS architects the technical frameworks and business rules that enable IT to bind AI and system logic to statutory reality, ensuring the architecture never violates rights. These sovereign standards eliminate vendor lock-in, forcing technology to act as the universal throughput that supports the mission.",
         "features": [
           "Architecting Statutory Rules",
           "Binding AI Governance Frameworks",
@@ -143,20 +143,20 @@
         ]
       },
       "sanction": {
-        "title": "Payment Error Rate (PER) Mitigation",
-        "text": "State agencies face unprecedented scrutiny regarding federal SNAP and Medicaid Payment Error Rates (PER). These findings are usually the result of technical logic gaps caused by poor translation. APS manages this crisis through targeted oversight, tracing failed audits back to their structural origin, and engineering Corrective Action Plans (CAPs) that satisfy federal regulators.",
+        "title": "Predictive Analytics & PER Mitigation",
+        "text": "State agencies face unprecedented financial liability regarding federal SNAP Payment Error Rates (PER). These findings are rarely just 'caseworker mistakes'—they are systemic failures where complex policy outpaces operational support. APS manages this crisis by designing Predictive Risk Engines (P.R.E.) and real-time supervisory dashboards. By shifting focus from lagging audit data to leading indicators, APS enables agencies to structurally prevent recurrence.",
         "features": [
-          "Payment Error Rate (PER) Defense",
-          "Corrective Action Plan (CAP) Engineering",
-          "Federal Audit Survival Strategy"
+          "Predictive Risk Engine (P.R.E.) Architecture",
+          "Real-Time Quality Assurance Dashboards",
+          "Corrective Action Plan (CAP) Engineering"
         ]
       },
       "data": {
         "title": "Frontline Alignment & Operational Reality",
-        "text": "Even perfectly translated code fails if it ignores the daily reality of the frontline. APS ensures that technical deployments are aligned with human operations. By treating caseworkers and residents as the ultimate end-users of the system, procedural friction is eliminated, ensuring the code makes daily execution easier, not harder.",
+        "text": "Even perfectly translated code fails if it ignores the daily reality of the frontline. APS ensures that technical deployments are aligned with human operations. By establishing Targeted Training Loops (T.T.L.) and treating caseworkers as the ultimate end-users of the system, procedural friction is eliminated, ensuring the code makes daily execution easier, not harder.",
         "features": [
           "Frontline-First Operational Design",
-          "Burden & Friction Reduction",
+          "Targeted Training Loops (T.T.L.)",
           "Cross-Agency Coalition Building"
         ]
       }
@@ -165,7 +165,7 @@
       "title": "Engagement Models",
       "sprint": {
         "title": "Targeted Architectural Interventions",
-        "text": "Rapid oversight deployments to act as the policy-native architect, clear operational roadblocks, unblock civic tech initiatives, and deliver mitigation plans for PER audits."
+        "text": "Rapid oversight deployments to absorb the burden of translation. By acting as the objective truth-teller and independent translator, APS delivers finished artifacts—providing policy teams with statute-mapped logic for rapid authorization, and equipping IT and civic tech partners with the definitive requirements to build."
       },
       "advisory": {
         "title": "Technical Expert Advisory",
@@ -180,15 +180,15 @@
       "statutory": {
         "sideCard": {
           "title": "The Definitive Truth",
-          "text": "Eligibility logic is translated into a 1:1 reflection of statutory requirements, giving IT the exact operational parameters they need."
+          "text": "Eligibility logic is translated into a 1:1 reflection of statutory requirements, giving both policy and IT the exact operational parameters they need."
         },
         "section1": {
           "title": "Translating the Blast Radius",
-          "text": "Administrative law is heavily interconnected. A simple change to a Medicaid MAGI calculation can inadvertently trigger a massive FNS variance in SNAP. This blind spot is eliminated by translating systemic rules upfront and mapping cascading dependencies, allowing IT to deploy with absolute confidence."
+          "text": "Administrative law is heavily interconnected. A simple change to a Medicaid MAGI calculation can inadvertently trigger a massive FNS variance in SNAP. This blind spot is eliminated by translating systemic rules upfront and mapping cascading dependencies, allowing deployments to move forward with absolute confidence."
         },
         "section2": {
           "title": "Requirements Architecture",
-          "text": "Ambiguous legislative mandates stall deployments. Instead of waiting months for interpretation, APS brings programmatic policy expertise directly to the IT table. By acting as a policy-native architect, stakeholders are aligned rapidly, and developers are provided with the exact requirements needed to write the code."
+          "text": "Ambiguous legislative mandates stall deployments. Instead of forcing policy teams to answer endless technical questions or leaving IT to guess at intent, APS absorbs the burden of interpretation. By acting as a policy-native architect and translator, APS delivers fully mapped artifacts—empowering policy leaders to rapidly authorize the translated logic, while giving developers the exact requirements needed to execute."
         }
       },
       "rulesEngine": {
@@ -222,15 +222,15 @@
       "sanction": {
         "sideCard": {
           "title": "Crisis Mitigation",
-          "text": "Payment Error Rate (PER) audits threaten massive federal fines. APS bridges the gap between the audit findings and the required technical fixes."
+          "text": "Payment Error Rate (PER) audits threaten massive federal fines. APS designs predictive architecture to bridge the gap between audit findings and frontline execution."
         },
         "section1": {
-          "title": "PER Defense Engineering",
-          "text": "Payment Error Rate (PER) findings are rarely due to intentional failure; they are the result of mistranslated technical logic. Success is achieved by identifying exactly where the system rules fail federal standards, and engineering Corrective Action Plans (CAPs) that definitively solve the root structural issue."
+          "title": "PER Defense & Supervisory Failsafes",
+          "text": "Payment Error Rate (PER) findings are rarely due to intentional human failure; they happen when overwhelmed caseworkers navigate disconnected policies. Success is achieved by tracing failed audits to their root cause and engineering Corrective Action Plans (CAPs) equipped with real-time PER dashboards. These integrated supervisory case review models provide immediate visibility into error trends, serving as a structural failsafe against federal variances."
         },
         "section2": {
-          "title": "Audit Survival Strategy",
-          "text": "Federal oversight from FNS and CMS requires precise technical answers. APS provides independent risk analysis, tracing failed audits back to their structural origin, and serving as the translation layer between state IT leadership and federal compliance regulators."
+          "title": "Predictive Risk Analytics",
+          "text": "Looking backward at lagging Quality Control (QC) data is no longer sufficient for mitigating financial liability. APS architects Predictive Risk Engines (P.R.E.) that evaluate process latency, client churn, and financial complexity to append prescriptive error flags to cases before certification. Empowered by a 'Human-in-the-Loop' feedback mechanism, the predictive analytics are continuously refreshed, ensuring the model adapts to operational reality."
         }
       },
       "data": {
@@ -273,8 +273,8 @@
         "desc": "Why perfectly coded systems fail without operational alignment, and how to architect tech that makes casework easier."
       },
       "adv5": {
-        "title": "Mitigating Payment Error Rates (PER)",
-        "desc": "How agencies can trace system data to prove structural logic flaws and successfully engineer Corrective Action Plans."
+        "title": "Predictive Analytics for PER Mitigation",
+        "desc": "How agencies can shift from lagging audit data to leading indicators by deploying continuously refreshed Predictive Risk Engines (P.R.E.) to flag high-error cases."
       },
       "adv6": {
         "title": "Defeating Translation Gaps & Lock-In",
@@ -327,7 +327,7 @@
       "title": "Architectural Dossier",
       "intro": "Led by programmatic experts who speak fluent system architecture, APS bridges the human translation gap and embeds statutory rights into system logic.",
       "p1": "Modern Health and Human Services rely on a complex ecosystem of frontline operations, community outreach, and statutory mandates. The technical system is the single universal throughput connecting them all. Yet, deployments consistently stall in the messy reality of human communication. IT teams are forced to guess at legislative intent, while policy teams struggle to translate their needs into technical parameters.",
-      "p2": "APS was established to resolve this structural disconnect. Instead of adding to the bureaucratic noise, the firm provides precise Requirements Architecture. By acting as an objective, independent translator, APS cuts through agency silos and idealistic assumptions to deliver the plain truth. This approach clears the path for civic tech and implementation teams, allowing them to focus on development. Simultaneously, APS architects usability and statutory rights directly into the database logic. Because human change management is fragile, the core rules must hold strong—forcing true accessibility to radiate outward from the system itself."
+      "p2": "APS was established to resolve this structural disconnect. Instead of IT teams guessing at intent, or policy teams drowning in technical queries, APS absorbs the burden of interpretation. By acting as the policy-native architect and objective translator, the firm cuts through agency silos and delivers finished, correct artifacts. This clears the path for civic tech and implementation teams to execute flawlessly, while equipping policy directors with translated rule sets that are ready for rapid authorization. Simultaneously, APS architects the exact logic requirements needed to embed usability directly into the database. Because human change management is fragile, the core rules must hold strong—forcing true accessibility to radiate outward from the system itself."
     },
     "impact": {
       "stats": {
@@ -355,11 +355,11 @@
       "federal": {
         "focus": "STRATEGIC ALIGNMENT",
         "title": "Requirements Architecture",
-        "desc": "Bridging the communication gap between policy creators and IT developers. APS acts as the policy-native architect to cut through jargon and align teams from day one.",
+        "desc": "Bridging the communication gap between policy creators and IT developers. APS acts as the policy-native translator and architect to cut through jargon and deliver mapped rule sets to both sides.",
         "nodes": {
           "n1": { "name": "Jargon Translation", "context": "Ensuring all stakeholders speak the same language." },
           "n2": { "name": "Policy Expertise", "context": "Bringing programmatic SMEs directly to the IT table." },
-          "n3": { "name": "Accelerating IT", "context": "Giving developers rapid, definitive policy requirements." }
+          "n3": { "name": "Finished Artifacts", "context": "Providing statute-mapped logic for rapid policy authorization." }
         }
       },
       "state": {
@@ -368,14 +368,14 @@
         "desc": "When human processes fail, the core rules must hold strong. APS architects statutory rights and operational boundaries directly into the system requirements.",
         "nodes": {
           "n1": { "name": "Architecting Rights", "context": "Embedding legal protections into the system logic." },
-          "n2": { "name": "Definitive Policy Truth", "context": "Removing interpretation from the development cycle." },
+          "n2": { "name": "Predictive Analytics", "context": "Flagging high-error cases via continuously refreshed risk models." },
           "n3": { "name": "Radiating Accessibility", "context": "Forcing usability outward from the core architecture." }
         }
       },
       "vendors": {
         "focus": "OPERATIONAL REALITY",
         "title": "Implementation & Civic Tech Partners",
-        "desc": "APS serves as the diagnostic failsafe and diplomatic shield. By navigating the bureaucratic friction and translating complex policy into strict parameters, the firm ensures external development teams receive the exact requirements needed to build systems that work.",
+        "desc": "APS serves as the diagnostic failsafe and diplomatic shield. By navigating the bureaucratic friction and translating complex policy into strict parameters, the firm ensures external development teams receive the exact requirements they need to build systems that work.",
         "nodes": {
           "n1": { "name": "Usability Enforcement", "context": "Preventing tech from complicating frontline work." },
           "n2": { "name": "Burden Reduction", "context": "Eliminating unnecessary procedural friction." },
@@ -406,7 +406,7 @@
           "title": "Requirements Architecture",
           "org": "Applied Policy Systems",
           "role": "Founder",
-          "desc": "Deployed frameworks to translate policy into deterministic rules, giving IT a definitive source of truth from day one."
+          "desc": "Deployed frameworks to translate policy into deterministic rules, giving both IT and policy teams a definitive source of truth from day one."
         },
         "m4": {
           "year": "2022",
@@ -436,7 +436,7 @@
     "defaultKeywords": "requirements architecture, policy translation, GovTech accessibility, universal throughput, PER mitigation, payment error rate, programmatic expert",
     "pages": {
       "home": {
-        "title": "Universal Throughput. Radiating Accessibility. | Applied Policy Systems",
+        "title": "Translating Policy. Architecting Access. | Applied Policy Systems",
         "description": "APS bridges the human translation gap and architects strict business rules, ensuring government tech fundamentally works for the public.",
         "keywords": "systems oversight, policy translation, GovTech accessibility, universal throughput, requirements architecture, PER mitigation"
       },
