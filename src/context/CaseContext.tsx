@@ -14,11 +14,12 @@ interface CaseContextType {
   isCaseBound: boolean;
   sessionLog: SessionEvent[];
   addEvent: (type: string, details: string, statute?: string) => void;
-  exportAuditTrail: () => void;
+  dispatchAuditTrail: (email: string) => Promise<void>;
   performIntegrityCheck: () => Promise<void>;
   integrityReport: any | null;
   isAnalyzingIntegrity: boolean;
   setIntegrityReport: (report: any | null) => void;
+  isDispatching: boolean;
 }
 
 const CaseContext = createContext<CaseContextType | undefined>(undefined);
@@ -28,6 +29,7 @@ export function CaseProvider({ children }: { children: ReactNode }) {
   const [sessionLog, setSessionLog] = useState<SessionEvent[]>([]);
   const [integrityReport, setIntegrityReport] = useState<any | null>(null);
   const [isAnalyzingIntegrity, setIsAnalyzingIntegrity] = useState(false);
+  const [isDispatching, setIsDispatching] = useState(false);
 
   const addEvent = useCallback((type: string, details: string, statute?: string) => {
     setSessionLog(prev => [...prev, {
@@ -53,9 +55,10 @@ export function CaseProvider({ children }: { children: ReactNode }) {
     }
   }, [sessionLog]);
 
-  const exportAuditTrail = useCallback(() => {
-    if (!activeCaseId) return;
+  const dispatchAuditTrail = useCallback(async (email: string) => {
+    if (!activeCaseId || !email) return;
 
+    setIsDispatching(true);
     const auditData = {
       auditId: `APS-AUDIT-${Math.random().toString(36).substring(7).toUpperCase()}`,
       exportDate: new Date().toISOString(),
@@ -64,15 +67,22 @@ export function CaseProvider({ children }: { children: ReactNode }) {
       events: sessionLog
     };
 
-    const blob = new Blob([JSON.stringify(auditData, null, 2)], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = `APS_AUDIT_${activeCaseId}_${new Date().getTime()}.json`;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    URL.revokeObjectURL(url);
+    try {
+      const response = await fetch('/api/dispatch-audit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, auditData })
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to dispatch audit log via secure channel.');
+      }
+    } catch (error) {
+      console.error("Dispatch failure:", error);
+      throw error;
+    } finally {
+      setIsDispatching(false);
+    }
   }, [activeCaseId, sessionLog]);
 
   const value = {
@@ -81,11 +91,12 @@ export function CaseProvider({ children }: { children: ReactNode }) {
     isCaseBound: activeCaseId !== null,
     sessionLog,
     addEvent,
-    exportAuditTrail,
+    dispatchAuditTrail,
     performIntegrityCheck,
     integrityReport,
     isAnalyzingIntegrity,
-    setIntegrityReport
+    setIntegrityReport,
+    isDispatching
   };
 
   return (

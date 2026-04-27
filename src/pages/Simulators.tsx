@@ -5,12 +5,16 @@ import { useTranslation } from 'react-i18next';
 import { Sandbox } from '../components/Sandbox';
 import { PolicyManual } from '../components/PolicyManual';
 import { ExtractionEngine } from '../components/ExtractionEngine';
-import { Filter } from 'lucide-react';
+import { Filter, Send, ShieldCheck, FileJson } from 'lucide-react';
 import UnderDevelopmentOverlay from '../components/UnderDevelopmentOverlay';
+import { AuditDispatchModal } from '../components/AuditDispatchModal';
+import { useCase } from '../context/CaseContext';
 
 export function Simulators() {
   const { t } = useTranslation();
+  const { activeCaseId, sessionLog } = useCase();
   const [activeFilter, setActiveFilter] = useState('all');
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const simulators = useMemo(() => [
     {
@@ -52,10 +56,36 @@ export function Simulators() {
   }, [activeFilter, simulators]);
 
   return (
-    <div className="relative min-h-screen">
+    <div className="relative min-h-screen overflow-hidden">
       <UnderDevelopmentOverlay />
       
-      <div className="bg-white dark:bg-slate-950 transition-colors duration-300 pointer-events-none select-none opacity-80 overflow-hidden">
+      {/* Floating Dispatch Button - Outside of non-interactive layer */}
+      <AnimatePresence>
+        {activeCaseId && sessionLog.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8, x: 20 }}
+            animate={{ opacity: 1, scale: 1, x: 0 }}
+            className="fixed bottom-12 right-12 z-[105]"
+          >
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className="bg-brand-navy dark:bg-white text-white dark:text-brand-navy pl-6 pr-8 py-5 rounded-[2rem] shadow-2xl flex items-center gap-4 hover:scale-105 active:scale-95 transition-all group border-b-4 border-black/20"
+            >
+              <div className="bg-brand-jade/20 p-2 rounded-full ring-2 ring-brand-jade/30">
+                <Send size={24} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+              </div>
+              <div className="text-left">
+                <span className="block text-[9px] font-black uppercase tracking-[0.3em] opacity-60 leading-none mb-1">Dispatch Audit</span>
+                <span className="block text-sm font-bold leading-none tracking-tight">SECURE DISPATCH ENGINE</span>
+              </div>
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <AuditDispatchModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      
+      <div className="bg-white dark:bg-slate-950 transition-colors duration-300 pointer-events-none select-none opacity-50 overflow-hidden">
         <Helmet>
           <title>Applied Policy Systems | {t('seo.pages.field.title')}</title>
           <meta name="description" content={t('seo.pages.field.description')} />

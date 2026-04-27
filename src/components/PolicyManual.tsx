@@ -184,11 +184,17 @@ export function PolicyManual() {
             </div>
           </div>
         ) : (
-          <div className="flex justify-center mb-8">
-            <div className="bg-brand-jade/10 border border-brand-jade/20 rounded-full px-4 py-1.5 flex items-center gap-2">
+          <div className="flex flex-col items-center mb-8">
+            <div className="bg-brand-jade/10 border border-brand-jade/20 rounded-full px-4 py-1.5 flex items-center gap-2 mb-3">
               <Lock size={12} className="text-brand-jade" />
               <span className="text-[10px] font-mono font-bold tracking-widest text-brand-jade uppercase">
                 {t('simulators.policyManual.chat.activeCase')}: {activeCaseId}
+              </span>
+            </div>
+            <div className="bg-slate-900 dark:bg-slate-800/80 border border-slate-700 dark:border-brand-jade/20 rounded-lg px-3 py-1.5 flex items-center gap-2 shadow-sm">
+              <Cpu size={10} className="text-brand-jade animate-pulse" />
+              <span className="text-[8px] font-bold tracking-[0.2em] text-slate-400 dark:text-brand-jade/60 uppercase">
+                Tier-1 Deterministic Logic Engine // Zero-Probabilistic Output
               </span>
             </div>
           </div>

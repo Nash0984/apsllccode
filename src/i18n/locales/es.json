@@ -71,13 +71,13 @@
   "home": {
     "hero": {
       "title": "Política Verificable. Acceso Sin Compromisos.",
-      "subtitle": "Eliminación de los cuellos de botella en las políticas mediante supervisión arquitectónica y una profunda experiencia en programas (SME). Los mandatos programáticos se traducen en código determinista por adelantado, manteniendo los despliegues en movimiento, prediciendo efectos secundarios y garantizando el cumplimiento federal.",
+      "subtitle": "Los despliegues tecnológicos estatales a menudo se estancan en la brecha entre las complejas reglas federales y la arquitectura del sistema. Applied Policy Systems cierra esta división. Al traducir los mandatos programáticos en lógica determinista desde el inicio, proporcionamos a los equipos de ingeniería los parámetros exactos que necesitan para mantener los despliegues en movimiento, predecir los efectos secundarios y garantizar el cumplimiento federal.",
       "cta": "Revisar Capacidades"
     },
     "challenge": {
       "label": "La Brecha de Traducción",
       "title": "Acelerando la Alineación Técnica.",
-      "text": "Los despliegues tecnológicos estatales a menudo se estancan en la brecha entre las complejas reglas federales y la arquitectura del sistema. Applied Policy Systems cierra esta división. En lugar de que TI espere meses por interpretaciones de políticas abiertas, los mandatos programáticos se traducen en lógica determinista desde el inicio. Se proporciona a los equipos de ingeniería los parámetros exactos que necesitan para forzar decisiones rápidas y en el acto de las partes interesadas en las políticas, manteniendo los despliegues en movimiento, prediciendo efectos secundarios y asegurando el cumplimiento federal.",
+      "text": "La división tradicional entre la intención de la política y la arquitectura del sistema crea fricción, lo que lleva a retrasos en los lanzamientos y a una costosa deuda técnica. Eliminamos esta brecha mediante la ingeniería de estrictas restricciones operativas directamente en los requisitos de los proveedores y en los estatutos internos de TI. Al fundamentar cada decisión arquitectónica en una clara autoridad legal, aseguramos que los nuevos sistemas apoyen a los trabajadores de primera línea sin violar el derecho administrativo.",
       "outputsLabel": "Entregables Principales",
       "outputsLead": "Los servicios arquitectónicos especializados incluyen:",
       "outputs": [
