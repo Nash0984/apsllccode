@@ -5,6 +5,11 @@ import { fileURLToPath } from "url";
 import dotenv from "dotenv";
 import { GoogleGenerativeAI, SchemaType } from "@google/generative-ai";
 import { Resend } from "resend";
+import helmet from "helmet";
+import cors from "cors";
+import compression from "compression";
+import { z } from "zod";
+import rateLimit from "express-rate-limit";
 import { VERIFICATION_RULES, PERSONA_INSTRUCTIONS, STATE_RULES_ONTOLOGY } from "./src/config/ontology.ts";
 
 // Load environment variables
@@ -12,6 +17,46 @@ dotenv.config();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
+// --- RATE LIMITING STRATEGY ---
+// Global API limiter
+const apiLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // Limit each IP to 100 requests per window
+  message: { error: "Too many requests, please try again later." },
+  standardHeaders: true,
+  legacyHeaders: false,
+});
+
+// Stricter limiter for AI generation (Gemini costs)
+const aiLimiter = rateLimit({
+  windowMs: 60 * 60 * 1000, // 1 hour
+  max: 20, // Limit each IP to 20 AI generations per hour
+  message: { error: "AI generation quota exceeded for this hour. Please try again later." },
+  standardHeaders: true,
+  legacyHeaders: false,
+});
+
+// Extreme limit for contact form and audit dispatch (Email/Spam)
+const contactLimiter = rateLimit({
+  windowMs: 24 * 60 * 60 * 1000, // 24 hours
+  max: 5, // Limit each IP to 5 contact attempts per day
+  message: { error: "Daily inquiry limit reached. Please contact us directly at info@appliedpolicysystems.com" },
+  standardHeaders: true,
+  legacyHeaders: false,
+});
+
+// Helper for HTML escaping in emails to prevent XSS
+function escapeHtml(text: string): string {
+  const map: Record<string, string> = {
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#039;",
+  };
+  return text.replace(/[&<>"']/g, (m) => map[m]);
+}
 
 // Initialize Gemini
 const genAI = process.env.GEMINI_API_KEY 
@@ -88,6 +133,50 @@ const AUDIT_ANALYSIS_SCHEMA = {
   required: ["hasConflicts", "conflicts"]
 };
 
+// Zod Schemas for Request Validation
+const EvaluateRequestSchema = z.object({
+  fileData: z.object({
+    mimeType: z.string(),
+    data: z.string(),
+  }),
+  policyId: z.string(),
+  persona: z.enum(['worker', 'client']).optional(),
+});
+
+const RouteRequestSchema = z.object({
+  userMessage: z.string(),
+  availableNodes: z.string().optional(),
+});
+
+const ExtractLogicRequestSchema = z.object({
+  statutoryText: z.string(),
+});
+
+const AnalyzeAuditRequestSchema = z.object({
+  log: z.array(z.any()),
+});
+
+const ChatDetailedRequestSchema = z.object({
+  message: z.string(),
+  history: z.array(z.any()).optional(),
+});
+
+const ContactRequestSchema = z.object({
+  name: z.string().min(1, "Name is required"),
+  email: z.string().email("Invalid email format"),
+  organization: z.string().min(1, "Organization is required"),
+  message: z.string().min(1, "Message is required"),
+});
+
+const DispatchAuditRequestSchema = z.object({
+  email: z.string().email("Invalid email format"),
+  auditData: z.object({
+    caseId: z.string(),
+    caseTitle: z.string().optional(),
+    events: z.array(z.any()).optional(),
+  }).passthrough(),
+});
+
 // Initialize Resend
 const resend = process.env.RESEND_API_KEY 
   ? new Resend(process.env.RESEND_API_KEY) 
@@ -97,8 +186,22 @@ async function startServer() {
   const app = express();
   const PORT = 3000;
 
+  // Trust proxy for rate limiting (important for Cloud Run/Nginx)
+  app.set('trust proxy', 1);
+
+  // --- SECURITY MIDDLEWARE ---
+  app.use(helmet({
+    contentSecurityPolicy: false, // Disabled for development compatibility in iframe
+    crossOriginEmbedderPolicy: false,
+  }));
+  app.use(cors());
+  app.use(compression());
+
   // JSON Body parsing with increased limit for document uploads
   app.use(express.json({ limit: '10mb' }));
+
+  // Apply global API limiter
+  app.use("/api", apiLimiter);
 
   // API routes FIRST
   app.get("/api/health", (req, res) => {
@@ -107,9 +210,13 @@ async function startServer() {
 
   // --- AI BACKEND PROXIES ---
 
-  app.post("/api/ai/evaluate", async (req, res) => {
+  app.post("/api/ai/evaluate", aiLimiter, async (req, res) => {
     if (!genAI) return res.status(503).json({ error: "AI service not configured" });
-    const { fileData, policyId, persona = 'worker' } = req.body;
+    
+    const validated = EvaluateRequestSchema.safeParse(req.body);
+    if (!validated.success) return res.status(400).json({ error: validated.error.format() });
+    
+    const { fileData, policyId, persona = 'worker' } = validated.data;
     
     let systemInstructionOverride = BASE_SYSTEM_INSTRUCTION;
     if (VERIFICATION_RULES[policyId]) {
@@ -146,9 +253,13 @@ async function startServer() {
     }
   });
 
-  app.post("/api/ai/route", async (req, res) => {
+  app.post("/api/ai/route", aiLimiter, async (req, res) => {
     if (!genAI) return res.status(503).json({ error: "AI service not configured" });
-    const { userMessage, availableNodes } = req.body;
+    
+    const validated = RouteRequestSchema.safeParse(req.body);
+    if (!validated.success) return res.status(400).json({ error: validated.error.format() });
+
+    const { userMessage, availableNodes } = validated.data;
     const nodes = availableNodes || Object.keys(STATE_RULES_ONTOLOGY).join(", ");
 
     const routingPrompt = `
@@ -183,9 +294,13 @@ async function startServer() {
     }
   });
 
-  app.post("/api/ai/extract-logic", async (req, res) => {
+  app.post("/api/ai/extract-logic", aiLimiter, async (req, res) => {
     if (!genAI) return res.status(503).json({ error: "AI service not configured" });
-    const { statutoryText } = req.body;
+    
+    const validated = ExtractLogicRequestSchema.safeParse(req.body);
+    if (!validated.success) return res.status(400).json({ error: validated.error.format() });
+
+    const { statutoryText } = validated.data;
     
     const prompt = `
       [SYSTEM: FORMAL LOGIC EXTRACTION ENGINE]
@@ -219,9 +334,13 @@ async function startServer() {
     }
   });
 
-  app.post("/api/ai/analyze-audit", async (req, res) => {
+  app.post("/api/ai/analyze-audit", aiLimiter, async (req, res) => {
     if (!genAI) return res.status(503).json({ error: "AI service not configured" });
-    const { log } = req.body;
+    
+    const validated = AnalyzeAuditRequestSchema.safeParse(req.body);
+    if (!validated.success) return res.status(400).json({ error: validated.error.format() });
+
+    const { log } = validated.data;
     
     const prompt = `
       [SYSTEM: FORENSIC AUDIT ANALYZER]
@@ -259,9 +378,13 @@ async function startServer() {
     }
   });
 
-  app.post("/api/ai/chat-detailed", async (req, res) => {
+  app.post("/api/ai/chat-detailed", aiLimiter, async (req, res) => {
     if (!genAI) return res.status(503).json({ error: "AI service not configured" });
-    const { message, history } = req.body;
+    
+    const validated = ChatDetailedRequestSchema.safeParse(req.body);
+    if (!validated.success) return res.status(400).json({ error: validated.error.format() });
+
+    const { message, history } = validated.data;
 
     try {
       const model = genAI.getGenerativeModel({ 
@@ -282,15 +405,17 @@ async function startServer() {
   });
 
   // API route for contact form
-  app.post("/api/contact", async (req, res) => {
-    const { name, email, organization, message } = req.body;
-    
-    if (!name || !email || !organization || !message) {
+  app.post("/api/contact", contactLimiter, async (req, res) => {
+    const validated = ContactRequestSchema.safeParse(req.body);
+    if (!validated.success) {
       return res.status(400).json({ 
         success: false, 
-        message: "All fields are required" 
+        message: "Invalid input",
+        errors: validated.error.format()
       });
     }
+
+    const { name, email, organization, message } = validated.data;
 
     console.log("--- New Contact Inquiry ---");
     console.log(`Name: ${name}`);
@@ -306,11 +431,11 @@ async function startServer() {
           subject: `New Inquiry: ${organization} - ${name}`,
           html: `
             <h2>New Contact Form Submission</h2>
-            <p><strong>Name:</strong> ${name}</p>
-            <p><strong>Email:</strong> ${email}</p>
-            <p><strong>Organization:</strong> ${organization}</p>
+            <p><strong>Name:</strong> ${escapeHtml(name)}</p>
+            <p><strong>Email:</strong> ${escapeHtml(email)}</p>
+            <p><strong>Organization:</strong> ${escapeHtml(organization)}</p>
             <p><strong>Message:</strong></p>
-            <p>${message}</p>
+            <p style="white-space: pre-wrap;">${escapeHtml(message)}</p>
             <hr />
             <p>Sent from Applied Policy Systems Contact Form</p>
           `
@@ -330,12 +455,13 @@ async function startServer() {
   });
 
   // NEW: Immutable Dispatch Engine - Audit Log Delivery
-  app.post("/api/dispatch-audit", express.json({ limit: '10mb' }), async (req, res) => {
-    const { email, auditData } = req.body;
-
-    if (!email || !auditData) {
-      return res.status(400).json({ success: false, error: "Email and audit data are required" });
+  app.post("/api/dispatch-audit", contactLimiter, async (req, res) => {
+    const validated = DispatchAuditRequestSchema.safeParse(req.body);
+    if (!validated.success) {
+      return res.status(400).json({ success: false, error: validated.error.format() });
     }
+
+    const { email, auditData } = validated.data;
 
     if (!resend) {
       return res.status(503).json({ success: false, error: "Email service not configured on server" });
@@ -353,7 +479,7 @@ async function startServer() {
         html: `
           <div style="font-family: sans-serif; line-height: 1.5; color: #334155;">
             <h2 style="color: #004d40; border-bottom: 2px solid #004d40; padding-bottom: 10px;">Architectural Audit Dispatch</h2>
-            <p>Attached is the <strong>Immutable Audit Log</strong> for Case ID: <code style="background: #f1f5f9; padding: 2px 4px; rounded: 4px;">${auditData.caseId}</code>.</p>
+            <p>Attached is the <strong>Immutable Audit Log</strong> for Case ID: <code style="background: #f1f5f9; padding: 2px 4px; rounded: 4px;">${escapeHtml(auditData.caseId)}</code>.</p>
             <p>This document serves as a deterministic record of all programmatic determinations and policy queries executed during the session. It is mathematically verified against the active statutory ontology.</p>
             <div style="background: #f8fafc; border-radius: 8px; padding: 15px; margin: 20px 0; border: 1px solid #e2e8f0;">
               <h4 style="margin-top: 0; color: #0f172a;">Session Metadata:</h4>
@@ -386,7 +512,7 @@ async function startServer() {
   });
 
   // REAL CHAT ROUTE WITH GEMINI AND EMAIL LOGGING
-  app.post("/api/chat", express.json(), async (req, res) => {
+  app.post("/api/chat", aiLimiter, express.json(), async (req, res) => {
     const { message, history } = req.body;
     
     if (!genAI) {

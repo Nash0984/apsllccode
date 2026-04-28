@@ -14,11 +14,11 @@
     },
     "about": {
       "label": "About",
-      "description": "Review how APS brings programmatic policy expertise to the IT table, enforcing accessibility through strict systems-level architecture."
+      "description": "Learn how APS brings programmatic policy expertise to the IT table, ensuring accessibility through strategic systems-layer architecture."
     },
     "contact": {
       "label": "Contact",
-      "description": "Initiate a dialogue regarding Requirements Architecture, Payment Error Rate (PER) defense, or architecting statutory logic."
+      "description": "Start a conversation regarding Requirements Architecture, Payment Error Rate (PER) mitigation, or statutory logic alignment."
     }
   },
   "nav": {
@@ -29,7 +29,7 @@
     "about": "About",
     "contact": "Contact",
     "getInTouch": "Contact",
-    "scheduleSession": "Schedule a Session",
+    "scheduleSession": "Connect with an Architect",
     "skipToContent": "Skip to Content",
     "openMenu": "Open Menu",
     "closeMenu": "Close Menu"
@@ -71,26 +71,26 @@
   "home": {
     "hero": {
       "title": "Translating Policy. Architecting Access.",
-      "subtitle": "Government systems stall when complex policy, technical execution, and frontline reality fail to align. APS serves as the objective translation layer bridging these silos. By providing strict architectural oversight and definitive requirements, the firm enables agencies to unblock tech deployments, mitigate federal audit risk, and ensure infrastructure actually serves the public.",
+      "subtitle": "Government systems often encounter challenges when complex policy, technical execution, and frontline reality are not fully aligned. APS serve as a strategic translation layer bridging these gaps. By providing architectural oversight and clear requirements, the firm enables agencies to advance tech deployments, manage audit risk, and ensure infrastructure effectively serves the public.",
       "cta": "Review Capabilities"
     },
     "challenge": {
-      "label": "The Translation Gap",
+      "label": "The Alignment Challenge",
       "title": "Bridging Policy and Technical Execution.",
-      "text": "When deployments fail, it is rarely due to bad code. The failure occurs in the human translation layer, where bureaucracy and jargon starve IT of clear requirements. APS eliminates this friction. Operating as a programmatic Subject Matter Expert (SME), the firm delivers independent verification of statutory logic and the strategic blueprints developers need to actually build the system.",
+      "text": "When deployments struggle, the challenge often lies in the translation layer, where complex policy needs must be converted into clear technical requirements. APS helps mitigate this friction. Operating as a programmatic Subject Matter Expert (SME), the firm delivers independent verification of logic and the strategic blueprints teams need to build effective systems.",
       "outputsLabel": "Core Interventions",
-      "outputsLead": "Specialized architectural services include:",
+      "outputsLead": "Strategic architectural services include:",
       "outputs": [
         "Independent Verification & System Audits",
-        "Programmatic Subject Matter Expertise (SME)",
+        "Programmatic Subject Matter Expertise",
         "Requirements Architecture & Policy Translation",
-        "Predictive Analytics & PER Mitigation"
+        "Strategic Analytics & PER Mitigation"
       ]
     },
     "infrastructure": {
-      "label": "Holistic Oversight",
+      "label": "Strategic Oversight",
       "title": "Systems-Layer Accessibility.",
-      "text": "Human change management is fragile. APS architects the exact business rules upfront, giving developers a flawless blueprint to ensure the final system fundamentally protects statutory rights and streamlines frontline operations.",
+      "text": "Human processes are complex. APS identifies business rules upfront, providing a clear blueprint to ensure the final system supports statutory rights and streamlines frontline operations.",
       "cta": "Core Capabilities"
     },
     "sandbox": {
@@ -354,35 +354,35 @@
   },
   "about": {
     "hero": {
-      "label": "The Origin Story",
-      "title": "We don't just know the code. We lived the policy.",
-      "subtitle": "Applied Policy Systems was founded to bridge the catastrophic translation gap between State Policy Directors and Prime IT Vendors."
+      "label": "Our Foundation",
+      "title": "We don’t just understand the code. We’ve lived the policy.",
+      "subtitle": "Applied Policy Systems was founded to bridge the critical translation gap between Policy Leadership and Technical Implementation."
     },
     "founder": {
-      "title": "The Bilingual Architect",
-      "intro": "In the GovTech sector, system failures rarely stem from bad code. They stem from bad translation.",
-      "p1": "Standard IT developers do not speak the language of federal statutes, and state policy experts do not speak the language of deterministic state machines. APS was born out of the frontline reality of public benefits administration. Starting in the trenches of Quality Control (QC) and Payment Error Rate (PER) mitigation, we saw firsthand how multi-million dollar IT modernizations routinely failed to capture the nuances of SNAP and Medicaid policy.",
-      "p2": "When the technology misunderstands the law, the human caseworker takes the blame, and the state absorbs the financial liability. We realized the industry didn't need another software vendor. It needed a bilingual translation layer. It needed Policy-Native Systems Architecture."
+      "title": "Bridging Policy and Technology",
+      "intro": "In the GovTech sector, system challenges rarely stem from bad code. They stem from a misalignment of objectives.",
+      "p1": "Standard IT development often doesn't capture the nuance of federal statutes, and state policy experts may find it difficult to translate their needs into technical requirements. APS was born from a direct understanding of these challenges. Having worked across the full spectrum of operations—from frontline eligibility determinations to high-level Quality Control (QC) and Payment Error Rate (PER) defense—we saw how even large-scale IT modernizations can struggle to fully reflect complex policy needs.",
+      "p2": "When technology and policy are unaligned, frontline caseworkers face greater burdens and agencies manage increased fiscal risk. We realized the industry didn't need just another software vendor; it needed a strategic partner capable of providing Policy-Native Systems Architecture."
     },
     "philosophy": {
-      "label": "Core Tenets",
-      "title": "Our Architectural Principles",
-      "desc": "Every system we architect is bound by three uncompromising rules.",
+      "label": "Core Principles",
+      "title": "Our Approach to Architecture",
+      "desc": "Every system we architect is guided by three fundamental principles.",
       "pillars": [
         {
           "id": "grounding",
-          "title": "Statutory Grounding",
-          "desc": "Software must obey the law. We do not tolerate 'black box' AI or probabilistic guesses in eligibility determinations. Every system must be bound to mathematically provable logic."
+          "title": "Statutory Alignment",
+          "desc": "Software must faithfully reflect the law. We move beyond 'black box' solutions in favor of deterministic logic that provides clear, mathematically provable outcomes."
         },
         {
           "id": "frontline",
-          "title": "Frontline Protection",
-          "desc": "Technology should absorb administrative burden, not create it. We architect systems that mathematically protect the caseworker's judgment rather than second-guessing it."
+          "title": "Supporting the Frontline",
+          "desc": "Technology should serve as a tool to reduce administrative burden. We architect systems that support and validate a caseworker's informed judgment."
         },
         {
           "id": "audit",
-          "title": "Audit Survivability",
-          "desc": "Being right is only half the equation; you must be able to prove it. Our blueprints guarantee the generation of an immutable, step-by-step audit trail to survive federal QC reviews."
+          "title": "Strategic Accountability",
+          "desc": "Ensuring accuracy is only part of the solution; you must also be able to demonstrate it. Our blueprints provide a transparent record of how decisions are reached, simplifying the audit process."
         }
       ]
     },
@@ -390,24 +390,24 @@
       "stats": {
         "citizen": {
           "value": "10M+",
-          "label": "Residents Impacted",
-          "desc": "Ensuring structural access across multi-state populations."
+          "label": "Impactful Reach",
+          "desc": "Advancing structural access for populations across multiple states."
         },
         "funding": {
           "value": "$2B+",
-          "label": "Fiscal Risk Mitigated",
-          "desc": "Defending state infrastructure through verified business rules."
+          "label": "Risk Managed",
+          "desc": "Protecting state infrastructure through verified business logic."
         },
         "execution": {
           "value": "15+",
-          "label": "Systems Remediated",
-          "desc": "Bridging the translation gap between policy and tech."
+          "label": "Systems Optimized",
+          "desc": "Successfully bridging the gap between policy and technology."
         }
       }
     },
     "journey": {
-      "label": "Strategic Evolution",
-      "title": "Career Path Toward Systems Oversight",
+      "label": "Professional Path",
+      "title": "A Legacy of Strategic Oversight",
       "milestones": {
         "m1": {
           "year": "2013 - 2015",
@@ -496,33 +496,33 @@
   },
   "contact": {
     "hero": {
-      "title": "Technical Intake & Architecture",
-      "subtitle": "Initiate a dialogue regarding Requirements Architecture, Payment Error Rate (PER) defense, or architecting statutory logic."
+      "title": "Connect with an Architect",
+      "subtitle": "Reach out to discuss Requirements Architecture, PER mitigation strategies, or aligning your tech with statutory requirements."
     },
     "form": {
       "name": "Full Name",
-      "email": "Official Routing Address",
+      "email": "Email Address",
       "organization": "Agency / Organization",
       "inquiryType": {
-        "label": "Nature of Inquiry",
+        "label": "Topic of Inquiry",
         "options": {
-          "systems": "Requirements Architecture & Logic",
-          "policy": "Policy Expertise & Translation",
-          "general": "PER Mitigation & Audit Defense"
+          "systems": "Architecture & Logic Alignment",
+          "policy": "Policy Strategy & Translation",
+          "general": "PER Mitigation & Risk Advisory"
         }
       },
-      "message": "Technical Context or Operational Request",
-      "submit": "Transmit Inquiry",
-      "success": "Transmission verified. An architect will review your request.",
-      "error": "Transmission failed. Please verify network connection and retry."
+      "message": "Project Details or Operational Goals",
+      "submit": "Send Inquiry",
+      "success": "Inquiry sent successfully. Our team will review and respond shortly.",
+      "error": "Submission failed. Please check your connection and try again."
     },
     "info": {
-      "title": "Secure Routing",
-      "email": "Dispatch",
+      "title": "Direct Contact",
+      "email": "Email",
       "location": "Location",
       "address": "Philadelphia, PA",
-      "hours": "Operational Window",
-      "hoursText": "Monday – Friday, 0900 – 1700 EST"
+      "hours": "Business Hours",
+      "hoursText": "Monday – Friday, 9:00 AM – 5:00 PM EST"
     }
   },
   "footer": {
@@ -535,15 +535,15 @@
     "backToHome": "Return to Root",
     "tips": {
       "privacy": "Data Governance",
-      "terms": "Legal Framework",
-      "contact": "Initiate Transmission"
+      "terms": "Operational Parameters",
+      "contact": "Connect with us"
     },
     "labels": {
-      "privacy": "Review Privacy Architecture",
-      "terms": "Review Operational Parameters",
-      "contact": "Initiate Technical Intake"
+      "privacy": "Review Privacy Policy",
+      "terms": "View Terms of Use",
+      "contact": "Contact our team"
     },
-    "copyright": "© 2026 APS. Translation & Logic."
+    "copyright": "© 2026 Applied Policy Systems. Strategic Alignment."
   },
   "notfound": {
     "title": "404 - Endpoint Unreachable",

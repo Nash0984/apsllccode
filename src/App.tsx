@@ -3,14 +3,14 @@ import { BrowserRouter, Routes, Route, useLocation, useParams, Navigate } from '
 import { Layout } from './components/Layout';
 
 // Core Pages
-const Home = lazy(() => import('./pages/Home').then(m => ({ default: m.Home })));
-const About = lazy(() => import('./pages/About').then(m => ({ default: m.About })));
-const Contact = lazy(() => import('./pages/Contact').then(m => ({ default: m.Contact })));
-const Capabilities = lazy(() => import('./pages/Capabilities').then(m => ({ default: m.Capabilities })));
-const Research = lazy(() => import('./pages/ResearchPage.tsx').then(m => ({ default: m.Research })));
-const Simulators = lazy(() => import('./pages/Simulators').then(m => ({ default: m.Simulators })));
-const Privacy = lazy(() => import('./pages/Privacy').then(m => ({ default: m.Privacy })));
-const Terms = lazy(() => import('./pages/Terms').then(m => ({ default: m.Terms })));
+const Home = lazy(() => import('./pages/Home'));
+const About = lazy(() => import('./pages/About'));
+const Contact = lazy(() => import('./pages/Contact'));
+const Capabilities = lazy(() => import('./pages/Capabilities'));
+const Research = lazy(() => import('./pages/ResearchPage'));
+const Simulators = lazy(() => import('./pages/Simulators'));
+const Privacy = lazy(() => import('./pages/Privacy'));
+const Terms = lazy(() => import('./pages/Terms'));
 
 // Dynamic Capability Loader
 const CapabilityMap: Record<string, React.LazyExoticComponent<any>> = {
@@ -37,7 +37,7 @@ const prefetchMap: Record<string, () => Promise<any>> = {
   '/about': () => import('./pages/About'),
   '/contact': () => import('./pages/Contact'),
   '/capabilities': () => import('./pages/Capabilities'),
-  '/research': () => import('./pages/ResearchPage.tsx'),
+  '/research': () => import('./pages/ResearchPage'),
   '/prototypes': () => import('./pages/Simulators'),
 };
 

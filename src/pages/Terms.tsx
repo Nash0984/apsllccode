@@ -2,7 +2,7 @@ import { Helmet } from 'react-helmet-async';
 import { motion } from 'motion/react';
 import { useTranslation } from 'react-i18next';
 
-export function Terms() {
+export default function Terms() {
   const { t } = useTranslation();
 
   return (

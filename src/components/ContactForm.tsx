@@ -1,171 +1,242 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { AnimatePresence } from 'motion/react';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 import { useTranslation } from 'react-i18next';
-import { Send, Bot, User, Loader2, ChevronRight } from 'lucide-react';
+import { Send, CheckCircle, AlertCircle, Building2, User, Mail, MessageSquare, ChevronRight, Loader } from 'lucide-react';
 import { trackInteraction } from '../services/analytics';
-import { TypingIndicator, ChatBubble } from './ui/ChatElements';
-import UnderDevelopmentOverlay from './UnderDevelopmentOverlay';
 
 export function ContactForm() {
   const { t } = useTranslation();
-  const [input, setInput] = useState('');
-  const [hasInteracted, setHasInteracted] = useState(false);
-  const [messages, setMessages] = useState<{ role: 'user' | 'model', content: string }[]>([
-    { 
-      role: 'model', 
-      content: "Hello! I am the Applied Policy Systems Client Intake Assistant. To help me route your inquiry accurately, please select a topic below or type your specific request." 
-    }
-  ]);
-  const [isProcessing, setIsProcessing] = useState(false);
-  const chatScrollRef = useRef<HTMLDivElement>(null);
+  const [formData, setFormData] = useState({
+    name: '',
+    organization: '',
+    email: '',
+    topic: 'General Inquiry',
+    message: ''
+  });
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
 
-  // Pre-defined intake routes acting as guided form inputs
-  const intakeRoutes = [
-    "Schedule an Architectural Consultation",
-    "Request IV&V Services",
-    "Explore Modernization Integration",
-    "General Inquiry"
+  const topics = [
+    "General Inquiry",
+    "Architectural Consultation",
+    "IV&V Services",
+    "Modernization Strategy",
+    "Statutory Logic Extraction"
   ];
 
-  useEffect(() => {
-    if (chatScrollRef.current) {
-      chatScrollRef.current.scrollTo({ top: chatScrollRef.current.scrollHeight, behavior: 'smooth' });
-    }
-  }, [messages, isProcessing, hasInteracted]);
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
 
-  const processSubmit = async (textToSubmit: string) => {
-    if (!textToSubmit.trim() || isProcessing) return;
-    
-    setHasInteracted(true);
-    setInput('');
-    setMessages(prev => [...prev, { role: 'user', content: textToSubmit }]);
-    setIsProcessing(true);
-    
-    trackInteraction('ContactIntake', 'Message Sent');
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (status === 'submitting') return;
+
+    setStatus('submitting');
+    trackInteraction('ContactForm', 'Submission Started');
 
     try {
-      const response = await fetch('/api/chat', {
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ 
-          message: textToSubmit,
-          history: messages.map(m => ({
-            role: m.role,
-            parts: [{ text: m.content }]
-          }))
+        body: JSON.stringify({
+          ...formData,
+          // Merge topic into message for the backend if needed, 
+          // but our backend ContactRequestSchema expects exactly these fields
+          // name, email, organization, message
+          message: `[Topic: ${formData.topic}]\n\n${formData.message}`
         })
       });
 
-      if (!response.ok) throw new Error("Backend connection failed");
-      
       const data = await response.json();
-      const aiResponse = data.reply || data.text || data.message || data.response || "Inquiry logged. The transcript has been routed to the team.";
-      
-      setMessages(prev => [...prev, { role: 'model', content: aiResponse }]);
+
+      if (!response.ok) throw new Error(data.message || "Failed to submit inquiry");
+
+      setStatus('success');
+      trackInteraction('ContactForm', 'Submission Successful');
+      setFormData({ name: '', organization: '', email: '', topic: 'General Inquiry', message: '' });
       
     } catch (error) {
-      console.error("[APS-INTAKE-ERROR]", error);
-      setMessages(prev => [...prev, { 
-        role: 'model', 
-        content: "I apologize, but the secure backend is currently unreachable. Please utilize the direct email channel to reach the team." 
-      }]);
-    } finally {
-      setIsProcessing(false);
+      console.error("[CONTACT-SUBMIT-ERROR]", error);
+      setStatus('error');
+      setErrorMessage(error instanceof Error ? error.message : "Service temporarily unavailable.");
+      trackInteraction('ContactForm', 'Submission Failed');
     }
   };
 
-  const handleSubmit = () => {
-    processSubmit(input);
-  };
+  if (status === 'success') {
+    return (
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        className="flex flex-col items-center justify-center py-16 px-8 text-center"
+      >
+        <div className="w-20 h-20 bg-brand-jade/10 rounded-full flex items-center justify-center mb-6">
+          <CheckCircle size={40} className="text-brand-jade" />
+        </div>
+        <h3 className="text-2xl font-black text-slate-900 dark:text-white mb-3">{t('contact.form.success').split('.')[0]}</h3>
+        <p className="text-slate-600 dark:text-slate-400 max-w-sm mx-auto mb-8">
+          {t('contact.form.success')}
+        </p>
+        <button 
+          onClick={() => setStatus('idle')}
+          className="flex items-center gap-2 text-brand-jade font-bold text-sm hover:underline"
+        >
+          Send another message <ChevronRight size={16} />
+        </button>
+      </motion.div>
+    );
+  }
 
   return (
-    <div className="relative group">
-      <div className="absolute inset-0 z-50 pointer-events-none overflow-hidden rounded-2xl">
-        <UnderDevelopmentOverlay />
-      </div>
-      
-      <div className="flex flex-col h-[550px] w-full rounded-2xl overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 font-sans opacity-50 select-none pointer-events-none">
-        
-        {/* Widget-Aligned Header */}
-        <div className="bg-brand-jade text-white p-4 flex items-center justify-between shrink-0">
-          <div className="flex items-center gap-3">
-            <Bot size={22} className="text-white" />
-            <div>
-              <h3 className="text-sm font-bold tracking-wide">APS Intake Assistant</h3>
-              <p className="text-[11px] text-white/80 font-medium tracking-wider">Client Services</p>
+    <form onSubmit={handleSubmit} className="p-6 sm:p-10 space-y-8 font-sans">
+      <div className="space-y-6">
+        {/* Name & Org Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="space-y-2">
+            <label htmlFor="name" className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500 ml-1">
+              {t('contact.form.name')}
+            </label>
+            <div className="relative group">
+              <div className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-brand-jade transition-colors">
+                <User size={18} />
+              </div>
+              <input
+                required
+                id="name"
+                name="name"
+                type="text"
+                value={formData.name}
+                onChange={handleChange}
+                placeholder="Full Name"
+                className="w-full bg-slate-50 dark:bg-[#0a1017] border border-slate-200 dark:border-slate-800/50 rounded-xl py-3.5 pl-12 pr-4 text-slate-900 dark:text-white text-sm focus:outline-none focus:border-brand-jade/50 focus:ring-1 focus:ring-brand-jade/50 transition-all placeholder:text-slate-300 dark:placeholder:text-slate-700"
+              />
             </div>
           </div>
-          <div className="flex items-center gap-1.5 px-2.5 py-1 bg-white/10 rounded-full">
-            <div className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></div>
-            <span className="text-[10px] font-bold tracking-wider text-white uppercase">Online</span>
+
+          <div className="space-y-2">
+            <label htmlFor="organization" className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500 ml-1">
+              {t('contact.form.organization')}
+            </label>
+            <div className="relative group">
+              <div className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-brand-jade transition-colors">
+                <Building2 size={18} />
+              </div>
+              <input
+                required
+                id="organization"
+                name="organization"
+                type="text"
+                value={formData.organization}
+                onChange={handleChange}
+                placeholder="Agency or Organization"
+                className="w-full bg-slate-50 dark:bg-[#0a1017] border border-slate-200 dark:border-slate-800/50 rounded-xl py-3.5 pl-12 pr-4 text-slate-900 dark:text-white text-sm focus:outline-none focus:border-brand-jade/50 focus:ring-1 focus:ring-brand-jade/50 transition-all placeholder:text-slate-300 dark:placeholder:text-slate-700"
+              />
+            </div>
           </div>
         </div>
 
-        {/* Chat History & Guided Inputs */}
-        <div ref={chatScrollRef} className="flex-1 overflow-y-auto p-5 space-y-6 bg-slate-50 dark:bg-slate-900/50">
-          <AnimatePresence mode="popLayout">
-            {messages.map((msg, idx) => (
-              <div key={idx} className="space-y-3">
-                <ChatBubble
-                  role={msg.role === 'model' ? 'assistant' : 'user'}
-                  content={msg.content}
-                  avatar={msg.role === 'user' ? <User size={14} /> : <Bot size={16} />}
-                />
-
-                {/* Render Guided Routing Pills ONLY after the first bot message, if user hasn't interacted */}
-                {idx === 0 && !hasInteracted && !isProcessing && (
-                  <div className="flex flex-col gap-2 pl-11 pr-4 animate-in fade-in slide-in-from-bottom-2 duration-500 delay-300 fill-mode-both">
-                    {intakeRoutes.map((route, i) => (
-                      <button
-                        key={i}
-                        onClick={() => processSubmit(route)}
-                        className="flex items-center justify-between w-fit max-w-full text-left px-4 py-2.5 rounded-xl border border-brand-jade/30 bg-brand-jade/5 hover:bg-brand-jade/10 text-brand-jade dark:text-teal-400 text-xs sm:text-sm font-medium transition-all group"
-                      >
-                        <span className="truncate pr-4">{route}</span>
-                        <ChevronRight size={14} className="shrink-0 opacity-50 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all" />
-                      </button>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ))}
-          </AnimatePresence>
-
-          {isProcessing && (
-            <div className="flex items-end gap-3">
-              <div className="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center shrink-0 shadow-sm">
-                <Bot size={16} className="text-brand-jade" />
-              </div>
-              <div className="bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 px-5 py-4 rounded-2xl rounded-bl-sm shadow-sm flex items-center gap-3">
-                <TypingIndicator size={16} />
-                <span className="text-xs text-slate-500 font-medium ml-2">Processing...</span>
-              </div>
+        {/* Email */}
+        <div className="space-y-2">
+          <label htmlFor="email" className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500 ml-1">
+            {t('contact.form.email')}
+          </label>
+          <div className="relative group">
+            <div className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-brand-jade transition-colors">
+              <Mail size={18} />
             </div>
+            <input
+              required
+              id="email"
+              name="email"
+              type="email"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="name@agency.gov"
+              className="w-full bg-slate-50 dark:bg-[#0a1017] border border-slate-200 dark:border-slate-800/50 rounded-xl py-3.5 pl-12 pr-4 text-slate-900 dark:text-white text-sm focus:outline-none focus:border-brand-jade/50 focus:ring-1 focus:ring-brand-jade/50 transition-all placeholder:text-slate-300 dark:placeholder:text-slate-700"
+            />
+          </div>
+        </div>
+
+        {/* Topic Selection */}
+        <div className="space-y-2">
+          <label htmlFor="topic" className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500 ml-1">
+            {t('contact.form.inquiryType.label')}
+          </label>
+          <select
+            id="topic"
+            name="topic"
+            value={formData.topic}
+            onChange={handleChange}
+            className="w-full bg-slate-50 dark:bg-[#0a1017] border border-slate-200 dark:border-slate-800/50 rounded-xl py-3.5 px-4 text-slate-900 dark:text-white text-sm focus:outline-none focus:border-brand-jade/50 focus:ring-1 focus:ring-brand-jade/50 transition-all appearance-none cursor-pointer"
+          >
+            <option value="General Inquiry">General Inquiry</option>
+            <option value="Architectural Consultation">Architectural Consultation</option>
+            <option value="IV&V Services">IV&V Services</option>
+            <option value="Modernization Strategy">Modernization Strategy</option>
+            <option value="Statutory Logic Extraction">Statutory Logic Extraction</option>
+          </select>
+        </div>
+
+        {/* Message */}
+        <div className="space-y-2">
+          <label htmlFor="message" className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500 ml-1">
+            {t('contact.form.message')}
+          </label>
+          <div className="relative group">
+            <div className="absolute left-4 top-5 text-slate-400 group-focus-within:text-brand-jade transition-colors">
+              <MessageSquare size={18} />
+            </div>
+            <textarea
+              required
+              id="message"
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+              rows={4}
+              placeholder="Please provide details regarding your inquiry..."
+              className="w-full bg-slate-50 dark:bg-[#0a1017] border border-slate-200 dark:border-slate-800/50 rounded-xl py-4 pl-12 pr-4 text-slate-900 dark:text-white text-sm focus:outline-none focus:border-brand-jade/50 focus:ring-1 focus:ring-brand-jade/50 transition-all placeholder:text-slate-300 dark:placeholder:text-slate-700 resize-none"
+            />
+          </div>
+        </div>
+      </div>
+
+      {status === 'error' && (
+        <motion.div 
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="flex items-center gap-3 p-4 bg-red-50 dark:bg-red-900/10 border border-red-200 dark:border-red-900/30 rounded-xl text-red-600 dark:text-red-400 text-xs font-bold"
+        >
+          <AlertCircle size={16} />
+          <span>{errorMessage}</span>
+        </motion.div>
+      )}
+
+      <button
+        type="submit"
+        disabled={status === 'submitting'}
+        className="relative w-full group overflow-hidden py-4 bg-brand-jade text-white rounded-xl font-bold transition-all hover:bg-[#005a62] disabled:opacity-70 disabled:cursor-not-allowed shadow-lg shadow-brand-jade/10 active:scale-[0.98]"
+      >
+        <div className="relative z-10 flex items-center justify-center gap-3">
+          {status === 'submitting' ? (
+            <>
+              <Loader size={20} className="animate-spin" />
+              <span>SENDING INQUIRY...</span>
+            </>
+          ) : (
+            <>
+              <Send size={18} />
+              <span>{t('contact.form.submit').toUpperCase()}</span>
+            </>
           )}
         </div>
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-[100%] group-hover:translate-x-[100%] transition-transform duration-700 pointer-events-none" />
+      </button>
 
-        {/* Widget-Aligned Input Field */}
-        <div className="p-4 border-t border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-950 shrink-0">
-          <div className="relative flex items-center">
-            <input
-              type="text"
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              onKeyDown={(e) => { if (e.key === 'Enter') handleSubmit(); }}
-              placeholder={!hasInteracted ? "Or type your inquiry here..." : "Type a message..."}
-              disabled={isProcessing}
-              className="w-full bg-slate-100 dark:bg-slate-900 border border-transparent rounded-full py-3.5 pl-5 pr-14 text-slate-900 dark:text-slate-200 text-sm focus:outline-none focus:border-brand-jade/30 focus:ring-1 focus:ring-brand-jade/30 transition-all placeholder:text-slate-400 disabled:opacity-50"
-            />
-            <button 
-              onClick={handleSubmit} 
-              disabled={!input.trim() || isProcessing}
-              className="absolute right-1.5 w-9 h-9 rounded-full bg-brand-jade text-white flex items-center justify-center hover:bg-[#005a62] disabled:opacity-50 transition-all shadow-sm"
-            >
-              <Send size={15} className="ml-0.5" />
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
+      <p className="text-[10px] text-center text-slate-400 dark:text-slate-600 font-medium">
+        By submitting, you agree to our data handling and security protocols.
+      </p>
+    </form>
   );
 }

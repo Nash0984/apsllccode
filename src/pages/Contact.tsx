@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Mail, MapPin, Linkedin, ShieldCheck, ArrowRight } from 'lucide-react';
 import { ContactForm } from '../components/ContactForm';
 
-export function Contact() {
+export default function Contact() {
   const { t } = useTranslation();
 
   return (
@@ -28,7 +28,7 @@ export function Contact() {
         <div className="lg:col-span-5 space-y-8">
           <div>
             <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-6">
-              Direct Channels
+              Connect Directly
             </h3>
             
             <div className="space-y-4">
@@ -38,7 +38,7 @@ export function Contact() {
                   <Mail size={20} className="text-slate-500 dark:text-slate-400 group-hover:text-brand-jade transition-colors" />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-0.5">Email</p>
+                  <p className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-0.5">{t('contact.info.email')}</p>
                   <p className="text-sm font-semibold text-slate-900 dark:text-white truncate">info@appliedpolicysystems.com</p>
                 </div>
                 <ArrowRight size={16} className="text-slate-300 dark:text-slate-600 group-hover:text-brand-jade opacity-0 group-hover:opacity-100 transition-all transform -translate-x-2 group-hover:translate-x-0 shrink-0 ml-2" />
@@ -78,7 +78,7 @@ export function Contact() {
           </div>
         </div>
 
-        {/* Right Column: Unified Chat Intake */}
+        {/* Right Column: Inquiry Form */}
         <div className="lg:col-span-7">
           <div className="relative group">
             <div className="absolute -inset-1 bg-gradient-to-r from-brand-jade/20 to-teal-500/20 rounded-3xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200" />

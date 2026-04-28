@@ -10,7 +10,7 @@ import UnderDevelopmentOverlay from '../components/UnderDevelopmentOverlay';
 import { AuditDispatchModal } from '../components/AuditDispatchModal';
 import { useCase } from '../context/CaseContext';
 
-export function Simulators() {
+export default function Simulators() {
   const { t } = useTranslation();
   const { activeCaseId, sessionLog } = useCase();
   const [activeFilter, setActiveFilter] = useState('all');

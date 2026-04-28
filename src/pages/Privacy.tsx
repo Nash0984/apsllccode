@@ -2,7 +2,7 @@ import { Helmet } from 'react-helmet-async';
 import { motion } from 'motion/react';
 import { useTranslation } from 'react-i18next';
 
-export function Privacy() {
+export default function Privacy() {
   const { t } = useTranslation();
 
   return (

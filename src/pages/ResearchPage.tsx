@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
-export function Research() {
+export default function Research() {
   const { t } = useTranslation();
 
   const articleSections = t('researchPage.article.sections', { returnObjects: true }) as any[];

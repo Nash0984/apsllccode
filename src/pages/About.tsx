@@ -1,10 +1,10 @@
 import { motion } from 'motion/react';
 import { Helmet } from 'react-helmet-async';
-import { CheckCircle2, ShieldCheck, Scale, Landmark } from 'lucide-react';
+import { CheckCircle, ShieldCheck, Scale, Landmark } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { useMemo } from 'react';
 
-export function About() {
+export default function About() {
   const { t } = useTranslation();
 
   const milestones = useMemo(() => [
@@ -138,7 +138,7 @@ export function About() {
         </div>
       </section>
 
-      {/* Founder Dossier & Verified Metrics */}
+      {/* Founder's Story & Impact Metrics */}
       <section className="section-padding bg-white dark:bg-slate-950" aria-label="Founder and Impact Statistics">
         <div className="container-wide">
           <div className="grid lg:grid-cols-2 gap-20 items-start">
@@ -159,7 +159,7 @@ export function About() {
                   />
                 </div>
                 <div className="flex-1 text-center sm:text-left">
-                  <h2 className="label-muted mb-4">{t('about.founder.title').toUpperCase()}</h2>
+                  <h2 className="label-muted mb-4">{t('about.founder.title')}</h2>
                   <p className="text-3xl font-black tracking-tight text-slate-900 dark:text-white leading-tight">
                     {t('about.founder.intro')}
                   </p>
@@ -215,7 +215,7 @@ export function About() {
         </div>
       </section>
 
-      {/* Career Journey */}
+      {/* Professional Journey */}
       <section className="section-padding bg-slate-50 dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800">
         <div className="container-wide">
           <div className="max-w-3xl mb-16">

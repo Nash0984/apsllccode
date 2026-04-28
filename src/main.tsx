@@ -3,7 +3,6 @@ import {createRoot} from 'react-dom/client';
 import { HelmetProvider } from 'react-helmet-async';
 import { ThemeProvider } from './context/ThemeContext';
 import { ToastProvider } from './context/ToastContext';
-import { BookingProvider } from './context/BookingContext';
 import { CaseProvider } from './context/CaseContext';
 import App from './App.tsx';
 import './index.css';
@@ -14,11 +13,9 @@ createRoot(document.getElementById('root')!).render(
     <HelmetProvider>
       <ThemeProvider>
         <ToastProvider>
-          <BookingProvider>
-            <CaseProvider>
-              <App />
-            </CaseProvider>
-          </BookingProvider>
+          <CaseProvider>
+            <App />
+          </CaseProvider>
         </ToastProvider>
       </ThemeProvider>
     </HelmetProvider>

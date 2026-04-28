@@ -7,15 +7,11 @@ import { Menu, X, Linkedin, ArrowUp } from 'lucide-react';
 import { useState, useEffect, Suspense, useRef } from 'react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { ChatWidget } from './ChatWidget';
-import { useBooking } from '../context/BookingContext';
-import { BookingModal } from './BookingModal';
 import { trackInteraction } from '../services/analytics';
 
 export function Layout() {
   const { t } = useTranslation();
   const { theme } = useTheme();
-  const { openBooking } = useBooking();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [showBackToTop, setShowBackToTop] = useState(false);
@@ -284,9 +280,6 @@ export function Layout() {
         </AnimatePresence>
       </main>
 
-      <ChatWidget />
-      <BookingModal />
-
       {/* Mobile Nav Overlay & Menu - Full Screen Solid Overlay */}
       <AnimatePresence>
         {isMenuOpen && (
@@ -359,16 +352,6 @@ export function Layout() {
                 <LanguageSwitcher />
                 <ThemeToggle />
               </div>
-              <button 
-                onClick={() => {
-                  trackInteraction('Layout', 'Schedule Session Clicked', { location: 'mobile-menu' });
-                  setIsMenuOpen(false);
-                  openBooking();
-                }}
-                className="w-full text-center py-5 bg-brand-jade text-white text-xl font-bold rounded-2xl shadow-2xl shadow-brand-jade/20 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-brand-jade/50 transition-all font-sans"
-              >
-                {t('nav.scheduleSession')}
-              </button>
             </div>
           </motion.div>
         )}

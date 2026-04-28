@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 
-export function Capabilities() {
+export default function Capabilities() {
   const { t } = useTranslation();
 
   const capabilities = useMemo(() => [
