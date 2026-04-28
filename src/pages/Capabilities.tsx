@@ -126,40 +126,96 @@ export function Capabilities() {
       </section>
 
       {/* Engagement Models Section */}
-      <section className="section-padding bg-white dark:bg-slate-950 border-t border-slate-100 dark:border-slate-800" aria-labelledby="engagements-title">
-        <div className="container-wide">
-          <div className="max-w-3xl mb-16">
-            <h2 className="label-uppercase mb-4">{t('capabilitiesPage.engagements.title', 'Engagement Models')}</h2>
-            <h3 id="engagements-title" className="text-3xl md:text-4xl font-black tracking-tight text-slate-900 dark:text-white">
-              Strategic Oversight Architectures
+      <section className="section-padding bg-white dark:bg-slate-950 border-t border-slate-100 dark:border-slate-800 relative overflow-hidden" aria-labelledby="engagements-title">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-brand-jade/[0.02] dark:bg-brand-jade/[0.03] blur-[100px] pointer-events-none" />
+        
+        <div className="container-wide relative z-10">
+          <div className="max-w-4xl mb-16">
+            <h2 className="label-uppercase mb-4">{t('capabilitiesPage.engagements.title')}</h2>
+            <h3 id="engagements-title" className="text-3xl md:text-4xl lg:text-5xl font-black tracking-tight text-slate-900 dark:text-white mb-6 leading-tight">
+              A Strategic Engagement Ladder
             </h3>
+            <p className="text-xl text-slate-600 dark:text-slate-400 leading-relaxed font-medium">
+              {t('capabilitiesPage.engagements.subtitle')}
+            </p>
           </div>
+ 
+          <div className="grid lg:grid-cols-3 gap-8 mb-20 relative">
+            {/* Connection line for desktop */}
+            <div className="hidden lg:block absolute top-[60px] left-[10%] right-[10%] h-px border-t border-dashed border-slate-200 dark:border-slate-800 z-0" />
 
-          <div className="grid md:grid-cols-3 gap-8">
             {[
-              { key: 'sprint', icon: <Scale size={24} /> },
-              { key: 'advisory', icon: <ShieldCheck size={24} /> },
-              { key: 'integration', icon: <Landmark size={24} /> }
+              { 
+                key: 'phase1', 
+                icon: <ShieldCheck size={28} />, 
+                highlight: true 
+              },
+              { 
+                key: 'phase2', 
+                icon: <Scale size={28} />, 
+                highlight: false 
+              },
+              { 
+                key: 'phase3', 
+                icon: <Landmark size={28} />, 
+                highlight: false 
+              }
             ].map((model, i) => (
               <motion.div 
                 key={model.key}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="bg-white dark:bg-slate-950 p-8 rounded-3xl border border-slate-200 dark:border-slate-800 hover:border-brand-jade/30 transition-all flex flex-col"
+                transition={{ delay: i * 0.15 }}
+                className={`relative z-10 flex flex-col p-8 md:p-10 rounded-[2.5rem] border transition-all duration-500 ${
+                  model.highlight 
+                    ? 'bg-slate-900 dark:bg-white border-slate-900 dark:border-white shadow-2xl shadow-slate-900/20 dark:shadow-white/5 transform lg:-translate-y-4' 
+                    : 'bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-800 hover:border-brand-jade/30 shadow-sm'
+                }`}
               >
-                <div className="w-12 h-12 rounded-2xl bg-brand-jade/5 flex items-center justify-center text-brand-jade mb-6">
+                <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-8 shadow-inner ${
+                  model.highlight 
+                    ? 'bg-brand-jade text-white' 
+                    : 'bg-brand-jade/10 text-brand-jade'
+                }`}>
                   {model.icon}
                 </div>
-                <h4 className="text-xl font-black text-slate-900 dark:text-white mb-4 tracking-tight">
+
+                <div className={`text-xs font-black uppercase tracking-[0.2em] mb-4 ${
+                  model.highlight ? 'text-brand-jade' : 'text-slate-400'
+                }`}>
+                  {t(`capabilitiesPage.engagements.${model.key}.tag`)}
+                </div>
+
+                <h4 className={`text-xl md:text-2xl font-black mb-6 tracking-tight leading-tight ${
+                  model.highlight ? 'text-white dark:text-slate-900' : 'text-slate-900 dark:text-white'
+                }`}>
                   {t(`capabilitiesPage.engagements.${model.key}.title`)}
                 </h4>
-                <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                
+                <p className={`text-sm md:text-base leading-relaxed font-medium ${
+                  model.highlight ? 'text-slate-300 dark:text-slate-600' : 'text-slate-600 dark:text-slate-400'
+                }`}>
                   {t(`capabilitiesPage.engagements.${model.key}.text`)}
                 </p>
+
+                {model.highlight && (
+                  <div className="absolute -top-3 left-10 px-4 py-1 bg-brand-jade text-[10px] font-black text-white uppercase tracking-widest rounded-full shadow-lg">
+                    Immediate Entry Point
+                  </div>
+                )}
               </motion.div>
             ))}
+          </div>
+
+          <div className="text-center">
+            <Link 
+              to="/contact"
+              className="inline-flex px-10 py-5 bg-brand-jade text-white font-black rounded-2xl hover:bg-[#005a62] transition-all items-center gap-3 shadow-2xl shadow-brand-jade/30 group transform hover:-translate-y-1 active:scale-95"
+            >
+              {t('capabilitiesPage.engagements.cta.button')}
+              <ArrowUpRight size={22} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+            </Link>
           </div>
         </div>
       </section>

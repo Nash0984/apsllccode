@@ -53,7 +53,7 @@ export default function FrontlineOperationsHumanCapital() {
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-24">
             
             <div className="lg:col-span-4">
-              <div className="sticky top-24 p-6 bg-slate-50 dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800">
+              <div className="sticky top-24 p-6 bg-white dark:bg-slate-950 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
                 <div className="flex items-center gap-3 mb-6">
                   <ArrowUpRight className="text-brand-jade" size={24} />
                   <h3 className="font-bold text-lg text-slate-900 dark:text-white">{t('capabilitiesPage.subPages.data.sideCard.title')}</h3>
@@ -76,7 +76,7 @@ export default function FrontlineOperationsHumanCapital() {
               <div className="mb-12">
                 <div className="flex items-center gap-4 mb-6">
                   <Handshake className="text-brand-jade shrink-0" size={32} />
-                  <h3 className="text-2xl font-black m-0 tracking-tight">{t('capabilitiesPage.subPages.data.section1.title')}</h3>
+                  <h3 className="text-2xl font-black m-0 tracking-tight text-slate-900 dark:text-white">{t('capabilitiesPage.subPages.data.section1.title')}</h3>
                 </div>
                 <p className="text-lg leading-relaxed text-slate-600 dark:text-slate-400">
                   {t('capabilitiesPage.subPages.data.section1.text')}
@@ -86,7 +86,7 @@ export default function FrontlineOperationsHumanCapital() {
               <div className="mb-12">
                 <div className="flex items-center gap-4 mb-6">
                   <Users2 className="text-brand-jade shrink-0" size={32} />
-                  <h3 className="text-2xl font-black m-0 tracking-tight">{t('capabilitiesPage.subPages.data.section2.title')}</h3>
+                  <h3 className="text-2xl font-black m-0 tracking-tight text-slate-900 dark:text-white">{t('capabilitiesPage.subPages.data.section2.title')}</h3>
                 </div>
                 <p className="text-lg leading-relaxed text-slate-600 dark:text-slate-400">
                   {t('capabilitiesPage.subPages.data.section2.text')}

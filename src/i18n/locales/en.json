@@ -163,17 +163,24 @@
     },
     "engagements": {
       "title": "Engagement Models",
-      "sprint": {
-        "title": "Targeted Architectural Interventions",
-        "text": "Rapid oversight deployments to absorb the burden of translation. By acting as the objective truth-teller and independent translator, APS delivers finished artifacts—providing policy teams with statute-mapped logic for rapid authorization, and equipping IT and civic tech partners with the definitive requirements to build."
+      "subtitle": "We do not sell software. We provide the policy-native blueprints and oversight required to ensure your vendor's software survives federal audit.",
+      "phase1": {
+        "title": "Phase 1: AI Compliance & Architecture Audit",
+        "tag": "Immediate Diagnostic",
+        "text": "A rapid diagnostic of current modernization RFPs or proposed AI pilots. APS identifies compliance gaps, disconnected audit trails, and 'Shadow Logic' vulnerabilities before the state assumes the financial liability of a massive vendor contract."
       },
-      "advisory": {
-        "title": "Subject Matter Expertise (SME) & Advisory",
-        "text": "Long-term partnership to provide independent verification of technical rules, bridge the policy-IT divide, and ensure the system radiates accessibility as it scales."
+      "phase2": {
+        "title": "Phase 2: The Policy-to-Code Blueprint",
+        "tag": "Translation Sprint",
+        "text": "A targeted translation sprint. APS maps subjective state manuals (e.g., SNAP Handbook 310) into strict legal ontologies, handing the Prime IT Vendor the exact deterministic math and logic chains their rules engine must execute."
       },
-      "integration": {
-        "title": "System Procurement & Blueprinting",
-        "text": "End-to-end consulting to write the strict technical rules and compliance appendices of massive state RFPs, ensuring vendor-built technology serves the state."
+      "phase3": {
+        "title": "Phase 3: IV&V and Implementation Oversight",
+        "tag": "Long-Term Guardrail",
+        "text": "Long-term Independent Verification and Validation (IV&V). APS serves as the state's objective technical guardrail, holding prime vendors accountable to ensure the Neuro-Symbolic architecture is built correctly and survives federal Quality Control."
+      },
+      "cta": {
+        "button": "Schedule an Architecture Audit"
       }
     },
     "subPages": {
@@ -264,34 +271,44 @@
       "sections": [
         {
           "id": "evolution",
-          "title": "The Structural Limits of Grounded AI (RAG)",
-          "content": "To mitigate the risks of standard AI, many agencies are exploring document-grounded AI and custom, persona-driven assistants using Retrieval-Augmented Generation (RAG). The premise is highly practical: by confining the AI to securely uploaded state policy manuals, agencies can drastically reduce hallucinations. \n\nThese tools are exceptionally powerful for reading comprehension and rapid policy retrieval. However, from a systems architecture perspective, they address only half of the equation. \n\nEven when perfectly grounded in a document, an LLM remains a probabilistic engine. It can instantly retrieve the correct statutory paragraph on income deductions, but it cannot mathematically guarantee the final calculation of a complex benefits case. Furthermore, if a caseworker uses a highly accurate policy bot in a standalone window, the interaction remains disconnected from the system of record. Grounding the AI makes it a much safer translator for the caseworker, but to truly protect the agency's budget, that translator must still be tethered to a deterministic rules engine and the immutable audit trail."
+          "title": "1. The Evolution of Standalone AI",
+          "content": "As the GovTech field explores AI, a common and logical early intervention is the deployment of standalone AI assistants. These are independent, browser-based tools trained on state policy manuals, designed to help caseworkers rapidly search complex eligibility rules without requiring deep, risky integrations into existing state systems.\n\nDeploying these out-of-band tools is a highly understandable first step. It reduces implementation friction and immediately provides support to overwhelmed frontline staff. However, as our field matures its use of AI, we must collectively address a critical architectural gap: the disconnected audit trail.\n\nWhen a caseworker consults a standalone AI to interpret a complex policy, the intellectual work of that determination happens entirely outside the system of record. The AI provides its guidance, and the caseworker manually enters the resulting data into the official database. The structural issue here is that the state's database captures the final mathematical outcome, but it loses the reasoning.\n\nDuring a federal Quality Control (QC) review, auditors don't just check the math; they require the statutory justification. If the AI's guidance—and the caseworker's reliance on it—are not bound to the case file, the state is left with an undocumented gap in its decision history. To truly protect the caseworker and the state, our next architectural evolution must bridge this gap. Being right is only half the equation; in public benefits, we must be able to prove it."
         },
         {
           "id": "blackbox",
-          "title": "Section 2: The Problem with the \"Black Box\"",
-          "content": "Standard generative AI models are probabilistic engines—they are brilliant at predicting natural language, but they function as a \"black box.\" They cannot reliably perform complex math, nor can they deterministically prove how they arrived at a calculation. In the highly regulated space of public benefits, a system that cannot \"show its work\" mathematically cannot legally exist."
+          "title": "2. The Problem with the \"Black Box\"",
+          "content": "Bridging this gap, however, introduces a severe technical challenge. We cannot simply connect a standard Large Language Model (LLM) directly to a state's system of record. Standard generative AI models are probabilistic engines—they are brilliant at predicting natural language, but they function as a \"black box.\" They cannot reliably perform complex math, nor can they deterministically prove how they arrived at a calculation. In the highly regulated space of public benefits, a system that cannot \"show its work\" mathematically cannot legally exist."
         },
         {
-          "id": "limits",
-          "title": "Section 3: The Limits of Pure Prediction",
-          "content": "Similarly, attempting to solve this with passive predictive analytics falls short. While these tools can flag potential errors, they cannot prevent them from occurring in real-time.",
+          "id": "grounded-limits",
+          "title": "3. The Structural Limits of Grounded AI (RAG)",
+          "content": "To mitigate the risks of standard AI, many agencies are exploring document-grounded AI and custom, persona-driven assistants using Retrieval-Augmented Generation (RAG). The premise is highly practical: by confining the AI to securely uploaded state policy manuals, agencies can drastically reduce hallucinations. \n\nThese tools are exceptionally powerful for reading comprehension and rapid policy retrieval. However, from a systems architecture perspective, they address only half of the equation. \n\nEven when perfectly grounded in a document, an LLM remains a probabilistic engine. It can instantly retrieve the correct statutory paragraph on income deductions, but it cannot mathematically guarantee the final calculation of a complex benefits case. Furthermore, if a caseworker uses a highly accurate policy bot in a standalone window, the interaction remains disconnected from the system of record. Grounding the AI makes it a much safer translator for the caseworker, but to truly protect the agency's budget, that translator must still be tethered to a deterministic rules engine and the immutable audit trail."
+        },
+        {
+          "id": "prediction-limits",
+          "title": "4. The Limits of Pure Prediction",
+          "content": "Similarly, attempting to solve this with passive predictive analytics falls short. Predictive engines are highly valuable for identifying macro-level risk and flagging vulnerable cases before they are certified. But a predictive dashboard functions as a thermometer, not a thermostat: it reports the fever, but it cannot cure it. If a fatigued caseworker bypasses a predictive risk flag and inputs flawed data into the database, the state still absorbs the financial liability. Predictive AI is an essential early-warning radar, but it must be paired with an architectural mechanism that physically enforces the law.",
           "pullQuote": "A predictive dashboard functions as a thermometer, not a thermostat: it reports the fever, but it cannot cure it."
         },
         {
-          "id": "blueprint",
-          "title": "Section 4: The Blueprint: Neuro-Symbolic Architecture",
-          "content": "To bridge the gap between AI-driven efficiency and absolute legal defensibility, the architecture must combine the flexibility of neural networks (LLMs) with the rigid determinism of symbolic AI (rules engines). This requires a Neuro-Symbolic Dual Hybrid Architecture:\n\n1. The Deterministic Engine (Statutory Grounding): Handles mathematical calculations and generates the step-by-step logic chain required for federal compliance.\n2. The Generative Interface (The LLM Translator): Translates the caseworker’s question, queries the Deterministic Engine, and translates the math back into plain language citing the policy manual."
+          "id": "neuro-symbolic",
+          "title": "5. The Blueprint: Neuro-Symbolic Architecture",
+          "content": "To bridge the gap between AI-driven efficiency and absolute legal defensibility, the architecture must combine the flexibility of neural networks (LLMs) with the rigid determinism of symbolic AI (rules engines).\n\nThis requires splitting the system into two distinct, integrated layers—a Neuro-Symbolic Dual Hybrid Architecture:\n\n1. The Deterministic Engine (Statutory Grounding): At the core of the system sits a deterministic policy engine. This layer handles all mathematical calculations and policy execution. It does not guess. It evaluates perfectly structured data against complex federal and state statutes, ensuring 100% mathematical accuracy. Crucially, this engine generates the mandatory, step-by-step logic chain required for federal compliance.\n\n2. The Generative Interface (The LLM Translator): Operating strictly as an interface, the LLM allows the caseworker to ask complex questions in natural language. Instead of hallucinating an answer, the LLM translates the caseworker’s question into a structured query for the Deterministic Engine. Once the engine computes the legal answer, the LLM translates that math back into plain language for the caseworker, directly citing the official state policy manual."
         },
         {
-          "id": "human",
-          "title": "Section 5: The Human-in-the-Loop Gateway",
-          "content": "In public benefits, AI cannot legally make the final call. If a caseworker's inputs deviate from the system's statutory math, the architecture acts as a gateway. It temporarily pauses the workflow, requiring the human worker to mathematically or legally justify their variance."
+          "id": "human-loop",
+          "title": "6. The Human-in-the-Loop Gateway",
+          "content": "In public benefits, AI cannot legally make the final call. The human caseworker must always retain the final adjudicative authority. The goal of this architecture is not to replace the worker, but to mathematically protect their judgment.\n\nWhen the Neuro-Symbolic middleware evaluates a case, it presents the statutory math to the caseworker before the final certification. If a caseworker’s assessment aligns with the engine, the workflow proceeds seamlessly. However, if the caseworker's inputs deviate from the system's statutory math, the architecture acts as a gateway. It temporarily pauses the workflow, requiring the human worker to mathematically or legally justify their variance (e.g., noting a specific policy exemption) before the system state can advance."
         },
         {
-          "id": "audit",
-          "title": "Section 6: Enforcing the Immutable Audit Trail",
-          "content": "Because the deterministic engine does not guess, it can write a perfect, step-by-step record of exactly how a decision was reached. Every evaluated rule, every mathematical calculation, the specific statutes cited by the AI, and the caseworker’s final variance justifications are bound together and written directly into the state's database as an Immutable Audit Trail."
+          "id": "audit-trail",
+          "title": "7. Enforcing the Immutable Audit Trail",
+          "content": "This architecture solves the exact problem created by standalone AI. Because the deterministic engine does not guess, it can write a perfect, step-by-step record of exactly how a decision was reached. Every evaluated rule, every mathematical calculation, the specific statutes cited by the AI, and the caseworker’s final variance justifications are bound together and written directly into the state's database as an Immutable Audit Trail. It guarantees audit survivability without requiring states to replace their core legacy systems."
+        },
+        {
+          "id": "path-forward",
+          "title": "8. The Path Forward: Bridging the Translation Gap",
+          "content": "The GovTech industry is at a critical inflection point. We have the technology to drastically reduce administrative burden and eliminate payment errors, but only if we architect these systems to respect the rigorous statutory reality of public benefits. Bridging the gap between modern generative AI and legacy systems of record requires more than just software development—it requires policy-native systems architecture.\n\nAt Applied Policy Systems, we serve as the objective translation layer between policymakers, frontline operations, and enterprise IT. We partner with state agencies and prime vendors to design the deterministic blueprints and immutable audit trails that safely bring AI into the eligibility space."
         }
       ]
     },
@@ -300,8 +317,8 @@
       "bio": "Led by programmatic experts who speak fluent system architecture, APS bridges the human translation gap and embeds statutory rights into system logic."
     },
     "cta": {
-      "title": "Ready to test the systems layer?",
-      "subtitle": "Explore Applied Policy Systems engagement models or schedule a targeted Architecture Audit to reconnect your audit trail.",
+      "title": "Ready to re-connect your audit trail?",
+      "subtitle": "Explore Applied Policy Systems engagement models or schedule a targeted Architecture Audit to evaluate your AI integration strategy.",
       "button": "View Engagement Models"
     }
   },
@@ -337,15 +354,37 @@
   },
   "about": {
     "hero": {
-      "label": "Operational Authority",
-      "title": "About Applied Policy Systems",
-      "subtitle": "Benefits access is a multi-faceted ecosystem. APS ensures that true accessibility radiates outward from the systems layer."
+      "label": "The Origin Story",
+      "title": "We don't just know the code. We lived the policy.",
+      "subtitle": "Applied Policy Systems was founded to bridge the catastrophic translation gap between State Policy Directors and Prime IT Vendors."
     },
     "founder": {
-      "title": "Architectural Dossier",
-      "intro": "Led by programmatic experts who speak fluent system architecture, APS bridges the human translation gap and embeds statutory rights into system logic.",
-      "p1": "Modern Health and Human Services rely on a complex ecosystem of frontline operations, community outreach, and statutory mandates. The technical system is the single universal throughput connecting them all. Yet, deployments consistently stall in the messy reality of human communication. IT teams are forced to guess at legislative intent, while policy teams struggle to translate their needs into technical parameters.",
-      "p2": "APS was established to resolve this structural disconnect. Recognizing the inherent delays of federal grant cycles and traditional procurement, APS leadership took proactive, independent action. Operating as an autodidactic systems architect entirely outside of state mandates, the founder engineered a fully integrated eligibility prototype from the ground up. The objective was not just to translate policy, but to design an architecture where generating a federal payment error is mathematically impossible—ensuring that a flawless blueprint existed to hand off to enterprise developers. Today, APS uses this exact methodology to absorb the burden of interpretation. By acting as the policy-native architect and objective translator, the firm clears the path for civic tech teams to execute flawlessly, while equipping policy directors with translated rule sets ready for rapid authorization. Because human change management is fragile, the core rules must hold strong—forcing true accessibility to radiate outward from the system itself."
+      "title": "The Bilingual Architect",
+      "intro": "In the GovTech sector, system failures rarely stem from bad code. They stem from bad translation.",
+      "p1": "Standard IT developers do not speak the language of federal statutes, and state policy experts do not speak the language of deterministic state machines. APS was born out of the frontline reality of public benefits administration. Starting in the trenches of Quality Control (QC) and Payment Error Rate (PER) mitigation, we saw firsthand how multi-million dollar IT modernizations routinely failed to capture the nuances of SNAP and Medicaid policy.",
+      "p2": "When the technology misunderstands the law, the human caseworker takes the blame, and the state absorbs the financial liability. We realized the industry didn't need another software vendor. It needed a bilingual translation layer. It needed Policy-Native Systems Architecture."
+    },
+    "philosophy": {
+      "label": "Core Tenets",
+      "title": "Our Architectural Principles",
+      "desc": "Every system we architect is bound by three uncompromising rules.",
+      "pillars": [
+        {
+          "id": "grounding",
+          "title": "Statutory Grounding",
+          "desc": "Software must obey the law. We do not tolerate 'black box' AI or probabilistic guesses in eligibility determinations. Every system must be bound to mathematically provable logic."
+        },
+        {
+          "id": "frontline",
+          "title": "Frontline Protection",
+          "desc": "Technology should absorb administrative burden, not create it. We architect systems that mathematically protect the caseworker's judgment rather than second-guessing it."
+        },
+        {
+          "id": "audit",
+          "title": "Audit Survivability",
+          "desc": "Being right is only half the equation; you must be able to prove it. Our blueprints guarantee the generation of an immutable, step-by-step audit trail to survive federal QC reviews."
+        }
+      ]
     },
     "impact": {
       "stats": {
@@ -363,41 +402,6 @@
           "value": "15+",
           "label": "Systems Remediated",
           "desc": "Bridging the translation gap between policy and tech."
-        }
-      }
-    },
-    "macroEcosystems": {
-      "label": "Ecosystem Positioning",
-      "title": "Dual-Layer Intervention",
-      "desc": "APS operates simultaneously as the human translation bridge and the technical failsafe, ensuring the system serves the mission.",
-      "federal": {
-        "focus": "STRATEGIC ALIGNMENT",
-        "title": "Requirements Architecture",
-        "desc": "Bridging the communication gap between policy creators and IT developers. APS acts as the policy-native translator and architect to cut through jargon and deliver mapped rule sets to both sides.",
-        "nodes": {
-          "n1": { "name": "Jargon Translation", "context": "Ensuring all stakeholders speak the same language." },
-          "n2": { "name": "Policy Expertise", "context": "Bringing programmatic SMEs directly to the IT table." },
-          "n3": { "name": "Finished Artifacts", "context": "Providing statute-mapped logic for rapid policy authorization." }
-        }
-      },
-      "state": {
-        "focus": "DETERMINISTIC LOGIC",
-        "title": "Systems-Layer Accessibility",
-        "desc": "When human processes fail, the core rules must hold strong. APS architects statutory rights and operational boundaries directly into the system requirements.",
-        "nodes": {
-          "n1": { "name": "Architecting Rights", "context": "Embedding legal protections into the system logic." },
-          "n2": { "name": "Predictive Analytics", "context": "Flagging high-error cases via continuously refreshed risk models." },
-          "n3": { "name": "Radiating Accessibility", "context": "Forcing usability outward from the core architecture." }
-        }
-      },
-      "vendors": {
-        "focus": "OPERATIONAL REALITY",
-        "title": "Implementation & Civic Tech Partners",
-        "desc": "APS serves as the diagnostic failsafe and diplomatic shield. By navigating the bureaucratic friction and translating complex policy into strict parameters, the firm ensures external development teams receive the exact requirements they need to build systems that work.",
-        "nodes": {
-          "n1": { "name": "Usability Enforcement", "context": "Preventing tech from complicating frontline work." },
-          "n2": { "name": "Burden Reduction", "context": "Eliminating unnecessary procedural friction." },
-          "n3": { "name": "Process Alignment", "context": "Ensuring the tech matches the reality of the job." }
         }
       }
     },
