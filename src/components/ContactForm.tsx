@@ -104,13 +104,14 @@ export function ContactForm() {
               </div>
               <input
                 required
+                aria-required="true"
                 id="name"
                 name="name"
                 type="text"
                 value={formData.name}
                 onChange={handleChange}
                 placeholder="Full Name"
-                className="w-full bg-slate-50 dark:bg-[#0a1017] border border-slate-200 dark:border-slate-800/50 rounded-xl py-3.5 pl-12 pr-4 text-slate-900 dark:text-white text-sm focus:outline-none focus:border-brand-jade/50 focus:ring-1 focus:ring-brand-jade/50 transition-all placeholder:text-slate-300 dark:placeholder:text-slate-700"
+                className="w-full bg-slate-50 dark:bg-[#0a1017] border border-slate-200 dark:border-slate-800/50 rounded-xl py-3.5 pl-12 pr-4 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-brand-jade/50 focus:border-brand-jade transition-all placeholder:text-slate-300 dark:placeholder:text-slate-700"
               />
             </div>
           </div>
@@ -125,13 +126,14 @@ export function ContactForm() {
               </div>
               <input
                 required
+                aria-required="true"
                 id="organization"
                 name="organization"
                 type="text"
                 value={formData.organization}
                 onChange={handleChange}
                 placeholder="Agency or Organization"
-                className="w-full bg-slate-50 dark:bg-[#0a1017] border border-slate-200 dark:border-slate-800/50 rounded-xl py-3.5 pl-12 pr-4 text-slate-900 dark:text-white text-sm focus:outline-none focus:border-brand-jade/50 focus:ring-1 focus:ring-brand-jade/50 transition-all placeholder:text-slate-300 dark:placeholder:text-slate-700"
+                className="w-full bg-slate-50 dark:bg-[#0a1017] border border-slate-200 dark:border-slate-800/50 rounded-xl py-3.5 pl-12 pr-4 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-brand-jade/50 focus:border-brand-jade transition-all placeholder:text-slate-300 dark:placeholder:text-slate-700"
               />
             </div>
           </div>
@@ -148,13 +150,14 @@ export function ContactForm() {
             </div>
             <input
               required
+              aria-required="true"
               id="email"
               name="email"
               type="email"
               value={formData.email}
               onChange={handleChange}
               placeholder="name@agency.gov"
-              className="w-full bg-slate-50 dark:bg-[#0a1017] border border-slate-200 dark:border-slate-800/50 rounded-xl py-3.5 pl-12 pr-4 text-slate-900 dark:text-white text-sm focus:outline-none focus:border-brand-jade/50 focus:ring-1 focus:ring-brand-jade/50 transition-all placeholder:text-slate-300 dark:placeholder:text-slate-700"
+              className="w-full bg-slate-50 dark:bg-[#0a1017] border border-slate-200 dark:border-slate-800/50 rounded-xl py-3.5 pl-12 pr-4 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-brand-jade/50 focus:border-brand-jade transition-all placeholder:text-slate-300 dark:placeholder:text-slate-700"
             />
           </div>
         </div>
@@ -169,7 +172,7 @@ export function ContactForm() {
             name="topic"
             value={formData.topic}
             onChange={handleChange}
-            className="w-full bg-slate-50 dark:bg-[#0a1017] border border-slate-200 dark:border-slate-800/50 rounded-xl py-3.5 px-4 text-slate-900 dark:text-white text-sm focus:outline-none focus:border-brand-jade/50 focus:ring-1 focus:ring-brand-jade/50 transition-all appearance-none cursor-pointer"
+            className="w-full bg-slate-50 dark:bg-[#0a1017] border border-slate-200 dark:border-slate-800/50 rounded-xl py-3.5 px-4 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-brand-jade/50 focus:border-brand-jade transition-all appearance-none cursor-pointer"
           >
             <option value="General Inquiry">General Inquiry</option>
             <option value="Architectural Consultation">Architectural Consultation</option>
@@ -190,13 +193,14 @@ export function ContactForm() {
             </div>
             <textarea
               required
+              aria-required="true"
               id="message"
               name="message"
               value={formData.message}
               onChange={handleChange}
               rows={4}
               placeholder="Please provide details regarding your inquiry..."
-              className="w-full bg-slate-50 dark:bg-[#0a1017] border border-slate-200 dark:border-slate-800/50 rounded-xl py-4 pl-12 pr-4 text-slate-900 dark:text-white text-sm focus:outline-none focus:border-brand-jade/50 focus:ring-1 focus:ring-brand-jade/50 transition-all placeholder:text-slate-300 dark:placeholder:text-slate-700 resize-none"
+              className="w-full bg-slate-50 dark:bg-[#0a1017] border border-slate-200 dark:border-slate-800/50 rounded-xl py-4 pl-12 pr-4 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-brand-jade/50 focus:border-brand-jade transition-all placeholder:text-slate-300 dark:placeholder:text-slate-700 resize-none"
             />
           </div>
         </div>
@@ -206,6 +210,8 @@ export function ContactForm() {
         <motion.div 
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
+          role="alert"
+          aria-live="polite"
           className="flex items-center gap-3 p-4 bg-red-50 dark:bg-red-900/10 border border-red-200 dark:border-red-900/30 rounded-xl text-red-600 dark:text-red-400 text-xs font-bold"
         >
           <AlertCircle size={16} />
@@ -216,7 +222,7 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={status === 'submitting'}
-        className="relative w-full group overflow-hidden py-4 bg-brand-jade text-white rounded-xl font-bold transition-all hover:bg-[#005a62] disabled:opacity-70 disabled:cursor-not-allowed shadow-lg shadow-brand-jade/10 active:scale-[0.98]"
+        className="relative w-full group overflow-hidden py-4 bg-brand-jade text-white rounded-xl font-bold transition-all hover:bg-[#005a62] focus:outline-none focus:ring-2 focus:ring-brand-jade focus:ring-offset-2 dark:focus:ring-offset-slate-950 disabled:opacity-70 disabled:cursor-not-allowed shadow-lg shadow-brand-jade/10 active:scale-[0.98]"
       >
         <div className="relative z-10 flex items-center justify-center gap-3">
           {status === 'submitting' ? (

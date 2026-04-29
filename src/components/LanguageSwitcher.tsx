@@ -34,7 +34,7 @@ export function LanguageSwitcher() {
     <div className="relative" onKeyDown={handleKeyDown}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-slate-600 dark:text-slate-400 font-bold text-sm"
+        className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-slate-600 dark:text-slate-400 font-bold text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-jade"
         aria-label="Select language"
         aria-expanded={isOpen}
         aria-haspopup="true"
@@ -63,10 +63,10 @@ export function LanguageSwitcher() {
                   key={lang.code}
                   onClick={() => changeLanguage(lang.code)}
                   role="menuitem"
-                  className={`w-full text-left px-4 py-3 text-sm font-bold transition-colors ${
+                  className={`w-full text-left px-4 py-3 text-sm font-bold transition-colors focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white/20 ${
                     i18n.language === lang.code
                       ? 'bg-brand-jade text-white'
-                      : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'
+                      : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 focus:ring-brand-jade/50'
                   }`}
                 >
                   {lang.name}
