@@ -13,6 +13,20 @@ export default function EthicalAIGovernanceInfrastructure() {
       <Helmet>
         <title>Applied Policy Systems | AI Governance & System Sovereignty</title>
         <meta name="description" content="Eliminating vendor lock-in and establishing technical legal frameworks for sovereign AI deployments." />
+        <link rel="canonical" href={`${window.location.origin}/capabilities/ethical-ai-governance-infrastructure`} />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:title" content="Applied Policy Systems | AI Governance & System Sovereignty" />
+        <meta property="og:description" content="Eliminating vendor lock-in and establishing technical legal frameworks for sovereign AI deployments." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={`${window.location.origin}/capabilities/ethical-ai-governance-infrastructure`} />
+        <meta property="og:image" content={`${window.location.origin}/logo.svg`} />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Applied Policy Systems | AI Governance & System Sovereignty" />
+        <meta name="twitter:description" content="Eliminating vendor lock-in and establishing technical legal frameworks for sovereign AI deployments." />
+        <meta name="twitter:image" content={`${window.location.origin}/logo.svg`} />
       </Helmet>
 
       <div className="border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-6 py-4">

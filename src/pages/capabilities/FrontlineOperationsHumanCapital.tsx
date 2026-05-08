@@ -13,6 +13,20 @@ export default function FrontlineOperationsHumanCapital() {
       <Helmet>
         <title>Applied Policy Systems | Coalition Building & Frontline Readiness</title>
         <meta name="description" content="Aligning cross-agency coalitions and deploying frontline-first change management for durable system adoption." />
+        <link rel="canonical" href={`${window.location.origin}/capabilities/frontline-operations-human-capital`} />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:title" content="Applied Policy Systems | Coalition Building & Frontline Readiness" />
+        <meta property="og:description" content="Aligning cross-agency coalitions and deploying frontline-first change management for durable system adoption." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={`${window.location.origin}/capabilities/frontline-operations-human-capital`} />
+        <meta property="og:image" content={`${window.location.origin}/logo.svg`} />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Applied Policy Systems | Coalition Building & Frontline Readiness" />
+        <meta name="twitter:description" content="Aligning cross-agency coalitions and deploying frontline-first change management for durable system adoption." />
+        <meta name="twitter:image" content={`${window.location.origin}/logo.svg`} />
       </Helmet>
 
       <div className="border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-6 py-4">

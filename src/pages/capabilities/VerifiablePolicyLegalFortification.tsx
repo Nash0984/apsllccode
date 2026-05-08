@@ -13,6 +13,20 @@ export default function VerifiablePolicyLegalFortification() {
       <Helmet>
         <title>Applied Policy Systems | Statutory Translation & Prediction</title>
         <meta name="description" content="Eliminating the gap between policy intent and system logic through upfront translation and blast radius prediction." />
+        <link rel="canonical" href={`${window.location.origin}/capabilities/verifiable-policy-legal-fortification`} />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:title" content="Applied Policy Systems | Statutory Translation & Prediction" />
+        <meta property="og:description" content="Eliminating the gap between policy intent and system logic through upfront translation and blast radius prediction." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={`${window.location.origin}/capabilities/verifiable-policy-legal-fortification`} />
+        <meta property="og:image" content={`${window.location.origin}/logo.svg`} />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Applied Policy Systems | Statutory Translation & Prediction" />
+        <meta name="twitter:description" content="Eliminating the gap between policy intent and system logic through upfront translation and blast radius prediction." />
+        <meta name="twitter:image" content={`${window.location.origin}/logo.svg`} />
       </Helmet>
 
       <div className="border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-6 py-4">

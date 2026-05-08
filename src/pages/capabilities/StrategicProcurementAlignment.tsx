@@ -13,6 +13,20 @@ export default function StrategicProcurementAlignment() {
       <Helmet>
         <title>Applied Policy Systems | PER Reduction & Predictive Analytics</title>
         <meta name="description" content="Managing public sector risk through statutory predictive analytics and Payment Error Rate (PER) mitigation." />
+        <link rel="canonical" href={`${window.location.origin}/capabilities/strategic-procurement-alignment`} />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:title" content="Applied Policy Systems | PER Reduction & Predictive Analytics" />
+        <meta property="og:description" content="Managing public sector risk through statutory predictive analytics and Payment Error Rate (PER) mitigation." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={`${window.location.origin}/capabilities/strategic-procurement-alignment`} />
+        <meta property="og:image" content={`${window.location.origin}/logo.svg`} />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Applied Policy Systems | PER Reduction & Predictive Analytics" />
+        <meta name="twitter:description" content="Managing public sector risk through statutory predictive analytics and Payment Error Rate (PER) mitigation." />
+        <meta name="twitter:image" content={`${window.location.origin}/logo.svg`} />
       </Helmet>
 
       <div className="border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-6 py-4">
