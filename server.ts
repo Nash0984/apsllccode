@@ -40,7 +40,7 @@ const aiLimiter = rateLimit({
 // Extreme limit for contact form and audit dispatch (Email/Spam)
 const contactLimiter = rateLimit({
   windowMs: 24 * 60 * 60 * 1000, // 24 hours
-  max: 5, // Limit each IP to 5 contact attempts per day
+  max: 10, // Limit each IP to 10 contact attempts per day
   message: { error: "Daily inquiry limit reached. Please contact us directly at info@appliedpolicysystems.com" },
   standardHeaders: true,
   legacyHeaders: false,
@@ -416,36 +416,42 @@ async function startServer() {
     }
 
     const { name, email, organization, message } = validated.data;
+    const recipient = process.env.CONTACT_RECEIVER_EMAIL || 'graham.oneill@gmail.com';
 
-    console.log("--- New Contact Inquiry ---");
-    console.log(`Name: ${name}`);
-    console.log(`Email: ${email}`);
-    console.log(`Org: ${organization}`);
-    console.log(`Message: ${message}`);
+    console.log(`[API-CONTACT] New Inquiry: ${name} (${organization}) <${email}>`);
 
     if (resend) {
       try {
-        await resend.emails.send({
+        const { data, error } = await resend.emails.send({
           from: 'Applied Policy Systems <onboarding@resend.dev>',
-          to: 'graham.oneill@gmail.com', // Using user's email from metadata
+          to: recipient,
           subject: `New Inquiry: ${organization} - ${name}`,
+          replyTo: email,
           html: `
-            <h2>New Contact Form Submission</h2>
-            <p><strong>Name:</strong> ${escapeHtml(name)}</p>
-            <p><strong>Email:</strong> ${escapeHtml(email)}</p>
-            <p><strong>Organization:</strong> ${escapeHtml(organization)}</p>
-            <p><strong>Message:</strong></p>
-            <p style="white-space: pre-wrap;">${escapeHtml(message)}</p>
-            <hr />
-            <p>Sent from Applied Policy Systems Contact Form</p>
+            <div style="font-family: sans-serif; padding: 20px; color: #0f172a;">
+              <h2 style="color: #006D77; border-bottom: 2px solid #006D77; padding-bottom: 10px;">New Contact Form Submission</h2>
+              <p><strong>Name:</strong> ${escapeHtml(name)}</p>
+              <p><strong>Email:</strong> ${escapeHtml(email)}</p>
+              <p><strong>Organization:</strong> ${escapeHtml(organization)}</p>
+              <p><strong>Message:</strong></p>
+              <p style="white-space: pre-wrap; background: #f8fafc; padding: 15px; border-radius: 8px; border: 1px solid #e2e8f0;">${escapeHtml(message)}</p>
+              <hr style="margin: 20px 0; border: 0; border-top: 1px solid #e2e8f0;" />
+              <p style="font-size: 11px; color: #64748b;">Sent via Applied Policy Systems Contact Engine</p>
+            </div>
           `
         });
-        console.log("Email sent successfully via Resend");
+
+        if (error) {
+          console.error("[RESEND-ERROR]", error);
+          // Still return true to client but log the specific error
+        } else {
+          console.log("[RESEND-SUCCESS]", data?.id);
+        }
       } catch (emailError) {
-        console.error("Failed to send email via Resend:", emailError);
+        console.error("[EMAIL-DISPATCH-FAILURE]", emailError);
       }
     } else {
-      console.warn("RESEND_API_KEY not found. Email not sent.");
+      console.warn("[API-CONTACT] RESEND_API_KEY missing. Printing inquiry to log only.");
     }
 
     res.json({ 
@@ -474,7 +480,7 @@ async function startServer() {
       await resend.emails.send({
         from: 'Applied Policy Systems <onboarding@resend.dev>',
         to: email,
-        bcc: 'graham.oneill@gmail.com', // Admin audit capture
+        bcc: process.env.CONTACT_RECEIVER_EMAIL || 'graham.oneill@gmail.com', // Admin audit capture
         subject: `APS Immutable Audit Dispatch - Case: ${auditData.caseId}`,
         html: `
           <div style="font-family: sans-serif; line-height: 1.5; color: #334155;">
@@ -540,7 +546,7 @@ async function startServer() {
       if (resend && (history?.length === 0 || message.length > 50)) {
         resend.emails.send({
           from: 'APS Intake <onboarding@resend.dev>',
-          to: 'graham.oneill@gmail.com',
+          to: process.env.CONTACT_RECEIVER_EMAIL || 'graham.oneill@gmail.com',
           subject: `New Chat Session: ${message.substring(0, 30)}...`,
           html: `
             <h2>New Chat Intake Interaction</h2>
