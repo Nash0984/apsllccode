@@ -1,18 +1,88 @@
 import { motion } from 'motion/react';
-import { ArrowLeft, ArrowRight, Download, FileText, Calendar, Clock, User, Quote, ChevronRight, BookOpen } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Download, FileText, Calendar, Clock, User, Quote, ChevronRight, BookOpen, Loader } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import { Link, useParams } from 'react-router-dom';
+import { useRef, useState } from 'react';
+import html2canvas from 'html2canvas';
+import { jsPDF } from 'jspdf';
 
 export default function Research() {
   const { t } = useTranslation();
   const { slug } = useParams();
+  const [isDownloading, setIsDownloading] = useState(false);
+  const articleRef = useRef<HTMLElement>(null);
 
   const articles = t('researchPage.articles', { returnObjects: true }) as Record<string, any>;
   const articleList = Object.entries(articles).map(([key, value]) => ({
     slug: key,
     ...value
   }));
+
+  const handleDownloadPDF = async () => {
+    if (!articleRef.current) return;
+    
+    setIsDownloading(true);
+    try {
+      const element = articleRef.current;
+      
+      // Determine background color safely
+      const bgColor = window.getComputedStyle(document.body).backgroundColor;
+      const isDark = document.documentElement.classList.contains('dark');
+      const isUnsupportedColor = bgColor.includes('oklch') || bgColor.includes('oklab');
+      const safeBgColor = isUnsupportedColor ? (isDark ? '#020617' : '#f8fafc') : bgColor;
+
+      const canvas = await html2canvas(element, {
+        scale: 2,
+        useCORS: true,
+        logging: false,
+        backgroundColor: safeBgColor,
+        onclone: (clonedDoc) => {
+          // Remove problematic oklch/oklab colors that html2canvas cannot parse
+          const elements = clonedDoc.getElementsByTagName('*');
+          for (let i = 0; i < elements.length; i++) {
+            const el = elements[i] as HTMLElement;
+            const computedStyle = window.getComputedStyle(el);
+            
+            // Properties to check for unsupported color spaces
+            const colorProps = ['color', 'backgroundColor', 'borderColor', 'borderTopColor', 'borderBottomColor', 'borderLeftColor', 'borderRightColor'];
+            
+            colorProps.forEach(prop => {
+              const value = computedStyle.getPropertyValue(prop);
+              if (value && (value.includes('oklch') || value.includes('oklab'))) {
+                // If it's an unsupported color function, try to provide a safe fallback
+                // For brand-jade, we know the hex
+                if (el.classList.contains('text-brand-jade') || el.classList.contains('bg-brand-jade')) {
+                  el.style.setProperty(prop, '#006D77', 'important');
+                } else if (el.classList.contains('text-slate-900') || el.classList.contains('dark:text-white')) {
+                  el.style.setProperty(prop, isDark ? '#ffffff' : '#0f172a', 'important');
+                } else if (el.classList.contains('text-slate-600') || el.classList.contains('dark:text-slate-400')) {
+                  el.style.setProperty(prop, isDark ? '#94a3b8' : '#475569', 'important');
+                } else {
+                  // Generic fallback for other unsupported colors (like default tailwind slate)
+                  el.style.setProperty(prop, isDark ? '#ffffff' : '#000000', 'important');
+                }
+              }
+            });
+          }
+        }
+      });
+      
+      const imgData = canvas.toDataURL('image/png');
+      const pdf = new jsPDF({
+        orientation: 'portrait',
+        unit: 'px',
+        format: [canvas.width / 2, canvas.height / 2]
+      });
+      
+      pdf.addImage(imgData, 'PNG', 0, 0, canvas.width / 2, canvas.height / 2);
+      pdf.save(`${slug || 'aps-research'}.pdf`);
+    } catch (error) {
+      console.error('PDF generation failed:', error);
+    } finally {
+      setIsDownloading(false);
+    }
+  };
 
   // If a slug is provided, show the article
   if (slug && articles[slug]) {
@@ -69,10 +139,16 @@ export default function Research() {
 
                 <div className="flex flex-wrap gap-4 items-center">
                   <button 
-                    className="px-10 py-5 bg-slate-900 dark:bg-white text-white dark:text-slate-950 font-black rounded-2xl hover:bg-brand-jade hover:text-white dark:hover:bg-brand-jade dark:hover:text-white transition-all flex items-center gap-3 shadow-2xl shadow-slate-900/20 dark:shadow-white/5 active:scale-95"
+                    onClick={handleDownloadPDF}
+                    disabled={isDownloading}
+                    className="px-10 py-5 bg-slate-900 dark:bg-white text-white dark:text-slate-950 font-black rounded-2xl hover:bg-brand-jade hover:text-white dark:hover:bg-brand-jade dark:hover:text-white transition-all flex items-center gap-3 shadow-2xl shadow-slate-900/20 dark:shadow-white/5 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    <Download size={22} className="shrink-0" />
-                    {t('researchPage.hero.cta')}
+                    {isDownloading ? (
+                      <Loader size={22} className="shrink-0 animate-spin" />
+                    ) : (
+                      <Download size={22} className="shrink-0" />
+                    )}
+                    {isDownloading ? 'Generating PDF...' : t('researchPage.hero.cta')}
                   </button>
                 </div>
               </motion.div>
@@ -122,7 +198,7 @@ export default function Research() {
               </aside>
 
               {/* Main Content */}
-              <main className="lg:col-span-9 max-w-3xl">
+              <main ref={articleRef} className="lg:col-span-9 max-w-3xl">
                 
                 {/* Executive Summary */}
                 <motion.section 
@@ -312,7 +388,7 @@ export default function Research() {
           <div className="container-wide">
             <h3 className="text-xs font-black uppercase tracking-[0.2em] text-slate-400 mb-16">Research Archive</h3>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {articleList.reverse().map((article, i) => (
+              {[...articleList].reverse().map((article, i) => (
                 <motion.div
                   key={article.slug}
                   initial={{ opacity: 0, y: 20 }}
