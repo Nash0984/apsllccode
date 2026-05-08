@@ -95,9 +95,20 @@ export default function Research() {
           <Helmet>
             <title>Applied Policy Systems | {article.title}</title>
             <meta name="description" content={article.executiveSummary.text} />
+            <link rel="canonical" href={`${window.location.origin}/research/${slug}`} />
+            
+            {/* Open Graph / Facebook */}
             <meta property="og:title" content={`Applied Policy Systems | ${article.title}`} />
             <meta property="og:description" content={article.executiveSummary.text} />
             <meta property="og:type" content="article" />
+            <meta property="og:url" content={`${window.location.origin}/research/${slug}`} />
+            <meta property="og:image" content={`${window.location.origin}/logo.svg`} />
+
+            {/* Twitter */}
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:title" content={`Applied Policy Systems | ${article.title}`} />
+            <meta name="twitter:description" content={article.executiveSummary.text} />
+            <meta name="twitter:image" content={`${window.location.origin}/logo.svg`} />
           </Helmet>
 
           {/* Hero Section */}
@@ -318,6 +329,21 @@ export default function Research() {
         <Helmet>
           <title>Applied Policy Systems | {t('seo.pages.research.title')}</title>
           <meta name="description" content={t('seo.pages.research.description')} />
+          <meta name="keywords" content={`${t('seo.pages.research.keywords')}, ${t('seo.defaultKeywords')}`} />
+          <link rel="canonical" href={`${window.location.origin}/research`} />
+
+          {/* Open Graph / Facebook */}
+          <meta property="og:title" content={`Applied Policy Systems | ${t('seo.pages.research.title')}`} />
+          <meta property="og:description" content={t('seo.pages.research.description')} />
+          <meta property="og:type" content="website" />
+          <meta property="og:url" content={`${window.location.origin}/research`} />
+          <meta property="og:image" content={`${window.location.origin}/logo.svg`} />
+
+          {/* Twitter */}
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:title" content={`Applied Policy Systems | ${t('seo.pages.research.title')}`} />
+          <meta name="twitter:description" content={t('seo.pages.research.description')} />
+          <meta name="twitter:image" content={`${window.location.origin}/logo.svg`} />
         </Helmet>
 
         {/* List Hero */}

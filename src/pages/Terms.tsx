@@ -11,6 +11,7 @@ export default function Terms() {
         <title>Applied Policy Systems | {t('seo.pages.terms.title')}</title>
         <meta name="description" content={t('seo.pages.terms.description')} />
         <meta name="keywords" content={`${t('seo.pages.terms.keywords')}, ${t('seo.defaultKeywords')}`} />
+        <link rel="canonical" href={`${window.location.origin}/terms`} />
       </Helmet>
 
       <section className="hero-section">

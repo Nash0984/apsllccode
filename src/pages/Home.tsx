@@ -43,6 +43,7 @@ export default function Home() {
         <title>Applied Policy Systems | {t('seo.pages.home.title')}</title>
         <meta name="description" content={t('seo.pages.home.description')} />
         <meta name="keywords" content={`${t('seo.pages.home.keywords')}, ${t('seo.defaultKeywords')}`} />
+        <link rel="canonical" href={window.location.origin} />
         
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />

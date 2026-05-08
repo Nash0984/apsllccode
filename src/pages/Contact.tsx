@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { Helmet } from 'react-helmet-async';
 import { Mail, MapPin, Linkedin, ShieldCheck, ArrowRight } from 'lucide-react';
 import { ContactForm } from '../components/ContactForm';
 
@@ -8,7 +9,26 @@ export default function Contact() {
 
   return (
     <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24 font-sans">
-      
+      <Helmet>
+        <title>Applied Policy Systems | {t('seo.pages.contact.title')}</title>
+        <meta name="description" content={t('seo.pages.contact.description')} />
+        <meta name="keywords" content={`${t('seo.pages.contact.keywords')}, ${t('seo.defaultKeywords')}`} />
+        <link rel="canonical" href={`${window.location.origin}/contact`} />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:title" content={`Applied Policy Systems | ${t('seo.pages.contact.title')}`} />
+        <meta property="og:description" content={t('seo.pages.contact.description')} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={`${window.location.origin}/contact`} />
+        <meta property="og:image" content={`${window.location.origin}/logo.svg`} />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`Applied Policy Systems | ${t('seo.pages.contact.title')}`} />
+        <meta name="twitter:description" content={t('seo.pages.contact.description')} />
+        <meta name="twitter:image" content={`${window.location.origin}/logo.svg`} />
+      </Helmet>
+
       {/* Background Depth Elements */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-brand-jade/10 blur-[120px] rounded-full pointer-events-none opacity-50 dark:opacity-20" />
 

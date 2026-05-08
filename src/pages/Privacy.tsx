@@ -11,6 +11,7 @@ export default function Privacy() {
         <title>Applied Policy Systems | {t('seo.pages.privacy.title')}</title>
         <meta name="description" content={t('seo.pages.privacy.description')} />
         <meta name="keywords" content={`${t('seo.pages.privacy.keywords')}, ${t('seo.defaultKeywords')}`} />
+        <link rel="canonical" href={`${window.location.origin}/privacy`} />
       </Helmet>
 
       <section className="hero-section">

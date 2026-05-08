@@ -79,9 +79,20 @@ export default function About() {
         <title>Applied Policy Systems | {t('seo.pages.about.title')}</title>
         <meta name="description" content={t('seo.pages.about.description')} />
         <meta name="keywords" content={`${t('seo.pages.about.keywords')}, ${t('seo.defaultKeywords')}`} />
+        <link rel="canonical" href={`${window.location.origin}/about`} />
+
+        {/* Open Graph / Facebook */}
         <meta property="og:title" content={`Applied Policy Systems | ${t('seo.pages.about.title')}`} />
         <meta property="og:description" content={t('seo.pages.about.description')} />
         <meta property="og:type" content="website" />
+        <meta property="og:url" content={`${window.location.origin}/about`} />
+        <meta property="og:image" content={`${window.location.origin}/logo.svg`} />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`Applied Policy Systems | ${t('seo.pages.about.title')}`} />
+        <meta name="twitter:description" content={t('seo.pages.about.description')} />
+        <meta name="twitter:image" content={`${window.location.origin}/logo.svg`} />
       </Helmet>
 
       {/* Hero Section */}

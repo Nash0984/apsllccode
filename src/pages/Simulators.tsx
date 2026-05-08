@@ -90,9 +90,20 @@ export default function Simulators() {
           <title>Applied Policy Systems | {t('seo.pages.field.title')}</title>
           <meta name="description" content={t('seo.pages.field.description')} />
           <meta name="keywords" content={`${t('seo.pages.field.keywords')}, ${t('seo.defaultKeywords')}`} />
+          <link rel="canonical" href={`${window.location.origin}/prototypes`} />
+
+          {/* Open Graph / Facebook */}
           <meta property="og:title" content={`Applied Policy Systems | ${t('seo.pages.field.title')}`} />
           <meta property="og:description" content={t('seo.pages.field.description')} />
           <meta property="og:type" content="website" />
+          <meta property="og:url" content={`${window.location.origin}/prototypes`} />
+          <meta property="og:image" content={`${window.location.origin}/logo.svg`} />
+
+          {/* Twitter */}
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:title" content={`Applied Policy Systems | ${t('seo.pages.field.title')}`} />
+          <meta name="twitter:description" content={t('seo.pages.field.description')} />
+          <meta name="twitter:image" content={`${window.location.origin}/logo.svg`} />
         </Helmet>
 
         {/* Hero Section */}
