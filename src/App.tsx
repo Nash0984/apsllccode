@@ -76,6 +76,7 @@ function AnimatedRoutes() {
           <Route path="capabilities/:slug" element={<DynamicCapability />} />
 
           <Route path="research" element={<Research />} />
+          <Route path="research/:slug" element={<Research />} />
           <Route path="insights" element={<Navigate to="/research" replace />} />
           <Route path="prototypes" element={<Simulators />} />
           <Route path="field" element={<Navigate to="/prototypes" replace />} />
