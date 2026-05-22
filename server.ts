@@ -3,7 +3,7 @@ import { createServer as createViteServer } from "vite";
 import path from "path";
 import { fileURLToPath } from "url";
 import dotenv from "dotenv";
-import { GoogleGenerativeAI, SchemaType } from "@google/generative-ai";
+import { GoogleGenAI, Type } from "@google/genai";
 import { Resend } from "resend";
 import helmet from "helmet";
 import cors from "cors";
@@ -41,7 +41,7 @@ const aiLimiter = rateLimit({
 const contactLimiter = rateLimit({
   windowMs: 24 * 60 * 60 * 1000, // 24 hours
   max: 10, // Limit each IP to 10 contact attempts per day
-  message: { error: "Daily inquiry limit reached. Please contact us directly at info@appliedpolicysystems.com" },
+  message: { error: "Daily inquiry limit reached. Please contact us directly at graham@appliedpolicysystems.com" },
   standardHeaders: true,
   legacyHeaders: false,
 });
@@ -59,8 +59,15 @@ function escapeHtml(text: string): string {
 }
 
 // Initialize Gemini
-const genAI = process.env.GEMINI_API_KEY 
-  ? new GoogleGenerativeAI(process.env.GEMINI_API_KEY) 
+const ai = process.env.GEMINI_API_KEY 
+  ? new GoogleGenAI({
+      apiKey: process.env.GEMINI_API_KEY,
+      httpOptions: {
+        headers: {
+          'User-Agent': 'aistudio-build',
+        }
+      }
+    }) 
   : null;
 
 // AI Logic Constants
@@ -75,19 +82,19 @@ Your primary evaluation mechanism is the "Statutory Sufficiency Score." This sco
 * A score below 1.0 indicates a "Secondary" document requiring additional corroboration per program rules.`;
 
 const EXTRACTION_SCHEMA = {
-  type: SchemaType.OBJECT,
+  type: Type.OBJECT,
   properties: {
-    status: { type: SchemaType.STRING },
-    message: { type: SchemaType.STRING },
+    status: { type: Type.STRING },
+    message: { type: Type.STRING },
     extractedData: {
-      type: SchemaType.ARRAY,
+      type: Type.ARRAY,
       items: {
-        type: SchemaType.OBJECT,
+        type: Type.OBJECT,
         properties: {
-          field: { type: SchemaType.STRING },
-          value: { type: SchemaType.STRING },
-          statutorySufficiency: { type: SchemaType.NUMBER },
-          complianceNote: { type: SchemaType.STRING }
+          field: { type: Type.STRING },
+          value: { type: Type.STRING },
+          statutorySufficiency: { type: Type.NUMBER },
+          complianceNote: { type: Type.STRING }
         },
         required: ["field", "value", "statutorySufficiency", "complianceNote"]
       }
@@ -97,34 +104,34 @@ const EXTRACTION_SCHEMA = {
 };
 
 const ROUTING_SCHEMA = {
-  type: SchemaType.OBJECT,
+  type: Type.OBJECT,
   properties: {
-    message: { type: SchemaType.STRING }
+    message: { type: Type.STRING }
   },
   required: ["message"]
 };
 
 const FORMAL_LOGIC_SCHEMA = {
-  type: SchemaType.OBJECT,
+  type: Type.OBJECT,
   properties: {
-    formalLogic: { type: SchemaType.STRING },
-    jsonSchema: { type: SchemaType.STRING },
+    formalLogic: { type: Type.STRING },
+    jsonSchema: { type: Type.STRING },
   },
   required: ["formalLogic", "jsonSchema"]
 };
 
 const AUDIT_ANALYSIS_SCHEMA = {
-  type: SchemaType.OBJECT,
+  type: Type.OBJECT,
   properties: {
-    hasConflicts: { type: SchemaType.BOOLEAN },
+    hasConflicts: { type: Type.BOOLEAN },
     conflicts: {
-      type: SchemaType.ARRAY,
+      type: Type.ARRAY,
       items: {
-        type: SchemaType.OBJECT,
+        type: Type.OBJECT,
         properties: {
-          severity: { type: SchemaType.STRING },
-          description: { type: SchemaType.STRING },
-          eventsAffected: { type: SchemaType.ARRAY, items: { type: SchemaType.STRING } }
+          severity: { type: Type.STRING },
+          description: { type: Type.STRING },
+          eventsAffected: { type: Type.ARRAY, items: { type: Type.STRING } }
         },
         required: ["severity", "description", "eventsAffected"]
       }
@@ -211,7 +218,7 @@ async function startServer() {
   // --- AI BACKEND PROXIES ---
 
   app.post("/api/ai/evaluate", aiLimiter, async (req, res) => {
-    if (!genAI) return res.status(503).json({ error: "AI service not configured" });
+    if (!ai) return res.status(503).json({ error: "AI service not configured" });
     
     const validated = EvaluateRequestSchema.safeParse(req.body);
     if (!validated.success) return res.status(400).json({ error: validated.error.format() });
@@ -225,28 +232,21 @@ async function startServer() {
     systemInstructionOverride += `\n\n${PERSONA_INSTRUCTIONS[persona as 'worker' | 'client']}`;
 
     try {
-      const model = genAI.getGenerativeModel({ 
-        model: "gemini-1.5-flash",
-        systemInstruction: systemInstructionOverride,
-      });
-
-      const result = await model.generateContent({
-        contents: [{
-          role: 'user',
-          parts: [
-            { text: `[SYSTEM: Document payload attached.] Execute automated evaluation against active ontological node.` },
-            { inlineData: { data: fileData.data, mimeType: fileData.mimeType } }
-          ]
-        }] as any,
-        generationConfig: {
+      const result = await ai.models.generateContent({
+        model: "gemini-3.5-flash",
+        contents: [
+          { text: `[SYSTEM: Document payload attached.] Execute automated evaluation against active ontological node.` },
+          { inlineData: { data: fileData.data, mimeType: fileData.mimeType } }
+        ],
+        config: {
+          systemInstruction: systemInstructionOverride,
           temperature: 0.0,
           responseMimeType: "application/json",
           responseSchema: EXTRACTION_SCHEMA as any,
         },
       });
 
-      const response = await result.response;
-      res.json(JSON.parse(response.text()));
+      res.json(JSON.parse(result.text || "{}"));
     } catch (error: any) {
       console.error("AI Evaluation Error:", error);
       res.status(500).json({ error: error.message });
@@ -254,7 +254,7 @@ async function startServer() {
   });
 
   app.post("/api/ai/route", aiLimiter, async (req, res) => {
-    if (!genAI) return res.status(503).json({ error: "AI service not configured" });
+    if (!ai) return res.status(503).json({ error: "AI service not configured" });
     
     const validated = RouteRequestSchema.safeParse(req.body);
     if (!validated.success) return res.status(400).json({ error: validated.error.format() });
@@ -272,22 +272,18 @@ async function startServer() {
     `;
 
     try {
-      const model = genAI.getGenerativeModel({ 
-        model: "gemini-1.5-flash",
-        systemInstruction: BASE_SYSTEM_INSTRUCTION,
-      });
-
-      const result = await model.generateContent({
-        contents: [{ role: 'user', parts: [{ text: routingPrompt }] }],
-        generationConfig: {
+      const result = await ai.models.generateContent({
+        model: "gemini-3.5-flash",
+        contents: routingPrompt,
+        config: {
+          systemInstruction: BASE_SYSTEM_INSTRUCTION,
           temperature: 0.0,
           responseMimeType: "application/json",
           responseSchema: ROUTING_SCHEMA as any,
         },
       });
 
-      const response = await result.response;
-      res.json(JSON.parse(response.text() || '{"message": "UNKNOWN"}'));
+      res.json(JSON.parse(result.text || '{"message": "UNKNOWN"}'));
     } catch (error) {
       console.error("AI Routing Error:", error);
       res.json({ message: "UNKNOWN" });
@@ -295,7 +291,7 @@ async function startServer() {
   });
 
   app.post("/api/ai/extract-logic", aiLimiter, async (req, res) => {
-    if (!genAI) return res.status(503).json({ error: "AI service not configured" });
+    if (!ai) return res.status(503).json({ error: "AI service not configured" });
     
     const validated = ExtractLogicRequestSchema.safeParse(req.body);
     if (!validated.success) return res.status(400).json({ error: validated.error.format() });
@@ -307,27 +303,23 @@ async function startServer() {
       Translate the following statutory text into two deterministic outputs:
       1. A Z3 SMT-LIB2 mathematical proof representing the policy's logical assertions (Axioms, Constraints, Check-Sat).
       2. A comprehensive JSON schema representing the executable rule parameters and thresholds.
-
+ 
       Statutory Text: "${statutoryText}"
     `;
 
     try {
-      const model = genAI.getGenerativeModel({ 
-        model: "gemini-1.5-flash",
-        systemInstruction: BASE_SYSTEM_INSTRUCTION + "\n\n[DIRECTIVE] You MUST generate syntactically correct SMT-LIB2 code for the formalLogic property. Do NOT include Markdown formatting in the string values.",
-      });
-
-      const result = await model.generateContent({
-        contents: [{ role: 'user', parts: [{ text: prompt }] }],
-        generationConfig: {
+      const result = await ai.models.generateContent({
+        model: "gemini-3.5-flash",
+        contents: prompt,
+        config: {
+          systemInstruction: BASE_SYSTEM_INSTRUCTION + "\n\n[DIRECTIVE] You MUST generate syntactically correct SMT-LIB2 code for the formalLogic property. Do NOT include Markdown formatting in the string values.",
           temperature: 0.1,
           responseMimeType: "application/json",
           responseSchema: FORMAL_LOGIC_SCHEMA as any,
         },
       });
 
-      const response = await result.response;
-      res.json(JSON.parse(response.text()));
+      res.json(JSON.parse(result.text || "{}"));
     } catch (error: any) {
       console.error("AI Logic Extraction Error:", error);
       res.status(500).json({ error: error.message });
@@ -335,7 +327,7 @@ async function startServer() {
   });
 
   app.post("/api/ai/analyze-audit", aiLimiter, async (req, res) => {
-    if (!genAI) return res.status(503).json({ error: "AI service not configured" });
+    if (!ai) return res.status(503).json({ error: "AI service not configured" });
     
     const validated = AnalyzeAuditRequestSchema.safeParse(req.body);
     if (!validated.success) return res.status(400).json({ error: validated.error.format() });
@@ -349,29 +341,25 @@ async function startServer() {
       For example: 
       - A document was evaluated against one statute, but a later query asks about a different contradictory statute for the same case.
       - The logical extraction of a rule seems to diverge from how it was applied in a query.
-
+ 
       Operational Session Logs: ${JSON.stringify(log)}
       
       Analyze for data integrity and statutory alignment.
     `;
 
     try {
-      const model = genAI.getGenerativeModel({ 
-        model: "gemini-1.5-flash",
-        systemInstruction: BASE_SYSTEM_INSTRUCTION + "\n\n[DIRECTIVE] You are a Forensic Logic Auditor. Your goal is to find cracks in the deterministic pathway of this operational session.",
-      });
-
-      const result = await model.generateContent({
-        contents: [{ role: 'user', parts: [{ text: prompt }] }],
-        generationConfig: {
+      const result = await ai.models.generateContent({
+        model: "gemini-3.5-flash",
+        contents: prompt,
+        config: {
+          systemInstruction: BASE_SYSTEM_INSTRUCTION + "\n\n[DIRECTIVE] You are a Forensic Logic Auditor. Your goal is to find cracks in the deterministic pathway of this operational session.",
           temperature: 0.0,
           responseMimeType: "application/json",
           responseSchema: AUDIT_ANALYSIS_SCHEMA as any,
         },
       });
 
-      const response = await result.response;
-      res.json(JSON.parse(response.text()));
+      res.json(JSON.parse(result.text || "{}"));
     } catch (error: any) {
       console.error("AI Audit Analysis Error:", error);
       res.status(500).json({ error: error.message });
@@ -379,25 +367,23 @@ async function startServer() {
   });
 
   app.post("/api/ai/chat-detailed", aiLimiter, async (req, res) => {
-    if (!genAI) return res.status(503).json({ error: "AI service not configured" });
+    if (!ai) return res.status(503).json({ error: "AI service not configured" });
     
     const validated = ChatDetailedRequestSchema.safeParse(req.body);
     if (!validated.success) return res.status(400).json({ error: validated.error.format() });
-
+ 
     const { message, history } = validated.data;
-
+ 
     try {
-      const model = genAI.getGenerativeModel({ 
-        model: "gemini-1.5-flash",
-        systemInstruction: "You are the specialized architectural consulting assistant for Applied Policy Systems LLC. Use a direct, factual, and strictly objective tone. Focus on neuro-symbolic policy engines, deterministic logic, and public benefits modernization (SNAP, Medicaid).",
+      const result = await ai.models.generateContent({
+        model: "gemini-3.5-flash",
+        contents: history && history.length > 0 ? history : message,
+        config: {
+          systemInstruction: "You are the specialized architectural consulting assistant for Applied Policy Systems LLC. Use a direct, factual, and strictly objective tone. Focus on neuro-symbolic policy engines, deterministic logic, and public benefits modernization (SNAP, Medicaid).",
+        }
       });
-
-      const result = await model.generateContent({
-        contents: history && history.length > 0 ? history : [{ role: 'user', parts: [{ text: message }] }],
-      });
-
-      const response = await result.response;
-      res.json({ reply: response.text() || "" });
+ 
+      res.json({ reply: result.text || "" });
     } catch (error: any) {
       console.error("Detailed AI Chat Error:", error);
       res.status(500).json({ error: error.message });
@@ -416,7 +402,7 @@ async function startServer() {
     }
 
     const { name, email, organization, message } = validated.data;
-    const recipient = process.env.CONTACT_RECEIVER_EMAIL || 'graham.oneill@gmail.com';
+    const recipient = process.env.CONTACT_RECEIVER_EMAIL || 'graham@appliedpolicysystems.com';
 
     console.log(`[API-CONTACT] New Inquiry: ${name} (${organization}) <${email}>`);
 
@@ -443,21 +429,31 @@ async function startServer() {
 
         if (error) {
           console.error("[RESEND-ERROR]", error);
-          // Still return true to client but log the specific error
-        } else {
-          console.log("[RESEND-SUCCESS]", data?.id);
+          return res.status(502).json({
+            success: false,
+            message: `Email transmission failed: ${error.message} (Code: ${error.name || 'Unknown'})`
+          });
         }
-      } catch (emailError) {
+
+        console.log("[RESEND-SUCCESS]", data?.id);
+        return res.json({ 
+          success: true, 
+          message: "Inquiry received and sent successfully via email!" 
+        });
+      } catch (emailError: any) {
         console.error("[EMAIL-DISPATCH-FAILURE]", emailError);
+        return res.status(500).json({
+          success: false,
+          message: `Internal server failure during email dispatch: ${emailError.message || emailError}`
+        });
       }
     } else {
       console.warn("[API-CONTACT] RESEND_API_KEY missing. Printing inquiry to log only.");
+      return res.status(503).json({
+        success: false,
+        message: "Email dispatch service is not fully initialized. Please configure RESEND_API_KEY in your Environment Variables/Secrets settings."
+      });
     }
-
-    res.json({ 
-      success: true, 
-      message: "Inquiry received successfully" 
-    });
   });
 
   // NEW: Immutable Dispatch Engine - Audit Log Delivery
@@ -480,7 +476,7 @@ async function startServer() {
       await resend.emails.send({
         from: 'Applied Policy Systems <onboarding@resend.dev>',
         to: email,
-        bcc: process.env.CONTACT_RECEIVER_EMAIL || 'graham.oneill@gmail.com', // Admin audit capture
+        bcc: process.env.CONTACT_RECEIVER_EMAIL || 'graham@appliedpolicysystems.com', // Admin audit capture
         subject: `APS Immutable Audit Dispatch - Case: ${auditData.caseId}`,
         html: `
           <div style="font-family: sans-serif; line-height: 1.5; color: #334155;">
@@ -521,32 +517,33 @@ async function startServer() {
   app.post("/api/chat", aiLimiter, express.json(), async (req, res) => {
     const { message, history } = req.body;
     
-    if (!genAI) {
+    if (!ai) {
       return res.json({ 
-        reply: "The AI Assistant is currently in maintenance mode. Please reach out via email at info@appliedpolicysystems.com." 
+        reply: "The AI Assistant is currently in maintenance mode. Please reach out via email at graham@appliedpolicysystems.com." 
       });
     }
 
     try {
-      const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
-      
-      const chat = model.startChat({
-        history: history || [],
-        generationConfig: {
+      const contents = history && history.length > 0
+        ? [...history, { role: 'user', parts: [{ text: message }] }]
+        : [{ role: 'user', parts: [{ text: message }] }];
+
+      const result = await ai.models.generateContent({
+        model: "gemini-3.5-flash",
+        contents,
+        config: {
+          systemInstruction: "You are the Applied Policy Systems Client Intake Assistant. You help state agencies and health organizations navigate high-fidelity policy translation and system modernization. Be professional, technical, and concise. Your goal is to collect their needs and ensure them the architectural team will follow up. If they provide an email, acknowledge it.",
           maxOutputTokens: 500,
-        },
-        systemInstruction: "You are the Applied Policy Systems Client Intake Assistant. You help state agencies and health organizations navigate high-fidelity policy translation and system modernization. Be professional, technical, and concise. Your goal is to collect their needs and ensure them the architectural team will follow up. If they provide an email, acknowledge it."
+        }
       });
 
-      const result = await chat.sendMessage(message);
-      const response = await result.response;
-      const text = response.text();
+      const text = result.text || "";
 
       // If it's the first message or looks like a formal request, log it via email
       if (resend && (history?.length === 0 || message.length > 50)) {
         resend.emails.send({
           from: 'APS Intake <onboarding@resend.dev>',
-          to: process.env.CONTACT_RECEIVER_EMAIL || 'graham.oneill@gmail.com',
+          to: process.env.CONTACT_RECEIVER_EMAIL || 'graham@appliedpolicysystems.com',
           subject: `New Chat Session: ${message.substring(0, 30)}...`,
           html: `
             <h2>New Chat Intake Interaction</h2>

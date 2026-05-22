@@ -53,39 +53,16 @@ export default function Contact() {
             
             <div className="space-y-4">
               {/* Email */}
-              <a href="mailto:info@appliedpolicysystems.com" className="group flex items-center p-4 rounded-2xl bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800/50 hover:border-brand-jade/30 dark:hover:border-brand-jade/30 transition-all shadow-sm hover:shadow-md">
+              <a href="mailto:graham@appliedpolicysystems.com" className="group flex items-center p-4 rounded-2xl bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800/50 hover:border-brand-jade/30 dark:hover:border-brand-jade/30 transition-all shadow-sm hover:shadow-md">
                 <div className="w-12 h-12 rounded-full bg-slate-50 dark:bg-slate-800 flex items-center justify-center group-hover:bg-brand-jade/10 transition-colors mr-4 shrink-0">
                   <Mail size={20} className="text-slate-500 dark:text-slate-400 group-hover:text-brand-jade transition-colors" />
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-0.5">{t('contact.info.email')}</p>
-                  <p className="text-sm font-semibold text-slate-900 dark:text-white truncate">info@appliedpolicysystems.com</p>
+                  <p className="text-sm font-semibold text-slate-900 dark:text-white truncate">graham@appliedpolicysystems.com</p>
                 </div>
                 <ArrowRight size={16} className="text-slate-300 dark:text-slate-600 group-hover:text-brand-jade opacity-0 group-hover:opacity-100 transition-all transform -translate-x-2 group-hover:translate-x-0 shrink-0 ml-2" />
               </a>
-
-              {/* LinkedIn */}
-              <a href="https://linkedin.com/company/applied-policy-systems" target="_blank" rel="noopener noreferrer" className="group flex items-center p-4 rounded-2xl bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800/50 hover:border-brand-jade/30 dark:hover:border-brand-jade/30 transition-all shadow-sm hover:shadow-md">
-                <div className="w-12 h-12 rounded-full bg-slate-50 dark:bg-slate-800 flex items-center justify-center group-hover:bg-brand-jade/10 transition-colors mr-4 shrink-0">
-                  <Linkedin size={20} className="text-slate-500 dark:text-slate-400 group-hover:text-brand-jade transition-colors" />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <p className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-0.5">LinkedIn</p>
-                  <p className="text-sm font-semibold text-slate-900 dark:text-white truncate">Applied Policy Systems</p>
-                </div>
-                <ArrowRight size={16} className="text-slate-300 dark:text-slate-600 group-hover:text-brand-jade opacity-0 group-hover:opacity-100 transition-all transform -translate-x-2 group-hover:translate-x-0 shrink-0 ml-2" />
-              </a>
-
-              {/* Location */}
-              <div className="flex items-center p-4 rounded-2xl bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800/50 shadow-sm">
-                <div className="w-12 h-12 rounded-full bg-slate-50 dark:bg-slate-800 flex items-center justify-center mr-4 shrink-0">
-                  <MapPin size={20} className="text-slate-500 dark:text-slate-400" />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <p className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-0.5">Location</p>
-                  <p className="text-sm font-semibold text-slate-900 dark:text-white truncate">Philadelphia, PA</p>
-                </div>
-              </div>
             </div>
           </div>
           
