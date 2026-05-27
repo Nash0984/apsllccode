@@ -15,6 +15,7 @@ export function ContactForm() {
   });
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
+  const [nickname, setNickname] = useState('');
 
   const topics = [
     "General Inquiry",
@@ -32,6 +33,19 @@ export function ContactForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (status === 'submitting') return;
+
+    // Honeypot anti-spam check
+    if (nickname) {
+      console.warn("[SPAM-DETECTED] Contact Form submission blocked due to honeypot validation.");
+      setStatus('submitting');
+      // Simulate submission success delay to deter spam bot redirection
+      setTimeout(() => {
+        setStatus('success');
+        setFormData({ name: '', organization: '', email: '', topic: 'General Inquiry', message: '' });
+        setNickname('');
+      }, 1200);
+      return;
+    }
 
     setStatus('submitting');
     trackInteraction('ContactForm', 'Submission Started');
@@ -91,6 +105,20 @@ export function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="p-6 sm:p-10 space-y-8 font-sans">
+      {/* Honeypot field - completely invisible to real users but catches bots */}
+      <div className="absolute opacity-0 pointer-events-none w-0 h-0 overflow-hidden" aria-hidden="true">
+        <label htmlFor="nickname">Leave this field blank</label>
+        <input
+          id="nickname"
+          name="nickname"
+          type="text"
+          tabIndex={-1}
+          value={nickname}
+          onChange={(e) => setNickname(e.target.value)}
+          autoComplete="off"
+        />
+      </div>
+
       <div className="space-y-6">
         {/* Name & Org Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

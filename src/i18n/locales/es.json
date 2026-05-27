@@ -281,6 +281,10 @@
         "desc": "Cómo la mala comunicación permite la explotación por parte de los proveedores, y cómo imponer estrictos límites de ingeniería."
       }
     },
+    "author": {
+      "name": "Graham O'Neill",
+      "bio": "Fundador de Applied Policy Systems, una firma de consultoría arquitectónica enfocada en la modernización y el cumplimiento de los beneficios públicos. Anteriormente se desempeñó como Director de la Oficina de Acceso a Beneficios en el Departamento de Servicios Humanos de Maryland, donde lideró iniciativas de modernización para el sistema de Beneficios de Maryland en colaboración con el Departamento de Tecnología de la Información."
+    },
     "cta": {
       "title": "¿Listo para probar la capa de sistemas?",
       "subtitle": "Explore los simuladores interactivos de APS para observar la traducción automatizada de políticas y la lógica de reglas deterministas en tiempo real.",
@@ -413,7 +417,7 @@
           "title": "Arquitectura de Sistemas y Mitigación PER",
           "org": "Departamento de Servicios Humanos de Maryland (DHS)",
           "role": "Director, Oficina de Acceso a Beneficios",
-          "desc": "Hizo la transición de asesor de políticas a arquitecto de sistemas. Diseñó modelos predictivos de riesgo para las Tasas de Error de Pago (PER) del SNAP, aseguró fondos de subvenciones federales del FNS y redactó un manual de modernización basado en datos para el acceso integrado a los beneficios."
+          "desc": "Hizo la transición de asesor de políticas a arquitecto de sistemas. Lideró las iniciativas de modernización de Maryland Benefits en el DHS en colaboración con el Departamento de Tecnología de la Información. Diseñó modelos predictivos de riesgo para las Tasas de Error de Pago (PER) del SNAP, aseguró fondos de subvenciones federales del FNS y redactó un manual de modernización basado en datos para el acceso integrado a los beneficios."
         },
         "m5": {
           "year": "2026",
