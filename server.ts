@@ -547,8 +547,8 @@ async function startServer() {
           subject: `New Chat Session: ${message.substring(0, 30)}...`,
           html: `
             <h2>New Chat Intake Interaction</h2>
-            <p><strong>User Message:</strong> ${message}</p>
-            <p><strong>AI Response:</strong> ${text}</p>
+            <p><strong>User Message:</strong> ${escapeHtml(message)}</p>
+            <p><strong>AI Response:</strong> ${escapeHtml(text)}</p>
             <hr />
             <p>Full transcription available in server logs.</p>
           `
