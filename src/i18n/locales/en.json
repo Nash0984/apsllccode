@@ -337,34 +337,28 @@
           },
           {
             "id": "handbook-310",
-            "title": "The Impact of Handbook 310",
-            "content": "The 2022 change to the FNS Handbook 310 is a material factor for interpreting recent error rate trends. The Food and Nutrition Service revised sections 751 and 752 in October 2021 (effective FY2022), aligned with 7 CFR 275.12, to require auditors to deem a household ineligible when a mandatory interim report was missing or a certification period had expired. This reversed prior guidance that prohibited a negative determination based exclusively on procedural grounds.\n\nStates with higher verification friction—more required interim reports, shorter certification cycles, more mandatory touch-points—have higher exposure to this procedural-counting trigger. The resulting cross-state ranking reflects both genuine operational differences and differential exposure to a federal measurement rule. Both variables are real, and neither alone explains the full gap.",
-            "pullQuote": "Stricter oversight produced both more payment error and more wrongful denial."
+            "title": "How Reviewers Count Missing Paperwork",
+            "content": "FNS Handbook 310 tells quality control reviewers how to treat gaps in a case file. Sections 751 and 752 cover incomplete mandatory report forms and missing recertification applications. In policy memo 25-03 (December 30, 2024), FNS says that if the agency obtained the missing information, Section 751 does not apply. The memo also says a missing recertification application does not by itself make a case ineligible. FNS describes these points as clarifications of long-standing review procedure.\n\nThis analysis did not test whether these rules change any state's error rate."
           },
           {
             "id": "longitudinal",
-            "title": "The Longitudinal Reality",
-            "content": "The longitudinal data demonstrates that before the pandemic, the directional relationship between verification intensity and payment error was present but weak. After the pandemic, as states rebuilt verification processes that had been suspended under emergency waivers and as the new procedural-counting rule took effect, the relationship strengthened materially.\n\nThe states with the lowest payment error rates in FY2024—South Dakota (3.28%), Idaho (3.59%), Wisconsin (4.47%), and Vermont (5.13%)—share a common profile. They utilize streamlined eligibility design, prioritize automated wage cross-matches over client-submitted paystubs, employ longer certification cycles for stable cases, and limit intermediate reporting requirements."
-          },
-          {
-            "id": "academic",
-            "title": "Academic Alignment",
-            "content": "This aligns with independent academic findings. Stacy, Tiehen, and Marquardt (USDA Economic Research Service, ERR-244) constructed a SNAP Policy Index capturing state-level administrative variation across 17 policy dimensions from 1996 through 2016. States moving toward more accommodating policies—higher scores on the index—demonstrated no systematic increase in payment error rates. The administrative choices that reduce friction for applicants concurrently reduce the verification events that generate quality-control findings."
+            "title": "The Lowest Error Rates in FY2024",
+            "content": "Five states had FY2024 payment error rates below 5.2 percent: South Dakota (3.28), Idaho (3.59), Wisconsin (4.47), Wyoming (5.12) and Vermont (5.13). They do not share one policy profile. Idaho and Vermont use all four streamlining options tested above. South Dakota and Wyoming use two, and neither has broad-based categorical eligibility. Wisconsin uses three.\n\nThis analysis covers FY2024 and FY2025 only. It did not rebuild state policy for earlier years, so it cannot say whether the link between policy and error rate changed after the pandemic."
           },
           {
             "id": "caper",
-            "title": "The CAPER Asymmetry",
-            "content": "The Case and Procedural Error Rate (CAPER) must also be considered. CAPER measures the share of negative actions—denials, terminations, reductions—that contain procedural defects. In FY2024, the national CAPER averaged 43.81 percent. The same states whose verification regimes are among the most demanding often see CAPER figures two to four times the national average.\n\nThe verification logic designed to prevent improper payments is simultaneously generating improper denials. This is the verification paradox in its sharpest form: stricter oversight produces both more payment error and more wrongful denial."
+            "title": "The CAPER Gap Between States",
+            "content": "The Case and Procedural Error Rate (CAPER) is the rate FNS reports for denials and terminations. In FY2024 the national CAPER was 43.81 percent. State rates ran from 7.07 percent in South Dakota to 82.30 percent in Georgia. Georgia uses three of the four streamlining options tested above, so a high CAPER is not limited to states with demanding rules.\n\nThis analysis did not test whether CAPER moves with verification rules. A state can have a low payment error rate and a high CAPER, so both measures need reading together."
           },
           {
             "id": "obbba",
-            "title": "The OBBBA Fiscal Architecture",
-            "content": "This structural vulnerability is compounded by the One Big Beautiful Bill Act (OBBBA) fiscal architecture. Section 10105 of P.L. 119-21, effective FY2028, ties state cost-share liability directly to PER. States facing FY2028 cost-share exposure are currently making verification design decisions that will determine their FY2025 and FY2026 PER, the measurement years that dictate FY2028 liability."
+            "title": "The OBBBA Cost Share",
+            "content": "Section 10105 of P.L. 119-21 makes states pay part of SNAP benefit costs starting in FY2028 if their payment error rate is 6 percent or more. For FY2028, a state can use its FY2025 or its FY2026 rate. In FY2024, 43 of the 50 states and DC had a rate at or above 6 percent. Error rates measured now set the cost share later."
           },
           {
             "id": "conclusion",
             "title": "Conclusion",
-            "content": "The states positioned to navigate OBBBA most effectively are not the ones verifying most aggressively. The evidence accumulated across multiple fiscal years, independent academic studies, and FNS data points consistently in the opposite direction. Investments in automated wage cross-matches, longer certification periods for stable households, simplified reporting, and workflow tools that surface stale-data risks to caseworkers faster demonstrate a superior historical track record compared to documentation intensity.\n\nThe conventional response to a high PER—to increase verification friction—is not supported by the empirical record. Integrity is better protected by reducing the opportunities for both client error and agency error simultaneously. This requires reducing the number of times eligibility is re-litigated within a certification period, rather than increasing the standard of scrutiny at each re-litigation."
+            "content": "FY2024 federal data does not show that demanding verification rules lower a state's payment error rate. The gap between streamlined and demanding states was about 2 points on the four option count and within chance. A nine option count pointed the other way. Caseload size moved the averages more than policy counts did.\n\nFor states facing the OBBBA cost share, this means a high error rate needs a state by state look at its causes. More verification is not shown to help, and streamlining is not shown to help either. Stronger evidence needs state policy data for more years and the error causes FNS reports for each state."
           }
         ]
       },
