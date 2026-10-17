@@ -327,38 +327,38 @@
         "heroLabel": "Policy Analysis",
         "executiveSummary": {
           "title": "Analysis Summary",
-          "text": "FY2024 federal data does not show that states with demanding verification rules have lower payment error rates. When states are grouped by four streamlining options, the gap is about 2 points and within chance. A count of nine options points the other way. Caseload size moves the averages more than policy choices do."
+          "text": "Federal data from fiscal year (FY) 2024 does not show that states with demanding verification rules have lower SNAP payment error rates. Grouped by four streamlining options, the gap was about 2 points and could be chance. A count of nine options pointed the other way. Caseload size moved the averages more than policy did."
         },
         "sections": [
           {
             "id": "pattern",
             "title": "The Statistical Drift",
-            "content": "Federal SNAP Quality Control data does not show that states with demanding verification rules have lower payment error rates. We tested this on FY2024 data from FNS, with each state's options taken from the FNS State Options Report (17th edition, current to October 1, 2024). Streamlined states use all four options: broad-based categorical eligibility, simplified reporting only, the standard medical deduction, and an interview waiver. Demanding states use none or one. The 5 streamlined states average a 7.41 percent Payment Error Rate (PER). The 6 demanding states average 9.45 percent. That 2.04 point gap is within chance (Welch test, p = 0.28).\n\nA second count, which adds five more options, points the other way. In that count, 22 streamlined states average 10.40 percent and 20 demanding states average 9.26 percent. Caseload size and Alaska's 24.66 percent rate move the averages more than any policy count does. The national FY2024 PER is 10.93 percent."
+            "content": "Federal Quality Control data from FY2024 does not show that states with demanding verification rules have lower payment error rates. We tested this with FY2024 rates from the Food and Nutrition Service (FNS). Each state's options came from the FNS State Options Report (17th edition, current to Oct. 1, 2024).\n\nA state counts as streamlined if it uses all four options: broad-based categorical eligibility, simplified reporting only, the standard medical deduction and an interview waiver. It counts as demanding if it uses none or one. The 5 streamlined states averaged a payment error rate (PER) of 7.41%. The 6 demanding states averaged 9.45%. A 2.04-point gap could easily be chance (Welch test, p = 0.28). If the two groups truly did not differ, a gap this large would show up about 28% of the time.\n\nA second count adds five more options. By that count, 22 streamlined states averaged 10.40% and 20 demanding states averaged 9.26%. That gap points the other way. Caseload size and Alaska's 24.66% rate moved the averages more than any policy count did. The national FY2024 PER was 10.93%."
           },
           {
             "id": "handbook-310",
             "title": "How Reviewers Count Missing Paperwork",
-            "content": "FNS Handbook 310 tells quality control reviewers how to treat gaps in a case file. Sections 751 and 752 cover incomplete mandatory report forms and missing recertification applications. In policy memo 25-03 (December 30, 2024), FNS says that if the agency obtained the missing information, Section 751 does not apply. The memo also says a missing recertification application does not by itself make a case ineligible. FNS describes these points as clarifications of long-standing review procedure.\n\nThis analysis did not test whether these rules change any state's error rate."
+            "content": "FNS Handbook 310 tells quality control reviewers how to treat gaps in a case file. Sections 751 and 752 cover incomplete mandatory report forms and missing recertification applications. FNS policy memo 25-03, dated Dec. 30, 2024, says Section 751 does not apply if the agency obtained the missing information. The memo also says a missing recertification application does not by itself make a case ineligible. FNS calls these points clarifications of long-standing review procedure.\n\nThis analysis did not test whether these rules change any state's error rate."
           },
           {
             "id": "longitudinal",
             "title": "The Lowest Error Rates in FY2024",
-            "content": "Five states had FY2024 payment error rates below 5.2 percent: South Dakota (3.28), Idaho (3.59), Wisconsin (4.47), Wyoming (5.12) and Vermont (5.13). They do not share one policy profile. Idaho and Vermont use all four streamlining options tested above. South Dakota and Wyoming use two, and neither has broad-based categorical eligibility. Wisconsin uses three.\n\nThis analysis covers FY2024 and FY2025 only. It did not rebuild state policy for earlier years, so it cannot say whether the link between policy and error rate changed after the pandemic."
+            "content": "Five states had FY2024 payment error rates below 5.2%: South Dakota (3.28%), Idaho (3.59%), Wisconsin (4.47%), Wyoming (5.12%) and Vermont (5.13%). They do not share one policy profile. Idaho and Vermont use all four streamlining options tested above. South Dakota and Wyoming use two, and neither has broad-based categorical eligibility. Wisconsin uses three.\n\nThis analysis covers FY2024 and FY2025 only. It did not rebuild state policy for earlier years. It cannot say whether the link between policy and error rate changed after the pandemic."
           },
           {
             "id": "caper",
             "title": "The CAPER Gap Between States",
-            "content": "The Case and Procedural Error Rate (CAPER) is the rate FNS reports for denials and terminations. In FY2024 the national CAPER was 43.81 percent. State rates ran from 7.07 percent in South Dakota to 82.30 percent in Georgia. Georgia uses three of the four streamlining options tested above, so a high CAPER is not limited to states with demanding rules.\n\nThis analysis did not test whether CAPER moves with verification rules. A state can have a low payment error rate and a high CAPER, so both measures need reading together."
+            "content": "The Case and Procedural Error Rate (CAPER) is the rate FNS reports for denials and terminations. The national CAPER for FY2024 was 43.81%. State rates ranged from 7.07% in South Dakota to 82.30% in Georgia. Georgia uses three of the four streamlining options tested above, so a high CAPER is not limited to states with demanding rules.\n\nThis analysis did not test whether CAPER moves with verification rules. A state can have a low payment error rate and a high CAPER. Read the two measures together."
           },
           {
             "id": "obbba",
             "title": "The OBBBA Cost Share",
-            "content": "Section 10105 of P.L. 119-21 makes states pay part of SNAP benefit costs starting in FY2028 if their payment error rate is 6 percent or more. For FY2028, a state can use its FY2025 or its FY2026 rate. In FY2024, 43 of the 50 states and DC had a rate at or above 6 percent. Error rates measured now set the cost share later."
+            "content": "Section 10105 of the One Big Beautiful Bill Act (OBBBA, P.L. 119-21) makes states pay part of SNAP benefit costs starting in FY2028 if their payment error rate is 6% or more. For FY2028, a state can use its FY2025 or its FY2026 rate. In FY2024, 43 of the 50 states and D.C. had a rate at or above 6%. The rates states post in FY2025 and FY2026 set their cost share later."
           },
           {
             "id": "conclusion",
             "title": "Conclusion",
-            "content": "FY2024 federal data does not show that demanding verification rules lower a state's payment error rate. The gap between streamlined and demanding states was about 2 points on the four option count and within chance. A nine option count pointed the other way. Caseload size moved the averages more than policy counts did.\n\nFor states facing the OBBBA cost share, this means a high error rate needs a state by state look at its causes. More verification is not shown to help, and streamlining is not shown to help either. Stronger evidence needs state policy data for more years and the error causes FNS reports for each state."
+            "content": "FY2024 federal data does not show that demanding verification rules lower a state's payment error rate. On the four-option count, the gap between streamlined and demanding states was about 2 points and within chance. A nine-option count pointed the other way. Caseload size moved the averages more than policy counts did.\n\nStates facing the OBBBA cost share should look at the causes of their own errors. More verification is not shown to help. Streamlining is not shown to help either. Stronger evidence needs state policy data for more years and the error causes FNS reports for each state."
           }
         ]
       },
@@ -369,39 +369,38 @@
         "heroLabel": "Operational Analysis",
         "executiveSummary": {
           "title": "Executive Summary",
-          "text": "Evaluating SNAP integrity solely through Payment Error Rate (PER) omits a critical operational metric: the Case and Procedural Error Rate (CAPER). This analysis explores the structural incentives that lead to high-friction verification regimes and the resulting improper denials that often dwarf the payment errors they seek to prevent."
+          "text": "The payment error rate (PER) sets each state's share of SNAP benefit costs under the One Big Beautiful Bill Act (OBBBA). The Food and Nutrition Service (FNS) also reports a second rate, the Case and Procedural Error Rate (CAPER), for denials, suspensions and terminations. The national CAPER for FY2024 was 43.81%. States with a higher CAPER also tended to have a higher PER (correlation 0.46). CAPER did not differ between streamlined and demanding states. Whether verification rules drive CAPER is untested here."
         },
         "sections": [
           {
             "id": "metric-gap",
             "title": "Beyond Payment Error",
-            "content": "The public discourse surrounding Supplemental Nutrition Assistance Program (SNAP) administration focuses almost entirely on the Payment Error Rate (PER). This metric determines federal financial penalties and drives state-level operational decisions. However, evaluating SNAP integrity solely through PER omits a critical operational metric: the Case and Procedural Error Rate (CAPER).\n\nCAPER measures the percentage of negative actions—denials, terminations, and benefit reductions—that contain procedural defects or are substantively incorrect, as defined in 7 CFR 275.13. While the Food and Nutrition Service (FNS) audits both PER and CAPER, the enforcement mechanisms are asymmetrical. A high PER triggers severe financial liabilities. A high CAPER triggers corrective action plans but carries no direct fiscal penalty."
+            "content": "Most discussion of SNAP administration centers on the PER. Section 10105 of P.L. 119-21 uses PER to set state cost share starting in FY2028. PER measures households that receive benefits.\n\nFNS also reports CAPER. It comes from reviews of sampled denials, suspensions and terminations under 7 CFR 275.13. Reviewers record procedural problems even when the decision was right. A case with a procedural problem counts as invalid. This analysis did not confirm what happens to a state with a high CAPER."
           },
           {
             "id": "incentive-structure",
-            "title": "The Incentive Asymmetry",
-            "content": "This enforcement asymmetry creates a structural incentive for state agencies. States can theoretically suppress PER by implementing aggressive, high-friction verification regimes that force cases into denial status at the slightest procedural defect. A wrongful denial is recorded as a CAPER violation, effectively shielding the state from the financial penalties associated with a PER violation.",
-            "pullQuote": "A wrongful denial effectively shields the state from the financial penalties associated with a PER violation."
+            "title": "A Possible Incentive",
+            "content": "A denied household leaves the group of cases that PER measures. A state that denies more cases could therefore have fewer cases exposed to PER. This is a hypothesis. The FY2024 data below do not show that any state does this."
           },
           {
             "id": "fy2024-data",
             "title": "The FY2024 CAPER Data",
-            "content": "The consequences of this administrative strategy are visible in the FY2024 Quality Control data. The national CAPER average stands at 43.81 percent. This indicates that nearly half of all negative actions taken against SNAP households nationwide contained procedural errors.\n\nWhen disaggregated by state, the data reveals that states utilizing the most restrictive verification regimes produce the highest CAPERs: Georgia (82.30%), Texas (66.47%), Tennessee (58.03%), Florida (54.99%), and Mississippi (47.98%). These states have engineered administrative systems characterized by frequent recertification interviews and extensive manual documentation requirements."
+            "content": "The national CAPER for FY2024 was 43.81%. The highest state rates were Georgia (82.30%), Utah (67.15%), Texas (66.47%), Arkansas (61.40%) and Oklahoma (60.70%). The lowest were South Dakota (7.07%), Wisconsin (18.14%) and Idaho (18.40%).\n\nHigh CAPER does not line up with demanding rules. Georgia and Texas each use three of the four streamlining options tested in our essay on verification rules. Using the FNS State Options Report (17th edition), we counted nine options per state. The 22 streamlined states averaged a CAPER of 39.5%. The 20 demanding states averaged 44.5%. That gap is within chance (Welch test, p = 0.31)."
           },
           {
             "id": "regime-failure",
-            "title": "The Failure of High-Friction Regimes",
-            "content": "The fundamental flaw in high-friction administrative design is that it fails to protect the state from PER liabilities. As established in longitudinal data across multiple fiscal years, the states with the highest CAPERs concurrently post the highest PERs.\n\nThe verification friction designed to prevent improper payments is the exact mechanism generating procedural errors in both active and denied caseloads. Each touch-point represents a systemic failure risk. If the household fails to submit the exact required paperwork, or if the agency fails to process submitted paperwork within strict statutory deadlines, a procedural error is generated."
+            "title": "CAPER and PER Rise Together",
+            "content": "Across the 50 states and D.C. in FY2024, states with a higher CAPER also tended to have a higher PER (correlation 0.46, p below 0.001). Georgia led on both, with a CAPER of 82.30% and a PER of 15.65%.\n\nA correlation cannot show which rate drives the other. Caseload size, case processing and sampling may move both. This analysis covers FY2024 only."
           },
           {
             "id": "compliance-imperative",
             "title": "The Compliance Imperative",
-            "content": "The One Big Beautiful Bill Act (OBBBA) establishes stringent tier-based state benefit cost-shares tied directly to PER, effect FY2028. State administrators face immense fiscal pressure to lower error rates. Relying on aggressive verification to shift cases from the active caseload (PER exposure) to the denied caseload (CAPER exposure) is an unsustainable operational strategy."
+            "content": "OBBBA ties state cost share to PER, starting in FY2028. For FY2028, a state can use its FY2025 or its FY2026 rate. In FY2024, 43 of the 50 states and D.C. had a PER at or above 6%. The law has no matching cost share for CAPER."
           },
           {
             "id": "workflow-simplification",
             "title": "A Path Toward Simplification",
-            "content": "The necessary intervention is systems-level workflow simplification. Modernizing human services architecture requires decoupling the front-end user experience from back-end audit liability. By deploying deterministic Rules-as-Code engines to mathematically prove eligibility and utilizing automated cross-matches to verify income, state agencies can eliminate the procedural friction that drives both PER and CAPER."
+            "content": "Fewer steps where a case file can fail is a reasonable design goal. Automated income cross-matches and rules-as-code eligibility engines (software that applies written eligibility rules the same way every time) are two ways to get there. This analysis did not test whether either lowers PER or CAPER. That test needs state data from before and after each change."
           }
         ]
       },
