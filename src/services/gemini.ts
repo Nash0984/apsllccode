@@ -1,4 +1,5 @@
 import { STATE_RULES_ONTOLOGY } from "../config/ontology";
+import type { SessionEvent, IntegrityReport } from "../context/CaseContext";
 
 export interface FileData {
   mimeType: string;
@@ -74,7 +75,7 @@ export async function extractFormalLogic(statutoryText: string) {
   return response.json();
 }
 
-export async function analyzeAuditTrail(log: any[]) {
+export async function analyzeAuditTrail(log: SessionEvent[]): Promise<IntegrityReport> {
   const response = await fetch("/api/ai/analyze-audit", {
     method: "POST",
     headers: { "Content-Type": "application/json" },

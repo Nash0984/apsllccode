@@ -8,6 +8,17 @@ export interface SessionEvent {
   statute?: string;
 }
 
+export interface IntegrityConflict {
+  severity: string;
+  description: string;
+  eventsAffected: string[];
+}
+
+export interface IntegrityReport {
+  hasConflicts: boolean;
+  conflicts: IntegrityConflict[];
+}
+
 interface CaseContextType {
   activeCaseId: string | null;
   setActiveCaseId: (id: string | null) => void;
@@ -16,9 +27,9 @@ interface CaseContextType {
   addEvent: (type: string, details: string, statute?: string) => void;
   dispatchAuditTrail: (email: string) => Promise<void>;
   performIntegrityCheck: () => Promise<void>;
-  integrityReport: any | null;
+  integrityReport: IntegrityReport | null;
   isAnalyzingIntegrity: boolean;
-  setIntegrityReport: (report: any | null) => void;
+  setIntegrityReport: (report: IntegrityReport | null) => void;
   isDispatching: boolean;
 }
 
@@ -27,7 +38,7 @@ const CaseContext = createContext<CaseContextType | undefined>(undefined);
 export function CaseProvider({ children }: { children: ReactNode }) {
   const [activeCaseId, setActiveCaseId] = useState<string | null>(null);
   const [sessionLog, setSessionLog] = useState<SessionEvent[]>([]);
-  const [integrityReport, setIntegrityReport] = useState<any | null>(null);
+  const [integrityReport, setIntegrityReport] = useState<IntegrityReport | null>(null);
   const [isAnalyzingIntegrity, setIsAnalyzingIntegrity] = useState(false);
   const [isDispatching, setIsDispatching] = useState(false);
 
