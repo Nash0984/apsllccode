@@ -7,6 +7,8 @@ import { GoogleGenAI, Type } from "@google/genai";
 import { Resend } from "resend";
 import helmet from "helmet";
 import cors from "cors";
+import { corsOptions } from "./src/config/cors.ts";
+
 import compression from "compression";
 import { z } from "zod";
 import rateLimit from "express-rate-limit";
@@ -201,7 +203,7 @@ async function startServer() {
     contentSecurityPolicy: false, // Disabled for development compatibility in iframe
     crossOriginEmbedderPolicy: false,
   }));
-  app.use(cors());
+  app.use(cors(corsOptions));
   app.use(compression());
 
   // JSON Body parsing with increased limit for document uploads
