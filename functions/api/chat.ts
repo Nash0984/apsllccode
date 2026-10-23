@@ -16,7 +16,7 @@ export async function onRequestPost(context: any) {
   const apiKey = env.GEMINI_API_KEY;
 
   if (!apiKey) {
-    return new Response(JSON.stringify({ error: "GEMINI_API_KEY is missing from server environment" }), {
+    return new Response(JSON.stringify({ error: "Configuration error" }), {
       status: 500,
       headers: { "content-type": "application/json" }
     });
@@ -66,7 +66,7 @@ export async function onRequestPost(context: any) {
 
   } catch (error: any) {
     console.error("[CHAT ENDPOINT ERROR]:", error);
-    return new Response(JSON.stringify({ error: "Internal Server Error", details: error.message }), {
+    return new Response(JSON.stringify({ error: "Internal Server Error" }), {
       status: 500,
       headers: { "content-type": "application/json" }
     });

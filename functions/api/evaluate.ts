@@ -10,7 +10,7 @@ export async function onRequestPost(context: any) {
     const { fileData, policyId, persona, type, userMessage, availableNodes } = payload;
 
     if (!env.GEMINI_API_KEY) {
-      return new Response(JSON.stringify({ error: "GEMINI_API_KEY is missing" }), { status: 500 });
+      return new Response(JSON.stringify({ error: "Configuration error" }), { status: 500 });
     }
 
     if (type === 'evaluate') {
@@ -99,6 +99,10 @@ export async function onRequestPost(context: any) {
     return new Response(JSON.stringify({ error: "Invalid request type" }), { status: 400 });
 
   } catch (error: any) {
-    return new Response(JSON.stringify({ error: error.message }), { status: 500 });
+    console.error("[EVALUATE API ERROR]:", error);
+    return new Response(JSON.stringify({ error: "Internal Server Error" }), {
+      status: 500,
+      headers: { "Content-Type": "application/json" }
+    });
   }
 }
