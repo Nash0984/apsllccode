@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { Sandbox } from '../components/Sandbox';
 import { PolicyManual } from '../components/PolicyManual';
 import { ExtractionEngine } from '../components/ExtractionEngine';
-import { Filter, Send, ShieldCheck, FileJson } from 'lucide-react';
+import { Filter, Send } from 'lucide-react';
 import UnderDevelopmentOverlay from '../components/UnderDevelopmentOverlay';
 import { AuditDispatchModal } from '../components/AuditDispatchModal';
 import { useCase } from '../context/CaseContext';
