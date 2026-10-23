@@ -198,7 +198,19 @@ async function startServer() {
 
   // --- SECURITY MIDDLEWARE ---
   app.use(helmet({
-    contentSecurityPolicy: false, // Disabled for development compatibility in iframe
+    contentSecurityPolicy: {
+      directives: {
+        defaultSrc: ["'self'"],
+        scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'"],
+        styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
+        fontSrc: ["'self'", "https://fonts.gstatic.com", "data:"],
+        imgSrc: ["'self'", "data:", "blob:", "https:"],
+        connectSrc: ["'self'", "ws:", "wss:", "https:"],
+        // Allow embedding in an iframe (e.g., for AI Studio or development)
+        frameAncestors: ["*"],
+        upgradeInsecureRequests: [],
+      },
+    },
     crossOriginEmbedderPolicy: false,
   }));
   app.use(cors());
