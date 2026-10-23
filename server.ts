@@ -11,6 +11,7 @@ import compression from "compression";
 import { z } from "zod";
 import rateLimit from "express-rate-limit";
 import { VERIFICATION_RULES, PERSONA_INSTRUCTIONS, STATE_RULES_ONTOLOGY } from "./src/config/ontology.ts";
+import { CORS_OPTIONS } from "./src/config/cors.ts";
 
 // Load environment variables
 dotenv.config();
@@ -194,7 +195,9 @@ async function startServer() {
     contentSecurityPolicy: false, // Disabled for development compatibility in iframe
     crossOriginEmbedderPolicy: false,
   }));
-  app.use(cors());
+
+  app.use(cors(CORS_OPTIONS));
+
   app.use(compression());
 
   // JSON Body parsing with increased limit for document uploads
