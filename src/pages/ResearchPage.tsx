@@ -3,7 +3,7 @@ import { ArrowLeft, ArrowRight, Download, FileText, Calendar, Clock, User, Quote
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import { Link, useParams } from 'react-router-dom';
-import { useRef, useState } from 'react';
+import { useRef, useState, useMemo } from 'react';
 import html2canvas from 'html2canvas';
 import { jsPDF } from 'jspdf';
 
@@ -14,10 +14,16 @@ export default function Research() {
   const articleRef = useRef<HTMLElement>(null);
 
   const articles = t('researchPage.articles', { returnObjects: true }) as Record<string, any>;
-  const articleList = Object.entries(articles).map(([key, value]) => ({
-    slug: key,
-    ...value
-  }));
+  const articleList = useMemo(() => {
+    return Object.entries(articles).map(([key, value]) => ({
+      slug: key,
+      ...value
+    }));
+  }, [articles]);
+
+  const reversedArticleList = useMemo(() => {
+    return [...articleList].reverse();
+  }, [articleList]);
 
   const handleDownloadPDF = async () => {
     if (!articleRef.current) return;
@@ -414,7 +420,7 @@ export default function Research() {
           <div className="container-wide">
             <h3 className="text-xs font-black uppercase tracking-[0.2em] text-slate-400 mb-16">Research Archive</h3>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[...articleList].reverse().map((article, i) => (
+              {reversedArticleList.map((article, i) => (
                 <motion.div
                   key={article.slug}
                   initial={{ opacity: 0, y: 20 }}
