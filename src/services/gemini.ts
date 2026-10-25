@@ -1,4 +1,4 @@
-import { STATE_RULES_ONTOLOGY } from "../config/ontology";
+import { STATE_RULES_ONTOLOGY } from "../config/ontology.ts";
 
 export interface FileData {
   mimeType: string;
